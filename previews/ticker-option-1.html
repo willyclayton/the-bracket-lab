@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ticker Option 1 — ESPN-Style Score Ticker</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+
+  /* ---- Ticker bar ---- */
+  .ticker-bar {
+    background: #0a0a0a;
+    border-bottom: 1px solid #222;
+    overflow: hidden;
+    height: 36px;
+    position: relative;
+  }
+
+  .ticker-track {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    animation: scroll-left 90s linear infinite;
+    width: max-content;
+  }
+
+  .ticker-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .ticker-game {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 20px;
+    border-right: 1px solid #222;
+    height: 100%;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ticker-seed {
+    font-size: 9px;
+    color: #555;
+    min-width: 12px;
+    text-align: right;
+  }
+
+  .ticker-team {
+    font-size: 11px;
+    color: #aaa;
+  }
+
+  .ticker-team.winner {
+    color: #efefef;
+    font-weight: 600;
+  }
+
+  .ticker-score {
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 20px;
+    text-align: right;
+  }
+
+  .ticker-score.winner {
+    color: #22c55e;
+  }
+
+  .ticker-score.loser {
+    color: #555;
+  }
+
+  .ticker-vs {
+    font-size: 9px;
+    color: #333;
+    margin: 0 2px;
+  }
+
+  .ticker-round-badge {
+    font-size: 8px;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 14px;
+    border-right: 1px solid #222;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .ticker-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    color: #ef4444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 6px;
+  }
+
+  .ticker-live-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ef4444;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .ticker-final {
+    font-size: 8px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 4px;
+  }
+
+  /* ---- Nav (for context) ---- */
+  .nav {
+    background: rgba(20,20,20,0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #333;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #efefef;
+    font-family: system-ui, sans-serif;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    color: #888;
+  }
+
+  .nav-links a { color: inherit; text-decoration: none; }
+
+  .hero {
+    text-align: center;
+    padding: 80px 24px 60px;
+    font-family: 'Georgia', serif;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    color: #888;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .label {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e1e1e;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #888;
+    z-index: 50;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .label strong { color: #efefef; }
+</style>
+</head>
+<body>
+
+<!-- Ticker -->
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <!-- Round badge -->
+    <div class="ticker-round-badge">Round of 64</div>
+
+    <!-- Game 1 — Final -->
+    <div class="ticker-game">
+      <span class="ticker-seed">1</span>
+      <span class="ticker-team winner">Duke</span>
+      <span class="ticker-score winner">82</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">54</span>
+      <span class="ticker-team">Mt. St. Mary's</span>
+      <span class="ticker-seed">16</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- Game 2 — Final -->
+    <div class="ticker-game">
+      <span class="ticker-seed">1</span>
+      <span class="ticker-team winner">Auburn</span>
+      <span class="ticker-score winner">89</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">51</span>
+      <span class="ticker-team">Alabama St.</span>
+      <span class="ticker-seed">16</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- Game 3 — Live -->
+    <div class="ticker-game">
+      <span class="ticker-seed">3</span>
+      <span class="ticker-team">Iowa State</span>
+      <span class="ticker-score winner">45</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">38</span>
+      <span class="ticker-team">Lipscomb</span>
+      <span class="ticker-seed">14</span>
+      <span class="ticker-live"><span class="ticker-live-dot"></span> LIVE</span>
+    </div>
+
+    <!-- Game 4 — Final -->
+    <div class="ticker-game">
+      <span class="ticker-seed">5</span>
+      <span class="ticker-team winner">Oregon</span>
+      <span class="ticker-score winner">71</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">63</span>
+      <span class="ticker-team">Liberty</span>
+      <span class="ticker-seed">12</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- Game 5 — Final -->
+    <div class="ticker-game">
+      <span class="ticker-seed">2</span>
+      <span class="ticker-team winner">Alabama</span>
+      <span class="ticker-score winner">76</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">52</span>
+      <span class="ticker-team">Robert Morris</span>
+      <span class="ticker-seed">15</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- Game 6 -->
+    <div class="ticker-game">
+      <span class="ticker-seed">4</span>
+      <span class="ticker-team winner">Arizona</span>
+      <span class="ticker-score winner">78</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">61</span>
+      <span class="ticker-team">Akron</span>
+      <span class="ticker-seed">13</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- Game 7 -->
+    <div class="ticker-game">
+      <span class="ticker-seed">1</span>
+      <span class="ticker-team winner">Houston</span>
+      <span class="ticker-score winner">85</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">49</span>
+      <span class="ticker-team">SIU-Edwardsville</span>
+      <span class="ticker-seed">16</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- Game 8 — Live -->
+    <div class="ticker-game">
+      <span class="ticker-seed">6</span>
+      <span class="ticker-team">Ole Miss</span>
+      <span class="ticker-score winner">34</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">31</span>
+      <span class="ticker-team">North Carolina</span>
+      <span class="ticker-seed">11</span>
+      <span class="ticker-live"><span class="ticker-live-dot"></span> LIVE</span>
+    </div>
+
+    <!-- Game 9 -->
+    <div class="ticker-game">
+      <span class="ticker-seed">2</span>
+      <span class="ticker-team winner">Michigan St.</span>
+      <span class="ticker-score winner">73</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">55</span>
+      <span class="ticker-team">Bryant</span>
+      <span class="ticker-seed">15</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- Game 10 -->
+    <div class="ticker-game">
+      <span class="ticker-seed">3</span>
+      <span class="ticker-team winner">Wisconsin</span>
+      <span class="ticker-score winner">68</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">47</span>
+      <span class="ticker-team">Montana</span>
+      <span class="ticker-seed">14</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- Game 11 -->
+    <div class="ticker-game">
+      <span class="ticker-seed">8</span>
+      <span class="ticker-team">Mississippi St.</span>
+      <span class="ticker-score loser">62</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score winner">67</span>
+      <span class="ticker-team winner">Baylor</span>
+      <span class="ticker-seed">9</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- Game 12 -->
+    <div class="ticker-game">
+      <span class="ticker-seed">7</span>
+      <span class="ticker-team winner">Marquette</span>
+      <span class="ticker-score winner">74</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">66</span>
+      <span class="ticker-team">New Mexico</span>
+      <span class="ticker-seed">10</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <!-- DUPLICATE for seamless loop -->
+    <div class="ticker-round-badge">Round of 64</div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">1</span>
+      <span class="ticker-team winner">Duke</span>
+      <span class="ticker-score winner">82</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">54</span>
+      <span class="ticker-team">Mt. St. Mary's</span>
+      <span class="ticker-seed">16</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">1</span>
+      <span class="ticker-team winner">Auburn</span>
+      <span class="ticker-score winner">89</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">51</span>
+      <span class="ticker-team">Alabama St.</span>
+      <span class="ticker-seed">16</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">3</span>
+      <span class="ticker-team">Iowa State</span>
+      <span class="ticker-score winner">45</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">38</span>
+      <span class="ticker-team">Lipscomb</span>
+      <span class="ticker-seed">14</span>
+      <span class="ticker-live"><span class="ticker-live-dot"></span> LIVE</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">5</span>
+      <span class="ticker-team winner">Oregon</span>
+      <span class="ticker-score winner">71</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">63</span>
+      <span class="ticker-team">Liberty</span>
+      <span class="ticker-seed">12</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">2</span>
+      <span class="ticker-team winner">Alabama</span>
+      <span class="ticker-score winner">76</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">52</span>
+      <span class="ticker-team">Robert Morris</span>
+      <span class="ticker-seed">15</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">4</span>
+      <span class="ticker-team winner">Arizona</span>
+      <span class="ticker-score winner">78</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">61</span>
+      <span class="ticker-team">Akron</span>
+      <span class="ticker-seed">13</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">1</span>
+      <span class="ticker-team winner">Houston</span>
+      <span class="ticker-score winner">85</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">49</span>
+      <span class="ticker-team">SIU-Edwardsville</span>
+      <span class="ticker-seed">16</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">6</span>
+      <span class="ticker-team">Ole Miss</span>
+      <span class="ticker-score winner">34</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">31</span>
+      <span class="ticker-team">North Carolina</span>
+      <span class="ticker-seed">11</span>
+      <span class="ticker-live"><span class="ticker-live-dot"></span> LIVE</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">2</span>
+      <span class="ticker-team winner">Michigan St.</span>
+      <span class="ticker-score winner">73</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">55</span>
+      <span class="ticker-team">Bryant</span>
+      <span class="ticker-seed">15</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">3</span>
+      <span class="ticker-team winner">Wisconsin</span>
+      <span class="ticker-score winner">68</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">47</span>
+      <span class="ticker-team">Montana</span>
+      <span class="ticker-seed">14</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">8</span>
+      <span class="ticker-team">Mississippi St.</span>
+      <span class="ticker-score loser">62</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score winner">67</span>
+      <span class="ticker-team winner">Baylor</span>
+      <span class="ticker-seed">9</span>
+      <span class="ticker-final">Final</span>
+    </div>
+
+    <div class="ticker-game">
+      <span class="ticker-seed">7</span>
+      <span class="ticker-team winner">Marquette</span>
+      <span class="ticker-score winner">74</span>
+      <span class="ticker-vs">—</span>
+      <span class="ticker-score loser">66</span>
+      <span class="ticker-team">New Mexico</span>
+      <span class="ticker-seed">10</span>
+      <span class="ticker-final">Final</span>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<div class="nav">
+  <div class="nav-logo">The Bracket Lab <span style="font-size:11px;color:#555;font-weight:400;border:1px solid #333;padding:2px 8px;border-radius:4px;margin-left:6px;">2026</span></div>
+  <div class="nav-links">
+    <a href="#" style="color:#efefef">Home</a>
+    <a href="#">Brackets</a>
+    <a href="#">Models</a>
+    <a href="#">Blog</a>
+  </div>
+</div>
+
+<!-- Hero (for context) -->
+<div class="hero">
+  <h1>No gut feelings. No office pools.<br/>Just math, history, and chaos.</h1>
+  <p>Five AI models built brackets five completely different ways. Now we wait to see which one survived contact with reality.</p>
+</div>
+
+<div class="label">
+  <strong>Ticker Option 1 — ESPN-Style Score Ticker</strong><br/>
+  Scores scroll left. Winner bolded in green. Seeds shown. "LIVE" pulse on active games. Pauses on hover.
+</div>
+
+</body>
+</html>

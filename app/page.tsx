@@ -41,16 +41,15 @@ export default function Home() {
           className="hero-fade-2 text-4xl sm:text-5xl md:text-6xl tracking-tight text-lab-white mb-5 leading-[1.1] max-w-4xl mx-auto px-6"
           style={{ fontFamily: 'var(--font-serif)' }}
         >
-          Your bracket is a guess.
+          No gut feelings. No office pools.
           <br />
-          Theirs is a hypothesis.
+          Just math, history, and chaos.
         </h1>
 
         <p className="hero-fade-3 text-base text-lab-muted max-w-xl mx-auto mb-8 leading-relaxed px-6">
-          Five AI models built five brackets for March Madness 2026. Different methods,
-          different philosophies,{' '}
+          Five AI models built brackets five completely different ways.{' '}
           <span className="text-lab-white font-semibold">
-            one tournament to prove who&apos;s right.
+            Now we wait to see which one survived contact with reality.
           </span>
         </p>
 

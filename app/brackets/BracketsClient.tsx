@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { MODELS, ROUND_LABELS } from '@/lib/models';
 import { BracketData, Game, Results } from '@/lib/types';
+import { calculateScore } from '@/lib/scoring';
 import BracketCardsPanel, { REGIONS, type Region, type GamesByRegion } from '@/components/BracketCardsPanel';
 import BracketGridPanel from '@/components/BracketGridPanel';
 import MatchupPopover from '@/components/MatchupPopover';
@@ -57,7 +58,7 @@ function getGamesByRegion(bracket: BracketData): GamesByRegion {
   for (const roundKey of ROUND_ORDER) {
     const games = bracket.rounds[roundKey as keyof typeof bracket.rounds] ?? [];
     for (const game of games) {
-      const region = game.region || 'ff';
+      const region = (game.region || 'ff').toLowerCase();
       if (!result[region]) result[region] = {};
       if (!result[region][roundKey]) result[region][roundKey] = [];
       result[region][roundKey].push(game);
@@ -109,6 +110,11 @@ export default function BracketsClient() {
 
   const gamesByRegion = getGamesByRegion(bracket);
   const upsetCount = countUpsets(bracket);
+
+  // Compute score if results exist
+  const modelScore = results && results.games.length > 0
+    ? calculateScore(bracket, results)
+    : null;
 
   // Check if bracket is empty
   const isEmpty = ROUND_ORDER.every(
@@ -203,12 +209,14 @@ export default function BracketsClient() {
         <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
           <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">Score</p>
           <p className="font-mono text-[13px] font-semibold" style={{ color: activeModel.color }}>
-            &mdash;
+            {modelScore ? modelScore.total : '\u2014'}
           </p>
         </div>
         <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
           <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">Accuracy</p>
-          <p className="font-mono text-[13px] font-semibold text-lab-white">&mdash;</p>
+          <p className="font-mono text-[13px] font-semibold text-lab-white">
+            {modelScore ? `${modelScore.accuracy}%` : '\u2014'}
+          </p>
         </div>
         <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
           <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">Champion</p>
