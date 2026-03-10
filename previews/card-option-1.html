@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Card Option 1 — Lift + Icon Scale</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0f; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  .model-card {
+    background: #12121a;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+  .model-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.18);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+  .model-card:hover .card-icon {
+    transform: scale(1.15);
+  }
+  .card-icon {
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+
+  /* Model color accents */
+  .card-scout  { --model-color: #3b82f6; }
+  .card-quant  { --model-color: #22c55e; }
+  .card-hist   { --model-color: #f59e0b; }
+  .card-chaos  { --model-color: #ef4444; }
+  .card-agent  { --model-color: #00ff88; }
+
+  .card-scout:hover  { box-shadow: 0 12px 40px rgba(59,130,246,0.15); }
+  .card-quant:hover  { box-shadow: 0 12px 40px rgba(34,197,94,0.15); }
+  .card-hist:hover   { box-shadow: 0 12px 40px rgba(245,158,11,0.15); }
+  .card-chaos:hover  { box-shadow: 0 12px 40px rgba(239,68,68,0.15); }
+  .card-agent:hover  { box-shadow: 0 12px 40px rgba(0,255,136,0.15); }
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center text-white px-6 py-12">
+
+  <div class="fixed top-4 left-4 bg-white/10 text-white/60 text-xs px-3 py-1 rounded-full mono">
+    Card Option 1 — Lift + Icon Scale (Current + Tweaks)
+  </div>
+
+  <div class="max-w-5xl w-full">
+    <p class="mono text-xs text-white/30 mb-6 text-center">Hover over each card</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+
+      <div class="model-card card-scout">
+        <div class="card-icon text-3xl mb-4">🎬</div>
+        <div class="text-sm font-bold mb-1" style="color:#3b82f6">The Scout</div>
+        <div class="mono text-xs text-white/40 mb-3">LLM Matchup Analyst</div>
+        <p class="text-xs text-white/50 leading-relaxed">Film room intelligence at machine speed.</p>
+      </div>
+
+      <div class="model-card card-quant">
+        <div class="card-icon text-3xl mb-4">📊</div>
+        <div class="text-sm font-bold mb-1" style="color:#22c55e">The Quant</div>
+        <div class="mono text-xs text-white/40 mb-3">Monte Carlo Simulation</div>
+        <p class="text-xs text-white/50 leading-relaxed">10,000 simulations. Zero feelings.</p>
+      </div>
+
+      <div class="model-card card-hist">
+        <div class="card-icon text-3xl mb-4">📜</div>
+        <div class="text-sm font-bold mb-1" style="color:#f59e0b">The Historian</div>
+        <div class="mono text-xs text-white/40 mb-3">Archetype Matching</div>
+        <p class="text-xs text-white/50 leading-relaxed">History already played this game.</p>
+      </div>
+
+      <div class="model-card card-chaos">
+        <div class="card-icon text-3xl mb-4">🔥</div>
+        <div class="text-sm font-bold mb-1" style="color:#ef4444">The Chaos Agent</div>
+        <div class="mono text-xs text-white/40 mb-3">Upset Detector</div>
+        <p class="text-xs text-white/50 leading-relaxed">Your bracket is too safe.</p>
+      </div>
+
+      <div class="model-card card-agent">
+        <div class="card-icon text-3xl mb-4">🤖</div>
+        <div class="text-sm font-bold mb-1" style="color:#00ff88">The Agent</div>
+        <div class="mono text-xs text-white/40 mb-3">Autonomous AI Researcher</div>
+        <p class="text-xs text-white/50 leading-relaxed">No rules. No prompts.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed bottom-4 right-4 max-w-xs text-right">
+    <p class="text-xs text-white/30 mono">Existing design + stronger lift (-4px).<br/>Icon scales 1.15x on hover.<br/>Model-colored shadow tint. CSS only.</p>
+  </div>
+</body>
+</html>

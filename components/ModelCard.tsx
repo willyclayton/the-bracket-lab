@@ -24,7 +24,7 @@ export default function ModelCard({
         className={`
           group relative overflow-hidden rounded-xl border border-lab-border
           bg-lab-surface p-6 transition-all duration-300
-          hover:border-opacity-60 hover:translate-y-[-2px]
+          hover:border-opacity-60 hover:translate-y-[-4px]
           ${model.bgClass} ${model.glowClass}
           ${championEliminated ? 'eliminated' : ''}
         `}
@@ -37,7 +37,7 @@ export default function ModelCard({
 
         {/* Icon + Name */}
         <div className="flex items-start gap-3 mb-3">
-          <span className="text-2xl">{model.icon}</span>
+          <span className="text-2xl inline-block transition-transform duration-200 group-hover:scale-110">{model.icon}</span>
           <div>
             <h3
               className="text-lg font-bold tracking-tight"

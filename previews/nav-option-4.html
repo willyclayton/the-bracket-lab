@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nav Option 4 — Dimmed Others</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0f; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  /* Default: all links slightly dim */
+  .nav-links-group {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-link {
+    color: rgba(255,255,255,0.45);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 0;
+    transition: color 0.2s, opacity 0.2s;
+  }
+
+  /* When group is "active", dim non-active links */
+  .nav-links-group.has-active .nav-link {
+    color: rgba(255,255,255,0.25);
+  }
+  .nav-links-group.has-active .nav-link.active {
+    color: white;
+    font-weight: 600;
+  }
+  .nav-links-group.has-active .nav-link:hover:not(.active) {
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* Without active class (group hover not working — use individual hover) */
+  .nav-link:hover:not(.active) {
+    color: rgba(255,255,255,0.75);
+  }
+</style>
+</head>
+<body class="min-h-screen text-white">
+
+  <div class="fixed top-4 left-4 bg-white/10 text-white/60 text-xs px-3 py-1 rounded-full mono z-50">
+    Nav Option 4 — Dimmed Others
+  </div>
+
+  <!-- Nav -->
+  <nav class="border-b border-white/8 px-8 py-4" style="background: #0e0e16;">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="font-bold text-white tracking-tight">The Bracket Lab</div>
+      <div class="nav-links-group has-active">
+        <a href="#" class="nav-link active">Dashboard</a>
+        <a href="#" class="nav-link">Models</a>
+        <a href="#" class="nav-link">Blog</a>
+        <a href="#" class="nav-link">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex items-center justify-center" style="height: calc(100vh - 65px);">
+    <div class="text-center space-y-4">
+      <p class="mono text-xs text-white/30">Click links to see active state</p>
+      <div class="flex gap-4">
+        <button onclick="setActive(0)" class="text-xs px-3 py-1 rounded border border-white/20 text-white/50 hover:text-white/80">Dashboard</button>
+        <button onclick="setActive(1)" class="text-xs px-3 py-1 rounded border border-white/20 text-white/50 hover:text-white/80">Models</button>
+        <button onclick="setActive(2)" class="text-xs px-3 py-1 rounded border border-white/20 text-white/50 hover:text-white/80">Blog</button>
+        <button onclick="setActive(3)" class="text-xs px-3 py-1 rounded border border-white/20 text-white/50 hover:text-white/80">About</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed bottom-4 right-4 max-w-xs text-right">
+    <p class="text-xs text-white/30 mono">Active = full white + bold.<br/>All others = 25% opacity.<br/>High contrast focus. Typographic only.</p>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.nav-link');
+    function setActive(i) {
+      links.forEach((l, idx) => l.classList.toggle('active', idx === i));
+    }
+    links.forEach((l, i) => l.addEventListener('click', (e) => { e.preventDefault(); setActive(i); }));
+  </script>
+</body>
+</html>

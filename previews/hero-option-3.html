@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hero Option 3 — Stat-Forward</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0f; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(8px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .fade-up-1 { animation: fadeUp 0.6s ease 0.05s both; }
+  .fade-up-2 { animation: fadeUp 0.6s ease 0.2s both; }
+  .stat-1    { animation: countUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.35s both; }
+  .stat-2    { animation: countUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.5s both; }
+  .stat-3    { animation: countUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.65s both; }
+  .fade-up-3 { animation: fadeUp 0.6s ease 0.8s both; }
+  .fade-up-4 { animation: fadeUp 0.6s ease 0.95s both; }
+
+  .stat-divider {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);
+  }
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center text-white px-6">
+
+  <div class="fixed top-4 left-4 bg-white/10 text-white/60 text-xs px-3 py-1 rounded-full mono">
+    Hero Option 3 — Stat-Forward
+  </div>
+
+  <div class="max-w-4xl w-full text-center space-y-10">
+
+    <div class="fade-up-1">
+      <span class="mono text-xs tracking-widest text-white/40 uppercase">The Bracket Lab · 2026</span>
+    </div>
+
+    <!-- Big stats up top -->
+    <div class="flex items-center justify-center gap-8 sm:gap-16">
+      <div class="stat-1 text-center">
+        <div class="text-5xl sm:text-6xl font-bold text-white leading-none">5</div>
+        <div class="mono text-xs text-white/40 mt-2 tracking-widest uppercase">AI Models</div>
+      </div>
+      <div class="stat-divider hidden sm:block"></div>
+      <div class="stat-2 text-center">
+        <div class="text-5xl sm:text-6xl font-bold text-white leading-none">10K<span class="text-3xl text-white/40">+</span></div>
+        <div class="mono text-xs text-white/40 mt-2 tracking-widest uppercase">Simulations</div>
+      </div>
+      <div class="stat-divider hidden sm:block"></div>
+      <div class="stat-3 text-center">
+        <div class="text-5xl sm:text-6xl font-bold text-white leading-none">1920</div>
+        <div class="mono text-xs text-white/40 mt-2 tracking-widest uppercase">Max Points</div>
+      </div>
+    </div>
+
+    <div class="fade-up-2">
+      <h1 class="text-4xl sm:text-5xl font-bold leading-tight tracking-tight">
+        One Bracket Lab.<br/>
+        <span class="text-white/40">Which model wins?</span>
+      </h1>
+    </div>
+
+    <div class="fade-up-3">
+      <p class="text-base text-white/50 max-w-xl mx-auto leading-relaxed">
+        We ran 5 different AI methodologies on the 2026 NCAA tournament — from Monte Carlo
+        to autonomous agents — and tracked every pick in real time.
+      </p>
+    </div>
+
+    <div class="fade-up-4 flex flex-col sm:flex-row gap-4 justify-center">
+      <button class="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors">
+        See the brackets
+      </button>
+      <button class="px-8 py-3 border border-white/20 text-white/70 rounded-lg hover:border-white/40 transition-colors">
+        How it works
+      </button>
+    </div>
+  </div>
+
+  <div class="fixed bottom-4 right-4 max-w-xs text-right">
+    <p class="text-xs text-white/30 mono">Big 3 stats lead the hero.<br/>Staggered count-up animations.<br/>Data-first. High information density.</p>
+  </div>
+</body>
+</html>

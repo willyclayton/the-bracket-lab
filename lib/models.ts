@@ -84,7 +84,7 @@ export const MODELS: Model[] = [
 export const MODEL_MAP = Object.fromEntries(MODELS.map((m) => [m.id, m]));
 
 // ESPN-style scoring
-export const ROUND_POINTS: Record<string, number> = {
+export const ROUND_POINTS = {
   round_of_64: 10,
   round_of_32: 20,
   sweet_16: 40,

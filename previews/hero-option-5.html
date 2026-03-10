@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hero Option 5 — Terminal / Ticker</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0f; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+  .cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: #00ff88;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up-1 { animation: fadeUp 0.5s ease 1.8s both; }
+  .fade-up-2 { animation: fadeUp 0.5s ease 2.0s both; }
+  .fade-up-3 { animation: fadeUp 0.5s ease 2.2s both; }
+
+  .terminal-window {
+    border: 1px solid rgba(0,255,136,0.15);
+    border-radius: 12px;
+    background: rgba(0,255,136,0.03);
+    padding: 20px 24px;
+    max-width: 600px;
+  }
+
+  .terminal-line {
+    opacity: 0;
+  }
+  .line-1 { animation: fadeUp 0.4s ease 0.2s both; }
+  .line-2 { animation: fadeUp 0.4s ease 0.6s both; }
+  .line-3 { animation: fadeUp 0.4s ease 1.0s both; }
+  .line-4 { animation: fadeUp 0.4s ease 1.4s both; }
+
+  .prompt { color: #00ff88; }
+  .comment { color: rgba(255,255,255,0.25); }
+  .value { color: #f59e0b; }
+
+  .grid-line {
+    position: fixed;
+    background: rgba(255,255,255,0.03);
+  }
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center text-white px-6 overflow-hidden">
+
+  <div class="fixed top-4 left-4 bg-white/10 text-white/60 text-xs px-3 py-1 rounded-full mono">
+    Hero Option 5 — Terminal / Ticker
+  </div>
+
+  <!-- Subtle grid lines -->
+  <div class="grid-line" style="left:0;top:0;right:0;bottom:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:64px 64px;"></div>
+
+  <div class="max-w-3xl w-full space-y-10 relative z-10">
+
+    <!-- Terminal block -->
+    <div class="terminal-window mx-auto">
+      <div class="mono text-sm space-y-2 leading-relaxed">
+        <div class="terminal-line line-1">
+          <span class="comment"># The Bracket Lab — 2026 NCAA Tournament</span>
+        </div>
+        <div class="terminal-line line-2">
+          <span class="prompt">$</span>
+          <span class="text-white/70"> models.count()</span>
+          <span class="comment"> → </span>
+          <span class="value">5</span>
+        </div>
+        <div class="terminal-line line-3">
+          <span class="prompt">$</span>
+          <span class="text-white/70"> quant.simulate(n=</span><span class="value">10_000</span><span class="text-white/70">)</span>
+        </div>
+        <div class="terminal-line line-4">
+          <span class="prompt">$</span>
+          <span class="text-white/70"> agent.run("build me a bracket")</span>
+          <span class="cursor"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Headline appears after terminal -->
+    <div class="fade-up-1 text-center">
+      <h1 class="text-4xl sm:text-6xl font-bold leading-tight tracking-tight">
+        5 AI Models.<br/>
+        <span style="color: #00ff88;">One Bracket.</span>
+      </h1>
+    </div>
+
+    <div class="fade-up-2 text-center">
+      <p class="text-base text-white/50 max-w-lg mx-auto leading-relaxed">
+        Five different AI methodologies. 63 games. Real-time accuracy tracking.
+        Which one actually knows basketball?
+      </p>
+    </div>
+
+    <div class="fade-up-3 flex flex-col sm:flex-row gap-4 justify-center">
+      <button class="px-8 py-3 rounded-lg font-semibold text-black transition-all"
+        style="background: #00ff88; box-shadow: 0 0 24px rgba(0,255,136,0.3);">
+        See the brackets
+      </button>
+      <button class="px-8 py-3 border rounded-lg font-mono text-sm transition-all"
+        style="border-color: rgba(0,255,136,0.2); color: rgba(0,255,136,0.7);">
+        $ how_it_works()
+      </button>
+    </div>
+  </div>
+
+  <div class="fixed bottom-4 right-4 max-w-xs text-right">
+    <p class="text-xs text-white/30 mono">Terminal window with staggered line reveals.<br/>Agent-green cursor blink.<br/>Most "AI lab" vibe. High concept.</p>
+  </div>
+</body>
+</html>

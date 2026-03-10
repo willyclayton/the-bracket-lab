@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Card Option 4 — Flip Accent Bar</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0f; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  .model-card {
+    background: #12121a;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .model-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  /* Bottom bar: grows from center outward on hover */
+  .model-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    background: var(--accent, white);
+    transition: left 0.3s ease, right 0.3s ease;
+    border-radius: 0 0 16px 16px;
+  }
+  .model-card:hover::after {
+    left: 0;
+    right: 0;
+  }
+
+  .card-scout  { --accent: #3b82f6; }
+  .card-quant  { --accent: #22c55e; }
+  .card-hist   { --accent: #f59e0b; }
+  .card-chaos  { --accent: #ef4444; }
+  .card-agent  { --accent: #00ff88; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center text-white px-6 py-12">
+
+  <div class="fixed top-4 left-4 bg-white/10 text-white/60 text-xs px-3 py-1 rounded-full mono">
+    Card Option 4 — Flip Accent Bar (Center Outward)
+  </div>
+
+  <div class="max-w-5xl w-full">
+    <p class="mono text-xs text-white/30 mb-6 text-center">Hover over each card — watch the bottom bar</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+
+      <div class="model-card card-scout">
+        <div class="text-3xl mb-4">🎬</div>
+        <div class="text-sm font-bold mb-1" style="color:#3b82f6">The Scout</div>
+        <div class="mono text-xs text-white/40 mb-3">LLM Matchup Analyst</div>
+        <p class="text-xs text-white/50 leading-relaxed">Film room intelligence at machine speed.</p>
+      </div>
+
+      <div class="model-card card-quant">
+        <div class="text-3xl mb-4">📊</div>
+        <div class="text-sm font-bold mb-1" style="color:#22c55e">The Quant</div>
+        <div class="mono text-xs text-white/40 mb-3">Monte Carlo Simulation</div>
+        <p class="text-xs text-white/50 leading-relaxed">10,000 simulations. Zero feelings.</p>
+      </div>
+
+      <div class="model-card card-hist">
+        <div class="text-3xl mb-4">📜</div>
+        <div class="text-sm font-bold mb-1" style="color:#f59e0b">The Historian</div>
+        <div class="mono text-xs text-white/40 mb-3">Archetype Matching</div>
+        <p class="text-xs text-white/50 leading-relaxed">History already played this game.</p>
+      </div>
+
+      <div class="model-card card-chaos">
+        <div class="text-3xl mb-4">🔥</div>
+        <div class="text-sm font-bold mb-1" style="color:#ef4444">The Chaos Agent</div>
+        <div class="mono text-xs text-white/40 mb-3">Upset Detector</div>
+        <p class="text-xs text-white/50 leading-relaxed">Your bracket is too safe.</p>
+      </div>
+
+      <div class="model-card card-agent">
+        <div class="text-3xl mb-4">🤖</div>
+        <div class="text-sm font-bold mb-1" style="color:#00ff88">The Agent</div>
+        <div class="mono text-xs text-white/40 mb-3">Autonomous AI Researcher</div>
+        <p class="text-xs text-white/50 leading-relaxed">No rules. No prompts.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed bottom-4 right-4 max-w-xs text-right">
+    <p class="text-xs text-white/30 mono">Bottom accent bar grows from center outward.<br/>CSS ::after, no JS. Very crisp.<br/>Pairs well with a left-to-right variant.</p>
+  </div>
+</body>
+</html>

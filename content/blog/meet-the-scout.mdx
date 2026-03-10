@@ -1,0 +1,55 @@
+---
+title: "Meet The Scout: Film Room Intelligence at Machine Speed"
+date: "2026-03-15"
+model: "the-scout"
+type: "methodology"
+excerpt: "How we built an LLM-powered scouting system that evaluates every March Madness matchup across coaching experience, roster age, injuries, and clutch performance."
+---
+
+Every year, millions of people fill out brackets based on vibes, mascots, and which school a coworker went to. The Scout is built to do better — systematically, at scale, without the bias.
+
+## The Core Idea
+
+The Scout treats every first-round matchup the way a real scout would: watch the film, look at the context, weigh the intangibles. The difference is it can do this for all 32 first-round games simultaneously, in about 90 seconds.
+
+It's powered by a large language model (Claude) fed a structured prompt for each matchup that includes:
+
+- **Coaching tenure & tournament experience** — first-year coaches historically underperform seeds
+- **Roster age distribution** — senior-heavy teams close out games; freshman-heavy teams crack under pressure
+- **Injury & availability reports** — scraped from beat reporters and official injury designations
+- **Recent momentum** — last 10 games, conference tournament results
+- **Travel distance & rest days** — a #12 seed flying cross-country on 2 days rest is a different team
+- **Clutch performance** — how teams perform in games decided by 5 points or fewer
+
+## How the Prompt Works
+
+Rather than asking the model to "predict a winner," we give it a structured analyst role:
+
+```
+You are a senior tournament scout. Analyze this matchup and provide:
+1. A 3-sentence scouting report on each team
+2. Three specific factors that favor each team
+3. One X-factor that could decide the game
+4. A confidence-weighted pick with reasoning
+
+Teams: [TEAM_A] vs [TEAM_B]
+Context: [structured data dump]
+```
+
+The model returns structured JSON that feeds directly into the bracket.
+
+## Why LLMs for This?
+
+Efficiency ratings and seed-based models already exist. The Scout's edge is **contextual synthesis** — the ability to understand that a #5 seed is actually playing like a #2 seed when their All-American point guard returned from injury last week, their coach has a 7-2 record in close tournament games, and they're playing 40 miles from campus.
+
+No regression captures that. The Scout does.
+
+## Limitations
+
+- Hallucination risk on specific player stats (mitigated by structured data injection)
+- LLM "preferences" can bias toward brand-name programs — we prompt against this
+- No live updating during the tournament (picks locked March 19)
+
+## Results
+
+All picks were locked March 19 before tournament tip-off. Track the Scout's live performance on the [dashboard](/dashboard).

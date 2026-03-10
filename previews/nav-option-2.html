@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nav Option 2 — Underline Bar</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0f; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  .nav-link {
+    position: relative;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 0 8px;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: rgba(255,255,255,0.8); }
+  .nav-link.active { color: white; }
+
+  /* Full-width bottom border — appears on active */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #3b82f6;
+    border-radius: 1px;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+    transform-origin: left;
+  }
+  .nav-link.active::after {
+    transform: scaleX(1);
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    background: rgba(255,255,255,0.3);
+  }
+  .nav-link.active:hover::after {
+    background: #3b82f6;
+  }
+</style>
+</head>
+<body class="min-h-screen text-white">
+
+  <div class="fixed top-4 left-4 bg-white/10 text-white/60 text-xs px-3 py-1 rounded-full mono z-50">
+    Nav Option 2 — Underline Bar
+  </div>
+
+  <!-- Nav -->
+  <nav class="border-b border-white/8 px-8" style="background: #0e0e16;">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="font-bold text-white tracking-tight py-4">The Bracket Lab</div>
+      <div class="flex items-center gap-8">
+        <a href="#" class="nav-link active">Dashboard</a>
+        <a href="#" class="nav-link">Models</a>
+        <a href="#" class="nav-link">Blog</a>
+        <a href="#" class="nav-link">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex items-center justify-center" style="height: calc(100vh - 65px);">
+    <div class="text-center space-y-4">
+      <p class="mono text-xs text-white/30">Click links to see active state</p>
+      <div class="flex gap-4">
+        <button onclick="setActive(0)" class="text-xs px-3 py-1 rounded border border-white/20 text-white/50 hover:text-white/80">Dashboard</button>
+        <button onclick="setActive(1)" class="text-xs px-3 py-1 rounded border border-white/20 text-white/50 hover:text-white/80">Models</button>
+        <button onclick="setActive(2)" class="text-xs px-3 py-1 rounded border border-white/20 text-white/50 hover:text-white/80">Blog</button>
+        <button onclick="setActive(3)" class="text-xs px-3 py-1 rounded border border-white/20 text-white/50 hover:text-white/80">About</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed bottom-4 right-4 max-w-xs text-right">
+    <p class="text-xs text-white/30 mono">Full-width blue underline on active.<br/>White underline on hover (non-active).<br/>Slides in from left (scaleX). Classic.</p>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.nav-link');
+    function setActive(i) {
+      links.forEach((l, idx) => l.classList.toggle('active', idx === i));
+    }
+    links.forEach((l, i) => l.addEventListener('click', (e) => { e.preventDefault(); setActive(i); }));
+  </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import NavLinks from '@/components/NavLinks';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -32,20 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 2026
               </span>
             </Link>
-            <div className="flex items-center gap-6 text-sm">
-              <Link href="/models" className="text-lab-muted hover:text-lab-white transition-colors">
-                Models
-              </Link>
-              <Link href="/dashboard" className="text-lab-muted hover:text-lab-white transition-colors">
-                Dashboard
-              </Link>
-              <Link href="/blog" className="text-lab-muted hover:text-lab-white transition-colors">
-                Blog
-              </Link>
-              <Link href="/about" className="text-lab-muted hover:text-lab-white transition-colors">
-                About
-              </Link>
-            </div>
+            <NavLinks />
           </div>
         </nav>
         <main>{children}</main>

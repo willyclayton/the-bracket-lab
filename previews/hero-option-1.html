@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hero Option 1 — Minimal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0f; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up-1 { animation: fadeUp 0.6s ease both; }
+  .fade-up-2 { animation: fadeUp 0.6s ease 0.15s both; }
+  .fade-up-3 { animation: fadeUp 0.6s ease 0.3s both; }
+  .fade-up-4 { animation: fadeUp 0.6s ease 0.45s both; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center text-white px-6">
+
+  <!-- Label chip: style note -->
+  <div class="fixed top-4 left-4 bg-white/10 text-white/60 text-xs px-3 py-1 rounded-full mono">
+    Hero Option 1 — Minimal
+  </div>
+
+  <div class="max-w-3xl w-full text-center space-y-8">
+
+    <div class="fade-up-1">
+      <span class="mono text-xs tracking-widest text-white/40 uppercase">The Bracket Lab · 2026</span>
+    </div>
+
+    <div class="fade-up-2">
+      <h1 class="text-5xl sm:text-7xl font-bold leading-none tracking-tight">
+        5 AI Models.<br/>
+        <span class="text-white/40">One Bracket.</span>
+      </h1>
+    </div>
+
+    <div class="fade-up-3">
+      <p class="text-lg text-white/50 max-w-xl mx-auto leading-relaxed">
+        We ran 5 different AI models on the 2026 NCAA tournament and tracked which one
+        actually knew what it was doing.
+      </p>
+    </div>
+
+    <div class="fade-up-4 flex flex-col sm:flex-row gap-4 justify-center">
+      <button class="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-colors">
+        See the brackets
+      </button>
+      <button class="px-8 py-3 border border-white/20 text-white/70 rounded-lg hover:border-white/40 transition-colors">
+        How it works
+      </button>
+    </div>
+  </div>
+
+  <!-- Design notes -->
+  <div class="fixed bottom-4 right-4 max-w-xs text-right">
+    <p class="text-xs text-white/30 mono">Clean fade-in only. No bg effects.<br/>Fastest to implement. Lowest visual noise.</p>
+  </div>
+</body>
+</html>

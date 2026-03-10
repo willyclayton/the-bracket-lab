@@ -5,30 +5,44 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-6xl px-6">
       {/* ---- Hero ---- */}
-      <section className="pt-20 pb-16 text-center">
-        <div className="mb-4">
+      <section className="pt-20 pb-16 text-center relative overflow-hidden">
+        {/* Radial glow — scout blue. Swap rgba color to change scheme. */}
+        <div className="hero-glow" aria-hidden="true" />
+
+        <div className="hero-fade-1 mb-4">
           <span className="inline-block font-mono text-xs text-lab-muted border border-lab-border rounded-full px-4 py-1.5">
             MARCH MADNESS 2026 EXPERIMENT
           </span>
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-lab-white mb-4 leading-[1.1]">
+        <h1 className="hero-fade-2 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-lab-white mb-4 leading-[1.1]">
           <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 400 }}>
             Five
           </span>{' '}
           AI Models.{' '}
-          <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontWeight: 400 }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontStyle: 'italic',
+              fontWeight: 400,
+              background: 'linear-gradient(135deg, #60a5fa, #a78bfa)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
             One
           </span>{' '}
           Tournament.
         </h1>
-        <p className="text-lg text-lab-muted max-w-2xl mx-auto mb-8">
+        <p className="hero-fade-3 text-lg text-lab-muted max-w-2xl mx-auto mb-8">
           A Monte Carlo simulator, an LLM scout, a historical twin-matcher, an upset detector,
           and an autonomous AI agent walk into March Madness. Only one bracket survives.
         </p>
-        <div className="flex items-center justify-center gap-4">
+        <div className="hero-fade-4 flex items-center justify-center gap-4">
           <a
             href="/dashboard"
             className="bg-lab-white text-lab-bg font-semibold text-sm px-6 py-2.5 rounded-lg hover:bg-opacity-90 transition-all"
+            style={{ boxShadow: '0 0 24px rgba(59,130,246,0.25)' }}
           >
             Live Dashboard →
           </a>
