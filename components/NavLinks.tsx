@@ -4,10 +4,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const links = [
-  { href: '/models',    label: 'Models' },
-  { href: '/dashboard', label: 'Dashboard' },
-  { href: '/blog',      label: 'Blog' },
-  { href: '/about',     label: 'About' },
+  { href: '/',         label: 'Home',     exact: true },
+  { href: '/brackets', label: 'Brackets', exact: false },
+  { href: '/blog',     label: 'Blog',     exact: false },
 ];
 
 export default function NavLinks() {
@@ -15,8 +14,10 @@ export default function NavLinks() {
 
   return (
     <div className="flex items-center gap-6 text-sm">
-      {links.map(({ href, label }) => {
-        const active = pathname === href || pathname.startsWith(href + '/');
+      {links.map(({ href, label, exact }) => {
+        const active = exact
+          ? pathname === href
+          : pathname === href || pathname.startsWith(href + '/');
         return (
           <Link
             key={href}

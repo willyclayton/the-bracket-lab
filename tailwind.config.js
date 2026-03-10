@@ -10,11 +10,11 @@ module.exports = {
       colors: {
         // Brand
         lab: {
-          bg: '#0a0a0f',
-          surface: '#12121a',
-          border: '#1e1e2e',
-          muted: '#6b7280',
-          text: '#e5e7eb',
+          bg: '#141414',
+          surface: '#1e1e1e',
+          border: '#333333',
+          muted: '#888888',
+          text: '#efefef',
           white: '#f9fafb',
         },
         // Model colors

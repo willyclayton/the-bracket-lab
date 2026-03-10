@@ -38,11 +38,53 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </nav>
         <main>{children}</main>
         <footer className="border-t border-lab-border mt-24">
-          <div className="mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-lab-muted">
-            <p>The Bracket Lab — Built by <a href="https://willyclayton.com" className="text-lab-text hover:text-lab-white transition-colors">Will Clayton</a></p>
-            <div className="flex gap-4">
-              <a href="https://github.com/willclayton/the-bracket-lab" className="hover:text-lab-white transition-colors">GitHub</a>
-              <a href="https://linkedin.com/in/willclayton" className="hover:text-lab-white transition-colors">LinkedIn</a>
+          <div className="mx-auto max-w-6xl px-6 py-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+              {/* About */}
+              <div>
+                <p className="text-xs font-mono text-lab-muted uppercase tracking-widest mb-3">About</p>
+                <p className="text-sm text-lab-muted leading-relaxed">
+                  An experiment in AI sports prediction. Five models with completely different
+                  approaches compete to call March Madness 2026. Built by{' '}
+                  <a href="https://willyclayton.com" className="text-lab-text hover:text-lab-white transition-colors underline underline-offset-2">
+                    Will Clayton
+                  </a>
+                  , Data &amp; AI Consultant, Chicago.
+                </p>
+              </div>
+              {/* Models */}
+              <div>
+                <p className="text-xs font-mono text-lab-muted uppercase tracking-widest mb-3">The Models</p>
+                <ul className="space-y-1.5 text-sm text-lab-muted">
+                  <li><Link href="/models/the-scout" className="hover:text-lab-white transition-colors">🎬 The Scout</Link></li>
+                  <li><Link href="/models/the-quant" className="hover:text-lab-white transition-colors">📊 The Quant</Link></li>
+                  <li><Link href="/models/the-historian" className="hover:text-lab-white transition-colors">📜 The Historian</Link></li>
+                  <li><Link href="/models/the-chaos-agent" className="hover:text-lab-white transition-colors">🔥 The Chaos Agent</Link></li>
+                  <li><Link href="/models/the-agent" className="hover:text-lab-white transition-colors">🤖 The Agent</Link></li>
+                </ul>
+              </div>
+              {/* Links */}
+              <div>
+                <p className="text-xs font-mono text-lab-muted uppercase tracking-widest mb-3">Links</p>
+                <ul className="space-y-1.5 text-sm text-lab-muted">
+                  <li><Link href="/brackets" className="hover:text-lab-white transition-colors">View All Brackets</Link></li>
+                  <li><Link href="/blog" className="hover:text-lab-white transition-colors">Blog &amp; Recaps</Link></li>
+                  <li>
+                    <a href="https://github.com/willclayton/the-bracket-lab" className="hover:text-lab-white transition-colors">
+                      GitHub
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://linkedin.com/in/willclayton" className="hover:text-lab-white transition-colors">
+                      LinkedIn
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="border-t border-lab-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-lab-muted font-mono">
+              <span>THE BRACKET LAB — MARCH MADNESS 2026</span>
+              <span>PICKS LOCK MARCH 19 · ESPN TOURNAMENT CHALLENGE</span>
             </div>
           </div>
         </footer>

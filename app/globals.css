@@ -11,17 +11,28 @@
   --font-serif: 'Instrument Serif', Georgia, serif;
 }
 
+/* ---- CSS custom properties ---- */
+:root {
+  --bg:      #141414;
+  --surface: #1e1e1e;
+  --border:  #333333;
+  --text:    #efefef;
+  --muted:   #888888;
+}
+
 /* ---- Base ---- */
 body {
-  background: #0a0a0f;
-  color: #e5e7eb;
+  background: #141414;
+  color: #efefef;
   font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 /* ---- Scrollbar ---- */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0a0a0f; }
-::-webkit-scrollbar-thumb { background: #1e1e2e; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #141414; }
+::-webkit-scrollbar-thumb { background: #333333; border-radius: 3px; }
 
 /* ---- Selection ---- */
 ::selection {
@@ -69,7 +80,7 @@ body {
   letter-spacing: 0.15em;
   border: 2px solid #ef4444;
   padding: 0.25rem 1rem;
-  background: rgba(10, 10, 15, 0.85);
+  background: rgba(20, 20, 20, 0.9);
 }
 
 /* ---- Prose for blog/mdx ---- */
@@ -78,7 +89,7 @@ body {
 .prose h3 { font-family: var(--font-display); font-weight: 600; color: #e5e7eb; }
 .prose p { color: #d1d5db; line-height: 1.75; }
 .prose a { color: #3b82f6; text-decoration: underline; }
-.prose code { font-family: var(--font-mono); background: #1e1e2e; padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em; }
+.prose code { font-family: var(--font-mono); background: #1e1e1e; padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em; }
 .prose blockquote { border-left: 3px solid #3b82f6; padding-left: 1rem; color: #9ca3af; font-style: italic; }
 
 /* ---- Hero entrance animations ---- */
@@ -126,6 +137,40 @@ body {
 }
 .nav-link.active { color: #f9fafb; }
 .nav-link.active::after { transform: scaleX(1); }
+
+/* ---- Bracket tree ---- */
+.bracket-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.bracket-game-node {
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.bracket-game-node:hover {
+  background: rgba(255,255,255,0.04);
+}
+.bracket-reasoning {
+  overflow: hidden;
+  transition: max-height 200ms ease-out, opacity 200ms ease-out;
+}
+.bracket-reasoning[data-open="false"] {
+  max-height: 0;
+  opacity: 0;
+}
+.bracket-reasoning[data-open="true"] {
+  max-height: 120px;
+  opacity: 1;
+}
+
+/* ---- Score flash animation ---- */
+@keyframes scoreFlash {
+  0%   { opacity: 1; transform: translateY(0); }
+  50%  { opacity: 0.7; transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.score-flash {
+  animation: scoreFlash 200ms ease-out;
+}
 
 /* ---- Noise texture overlay ---- */
 .noise::before {
