@@ -1,11 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/brackets/page": "app/brackets/page.js",
-  "/about/page": "app/about/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/models/page": "app/models/page.js",
-  "/models/[slug]/page": "app/models/[slug]/page.js"
+  "/brackets/page": "app/brackets/page.js"
 }

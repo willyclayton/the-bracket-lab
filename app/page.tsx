@@ -98,7 +98,7 @@ export default function Home() {
         <div className="flex items-baseline justify-between mb-4">
           <h2 className="text-sm font-mono uppercase tracking-widest text-lab-muted">Leaderboard</h2>
           <span className="text-xs font-mono text-lab-muted">
-            {isLive ? 'Live scores' : 'Picks lock Mar 19'}
+            {isLive ? 'Final scores' : 'Picks lock Mar 19'}
           </span>
         </div>
 
