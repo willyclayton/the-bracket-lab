@@ -1,0 +1,20 @@
+{
+  "model": "the-agent",
+  "displayName": "Agent",
+  "tagline": "Film room intelligence at machine speed.",
+  "color": "#3b82f6",
+  "generated": null,
+  "locked": false,
+  "espnBracketUrl": null,
+  "champion": null,
+  "championEliminated": false,
+  "finalFour": [],
+  "rounds": {
+    "round_of_64": [],
+    "round_of_32": [],
+    "sweet_16": [],
+    "elite_8": [],
+    "final_four": [],
+    "championship": []
+  }
+}
