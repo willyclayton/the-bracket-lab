@@ -3,48 +3,107 @@
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { MODELS } from '@/lib/models';
-import { BracketData } from '@/lib/types';
+import { BracketData, Results } from '@/lib/types';
 import BracketTree from '@/components/BracketTree';
 
-// Static bracket data imports (pre-populated post-lock)
-// For now we import the JSON files directly; they are empty pre-tournament
+// 2026 (current — will be populated before tournament)
 import scoutData     from '@/data/models/the-scout.json';
 import quantData     from '@/data/models/the-quant.json';
 import historianData from '@/data/models/the-historian.json';
 import chaosData     from '@/data/models/the-chaos-agent.json';
 import agentData     from '@/data/models/the-agent.json';
+import results2026   from '@/data/results/actual-results.json';
 
-const BRACKET_DATA: Record<string, BracketData> = {
-  'the-scout':       scoutData as unknown as BracketData,
-  'the-quant':       quantData as unknown as BracketData,
-  'the-historian':   historianData as unknown as BracketData,
-  'the-chaos-agent': chaosData as unknown as BracketData,
-  'the-agent':       agentData as unknown as BracketData,
+// 2025 (archive)
+import scoutData2025     from '@/data/archive/2025/models/the-scout.json';
+import quantData2025     from '@/data/archive/2025/models/the-quant.json';
+import historianData2025 from '@/data/archive/2025/models/the-historian.json';
+import chaosData2025     from '@/data/archive/2025/models/the-chaos-agent.json';
+import agentData2025     from '@/data/archive/2025/models/the-agent.json';
+import results2025       from '@/data/archive/2025/results/actual-results.json';
+
+const VALID_YEARS = ['2026', '2025'] as const;
+type Year = typeof VALID_YEARS[number];
+
+const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
+  '2026': {
+    'the-scout':       scoutData     as unknown as BracketData,
+    'the-quant':       quantData     as unknown as BracketData,
+    'the-historian':   historianData as unknown as BracketData,
+    'the-chaos-agent': chaosData     as unknown as BracketData,
+    'the-agent':       agentData     as unknown as BracketData,
+  },
+  '2025': {
+    'the-scout':       scoutData2025     as unknown as BracketData,
+    'the-quant':       quantData2025     as unknown as BracketData,
+    'the-historian':   historianData2025 as unknown as BracketData,
+    'the-chaos-agent': chaosData2025     as unknown as BracketData,
+    'the-agent':       agentData2025     as unknown as BracketData,
+  },
+};
+
+const ALL_RESULTS: Record<Year, Results> = {
+  '2026': results2026 as unknown as Results,
+  '2025': results2025 as unknown as Results,
 };
 
 export default function BracketsClient() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
+  const yearParam = searchParams.get('year');
+  const activeYear: Year = VALID_YEARS.includes(yearParam as Year) ? (yearParam as Year) : '2026';
+
   const modelParam = searchParams.get('model');
   const defaultModel = MODELS[0].id;
   const activeModelId = MODELS.find((m) => m.id === modelParam)?.id ?? defaultModel;
   const activeModel = MODELS.find((m) => m.id === activeModelId)!;
-  const bracket = BRACKET_DATA[activeModelId];
+
+  const bracket = BRACKET_DATA[activeYear][activeModelId];
+  const results = ALL_RESULTS[activeYear];
 
   function selectModel(id: string) {
-    router.push(`/brackets?model=${id}`, { scroll: false });
+    const params = new URLSearchParams();
+    if (activeYear !== '2026') params.set('year', activeYear);
+    params.set('model', id);
+    router.push(`/brackets?${params}`, { scroll: false });
+  }
+
+  function selectYear(year: Year) {
+    const params = new URLSearchParams();
+    if (year !== '2026') params.set('year', year);
+    params.set('model', activeModelId);
+    router.push(`/brackets?${params}`, { scroll: false });
   }
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
 
       {/* ---- Page header ---- */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-lab-white mb-1">Brackets</h1>
-        <p className="text-sm text-lab-muted">
-          Select a model to explore its full bracket. Click any game to read the reasoning.
-        </p>
+      <div className="mb-8 flex items-end justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-lab-white mb-1">Brackets</h1>
+          <p className="text-sm text-lab-muted">
+            Select a model to explore its full bracket. Click any game to read the reasoning.
+          </p>
+        </div>
+        {/* Year toggle */}
+        <div className="flex gap-1 flex-shrink-0">
+          {VALID_YEARS.map((year) => (
+            <button
+              key={year}
+              onClick={() => selectYear(year)}
+              className="font-mono text-xs px-3 py-1.5 rounded-lg border transition-all duration-150"
+              style={{
+                borderColor: activeYear === year ? '#888888' : '#333333',
+                color: activeYear === year ? '#efefef' : '#666666',
+                background: activeYear === year ? '#1e1e1e' : 'transparent',
+              }}
+            >
+              {year}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* ---- Model tabs ---- */}
@@ -105,7 +164,7 @@ export default function BracketsClient() {
           <div className="text-center">
             <p className="font-mono text-[10px] uppercase tracking-widest text-lab-muted mb-1">Champion</p>
             <p className="font-mono text-sm text-lab-white">
-              {bracket?.champion ?? '—'}
+              {bracket?.champion || '—'}
             </p>
           </div>
           {/* Score */}
@@ -144,6 +203,7 @@ export default function BracketsClient() {
       <BracketTree
         bracket={bracket}
         modelColor={activeModel.color}
+        results={results}
       />
 
     </div>

@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { BracketData, Game } from '@/lib/types';
+import { BracketData, Game, Results } from '@/lib/types';
 
 interface BracketTreeProps {
   bracket: BracketData;
   modelColor: string;
+  results?: Results;
 }
 
 const ROUND_KEYS = [
@@ -24,22 +25,31 @@ function GameNode({
   modelColor,
   activeId,
   onToggle,
+  winner,
 }: {
   game: Game;
   modelColor: string;
   activeId: string | null;
   onToggle: (id: string) => void;
+  winner?: string;
 }) {
   const isOpen = activeId === game.gameId;
   const isPick1 = game.pick === game.team1;
   const isPick2 = game.pick === game.team2;
+
+  // Hit/miss: only show when game is completed (winner known)
+  const isHit = winner !== undefined && game.pick === winner;
+  const isMiss = winner !== undefined && game.pick !== winner;
+  const hitColor = '#22c55e';
+  const missColor = '#ef4444';
+  const resultColor = isHit ? hitColor : isMiss ? missColor : undefined;
 
   return (
     <div className="mb-1">
       <button
         onClick={() => onToggle(game.gameId)}
         className="bracket-game-node w-full rounded-lg border border-lab-border bg-lab-surface text-left px-3 py-2 min-w-[160px]"
-        style={{ borderColor: isOpen ? `${modelColor}60` : undefined }}
+        style={{ borderColor: isOpen ? `${modelColor}60` : resultColor ? `${resultColor}40` : undefined }}
       >
         <div className={`flex items-center justify-between gap-2 text-xs mb-1 ${isPick1 ? 'text-lab-white' : 'text-lab-muted'}`}>
           <span className="flex items-center gap-1.5 min-w-0">
@@ -48,7 +58,11 @@ function GameNode({
             </span>
             <span className="truncate">{game.team1}</span>
           </span>
-          {isPick1 && <span className="font-mono text-[10px] flex-shrink-0" style={{ color: modelColor }}>✓</span>}
+          {isPick1 && (
+            <span className="font-mono text-[10px] flex-shrink-0" style={{ color: resultColor ?? modelColor }}>
+              {isHit ? '✓' : isMiss ? '✗' : '✓'}
+            </span>
+          )}
         </div>
         <div className={`flex items-center justify-between gap-2 text-xs ${isPick2 ? 'text-lab-white' : 'text-lab-muted'}`}>
           <span className="flex items-center gap-1.5 min-w-0">
@@ -57,7 +71,11 @@ function GameNode({
             </span>
             <span className="truncate">{game.team2}</span>
           </span>
-          {isPick2 && <span className="font-mono text-[10px] flex-shrink-0" style={{ color: modelColor }}>✓</span>}
+          {isPick2 && (
+            <span className="font-mono text-[10px] flex-shrink-0" style={{ color: resultColor ?? modelColor }}>
+              {isHit ? '✓' : isMiss ? '✗' : '✓'}
+            </span>
+          )}
         </div>
       </button>
 
@@ -66,8 +84,8 @@ function GameNode({
         className="bracket-reasoning overflow-hidden px-3"
         data-open={isOpen ? 'true' : 'false'}
       >
-        <div className="py-2 border-l-2 pl-3 mt-1 text-xs text-lab-muted" style={{ borderColor: modelColor }}>
-          <span className="font-mono text-[10px] uppercase tracking-widest block mb-1" style={{ color: modelColor }}>
+        <div className="py-2 border-l-2 pl-3 mt-1 text-xs text-lab-muted" style={{ borderColor: resultColor ?? modelColor }}>
+          <span className="font-mono text-[10px] uppercase tracking-widest block mb-1" style={{ color: resultColor ?? modelColor }}>
             {game.pick} · {game.confidence}% confidence
           </span>
           <p className="leading-relaxed">{game.reasoning}</p>
@@ -83,12 +101,14 @@ function RoundColumn({
   modelColor,
   activeId,
   onToggle,
+  winnerMap,
 }: {
   title: string;
   games: Game[];
   modelColor: string;
   activeId: string | null;
   onToggle: (id: string) => void;
+  winnerMap: Record<string, string>;
 }) {
   return (
     <div className="flex flex-col gap-2">
@@ -102,18 +122,27 @@ function RoundColumn({
           modelColor={modelColor}
           activeId={activeId}
           onToggle={onToggle}
+          winner={winnerMap[game.gameId]}
         />
       ))}
     </div>
   );
 }
 
-export default function BracketTree({ bracket, modelColor }: BracketTreeProps) {
+export default function BracketTree({ bracket, modelColor, results }: BracketTreeProps) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [activeRound, setActiveRound] = useState<RoundKey>('round_of_64');
 
   function toggleGame(id: string) {
     setActiveId((prev) => (prev === id ? null : id));
+  }
+
+  // Build a gameId → winner lookup from results
+  const winnerMap: Record<string, string> = {};
+  if (results) {
+    for (const g of results.games) {
+      if (g.completed && g.winner) winnerMap[g.gameId] = g.winner;
+    }
   }
 
   const allGames = bracket.rounds as Record<RoundKey, Game[]>;
@@ -175,6 +204,7 @@ export default function BracketTree({ bracket, modelColor }: BracketTreeProps) {
                   modelColor={modelColor}
                   activeId={activeId}
                   onToggle={toggleGame}
+                  winnerMap={winnerMap}
                 />
               </div>
             );
@@ -195,6 +225,7 @@ export default function BracketTree({ bracket, modelColor }: BracketTreeProps) {
                 modelColor={modelColor}
                 activeId={activeId}
                 onToggle={toggleGame}
+                winner={winnerMap[game.gameId]}
               />
             ))}
           </div>

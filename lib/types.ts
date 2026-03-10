@@ -16,10 +16,10 @@ export interface BracketData {
   displayName: string;
   tagline: string;
   color: string;
-  generated: string;
+  generated: string | null;
   locked: boolean;
-  espnBracketUrl: string;
-  champion: string;
+  espnBracketUrl: string | null;
+  champion: string | null;
   championEliminated: boolean;
   finalFour: string[];
   rounds: {
@@ -48,7 +48,7 @@ export interface ResultGame {
 }
 
 export interface Results {
-  lastUpdated: string;
+  lastUpdated: string | null;
   currentRound: string;
   games: ResultGame[];
 }
