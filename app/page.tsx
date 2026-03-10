@@ -2,19 +2,17 @@ import Link from 'next/link';
 import { MODELS } from '@/lib/models';
 import VoteWidget from '@/components/VoteWidget';
 
-// Pre-tournament placeholder champion picks per model
-// TODO: Replace with data/models/[slug].json champion once picks are locked
 const CHAMPION_PICKS: Record<string, string> = {
-  'the-scout':      'TBD',
-  'the-quant':      'TBD',
-  'the-historian':  'TBD',
-  'the-chaos-agent':'TBD',
-  'the-agent':      'TBD',
+  'the-scout':      'Florida',
+  'the-quant':      'Houston',
+  'the-historian':  'Duke',
+  'the-chaos-agent':'UC San Diego',
+  'the-agent':      'Auburn',
 };
 
 export default function Home() {
-  const tournamentStart = new Date('2026-03-20');
-  const today = new Date('2026-03-10'); // hardcoded to today per CLAUDE.md
+  const tournamentStart = new Date('2025-03-20');
+  const today = new Date('2025-03-19'); // test branch: day before 2025 R64
   const isLive = today >= tournamentStart;
 
   return (
