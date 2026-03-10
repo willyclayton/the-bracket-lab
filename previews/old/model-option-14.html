@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Detail — Option 14: Arrow Nav + Flip Card + All-Model Chart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Annotation */
+    .annotation-badge {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 6px 10px;
+      z-index: 999;
+    }
+    .annotation-badge span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+    }
+    .annotation-badge strong {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #efefef;
+      letter-spacing: 0.5px;
+    }
+
+    /* Arrow nav */
+    .arrow-nav {
+      background: #1a1a1a;
+      border-bottom: 1px solid #222;
+      padding: 10px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .arrow-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .nav-side {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 180px;
+    }
+    .nav-side.right { justify-content: flex-end; }
+    .nav-arrow-btn {
+      background: none;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #888;
+      font-size: 15px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .nav-label-group { display: flex; flex-direction: column; gap: 1px; }
+    .nav-direction {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav-adj-name {
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-center {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .nav-pip {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2a2a2a;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .nav-pip.active {
+      width: 9px;
+      height: 9px;
+    }
+
+    /* Page */
+    .page { max-width: 900px; margin: 0 auto; padding: 36px 24px; }
+
+    /* Above fold: flip card + title side by side */
+    .above-fold {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    /* Large flip card */
+    .flip-card-wrap { flex-shrink: 0; }
+    .flip-card-hint {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .flip-card {
+      width: 280px;
+      height: 220px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      border: 1px solid;
+      background: #1e1e1e;
+      padding: 22px;
+    }
+    .flip-card-back { transform: rotateY(180deg); }
+
+    /* Front: stats grid */
+    .flip-front-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      height: 100%;
+      align-content: center;
+    }
+    .flip-stat { display: flex; flex-direction: column; gap: 3px; }
+    .flip-stat.wide { grid-column: 1 / -1; }
+    .flip-stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .flip-stat-value {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .flip-stat-value.sm { font-size: 16px; }
+    .flip-hint {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #333;
+    }
+
+    /* Back: methodology steps */
+    .flip-back-header {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .flip-back-para {
+      font-family: 'Instrument Serif', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: #bbb;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .flip-steps { display: flex; flex-direction: column; gap: 7px; }
+    .flip-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: #999;
+    }
+    .flip-step-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+
+    /* Title side */
+    .title-side { flex: 1; min-width: 240px; padding-top: 8px; }
+    .model-emoji-large { font-size: 48px; margin-bottom: 14px; display: block; }
+    .model-name {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+    .model-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    .model-type {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 5px;
+      border: 1px solid;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+    }
+
+    /* Below fold: chart section */
+    .chart-section { }
+    .chart-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .chart-section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #efefef;
+    }
+    .metric-btns {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .metric-btn {
+      background: none;
+      border: 1px solid #333;
+      border-radius: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      color: #666;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .metric-btn:hover { border-color: #555; color: #efefef; }
+    .metric-btn.active { }
+
+    /* Grouped bars — one group per metric, 5 bars per group */
+    .chart-area {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .chart-legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #888;
+    }
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .chart-bars { display: flex; flex-direction: column; gap: 18px; }
+    .bar-group { }
+    .bar-group-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+    .multi-bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .m-bar {
+      display: grid;
+      grid-template-columns: 110px 1fr 64px;
+      gap: 10px;
+      align-items: center;
+    }
+    .m-bar-name {
+      font-size: 12px;
+      font-weight: 500;
+      text-align: right;
+      transition: color 0.3s, opacity 0.3s;
+    }
+    .m-bar-track {
+      height: 8px;
+      background: #252525;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .m-bar-track.active-track { height: 12px; }
+    .m-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      width: 0%;
+      transition: width 0.55s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+    }
+    .m-bar-val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      transition: color 0.3s, opacity 0.3s;
+    }
+
+    @media (max-width: 640px) {
+      .above-fold { flex-direction: column; }
+      .flip-card, .flip-card-wrap { width: 100%; }
+      .flip-card { height: auto; min-height: 190px; }
+      .model-name { font-size: 32px; }
+      .m-bar { grid-template-columns: 80px 1fr 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="annotation-badge">
+  <span>Option 14</span>
+  <strong>Arrow Nav + Flip Card + All-Model Chart</strong>
+</div>
+
+<!-- Arrow nav -->
+<div class="arrow-nav">
+  <div class="arrow-nav-inner">
+    <div class="nav-side left">
+      <button class="nav-arrow-btn" id="prevBtn" onclick="navigate(-1)">←</button>
+      <div class="nav-label-group" style="cursor:pointer" onclick="navigate(-1)">
+        <span class="nav-direction">Previous</span>
+        <span class="nav-adj-name" id="prevName">The Agent</span>
+      </div>
+    </div>
+
+    <div class="nav-center" id="navPips"></div>
+
+    <div class="nav-side right">
+      <div class="nav-label-group" style="cursor:pointer;text-align:right;" onclick="navigate(1)">
+        <span class="nav-direction">Next</span>
+        <span class="nav-adj-name" id="nextName">The Quant</span>
+      </div>
+      <button class="nav-arrow-btn" id="nextBtn" onclick="navigate(1)">→</button>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- Above fold -->
+  <div class="above-fold">
+    <!-- Flip card -->
+    <div class="flip-card-wrap">
+      <div class="flip-card-hint">Click card to flip</div>
+      <div class="flip-card" id="flipCard" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <!-- Front -->
+          <div class="flip-card-front" id="cardFront">
+            <div class="flip-front-grid">
+              <div class="flip-stat">
+                <span class="flip-stat-label">Score</span>
+                <span class="flip-stat-value" id="fScore">720</span>
+              </div>
+              <div class="flip-stat">
+                <span class="flip-stat-label">Rank</span>
+                <span class="flip-stat-value" style="color:#efefef;" id="fRank">#2</span>
+              </div>
+              <div class="flip-stat">
+                <span class="flip-stat-label">Accuracy</span>
+                <span class="flip-stat-value" id="fAcc">68%</span>
+              </div>
+              <div class="flip-stat">
+                <span class="flip-stat-label">Champion</span>
+                <span class="flip-stat-value sm" style="color:#efefef;" id="fChamp">Duke</span>
+              </div>
+              <div class="flip-stat">
+                <span class="flip-stat-label">Upsets Called</span>
+                <span class="flip-stat-value" id="fUpsets">6</span>
+              </div>
+              <div class="flip-stat">
+                <span class="flip-stat-label">Best Round</span>
+                <span class="flip-stat-value sm" style="color:#efefef;" id="fBest">Sw16</span>
+              </div>
+            </div>
+            <span class="flip-hint">flip →</span>
+          </div>
+          <!-- Back -->
+          <div class="flip-card-back" id="cardBack">
+            <div class="flip-back-header">How It Works</div>
+            <p class="flip-back-para" id="fBackPara">LLM film-room analyst processing team profiles, coaching patterns, and recent form into matchup narratives.</p>
+            <div class="flip-steps" id="fSteps">
+              <div class="flip-step">
+                <span class="flip-step-num" id="step1Num">01</span>
+                <span>Ingest team stats, rankings, and recent game logs</span>
+              </div>
+              <div class="flip-step">
+                <span class="flip-step-num" id="step2Num">02</span>
+                <span>Generate matchup narrative for each possible pairing</span>
+              </div>
+              <div class="flip-step">
+                <span class="flip-step-num" id="step3Num">03</span>
+                <span>Weight coaching adjustability and recency momentum</span>
+              </div>
+            </div>
+            <span class="flip-hint">← back</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Title side -->
+    <div class="title-side">
+      <span class="model-emoji-large" id="modelEmoji">🎬</span>
+      <div class="model-name" id="modelName">The Scout</div>
+      <div class="model-tagline" id="modelTagline">Film room intelligence at machine speed.</div>
+      <span class="model-type" id="modelType">LLM Matchup Analyst</span>
+    </div>
+  </div>
+
+  <!-- Chart section -->
+  <div class="chart-section">
+    <div class="chart-section-header">
+      <div class="chart-section-title">All Models Compared</div>
+      <div class="metric-btns" id="metricBtns">
+        <button class="metric-btn active" onclick="selectMetric('score', this)">Score</button>
+        <button class="metric-btn" onclick="selectMetric('accuracy', this)">Accuracy</button>
+        <button class="metric-btn" onclick="selectMetric('upsets', this)">Upsets Called</button>
+        <button class="metric-btn" onclick="selectMetric('r64', this)">R64 Score</button>
+        <button class="metric-btn" onclick="selectMetric('sw16', this)">Sweet 16 Score</button>
+      </div>
+    </div>
+
+    <div class="chart-area">
+      <div class="chart-legend" id="chartLegend"></div>
+      <div class="chart-bars" id="chartBars"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const models = [
+    { name: 'The Scout',       emoji: '🎬', color: '#3b82f6', type: 'LLM Matchup Analyst',    tagline: 'Film room intelligence at machine speed.',       score: 720, rank: '#2', acc: 68, accStr: '68%', champ: 'Duke',    upsets: 6,  r64: 250, sw16: 160, best: 'Sw16', backPara: 'LLM film-room analyst processing team profiles, coaching patterns, and recent form into matchup narratives.', steps: ['Ingest team stats, rankings, and recent game logs','Generate matchup narrative for each possible pairing','Weight coaching adjustability and recency momentum'] },
+    { name: 'The Quant',       emoji: '📊', color: '#22c55e', type: 'Monte Carlo Simulation', tagline: '10,000 simulations. Zero feelings.',             score: 680, rank: '#3', acc: 65, accStr: '65%', champ: 'Houston', upsets: 3,  r64: 240, sw16: 130, best: 'R64',  backPara: 'Runs 10,000 Monte Carlo simulations per game using Elo and pace-adjusted efficiency metrics.', steps: ['Pull current Elo ratings and efficiency data','Run 10,000 simulations per matchup','Pick winners by highest win-probability median'] },
+    { name: 'The Historian',   emoji: '📜', color: '#f59e0b', type: 'Archetype Matching',     tagline: 'Every team has a twin. History already played this game.', score: 640, rank: '#4', acc: 62, accStr: '62%', champ: 'UConn',   upsets: 4,  r64: 220, sw16: 120, best: 'R64',  backPara: 'Matches each team to its closest historical twin from 40 years of tournament data, then applies that team\'s outcome.', steps: ['Build statistical profile for each 2026 team','Find closest match from 1985–2025 tournament teams','Apply historical twin\'s tournament result'] },
+    { name: 'The Chaos Agent', emoji: '🔥', color: '#ef4444', type: 'Upset Detector',         tagline: 'Your bracket is too safe. This one isn\'t.',        score: 580, rank: '#5', acc: 58, accStr: '58%', champ: 'Auburn',  upsets: 11, r64: 180, sw16: 110, best: 'R64',  backPara: 'Hunts for overvalued favorites and structurally upset-prone matchups to build a high-variance bracket.', steps: ['Identify public over-valuation by seed','Score upset-probability for every matchup','Select underdogs where upset signal exceeds threshold'] },
+    { name: 'The Agent',       emoji: '🤖', color: '#00ff88', type: 'Autonomous AI',          tagline: 'No rules. No prompts. Just: build me a bracket.',  score: 760, rank: '#1', acc: 71, accStr: '71%', champ: 'Duke',    upsets: 7,  r64: 270, sw16: 155, best: 'R64',  backPara: 'Autonomous AI agent with web access that researches, reasons, and builds a bracket without predefined methodology.', steps: ['Given single instruction: build me a bracket','Autonomously searches news, injuries, expert picks','Reasons through entire tournament field independently'] },
+  ];
+
+  let currentIdx = 0;
+  let currentMetric = 'score';
+
+  const metricMap = {
+    score:    { label: 'Total Score',     max: 1920, getValue: m => m.score,   fmt: v => v + ' pts' },
+    accuracy: { label: 'Accuracy %',      max: 100,  getValue: m => m.acc,     fmt: v => v + '%' },
+    upsets:   { label: 'Upsets Called',   max: 16,   getValue: m => m.upsets,  fmt: v => v + ' upsets' },
+    r64:      { label: 'Round of 64 Score', max: 320, getValue: m => m.r64,    fmt: v => v + ' pts' },
+    sw16:     { label: 'Sweet 16 Score',  max: 320,  getValue: m => m.sw16,    fmt: v => v + ' pts' },
+  };
+
+  function buildPips() {
+    const c = document.getElementById('navPips');
+    c.innerHTML = models.map((m,i) =>
+      `<div class="nav-pip ${i===currentIdx?'active':''}" onclick="goTo(${i})" style="${i===currentIdx?'background:'+m.color:''}" title="${m.name}"></div>`
+    ).join('');
+  }
+
+  function applyModel(idx) {
+    const m = models[idx];
+    const prev = models[(idx-1+models.length)%models.length];
+    const next = models[(idx+1)%models.length];
+
+    // Nav
+    document.getElementById('prevName').textContent = prev.name;
+    document.getElementById('prevName').style.color = prev.color;
+    document.getElementById('prevBtn').style.color = prev.color;
+    document.getElementById('prevBtn').style.borderColor = prev.color + '55';
+
+    document.getElementById('nextName').textContent = next.name;
+    document.getElementById('nextName').style.color = next.color;
+    document.getElementById('nextBtn').style.color = next.color;
+    document.getElementById('nextBtn').style.borderColor = next.color + '55';
+
+    buildPips();
+
+    // Title
+    document.getElementById('modelEmoji').textContent = m.emoji;
+    document.getElementById('modelName').textContent = m.name;
+    document.getElementById('modelName').style.color = m.color;
+    document.getElementById('modelTagline').textContent = m.tagline;
+    document.getElementById('modelType').textContent = m.type;
+    document.getElementById('modelType').style.color = m.color;
+    document.getElementById('modelType').style.borderColor = m.color + '44';
+    document.getElementById('modelType').style.background = m.color + '12';
+
+    // Flip card
+    document.getElementById('cardFront').style.borderColor = m.color + '40';
+    document.getElementById('cardBack').style.borderColor = m.color + '40';
+    document.getElementById('fScore').textContent = m.score;
+    document.getElementById('fScore').style.color = m.color;
+    document.getElementById('fRank').textContent = m.rank;
+    document.getElementById('fAcc').textContent = m.accStr;
+    document.getElementById('fAcc').style.color = m.color;
+    document.getElementById('fChamp').textContent = m.champ;
+    document.getElementById('fUpsets').textContent = m.upsets;
+    document.getElementById('fUpsets').style.color = m.color;
+    document.getElementById('fBest').textContent = m.best;
+    document.getElementById('fBackPara').textContent = m.backPara;
+    // Steps
+    const stepEls = document.querySelectorAll('.flip-step-num');
+    m.steps.forEach((s,i) => {
+      if (stepEls[i]) {
+        stepEls[i].style.background = m.color + '22';
+        stepEls[i].style.color = m.color;
+      }
+    });
+    document.querySelectorAll('.flip-step span:last-child').forEach((el,i) => {
+      if (m.steps[i]) el.textContent = m.steps[i];
+    });
+    // Reset flip
+    document.getElementById('flipCard').classList.remove('flipped');
+
+    renderChart(currentMetric);
+  }
+
+  function renderChart(metric) {
+    const info = metricMap[metric];
+    const container = document.getElementById('chartBars');
+    const m = models[currentIdx];
+
+    // Legend
+    document.getElementById('chartLegend').innerHTML = models.map(model =>
+      `<div class="legend-item">
+        <div class="legend-dot" style="background:${model.color}; opacity:${model.name===m.name?1:0.4}"></div>
+        <span style="color:${model.name===m.name?'#efefef':'#666'};font-weight:${model.name===m.name?'600':'400'}">${model.name}</span>
+      </div>`
+    ).join('');
+
+    container.innerHTML = models.map(model => {
+      const isActive = model.name === m.name;
+      const val = info.getValue(model);
+      const pct = Math.round((val / info.max) * 100);
+      const color = isActive ? model.color : model.color + '66';
+      return `
+        <div class="m-bar">
+          <span class="m-bar-name" style="color:${isActive?'#efefef':'#555'};font-weight:${isActive?600:400}">${model.name}</span>
+          <div class="m-bar-track ${isActive?'active-track':''}">
+            <div class="m-bar-fill" data-pct="${pct}" style="background:${color};opacity:${isActive?1:0.5};width:0%"></div>
+          </div>
+          <span class="m-bar-val" style="color:${isActive?model.color:'#444'}">${info.fmt(val)}</span>
+        </div>`;
+    }).join('');
+
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      container.querySelectorAll('.m-bar-fill').forEach(el => el.style.width = el.dataset.pct + '%');
+    }));
+  }
+
+  function selectMetric(metric, btn) {
+    currentMetric = metric;
+    document.querySelectorAll('.metric-btn').forEach(b => {
+      b.classList.remove('active');
+      b.style.borderColor = '';
+      b.style.color = '';
+      b.style.background = '';
+    });
+    const m = models[currentIdx];
+    btn.classList.add('active');
+    btn.style.borderColor = m.color + '66';
+    btn.style.color = m.color;
+    btn.style.background = m.color + '10';
+    renderChart(metric);
+  }
+
+  function navigate(dir) {
+    currentIdx = (currentIdx + dir + models.length) % models.length;
+    applyModel(currentIdx);
+  }
+  function goTo(idx) {
+    currentIdx = idx;
+    applyModel(idx);
+  }
+
+  // Init active metric btn
+  function initMetricBtn() {
+    const firstBtn = document.querySelector('.metric-btn.active');
+    if (firstBtn) {
+      firstBtn.style.borderColor = '#3b82f666';
+      firstBtn.style.color = '#3b82f6';
+      firstBtn.style.background = '#3b82f610';
+    }
+  }
+
+  applyModel(0);
+  initMetricBtn();
+</script>
+</body>
+</html>

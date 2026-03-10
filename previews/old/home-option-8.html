@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Option 8 — Gradient Mesh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0a0a;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 24px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    nav .inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 700; font-size: 18px; }
+    .logo span { color: rgba(255,255,255,0.4); font-weight: 400; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: #fff; }
+
+    /* HERO WITH MESH */
+    .hero {
+      position: relative;
+      padding: 160px 0 100px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(59,130,246,0.15) 0%, transparent 60%);
+      animation: meshFloat1 8s ease-in-out infinite;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(34,197,94,0.12) 0%, transparent 60%);
+      animation: meshFloat2 10s ease-in-out infinite;
+    }
+    @keyframes meshFloat1 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, -20px); }
+    }
+    @keyframes meshFloat2 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-20px, 30px); }
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 14px 36px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .hero-cta:hover { background: rgba(255,255,255,0.18); }
+
+    /* MODEL SECTIONS WITH GRADIENT BLEED */
+    .model-section {
+      position: relative;
+      padding: 80px 0;
+      overflow: hidden;
+    }
+    .model-section::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .model-section:nth-child(odd)::before { left: -200px; top: -100px; }
+    .model-section:nth-child(even)::before { right: -200px; top: -100px; }
+
+    .model-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .model-section:nth-child(even) .model-inner { direction: rtl; }
+    .model-section:nth-child(even) .model-inner > * { direction: ltr; }
+
+    .model-info {}
+    .model-emoji { font-size: 40px; margin-bottom: 12px; }
+    .model-name { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+    .model-type {
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .model-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .model-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
+
+    /* GLASS CARD */
+    .glass-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .glass-card-title {
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .glass-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .glass-stat:last-child { border-bottom: none; }
+    .glass-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .glass-stat-value { font-size: 18px; font-weight: 700; font-family: 'IBM Plex Mono', monospace; }
+    .glass-bar {
+      width: 80px;
+      height: 6px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-left: 12px;
+    }
+    .glass-bar-fill { height: 100%; border-radius: 3px; }
+
+    /* LEADERBOARD GLASS */
+    .leaderboard-section {
+      padding: 60px 0 80px;
+      position: relative;
+    }
+    .leaderboard-section::before {
+      content: '';
+      position: absolute;
+      width: 800px;
+      height: 400px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse at center, rgba(239,68,68,0.08) 0%, rgba(245,158,11,0.06) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .leaderboard-glass {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .leaderboard-glass h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 40px; }
+      .hero { padding: 120px 0 60px; }
+      .model-inner { grid-template-columns: 1fr; gap: 24px; }
+      .model-section:nth-child(even) .model-inner { direction: ltr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="inner">
+      <div class="logo">The Bracket Lab <span>/ 2026</span></div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Brackets</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="annotation">&larr; HERO WITH ANIMATED GRADIENT MESH</div>
+      <h1>The Bracket <em>Lab</em></h1>
+      <p class="hero-sub">Five AI models compete to predict every game of March Madness 2026. Different strategies. Same data. One winner.</p>
+      <a href="#" class="hero-cta">View Brackets</a>
+    </div>
+  </section>
+
+  <div class="model-section" style="">
+    <div style="position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:0.15;background:#3b82f6;left:-200px;top:-100px;pointer-events:none"></div>
+    <div class="container">
+      <div class="annotation">&larr; MODEL 1 — GRADIENT BLEED (BLUE)</div>
+      <div class="model-inner">
+        <div class="model-info">
+          <div class="model-emoji">🎬</div>
+          <div class="model-name" style="color:#3b82f6">The Scout</div>
+          <div class="model-type">LLM Matchup Analyst</div>
+          <div class="model-tagline">"Film room intelligence at machine speed."</div>
+          <div class="model-desc">An LLM analyzes every matchup the way a scout watches game film. It reads strengths, weaknesses, stylistic edges, and coaching tendencies to pick winners game by game.</div>
+        </div>
+        <div class="glass-card">
+          <div class="glass-card-title">Performance</div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Score</span>
+            <span class="glass-stat-value" style="color:#3b82f6">420</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Correct Picks</span>
+            <span class="glass-stat-value">26/40</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Rank</span>
+            <span class="glass-stat-value">#3</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Champion</span>
+            <span class="glass-stat-value">Duke</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-section">
+    <div style="position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:0.15;background:#22c55e;right:-200px;top:-100px;pointer-events:none"></div>
+    <div class="container">
+      <div class="annotation">&larr; MODEL 2 — GRADIENT BLEED (GREEN)</div>
+      <div class="model-inner" style="direction:rtl">
+        <div class="model-info" style="direction:ltr">
+          <div class="model-emoji">📊</div>
+          <div class="model-name" style="color:#22c55e">The Quant</div>
+          <div class="model-type">Monte Carlo Simulation</div>
+          <div class="model-tagline">"10,000 simulations. Zero feelings."</div>
+          <div class="model-desc">Runs 10,000 Monte Carlo simulations using efficiency metrics, tempo, and strength of schedule. The bracket is whatever outcome probability says it should be.</div>
+        </div>
+        <div class="glass-card" style="direction:ltr">
+          <div class="glass-card-title">Performance</div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Score</span>
+            <span class="glass-stat-value" style="color:#22c55e">480</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Correct Picks</span>
+            <span class="glass-stat-value">28/40</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Rank</span>
+            <span class="glass-stat-value">#1</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Champion</span>
+            <span class="glass-stat-value">Houston</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-section">
+    <div style="position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:0.15;background:#f59e0b;left:-200px;top:-100px;pointer-events:none"></div>
+    <div class="container">
+      <div class="annotation">&larr; MODEL 3 — GRADIENT BLEED (AMBER)</div>
+      <div class="model-inner">
+        <div class="model-info">
+          <div class="model-emoji">📜</div>
+          <div class="model-name" style="color:#f59e0b">The Historian</div>
+          <div class="model-type">Archetype Matching</div>
+          <div class="model-tagline">"Every team has a twin. History already played this game."</div>
+          <div class="model-desc">Matches every 2026 team to its closest historical analogue from past tournaments, then plays out the bracket based on what those historical twins actually did.</div>
+        </div>
+        <div class="glass-card">
+          <div class="glass-card-title">Performance</div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Score</span>
+            <span class="glass-stat-value" style="color:#f59e0b">380</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Correct Picks</span>
+            <span class="glass-stat-value">24/40</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Rank</span>
+            <span class="glass-stat-value">#4</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Champion</span>
+            <span class="glass-stat-value">Kansas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-section">
+    <div style="position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:0.15;background:#ef4444;right:-200px;top:-100px;pointer-events:none"></div>
+    <div class="container">
+      <div class="annotation">&larr; MODEL 4 — GRADIENT BLEED (RED)</div>
+      <div class="model-inner" style="direction:rtl">
+        <div class="model-info" style="direction:ltr">
+          <div class="model-emoji">🔥</div>
+          <div class="model-name" style="color:#ef4444">The Chaos Agent</div>
+          <div class="model-type">Upset Detector</div>
+          <div class="model-tagline">"Your bracket is too safe. This one isn't."</div>
+          <div class="model-desc">Specifically engineered to identify vulnerable favorites. When the data says a lower seed has a real shot, this model takes the swing every single time.</div>
+        </div>
+        <div class="glass-card" style="direction:ltr">
+          <div class="glass-card-title">Performance</div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Score</span>
+            <span class="glass-stat-value" style="color:#ef4444">450</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Correct Picks</span>
+            <span class="glass-stat-value">25/40</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Rank</span>
+            <span class="glass-stat-value">#2</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Champion</span>
+            <span class="glass-stat-value">Auburn</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="model-section">
+    <div style="position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:0.15;background:#00ff88;left:-200px;top:-100px;pointer-events:none"></div>
+    <div class="container">
+      <div class="annotation">&larr; MODEL 5 — GRADIENT BLEED (NEON GREEN)</div>
+      <div class="model-inner">
+        <div class="model-info">
+          <div class="model-emoji">🤖</div>
+          <div class="model-name" style="color:#00ff88">The Agent</div>
+          <div class="model-type">Autonomous AI Researcher</div>
+          <div class="model-tagline">"No rules. No prompts. Just: build me a bracket."</div>
+          <div class="model-desc">An autonomous AI agent given one instruction and total freedom. It chose its own data sources, built its own methodology, and filled out its bracket entirely on its own.</div>
+        </div>
+        <div class="glass-card">
+          <div class="glass-card-title">Performance</div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Score</span>
+            <span class="glass-stat-value" style="color:#00ff88">340</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Correct Picks</span>
+            <span class="glass-stat-value">22/40</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Rank</span>
+            <span class="glass-stat-value">#5</span>
+          </div>
+          <div class="glass-stat">
+            <span class="glass-stat-label">Champion</span>
+            <span class="glass-stat-value">Gonzaga</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog Option 18 — Timeline + Expanded Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #141414;
+      --surface: #1e1e1e;
+      --border: #333333;
+      --muted: #888888;
+      --text: #efefef;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .annotation-badge {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      background: #000;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      z-index: 100;
+    }
+
+    .nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 56px;
+    }
+    .nav-logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin-left: auto;
+    }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+    .nav-links a.active { color: var(--text); }
+
+    .page-header {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 32px 0;
+    }
+    .page-header h1 { font-size: 32px; font-weight: 700; margin-bottom: 6px; }
+    .page-header p { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      max-width: 920px;
+      margin: 24px auto 0;
+      padding: 0 32px;
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab {
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--text); border-bottom-color: var(--text); }
+
+    .content-area {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 32px 64px;
+      transition: opacity 0.15s ease;
+    }
+    .content-area.fading { opacity: 0; }
+
+    /* Timeline */
+    .timeline-entry {
+      display: flex;
+      gap: 24px;
+      position: relative;
+      padding-bottom: 48px;
+    }
+    .timeline-entry:last-child { padding-bottom: 0; }
+
+    .timeline-date-col {
+      width: 72px;
+      flex-shrink: 0;
+      text-align: right;
+      padding-top: 20px;
+    }
+    .timeline-date-col .day {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .timeline-date-col .month {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .timeline-line {
+      width: 24px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-top: 22px;
+      flex-shrink: 0;
+      z-index: 1;
+      box-shadow: 0 0 8px rgba(255,255,255,0.1);
+    }
+    .timeline-line::after {
+      content: '';
+      position: absolute;
+      top: 34px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-entry:last-child .timeline-line::after { display: none; }
+
+    .dot-analysis { background: #3b82f6; }
+    .dot-recap { background: #22c55e; }
+    .dot-obituary { background: #ef4444; }
+    .dot-preview { background: #f59e0b; }
+
+    /* Expanded cards */
+    .exp-card {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .exp-card:hover { border-color: #555; transform: translateX(4px); }
+
+    .exp-card-img {
+      height: 120px;
+      position: relative;
+    }
+
+    .bg-analysis { background: linear-gradient(135deg, #0f3460, #16213e, #1a1a2e); }
+    .bg-recap { background: linear-gradient(135deg, #0a2010, #0f2a15, #101e10); }
+    .bg-obituary { background: linear-gradient(135deg, #280808, #1a0404, #120000); }
+    .bg-preview { background: linear-gradient(135deg, #1f1500, #2a1d00, #1a1200); }
+
+    .exp-card-body {
+      padding: 20px 24px 24px;
+    }
+    .exp-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .cat-pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .cat-pill.analysis { background: rgba(59,130,246,0.18); color: #3b82f6; }
+    .cat-pill.recap { background: rgba(34,197,94,0.18); color: #22c55e; }
+    .cat-pill.obituary { background: rgba(239,68,68,0.18); color: #ef4444; }
+    .cat-pill.preview { background: rgba(245,158,11,0.18); color: #f59e0b; }
+
+    .exp-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .exp-card-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 22px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .exp-card-excerpt {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .exp-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .model-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .model-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+    .model-tag.scout { background: rgba(59,130,246,0.12); color: #3b82f6; border: 1px solid rgba(59,130,246,0.25); }
+    .model-tag.quant { background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.25); }
+    .model-tag.historian { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.25); }
+    .model-tag.chaos { background: rgba(239,68,68,0.12); color: #ef4444; border: 1px solid rgba(239,68,68,0.25); }
+    .model-tag.agent { background: rgba(0,255,136,0.12); color: #00ff88; border: 1px solid rgba(0,255,136,0.25); }
+
+    .read-link {
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .read-link:hover { opacity: 1; }
+
+    @media (max-width: 600px) {
+      .page-header, .tabs, .content-area { padding-left: 16px; padding-right: 16px; }
+      .timeline-date-col, .timeline-line { display: none; }
+      .timeline-entry { gap: 0; padding-bottom: 24px; }
+      .exp-card-title { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="annotation-badge">Option 18 — Timeline + Expanded Cards</div>
+
+  <nav class="nav">
+    <a class="nav-logo" href="#">THE BRACKET LAB</a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Brackets</a></li>
+      <li><a href="#" class="active">Blog</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <h1>The Lab Notes</h1>
+    <p>Recaps, analysis, and the occasional eulogy from 5 AI models competing in March Madness 2026.</p>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-filter="all">All</button>
+    <button class="tab" data-filter="recap">Recaps</button>
+    <button class="tab" data-filter="obituary">Obituaries</button>
+    <button class="tab" data-filter="analysis">Analysis</button>
+    <button class="tab" data-filter="preview">Previews</button>
+  </div>
+
+  <div class="content-area" id="content"></div>
+
+  <script>
+    const posts = [
+      { title: "Sweet 16 Preview: Which Models Still Have a Shot?", date: "Mar 26", day: "26", month: "MAR", category: "preview", models: ["scout","quant","chaos"], excerpt: "Three models enter the Sweet 16 with viable brackets. We break down who's still in contention and whose path to glory just got a lot narrower." },
+      { title: "The Quant's Monte Carlo Meltdown", date: "Mar 24", day: "24", month: "MAR", category: "obituary", models: ["quant"], excerpt: "10,000 simulations weren't enough. The Quant's predicted champion fell in the second round to a 10-seed it gave a 6% chance. A postmortem of probabilistic hubris." },
+      { title: "Eulogy for The Historian: Death by 12-Seed", date: "Mar 22", day: "22", month: "MAR", category: "obituary", models: ["historian"], excerpt: "The Historian found a historical twin for every team. Unfortunately, the 2014 Mercer Bears archetype showed up and ended its championship hopes two rounds early." },
+      { title: "Round of 64, Day 1: Chaos Reigns", date: "Mar 20", day: "20", month: "MAR", category: "recap", models: ["chaos","agent"], excerpt: "The Chaos Agent called 3 of 4 first-round upsets. The Agent went rogue and got two right by accident. Day 1 belongs to the contrarians." },
+      { title: "The Scout's Film Room: Breaking Down the East Region", date: "Mar 16", day: "16", month: "MAR", category: "recap", models: ["scout"], excerpt: "The Scout analyzed 400+ hours of game footage to build its East Region bracket. Here's what the film room revealed about the most dangerous 5-seed in the field." },
+      { title: "Selection Sunday Reactions: Surprises and Snubs", date: "Mar 15", day: "15", month: "MAR", category: "analysis", models: ["scout","quant","historian","chaos","agent"], excerpt: "The bracket is set. All 5 models weigh in on the committee's decisions — who got snubbed, who's overseeded, and which region is the group of death." },
+      { title: "The Agent Goes Rogue: An Autonomous Bracket Experiment", date: "Mar 12", day: "12", month: "MAR", category: "analysis", models: ["agent"], excerpt: "We gave an AI agent one instruction: build a bracket. No prompts, no guardrails, no predefined methodology. What it built surprised even us." },
+      { title: "How We Built 5 AI Models to Destroy Your Bracket", date: "Mar 10", day: "10", month: "MAR", category: "analysis", models: ["scout","quant","historian","chaos","agent"], excerpt: "The origin story of The Bracket Lab. Five AI models, five completely different approaches to March Madness, and one question: can machines beat your bracket?" }
+    ];
+
+    const gradientMap = { analysis: 'bg-analysis', recap: 'bg-recap', obituary: 'bg-obituary', preview: 'bg-preview' };
+    const dotMap = { analysis: 'dot-analysis', recap: 'dot-recap', obituary: 'dot-obituary', preview: 'dot-preview' };
+
+    function modelTagsHTML(models) {
+      return models.map(m => `<span class="model-tag ${m}">${m === 'chaos' ? 'Chaos Agent' : m.charAt(0).toUpperCase() + m.slice(1)}</span>`).join('');
+    }
+
+    function render(filter) {
+      const filtered = filter === 'all' ? posts : posts.filter(p => p.category === filter);
+      if (filtered.length === 0) { document.getElementById('content').innerHTML = '<p style="color:var(--muted);text-align:center;padding:48px 0;">No posts in this category yet.</p>'; return; }
+
+      let html = '<div class="timeline">';
+      filtered.forEach(p => {
+        html += `<div class="timeline-entry">
+          <div class="timeline-date-col">
+            <div class="day">${p.day}</div>
+            <div class="month">${p.month}</div>
+          </div>
+          <div class="timeline-line">
+            <div class="timeline-dot ${dotMap[p.category]}"></div>
+          </div>
+          <div class="exp-card">
+            <div class="exp-card-img ${gradientMap[p.category]}"></div>
+            <div class="exp-card-body">
+              <div class="exp-card-meta">
+                <span class="cat-pill ${p.category}">${p.category}</span>
+                <span class="exp-date">${p.date}</span>
+              </div>
+              <div class="exp-card-title">${p.title}</div>
+              <div class="exp-card-excerpt">${p.excerpt}</div>
+              <div class="exp-card-footer">
+                <div class="model-tags">${modelTagsHTML(p.models)}</div>
+                <a href="#" class="read-link">Read &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>`;
+      });
+      html += '</div>';
+
+      document.getElementById('content').innerHTML = html;
+    }
+
+    document.getElementById('tabs').addEventListener('click', e => {
+      if (!e.target.classList.contains('tab')) return;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      e.target.classList.add('active');
+      const area = document.getElementById('content');
+      area.classList.add('fading');
+      setTimeout(() => { render(e.target.dataset.filter); area.classList.remove('fading'); }, 150);
+    });
+
+    render('all');
+  </script>
+</body>
+</html>

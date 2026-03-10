@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brackets Option 1 — Horizontal Scroll Classic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; color: #efefef; font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
+    .annotation { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 32px 20px; }
+    h1 { font-family: 'Instrument Serif', serif; font-size: 36px; margin-bottom: 4px; }
+    .subtitle { color: #888888; font-size: 14px; margin-bottom: 32px; }
+
+    /* Model Tabs */
+    .model-tabs { display: flex; gap: 0; border-bottom: 1px solid #333333; margin-bottom: 24px; overflow-x: auto; }
+    .model-tab {
+      padding: 12px 20px; cursor: pointer; font-size: 14px; font-weight: 500;
+      color: #888888; border-bottom: 3px solid transparent; transition: all 0.2s;
+      white-space: nowrap; background: none; border-top: none; border-left: none; border-right: none;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .model-tab:hover { color: #efefef; }
+    .model-tab.active { color: #efefef; }
+    .model-tab .emoji { margin-right: 6px; }
+
+    /* Summary Bar */
+    .summary-bar {
+      display: flex; gap: 24px; padding: 16px 20px; background: #1e1e1e;
+      border: 1px solid #333333; border-radius: 8px; margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .summary-stat { display: flex; flex-direction: column; }
+    .summary-stat .label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888888; text-transform: uppercase; }
+    .summary-stat .value { font-size: 20px; font-weight: 700; }
+
+    /* Bracket Scroll Container */
+    .bracket-scroll {
+      overflow-x: auto; padding-bottom: 16px;
+    }
+    .bracket-scroll::-webkit-scrollbar { height: 6px; }
+    .bracket-scroll::-webkit-scrollbar-track { background: #1e1e1e; border-radius: 3px; }
+    .bracket-scroll::-webkit-scrollbar-thumb { background: #333333; border-radius: 3px; }
+
+    .bracket-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 220px);
+      gap: 16px;
+      min-width: 1400px;
+    }
+
+    /* Round Column */
+    .round-col { display: flex; flex-direction: column; gap: 8px; }
+    .round-header {
+      position: sticky; top: 0; z-index: 2;
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500;
+      color: #888888; text-transform: uppercase; letter-spacing: 1px;
+      padding: 8px 0; border-bottom: 1px solid #333333; margin-bottom: 4px;
+      background: #141414;
+    }
+    .round-header span { font-size: 11px; color: #555; margin-left: 6px; }
+
+    /* Matchup Card */
+    .matchup {
+      background: #1e1e1e; border: 1px solid #333333; border-radius: 6px;
+      overflow: hidden; transition: border-color 0.2s;
+    }
+    .matchup:hover { border-color: #555; }
+    .team-row {
+      display: flex; align-items: center; padding: 8px 12px; gap: 8px;
+      border-bottom: 1px solid #2a2a2a; font-size: 13px;
+    }
+    .team-row:last-child { border-bottom: none; }
+    .team-row.winner { background: rgba(34, 197, 94, 0.08); }
+    .seed {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888888;
+      width: 20px; text-align: center; flex-shrink: 0;
+    }
+    .team-name { flex: 1; font-weight: 500; }
+    .team-score {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #888888;
+    }
+
+    /* Champion Box */
+    .champion-box {
+      background: #1e1e1e; border: 2px solid; border-radius: 8px;
+      padding: 20px; text-align: center; margin-top: 16px;
+    }
+    .champion-box .champ-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .champion-box .champ-name { font-size: 24px; font-weight: 700; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 28px; }
+      .bracket-grid { grid-template-columns: repeat(6, 180px); min-width: 1140px; }
+      .summary-bar { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="annotation">Brackets Option 1 — Horizontal Scroll Classic (Dark Lab)</p>
+    <h1>Bracket View</h1>
+    <p class="subtitle">Select a model to see their full bracket picks</p>
+
+    <div class="model-tabs">
+      <button class="model-tab active" style="border-bottom-color: #3b82f6;" onclick="selectTab(this, '#3b82f6')"><span class="emoji">&#127916;</span>The Scout</button>
+      <button class="model-tab" onclick="selectTab(this, '#22c55e')"><span class="emoji">&#128202;</span>The Quant</button>
+      <button class="model-tab" onclick="selectTab(this, '#f59e0b')"><span class="emoji">&#128220;</span>The Historian</button>
+      <button class="model-tab" onclick="selectTab(this, '#ef4444')"><span class="emoji">&#128293;</span>The Chaos Agent</button>
+      <button class="model-tab" onclick="selectTab(this, '#00ff88')"><span class="emoji">&#129302;</span>The Agent</button>
+    </div>
+
+    <div class="summary-bar" id="summaryBar" style="border-left: 3px solid #3b82f6;">
+      <div class="summary-stat">
+        <span class="label">Score</span>
+        <span class="value" id="scoreVal">420</span>
+      </div>
+      <div class="summary-stat">
+        <span class="label">Accuracy</span>
+        <span class="value">67%</span>
+      </div>
+      <div class="summary-stat">
+        <span class="label">Champion</span>
+        <span class="value">Duke</span>
+      </div>
+      <div class="summary-stat">
+        <span class="label">Best Upset</span>
+        <span class="value">12-Yale over 5-Marquette</span>
+      </div>
+    </div>
+
+    <div class="bracket-scroll">
+      <div class="bracket-grid">
+        <!-- Round of 64 -->
+        <div class="round-col">
+          <div class="round-header">Round of 64 <span>32 games</span></div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">1</span><span class="team-name">Duke</span><span class="team-score">82</span></div>
+            <div class="team-row"><span class="seed">16</span><span class="team-name">Norfolk St</span><span class="team-score">55</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">8</span><span class="team-name">Wisconsin</span><span class="team-score">71</span></div>
+            <div class="team-row"><span class="seed">9</span><span class="team-name">Memphis</span><span class="team-score">68</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row"><span class="seed">5</span><span class="team-name">Marquette</span><span class="team-score">64</span></div>
+            <div class="team-row winner"><span class="seed">12</span><span class="team-name">Yale</span><span class="team-score">67</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">4</span><span class="team-name">Purdue</span><span class="team-score">78</span></div>
+            <div class="team-row"><span class="seed">13</span><span class="team-name">Vermont</span><span class="team-score">60</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">6</span><span class="team-name">Kentucky</span><span class="team-score">75</span></div>
+            <div class="team-row"><span class="seed">11</span><span class="team-name">VCU</span><span class="team-score">63</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">3</span><span class="team-name">Tennessee</span><span class="team-score">80</span></div>
+            <div class="team-row"><span class="seed">14</span><span class="team-name">Colgate</span><span class="team-score">58</span></div>
+          </div>
+        </div>
+
+        <!-- Round of 32 -->
+        <div class="round-col">
+          <div class="round-header">Round of 32 <span>16 games</span></div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">1</span><span class="team-name">Duke</span><span class="team-score">76</span></div>
+            <div class="team-row"><span class="seed">8</span><span class="team-name">Wisconsin</span><span class="team-score">69</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row"><span class="seed">12</span><span class="team-name">Yale</span><span class="team-score">61</span></div>
+            <div class="team-row winner"><span class="seed">4</span><span class="team-name">Purdue</span><span class="team-score">73</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">3</span><span class="team-name">Tennessee</span><span class="team-score">77</span></div>
+            <div class="team-row"><span class="seed">6</span><span class="team-name">Kentucky</span><span class="team-score">72</span></div>
+          </div>
+        </div>
+
+        <!-- Sweet 16 -->
+        <div class="round-col">
+          <div class="round-header">Sweet 16 <span>8 games</span></div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">1</span><span class="team-name">Duke</span><span class="team-score">81</span></div>
+            <div class="team-row"><span class="seed">4</span><span class="team-name">Purdue</span><span class="team-score">74</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">2</span><span class="team-name">Houston</span><span class="team-score">68</span></div>
+            <div class="team-row"><span class="seed">3</span><span class="team-name">Tennessee</span><span class="team-score">65</span></div>
+          </div>
+        </div>
+
+        <!-- Elite 8 -->
+        <div class="round-col">
+          <div class="round-header">Elite 8 <span>4 games</span></div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">1</span><span class="team-name">Duke</span><span class="team-score">72</span></div>
+            <div class="team-row"><span class="seed">2</span><span class="team-name">Houston</span><span class="team-score">68</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">1</span><span class="team-name">Auburn</span><span class="team-score">79</span></div>
+            <div class="team-row"><span class="seed">2</span><span class="team-name">UConn</span><span class="team-score">74</span></div>
+          </div>
+        </div>
+
+        <!-- Final Four -->
+        <div class="round-col">
+          <div class="round-header">Final Four <span>2 games</span></div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">1</span><span class="team-name">Duke</span><span class="team-score">78</span></div>
+            <div class="team-row"><span class="seed">1</span><span class="team-name">Auburn</span><span class="team-score">71</span></div>
+          </div>
+          <div class="matchup">
+            <div class="team-row"><span class="seed">1</span><span class="team-name">Gonzaga</span><span class="team-score">66</span></div>
+            <div class="team-row winner"><span class="seed">2</span><span class="team-name">Kansas</span><span class="team-score">70</span></div>
+          </div>
+        </div>
+
+        <!-- Championship -->
+        <div class="round-col">
+          <div class="round-header">Championship <span>1 game</span></div>
+          <div class="matchup">
+            <div class="team-row winner"><span class="seed">1</span><span class="team-name">Duke</span><span class="team-score">74</span></div>
+            <div class="team-row"><span class="seed">2</span><span class="team-name">Kansas</span><span class="team-score">68</span></div>
+          </div>
+          <div class="champion-box" style="border-color: #3b82f6;">
+            <div class="champ-label">Champion</div>
+            <div class="champ-name" style="color: #3b82f6;">Duke</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function selectTab(el, color) {
+      document.querySelectorAll('.model-tab').forEach(t => {
+        t.classList.remove('active');
+        t.style.borderBottomColor = 'transparent';
+      });
+      el.classList.add('active');
+      el.style.borderBottomColor = color;
+      document.getElementById('summaryBar').style.borderLeftColor = color;
+      document.querySelector('.champion-box').style.borderColor = color;
+      document.querySelector('.champ-name').style.color = color;
+    }
+  </script>
+</body>
+</html>

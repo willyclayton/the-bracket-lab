@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Detail — Option 13: Tabs + Dynamic Chart + Dashboard Stats</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Annotation */
+    .annotation-badge {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 6px 10px;
+      z-index: 999;
+    }
+    .annotation-badge span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+    }
+    .annotation-badge strong {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #efefef;
+      letter-spacing: 0.5px;
+    }
+
+    .page { max-width: 900px; margin: 0 auto; padding: 24px; padding-top: 64px; }
+
+    /* Header card */
+    .header-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-top: 3px solid #3b82f6;
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .header-card-left { display: flex; align-items: center; gap: 20px; }
+    .model-emoji {
+      font-size: 44px;
+      width: 72px;
+      height: 72px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .model-info {}
+    .model-name {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: #3b82f6;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .model-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: #888;
+    }
+    .header-card-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+    .header-score {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 32px;
+      font-weight: 500;
+      color: #3b82f6;
+      line-height: 1;
+    }
+    .header-score-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .header-rank {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* Tab bar */
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid #333;
+      margin-bottom: 32px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      padding: 12px 20px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .tab-btn:hover { color: #efefef; }
+    .tab-btn.active { color: #3b82f6; }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 2px;
+      background: #3b82f6;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Stat tiles row */
+    .stat-tiles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .stat-tile {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-tile-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .stat-tile-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #3b82f6;
+      line-height: 1;
+    }
+    .stat-tile-value.neutral { color: #efefef; font-size: 22px; }
+
+    /* Metric pill buttons */
+    .metric-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .metric-pill {
+      background: none;
+      border: 1px solid #333;
+      border-radius: 99px;
+      color: #888;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .metric-pill:hover { border-color: #555; color: #efefef; }
+    .metric-pill.active {
+      background: rgba(59,130,246,0.12);
+      border-color: rgba(59,130,246,0.5);
+      color: #3b82f6;
+    }
+
+    /* Horizontal chart */
+    .chart-area {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+    .chart-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #efefef;
+    }
+    .chart-subtitle {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #555;
+    }
+    .chart-bars { display: flex; flex-direction: column; gap: 16px; }
+    .h-bar-row { display: grid; grid-template-columns: 130px 1fr 80px; gap: 14px; align-items: center; }
+    .h-bar-label {
+      font-size: 13px;
+      color: #aaa;
+      text-align: right;
+      font-weight: 500;
+    }
+    .h-bar-track {
+      height: 12px;
+      background: #2a2a2a;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+    .h-bar-fill {
+      height: 100%;
+      background: #3b82f6;
+      border-radius: 6px;
+      width: 0%;
+      transition: width 0.55s cubic-bezier(0.4,0,0.2,1);
+    }
+    .h-bar-bg-fill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      background: rgba(59,130,246,0.15);
+      border-radius: 6px;
+      width: 0%;
+      transition: width 0.55s cubic-bezier(0.4,0,0.2,1) 0.15s;
+    }
+    .h-bar-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #3b82f6;
+      font-weight: 500;
+    }
+
+    /* Section label */
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #222;
+    }
+    .overview-text {
+      color: #ccc;
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .espn-block {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+    .espn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #3b82f6;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 11px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .espn-link:hover { opacity: 0.85; }
+    .espn-desc { font-size: 14px; color: #888; max-width: 440px; line-height: 1.65; }
+    .espn-lock {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    @media (max-width: 660px) {
+      .stat-tiles { grid-template-columns: repeat(2, 1fr); }
+      .h-bar-row { grid-template-columns: 90px 1fr 60px; }
+      .header-card { flex-direction: column; }
+      .header-card-right { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="annotation-badge">
+  <span>Option 13</span>
+  <strong>Tabs + Dashboard Stats + Dynamic Chart</strong>
+</div>
+
+<div class="page">
+
+  <!-- Header card -->
+  <div class="header-card">
+    <div class="header-card-left">
+      <div class="model-emoji">🎬</div>
+      <div class="model-info">
+        <div class="model-name">The Scout</div>
+        <div class="model-tagline">Film room intelligence at machine speed.</div>
+      </div>
+    </div>
+    <div class="header-card-right">
+      <span class="header-score-label">Total Score</span>
+      <span class="header-score">720</span>
+      <span class="header-rank">Rank #2 of 5 &nbsp;·&nbsp; 68% accuracy</span>
+    </div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('overview', this)">Overview</button>
+    <button class="tab-btn" onclick="switchTab('bracket', this)">Bracket</button>
+    <button class="tab-btn" onclick="switchTab('methodology', this)">Methodology</button>
+    <button class="tab-btn" onclick="switchTab('espn', this)">ESPN</button>
+  </div>
+
+  <!-- Overview tab -->
+  <div class="tab-panel active" id="tab-overview">
+    <!-- Stat tiles -->
+    <div class="stat-tiles">
+      <div class="stat-tile">
+        <span class="stat-tile-label">Score</span>
+        <span class="stat-tile-value">720</span>
+      </div>
+      <div class="stat-tile">
+        <span class="stat-tile-label">Rank</span>
+        <span class="stat-tile-value neutral">#2</span>
+      </div>
+      <div class="stat-tile">
+        <span class="stat-tile-label">Accuracy</span>
+        <span class="stat-tile-value">68%</span>
+      </div>
+      <div class="stat-tile">
+        <span class="stat-tile-label">Champion Pick</span>
+        <span class="stat-tile-value neutral" style="font-size:20px;">Duke</span>
+      </div>
+    </div>
+
+    <!-- Metric pill selector -->
+    <div class="metric-pills" id="metricPills">
+      <button class="metric-pill active" onclick="selectMetric('byRound', this)">By Round</button>
+      <button class="metric-pill" onclick="selectMetric('upsets', this)">Upsets Correct</button>
+      <button class="metric-pill" onclick="selectMetric('confidence', this)">Confidence Calibration</button>
+      <button class="metric-pill" onclick="selectMetric('seeds', this)">Seed Performance</button>
+    </div>
+
+    <!-- Chart -->
+    <div class="chart-area">
+      <div class="chart-header">
+        <span class="chart-title" id="chartTitle">Points Earned by Round</span>
+        <span class="chart-subtitle" id="chartSubtitle">720 pts total</span>
+      </div>
+      <div class="chart-bars" id="chartBars"></div>
+    </div>
+  </div>
+
+  <!-- Bracket tab -->
+  <div class="tab-panel" id="tab-bracket">
+    <div class="section-label">The Scout's Championship Path</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;display:flex;justify-content:space-between;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#555;text-transform:uppercase;letter-spacing:.8px;">Round of 64</span>
+        <span style="color:#3b82f6;font-weight:600;">Duke <span style="color:#888;font-size:12px;font-weight:400;">#1 East</span></span>
+      </div>
+      <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;display:flex;justify-content:space-between;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#555;text-transform:uppercase;letter-spacing:.8px;">Round of 32</span>
+        <span style="color:#3b82f6;font-weight:600;">Duke <span style="color:#888;font-size:12px;font-weight:400;">vs. 9-seed</span></span>
+      </div>
+      <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;display:flex;justify-content:space-between;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#555;text-transform:uppercase;letter-spacing:.8px;">Sweet 16</span>
+        <span style="color:#3b82f6;font-weight:600;">Duke <span style="color:#888;font-size:12px;font-weight:400;">vs. 4-seed</span></span>
+      </div>
+      <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;display:flex;justify-content:space-between;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#555;text-transform:uppercase;letter-spacing:.8px;">Elite 8</span>
+        <span style="color:#3b82f6;font-weight:600;">Duke <span style="color:#888;font-size:12px;font-weight:400;">vs. 3-seed</span></span>
+      </div>
+      <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;display:flex;justify-content:space-between;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#555;text-transform:uppercase;letter-spacing:.8px;">Final Four</span>
+        <span style="color:#3b82f6;font-weight:600;">Duke <span style="color:#888;font-size:12px;font-weight:400;">vs. 1-seed West</span></span>
+      </div>
+      <div style="background:#1a2235;border:1px solid rgba(59,130,246,0.35);border-radius:8px;padding:12px 16px;display:flex;justify-content:space-between;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3b82f6;text-transform:uppercase;letter-spacing:.8px;">Championship</span>
+        <span style="color:#3b82f6;font-weight:700;font-size:15px;">Duke 🏆 <span style="color:#888;font-size:12px;font-weight:400;">Champion</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Methodology tab -->
+  <div class="tab-panel" id="tab-methodology">
+    <div class="section-label">Methodology</div>
+    <p class="overview-text">The Scout approaches tournament prediction through the lens of a human basketball analyst — it processes structured team data including pace-of-play, defensive efficiency, key player matchup profiles, and recent form into a large language model.</p>
+    <p class="overview-text">The LLM synthesizes this data into film-room quality narrative analysis for every possible first-round matchup, identifying structural advantages that raw statistics obscure: coaching adjustability, lineup rotations, mental toughness signals.</p>
+    <p class="overview-text">After initial analysis, The Scout applies a calibration pass that weights teams that have recently outperformed their preseason metrics — a proxy for tournament readiness — before finalizing picks.</p>
+  </div>
+
+  <!-- ESPN tab -->
+  <div class="tab-panel" id="tab-espn">
+    <div class="espn-block">
+      <div style="font-size:40px;">🏀</div>
+      <div style="font-size:20px;font-weight:700;">View The Scout on ESPN</div>
+      <p class="espn-desc">All picks were submitted to ESPN Tournament Challenge before the tournament began. This serves as immutable proof that no picks were altered retroactively.</p>
+      <a href="#" class="espn-link">Open ESPN Bracket ↗</a>
+      <span class="espn-lock">Locked March 19, 2026 · 11:59 PM CT</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const chartData = {
+    byRound: {
+      title: 'Points Earned by Round',
+      subtitle: '720 pts total',
+      bars: [
+        { label: 'Round of 64', pct: 78, value: '250 / 320 pts', bgPct: 100 },
+        { label: 'Round of 32', pct: 56, value: '180 / 320 pts', bgPct: 100 },
+        { label: 'Sweet 16',    pct: 50, value: '160 / 320 pts', bgPct: 100 },
+        { label: 'Elite 8',     pct: 50, value: '80 / 160 pts',  bgPct: 100 },
+        { label: 'Final Four',  pct: 25, value: '40 / 160 pts',  bgPct: 100 },
+        { label: 'Champ.',      pct: 0,  value: '0 / 320 pts',   bgPct: 100 },
+      ]
+    },
+    upsets: {
+      title: 'Upsets Correctly Called',
+      subtitle: '6 of 14 total',
+      bars: [
+        { label: 'Round of 64', pct: 63, value: '5 / 8', bgPct: 100 },
+        { label: 'Round of 32', pct: 33, value: '1 / 3', bgPct: 100 },
+        { label: 'Sweet 16',    pct: 0,  value: '0 / 2', bgPct: 100 },
+        { label: 'Elite 8',     pct: 0,  value: '0 / 1', bgPct: 100 },
+        { label: 'Final Four',  pct: 0,  value: 'N/A',   bgPct: 0  },
+        { label: 'Champ.',      pct: 0,  value: 'N/A',   bgPct: 0  },
+      ]
+    },
+    confidence: {
+      title: 'Accuracy by Confidence Range',
+      subtitle: 'How well-calibrated?',
+      bars: [
+        { label: '50–60%', pct: 54, value: '54% hit rate', bgPct: 100 },
+        { label: '60–70%', pct: 65, value: '65% hit rate', bgPct: 100 },
+        { label: '70–80%', pct: 74, value: '74% hit rate', bgPct: 100 },
+        { label: '80%+',   pct: 82, value: '82% hit rate', bgPct: 100 },
+      ]
+    },
+    seeds: {
+      title: 'Accuracy by Seed Range',
+      subtitle: 'Pick correctness',
+      bars: [
+        { label: 'Seeds 1–4',   pct: 88, value: '88%', bgPct: 100 },
+        { label: 'Seeds 5–8',   pct: 71, value: '71%', bgPct: 100 },
+        { label: 'Seeds 9–12',  pct: 52, value: '52%', bgPct: 100 },
+        { label: 'Seeds 13–16', pct: 40, value: '40%', bgPct: 100 },
+      ]
+    }
+  };
+
+  function selectMetric(key, btn) {
+    document.querySelectorAll('.metric-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    renderChart(key);
+  }
+
+  function renderChart(key) {
+    const d = chartData[key];
+    document.getElementById('chartTitle').textContent = d.title;
+    document.getElementById('chartSubtitle').textContent = d.subtitle;
+    const container = document.getElementById('chartBars');
+    container.innerHTML = d.bars.map(b => `
+      <div class="h-bar-row">
+        <span class="h-bar-label">${b.label}</span>
+        <div class="h-bar-track">
+          <div class="h-bar-bg-fill" data-pct="${b.bgPct}" style="width:0%"></div>
+          <div class="h-bar-fill" data-pct="${b.pct}" style="width:0%"></div>
+        </div>
+        <span class="h-bar-value">${b.value}</span>
+      </div>`).join('');
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        container.querySelectorAll('.h-bar-fill').forEach(el => el.style.width = el.dataset.pct + '%');
+        container.querySelectorAll('.h-bar-bg-fill').forEach(el => el.style.width = el.dataset.pct + '%');
+      });
+    });
+  }
+
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+    if (id === 'overview') setTimeout(() => renderChart('byRound'), 50);
+  }
+
+  renderChart('byRound');
+</script>
+</body>
+</html>

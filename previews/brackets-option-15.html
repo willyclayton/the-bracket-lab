@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brackets Option 15 — Dual View: Pill Grid + Full Bracket</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; color: #efefef; font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
+
+    .annotation-badge {
+      position: fixed; top: 16px; left: 16px; z-index: 100;
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888;
+      text-transform: uppercase; letter-spacing: 1px;
+      background: #1e1e1e; border: 1px solid #333; border-radius: 4px;
+      padding: 6px 10px; line-height: 1.4;
+    }
+    .annotation-badge strong { color: #efefef; display: block; font-size: 11px; }
+
+    .page-wrap { padding: 56px 24px 60px; }
+
+    /* Top bar: toggle + title + model tabs all in one row area */
+    .top-controls { max-width: 1280px; margin: 0 auto 20px; }
+
+    .controls-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+
+    .page-title { font-family: 'Instrument Serif', serif; font-size: 28px; }
+
+    /* Toggle */
+    .view-toggle {
+      display: flex; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 7px;
+      overflow: hidden; position: relative; flex-shrink: 0;
+    }
+    .vt-option {
+      padding: 8px 16px; font-size: 12px; font-weight: 700; color: #888; cursor: pointer;
+      position: relative; z-index: 1; transition: color 0.2s; white-space: nowrap;
+      font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.5px;
+      user-select: none;
+    }
+    .vt-option.active { color: #141414; }
+    .vt-slider {
+      position: absolute; top: 0; left: 0; height: 100%;
+      background: #efefef; border-radius: 6px;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), width 0.25s;
+      z-index: 0;
+    }
+
+    .view-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-left: auto; }
+    .legend-item { display: flex; align-items: center; gap: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #666; }
+    .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Model Tabs */
+    .model-tabs { display: flex; border-bottom: 1px solid #2a2a2a; overflow-x: auto; }
+    .model-tabs::-webkit-scrollbar { display: none; }
+    .model-tab {
+      padding: 10px 18px; cursor: pointer; font-size: 13px; font-weight: 600;
+      color: #666; border-bottom: 3px solid transparent; transition: all 0.2s;
+      white-space: nowrap; background: none; border-top: none; border-left: none; border-right: none;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .model-tab:hover { color: #aaa; }
+    .model-tab.active { color: #efefef; }
+    .tab-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right: 7px; vertical-align: middle; }
+
+    /* ============ COMPACT VIEW (Pill Grid) ============ */
+    #compact-view { max-width: 1280px; margin: 0 auto; padding-top: 28px; }
+
+    .pill-section { margin-bottom: 32px; }
+    .pill-section-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+    }
+    .psh-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1.5px; }
+    .psh-pts { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 8px; }
+    .psh-line { flex: 1; height: 1px; background: #1e1e1e; }
+    .psh-count { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #444; }
+
+    .pill-grid { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 10px; border-radius: 16px; border: 1.5px solid;
+      font-size: 11px; font-weight: 600; cursor: default;
+      font-family: 'Space Grotesk', sans-serif; transition: all 0.15s;
+      position: relative;
+    }
+    .pill:hover { transform: translateY(-1px); box-shadow: 0 3px 12px rgba(0,0,0,0.4); }
+    .pill.correct {
+      border-color: rgba(34,197,94,0.5); background: rgba(34,197,94,0.08); color: #efefef;
+    }
+    .pill.wrong {
+      border-color: rgba(239,68,68,0.4); background: rgba(239,68,68,0.07); color: #888;
+    }
+    .pill.pending {
+      border-color: #2a2a2a; background: #1a1a1a; color: #888;
+    }
+    .pill.upset-pick { }
+    .pill-seed { font-family: 'IBM Plex Mono', monospace; font-size: 9px; opacity: 0.7; flex-shrink: 0; }
+    .pill-name { white-space: nowrap; }
+    .pill-indicator { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    .pill.correct .pill-indicator { background: #22c55e; }
+    .pill.wrong .pill-indicator { background: #ef4444; }
+    .pill.pending .pill-indicator { background: #2a2a2a; border: 1px solid #333; }
+    .pill-conf { font-family: 'IBM Plex Mono', monospace; font-size: 9px; opacity: 0.6; }
+
+    /* Pill upset marker */
+    .upset-flag {
+      position: absolute; top: -6px; right: -2px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 7px; color: #ef4444;
+      background: #141414; padding: 0 3px; border-radius: 3px; letter-spacing: 0.5px;
+      border: 1px solid rgba(239,68,68,0.3);
+    }
+
+    /* Summary row above pill grid */
+    .compact-summary {
+      display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap;
+      padding: 14px 18px; background: #181818; border-radius: 8px; border: 1px solid #222;
+    }
+    .cs-stat { display: flex; flex-direction: column; gap: 1px; }
+    .cs-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 1px; }
+    .cs-value { font-size: 16px; font-weight: 700; }
+
+    /* ============ BRACKET VIEW ============ */
+    #bracket-view { display: none; max-width: 1280px; margin: 0 auto; padding-top: 24px; }
+
+    .bracket-scroll { overflow-x: auto; padding-bottom: 16px; }
+    .bracket-scroll::-webkit-scrollbar { height: 6px; }
+    .bracket-scroll::-webkit-scrollbar-track { background: #1e1e1e; border-radius: 3px; }
+    .bracket-scroll::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+
+    .bracket-layout {
+      display: flex; align-items: flex-start; min-width: 1080px; gap: 0;
+    }
+
+    .bracket-half { display: flex; flex-direction: column; gap: 16px; flex: 1; }
+
+    .region-section { padding: 12px; }
+    .region-title {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #444;
+      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; text-align: center;
+    }
+    .region-rounds { display: flex; align-items: center; }
+    .region-rounds.flip { flex-direction: row-reverse; }
+
+    .bv-round-block { display: flex; flex-direction: column; }
+    .bv-rlabel {
+      font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: #333;
+      text-transform: uppercase; letter-spacing: 1px; text-align: center;
+      padding-bottom: 5px; margin-bottom: 4px; border-bottom: 1px solid #1e1e1e;
+    }
+
+    .bv-matchup {
+      background: #191919; border: 1px solid #222; border-radius: 4px;
+      overflow: hidden; width: 100px; margin: 2px 0;
+    }
+    .bv-team {
+      display: flex; align-items: center; gap: 4px;
+      padding: 4px 6px; font-size: 10px; border-bottom: 1px solid #1e1e1e;
+    }
+    .bv-team:last-child { border-bottom: none; }
+    .bv-team.winner { background: rgba(255,255,255,0.04); }
+    .bv-team.winner .bv-name { font-weight: 600; color: #efefef; }
+    .bv-seed { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: #444; width: 12px; flex-shrink: 0; text-align: right; }
+    .bv-name { font-size: 9px; color: #777; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bv-wdot { width: 3px; height: 3px; border-radius: 50%; flex-shrink: 0; }
+
+    /* FF center */
+    .bv-ff-center {
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      padding: 16px 14px; flex-shrink: 0; min-width: 170px; padding-top: 30px;
+    }
+    .bv-ff-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #444; text-transform: uppercase; letter-spacing: 1.5px; text-align: center; }
+    .bv-ff-matchup {
+      background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 6px;
+      overflow: hidden; width: 148px;
+    }
+    .bv-ff-rlabel { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: #444; text-transform: uppercase; padding: 5px 8px; border-bottom: 1px solid #1e1e1e; text-align: center; letter-spacing: 1px; }
+    .bv-ff-team {
+      display: flex; align-items: center; gap: 6px; padding: 6px 8px; font-size: 11px; border-bottom: 1px solid #1e1e1e;
+    }
+    .bv-ff-team:last-of-type { border-bottom: none; }
+    .bv-ff-team.winner .bv-ff-name { font-weight: 600; color: #efefef; }
+    .bv-ff-seed { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555; width: 14px; text-align: right; }
+    .bv-ff-name { flex: 1; color: #888; font-size: 11px; }
+    .bv-ff-dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; }
+
+    .champion-box {
+      background: #1e1e1e; border: 1px solid; border-radius: 8px;
+      padding: 14px 16px; text-align: center; width: 148px;
+    }
+    .champ-lbl { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #666; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+    .champ-nm { font-family: 'Instrument Serif', serif; font-size: 18px; line-height: 1.2; }
+    .champ-mt { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555; margin-top: 3px; }
+
+    @media (max-width: 768px) {
+      .page-wrap { padding: 56px 12px 48px; }
+      .controls-row { gap: 12px; }
+      .view-legend { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="annotation-badge">
+  <strong>Option 15</strong>
+  Dual View: Pill Grid + Full Bracket
+</div>
+
+<div class="page-wrap">
+  <div class="top-controls">
+
+    <div class="controls-row">
+      <div class="page-title">2026 Brackets</div>
+
+      <div class="view-toggle" id="viewToggle">
+        <div class="vt-slider" id="vtSlider"></div>
+        <div class="vt-option active" id="vt-compact" onclick="switchView('compact')">Compact</div>
+        <div class="vt-option" id="vt-bracket" onclick="switchView('bracket')">Full Bracket</div>
+      </div>
+
+      <div class="view-legend" id="viewLegend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#22c55e"></div>
+          <span>Correct pick</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#ef4444"></div>
+          <span>Wrong pick</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#2a2a2a;border:1px solid #444"></div>
+          <span>Not played</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Model Tabs -->
+    <div class="model-tabs" id="modelTabs">
+      <button class="model-tab active" onclick="switchModel('scout',this,'#3b82f6')">
+        <span class="tab-dot" style="background:#3b82f6"></span>The Scout
+      </button>
+      <button class="model-tab" onclick="switchModel('quant',this,'#22c55e')">
+        <span class="tab-dot" style="background:#22c55e"></span>The Quant
+      </button>
+      <button class="model-tab" onclick="switchModel('historian',this,'#f59e0b')">
+        <span class="tab-dot" style="background:#f59e0b"></span>The Historian
+      </button>
+      <button class="model-tab" onclick="switchModel('chaos',this,'#ef4444')">
+        <span class="tab-dot" style="background:#ef4444"></span>Chaos Agent
+      </button>
+      <button class="model-tab" onclick="switchModel('agent',this,'#00ff88')">
+        <span class="tab-dot" style="background:#00ff88"></span>The Agent
+      </button>
+    </div>
+  </div>
+
+  <!-- COMPACT VIEW -->
+  <div id="compact-view">
+    <div id="compactContent"></div>
+  </div>
+
+  <!-- BRACKET VIEW -->
+  <div id="bracket-view">
+    <div class="bracket-scroll">
+      <div class="bracket-layout" id="bracketLayout"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PILL_DATA = {
+  scout: {
+    color: '#3b82f6', champion: 'Duke', score: 640, accuracy: 61, upsets: 7,
+    rounds: [
+      { label: 'Round of 64', pts: 10, picks: [
+        {seed:1, name:'Duke', conf:97, result:'correct', upset:false},
+        {seed:8, name:'Michigan St', conf:55, result:'correct', upset:false},
+        {seed:5, name:'Gonzaga', conf:72, result:'correct', upset:false},
+        {seed:4, name:'Kansas', conf:81, result:'wrong', upset:false},
+        {seed:11, name:'VCU', conf:58, result:'correct', upset:true},
+        {seed:3, name:'Purdue', conf:88, result:'correct', upset:false},
+        {seed:7, name:'Florida', conf:62, result:'wrong', upset:false},
+        {seed:2, name:'UConn', conf:95, result:'correct', upset:false},
+        {seed:1, name:'Houston', conf:98, result:'correct', upset:false},
+        {seed:8, name:'Texas Tech', conf:54, result:'wrong', upset:false},
+        {seed:5, name:'Baylor', conf:76, result:'correct', upset:false},
+        {seed:4, name:'Tennessee', conf:85, result:'correct', upset:false},
+        {seed:6, name:'Creighton', conf:64, result:'correct', upset:false},
+        {seed:3, name:'Marquette', conf:87, result:'correct', upset:false},
+        {seed:10, name:'San Diego St', conf:57, result:'correct', upset:true},
+        {seed:2, name:'Auburn', conf:96, result:'correct', upset:false},
+        {seed:1, name:'Kentucky', conf:95, result:'correct', upset:false},
+        {seed:8, name:'Florida', conf:57, result:'correct', upset:false},
+        {seed:5, name:'Michigan', conf:69, result:'wrong', upset:false},
+        {seed:4, name:'Arizona', conf:80, result:'correct', upset:false},
+        {seed:11, name:'New Mexico', conf:60, result:'wrong', upset:true},
+        {seed:3, name:'Baylor', conf:85, result:'correct', upset:false},
+        {seed:7, name:'Missouri', conf:60, result:'correct', upset:false},
+        {seed:2, name:'Purdue', conf:92, result:'correct', upset:false},
+        {seed:1, name:'UConn', conf:96, result:'correct', upset:false},
+        {seed:8, name:'Iowa St', conf:56, result:'correct', upset:false},
+        {seed:5, name:'Marquette', conf:74, result:'correct', upset:false},
+        {seed:4, name:'Missouri', conf:78, result:'correct', upset:false},
+        {seed:11, name:'VCU', conf:56, result:'correct', upset:true},
+        {seed:3, name:'Creighton', conf:82, result:'correct', upset:false},
+        {seed:7, name:'Washington', conf:60, result:'wrong', upset:false},
+        {seed:2, name:'Alabama', conf:94, result:'correct', upset:false},
+      ]},
+      { label: 'Round of 32', pts: 20, picks: [
+        {seed:1, name:'Duke', conf:71, result:'correct', upset:false},
+        {seed:3, name:'Purdue', conf:61, result:'correct', upset:false},
+        {seed:4, name:'Kansas', conf:53, result:'wrong', upset:false},
+        {seed:2, name:'UConn', conf:74, result:'correct', upset:false},
+        {seed:1, name:'Houston', conf:78, result:'correct', upset:false},
+        {seed:4, name:'Tennessee', conf:55, result:'wrong', upset:false},
+        {seed:3, name:'Marquette', conf:62, result:'correct', upset:false},
+        {seed:2, name:'Auburn', conf:66, result:'correct', upset:true},
+        {seed:1, name:'Kentucky', conf:72, result:'correct', upset:false},
+        {seed:4, name:'Arizona', conf:59, result:'correct', upset:false},
+        {seed:3, name:'Baylor', conf:65, result:'correct', upset:false},
+        {seed:2, name:'Purdue', conf:72, result:'correct', upset:false},
+        {seed:1, name:'UConn', conf:68, result:'correct', upset:false},
+        {seed:5, name:'Marquette', conf:62, result:'correct', upset:false},
+        {seed:3, name:'Creighton', conf:64, result:'correct', upset:false},
+        {seed:2, name:'Alabama', conf:74, result:'correct', upset:false},
+      ]},
+      { label: 'Sweet 16', pts: 40, picks: [
+        {seed:1, name:'Duke', conf:67, result:'correct', upset:false},
+        {seed:2, name:'UConn', conf:58, result:'correct', upset:false},
+        {seed:1, name:'Houston', conf:69, result:'wrong', upset:false},
+        {seed:2, name:'Auburn', conf:57, result:'correct', upset:false},
+        {seed:1, name:'Kentucky', conf:64, result:'correct', upset:false},
+        {seed:2, name:'Purdue', conf:60, result:'correct', upset:false},
+        {seed:1, name:'UConn', conf:65, result:'correct', upset:false},
+        {seed:2, name:'Alabama', conf:58, result:'correct', upset:false},
+      ]},
+      { label: 'Elite 8', pts: 80, picks: [
+        {seed:1, name:'Duke', conf:61, result:'pending', upset:false},
+        {seed:1, name:'Houston', conf:63, result:'pending', upset:false},
+        {seed:1, name:'Kentucky', conf:58, result:'pending', upset:false},
+        {seed:1, name:'UConn', conf:60, result:'pending', upset:false},
+      ]},
+      { label: 'Final Four', pts: 160, picks: [
+        {seed:1, name:'Duke', conf:62, result:'pending', upset:false},
+        {seed:1, name:'UConn', conf:58, result:'pending', upset:false},
+      ]},
+      { label: 'Championship', pts: 320, picks: [
+        {seed:1, name:'Duke', conf:55, result:'pending', upset:false},
+      ]},
+    ]
+  }
+};
+
+// Slight variations per model
+function variantModel(color, champ, score, accuracy, upsets, resultTweaks) {
+  const m = JSON.parse(JSON.stringify(PILL_DATA.scout));
+  m.color = color; m.champion = champ; m.score = score; m.accuracy = accuracy; m.upsets = upsets;
+  if (resultTweaks) resultTweaks(m);
+  return m;
+}
+
+PILL_DATA.quant = variantModel('#22c55e', 'Houston', 720, 66, 5, m => {
+  m.rounds[0].picks[3].result = 'correct';
+  m.rounds[0].picks[6].result = 'correct';
+  m.rounds[2].picks[2].result = 'correct';
+});
+PILL_DATA.historian = variantModel('#f59e0b', 'UConn', 580, 58, 6, m => {
+  m.rounds[0].picks[7].result = 'wrong';
+  m.rounds[1].picks[5].result = 'correct';
+});
+PILL_DATA.chaos = variantModel('#ef4444', 'Iowa St', 490, 51, 11, m => {
+  m.rounds[0].picks[0].result = 'wrong';
+  m.rounds[0].picks[7].result = 'wrong';
+  m.rounds[1].picks[0].result = 'wrong';
+  m.rounds[1].picks[3].result = 'wrong';
+  m.rounds[2].picks[0].result = 'wrong';
+  // More upsets called
+  m.rounds[0].picks[3].upset = true;
+  m.rounds[0].picks[9].upset = true;
+  m.rounds[0].picks[18].upset = true;
+  m.rounds[0].picks[24].upset = true;
+});
+PILL_DATA.agent = variantModel('#00ff88', 'Gonzaga', 610, 59, 8, m => {
+  m.rounds[0].picks[1].result = 'wrong';
+  m.rounds[2].picks[1].result = 'wrong';
+});
+
+// Bracket data (simplified)
+const BV_DATA = {
+  east: {
+    r64: [
+      [{s:1,n:'Duke'},{s:16,n:'Hampton'},[0]],
+      [{s:8,n:'Mich St'},{s:9,n:'Memphis'},[0]],
+      [{s:5,n:'Gonzaga'},{s:12,n:'McNeese'},[0]],
+      [{s:4,n:'Kansas'},{s:13,n:'Colgate'},[0]],
+      [{s:6,n:'Illinois'},{s:11,n:'VCU'},[1]],
+      [{s:3,n:'Purdue'},{s:14,n:'Longwood'},[0]],
+      [{s:7,n:'Florida'},{s:10,n:'Colorado'},[0]],
+      [{s:2,n:'UConn'},{s:15,n:'Stetson'},[0]],
+    ],
+    r32: [[{s:1,n:'Duke'},{s:8,n:'Mich St'},[0]],[{s:5,n:'Gonzaga'},{s:4,n:'Kansas'},[1]],[{s:11,n:'VCU'},{s:3,n:'Purdue'},[1]],[{s:7,n:'Florida'},{s:2,n:'UConn'},[1]]],
+    s16: [[{s:1,n:'Duke'},{s:4,n:'Kansas'},[0]],[{s:3,n:'Purdue'},{s:2,n:'UConn'},[1]]],
+    e8: [[{s:1,n:'Duke'},{s:2,n:'UConn'},[0]]],
+  },
+  west: {
+    r64: [
+      [{s:1,n:'Houston'},{s:16,n:'N. KY'},[0]],
+      [{s:8,n:'Texas Tech'},{s:9,n:'Nevada'},[0]],
+      [{s:5,n:'Baylor'},{s:12,n:'UAB'},[0]],
+      [{s:4,n:'Tennessee'},{s:13,n:'LA Tech'},[0]],
+      [{s:6,n:'Creighton'},{s:11,n:'Drake'},[0]],
+      [{s:3,n:'Marquette'},{s:14,n:'Vermont'},[0]],
+      [{s:7,n:'Michigan'},{s:10,n:'S Diego St'},[1]],
+      [{s:2,n:'Auburn'},{s:15,n:'Morehead'},[0]],
+    ],
+    r32: [[{s:1,n:'Houston'},{s:8,n:'Texas Tech'},[0]],[{s:5,n:'Baylor'},{s:4,n:'Tennessee'},[1]],[{s:6,n:'Creighton'},{s:3,n:'Marquette'},[1]],[{s:10,n:'S Diego St'},{s:2,n:'Auburn'},[1]]],
+    s16: [[{s:1,n:'Houston'},{s:4,n:'Tennessee'},[0]],[{s:3,n:'Marquette'},{s:2,n:'Auburn'},[1]]],
+    e8: [[{s:1,n:'Houston'},{s:2,n:'Auburn'},[0]]],
+  },
+  south: {
+    r64: [
+      [{s:1,n:'Kentucky'},{s:16,n:'Mt St Mary'},[0]],
+      [{s:8,n:'Florida'},{s:9,n:'N\'western'},[0]],
+      [{s:5,n:'Michigan'},{s:12,n:'Jas Madison'},[0]],
+      [{s:4,n:'Arizona'},{s:13,n:'Furman'},[0]],
+      [{s:6,n:'Clemson'},{s:11,n:'New Mexico'},[1]],
+      [{s:3,n:'Baylor'},{s:14,n:'Samford'},[0]],
+      [{s:7,n:'Missouri'},{s:10,n:'Utah St'},[0]],
+      [{s:2,n:'Purdue'},{s:15,n:'F. Dick.'},[0]],
+    ],
+    r32: [[{s:1,n:'Kentucky'},{s:8,n:'Florida'},[0]],[{s:5,n:'Michigan'},{s:4,n:'Arizona'},[1]],[{s:11,n:'New Mexico'},{s:3,n:'Baylor'},[1]],[{s:7,n:'Missouri'},{s:2,n:'Purdue'},[1]]],
+    s16: [[{s:1,n:'Kentucky'},{s:4,n:'Arizona'},[0]],[{s:3,n:'Baylor'},{s:2,n:'Purdue'},[1]]],
+    e8: [[{s:1,n:'Kentucky'},{s:2,n:'Purdue'},[0]]],
+  },
+  midwest: {
+    r64: [
+      [{s:1,n:'UConn'},{s:16,n:'Wagner'},[0]],
+      [{s:8,n:'Iowa St'},{s:9,n:'Dayton'},[0]],
+      [{s:5,n:'Marquette'},{s:12,n:'Vermont'},[0]],
+      [{s:4,n:'Missouri'},{s:13,n:'Winthrop'},[0]],
+      [{s:6,n:'Wisconsin'},{s:11,n:'VCU'},[1]],
+      [{s:3,n:'Creighton'},{s:14,n:'Akron'},[0]],
+      [{s:7,n:'Washington'},{s:10,n:'Drake'},[0]],
+      [{s:2,n:'Alabama'},{s:15,n:'Longwood'},[0]],
+    ],
+    r32: [[{s:1,n:'UConn'},{s:8,n:'Iowa St'},[0]],[{s:5,n:'Marquette'},{s:4,n:'Missouri'},[0]],[{s:11,n:'VCU'},{s:3,n:'Creighton'},[1]],[{s:7,n:'Washington'},{s:2,n:'Alabama'},[1]]],
+    s16: [[{s:1,n:'UConn'},{s:5,n:'Marquette'},[0]],[{s:3,n:'Creighton'},{s:2,n:'Alabama'},[1]]],
+    e8: [[{s:1,n:'UConn'},{s:2,n:'Alabama'},[0]]],
+  },
+  ff: {
+    s1: [{s:1,n:'Duke'},{s:1,n:'Houston'},[0]],
+    s2: [{s:1,n:'Kentucky'},{s:1,n:'UConn'},[1]],
+    final: [{s:1,n:'Duke'},{s:1,n:'UConn'},[0]],
+  }
+};
+
+let currentModel = 'scout';
+let currentView = 'compact';
+
+function switchModel(model, el, color) {
+  currentModel = model;
+  document.querySelectorAll('.model-tab').forEach(t => { t.classList.remove('active'); t.style.borderBottomColor='transparent'; t.style.color='#666'; });
+  el.classList.add('active');
+  el.style.borderBottomColor = color;
+  el.style.color = '#efefef';
+  if (currentView === 'compact') renderCompact();
+  else renderBracket();
+}
+
+function switchView(view) {
+  currentView = view;
+  const compact = document.getElementById('compact-view');
+  const bracket = document.getElementById('bracket-view');
+  const vtC = document.getElementById('vt-compact');
+  const vtB = document.getElementById('vt-bracket');
+  const slider = document.getElementById('vtSlider');
+  const legend = document.getElementById('viewLegend');
+
+  if (view === 'compact') {
+    compact.style.display = '';
+    bracket.style.display = 'none';
+    vtC.classList.add('active');
+    vtB.classList.remove('active');
+    slider.style.transform = 'translateX(0)';
+    slider.style.width = vtC.offsetWidth + 'px';
+    legend.style.display = '';
+    renderCompact();
+  } else {
+    compact.style.display = 'none';
+    bracket.style.display = '';
+    vtC.classList.remove('active');
+    vtB.classList.add('active');
+    slider.style.width = vtB.offsetWidth + 'px';
+    slider.style.transform = 'translateX(' + vtC.offsetWidth + 'px)';
+    legend.style.display = 'none';
+    renderBracket();
+  }
+}
+
+function renderCompact() {
+  const m = PILL_DATA[currentModel];
+  const color = m.color;
+  const rgb = hexToRgb(color);
+
+  const totalPicks = m.rounds.reduce((a, r) => a + r.picks.length, 0);
+  const correctPicks = m.rounds.reduce((a, r) => a + r.picks.filter(p => p.result === 'correct').length, 0);
+  const pendingPicks = m.rounds.reduce((a, r) => a + r.picks.filter(p => p.result === 'pending').length, 0);
+  const wrongPicks = m.rounds.reduce((a, r) => a + r.picks.filter(p => p.result === 'wrong').length, 0);
+
+  let html = `
+    <div class="compact-summary">
+      <div class="cs-stat">
+        <span class="cs-label">Champion</span>
+        <span class="cs-value" style="color:${color}">${m.champion}</span>
+      </div>
+      <div class="cs-stat">
+        <span class="cs-label">Score</span>
+        <span class="cs-value" style="color:${color}">${m.score}</span>
+      </div>
+      <div class="cs-stat">
+        <span class="cs-label">Correct</span>
+        <span class="cs-value" style="color:#22c55e">${correctPicks}</span>
+      </div>
+      <div class="cs-stat">
+        <span class="cs-label">Wrong</span>
+        <span class="cs-value" style="color:#ef4444">${wrongPicks}</span>
+      </div>
+      <div class="cs-stat">
+        <span class="cs-label">Pending</span>
+        <span class="cs-value" style="color:#555">${pendingPicks}</span>
+      </div>
+      <div class="cs-stat">
+        <span class="cs-label">Upsets Called</span>
+        <span class="cs-value" style="color:#ef4444">${m.upsets}</span>
+      </div>
+    </div>
+  `;
+
+  m.rounds.forEach(round => {
+    const ptsBg = `rgba(${rgb},0.12)`;
+    html += `
+      <div class="pill-section">
+        <div class="pill-section-header">
+          <span class="psh-label">${round.label}</span>
+          <span class="psh-pts" style="background:${ptsBg};color:${color}">${round.pts} pts</span>
+          <div class="psh-line"></div>
+          <span class="psh-count">${round.picks.length} picks</span>
+        </div>
+        <div class="pill-grid">
+    `;
+
+    round.picks.forEach(pick => {
+      const borderColor = pick.result === 'correct' ? 'rgba(34,197,94,0.5)'
+        : pick.result === 'wrong' ? 'rgba(239,68,68,0.4)'
+        : '#2a2a2a';
+      const bgColor = pick.result === 'correct' ? 'rgba(34,197,94,0.08)'
+        : pick.result === 'wrong' ? 'rgba(239,68,68,0.07)'
+        : '#1a1a1a';
+
+      html += `
+        <div class="pill ${pick.result}" style="border-color:${borderColor};background:${bgColor}" title="${pick.name} — ${pick.conf}% confidence">
+          ${pick.upset ? '<span class="upset-flag">UPSET</span>' : ''}
+          <span class="pill-seed">${pick.seed}</span>
+          <span class="pill-name">${pick.name}</span>
+          <span class="pill-indicator"></span>
+        </div>
+      `;
+    });
+
+    html += '</div></div>';
+  });
+
+  document.getElementById('compactContent').innerHTML = html;
+}
+
+function buildBvMatchup(matchup, color) {
+  const [t1, t2, [w]] = matchup;
+  return `
+    <div class="bv-matchup">
+      <div class="bv-team ${w===0?'winner':''}">
+        <span class="bv-seed">${t1.s}</span>
+        <span class="bv-name">${t1.n}</span>
+        ${w===0?`<span class="bv-wdot" style="background:${color}"></span>`:''}
+      </div>
+      <div class="bv-team ${w===1?'winner':''}">
+        <span class="bv-seed">${t2.s}</span>
+        <span class="bv-name">${t2.n}</span>
+        ${w===1?`<span class="bv-wdot" style="background:${color}"></span>`:''}
+      </div>
+    </div>
+  `;
+}
+
+function buildRegionHtml(region, flip, color) {
+  const rLabels = ['R64','R32','S16','E8'];
+  const rounds = [region.r64, region.r32, region.s16, region.e8];
+  const roundsHtml = rounds.map((round, i) => `
+    <div class="bv-round-block" style="margin:0 4px">
+      <div class="bv-rlabel">${rLabels[i]}</div>
+      ${round.map(m => buildBvMatchup(m, color)).join('')}
+    </div>
+  `).join('');
+
+  return `<div class="region-rounds ${flip?'flip':''}">
+    ${flip ? roundsHtml.split('').reverse().join('') : roundsHtml}
+  </div>`;
+}
+
+function renderBracket() {
+  const m = PILL_DATA[currentModel];
+  const color = m.color;
+  const bv = BV_DATA;
+
+  function bvRegion(key, flip) {
+    const region = bv[key];
+    const names = {east:'East',west:'West',south:'South',midwest:'Midwest'};
+    const rLabels = ['R64','R32','S16','E8'];
+    const rounds = [region.r64, region.r32, region.s16, region.e8];
+    const orderedRounds = flip ? [...rounds].reverse() : rounds;
+    const orderedLabels = flip ? [...rLabels].reverse() : rLabels;
+
+    return `
+      <div class="region-section">
+        <div class="region-title">${names[key]}</div>
+        <div class="region-rounds ${flip?'flip':''}">
+          ${orderedRounds.map((round, i) => `
+            <div class="bv-round-block" style="margin:0 3px">
+              <div class="bv-rlabel">${orderedLabels[i]}</div>
+              ${round.map(mu => buildBvMatchup(mu, color)).join('')}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  const ff = bv.ff;
+  function ffMatchup(data, label) {
+    const [t1, t2, [w]] = data;
+    return `
+      <div class="bv-ff-matchup">
+        <div class="bv-ff-rlabel">${label}</div>
+        <div class="bv-ff-team ${w===0?'winner':''}">
+          <span class="bv-ff-seed">${t1.s}</span>
+          <span class="bv-ff-name">${t1.n}</span>
+          ${w===0?`<span class="bv-ff-dot" style="background:${color}"></span>`:''}
+        </div>
+        <div class="bv-ff-team ${w===1?'winner':''}">
+          <span class="bv-ff-seed">${t2.s}</span>
+          <span class="bv-ff-name">${t2.n}</span>
+          ${w===1?`<span class="bv-ff-dot" style="background:${color}"></span>`:''}
+        </div>
+      </div>
+    `;
+  }
+
+  const html = `
+    <div class="bracket-half">
+      ${bvRegion('east', false)}
+      ${bvRegion('west', false)}
+    </div>
+    <div class="bv-ff-center">
+      <div class="bv-ff-label">Final Four</div>
+      ${ffMatchup(ff.s1, 'Semifinal 1')}
+      ${ffMatchup(ff.s2, 'Semifinal 2')}
+      ${ffMatchup(ff.final, 'Championship')}
+      <div class="champion-box" style="border-color:${color}">
+        <div class="champ-lbl">Champion</div>
+        <div class="champ-nm" style="color:${color}">${m.champion}</div>
+        <div class="champ-mt">#1 Seed</div>
+      </div>
+    </div>
+    <div class="bracket-half">
+      ${bvRegion('south', true)}
+      ${bvRegion('midwest', true)}
+    </div>
+  `;
+
+  document.getElementById('bracketLayout').innerHTML = html;
+}
+
+function hexToRgb(hex) {
+  if (hex === '#00ff88') return '0,255,136';
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `${r},${g},${b}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const firstTab = document.querySelector('.model-tab.active');
+  if (firstTab) { firstTab.style.borderBottomColor = PILL_DATA.scout.color; firstTab.style.color = '#efefef'; }
+
+  // Init slider
+  const vtC = document.getElementById('vt-compact');
+  const slider = document.getElementById('vtSlider');
+  slider.style.width = vtC.offsetWidth + 'px';
+
+  renderCompact();
+});
+</script>
+</body>
+</html>

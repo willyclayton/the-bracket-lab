@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brackets Option 19 — Minimal Chrome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; color: #efefef; font-family: 'Space Grotesk', sans-serif; min-height: 100vh; overflow-x: hidden; }
+
+    .annotation-badge {
+      position: fixed; top: 16px; left: 16px; z-index: 200;
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888;
+      text-transform: uppercase; letter-spacing: 1px;
+      background: #1e1e1e; border: 1px solid #333; border-radius: 4px;
+      padding: 6px 10px; line-height: 1.4;
+    }
+    .annotation-badge strong { color: #efefef; display: block; font-size: 11px; }
+
+    .page-wrap { max-width: 800px; margin: 0 auto; padding: 60px 24px 60px; }
+    .page-header { margin-bottom: 32px; }
+    .page-header h1 { font-family: 'Instrument Serif', serif; font-size: 36px; margin-bottom: 6px; }
+    .page-header p { color: #888; font-size: 14px; }
+
+    /* Minimal Model Tabs — small dots + name */
+    .model-tabs {
+      display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .model-tab {
+      display: flex; align-items: center; gap: 6px; cursor: pointer;
+      font-size: 12px; color: #666; background: none; border: none;
+      font-family: 'Space Grotesk', sans-serif; transition: color 0.2s;
+      padding: 4px 0;
+    }
+    .model-tab:hover { color: #aaa; }
+    .model-tab.active { color: #efefef; }
+    .tab-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Switch link */
+    .switch-link {
+      display: inline-block; margin-bottom: 20px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+      color: #888; cursor: pointer; background: none; border: none;
+      transition: color 0.2s; text-decoration: none;
+    }
+    .switch-link:hover { color: #efefef; }
+
+    /* Region text links */
+    .region-links {
+      display: flex; gap: 16px; margin-bottom: 28px; font-size: 13px;
+    }
+    .region-link {
+      color: #666; cursor: pointer; background: none; border: none;
+      font-family: 'Space Grotesk', sans-serif; font-size: 13px;
+      padding: 0 0 2px; border-bottom: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .region-link:hover { color: #bbb; }
+    .region-link.active { color: #efefef; border-bottom-color: #efefef; }
+    .region-sep { color: #333; user-select: none; }
+
+    /* Card View */
+    .card-view { }
+
+    .round-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #555;
+      text-transform: uppercase; letter-spacing: 1.5px; margin: 28px 0 14px;
+    }
+    .round-label:first-child { margin-top: 0; }
+
+    .matchup-card {
+      background: #1e1e1e; border: 1px solid #252525; border-radius: 10px;
+      margin-bottom: 12px; overflow: hidden; cursor: pointer; transition: all 0.2s;
+      padding: 0;
+    }
+    .matchup-card:hover { border-color: #333; }
+    .matchup-card.open { border-color: #404040; }
+    .matchup-card.wrong { border-color: rgba(239,68,68,0.2); }
+    .matchup-card.cascade { opacity: 0.5; }
+
+    .mc-inner { padding: 14px 18px; display: flex; align-items: center; gap: 16px; }
+    .mc-teams-col { flex: 1; }
+    .mc-team {
+      display: flex; align-items: center; gap: 10px; padding: 4px 0; font-size: 14px;
+    }
+    .mc-team.winner .mc-name { font-weight: 600; color: #efefef; }
+    .mc-seed {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #666;
+      width: 18px; text-align: right; flex-shrink: 0;
+    }
+    .mc-name { color: #999; }
+    .mc-name.wrong-pick { color: #ef4444; text-decoration: line-through; }
+    .mc-name.cascade-pick { color: #555; text-decoration: line-through; }
+    .mc-check { color: var(--mc); font-size: 12px; margin-left: 4px; }
+
+    .mc-meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .mc-conf {
+      font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600;
+      color: var(--mc);
+    }
+    .badge-wrong {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #ef4444;
+      background: rgba(239,68,68,0.08); padding: 2px 6px; border-radius: 3px;
+    }
+    .badge-elim {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #555;
+      background: rgba(85,85,85,0.1); padding: 2px 6px; border-radius: 3px;
+    }
+
+    .mc-reasoning {
+      display: none; padding: 12px 18px 16px; border-top: 1px solid #222;
+    }
+    .matchup-card.open .mc-reasoning { display: block; }
+    .mc-reasoning-text { font-size: 13px; color: #888; line-height: 1.7; }
+    .mc-conf-bar { margin-top: 12px; }
+    .mc-cb-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .mc-cb-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555; text-transform: uppercase; }
+    .mc-cb-val { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; color: var(--mc); }
+    .mc-cb-track { height: 2px; background: #222; border-radius: 1px; }
+    .mc-cb-fill { height: 2px; border-radius: 1px; background: var(--mc); }
+
+    /* Bracket View */
+    .bracket-view { display: none; overflow-x: auto; padding-bottom: 20px; }
+    .bracket-view::-webkit-scrollbar { height: 4px; }
+    .bracket-view::-webkit-scrollbar-track { background: transparent; }
+    .bracket-view::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+    .bracket-grid { display: flex; align-items: flex-start; min-width: 900px; }
+    .round-col { display: flex; flex-direction: column; }
+    .round-col-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #444; text-transform: uppercase; letter-spacing: 1px; text-align: center; margin-bottom: 6px; }
+    .matchup-slot {
+      background: #1a1a1a; border: 1px solid #222; border-radius: 3px;
+      overflow: hidden; cursor: pointer; transition: border-color 0.15s;
+      width: 115px; margin: 3px 4px; position: relative;
+    }
+    .matchup-slot:hover { border-color: #3a3a3a; }
+    .matchup-slot.wrong-slot { border-color: rgba(239,68,68,0.2); }
+    .matchup-slot.cascade-slot { opacity: 0.45; }
+    .ms-team { display: flex; align-items: center; gap: 4px; padding: 3px 6px; font-size: 9px; border-bottom: 1px solid #1a1a1a; }
+    .ms-team:last-child { border-bottom: none; }
+    .ms-team.winner { background: rgba(255,255,255,0.03); }
+    .ms-team.winner .ms-name { color: #ddd; font-weight: 600; }
+    .ms-seed { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: #555; width: 12px; text-align: right; flex-shrink: 0; }
+    .ms-name { font-size: 9px; color: #777; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }
+    .ms-name.wrong-pick { color: #ef4444; text-decoration: line-through; }
+    .ms-name.cascade-pick { color: #555; text-decoration: line-through; }
+    .ms-dot { width: 3px; height: 3px; border-radius: 50%; flex-shrink: 0; }
+    .ms-elim-badge { font-family: 'IBM Plex Mono', monospace; font-size: 7px; color: #555; position: absolute; bottom: 1px; right: 3px; }
+    .connector { width: 12px; flex-shrink: 0; }
+    .ff-section { text-align: center; padding: 0 10px; min-width: 130px; align-self: center; }
+    .ff-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #444; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+    .champ-card { background: transparent; border: 1px solid #333; border-radius: 6px; padding: 12px; text-align: center; margin-top: 12px; }
+    .champ-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+    .champ-name { font-family: 'Instrument Serif', serif; font-size: 18px; }
+
+    /* Popover */
+    .popover-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; display: none; align-items: center; justify-content: center; }
+    .popover-overlay.open { display: flex; }
+    .popover { background: #1e1e1e; border: 1px solid #333; border-radius: 10px; width: 360px; max-width: 90vw; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.5); animation: popIn 0.2s ease; }
+    @keyframes popIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+    .pop-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #252525; }
+    .pop-round { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+    .pop-close { width: 24px; height: 24px; border-radius: 50%; background: #252525; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #888; font-size: 14px; }
+    .pop-close:hover { background: #333; color: #efefef; }
+    .pop-teams { padding: 14px 18px; border-bottom: 1px solid #252525; }
+    .pop-team { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e1e1e; }
+    .pop-team:last-child { border-bottom: none; }
+    .pop-seed-box { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; background: #252525; width: 24px; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pop-name { flex: 1; font-size: 14px; color: #999; }
+    .pop-team.winner .pop-name { color: #efefef; font-weight: 600; }
+    .pop-winner-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 6px; border-radius: 3px; }
+    .pop-reasoning { padding: 14px 18px; border-bottom: 1px solid #252525; }
+    .pop-reas-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .pop-reas-text { font-size: 13px; color: #888; line-height: 1.7; }
+    .pop-conf { padding: 12px 18px; }
+    .pop-conf-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .pop-conf-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555; text-transform: uppercase; }
+    .pop-conf-val { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; }
+    .pop-conf-track { height: 3px; background: #222; border-radius: 2px; }
+    .pop-conf-fill { height: 3px; border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      .page-wrap { padding: 60px 16px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="annotation-badge">
+  <strong>Option 19</strong>
+  Minimal Chrome
+</div>
+
+<!-- Popover -->
+<div class="popover-overlay" id="popoverOverlay" onclick="if(event.target===this)closePopover()">
+  <div class="popover">
+    <div class="pop-header">
+      <span class="pop-round" id="popRound"></span>
+      <button class="pop-close" onclick="closePopover()">&#x2715;</button>
+    </div>
+    <div class="pop-teams" id="popTeams"></div>
+    <div class="pop-reasoning">
+      <div class="pop-reas-label">Reasoning</div>
+      <div class="pop-reas-text" id="popReasoning"></div>
+    </div>
+    <div class="pop-conf">
+      <div class="pop-conf-header">
+        <span class="pop-conf-label">Confidence</span>
+        <span class="pop-conf-val" id="popConfVal"></span>
+      </div>
+      <div class="pop-conf-track"><div class="pop-conf-fill" id="popConfBar"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <h1>2026 Brackets</h1>
+    <p>Five AI models, five different brackets.</p>
+  </div>
+
+  <!-- Minimal Model Tabs -->
+  <div class="model-tabs" id="modelTabs">
+    <button class="model-tab active" data-model="scout" data-color="#3b82f6" onclick="switchModel(this)">
+      <span class="tab-dot" style="background:#3b82f6"></span>The Scout
+    </button>
+    <button class="model-tab" data-model="quant" data-color="#22c55e" onclick="switchModel(this)">
+      <span class="tab-dot" style="background:#22c55e"></span>The Quant
+    </button>
+    <button class="model-tab" data-model="historian" data-color="#f59e0b" onclick="switchModel(this)">
+      <span class="tab-dot" style="background:#f59e0b"></span>The Historian
+    </button>
+    <button class="model-tab" data-model="chaos" data-color="#ef4444" onclick="switchModel(this)">
+      <span class="tab-dot" style="background:#ef4444"></span>Chaos Agent
+    </button>
+    <button class="model-tab" data-model="agent" data-color="#00ff88" onclick="switchModel(this)">
+      <span class="tab-dot" style="background:#00ff88"></span>The Agent
+    </button>
+  </div>
+
+  <!-- Switch link -->
+  <button class="switch-link" id="switchLink" onclick="toggleView()">Switch to bracket view &rarr;</button>
+
+  <!-- Region text links (cards only) -->
+  <div class="region-links" id="regionLinks">
+    <button class="region-link active" data-region="east" onclick="switchRegion(this)">East</button>
+    <span class="region-sep">&middot;</span>
+    <button class="region-link" data-region="west" onclick="switchRegion(this)">West</button>
+    <span class="region-sep">&middot;</span>
+    <button class="region-link" data-region="south" onclick="switchRegion(this)">South</button>
+    <span class="region-sep">&middot;</span>
+    <button class="region-link" data-region="midwest" onclick="switchRegion(this)">Midwest</button>
+    <span class="region-sep">&middot;</span>
+    <button class="region-link" data-region="ff" onclick="switchRegion(this)">Final Four</button>
+  </div>
+
+  <div class="card-view" id="cardView"></div>
+  <div class="bracket-view" id="bracketView"></div>
+</div>
+
+<script>
+const MC = { scout:'#3b82f6', quant:'#22c55e', historian:'#f59e0b', chaos:'#ef4444', agent:'#00ff88' };
+const CHAMPS = { scout:'Duke', quant:'Houston', historian:'Kentucky', chaos:'NM State', agent:'Auburn' };
+const WRONG = { scout: { east: { r64: { 4: true, 6: true }, r32: { 1: 'Elim. R1' } } } };
+
+const BRACKET = {
+  scout: {
+    east: {
+      r64: [
+        {t1:{s:1,n:'Duke'},t2:{s:16,n:'Hampton'},w:0,conf:97,reason:'Duke\'s elite defense dominates Hampton.'},
+        {t1:{s:8,n:'Michigan St'},t2:{s:9,n:'Memphis'},w:0,conf:55,reason:'Izzo\'s tournament IQ edges this matchup.'},
+        {t1:{s:5,n:'Gonzaga'},t2:{s:12,n:'McNeese'},w:0,conf:72,reason:'Gonzaga\'s depth breaks down McNeese.'},
+        {t1:{s:4,n:'Kansas'},t2:{s:13,n:'Colgate'},w:0,conf:81,reason:'Kansas controls the paint.'},
+        {t1:{s:6,n:'Illinois'},t2:{s:11,n:'VCU'},w:1,conf:58,reason:'VCU\'s HAVOC defense causes upsets.'},
+        {t1:{s:3,n:'Purdue'},t2:{s:14,n:'Longwood'},w:0,conf:88,reason:'Edey is unguardable. Boilermakers by 22.'},
+        {t1:{s:7,n:'Florida'},t2:{s:10,n:'Colorado'},w:0,conf:62,reason:'Florida\'s shooting edges Colorado.'},
+        {t1:{s:2,n:'UConn'},t2:{s:15,n:'Stetson'},w:0,conf:95,reason:'UConn brings championship composure.'}
+      ],
+      r32: [
+        {t1:{s:1,n:'Duke'},t2:{s:8,n:'Michigan St'},w:0,conf:71,reason:'Duke\'s guard play wins a physical battle.'},
+        {t1:{s:11,n:'VCU'},t2:{s:4,n:'Kansas'},w:0,conf:61,reason:'VCU upsets Kansas with pressure.'},
+        {t1:{s:5,n:'Gonzaga'},t2:{s:3,n:'Purdue'},w:1,conf:55,reason:'Purdue\'s size beats Gonzaga.'},
+        {t1:{s:7,n:'Florida'},t2:{s:2,n:'UConn'},w:1,conf:74,reason:'UConn\'s defense stifles Florida.'}
+      ],
+      s16: [
+        {t1:{s:1,n:'Duke'},t2:{s:11,n:'VCU'},w:0,conf:67,reason:'Duke pulls away from VCU.'},
+        {t1:{s:3,n:'Purdue'},t2:{s:2,n:'UConn'},w:1,conf:58,reason:'UConn\'s experience tips the balance.'}
+      ],
+      e8: [{t1:{s:1,n:'Duke'},t2:{s:2,n:'UConn'},w:0,conf:61,reason:'Duke\'s freshmen rise to the moment.'}]
+    },
+    west: {
+      r64: [
+        {t1:{s:1,n:'Houston'},t2:{s:16,n:'N. Kentucky'},w:0,conf:98,reason:'Houston\'s defense is elite.'},
+        {t1:{s:8,n:'Texas Tech'},t2:{s:9,n:'Nevada'},w:0,conf:54,reason:'Texas Tech edges Nevada.'},
+        {t1:{s:5,n:'Baylor'},t2:{s:12,n:'UAB'},w:0,conf:76,reason:'Baylor overwhelms UAB.'},
+        {t1:{s:4,n:'Tennessee'},t2:{s:13,n:'LA Tech'},w:0,conf:85,reason:'Tennessee suffocates LA Tech.'},
+        {t1:{s:6,n:'Creighton'},t2:{s:11,n:'Drake'},w:0,conf:64,reason:'Creighton edges Drake.'},
+        {t1:{s:3,n:'Marquette'},t2:{s:14,n:'Vermont'},w:0,conf:87,reason:'Marquette beats Vermont.'},
+        {t1:{s:7,n:'Michigan'},t2:{s:10,n:'San Diego St'},w:1,conf:57,reason:'SDSU\'s defense gives them the edge.'},
+        {t1:{s:2,n:'Auburn'},t2:{s:15,n:'Morehead St'},w:0,conf:96,reason:'Auburn overwhelms Morehead.'}
+      ],
+      r32: [
+        {t1:{s:1,n:'Houston'},t2:{s:8,n:'Texas Tech'},w:0,conf:78,reason:'Houston limits Texas Tech.'},
+        {t1:{s:5,n:'Baylor'},t2:{s:4,n:'Tennessee'},w:1,conf:55,reason:'Tennessee edges Baylor.'},
+        {t1:{s:6,n:'Creighton'},t2:{s:3,n:'Marquette'},w:1,conf:62,reason:'Marquette\'s rebounding wins.'},
+        {t1:{s:10,n:'San Diego St'},t2:{s:2,n:'Auburn'},w:1,conf:66,reason:'Auburn wears down SDSU.'}
+      ],
+      s16: [
+        {t1:{s:1,n:'Houston'},t2:{s:4,n:'Tennessee'},w:0,conf:69,reason:'Houston wins 62-58.'},
+        {t1:{s:3,n:'Marquette'},t2:{s:2,n:'Auburn'},w:1,conf:57,reason:'Auburn disrupts Marquette.'}
+      ],
+      e8: [{t1:{s:1,n:'Houston'},t2:{s:2,n:'Auburn'},w:0,conf:63,reason:'Houston\'s defense decides it.'}]
+    },
+    south: {
+      r64: [
+        {t1:{s:1,n:'Kentucky'},t2:{s:16,n:'Mt St Mary'},w:0,conf:95,reason:'Kentucky wins easily.'},
+        {t1:{s:8,n:'Oregon'},t2:{s:9,n:'Northwestern'},w:0,conf:57,reason:'Oregon edges Northwestern.'},
+        {t1:{s:5,n:'Iowa St'},t2:{s:12,n:'James Madison'},w:0,conf:69,reason:'Iowa St avoids the trap.'},
+        {t1:{s:4,n:'Arizona'},t2:{s:13,n:'Furman'},w:0,conf:80,reason:'Arizona overwhelms Furman.'},
+        {t1:{s:6,n:'Clemson'},t2:{s:11,n:'New Mexico'},w:1,conf:60,reason:'New Mexico disrupts Clemson.'},
+        {t1:{s:3,n:'Wisconsin'},t2:{s:14,n:'Samford'},w:0,conf:85,reason:'Wisconsin is too much.'},
+        {t1:{s:7,n:'Missouri'},t2:{s:10,n:'Utah St'},w:0,conf:60,reason:'Missouri edges Utah St.'},
+        {t1:{s:2,n:'Alabama'},t2:{s:15,n:'Fair. Dickinson'},w:0,conf:92,reason:'Alabama\'s size wins.'}
+      ],
+      r32: [
+        {t1:{s:1,n:'Kentucky'},t2:{s:8,n:'Oregon'},w:0,conf:72,reason:'Kentucky is decisive.'},
+        {t1:{s:5,n:'Iowa St'},t2:{s:4,n:'Arizona'},w:1,conf:59,reason:'Arizona\'s tempo disrupts.'},
+        {t1:{s:11,n:'New Mexico'},t2:{s:3,n:'Wisconsin'},w:1,conf:65,reason:'Wisconsin survives.'},
+        {t1:{s:7,n:'Missouri'},t2:{s:2,n:'Alabama'},w:1,conf:72,reason:'Alabama overwhelms.'}
+      ],
+      s16: [
+        {t1:{s:1,n:'Kentucky'},t2:{s:4,n:'Arizona'},w:0,conf:64,reason:'Kentucky advances.'},
+        {t1:{s:3,n:'Wisconsin'},t2:{s:2,n:'Alabama'},w:1,conf:60,reason:'Alabama is faster.'}
+      ],
+      e8: [{t1:{s:1,n:'Kentucky'},t2:{s:2,n:'Alabama'},w:0,conf:58,reason:'Kentucky reaches Final Four.'}]
+    },
+    midwest: {
+      r64: [
+        {t1:{s:1,n:'Auburn'},t2:{s:16,n:'Wagner'},w:0,conf:96,reason:'Auburn dominates.'},
+        {t1:{s:8,n:'Miss St'},t2:{s:9,n:'Dayton'},w:0,conf:56,reason:'Miss St edges Dayton.'},
+        {t1:{s:5,n:'St John\'s'},t2:{s:12,n:'Liberty'},w:0,conf:74,reason:'St John\'s overwhelms.'},
+        {t1:{s:4,n:'Maryland'},t2:{s:13,n:'Winthrop'},w:0,conf:78,reason:'Maryland wins.'},
+        {t1:{s:6,n:'Ole Miss'},t2:{s:11,n:'NM State'},w:0,conf:63,reason:'Ole Miss contains NM State.'},
+        {t1:{s:3,n:'Texas A&M'},t2:{s:14,n:'Akron'},w:0,conf:82,reason:'Texas A&M dominates.'},
+        {t1:{s:7,n:'UCLA'},t2:{s:10,n:'Drake'},w:0,conf:60,reason:'UCLA edges Drake.'},
+        {t1:{s:2,n:'Iowa St'},t2:{s:15,n:'Longwood'},w:0,conf:94,reason:'Iowa St overwhelms.'}
+      ],
+      r32: [
+        {t1:{s:1,n:'Auburn'},t2:{s:8,n:'Miss St'},w:0,conf:68,reason:'Auburn\'s depth wins.'},
+        {t1:{s:5,n:'St John\'s'},t2:{s:4,n:'Maryland'},w:0,conf:62,reason:'St John\'s dismantles.'},
+        {t1:{s:6,n:'Ole Miss'},t2:{s:3,n:'Texas A&M'},w:1,conf:64,reason:'Texas A&M survives.'},
+        {t1:{s:7,n:'UCLA'},t2:{s:2,n:'Iowa St'},w:1,conf:74,reason:'Iowa St overwhelms UCLA.'}
+      ],
+      s16: [
+        {t1:{s:1,n:'Auburn'},t2:{s:5,n:'St John\'s'},w:0,conf:65,reason:'Auburn wins.'},
+        {t1:{s:3,n:'Texas A&M'},t2:{s:2,n:'Iowa St'},w:1,conf:58,reason:'Iowa St disrupts.'}
+      ],
+      e8: [{t1:{s:1,n:'Auburn'},t2:{s:2,n:'Iowa St'},w:0,conf:60,reason:'Auburn grinds it out.'}]
+    },
+    ff: {
+      s1: {t1:{s:1,n:'Duke'},t2:{s:1,n:'Houston'},w:0,conf:62,reason:'Duke edges Houston.'},
+      s2: {t1:{s:1,n:'Kentucky'},t2:{s:1,n:'Auburn'},w:1,conf:58,reason:'Auburn defeats Kentucky.'},
+      final: {t1:{s:1,n:'Duke'},t2:{s:1,n:'Auburn'},w:0,conf:55,reason:'Duke wins the championship.'}
+    }
+  }
+};
+
+['quant','historian','chaos','agent'].forEach(m => { BRACKET[m] = JSON.parse(JSON.stringify(BRACKET.scout)); });
+
+let currentModel = 'scout', currentRegion = 'east', currentView = 'cards';
+
+function switchModel(el) {
+  currentModel = el.dataset.model;
+  document.querySelectorAll('.model-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderView();
+}
+
+function switchRegion(el) {
+  currentRegion = el.dataset.region;
+  document.querySelectorAll('.region-link').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderCards();
+}
+
+function toggleView() {
+  currentView = currentView === 'cards' ? 'bracket' : 'cards';
+  document.getElementById('switchLink').innerHTML = currentView === 'cards' ? 'Switch to bracket view &rarr;' : 'Switch to card view &rarr;';
+  document.getElementById('cardView').style.display = currentView === 'cards' ? 'block' : 'none';
+  document.getElementById('bracketView').style.display = currentView === 'bracket' ? 'block' : 'none';
+  document.getElementById('regionLinks').style.display = currentView === 'cards' ? 'flex' : 'none';
+  renderView();
+}
+
+function isWrong(region, round, idx) {
+  const w = WRONG[currentModel];
+  if (!w || !w[region] || !w[region][round]) return false;
+  return w[region][round][idx];
+}
+
+function renderCards() {
+  const data = BRACKET[currentModel];
+  const color = MC[currentModel];
+  const container = document.getElementById('cardView');
+
+  if (currentRegion === 'ff') {
+    const ff = data.ff;
+    let html = '<div class="round-label">Final Four</div>';
+    [ff.s1,ff.s2].forEach(m => { html += buildCard(m,color,false,false); });
+    html += '<div class="round-label">Championship</div>';
+    html += buildCard(ff.final,color,false,false);
+    container.innerHTML = html;
+    return;
+  }
+
+  const region = data[currentRegion];
+  const rounds = [{key:'r64',label:'Round of 64'},{key:'r32',label:'Round of 32'},{key:'s16',label:'Sweet 16'},{key:'e8',label:'Elite 8'}];
+  let html = '';
+  rounds.forEach(r => {
+    if (!region[r.key] || !region[r.key].length) return;
+    html += `<div class="round-label">${r.label}</div>`;
+    region[r.key].forEach((m,idx) => {
+      const ws = isWrong(currentRegion, r.key, idx);
+      html += buildCard(m, color, ws===true, typeof ws==='string'?ws:false);
+    });
+  });
+  container.innerHTML = html;
+}
+
+function buildCard(m, color, isWrongPick, cascadeLabel) {
+  const cardClass = isWrongPick ? 'matchup-card wrong' : (cascadeLabel ? 'matchup-card cascade' : 'matchup-card');
+  let badge = '';
+  if (isWrongPick) badge = '<span class="badge-wrong">WRONG</span>';
+  if (cascadeLabel) badge = `<span class="badge-elim">${cascadeLabel}</span>`;
+  const wnc = isWrongPick ? 'mc-name wrong-pick' : (cascadeLabel ? 'mc-name cascade-pick' : 'mc-name');
+
+  return `
+    <div class="${cardClass}" style="--mc:${color}" onclick="this.classList.toggle('open')">
+      <div class="mc-inner">
+        <div class="mc-teams-col">
+          <div class="mc-team ${m.w===0?'winner':''}">
+            <span class="mc-seed">${m.t1.s}</span>
+            <span class="${m.w===0?wnc:'mc-name'}">${m.t1.n}</span>
+            ${m.w===0&&!isWrongPick&&!cascadeLabel?'<span class="mc-check">&#10003;</span>':''}
+          </div>
+          <div class="mc-team ${m.w===1?'winner':''}">
+            <span class="mc-seed">${m.t2.s}</span>
+            <span class="${m.w===1?wnc:'mc-name'}">${m.t2.n}</span>
+            ${m.w===1&&!isWrongPick&&!cascadeLabel?'<span class="mc-check">&#10003;</span>':''}
+          </div>
+        </div>
+        <div class="mc-meta">
+          ${badge}
+          <span class="mc-conf">${m.conf}%</span>
+        </div>
+      </div>
+      <div class="mc-reasoning">
+        <div class="mc-reasoning-text">${m.reason}</div>
+        <div class="mc-conf-bar">
+          <div class="mc-cb-header"><span class="mc-cb-label">Confidence</span><span class="mc-cb-val">${m.conf}%</span></div>
+          <div class="mc-cb-track"><div class="mc-cb-fill" style="width:${m.conf}%"></div></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderBracket() {
+  const data = BRACKET[currentModel];
+  const color = MC[currentModel];
+  const container = document.getElementById('bracketView');
+  const rks = ['r64','r32','s16','e8'];
+  const rl = {r64:'R64',r32:'R32',s16:'S16',e8:'E8'};
+  let html = '<div class="bracket-grid">';
+
+  html += '<div style="display:flex;flex-direction:column;gap:20px">';
+  ['east','west'].forEach(reg => {
+    html += `<div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#444;text-transform:uppercase;letter-spacing:1.5px;text-align:center;margin-bottom:6px">${reg}</div><div style="display:flex;align-items:flex-start">`;
+    rks.forEach(rk => {
+      const ms = data[reg][rk]||[];
+      const sp = rk==='r64'?3:rk==='r32'?12:rk==='s16'?28:56;
+      html += `<div class="round-col"><div class="round-col-label">${rl[rk]}</div>`;
+      ms.forEach((m,idx) => {
+        const ws = isWrong(reg,rk,idx);
+        const sc = ws===true?'matchup-slot wrong-slot':(typeof ws==='string'?'matchup-slot cascade-slot':'matchup-slot');
+        const wnc = ws===true?'ms-name wrong-pick':(typeof ws==='string'?'ms-name cascade-pick':'ms-name');
+        html += `<div class="${sc}" style="--mc:${color};margin-top:${idx>0?sp:0}px" onclick='openPopover(${JSON.stringify(m)},"${rl[rk]}")'>
+          <div class="ms-team ${m.w===0?'winner':''}"><span class="ms-seed">${m.t1.s}</span><span class="${m.w===0?wnc:'ms-name'}">${m.t1.n}</span>${m.w===0&&!ws?`<span class="ms-dot" style="background:${color}"></span>`:''}</div>
+          <div class="ms-team ${m.w===1?'winner':''}"><span class="ms-seed">${m.t2.s}</span><span class="${m.w===1?wnc:'ms-name'}">${m.t2.n}</span>${m.w===1&&!ws?`<span class="ms-dot" style="background:${color}"></span>`:''}</div>
+          ${typeof ws==='string'?`<span class="ms-elim-badge">${ws}</span>`:''}
+        </div>`;
+      });
+      html += '</div><div class="connector"></div>';
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+
+  const ff = data.ff;
+  html += '<div class="ff-section"><div class="ff-label">Final Four</div>';
+  [ff.s1,ff.s2].forEach(m => {
+    html += `<div class="matchup-slot" style="--mc:${color};width:130px;margin:6px auto" onclick='openPopover(${JSON.stringify(m)},"Final Four")'><div class="ms-team ${m.w===0?'winner':''}"><span class="ms-seed">${m.t1.s}</span><span class="ms-name">${m.t1.n}</span>${m.w===0?`<span class="ms-dot" style="background:${color}"></span>`:''}</div><div class="ms-team ${m.w===1?'winner':''}"><span class="ms-seed">${m.t2.s}</span><span class="ms-name">${m.t2.n}</span>${m.w===1?`<span class="ms-dot" style="background:${color}"></span>`:''}</div></div>`;
+  });
+  html += `<div class="matchup-slot" style="--mc:${color};width:130px;margin:10px auto;border-color:#333" onclick='openPopover(${JSON.stringify(ff.final)},"Championship")'><div class="ms-team ${ff.final.w===0?'winner':''}"><span class="ms-seed">${ff.final.t1.s}</span><span class="ms-name">${ff.final.t1.n}</span>${ff.final.w===0?`<span class="ms-dot" style="background:${color}"></span>`:''}</div><div class="ms-team ${ff.final.w===1?'winner':''}"><span class="ms-seed">${ff.final.t2.s}</span><span class="ms-name">${ff.final.t2.n}</span>${ff.final.w===1?`<span class="ms-dot" style="background:${color}"></span>`:''}</div></div>`;
+  html += `<div class="champ-card"><div class="champ-label">Champion</div><div class="champ-name" style="color:${color}">${CHAMPS[currentModel]}</div></div></div>`;
+
+  html += '<div style="display:flex;flex-direction:column;gap:20px">';
+  ['south','midwest'].forEach(reg => {
+    html += `<div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#444;text-transform:uppercase;letter-spacing:1.5px;text-align:center;margin-bottom:6px">${reg}</div><div style="display:flex;align-items:flex-start;flex-direction:row-reverse">`;
+    rks.forEach(rk => {
+      const ms = data[reg][rk]||[];
+      const sp = rk==='r64'?3:rk==='r32'?12:rk==='s16'?28:56;
+      html += `<div class="round-col"><div class="round-col-label">${rl[rk]}</div>`;
+      ms.forEach((m,idx) => {
+        const ws = isWrong(reg,rk,idx);
+        const sc = ws===true?'matchup-slot wrong-slot':(typeof ws==='string'?'matchup-slot cascade-slot':'matchup-slot');
+        const wnc = ws===true?'ms-name wrong-pick':(typeof ws==='string'?'ms-name cascade-pick':'ms-name');
+        html += `<div class="${sc}" style="--mc:${color};margin-top:${idx>0?sp:0}px" onclick='openPopover(${JSON.stringify(m)},"${rl[rk]}")'>
+          <div class="ms-team ${m.w===0?'winner':''}"><span class="ms-seed">${m.t1.s}</span><span class="${m.w===0?wnc:'ms-name'}">${m.t1.n}</span>${m.w===0&&!ws?`<span class="ms-dot" style="background:${color}"></span>`:''}</div>
+          <div class="ms-team ${m.w===1?'winner':''}"><span class="ms-seed">${m.t2.s}</span><span class="${m.w===1?wnc:'ms-name'}">${m.t2.n}</span>${m.w===1&&!ws?`<span class="ms-dot" style="background:${color}"></span>`:''}</div>
+          ${typeof ws==='string'?`<span class="ms-elim-badge">${ws}</span>`:''}
+        </div>`;
+      });
+      html += '</div><div class="connector"></div>';
+    });
+    html += '</div></div>';
+  });
+  html += '</div></div>';
+  container.innerHTML = html;
+}
+
+function openPopover(m, roundLabel) {
+  const color = MC[currentModel];
+  document.getElementById('popRound').textContent = roundLabel;
+  document.getElementById('popTeams').innerHTML = `
+    <div class="pop-team ${m.w===0?'winner':''}"><div class="pop-seed-box">${m.t1.s}</div><div class="pop-name">${m.t1.n}</div>${m.w===0?`<span class="pop-winner-tag" style="background:rgba(255,255,255,0.06);color:${color}">Pick</span>`:''}</div>
+    <div class="pop-team ${m.w===1?'winner':''}"><div class="pop-seed-box">${m.t2.s}</div><div class="pop-name">${m.t2.n}</div>${m.w===1?`<span class="pop-winner-tag" style="background:rgba(255,255,255,0.06);color:${color}">Pick</span>`:''}</div>`;
+  document.getElementById('popReasoning').textContent = m.reason;
+  document.getElementById('popConfVal').textContent = m.conf+'%'; document.getElementById('popConfVal').style.color = color;
+  document.getElementById('popConfBar').style.width = m.conf+'%'; document.getElementById('popConfBar').style.background = color;
+  document.getElementById('popoverOverlay').classList.add('open');
+}
+function closePopover() { document.getElementById('popoverOverlay').classList.remove('open'); }
+function renderView() { renderCards(); renderBracket(); }
+renderView();
+</script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Option 1 — Typography-First</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888888;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* NAV */
+    nav {
+      padding: 20px 0;
+      border-bottom: 1px solid #333333;
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: #888888; font-weight: 400; }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #888888;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #efefef; }
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 60px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .hero h1 {
+      font-size: 84px;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: #888888;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+    .hero-sub strong { color: #efefef; font-weight: 600; }
+
+    /* MINI LEADERBOARD */
+    .mini-leaderboard {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .mini-leaderboard h3 {
+      font-size: 13px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .lb-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #333333;
+    }
+    .lb-row:last-child { border-bottom: none; }
+    .lb-rank {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: #888888;
+      width: 28px;
+    }
+    .lb-name {
+      flex: 1;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .lb-emoji { margin-right: 8px; }
+    .lb-score {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .lb-bar {
+      width: 80px;
+      height: 6px;
+      background: #333333;
+      border-radius: 3px;
+      margin-left: 16px;
+      overflow: hidden;
+    }
+    .lb-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      padding: 24px 0;
+      border-top: 1px solid #333333;
+      border-bottom: 1px solid #333333;
+    }
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    /* MODEL CARDS */
+    .models-section {
+      padding: 60px 0 80px;
+    }
+    .models-section h2 {
+      font-size: 14px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 32px;
+    }
+    .model-cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .model-card {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      padding: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .model-card:hover {
+      transform: translateY(-2px);
+    }
+    .model-card-emoji {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .model-card-name {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .model-card-type {
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .model-card-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    /* COLOR ACCENTS */
+    .color-scout { color: #3b82f6; }
+    .color-quant { color: #22c55e; }
+    .color-historian { color: #f59e0b; }
+    .color-chaos { color: #ef4444; }
+    .color-agent { color: #00ff88; }
+    .border-scout:hover { border-color: #3b82f6; }
+    .border-quant:hover { border-color: #22c55e; }
+    .border-historian:hover { border-color: #f59e0b; }
+    .border-chaos:hover { border-color: #ef4444; }
+    .border-agent:hover { border-color: #00ff88; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 56px; }
+      .model-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 42px; }
+      .model-cards { grid-template-columns: 1fr; }
+      .stats-grid { gap: 24px; }
+      .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="logo">The Bracket Lab <span>/ 2026</span></div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Brackets</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="annotation">&larr; HERO SECTION</div>
+      <div class="hero-grid">
+        <div>
+          <h1>Five AI models.<br>One <em>tournament.</em></h1>
+          <p class="hero-sub">
+            We gave <strong>5 AI models</strong> the same data and one job: predict every game of the 2026 NCAA Tournament. Now they compete against each other — and your bracket.
+          </p>
+        </div>
+        <div>
+          <div class="annotation">&larr; MINI LEADERBOARD</div>
+          <div class="mini-leaderboard">
+            <h3>Live Leaderboard</h3>
+            <div class="lb-row">
+              <span class="lb-rank">1</span>
+              <span class="lb-emoji">📊</span>
+              <span class="lb-name color-quant">The Quant</span>
+              <span class="lb-score">480</span>
+              <div class="lb-bar"><div class="lb-bar-fill" style="width:85%;background:#22c55e"></div></div>
+            </div>
+            <div class="lb-row">
+              <span class="lb-rank">2</span>
+              <span class="lb-emoji">🔥</span>
+              <span class="lb-name color-chaos">The Chaos Agent</span>
+              <span class="lb-score">450</span>
+              <div class="lb-bar"><div class="lb-bar-fill" style="width:78%;background:#ef4444"></div></div>
+            </div>
+            <div class="lb-row">
+              <span class="lb-rank">3</span>
+              <span class="lb-emoji">🎬</span>
+              <span class="lb-name color-scout">The Scout</span>
+              <span class="lb-score">420</span>
+              <div class="lb-bar"><div class="lb-bar-fill" style="width:72%;background:#3b82f6"></div></div>
+            </div>
+            <div class="lb-row">
+              <span class="lb-rank">4</span>
+              <span class="lb-emoji">📜</span>
+              <span class="lb-name color-historian">The Historian</span>
+              <span class="lb-score">380</span>
+              <div class="lb-bar"><div class="lb-bar-fill" style="width:65%;background:#f59e0b"></div></div>
+            </div>
+            <div class="lb-row">
+              <span class="lb-rank">5</span>
+              <span class="lb-emoji">🤖</span>
+              <span class="lb-name color-agent">The Agent</span>
+              <span class="lb-score">340</span>
+              <div class="lb-bar"><div class="lb-bar-fill" style="width:58%;background:#00ff88"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-bar">
+    <div class="container">
+      <div class="annotation" style="text-align:center">&larr; STATS BAR</div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">5</div>
+          <div class="stat-label">AI Models</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">63</div>
+          <div class="stat-label">Games Predicted</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">1,920</div>
+          <div class="stat-label">Max Points</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">2026</div>
+          <div class="stat-label">March Madness</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="models-section">
+    <div class="container">
+      <div class="annotation">&larr; MODEL CARDS</div>
+      <h2>The Competitors</h2>
+      <div class="model-cards">
+        <div class="model-card border-scout">
+          <div class="model-card-emoji">🎬</div>
+          <div class="model-card-name color-scout">The Scout</div>
+          <div class="model-card-type">LLM Matchup Analyst</div>
+          <div class="model-card-tagline">"Film room intelligence at machine speed."</div>
+        </div>
+        <div class="model-card border-quant">
+          <div class="model-card-emoji">📊</div>
+          <div class="model-card-name color-quant">The Quant</div>
+          <div class="model-card-type">Monte Carlo Simulation</div>
+          <div class="model-card-tagline">"10,000 simulations. Zero feelings."</div>
+        </div>
+        <div class="model-card border-historian">
+          <div class="model-card-emoji">📜</div>
+          <div class="model-card-name color-historian">The Historian</div>
+          <div class="model-card-type">Archetype Matching</div>
+          <div class="model-card-tagline">"Every team has a twin. History already played this game."</div>
+        </div>
+        <div class="model-card border-chaos">
+          <div class="model-card-emoji">🔥</div>
+          <div class="model-card-name color-chaos">The Chaos Agent</div>
+          <div class="model-card-type">Upset Detector</div>
+          <div class="model-card-tagline">"Your bracket is too safe. This one isn't."</div>
+        </div>
+        <div class="model-card border-agent">
+          <div class="model-card-emoji">🤖</div>
+          <div class="model-card-name color-agent">The Agent</div>
+          <div class="model-card-type">Autonomous AI Researcher</div>
+          <div class="model-card-tagline">"No rules. No prompts. Just: build me a bracket."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

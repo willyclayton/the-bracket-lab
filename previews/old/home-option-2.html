@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Option 2 — Split-Screen Hero</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888888;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav { padding: 20px 0; border-bottom: 1px solid #333333; }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
+    .logo span { color: #888888; font-weight: 400; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: #888888; text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: #efefef; }
+
+    /* HERO SPLIT */
+    .hero {
+      padding: 80px 0 60px;
+    }
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      min-height: 400px;
+    }
+    .hero-left h1 {
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero-left h1 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .hero-left p {
+      font-size: 17px;
+      color: #888888;
+      margin-bottom: 32px;
+      max-width: 420px;
+      line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #efefef;
+      color: #141414;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-secondary {
+      margin-left: 16px;
+      background: transparent;
+      color: #888888;
+      border: 1px solid #333333;
+    }
+    .cta-secondary:hover { color: #efefef; border-color: #888; }
+
+    /* BRACKET ASCII ART */
+    .bracket-preview {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      padding: 28px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #888888;
+      overflow: hidden;
+    }
+    .bracket-preview .round-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .bracket-line { white-space: pre; }
+    .bracket-line .seed { color: #555; }
+    .bracket-line .team { color: #efefef; }
+    .bracket-line .winner { font-weight: 500; }
+    .hl-scout { color: #3b82f6 !important; }
+    .hl-quant { color: #22c55e !important; }
+    .hl-chaos { color: #ef4444 !important; }
+
+    /* HORIZONTAL SCROLL CARDS */
+    .model-scroll-section {
+      padding: 60px 0 80px;
+      border-top: 1px solid #333333;
+    }
+    .model-scroll-section h2 {
+      font-size: 14px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+    .scroll-row {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 16px;
+      scroll-snap-type: x mandatory;
+    }
+    .scroll-row::-webkit-scrollbar { height: 4px; }
+    .scroll-row::-webkit-scrollbar-track { background: #1e1e1e; }
+    .scroll-row::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+    .scroll-card {
+      flex: 0 0 260px;
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      padding: 24px;
+      scroll-snap-align: start;
+      transition: border-color 0.2s;
+    }
+    .scroll-card:hover { border-color: var(--card-color); }
+    .scroll-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .scroll-card-emoji { font-size: 24px; }
+    .scroll-card-name { font-weight: 700; font-size: 16px; }
+    .scroll-card-type {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .scroll-card-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.5;
+    }
+    .scroll-card-score {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #333;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: #888;
+    }
+    .scroll-card-score strong {
+      color: #efefef;
+      font-size: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    @media (max-width: 900px) {
+      .hero-split { grid-template-columns: 1fr; gap: 40px; }
+      .hero-left h1 { font-size: 42px; }
+      .scroll-card { flex: 0 0 220px; }
+    }
+    @media (max-width: 640px) {
+      .hero-left h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="logo">The Bracket Lab <span>/ 2026</span></div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Brackets</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="annotation">&larr; HERO SECTION (SPLIT-SCREEN)</div>
+      <div class="hero-split">
+        <div class="hero-left">
+          <h1>The AI bracket <em>experiment</em></h1>
+          <p>Five AI models. Five completely different strategies. One tournament to prove who got it right. Follow along as they compete in real time.</p>
+          <a href="#" class="cta-btn">View Brackets</a>
+          <a href="#" class="cta-btn cta-secondary">How It Works</a>
+        </div>
+        <div>
+          <div class="annotation">&larr; BRACKET FRAGMENT PREVIEW</div>
+          <div class="bracket-preview">
+            <div class="round-label">Round of 64 &middot; East Region</div>
+            <div class="bracket-line"><span class="seed">(1)</span> <span class="team winner">Duke</span> ────────┐</div>
+            <div class="bracket-line">                    ├── <span class="hl-scout">Duke</span> ──┐</div>
+            <div class="bracket-line"><span class="seed">(16)</span> <span class="team">Norfolk St</span> ──┘              │</div>
+            <div class="bracket-line">                                ├── <span class="hl-quant">Duke</span></div>
+            <div class="bracket-line"><span class="seed">(8)</span> <span class="team winner">Memphis</span> ───────┐              │</div>
+            <div class="bracket-line">                    ├── <span class="hl-chaos">Arkansas</span> ┘</div>
+            <div class="bracket-line"><span class="seed">(9)</span> <span class="team">Arkansas</span> ─────┘</div>
+            <div class="bracket-line"></div>
+            <div class="bracket-line"><span class="seed">(4)</span> <span class="team winner">Purdue</span> ────────┐</div>
+            <div class="bracket-line">                    ├── <span class="hl-scout">Purdue</span> ─┐</div>
+            <div class="bracket-line"><span class="seed">(13)</span> <span class="team">Vermont</span> ─────┘              │</div>
+            <div class="bracket-line">                                ├── ?</div>
+            <div class="bracket-line"><span class="seed">(5)</span> <span class="team winner">Michigan</span> ──────┐              │</div>
+            <div class="bracket-line">                    ├── <span class="hl-quant">Michigan</span>┘</div>
+            <div class="bracket-line"><span class="seed">(12)</span> <span class="team">McNeese</span> ─────┘</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="model-scroll-section">
+    <div class="container">
+      <div class="annotation">&larr; HORIZONTAL SCROLL MODEL CARDS</div>
+      <h2>The Competitors</h2>
+    </div>
+    <div class="container">
+      <div class="scroll-row">
+        <div class="scroll-card" style="--card-color:#3b82f6">
+          <div class="scroll-card-head">
+            <span class="scroll-card-emoji">🎬</span>
+            <span class="scroll-card-name" style="color:#3b82f6">The Scout</span>
+          </div>
+          <div class="scroll-card-type">LLM Matchup Analyst</div>
+          <div class="scroll-card-tagline">"Film room intelligence at machine speed."</div>
+          <div class="scroll-card-score">Score: <strong>420</strong> / 1,920</div>
+        </div>
+        <div class="scroll-card" style="--card-color:#22c55e">
+          <div class="scroll-card-head">
+            <span class="scroll-card-emoji">📊</span>
+            <span class="scroll-card-name" style="color:#22c55e">The Quant</span>
+          </div>
+          <div class="scroll-card-type">Monte Carlo Simulation</div>
+          <div class="scroll-card-tagline">"10,000 simulations. Zero feelings."</div>
+          <div class="scroll-card-score">Score: <strong>480</strong> / 1,920</div>
+        </div>
+        <div class="scroll-card" style="--card-color:#f59e0b">
+          <div class="scroll-card-head">
+            <span class="scroll-card-emoji">📜</span>
+            <span class="scroll-card-name" style="color:#f59e0b">The Historian</span>
+          </div>
+          <div class="scroll-card-type">Archetype Matching</div>
+          <div class="scroll-card-tagline">"Every team has a twin. History already played this game."</div>
+          <div class="scroll-card-score">Score: <strong>380</strong> / 1,920</div>
+        </div>
+        <div class="scroll-card" style="--card-color:#ef4444">
+          <div class="scroll-card-head">
+            <span class="scroll-card-emoji">🔥</span>
+            <span class="scroll-card-name" style="color:#ef4444">The Chaos Agent</span>
+          </div>
+          <div class="scroll-card-type">Upset Detector</div>
+          <div class="scroll-card-tagline">"Your bracket is too safe. This one isn't."</div>
+          <div class="scroll-card-score">Score: <strong>450</strong> / 1,920</div>
+        </div>
+        <div class="scroll-card" style="--card-color:#00ff88">
+          <div class="scroll-card-head">
+            <span class="scroll-card-emoji">🤖</span>
+            <span class="scroll-card-name" style="color:#00ff88">The Agent</span>
+          </div>
+          <div class="scroll-card-type">Autonomous AI Researcher</div>
+          <div class="scroll-card-tagline">"No rules. No prompts. Just: build me a bracket."</div>
+          <div class="scroll-card-score">Score: <strong>340</strong> / 1,920</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

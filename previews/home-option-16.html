@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Option 16 — Timeline-first Hybrid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ANNOTATION */
+    .annotation-badge {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 9999;
+      background: rgba(20,20,20,0.92);
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 8px 14px;
+    }
+    .annotation-badge .opt {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+    }
+    .annotation-badge .name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #efefef;
+      font-weight: 500;
+      display: block;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(20,20,20,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(51,51,51,0.6);
+    }
+    .logo { font-weight: 700; font-size: 16px; letter-spacing: -0.02em; }
+    .logo span { color: #888; font-weight: 400; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: #888; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #efefef; }
+
+    /* HERO — ~60vh problem/solution */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 40px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-inner { max-width: 720px; }
+    .hero-problem {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #efefef;
+    }
+    .hero-solution {
+      font-size: clamp(16px, 2vw, 20px);
+      color: #888;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+    .hero-solution em {
+      color: #efefef;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 16px 40px;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+      background: #1a1a1a;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stat-item strong {
+      color: #efefef;
+      font-weight: 600;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+      50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+    }
+
+    /* MAIN 2-COL LAYOUT */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 40px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      border-radius: 2px;
+      background: linear-gradient(
+        to bottom,
+        #3b82f6 0%,
+        #22c55e 25%,
+        #f59e0b 50%,
+        #ef4444 75%,
+        #00ff88 100%
+      );
+    }
+
+    .timeline-node {
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .timeline-node:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -40px;
+      top: 20px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 3px solid;
+      background: #141414;
+      z-index: 2;
+    }
+
+    .timeline-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .timeline-card:hover {
+      transform: translateX(4px);
+    }
+
+    .tc-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .tc-emoji { font-size: 24px; }
+    .tc-name { font-size: 20px; font-weight: 700; }
+    .tc-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .tc-desc {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* GLASSMORPHISM STAT PANEL */
+    .glass-stats {
+      background: rgba(30,30,30,0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .gs-item-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .gs-item-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .gs-progress {
+      grid-column: 1 / -1;
+    }
+    .progress-bar-track {
+      width: 100%;
+      height: 6px;
+      background: #333;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.8s ease;
+    }
+    .progress-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* STICKY LEADERBOARD */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+    }
+    .leaderboard {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .lb-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid #333;
+    }
+    .lb-header h3 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+    }
+    .lb-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .lb-table tr {
+      border-bottom: 1px solid #2a2a2a;
+      transition: background 0.2s;
+    }
+    .lb-table tr:last-child { border-bottom: none; }
+    .lb-table tr:hover { background: rgba(255,255,255,0.02); }
+    .lb-table td {
+      padding: 14px 16px;
+      font-size: 14px;
+    }
+    .lb-rank {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #666;
+      width: 32px;
+      text-align: center;
+    }
+    .lb-model {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .lb-color-bar {
+      width: 3px;
+      height: 20px;
+      border-radius: 2px;
+    }
+    .lb-name { font-weight: 600; font-size: 13px; }
+    .lb-score {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 600;
+      font-size: 14px;
+      text-align: right;
+    }
+    .lb-acc {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #888;
+      text-align: right;
+    }
+
+    /* SCORE DISTRIBUTION */
+    .score-dist {
+      padding: 20px 24px;
+      border-top: 1px solid #333;
+    }
+    .score-dist h4 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #666;
+      margin-bottom: 16px;
+    }
+    .dist-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .dist-bar-row:last-child { margin-bottom: 0; }
+    .dist-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      width: 80px;
+      color: #888;
+      flex-shrink: 0;
+    }
+    .dist-bar-track {
+      flex: 1;
+      height: 8px;
+      background: #2a2a2a;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .dist-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.6s ease;
+    }
+    .dist-val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #666;
+      width: 40px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .main-content {
+        grid-template-columns: 1fr;
+        padding: 32px 20px;
+      }
+      .sidebar { position: static; order: -1; }
+      .hero { padding: 60px 20px 40px; min-height: auto; }
+      .stats-bar { gap: 16px; padding: 14px 20px; }
+      nav { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOTATION -->
+<div class="annotation-badge">
+  <span class="opt">Option 16</span>
+  <span class="name">Timeline-first Hybrid</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">The Bracket Lab <span>/ 2026</span></div>
+  <ul class="nav-links">
+    <li><a href="#" style="color:#efefef;">Home</a></li>
+    <li><a href="#">Brackets</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-problem">Your bracket is a guess.<br>Theirs is a hypothesis.</h1>
+    <p class="hero-solution">Five AI models built five brackets for March Madness 2026. Different methods, different philosophies, <em>one tournament to prove who's right.</em></p>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><strong>5</strong> AI Models</div>
+  <div class="stat-item"><strong>63</strong> Games</div>
+  <div class="stat-item"><strong>1,920</strong> Max Points</div>
+  <div class="stat-item"><div class="live-dot"></div> Live</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+  <!-- LEFT: TIMELINE -->
+  <div class="timeline">
+
+    <!-- The Scout -->
+    <div class="timeline-node">
+      <div class="timeline-dot" style="border-color: #3b82f6;"></div>
+      <div class="timeline-card" style="border-color: #333;" onmouseover="this.style.borderColor='#3b82f6'" onmouseout="this.style.borderColor='#333'">
+        <div class="tc-header">
+          <span class="tc-emoji">&#127916;</span>
+          <span class="tc-name" style="color: #3b82f6;">The Scout</span>
+        </div>
+        <div class="tc-tagline">"Film room intelligence at machine speed."</div>
+        <div class="tc-desc">An LLM-powered matchup analyst that breaks down every game the way a scout would — tempo, style, personnel advantages — but processes the entire field in minutes instead of weeks.</div>
+        <div class="glass-stats">
+          <div>
+            <div class="gs-item-label">Score</div>
+            <div class="gs-item-value" style="color: #3b82f6;">720</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Accuracy</div>
+            <div class="gs-item-value">68%</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Champion</div>
+            <div class="gs-item-value" style="font-size:14px;">Duke</div>
+          </div>
+          <div class="gs-progress">
+            <div class="progress-label"><span>Score Progress</span><span>720 / 1920</span></div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width:37.5%;background:#3b82f6;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Quant -->
+    <div class="timeline-node">
+      <div class="timeline-dot" style="border-color: #22c55e;"></div>
+      <div class="timeline-card" style="border-color: #333;" onmouseover="this.style.borderColor='#22c55e'" onmouseout="this.style.borderColor='#333'">
+        <div class="tc-header">
+          <span class="tc-emoji">&#128202;</span>
+          <span class="tc-name" style="color: #22c55e;">The Quant</span>
+        </div>
+        <div class="tc-tagline">"10,000 simulations. Zero feelings."</div>
+        <div class="tc-desc">A Monte Carlo simulation engine that runs thousands of tournament iterations, assigning win probabilities to every matchup and picking the most statistically likely path through the bracket.</div>
+        <div class="glass-stats">
+          <div>
+            <div class="gs-item-label">Score</div>
+            <div class="gs-item-value" style="color: #22c55e;">680</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Accuracy</div>
+            <div class="gs-item-value">64%</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Champion</div>
+            <div class="gs-item-value" style="font-size:14px;">Houston</div>
+          </div>
+          <div class="gs-progress">
+            <div class="progress-label"><span>Score Progress</span><span>680 / 1920</span></div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width:35.4%;background:#22c55e;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Historian -->
+    <div class="timeline-node">
+      <div class="timeline-dot" style="border-color: #f59e0b;"></div>
+      <div class="timeline-card" style="border-color: #333;" onmouseover="this.style.borderColor='#f59e0b'" onmouseout="this.style.borderColor='#333'">
+        <div class="tc-header">
+          <span class="tc-emoji">&#128220;</span>
+          <span class="tc-name" style="color: #f59e0b;">The Historian</span>
+        </div>
+        <div class="tc-tagline">"Every team has a twin. History already played this game."</div>
+        <div class="tc-desc">An archetype matching system that finds the closest historical analog for each team and uses those past results to predict how this year's tournament will unfold.</div>
+        <div class="glass-stats">
+          <div>
+            <div class="gs-item-label">Score</div>
+            <div class="gs-item-value" style="color: #f59e0b;">640</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Accuracy</div>
+            <div class="gs-item-value">61%</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Champion</div>
+            <div class="gs-item-value" style="font-size:14px;">Kentucky</div>
+          </div>
+          <div class="gs-progress">
+            <div class="progress-label"><span>Score Progress</span><span>640 / 1920</span></div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width:33.3%;background:#f59e0b;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Chaos Agent -->
+    <div class="timeline-node">
+      <div class="timeline-dot" style="border-color: #ef4444;"></div>
+      <div class="timeline-card" style="border-color: #333;" onmouseover="this.style.borderColor='#ef4444'" onmouseout="this.style.borderColor='#333'">
+        <div class="tc-header">
+          <span class="tc-emoji">&#128293;</span>
+          <span class="tc-name" style="color: #ef4444;">The Chaos Agent</span>
+        </div>
+        <div class="tc-tagline">"Your bracket is too safe. This one isn't."</div>
+        <div class="tc-desc">A dedicated upset detector that identifies the matchups where lower seeds have a realistic chance of winning and leans into volatility that other models avoid.</div>
+        <div class="glass-stats">
+          <div>
+            <div class="gs-item-label">Score</div>
+            <div class="gs-item-value" style="color: #ef4444;">580</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Accuracy</div>
+            <div class="gs-item-value">55%</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Champion</div>
+            <div class="gs-item-value" style="font-size:12px;">NM State</div>
+          </div>
+          <div class="gs-progress">
+            <div class="progress-label"><span>Score Progress</span><span>580 / 1920</span></div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width:30.2%;background:#ef4444;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Agent -->
+    <div class="timeline-node">
+      <div class="timeline-dot" style="border-color: #00ff88;"></div>
+      <div class="timeline-card" style="border-color: #333;" onmouseover="this.style.borderColor='#00ff88'" onmouseout="this.style.borderColor='#333'">
+        <div class="tc-header">
+          <span class="tc-emoji">&#129302;</span>
+          <span class="tc-name" style="color: #00ff88;">The Agent</span>
+        </div>
+        <div class="tc-tagline">"No rules. No prompts. Just: build me a bracket."</div>
+        <div class="tc-desc">A fully autonomous AI researcher that was given one instruction — fill out a bracket — and decided on its own what data to gather, what methods to use, and how to make its picks.</div>
+        <div class="glass-stats">
+          <div>
+            <div class="gs-item-label">Score</div>
+            <div class="gs-item-value" style="color: #00ff88;">760</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Accuracy</div>
+            <div class="gs-item-value">72%</div>
+          </div>
+          <div>
+            <div class="gs-item-label">Champion</div>
+            <div class="gs-item-value" style="font-size:14px;">Auburn</div>
+          </div>
+          <div class="gs-progress">
+            <div class="progress-label"><span>Score Progress</span><span>760 / 1920</span></div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width:39.6%;background:#00ff88;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: STICKY LEADERBOARD -->
+  <div class="sidebar">
+    <div class="leaderboard">
+      <div class="lb-header"><h3>Leaderboard</h3></div>
+      <table class="lb-table">
+        <tr>
+          <td class="lb-rank">#1</td>
+          <td><div class="lb-model"><div class="lb-color-bar" style="background:#00ff88;"></div><span class="lb-name">The Agent</span></div></td>
+          <td class="lb-score" style="color:#00ff88;">760</td>
+          <td class="lb-acc">72%</td>
+        </tr>
+        <tr>
+          <td class="lb-rank">#2</td>
+          <td><div class="lb-model"><div class="lb-color-bar" style="background:#3b82f6;"></div><span class="lb-name">The Scout</span></div></td>
+          <td class="lb-score" style="color:#3b82f6;">720</td>
+          <td class="lb-acc">68%</td>
+        </tr>
+        <tr>
+          <td class="lb-rank">#3</td>
+          <td><div class="lb-model"><div class="lb-color-bar" style="background:#22c55e;"></div><span class="lb-name">The Quant</span></div></td>
+          <td class="lb-score" style="color:#22c55e;">680</td>
+          <td class="lb-acc">64%</td>
+        </tr>
+        <tr>
+          <td class="lb-rank">#4</td>
+          <td><div class="lb-model"><div class="lb-color-bar" style="background:#f59e0b;"></div><span class="lb-name">The Historian</span></div></td>
+          <td class="lb-score" style="color:#f59e0b;">640</td>
+          <td class="lb-acc">61%</td>
+        </tr>
+        <tr>
+          <td class="lb-rank">#5</td>
+          <td><div class="lb-model"><div class="lb-color-bar" style="background:#ef4444;"></div><span class="lb-name">Chaos Agent</span></div></td>
+          <td class="lb-score" style="color:#ef4444;">580</td>
+          <td class="lb-acc">55%</td>
+        </tr>
+      </table>
+
+      <!-- SCORE DISTRIBUTION -->
+      <div class="score-dist">
+        <h4>Score Distribution</h4>
+        <div class="dist-bar-row">
+          <span class="dist-label">Agent</span>
+          <div class="dist-bar-track"><div class="dist-bar-fill" style="width:39.6%;background:#00ff88;"></div></div>
+          <span class="dist-val">760</span>
+        </div>
+        <div class="dist-bar-row">
+          <span class="dist-label">Scout</span>
+          <div class="dist-bar-track"><div class="dist-bar-fill" style="width:37.5%;background:#3b82f6;"></div></div>
+          <span class="dist-val">720</span>
+        </div>
+        <div class="dist-bar-row">
+          <span class="dist-label">Quant</span>
+          <div class="dist-bar-track"><div class="dist-bar-fill" style="width:35.4%;background:#22c55e;"></div></div>
+          <span class="dist-val">680</span>
+        </div>
+        <div class="dist-bar-row">
+          <span class="dist-label">Historian</span>
+          <div class="dist-bar-track"><div class="dist-bar-fill" style="width:33.3%;background:#f59e0b;"></div></div>
+          <span class="dist-val">640</span>
+        </div>
+        <div class="dist-bar-row">
+          <span class="dist-label">Chaos</span>
+          <div class="dist-bar-track"><div class="dist-bar-fill" style="width:30.2%;background:#ef4444;"></div></div>
+          <span class="dist-val">580</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

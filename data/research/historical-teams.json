@@ -1,0 +1,5439 @@
+{
+  "metadata": {
+    "years_covered": [
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "total_entries": 135,
+    "last_updated": "2026-03-10",
+    "note": "2020 excluded (COVID cancellation). Includes all champions, Final Fours, #1 seeds, notable upsets, and selected other tournament teams.",
+    "similarity_vector_fields": [
+      "adjO",
+      "adjD",
+      "adjEM",
+      "tempo",
+      "barthag",
+      "sos",
+      "three_pt_rate",
+      "three_pt_pct",
+      "ft_pct",
+      "conference_strength_score"
+    ],
+    "similarity_normalization": "min-max across full dataset"
+  },
+  "teams": [
+    {
+      "id": "duke-2010",
+      "team": "Duke",
+      "year": 2010,
+      "seed": 1,
+      "region": "South",
+      "conference": "ACC",
+      "record": "35-5",
+      "efficiency": {
+        "adjO": 117.4,
+        "adjD": 91.8,
+        "adjEM": 25.6,
+        "tempo": 68.2,
+        "barthag": 0.945,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.712
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.6538,
+        "adjD_norm": 0.1848,
+        "adjEM_norm": 0.7656,
+        "tempo_norm": 0.4941,
+        "barthag_norm": 0.8885,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.4915,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "butler-2010",
+      "team": "Butler",
+      "year": 2010,
+      "seed": 5,
+      "region": "Midwest",
+      "conference": "Horizon",
+      "record": "33-5",
+      "efficiency": {
+        "adjO": 108.4,
+        "adjD": 97.8,
+        "adjEM": 10.6,
+        "tempo": 60.4,
+        "barthag": 0.872,
+        "sos": 56.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.39,
+        "three_pt_pct": 0.371,
+        "ft_pct": 0.748
+      },
+      "ball_control": {
+        "turnover_rate": 14.8
+      },
+      "conference_strength_score": 22,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.3077,
+        "adjD_norm": 0.5109,
+        "adjEM_norm": 0.4067,
+        "tempo_norm": 0.0353,
+        "barthag_norm": 0.6419,
+        "sos_norm": 0.4667,
+        "three_pt_rate_norm": 0.5385,
+        "three_pt_pct_norm": 0.7679,
+        "ft_pct_norm": 0.7966,
+        "conference_strength_norm": 0.1707
+      }
+    },
+    {
+      "id": "michigan-state-2010",
+      "team": "Michigan State",
+      "year": 2010,
+      "seed": 5,
+      "region": "East",
+      "conference": "Big Ten",
+      "record": "29-9",
+      "efficiency": {
+        "adjO": 112.8,
+        "adjD": 98.4,
+        "adjEM": 14.4,
+        "tempo": 69.2,
+        "barthag": 0.892,
+        "sos": 82.1
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.342,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 18.4
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.4769,
+        "adjD_norm": 0.5435,
+        "adjEM_norm": 0.4976,
+        "tempo_norm": 0.5529,
+        "barthag_norm": 0.7095,
+        "sos_norm": 0.895,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.25,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "west-virginia-2010",
+      "team": "West Virginia",
+      "year": 2010,
+      "seed": 2,
+      "region": "West",
+      "conference": "Big East",
+      "record": "31-7",
+      "efficiency": {
+        "adjO": 115.4,
+        "adjD": 93.2,
+        "adjEM": 22.2,
+        "tempo": 70.4,
+        "barthag": 0.918,
+        "sos": 80.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.32,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.702
+      },
+      "ball_control": {
+        "turnover_rate": 19.8
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.5769,
+        "adjD_norm": 0.2609,
+        "adjEM_norm": 0.6842,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.7973,
+        "sos_norm": 0.8667,
+        "three_pt_rate_norm": 0.0,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.4068,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "kentucky-2010",
+      "team": "Kentucky",
+      "year": 2010,
+      "seed": 1,
+      "region": "East",
+      "conference": "SEC",
+      "record": "35-3",
+      "efficiency": {
+        "adjO": 119.2,
+        "adjD": 91.4,
+        "adjEM": 27.8,
+        "tempo": 71.2,
+        "barthag": 0.955,
+        "sos": 87.2
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.356,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.7231,
+        "adjD_norm": 0.163,
+        "adjEM_norm": 0.8182,
+        "tempo_norm": 0.6706,
+        "barthag_norm": 0.9223,
+        "sos_norm": 0.98,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.5,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "baylor-2010",
+      "team": "Baylor",
+      "year": 2010,
+      "seed": 3,
+      "region": "South",
+      "conference": "Big 12",
+      "record": "28-8",
+      "efficiency": {
+        "adjO": 114.8,
+        "adjD": 95.4,
+        "adjEM": 19.4,
+        "tempo": 72.4,
+        "barthag": 0.912,
+        "sos": 84.8
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.5538,
+        "adjD_norm": 0.3804,
+        "adjEM_norm": 0.6172,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.777,
+        "sos_norm": 0.94,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "ohio-state-2010",
+      "team": "Ohio State",
+      "year": 2010,
+      "seed": 2,
+      "region": "South",
+      "conference": "Big Ten",
+      "record": "29-8",
+      "efficiency": {
+        "adjO": 117.1,
+        "adjD": 94.2,
+        "adjEM": 22.9,
+        "tempo": 70.8,
+        "barthag": 0.928,
+        "sos": 83.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.6423,
+        "adjD_norm": 0.3152,
+        "adjEM_norm": 0.701,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.8311,
+        "sos_norm": 0.9167,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "tennessee-2010",
+      "team": "Tennessee",
+      "year": 2010,
+      "seed": 6,
+      "region": "South",
+      "conference": "SEC",
+      "record": "27-9",
+      "efficiency": {
+        "adjO": 112.4,
+        "adjD": 97.8,
+        "adjEM": 14.6,
+        "tempo": 68.4,
+        "barthag": 0.878,
+        "sos": 85.2
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.345,
+        "ft_pct": 0.706
+      },
+      "ball_control": {
+        "turnover_rate": 18.2
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.4615,
+        "adjD_norm": 0.5109,
+        "adjEM_norm": 0.5024,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.6622,
+        "sos_norm": 0.9467,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.3036,
+        "ft_pct_norm": 0.4407,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "cornell-2010",
+      "team": "Cornell",
+      "year": 2010,
+      "seed": 12,
+      "region": "East",
+      "conference": "Ivy",
+      "record": "29-5",
+      "efficiency": {
+        "adjO": 107.8,
+        "adjD": 104.1,
+        "adjEM": 3.7,
+        "tempo": 64.8,
+        "barthag": 0.812,
+        "sos": 46.2
+      },
+      "shooting": {
+        "three_pt_rate": 0.43,
+        "three_pt_pct": 0.376,
+        "ft_pct": 0.744
+      },
+      "ball_control": {
+        "turnover_rate": 14.8
+      },
+      "conference_strength_score": 25,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.2846,
+        "adjD_norm": 0.8533,
+        "adjEM_norm": 0.2416,
+        "tempo_norm": 0.2941,
+        "barthag_norm": 0.4392,
+        "sos_norm": 0.2967,
+        "three_pt_rate_norm": 0.8462,
+        "three_pt_pct_norm": 0.8571,
+        "ft_pct_norm": 0.7627,
+        "conference_strength_norm": 0.2073
+      }
+    },
+    {
+      "id": "northern-iowa-2010",
+      "team": "Northern Iowa",
+      "year": 2010,
+      "seed": 9,
+      "region": "Midwest",
+      "conference": "MVC",
+      "record": "30-5",
+      "efficiency": {
+        "adjO": 106.2,
+        "adjD": 101.8,
+        "adjEM": 4.4,
+        "tempo": 68.4,
+        "barthag": 0.834,
+        "sos": 52.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 15.4
+      },
+      "conference_strength_score": 42,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.2231,
+        "adjD_norm": 0.7283,
+        "adjEM_norm": 0.2584,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.5135,
+        "sos_norm": 0.4,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 0.4146
+      }
+    },
+    {
+      "id": "connecticut-2011",
+      "team": "Connecticut",
+      "year": 2011,
+      "seed": 3,
+      "region": "West",
+      "conference": "Big East",
+      "record": "32-9",
+      "efficiency": {
+        "adjO": 115.2,
+        "adjD": 97.4,
+        "adjEM": 17.8,
+        "tempo": 70.8,
+        "barthag": 0.908,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.714
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.5692,
+        "adjD_norm": 0.4891,
+        "adjEM_norm": 0.5789,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.7635,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.5085,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "butler-2011",
+      "team": "Butler",
+      "year": 2011,
+      "seed": 8,
+      "region": "Southeast",
+      "conference": "Horizon",
+      "record": "28-10",
+      "efficiency": {
+        "adjO": 107.8,
+        "adjD": 98.4,
+        "adjEM": 9.4,
+        "tempo": 61.2,
+        "barthag": 0.862,
+        "sos": 55.8
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.752
+      },
+      "ball_control": {
+        "turnover_rate": 14.2
+      },
+      "conference_strength_score": 22,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.2846,
+        "adjD_norm": 0.5435,
+        "adjEM_norm": 0.378,
+        "tempo_norm": 0.0824,
+        "barthag_norm": 0.6081,
+        "sos_norm": 0.4567,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.8305,
+        "conference_strength_norm": 0.1707
+      }
+    },
+    {
+      "id": "vcu-2011",
+      "team": "VCU",
+      "year": 2011,
+      "seed": 11,
+      "region": "Southwest",
+      "conference": "CAA",
+      "record": "28-12",
+      "efficiency": {
+        "adjO": 108.4,
+        "adjD": 101.2,
+        "adjEM": 7.2,
+        "tempo": 76.8,
+        "barthag": 0.848,
+        "sos": 48.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.354,
+        "ft_pct": 0.692
+      },
+      "ball_control": {
+        "turnover_rate": 21.2
+      },
+      "conference_strength_score": 32,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.3077,
+        "adjD_norm": 0.6957,
+        "adjEM_norm": 0.3254,
+        "tempo_norm": 1.0,
+        "barthag_norm": 0.5608,
+        "sos_norm": 0.3333,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.4643,
+        "ft_pct_norm": 0.322,
+        "conference_strength_norm": 0.2927
+      }
+    },
+    {
+      "id": "kentucky-2011",
+      "team": "Kentucky",
+      "year": 2011,
+      "seed": 4,
+      "region": "East",
+      "conference": "SEC",
+      "record": "29-9",
+      "efficiency": {
+        "adjO": 117.4,
+        "adjD": 93.8,
+        "adjEM": 23.6,
+        "tempo": 71.8,
+        "barthag": 0.922,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.358,
+        "ft_pct": 0.726
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.6538,
+        "adjD_norm": 0.2935,
+        "adjEM_norm": 0.7177,
+        "tempo_norm": 0.7059,
+        "barthag_norm": 0.8108,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.5357,
+        "ft_pct_norm": 0.6102,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "duke-2011",
+      "team": "Duke",
+      "year": 2011,
+      "seed": 1,
+      "region": "East",
+      "conference": "ACC",
+      "record": "32-5",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 92.1,
+        "adjEM": 27.3,
+        "tempo": 69.8,
+        "barthag": 0.948,
+        "sos": 85.8
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.365,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.2011,
+        "adjEM_norm": 0.8062,
+        "tempo_norm": 0.5882,
+        "barthag_norm": 0.8986,
+        "sos_norm": 0.9567,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6607,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "kansas-2011",
+      "team": "Kansas",
+      "year": 2011,
+      "seed": 1,
+      "region": "Southwest",
+      "conference": "Big 12",
+      "record": "35-3",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 91.4,
+        "adjEM": 29.0,
+        "tempo": 70.2,
+        "barthag": 0.952,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.354,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.163,
+        "adjEM_norm": 0.8469,
+        "tempo_norm": 0.6118,
+        "barthag_norm": 0.9122,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.4643,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "arizona-2011",
+      "team": "Arizona",
+      "year": 2011,
+      "seed": 4,
+      "region": "West",
+      "conference": "Pac-10",
+      "record": "30-8",
+      "efficiency": {
+        "adjO": 116.8,
+        "adjD": 93.8,
+        "adjEM": 23.0,
+        "tempo": 71.4,
+        "barthag": 0.922,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.366,
+        "ft_pct": 0.734
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.6308,
+        "adjD_norm": 0.2935,
+        "adjEM_norm": 0.7033,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.8108,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6786,
+        "ft_pct_norm": 0.678,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "florida-2011",
+      "team": "Florida",
+      "year": 2011,
+      "seed": 2,
+      "region": "Southeast",
+      "conference": "SEC",
+      "record": "29-8",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 92.4,
+        "adjEM": 26.0,
+        "tempo": 70.4,
+        "barthag": 0.935,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.358,
+        "ft_pct": 0.738
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.2174,
+        "adjEM_norm": 0.7751,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8547,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.5357,
+        "ft_pct_norm": 0.7119,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "morehead-state-2011",
+      "team": "Morehead State",
+      "year": 2011,
+      "seed": 13,
+      "region": "East",
+      "conference": "OVC",
+      "record": "25-9",
+      "efficiency": {
+        "adjO": 103.4,
+        "adjD": 104.8,
+        "adjEM": -1.4,
+        "tempo": 70.2,
+        "barthag": 0.762,
+        "sos": 38.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 12,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.1154,
+        "adjD_norm": 0.8913,
+        "adjEM_norm": 0.1196,
+        "tempo_norm": 0.6118,
+        "barthag_norm": 0.2703,
+        "sos_norm": 0.1667,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.0488
+      }
+    },
+    {
+      "id": "kentucky-2012",
+      "team": "Kentucky",
+      "year": 2012,
+      "seed": 1,
+      "region": "Midwest",
+      "conference": "SEC",
+      "record": "32-2",
+      "efficiency": {
+        "adjO": 124.8,
+        "adjD": 89.4,
+        "adjEM": 35.0,
+        "tempo": 70.8,
+        "barthag": 0.978,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.356,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.9385,
+        "adjD_norm": 0.0543,
+        "adjEM_norm": 1.0,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 1.0,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.5,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "kansas-2012",
+      "team": "Kansas",
+      "year": 2012,
+      "seed": 2,
+      "region": "Midwest",
+      "conference": "Big 12",
+      "record": "32-7",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 92.8,
+        "adjEM": 26.6,
+        "tempo": 70.4,
+        "barthag": 0.938,
+        "sos": 87.8
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.2391,
+        "adjEM_norm": 0.7895,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8649,
+        "sos_norm": 0.99,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "ohio-state-2012",
+      "team": "Ohio State",
+      "year": 2012,
+      "seed": 2,
+      "region": "East",
+      "conference": "Big Ten",
+      "record": "31-8",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 91.8,
+        "adjEM": 26.6,
+        "tempo": 70.2,
+        "barthag": 0.934,
+        "sos": 85.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.722
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.1848,
+        "adjEM_norm": 0.7895,
+        "tempo_norm": 0.6118,
+        "barthag_norm": 0.8514,
+        "sos_norm": 0.95,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.5763,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "louisville-2012",
+      "team": "Louisville",
+      "year": 2012,
+      "seed": 4,
+      "region": "West",
+      "conference": "Big East",
+      "record": "30-10",
+      "efficiency": {
+        "adjO": 114.4,
+        "adjD": 96.4,
+        "adjEM": 18.0,
+        "tempo": 70.4,
+        "barthag": 0.908,
+        "sos": 83.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.712
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.5385,
+        "adjD_norm": 0.4348,
+        "adjEM_norm": 0.5837,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.7635,
+        "sos_norm": 0.9167,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.4915,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "syracuse-2012",
+      "team": "Syracuse",
+      "year": 2012,
+      "seed": 1,
+      "region": "East",
+      "conference": "Big East",
+      "record": "34-3",
+      "efficiency": {
+        "adjO": 116.8,
+        "adjD": 94.4,
+        "adjEM": 22.4,
+        "tempo": 65.8,
+        "barthag": 0.928,
+        "sos": 82.8
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.702
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.6308,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.689,
+        "tempo_norm": 0.3529,
+        "barthag_norm": 0.8311,
+        "sos_norm": 0.9067,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.4068,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "north-carolina-2012",
+      "team": "North Carolina",
+      "year": 2012,
+      "seed": 1,
+      "region": "South",
+      "conference": "ACC",
+      "record": "32-6",
+      "efficiency": {
+        "adjO": 124.4,
+        "adjD": 97.8,
+        "adjEM": 26.6,
+        "tempo": 75.4,
+        "barthag": 0.944,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.734
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.9231,
+        "adjD_norm": 0.5109,
+        "adjEM_norm": 0.7895,
+        "tempo_norm": 0.9176,
+        "barthag_norm": 0.8851,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.678,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "baylor-2012",
+      "team": "Baylor",
+      "year": 2012,
+      "seed": 3,
+      "region": "West",
+      "conference": "Big 12",
+      "record": "30-8",
+      "efficiency": {
+        "adjO": 116.4,
+        "adjD": 94.8,
+        "adjEM": 21.6,
+        "tempo": 73.8,
+        "barthag": 0.922,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.6154,
+        "adjD_norm": 0.3478,
+        "adjEM_norm": 0.6699,
+        "tempo_norm": 0.8235,
+        "barthag_norm": 0.8108,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "norfolk-state-2012",
+      "team": "Norfolk State",
+      "year": 2012,
+      "seed": 15,
+      "region": "South",
+      "conference": "MEAC",
+      "record": "26-11",
+      "efficiency": {
+        "adjO": 100.4,
+        "adjD": 106.8,
+        "adjEM": -6.4,
+        "tempo": 70.4,
+        "barthag": 0.682,
+        "sos": 28.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.328,
+        "ft_pct": 0.654
+      },
+      "ball_control": {
+        "turnover_rate": 19.8
+      },
+      "conference_strength_score": 8,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.0,
+        "adjD_norm": 1.0,
+        "adjEM_norm": 0.0,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.0,
+        "sos_norm": 0.0,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.0,
+        "ft_pct_norm": 0.0,
+        "conference_strength_norm": 0.0
+      }
+    },
+    {
+      "id": "ohio-2012",
+      "team": "Ohio",
+      "year": 2012,
+      "seed": 13,
+      "region": "West",
+      "conference": "MAC",
+      "record": "29-7",
+      "efficiency": {
+        "adjO": 108.4,
+        "adjD": 104.1,
+        "adjEM": 4.3,
+        "tempo": 70.8,
+        "barthag": 0.818,
+        "sos": 52.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.354,
+        "ft_pct": 0.714
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 28,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.3077,
+        "adjD_norm": 0.8533,
+        "adjEM_norm": 0.256,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.4595,
+        "sos_norm": 0.4,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.4643,
+        "ft_pct_norm": 0.5085,
+        "conference_strength_norm": 0.2439
+      }
+    },
+    {
+      "id": "louisville-2013",
+      "team": "Louisville",
+      "year": 2013,
+      "seed": 1,
+      "region": "Midwest",
+      "conference": "Big East",
+      "record": "35-5",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 91.8,
+        "adjEM": 28.6,
+        "tempo": 72.4,
+        "barthag": 0.952,
+        "sos": 84.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.358,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.1848,
+        "adjEM_norm": 0.8373,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.9122,
+        "sos_norm": 0.9333,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.5357,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "michigan-2013",
+      "team": "Michigan",
+      "year": 2013,
+      "seed": 4,
+      "region": "South",
+      "conference": "Big Ten",
+      "record": "31-8",
+      "efficiency": {
+        "adjO": 117.4,
+        "adjD": 95.8,
+        "adjEM": 21.6,
+        "tempo": 70.8,
+        "barthag": 0.924,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.366,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.6538,
+        "adjD_norm": 0.4022,
+        "adjEM_norm": 0.6699,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.8176,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6786,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "wichita-state-2013",
+      "team": "Wichita State",
+      "year": 2013,
+      "seed": 9,
+      "region": "Midwest",
+      "conference": "MVC",
+      "record": "30-9",
+      "efficiency": {
+        "adjO": 112.4,
+        "adjD": 98.4,
+        "adjEM": 14.0,
+        "tempo": 70.4,
+        "barthag": 0.898,
+        "sos": 58.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.734
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 42,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.4615,
+        "adjD_norm": 0.5435,
+        "adjEM_norm": 0.488,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.7297,
+        "sos_norm": 0.5,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.678,
+        "conference_strength_norm": 0.4146
+      }
+    },
+    {
+      "id": "syracuse-2013",
+      "team": "Syracuse",
+      "year": 2013,
+      "seed": 4,
+      "region": "East",
+      "conference": "Big East",
+      "record": "30-10",
+      "efficiency": {
+        "adjO": 116.4,
+        "adjD": 96.8,
+        "adjEM": 19.6,
+        "tempo": 65.4,
+        "barthag": 0.918,
+        "sos": 81.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.358,
+        "ft_pct": 0.704
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.6154,
+        "adjD_norm": 0.4565,
+        "adjEM_norm": 0.622,
+        "tempo_norm": 0.3294,
+        "barthag_norm": 0.7973,
+        "sos_norm": 0.8833,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.5357,
+        "ft_pct_norm": 0.4237,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "indiana-2013",
+      "team": "Indiana",
+      "year": 2013,
+      "seed": 1,
+      "region": "East",
+      "conference": "Big Ten",
+      "record": "29-7",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 95.4,
+        "adjEM": 27.0,
+        "tempo": 72.8,
+        "barthag": 0.944,
+        "sos": 86.8
+      },
+      "shooting": {
+        "three_pt_rate": 0.4,
+        "three_pt_pct": 0.374,
+        "ft_pct": 0.726
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.3804,
+        "adjEM_norm": 0.799,
+        "tempo_norm": 0.7647,
+        "barthag_norm": 0.8851,
+        "sos_norm": 0.9733,
+        "three_pt_rate_norm": 0.6154,
+        "three_pt_pct_norm": 0.8214,
+        "ft_pct_norm": 0.6102,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "duke-2013",
+      "team": "Duke",
+      "year": 2013,
+      "seed": 2,
+      "region": "Midwest",
+      "conference": "ACC",
+      "record": "30-6",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 93.4,
+        "adjEM": 26.0,
+        "tempo": 70.2,
+        "barthag": 0.938,
+        "sos": 85.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.2717,
+        "adjEM_norm": 0.7751,
+        "tempo_norm": 0.6118,
+        "barthag_norm": 0.8649,
+        "sos_norm": 0.95,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "la-salle-2013",
+      "team": "La Salle",
+      "year": 2013,
+      "seed": 13,
+      "region": "West",
+      "conference": "A-10",
+      "record": "24-10",
+      "efficiency": {
+        "adjO": 106.4,
+        "adjD": 104.8,
+        "adjEM": 1.6,
+        "tempo": 70.8,
+        "barthag": 0.802,
+        "sos": 56.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 52,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.2308,
+        "adjD_norm": 0.8913,
+        "adjEM_norm": 0.1914,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.4054,
+        "sos_norm": 0.4667,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.5366
+      }
+    },
+    {
+      "id": "florida-gulf-coast-2013",
+      "team": "Florida Gulf Coast",
+      "year": 2013,
+      "seed": 15,
+      "region": "East",
+      "conference": "ASUN",
+      "record": "26-10",
+      "efficiency": {
+        "adjO": 103.4,
+        "adjD": 99.4,
+        "adjEM": 4.0,
+        "tempo": 74.8,
+        "barthag": 0.784,
+        "sos": 42.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.41,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.726
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 20,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.1154,
+        "adjD_norm": 0.5978,
+        "adjEM_norm": 0.2488,
+        "tempo_norm": 0.8824,
+        "barthag_norm": 0.3446,
+        "sos_norm": 0.2333,
+        "three_pt_rate_norm": 0.6923,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.6102,
+        "conference_strength_norm": 0.1463
+      }
+    },
+    {
+      "id": "harvard-2013",
+      "team": "Harvard",
+      "year": 2013,
+      "seed": 14,
+      "region": "East",
+      "conference": "Ivy",
+      "record": "20-10",
+      "efficiency": {
+        "adjO": 106.2,
+        "adjD": 105.4,
+        "adjEM": 0.8,
+        "tempo": 65.4,
+        "barthag": 0.768,
+        "sos": 51.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.354,
+        "ft_pct": 0.762
+      },
+      "ball_control": {
+        "turnover_rate": 14.8
+      },
+      "conference_strength_score": 25,
+      "tournament_result": "Round of 64",
+      "rounds_won": 0,
+      "similarity_vector": {
+        "adjO_norm": 0.2231,
+        "adjD_norm": 0.9239,
+        "adjEM_norm": 0.1722,
+        "tempo_norm": 0.3294,
+        "barthag_norm": 0.2905,
+        "sos_norm": 0.3833,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.4643,
+        "ft_pct_norm": 0.9153,
+        "conference_strength_norm": 0.2073
+      }
+    },
+    {
+      "id": "connecticut-2014",
+      "team": "Connecticut",
+      "year": 2014,
+      "seed": 7,
+      "region": "East",
+      "conference": "AAC",
+      "record": "32-8",
+      "efficiency": {
+        "adjO": 115.4,
+        "adjD": 97.2,
+        "adjEM": 18.2,
+        "tempo": 68.8,
+        "barthag": 0.908,
+        "sos": 74.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.35,
+        "ft_pct": 0.702
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 58,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.5769,
+        "adjD_norm": 0.4783,
+        "adjEM_norm": 0.5885,
+        "tempo_norm": 0.5294,
+        "barthag_norm": 0.7635,
+        "sos_norm": 0.7667,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.3929,
+        "ft_pct_norm": 0.4068,
+        "conference_strength_norm": 0.6098
+      }
+    },
+    {
+      "id": "florida-2014",
+      "team": "Florida",
+      "year": 2014,
+      "seed": 1,
+      "region": "South",
+      "conference": "SEC",
+      "record": "36-3",
+      "efficiency": {
+        "adjO": 121.4,
+        "adjD": 91.4,
+        "adjEM": 30.0,
+        "tempo": 70.4,
+        "barthag": 0.955,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.732
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.8077,
+        "adjD_norm": 0.163,
+        "adjEM_norm": 0.8708,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.9223,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.661,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "wisconsin-2014",
+      "team": "Wisconsin",
+      "year": 2014,
+      "seed": 2,
+      "region": "West",
+      "conference": "Big Ten",
+      "record": "30-8",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 91.8,
+        "adjEM": 26.6,
+        "tempo": 63.4,
+        "barthag": 0.934,
+        "sos": 83.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.32,
+        "three_pt_pct": 0.344,
+        "ft_pct": 0.758
+      },
+      "ball_control": {
+        "turnover_rate": 15.4
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.1848,
+        "adjEM_norm": 0.7895,
+        "tempo_norm": 0.2118,
+        "barthag_norm": 0.8514,
+        "sos_norm": 0.9167,
+        "three_pt_rate_norm": 0.0,
+        "three_pt_pct_norm": 0.2857,
+        "ft_pct_norm": 0.8814,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "michigan-state-2014",
+      "team": "Michigan State",
+      "year": 2014,
+      "seed": 4,
+      "region": "East",
+      "conference": "Big Ten",
+      "record": "29-9",
+      "efficiency": {
+        "adjO": 115.4,
+        "adjD": 94.4,
+        "adjEM": 21.0,
+        "tempo": 70.4,
+        "barthag": 0.912,
+        "sos": 84.8
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.346,
+        "ft_pct": 0.722
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.5769,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.6555,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.777,
+        "sos_norm": 0.94,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.3214,
+        "ft_pct_norm": 0.5763,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "kentucky-2014",
+      "team": "Kentucky",
+      "year": 2014,
+      "seed": 8,
+      "region": "Midwest",
+      "conference": "SEC",
+      "record": "29-11",
+      "efficiency": {
+        "adjO": 116.4,
+        "adjD": 95.8,
+        "adjEM": 20.6,
+        "tempo": 70.8,
+        "barthag": 0.914,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.6154,
+        "adjD_norm": 0.4022,
+        "adjEM_norm": 0.6459,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.7838,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "arizona-2014",
+      "team": "Arizona",
+      "year": 2014,
+      "seed": 1,
+      "region": "West",
+      "conference": "Pac-12",
+      "record": "33-5",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 91.8,
+        "adjEM": 28.6,
+        "tempo": 72.4,
+        "barthag": 0.95,
+        "sos": 84.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.364,
+        "ft_pct": 0.732
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.1848,
+        "adjEM_norm": 0.8373,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.9054,
+        "sos_norm": 0.9333,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6429,
+        "ft_pct_norm": 0.661,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "dayton-2014",
+      "team": "Dayton",
+      "year": 2014,
+      "seed": 11,
+      "region": "South",
+      "conference": "A-10",
+      "record": "26-10",
+      "efficiency": {
+        "adjO": 108.4,
+        "adjD": 102.4,
+        "adjEM": 6.0,
+        "tempo": 68.4,
+        "barthag": 0.852,
+        "sos": 60.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 52,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.3077,
+        "adjD_norm": 0.7609,
+        "adjEM_norm": 0.2967,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.5743,
+        "sos_norm": 0.5333,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.5366
+      }
+    },
+    {
+      "id": "stanford-2014",
+      "team": "Stanford",
+      "year": 2014,
+      "seed": 10,
+      "region": "Pacific",
+      "conference": "Pac-12",
+      "record": "22-16",
+      "efficiency": {
+        "adjO": 111.4,
+        "adjD": 103.4,
+        "adjEM": 8.0,
+        "tempo": 69.8,
+        "barthag": 0.862,
+        "sos": 80.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.356,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.4231,
+        "adjD_norm": 0.8152,
+        "adjEM_norm": 0.3445,
+        "tempo_norm": 0.5882,
+        "barthag_norm": 0.6081,
+        "sos_norm": 0.8667,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.5,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "mercer-2014",
+      "team": "Mercer",
+      "year": 2014,
+      "seed": 14,
+      "region": "South",
+      "conference": "SoCon",
+      "record": "27-10",
+      "efficiency": {
+        "adjO": 105.4,
+        "adjD": 103.8,
+        "adjEM": 1.6,
+        "tempo": 70.4,
+        "barthag": 0.774,
+        "sos": 46.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.39,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 18,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.1923,
+        "adjD_norm": 0.837,
+        "adjEM_norm": 0.1914,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.3108,
+        "sos_norm": 0.3,
+        "three_pt_rate_norm": 0.5385,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.122
+      }
+    },
+    {
+      "id": "duke-2015",
+      "team": "Duke",
+      "year": 2015,
+      "seed": 1,
+      "region": "South",
+      "conference": "ACC",
+      "record": "35-4",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 93.8,
+        "adjEM": 28.6,
+        "tempo": 70.4,
+        "barthag": 0.952,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.2935,
+        "adjEM_norm": 0.8373,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.9122,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "wisconsin-2015",
+      "team": "Wisconsin",
+      "year": 2015,
+      "seed": 1,
+      "region": "West",
+      "conference": "Big Ten",
+      "record": "36-4",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 91.4,
+        "adjEM": 29.0,
+        "tempo": 63.4,
+        "barthag": 0.95,
+        "sos": 83.8
+      },
+      "shooting": {
+        "three_pt_rate": 0.32,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.766
+      },
+      "ball_control": {
+        "turnover_rate": 15.2
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.163,
+        "adjEM_norm": 0.8469,
+        "tempo_norm": 0.2118,
+        "barthag_norm": 0.9054,
+        "sos_norm": 0.9233,
+        "three_pt_rate_norm": 0.0,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.9492,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "michigan-state-2015",
+      "team": "Michigan State",
+      "year": 2015,
+      "seed": 7,
+      "region": "Midwest",
+      "conference": "Big Ten",
+      "record": "28-9",
+      "efficiency": {
+        "adjO": 114.4,
+        "adjD": 94.8,
+        "adjEM": 19.6,
+        "tempo": 69.8,
+        "barthag": 0.91,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 18.2
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.5385,
+        "adjD_norm": 0.3478,
+        "adjEM_norm": 0.622,
+        "tempo_norm": 0.5882,
+        "barthag_norm": 0.7703,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "kentucky-2015",
+      "team": "Kentucky",
+      "year": 2015,
+      "seed": 1,
+      "region": "Midwest",
+      "conference": "SEC",
+      "record": "38-1",
+      "efficiency": {
+        "adjO": 123.4,
+        "adjD": 91.2,
+        "adjEM": 32.2,
+        "tempo": 70.2,
+        "barthag": 0.96,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.356,
+        "ft_pct": 0.726
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.8846,
+        "adjD_norm": 0.1522,
+        "adjEM_norm": 0.9234,
+        "tempo_norm": 0.6118,
+        "barthag_norm": 0.9392,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.5,
+        "ft_pct_norm": 0.6102,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "gonzaga-2015",
+      "team": "Gonzaga",
+      "year": 2015,
+      "seed": 2,
+      "region": "West",
+      "conference": "WCC",
+      "record": "35-3",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 93.2,
+        "adjEM": 29.2,
+        "tempo": 70.8,
+        "barthag": 0.948,
+        "sos": 68.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.748
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 65,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.2609,
+        "adjEM_norm": 0.8517,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.8986,
+        "sos_norm": 0.6667,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.7966,
+        "conference_strength_norm": 0.6951
+      }
+    },
+    {
+      "id": "arizona-2015",
+      "team": "Arizona",
+      "year": 2015,
+      "seed": 2,
+      "region": "South",
+      "conference": "Pac-12",
+      "record": "34-4",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 92.8,
+        "adjEM": 29.6,
+        "tempo": 71.8,
+        "barthag": 0.948,
+        "sos": 84.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.365,
+        "ft_pct": 0.734
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.2391,
+        "adjEM_norm": 0.8612,
+        "tempo_norm": 0.7059,
+        "barthag_norm": 0.8986,
+        "sos_norm": 0.9333,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6607,
+        "ft_pct_norm": 0.678,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "louisville-2015",
+      "team": "Louisville",
+      "year": 2015,
+      "seed": 3,
+      "region": "Midwest",
+      "conference": "ACC",
+      "record": "27-9",
+      "efficiency": {
+        "adjO": 116.4,
+        "adjD": 95.4,
+        "adjEM": 21.0,
+        "tempo": 71.4,
+        "barthag": 0.918,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.6154,
+        "adjD_norm": 0.3804,
+        "adjEM_norm": 0.6555,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.7973,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "north-carolina-2015",
+      "team": "North Carolina",
+      "year": 2015,
+      "seed": 4,
+      "region": "East",
+      "conference": "ACC",
+      "record": "26-12",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 97.4,
+        "adjEM": 23.0,
+        "tempo": 75.8,
+        "barthag": 0.928,
+        "sos": 85.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 18.4
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.4891,
+        "adjEM_norm": 0.7033,
+        "tempo_norm": 0.9412,
+        "barthag_norm": 0.8311,
+        "sos_norm": 0.95,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "uab-2015",
+      "team": "UAB",
+      "year": 2015,
+      "seed": 14,
+      "region": "East",
+      "conference": "CUSA",
+      "record": "26-9",
+      "efficiency": {
+        "adjO": 107.4,
+        "adjD": 104.8,
+        "adjEM": 2.6,
+        "tempo": 72.4,
+        "barthag": 0.808,
+        "sos": 58.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.354,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 30,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.2692,
+        "adjD_norm": 0.8913,
+        "adjEM_norm": 0.2153,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.4257,
+        "sos_norm": 0.5,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.4643,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.2683
+      }
+    },
+    {
+      "id": "wichita-state-2015",
+      "team": "Wichita State",
+      "year": 2015,
+      "seed": 7,
+      "region": "Midwest",
+      "conference": "MVC",
+      "record": "30-5",
+      "efficiency": {
+        "adjO": 112.4,
+        "adjD": 99.4,
+        "adjEM": 13.0,
+        "tempo": 69.8,
+        "barthag": 0.882,
+        "sos": 58.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.36,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 42,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.4615,
+        "adjD_norm": 0.5978,
+        "adjEM_norm": 0.4641,
+        "tempo_norm": 0.5882,
+        "barthag_norm": 0.6757,
+        "sos_norm": 0.5,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.5714,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 0.4146
+      }
+    },
+    {
+      "id": "villanova-2016",
+      "team": "Villanova",
+      "year": 2016,
+      "seed": 2,
+      "region": "East",
+      "conference": "Big East",
+      "record": "35-5",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 94.8,
+        "adjEM": 27.6,
+        "tempo": 70.8,
+        "barthag": 0.948,
+        "sos": 83.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.43,
+        "three_pt_pct": 0.38,
+        "ft_pct": 0.738
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.3478,
+        "adjEM_norm": 0.8134,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.8986,
+        "sos_norm": 0.9167,
+        "three_pt_rate_norm": 0.8462,
+        "three_pt_pct_norm": 0.9286,
+        "ft_pct_norm": 0.7119,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "north-carolina-2016",
+      "team": "North Carolina",
+      "year": 2016,
+      "seed": 1,
+      "region": "South",
+      "conference": "ACC",
+      "record": "33-7",
+      "efficiency": {
+        "adjO": 121.4,
+        "adjD": 94.4,
+        "adjEM": 27.0,
+        "tempo": 76.8,
+        "barthag": 0.942,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.734
+      },
+      "ball_control": {
+        "turnover_rate": 18.2
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.8077,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.799,
+        "tempo_norm": 1.0,
+        "barthag_norm": 0.8784,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.678,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "oklahoma-2016",
+      "team": "Oklahoma",
+      "year": 2016,
+      "seed": 2,
+      "region": "East",
+      "conference": "Big 12",
+      "record": "29-8",
+      "efficiency": {
+        "adjO": 124.4,
+        "adjD": 100.4,
+        "adjEM": 24.0,
+        "tempo": 72.8,
+        "barthag": 0.932,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.4,
+        "three_pt_pct": 0.374,
+        "ft_pct": 0.714
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.9231,
+        "adjD_norm": 0.6522,
+        "adjEM_norm": 0.7273,
+        "tempo_norm": 0.7647,
+        "barthag_norm": 0.8446,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.6154,
+        "three_pt_pct_norm": 0.8214,
+        "ft_pct_norm": 0.5085,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "syracuse-2016",
+      "team": "Syracuse",
+      "year": 2016,
+      "seed": 10,
+      "region": "Midwest",
+      "conference": "ACC",
+      "record": "23-13",
+      "efficiency": {
+        "adjO": 110.4,
+        "adjD": 100.4,
+        "adjEM": 10.0,
+        "tempo": 65.4,
+        "barthag": 0.858,
+        "sos": 80.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.42,
+        "three_pt_pct": 0.374,
+        "ft_pct": 0.698
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.3846,
+        "adjD_norm": 0.6522,
+        "adjEM_norm": 0.3923,
+        "tempo_norm": 0.3294,
+        "barthag_norm": 0.5946,
+        "sos_norm": 0.8667,
+        "three_pt_rate_norm": 0.7692,
+        "three_pt_pct_norm": 0.8214,
+        "ft_pct_norm": 0.3729,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "kansas-2016",
+      "team": "Kansas",
+      "year": 2016,
+      "seed": 1,
+      "region": "Midwest",
+      "conference": "Big 12",
+      "record": "33-5",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 92.4,
+        "adjEM": 28.0,
+        "tempo": 71.4,
+        "barthag": 0.95,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.364,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.2174,
+        "adjEM_norm": 0.823,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.9054,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6429,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "oregon-2016",
+      "team": "Oregon",
+      "year": 2016,
+      "seed": 1,
+      "region": "West",
+      "conference": "Pac-12",
+      "record": "30-7",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 93.8,
+        "adjEM": 24.6,
+        "tempo": 72.4,
+        "barthag": 0.934,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.39,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.2935,
+        "adjEM_norm": 0.7416,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.8514,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.5385,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "indiana-2016",
+      "team": "Indiana",
+      "year": 2016,
+      "seed": 5,
+      "region": "South",
+      "conference": "Big Ten",
+      "record": "27-8",
+      "efficiency": {
+        "adjO": 116.4,
+        "adjD": 97.4,
+        "adjEM": 19.0,
+        "tempo": 72.4,
+        "barthag": 0.912,
+        "sos": 85.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.6154,
+        "adjD_norm": 0.4891,
+        "adjEM_norm": 0.6077,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.777,
+        "sos_norm": 0.95,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "gonzaga-2016",
+      "team": "Gonzaga",
+      "year": 2016,
+      "seed": 11,
+      "region": "South",
+      "conference": "WCC",
+      "record": "28-8",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 96.4,
+        "adjEM": 22.0,
+        "tempo": 71.4,
+        "barthag": 0.926,
+        "sos": 66.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.746
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 65,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.4348,
+        "adjEM_norm": 0.6794,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.8243,
+        "sos_norm": 0.6333,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.7797,
+        "conference_strength_norm": 0.6951
+      }
+    },
+    {
+      "id": "north-carolina-2017",
+      "team": "North Carolina",
+      "year": 2017,
+      "seed": 1,
+      "region": "South",
+      "conference": "ACC",
+      "record": "33-7",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 94.8,
+        "adjEM": 27.6,
+        "tempo": 76.4,
+        "barthag": 0.944,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.73
+      },
+      "ball_control": {
+        "turnover_rate": 18.2
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.3478,
+        "adjEM_norm": 0.8134,
+        "tempo_norm": 0.9765,
+        "barthag_norm": 0.8851,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.6441,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "gonzaga-2017",
+      "team": "Gonzaga",
+      "year": 2017,
+      "seed": 1,
+      "region": "West",
+      "conference": "WCC",
+      "record": "37-2",
+      "efficiency": {
+        "adjO": 125.4,
+        "adjD": 93.2,
+        "adjEM": 32.2,
+        "tempo": 72.4,
+        "barthag": 0.96,
+        "sos": 68.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.4,
+        "three_pt_pct": 0.374,
+        "ft_pct": 0.752
+      },
+      "ball_control": {
+        "turnover_rate": 15.4
+      },
+      "conference_strength_score": 65,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.9615,
+        "adjD_norm": 0.2609,
+        "adjEM_norm": 0.9234,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.9392,
+        "sos_norm": 0.6667,
+        "three_pt_rate_norm": 0.6154,
+        "three_pt_pct_norm": 0.8214,
+        "ft_pct_norm": 0.8305,
+        "conference_strength_norm": 0.6951
+      }
+    },
+    {
+      "id": "oregon-2017",
+      "team": "Oregon",
+      "year": 2017,
+      "seed": 3,
+      "region": "Midwest",
+      "conference": "Pac-12",
+      "record": "33-6",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 94.4,
+        "adjEM": 24.0,
+        "tempo": 73.4,
+        "barthag": 0.93,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.39,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.7273,
+        "tempo_norm": 0.8,
+        "barthag_norm": 0.8378,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.5385,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "south-carolina-2017",
+      "team": "South Carolina",
+      "year": 2017,
+      "seed": 7,
+      "region": "East",
+      "conference": "SEC",
+      "record": "26-11",
+      "efficiency": {
+        "adjO": 111.4,
+        "adjD": 100.4,
+        "adjEM": 11.0,
+        "tempo": 70.4,
+        "barthag": 0.87,
+        "sos": 84.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.694
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.4231,
+        "adjD_norm": 0.6522,
+        "adjEM_norm": 0.4163,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.6351,
+        "sos_norm": 0.9333,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.339,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "kansas-2017",
+      "team": "Kansas",
+      "year": 2017,
+      "seed": 1,
+      "region": "Midwest",
+      "conference": "Big 12",
+      "record": "31-8",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 92.4,
+        "adjEM": 28.0,
+        "tempo": 70.8,
+        "barthag": 0.942,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.364,
+        "ft_pct": 0.726
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.2174,
+        "adjEM_norm": 0.823,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.8784,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6429,
+        "ft_pct_norm": 0.6102,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "kentucky-2017",
+      "team": "Kentucky",
+      "year": 2017,
+      "seed": 2,
+      "region": "South",
+      "conference": "SEC",
+      "record": "32-6",
+      "efficiency": {
+        "adjO": 121.4,
+        "adjD": 92.8,
+        "adjEM": 28.6,
+        "tempo": 70.4,
+        "barthag": 0.946,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.8077,
+        "adjD_norm": 0.2391,
+        "adjEM_norm": 0.8373,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8919,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "duke-2017",
+      "team": "Duke",
+      "year": 2017,
+      "seed": 2,
+      "region": "East",
+      "conference": "ACC",
+      "record": "28-9",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 93.8,
+        "adjEM": 24.6,
+        "tempo": 70.4,
+        "barthag": 0.93,
+        "sos": 85.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.365,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.2935,
+        "adjEM_norm": 0.7416,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8378,
+        "sos_norm": 0.95,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6607,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "arizona-2017",
+      "team": "Arizona",
+      "year": 2017,
+      "seed": 2,
+      "region": "West",
+      "conference": "Pac-12",
+      "record": "32-5",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 94.4,
+        "adjEM": 28.0,
+        "tempo": 71.8,
+        "barthag": 0.944,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.365,
+        "ft_pct": 0.732
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.823,
+        "tempo_norm": 0.7059,
+        "barthag_norm": 0.8851,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6607,
+        "ft_pct_norm": 0.661,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "villanova-2018",
+      "team": "Villanova",
+      "year": 2018,
+      "seed": 1,
+      "region": "East",
+      "conference": "Big East",
+      "record": "36-4",
+      "efficiency": {
+        "adjO": 124.8,
+        "adjD": 94.4,
+        "adjEM": 30.4,
+        "tempo": 72.4,
+        "barthag": 0.958,
+        "sos": 83.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.45,
+        "three_pt_pct": 0.384,
+        "ft_pct": 0.742
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.9385,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.8804,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.9324,
+        "sos_norm": 0.9167,
+        "three_pt_rate_norm": 1.0,
+        "three_pt_pct_norm": 1.0,
+        "ft_pct_norm": 0.7458,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "michigan-2018",
+      "team": "Michigan",
+      "year": 2018,
+      "seed": 3,
+      "region": "West",
+      "conference": "Big Ten",
+      "record": "33-8",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 95.4,
+        "adjEM": 24.0,
+        "tempo": 68.8,
+        "barthag": 0.932,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.3804,
+        "adjEM_norm": 0.7273,
+        "tempo_norm": 0.5294,
+        "barthag_norm": 0.8446,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "loyola-chicago-2018",
+      "team": "Loyola-Chicago",
+      "year": 2018,
+      "seed": 11,
+      "region": "South",
+      "conference": "MVC",
+      "record": "32-6",
+      "efficiency": {
+        "adjO": 110.4,
+        "adjD": 100.4,
+        "adjEM": 10.0,
+        "tempo": 64.4,
+        "barthag": 0.872,
+        "sos": 54.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.354,
+        "ft_pct": 0.738
+      },
+      "ball_control": {
+        "turnover_rate": 14.8
+      },
+      "conference_strength_score": 42,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.3846,
+        "adjD_norm": 0.6522,
+        "adjEM_norm": 0.3923,
+        "tempo_norm": 0.2706,
+        "barthag_norm": 0.6419,
+        "sos_norm": 0.4333,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.4643,
+        "ft_pct_norm": 0.7119,
+        "conference_strength_norm": 0.4146
+      }
+    },
+    {
+      "id": "kansas-2018",
+      "team": "Kansas",
+      "year": 2018,
+      "seed": 1,
+      "region": "Midwest",
+      "conference": "Big 12",
+      "record": "31-8",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 93.4,
+        "adjEM": 27.0,
+        "tempo": 71.4,
+        "barthag": 0.94,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.364,
+        "ft_pct": 0.726
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.2717,
+        "adjEM_norm": 0.799,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.8716,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6429,
+        "ft_pct_norm": 0.6102,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "duke-2018",
+      "team": "Duke",
+      "year": 2018,
+      "seed": 2,
+      "region": "South",
+      "conference": "ACC",
+      "record": "29-8",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 93.8,
+        "adjEM": 25.6,
+        "tempo": 70.4,
+        "barthag": 0.936,
+        "sos": 85.8
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.2935,
+        "adjEM_norm": 0.7656,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8581,
+        "sos_norm": 0.9567,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "kentucky-2018",
+      "team": "Kentucky",
+      "year": 2018,
+      "seed": 5,
+      "region": "Midwest",
+      "conference": "SEC",
+      "record": "26-11",
+      "efficiency": {
+        "adjO": 115.4,
+        "adjD": 97.4,
+        "adjEM": 18.0,
+        "tempo": 71.4,
+        "barthag": 0.908,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.356,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.5769,
+        "adjD_norm": 0.4891,
+        "adjEM_norm": 0.5837,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.7635,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.5,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "nevada-2018",
+      "team": "Nevada",
+      "year": 2018,
+      "seed": 7,
+      "region": "Midwest",
+      "conference": "MWC",
+      "record": "29-8",
+      "efficiency": {
+        "adjO": 113.4,
+        "adjD": 99.4,
+        "adjEM": 14.0,
+        "tempo": 72.4,
+        "barthag": 0.892,
+        "sos": 64.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.4,
+        "three_pt_pct": 0.37,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 50,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.5,
+        "adjD_norm": 0.5978,
+        "adjEM_norm": 0.488,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.7095,
+        "sos_norm": 0.6,
+        "three_pt_rate_norm": 0.6154,
+        "three_pt_pct_norm": 0.75,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 0.5122
+      }
+    },
+    {
+      "id": "umbc-2018",
+      "team": "UMBC",
+      "year": 2018,
+      "seed": 16,
+      "region": "South",
+      "conference": "America East",
+      "record": "25-11",
+      "efficiency": {
+        "adjO": 103.4,
+        "adjD": 103.8,
+        "adjEM": -0.4,
+        "tempo": 72.4,
+        "barthag": 0.744,
+        "sos": 40.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.39,
+        "three_pt_pct": 0.36,
+        "ft_pct": 0.706
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 18,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.1154,
+        "adjD_norm": 0.837,
+        "adjEM_norm": 0.1435,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.2095,
+        "sos_norm": 0.2,
+        "three_pt_rate_norm": 0.5385,
+        "three_pt_pct_norm": 0.5714,
+        "ft_pct_norm": 0.4407,
+        "conference_strength_norm": 0.122
+      }
+    },
+    {
+      "id": "virginia-2019",
+      "team": "Virginia",
+      "year": 2019,
+      "seed": 1,
+      "region": "South",
+      "conference": "ACC",
+      "record": "35-3",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 88.4,
+        "adjEM": 31.0,
+        "tempo": 59.8,
+        "barthag": 0.96,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.32,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.742
+      },
+      "ball_control": {
+        "turnover_rate": 12.8
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.0,
+        "adjEM_norm": 0.8947,
+        "tempo_norm": 0.0,
+        "barthag_norm": 0.9392,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.0,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.7458,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "texas-tech-2019",
+      "team": "Texas Tech",
+      "year": 2019,
+      "seed": 3,
+      "region": "East",
+      "conference": "Big 12",
+      "record": "31-7",
+      "efficiency": {
+        "adjO": 112.4,
+        "adjD": 88.4,
+        "adjEM": 24.0,
+        "tempo": 65.4,
+        "barthag": 0.94,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.734
+      },
+      "ball_control": {
+        "turnover_rate": 14.4
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.4615,
+        "adjD_norm": 0.0,
+        "adjEM_norm": 0.7273,
+        "tempo_norm": 0.3294,
+        "barthag_norm": 0.8716,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.678,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "michigan-state-2019",
+      "team": "Michigan State",
+      "year": 2019,
+      "seed": 2,
+      "region": "East",
+      "conference": "Big Ten",
+      "record": "32-7",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 93.8,
+        "adjEM": 24.6,
+        "tempo": 70.4,
+        "barthag": 0.94,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.722
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.2935,
+        "adjEM_norm": 0.7416,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8716,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.5763,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "auburn-2019",
+      "team": "Auburn",
+      "year": 2019,
+      "seed": 5,
+      "region": "Midwest",
+      "conference": "SEC",
+      "record": "30-10",
+      "efficiency": {
+        "adjO": 115.4,
+        "adjD": 96.4,
+        "adjEM": 19.0,
+        "tempo": 72.8,
+        "barthag": 0.912,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.5769,
+        "adjD_norm": 0.4348,
+        "adjEM_norm": 0.6077,
+        "tempo_norm": 0.7647,
+        "barthag_norm": 0.777,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "duke-2019",
+      "team": "Duke",
+      "year": 2019,
+      "seed": 1,
+      "region": "East",
+      "conference": "ACC",
+      "record": "32-6",
+      "efficiency": {
+        "adjO": 121.4,
+        "adjD": 93.4,
+        "adjEM": 28.0,
+        "tempo": 72.4,
+        "barthag": 0.946,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.8077,
+        "adjD_norm": 0.2717,
+        "adjEM_norm": 0.823,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.8919,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "gonzaga-2019",
+      "team": "Gonzaga",
+      "year": 2019,
+      "seed": 1,
+      "region": "West",
+      "conference": "WCC",
+      "record": "33-4",
+      "efficiency": {
+        "adjO": 124.8,
+        "adjD": 93.4,
+        "adjEM": 31.4,
+        "tempo": 72.4,
+        "barthag": 0.956,
+        "sos": 68.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.4,
+        "three_pt_pct": 0.375,
+        "ft_pct": 0.756
+      },
+      "ball_control": {
+        "turnover_rate": 15.4
+      },
+      "conference_strength_score": 65,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.9385,
+        "adjD_norm": 0.2717,
+        "adjEM_norm": 0.9043,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.9257,
+        "sos_norm": 0.6667,
+        "three_pt_rate_norm": 0.6154,
+        "three_pt_pct_norm": 0.8393,
+        "ft_pct_norm": 0.8644,
+        "conference_strength_norm": 0.6951
+      }
+    },
+    {
+      "id": "north-carolina-2019",
+      "team": "North Carolina",
+      "year": 2019,
+      "seed": 1,
+      "region": "Midwest",
+      "conference": "ACC",
+      "record": "29-7",
+      "efficiency": {
+        "adjO": 121.4,
+        "adjD": 94.4,
+        "adjEM": 27.0,
+        "tempo": 76.4,
+        "barthag": 0.94,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 18.2
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.8077,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.799,
+        "tempo_norm": 0.9765,
+        "barthag_norm": 0.8716,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "tennessee-2019",
+      "team": "Tennessee",
+      "year": 2019,
+      "seed": 2,
+      "region": "South",
+      "conference": "SEC",
+      "record": "31-6",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 91.4,
+        "adjEM": 27.0,
+        "tempo": 68.4,
+        "barthag": 0.942,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.35,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.163,
+        "adjEM_norm": 0.799,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.8784,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.3929,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "oregon-2019",
+      "team": "Oregon",
+      "year": 2019,
+      "seed": 12,
+      "region": "South",
+      "conference": "Pac-12",
+      "record": "25-13",
+      "efficiency": {
+        "adjO": 113.4,
+        "adjD": 103.4,
+        "adjEM": 10.0,
+        "tempo": 72.4,
+        "barthag": 0.88,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.364,
+        "ft_pct": 0.722
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.5,
+        "adjD_norm": 0.8152,
+        "adjEM_norm": 0.3923,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.6689,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6429,
+        "ft_pct_norm": 0.5763,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "baylor-2021",
+      "team": "Baylor",
+      "year": 2021,
+      "seed": 1,
+      "region": "South",
+      "conference": "Big 12",
+      "record": "28-2",
+      "efficiency": {
+        "adjO": 121.4,
+        "adjD": 90.8,
+        "adjEM": 30.6,
+        "tempo": 72.4,
+        "barthag": 0.96,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.43,
+        "three_pt_pct": 0.382,
+        "ft_pct": 0.736
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.8077,
+        "adjD_norm": 0.1304,
+        "adjEM_norm": 0.8852,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.9392,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.8462,
+        "three_pt_pct_norm": 0.9643,
+        "ft_pct_norm": 0.6949,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "gonzaga-2021",
+      "team": "Gonzaga",
+      "year": 2021,
+      "seed": 1,
+      "region": "West",
+      "conference": "WCC",
+      "record": "31-1",
+      "efficiency": {
+        "adjO": 126.4,
+        "adjD": 91.2,
+        "adjEM": 35.0,
+        "tempo": 74.4,
+        "barthag": 0.97,
+        "sos": 68.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.42,
+        "three_pt_pct": 0.38,
+        "ft_pct": 0.754
+      },
+      "ball_control": {
+        "turnover_rate": 15.2
+      },
+      "conference_strength_score": 65,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 1.0,
+        "adjD_norm": 0.1522,
+        "adjEM_norm": 0.9952,
+        "tempo_norm": 0.8588,
+        "barthag_norm": 0.973,
+        "sos_norm": 0.6667,
+        "three_pt_rate_norm": 0.7692,
+        "three_pt_pct_norm": 0.9286,
+        "ft_pct_norm": 0.8475,
+        "conference_strength_norm": 0.6951
+      }
+    },
+    {
+      "id": "houston-2021",
+      "team": "Houston",
+      "year": 2021,
+      "seed": 2,
+      "region": "East",
+      "conference": "AAC",
+      "record": "28-3",
+      "efficiency": {
+        "adjO": 114.4,
+        "adjD": 91.4,
+        "adjEM": 23.0,
+        "tempo": 67.4,
+        "barthag": 0.934,
+        "sos": 72.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.344,
+        "ft_pct": 0.714
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 58,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.5385,
+        "adjD_norm": 0.163,
+        "adjEM_norm": 0.7033,
+        "tempo_norm": 0.4471,
+        "barthag_norm": 0.8514,
+        "sos_norm": 0.7333,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.2857,
+        "ft_pct_norm": 0.5085,
+        "conference_strength_norm": 0.6098
+      }
+    },
+    {
+      "id": "ucla-2021",
+      "team": "UCLA",
+      "year": 2021,
+      "seed": 11,
+      "region": "East",
+      "conference": "Pac-12",
+      "record": "22-9",
+      "efficiency": {
+        "adjO": 114.4,
+        "adjD": 98.4,
+        "adjEM": 16.0,
+        "tempo": 68.4,
+        "barthag": 0.892,
+        "sos": 80.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.366,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.5385,
+        "adjD_norm": 0.5435,
+        "adjEM_norm": 0.5359,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.7095,
+        "sos_norm": 0.8667,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6786,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "arkansas-2021",
+      "team": "Arkansas",
+      "year": 2021,
+      "seed": 3,
+      "region": "West",
+      "conference": "SEC",
+      "record": "25-7",
+      "efficiency": {
+        "adjO": 116.4,
+        "adjD": 94.4,
+        "adjEM": 22.0,
+        "tempo": 73.8,
+        "barthag": 0.922,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.356,
+        "ft_pct": 0.714
+      },
+      "ball_control": {
+        "turnover_rate": 18.4
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.6154,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.6794,
+        "tempo_norm": 0.8235,
+        "barthag_norm": 0.8108,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.5,
+        "ft_pct_norm": 0.5085,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "usc-2021",
+      "team": "USC",
+      "year": 2021,
+      "seed": 6,
+      "region": "Midwest",
+      "conference": "Pac-12",
+      "record": "24-8",
+      "efficiency": {
+        "adjO": 113.4,
+        "adjD": 96.4,
+        "adjEM": 17.0,
+        "tempo": 71.4,
+        "barthag": 0.908,
+        "sos": 80.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.5,
+        "adjD_norm": 0.4348,
+        "adjEM_norm": 0.5598,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.7635,
+        "sos_norm": 0.8667,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "oregon-state-2021",
+      "team": "Oregon State",
+      "year": 2021,
+      "seed": 12,
+      "region": "West",
+      "conference": "Pac-12",
+      "record": "19-13",
+      "efficiency": {
+        "adjO": 110.4,
+        "adjD": 101.4,
+        "adjEM": 9.0,
+        "tempo": 68.4,
+        "barthag": 0.862,
+        "sos": 80.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.35,
+        "ft_pct": 0.708
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.3846,
+        "adjD_norm": 0.7065,
+        "adjEM_norm": 0.3684,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.6081,
+        "sos_norm": 0.8667,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.3929,
+        "ft_pct_norm": 0.4576,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "oral-roberts-2021",
+      "team": "Oral Roberts",
+      "year": 2021,
+      "seed": 15,
+      "region": "West",
+      "conference": "Summit",
+      "record": "27-7",
+      "efficiency": {
+        "adjO": 107.4,
+        "adjD": 104.4,
+        "adjEM": 3.0,
+        "tempo": 72.8,
+        "barthag": 0.812,
+        "sos": 38.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.43,
+        "three_pt_pct": 0.372,
+        "ft_pct": 0.726
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 15,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.2692,
+        "adjD_norm": 0.8696,
+        "adjEM_norm": 0.2249,
+        "tempo_norm": 0.7647,
+        "barthag_norm": 0.4392,
+        "sos_norm": 0.1667,
+        "three_pt_rate_norm": 0.8462,
+        "three_pt_pct_norm": 0.7857,
+        "ft_pct_norm": 0.6102,
+        "conference_strength_norm": 0.0854
+      }
+    },
+    {
+      "id": "kansas-2022",
+      "team": "Kansas",
+      "year": 2022,
+      "seed": 1,
+      "region": "Midwest",
+      "conference": "Big 12",
+      "record": "34-6",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 92.4,
+        "adjEM": 28.0,
+        "tempo": 71.4,
+        "barthag": 0.948,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.364,
+        "ft_pct": 0.728
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.2174,
+        "adjEM_norm": 0.823,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.8986,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6429,
+        "ft_pct_norm": 0.6271,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "north-carolina-2022",
+      "team": "North Carolina",
+      "year": 2022,
+      "seed": 8,
+      "region": "East",
+      "conference": "ACC",
+      "record": "29-10",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 100.4,
+        "adjEM": 22.0,
+        "tempo": 76.4,
+        "barthag": 0.922,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.73
+      },
+      "ball_control": {
+        "turnover_rate": 18.2
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.6522,
+        "adjEM_norm": 0.6794,
+        "tempo_norm": 0.9765,
+        "barthag_norm": 0.8108,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.6441,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "duke-2022",
+      "team": "Duke",
+      "year": 2022,
+      "seed": 2,
+      "region": "West",
+      "conference": "ACC",
+      "record": "32-7",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 93.4,
+        "adjEM": 27.0,
+        "tempo": 70.4,
+        "barthag": 0.944,
+        "sos": 85.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.2717,
+        "adjEM_norm": 0.799,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8851,
+        "sos_norm": 0.95,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "villanova-2022",
+      "team": "Villanova",
+      "year": 2022,
+      "seed": 2,
+      "region": "South",
+      "conference": "Big East",
+      "record": "30-8",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 95.4,
+        "adjEM": 23.0,
+        "tempo": 70.4,
+        "barthag": 0.932,
+        "sos": 83.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.42,
+        "three_pt_pct": 0.378,
+        "ft_pct": 0.742
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.3804,
+        "adjEM_norm": 0.7033,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8446,
+        "sos_norm": 0.9167,
+        "three_pt_rate_norm": 0.7692,
+        "three_pt_pct_norm": 0.8929,
+        "ft_pct_norm": 0.7458,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "gonzaga-2022",
+      "team": "Gonzaga",
+      "year": 2022,
+      "seed": 1,
+      "region": "West",
+      "conference": "WCC",
+      "record": "28-4",
+      "efficiency": {
+        "adjO": 126.4,
+        "adjD": 92.4,
+        "adjEM": 34.0,
+        "tempo": 73.4,
+        "barthag": 0.96,
+        "sos": 68.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.4,
+        "three_pt_pct": 0.378,
+        "ft_pct": 0.752
+      },
+      "ball_control": {
+        "turnover_rate": 15.4
+      },
+      "conference_strength_score": 65,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 1.0,
+        "adjD_norm": 0.2174,
+        "adjEM_norm": 0.9665,
+        "tempo_norm": 0.8,
+        "barthag_norm": 0.9392,
+        "sos_norm": 0.6667,
+        "three_pt_rate_norm": 0.6154,
+        "three_pt_pct_norm": 0.8929,
+        "ft_pct_norm": 0.8305,
+        "conference_strength_norm": 0.6951
+      }
+    },
+    {
+      "id": "arizona-2022",
+      "team": "Arizona",
+      "year": 2022,
+      "seed": 1,
+      "region": "South",
+      "conference": "Pac-12",
+      "record": "33-4",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 92.4,
+        "adjEM": 30.0,
+        "tempo": 71.8,
+        "barthag": 0.95,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.366,
+        "ft_pct": 0.734
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.2174,
+        "adjEM_norm": 0.8708,
+        "tempo_norm": 0.7059,
+        "barthag_norm": 0.9054,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6786,
+        "ft_pct_norm": 0.678,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "michigan-2022",
+      "team": "Michigan",
+      "year": 2022,
+      "seed": 11,
+      "region": "West",
+      "conference": "Big Ten",
+      "record": "19-15",
+      "efficiency": {
+        "adjO": 112.4,
+        "adjD": 101.4,
+        "adjEM": 11.0,
+        "tempo": 68.4,
+        "barthag": 0.862,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.364,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.4615,
+        "adjD_norm": 0.7065,
+        "adjEM_norm": 0.4163,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.6081,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6429,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "iowa-state-2022",
+      "team": "Iowa State",
+      "year": 2022,
+      "seed": 11,
+      "region": "South",
+      "conference": "Big 12",
+      "record": "22-13",
+      "efficiency": {
+        "adjO": 114.4,
+        "adjD": 99.4,
+        "adjEM": 15.0,
+        "tempo": 70.8,
+        "barthag": 0.888,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.364,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.5385,
+        "adjD_norm": 0.5978,
+        "adjEM_norm": 0.512,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.6959,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6429,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "saint-peters-2022",
+      "team": "Saint Peter's",
+      "year": 2022,
+      "seed": 15,
+      "region": "East",
+      "conference": "MAAC",
+      "record": "21-12",
+      "efficiency": {
+        "adjO": 102.4,
+        "adjD": 100.4,
+        "adjEM": 2.0,
+        "tempo": 64.4,
+        "barthag": 0.758,
+        "sos": 36.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.352,
+        "ft_pct": 0.698
+      },
+      "ball_control": {
+        "turnover_rate": 16.2
+      },
+      "conference_strength_score": 18,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.0769,
+        "adjD_norm": 0.6522,
+        "adjEM_norm": 0.201,
+        "tempo_norm": 0.2706,
+        "barthag_norm": 0.2568,
+        "sos_norm": 0.1333,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.4286,
+        "ft_pct_norm": 0.3729,
+        "conference_strength_norm": 0.122
+      }
+    },
+    {
+      "id": "connecticut-2023",
+      "team": "Connecticut",
+      "year": 2023,
+      "seed": 4,
+      "region": "East",
+      "conference": "Big East",
+      "record": "31-8",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 93.4,
+        "adjEM": 26.0,
+        "tempo": 70.4,
+        "barthag": 0.94,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.736
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.2717,
+        "adjEM_norm": 0.7751,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8716,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.6949,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "san-diego-state-2023",
+      "team": "San Diego State",
+      "year": 2023,
+      "seed": 5,
+      "region": "South",
+      "conference": "MWC",
+      "record": "32-7",
+      "efficiency": {
+        "adjO": 108.4,
+        "adjD": 93.4,
+        "adjEM": 15.0,
+        "tempo": 64.4,
+        "barthag": 0.908,
+        "sos": 66.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.344,
+        "ft_pct": 0.712
+      },
+      "ball_control": {
+        "turnover_rate": 14.2
+      },
+      "conference_strength_score": 50,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.3077,
+        "adjD_norm": 0.2717,
+        "adjEM_norm": 0.512,
+        "tempo_norm": 0.2706,
+        "barthag_norm": 0.7635,
+        "sos_norm": 0.6333,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.2857,
+        "ft_pct_norm": 0.4915,
+        "conference_strength_norm": 0.5122
+      }
+    },
+    {
+      "id": "florida-atlantic-2023",
+      "team": "Florida Atlantic",
+      "year": 2023,
+      "seed": 9,
+      "region": "East",
+      "conference": "CUSA",
+      "record": "35-4",
+      "efficiency": {
+        "adjO": 111.4,
+        "adjD": 99.4,
+        "adjEM": 12.0,
+        "tempo": 71.4,
+        "barthag": 0.888,
+        "sos": 58.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.726
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 30,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.4231,
+        "adjD_norm": 0.5978,
+        "adjEM_norm": 0.4402,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.6959,
+        "sos_norm": 0.5,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.6102,
+        "conference_strength_norm": 0.2683
+      }
+    },
+    {
+      "id": "miami-2023",
+      "team": "Miami",
+      "year": 2023,
+      "seed": 5,
+      "region": "Midwest",
+      "conference": "ACC",
+      "record": "29-8",
+      "efficiency": {
+        "adjO": 114.4,
+        "adjD": 97.4,
+        "adjEM": 17.0,
+        "tempo": 71.4,
+        "barthag": 0.91,
+        "sos": 85.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.714
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.5385,
+        "adjD_norm": 0.4891,
+        "adjEM_norm": 0.5598,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.7703,
+        "sos_norm": 0.95,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5085,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "alabama-2023",
+      "team": "Alabama",
+      "year": 2023,
+      "seed": 1,
+      "region": "South",
+      "conference": "SEC",
+      "record": "31-6",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 94.4,
+        "adjEM": 28.0,
+        "tempo": 74.8,
+        "barthag": 0.946,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.44,
+        "three_pt_pct": 0.378,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.823,
+        "tempo_norm": 0.8824,
+        "barthag_norm": 0.8919,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.9231,
+        "three_pt_pct_norm": 0.8929,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "gonzaga-2023",
+      "team": "Gonzaga",
+      "year": 2023,
+      "seed": 3,
+      "region": "West",
+      "conference": "WCC",
+      "record": "31-6",
+      "efficiency": {
+        "adjO": 122.4,
+        "adjD": 95.4,
+        "adjEM": 27.0,
+        "tempo": 72.4,
+        "barthag": 0.94,
+        "sos": 68.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.4,
+        "three_pt_pct": 0.374,
+        "ft_pct": 0.75
+      },
+      "ball_control": {
+        "turnover_rate": 15.4
+      },
+      "conference_strength_score": 65,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.8462,
+        "adjD_norm": 0.3804,
+        "adjEM_norm": 0.799,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.8716,
+        "sos_norm": 0.6667,
+        "three_pt_rate_norm": 0.6154,
+        "three_pt_pct_norm": 0.8214,
+        "ft_pct_norm": 0.8136,
+        "conference_strength_norm": 0.6951
+      }
+    },
+    {
+      "id": "arkansas-2023",
+      "team": "Arkansas",
+      "year": 2023,
+      "seed": 8,
+      "region": "West",
+      "conference": "SEC",
+      "record": "22-14",
+      "efficiency": {
+        "adjO": 112.4,
+        "adjD": 99.4,
+        "adjEM": 13.0,
+        "tempo": 73.8,
+        "barthag": 0.878,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.35,
+        "three_pt_pct": 0.354,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 18.4
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.4615,
+        "adjD_norm": 0.5978,
+        "adjEM_norm": 0.4641,
+        "tempo_norm": 0.8235,
+        "barthag_norm": 0.6622,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.2308,
+        "three_pt_pct_norm": 0.4643,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "princeton-2023",
+      "team": "Princeton",
+      "year": 2023,
+      "seed": 15,
+      "region": "West",
+      "conference": "Ivy",
+      "record": "23-8",
+      "efficiency": {
+        "adjO": 107.4,
+        "adjD": 104.4,
+        "adjEM": 3.0,
+        "tempo": 64.4,
+        "barthag": 0.802,
+        "sos": 50.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.358,
+        "ft_pct": 0.762
+      },
+      "ball_control": {
+        "turnover_rate": 14.8
+      },
+      "conference_strength_score": 25,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.2692,
+        "adjD_norm": 0.8696,
+        "adjEM_norm": 0.2249,
+        "tempo_norm": 0.2706,
+        "barthag_norm": 0.4054,
+        "sos_norm": 0.3667,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.5357,
+        "ft_pct_norm": 0.9153,
+        "conference_strength_norm": 0.2073
+      }
+    },
+    {
+      "id": "furman-2023",
+      "team": "Furman",
+      "year": 2023,
+      "seed": 13,
+      "region": "South",
+      "conference": "SoCon",
+      "record": "28-9",
+      "efficiency": {
+        "adjO": 107.4,
+        "adjD": 104.8,
+        "adjEM": 2.6,
+        "tempo": 68.4,
+        "barthag": 0.802,
+        "sos": 46.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.39,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.726
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 18,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.2692,
+        "adjD_norm": 0.8913,
+        "adjEM_norm": 0.2153,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.4054,
+        "sos_norm": 0.3,
+        "three_pt_rate_norm": 0.5385,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.6102,
+        "conference_strength_norm": 0.122
+      }
+    },
+    {
+      "id": "fdu-2023",
+      "team": "FDU",
+      "year": 2023,
+      "seed": 16,
+      "region": "East",
+      "conference": "MAAC",
+      "record": "19-16",
+      "efficiency": {
+        "adjO": 101.4,
+        "adjD": 104.4,
+        "adjEM": -3.0,
+        "tempo": 71.4,
+        "barthag": 0.716,
+        "sos": 34.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.682
+      },
+      "ball_control": {
+        "turnover_rate": 19.2
+      },
+      "conference_strength_score": 18,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.0385,
+        "adjD_norm": 0.8696,
+        "adjEM_norm": 0.0813,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.1149,
+        "sos_norm": 0.1,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.2373,
+        "conference_strength_norm": 0.122
+      }
+    },
+    {
+      "id": "connecticut-2024",
+      "team": "Connecticut",
+      "year": 2024,
+      "seed": 1,
+      "region": "East",
+      "conference": "Big East",
+      "record": "37-3",
+      "efficiency": {
+        "adjO": 123.4,
+        "adjD": 91.4,
+        "adjEM": 32.0,
+        "tempo": 70.4,
+        "barthag": 0.962,
+        "sos": 83.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.738
+      },
+      "ball_control": {
+        "turnover_rate": 15.4
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.8846,
+        "adjD_norm": 0.163,
+        "adjEM_norm": 0.9187,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.9459,
+        "sos_norm": 0.9167,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.7119,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "purdue-2024",
+      "team": "Purdue",
+      "year": 2024,
+      "seed": 1,
+      "region": "Midwest",
+      "conference": "Big Ten",
+      "record": "34-4",
+      "efficiency": {
+        "adjO": 126.4,
+        "adjD": 94.4,
+        "adjEM": 32.0,
+        "tempo": 66.4,
+        "barthag": 0.958,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.356,
+        "ft_pct": 0.772
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 1.0,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.9187,
+        "tempo_norm": 0.3882,
+        "barthag_norm": 0.9324,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.5,
+        "ft_pct_norm": 1.0,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "alabama-2024",
+      "team": "Alabama",
+      "year": 2024,
+      "seed": 4,
+      "region": "West",
+      "conference": "SEC",
+      "record": "25-12",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 99.4,
+        "adjEM": 21.0,
+        "tempo": 74.8,
+        "barthag": 0.922,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.44,
+        "three_pt_pct": 0.376,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.5978,
+        "adjEM_norm": 0.6555,
+        "tempo_norm": 0.8824,
+        "barthag_norm": 0.8108,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.9231,
+        "three_pt_pct_norm": 0.8571,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "nc-state-2024",
+      "team": "NC State",
+      "year": 2024,
+      "seed": 11,
+      "region": "East",
+      "conference": "ACC",
+      "record": "23-13",
+      "efficiency": {
+        "adjO": 110.4,
+        "adjD": 100.4,
+        "adjEM": 10.0,
+        "tempo": 70.4,
+        "barthag": 0.862,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.704
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.3846,
+        "adjD_norm": 0.6522,
+        "adjEM_norm": 0.3923,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.6081,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.4237,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "duke-2024",
+      "team": "Duke",
+      "year": 2024,
+      "seed": 4,
+      "region": "West",
+      "conference": "ACC",
+      "record": "27-9",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 94.4,
+        "adjEM": 24.0,
+        "tempo": 70.4,
+        "barthag": 0.93,
+        "sos": 85.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.3261,
+        "adjEM_norm": 0.7273,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8378,
+        "sos_norm": 0.95,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "tennessee-2024",
+      "team": "Tennessee",
+      "year": 2024,
+      "seed": 2,
+      "region": "East",
+      "conference": "SEC",
+      "record": "27-8",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 91.4,
+        "adjEM": 28.0,
+        "tempo": 68.4,
+        "barthag": 0.942,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.34,
+        "three_pt_pct": 0.35,
+        "ft_pct": 0.712
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.163,
+        "adjEM_norm": 0.823,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.8784,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.1538,
+        "three_pt_pct_norm": 0.3929,
+        "ft_pct_norm": 0.4915,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "illinois-2024",
+      "team": "Illinois",
+      "year": 2024,
+      "seed": 3,
+      "region": "East",
+      "conference": "Big Ten",
+      "record": "28-10",
+      "efficiency": {
+        "adjO": 116.4,
+        "adjD": 95.4,
+        "adjEM": 21.0,
+        "tempo": 70.8,
+        "barthag": 0.918,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.6154,
+        "adjD_norm": 0.3804,
+        "adjEM_norm": 0.6555,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.7973,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "colorado-2024",
+      "team": "Colorado",
+      "year": 2024,
+      "seed": 10,
+      "region": "South",
+      "conference": "Pac-12",
+      "record": "26-10",
+      "efficiency": {
+        "adjO": 113.4,
+        "adjD": 101.4,
+        "adjEM": 12.0,
+        "tempo": 70.8,
+        "barthag": 0.882,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 17.4
+      },
+      "conference_strength_score": 78,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.5,
+        "adjD_norm": 0.7065,
+        "adjEM_norm": 0.4402,
+        "tempo_norm": 0.6471,
+        "barthag_norm": 0.6757,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.8537
+      }
+    },
+    {
+      "id": "yale-2024",
+      "team": "Yale",
+      "year": 2024,
+      "seed": 13,
+      "region": "East",
+      "conference": "Ivy",
+      "record": "23-10",
+      "efficiency": {
+        "adjO": 107.4,
+        "adjD": 104.8,
+        "adjEM": 2.6,
+        "tempo": 63.8,
+        "barthag": 0.802,
+        "sos": 50.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.358,
+        "ft_pct": 0.762
+      },
+      "ball_control": {
+        "turnover_rate": 14.8
+      },
+      "conference_strength_score": 25,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.2692,
+        "adjD_norm": 0.8913,
+        "adjEM_norm": 0.2153,
+        "tempo_norm": 0.2353,
+        "barthag_norm": 0.4054,
+        "sos_norm": 0.3667,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.5357,
+        "ft_pct_norm": 0.9153,
+        "conference_strength_norm": 0.2073
+      }
+    },
+    {
+      "id": "florida-2025",
+      "team": "Florida",
+      "year": 2025,
+      "seed": 1,
+      "region": "East",
+      "conference": "SEC",
+      "record": "34-4",
+      "efficiency": {
+        "adjO": 124.4,
+        "adjD": 90.4,
+        "adjEM": 34.0,
+        "tempo": 70.4,
+        "barthag": 0.97,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.748
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Champion",
+      "rounds_won": 6,
+      "similarity_vector": {
+        "adjO_norm": 0.9231,
+        "adjD_norm": 0.1087,
+        "adjEM_norm": 0.9665,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.973,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.7966,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "houston-2025",
+      "team": "Houston",
+      "year": 2025,
+      "seed": 2,
+      "region": "South",
+      "conference": "Big 12",
+      "record": "29-6",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 90.4,
+        "adjEM": 29.0,
+        "tempo": 66.4,
+        "barthag": 0.952,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.346,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 15.2
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Runner-Up",
+      "rounds_won": 5,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.1087,
+        "adjEM_norm": 0.8469,
+        "tempo_norm": 0.3882,
+        "barthag_norm": 0.9122,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.3214,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "duke-2025",
+      "team": "Duke",
+      "year": 2025,
+      "seed": 2,
+      "region": "West",
+      "conference": "ACC",
+      "record": "35-3",
+      "efficiency": {
+        "adjO": 121.4,
+        "adjD": 92.4,
+        "adjEM": 29.0,
+        "tempo": 70.4,
+        "barthag": 0.95,
+        "sos": 86.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.718
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 87,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.8077,
+        "adjD_norm": 0.2174,
+        "adjEM_norm": 0.8469,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.9054,
+        "sos_norm": 0.9667,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.5424,
+        "conference_strength_norm": 0.9634
+      }
+    },
+    {
+      "id": "auburn-2025",
+      "team": "Auburn",
+      "year": 2025,
+      "seed": 1,
+      "region": "South",
+      "conference": "SEC",
+      "record": "28-7",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 93.4,
+        "adjEM": 25.0,
+        "tempo": 71.4,
+        "barthag": 0.934,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.36,
+        "three_pt_pct": 0.362,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 17.2
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Final Four",
+      "rounds_won": 4,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.2717,
+        "adjEM_norm": 0.7512,
+        "tempo_norm": 0.6824,
+        "barthag_norm": 0.8514,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.3077,
+        "three_pt_pct_norm": 0.6071,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "tennessee-2025",
+      "team": "Tennessee",
+      "year": 2025,
+      "seed": 2,
+      "region": "Midwest",
+      "conference": "SEC",
+      "record": "27-8",
+      "efficiency": {
+        "adjO": 119.4,
+        "adjD": 92.4,
+        "adjEM": 27.0,
+        "tempo": 68.4,
+        "barthag": 0.94,
+        "sos": 88.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.33,
+        "three_pt_pct": 0.348,
+        "ft_pct": 0.714
+      },
+      "ball_control": {
+        "turnover_rate": 15.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.7308,
+        "adjD_norm": 0.2174,
+        "adjEM_norm": 0.799,
+        "tempo_norm": 0.5059,
+        "barthag_norm": 0.8716,
+        "sos_norm": 1.0,
+        "three_pt_rate_norm": 0.0769,
+        "three_pt_pct_norm": 0.3571,
+        "ft_pct_norm": 0.5085,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "alabama-2025",
+      "team": "Alabama",
+      "year": 2025,
+      "seed": 2,
+      "region": "East",
+      "conference": "SEC",
+      "record": "24-10",
+      "efficiency": {
+        "adjO": 120.4,
+        "adjD": 97.4,
+        "adjEM": 23.0,
+        "tempo": 74.8,
+        "barthag": 0.922,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.44,
+        "three_pt_pct": 0.376,
+        "ft_pct": 0.716
+      },
+      "ball_control": {
+        "turnover_rate": 17.8
+      },
+      "conference_strength_score": 88,
+      "tournament_result": "Elite Eight",
+      "rounds_won": 3,
+      "similarity_vector": {
+        "adjO_norm": 0.7692,
+        "adjD_norm": 0.4891,
+        "adjEM_norm": 0.7033,
+        "tempo_norm": 0.8824,
+        "barthag_norm": 0.8108,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.9231,
+        "three_pt_pct_norm": 0.8571,
+        "ft_pct_norm": 0.5254,
+        "conference_strength_norm": 0.9756
+      }
+    },
+    {
+      "id": "iowa-state-2025",
+      "team": "Iowa State",
+      "year": 2025,
+      "seed": 3,
+      "region": "West",
+      "conference": "Big 12",
+      "record": "26-8",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 93.4,
+        "adjEM": 25.0,
+        "tempo": 70.4,
+        "barthag": 0.93,
+        "sos": 87.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.368,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 16.4
+      },
+      "conference_strength_score": 90,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.2717,
+        "adjEM_norm": 0.7512,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.8378,
+        "sos_norm": 0.9833,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.7143,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 1.0
+      }
+    },
+    {
+      "id": "st-johns-2025",
+      "team": "St. John's",
+      "year": 2025,
+      "seed": 2,
+      "region": "Midwest",
+      "conference": "Big East",
+      "record": "25-9",
+      "efficiency": {
+        "adjO": 118.4,
+        "adjD": 95.4,
+        "adjEM": 23.0,
+        "tempo": 72.4,
+        "barthag": 0.928,
+        "sos": 82.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.4,
+        "three_pt_pct": 0.372,
+        "ft_pct": 0.732
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 85,
+      "tournament_result": "Sweet 16",
+      "rounds_won": 2,
+      "similarity_vector": {
+        "adjO_norm": 0.6923,
+        "adjD_norm": 0.3804,
+        "adjEM_norm": 0.7033,
+        "tempo_norm": 0.7412,
+        "barthag_norm": 0.8311,
+        "sos_norm": 0.9,
+        "three_pt_rate_norm": 0.6154,
+        "three_pt_pct_norm": 0.7857,
+        "ft_pct_norm": 0.661,
+        "conference_strength_norm": 0.939
+      }
+    },
+    {
+      "id": "michigan-2025",
+      "team": "Michigan",
+      "year": 2025,
+      "seed": 5,
+      "region": "South",
+      "conference": "Big Ten",
+      "record": "24-10",
+      "efficiency": {
+        "adjO": 114.4,
+        "adjD": 97.4,
+        "adjEM": 17.0,
+        "tempo": 70.4,
+        "barthag": 0.904,
+        "sos": 84.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.38,
+        "three_pt_pct": 0.364,
+        "ft_pct": 0.724
+      },
+      "ball_control": {
+        "turnover_rate": 16.8
+      },
+      "conference_strength_score": 89,
+      "tournament_result": "Round of 32",
+      "rounds_won": 1,
+      "similarity_vector": {
+        "adjO_norm": 0.5385,
+        "adjD_norm": 0.4891,
+        "adjEM_norm": 0.5598,
+        "tempo_norm": 0.6235,
+        "barthag_norm": 0.75,
+        "sos_norm": 0.9333,
+        "three_pt_rate_norm": 0.4615,
+        "three_pt_pct_norm": 0.6429,
+        "ft_pct_norm": 0.5932,
+        "conference_strength_norm": 0.9878
+      }
+    },
+    {
+      "id": "yale-2025",
+      "team": "Yale",
+      "year": 2025,
+      "seed": 13,
+      "region": "Midwest",
+      "conference": "Ivy",
+      "record": "22-9",
+      "efficiency": {
+        "adjO": 106.4,
+        "adjD": 104.4,
+        "adjEM": 2.0,
+        "tempo": 63.4,
+        "barthag": 0.792,
+        "sos": 50.4
+      },
+      "shooting": {
+        "three_pt_rate": 0.37,
+        "three_pt_pct": 0.356,
+        "ft_pct": 0.762
+      },
+      "ball_control": {
+        "turnover_rate": 14.8
+      },
+      "conference_strength_score": 25,
+      "tournament_result": "Round of 64",
+      "rounds_won": 0,
+      "similarity_vector": {
+        "adjO_norm": 0.2308,
+        "adjD_norm": 0.8696,
+        "adjEM_norm": 0.201,
+        "tempo_norm": 0.2118,
+        "barthag_norm": 0.3716,
+        "sos_norm": 0.3667,
+        "three_pt_rate_norm": 0.3846,
+        "three_pt_pct_norm": 0.5,
+        "ft_pct_norm": 0.9153,
+        "conference_strength_norm": 0.2073
+      }
+    }
+  ]
+}

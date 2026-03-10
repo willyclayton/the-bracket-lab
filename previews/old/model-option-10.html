@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Detail — Option 10: Minimalist Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* ABOVE FOLD — maximum restraint */
+    .hero-minimal {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 0;
+    }
+    .hero-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .hero-name {
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      color: #3b82f6;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .hero-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 19px;
+      color: #888888;
+      font-style: italic;
+      margin-bottom: 48px;
+    }
+    .hero-score {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 48px;
+    }
+    .hero-score-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 64px;
+      font-weight: 700;
+      color: #efefef;
+      letter-spacing: -2px;
+    }
+    .hero-score-max {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 20px;
+      color: #444;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: #3b82f6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: opacity 0.15s;
+    }
+    .hero-cta:hover { opacity: 0.85; }
+
+    /* EXPANDABLE SECTIONS */
+    .sections {
+      padding-top: 40px;
+    }
+    .expand-section {
+      border-top: 1px solid #222;
+    }
+    .expand-section:last-child {
+      border-bottom: 1px solid #222;
+    }
+    .expand-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    .expand-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: #efefef;
+    }
+    .expand-arrow {
+      font-size: 18px;
+      color: #555;
+      transition: transform 0.25s;
+      width: 24px;
+      text-align: center;
+    }
+    .expand-section.open .expand-arrow {
+      transform: rotate(45deg);
+    }
+    .expand-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .expand-section.open .expand-body {
+      max-height: 800px;
+    }
+    .expand-content {
+      padding: 0 0 24px;
+    }
+
+    /* INNER CONTENT STYLES */
+    .expand-content p {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .mini-stat {
+      text-align: center;
+      padding: 16px 8px;
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 8px;
+    }
+    .mini-stat-label {
+      font-size: 9px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .mini-stat-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .round-list {
+      margin: 12px 0;
+    }
+    .round-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .round-item:last-child { border-bottom: none; }
+    .round-name {
+      font-size: 13px;
+      color: #888;
+    }
+    .round-record {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: #efefef;
+    }
+    .round-bar-wrap {
+      width: 80px;
+      height: 4px;
+      background: #262626;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .round-bar-inner {
+      height: 100%;
+      background: #3b82f6;
+      border-radius: 2px;
+    }
+
+    .bracket-compact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .bc-region {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .bc-region h5 {
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .bc-team {
+      font-size: 12px;
+      padding: 4px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .bc-seed {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+    }
+    .champ-strip {
+      text-align: center;
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      background: rgba(59, 130, 246, 0.04);
+    }
+    .champ-strip-label {
+      font-size: 10px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .champ-strip-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #3b82f6;
+      margin-top: 4px;
+    }
+
+    .espn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: #3b82f6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .espn-text {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    /* LEADERBOARD CONTEXT */
+    .lb-mini {
+      margin: 8px 0;
+    }
+    .lb-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+    }
+    .lb-row.me {
+      background: rgba(59, 130, 246, 0.05);
+      margin: 0 -8px;
+      padding: 6px 8px;
+      border-radius: 4px;
+    }
+    .lb-rank {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #555;
+      width: 18px;
+    }
+    .lb-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .lb-name { font-size: 13px; flex: 1; color: #888; }
+    .lb-score {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #666;
+    }
+
+    @media (max-width: 480px) {
+      .hero-name { font-size: 40px; }
+      .hero-score-value { font-size: 48px; }
+      .mini-stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- ABOVE FOLD: Name, one stat, one CTA -->
+    <section class="hero-minimal">
+      <p class="annotation">Above fold: name, score, one CTA</p>
+      <div class="hero-icon">🎬</div>
+      <h1 class="hero-name">The Scout</h1>
+      <p class="hero-tagline">"Film room intelligence at machine speed."</p>
+      <div class="hero-score">
+        <span class="hero-score-value">1,240</span>
+        <span class="hero-score-max">/ 1,920</span>
+      </div>
+      <div>
+        <a href="#" class="hero-cta">View Bracket &rarr;</a>
+      </div>
+    </section>
+
+    <!-- EXPANDABLE SECTIONS -->
+    <div class="sections">
+      <p class="annotation">Collapsible sections (click to expand)</p>
+
+      <!-- STATS -->
+      <div class="expand-section">
+        <div class="expand-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="expand-title">Stats</span>
+          <span class="expand-arrow">+</span>
+        </div>
+        <div class="expand-body">
+          <div class="expand-content">
+            <div class="mini-stats">
+              <div class="mini-stat">
+                <div class="mini-stat-label">Score</div>
+                <div class="mini-stat-value" style="color: #3b82f6;">1,240</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat-label">Rank</div>
+                <div class="mini-stat-value">2nd</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat-label">Accuracy</div>
+                <div class="mini-stat-value">64.6%</div>
+              </div>
+            </div>
+            <div class="round-list">
+              <div class="round-item">
+                <span class="round-name">Round of 64</span>
+                <div class="round-bar-wrap"><div class="round-bar-inner" style="width: 78%;"></div></div>
+                <span class="round-record">25/32</span>
+              </div>
+              <div class="round-item">
+                <span class="round-name">Round of 32</span>
+                <div class="round-bar-wrap"><div class="round-bar-inner" style="width: 69%;"></div></div>
+                <span class="round-record">11/16</span>
+              </div>
+              <div class="round-item">
+                <span class="round-name">Sweet 16</span>
+                <div class="round-bar-wrap"><div class="round-bar-inner" style="width: 62%;"></div></div>
+                <span class="round-record">5/8</span>
+              </div>
+              <div class="round-item">
+                <span class="round-name">Elite 8</span>
+                <div class="round-bar-wrap"><div class="round-bar-inner" style="width: 50%;"></div></div>
+                <span class="round-record">2/4</span>
+              </div>
+              <div class="round-item">
+                <span class="round-name">Final Four</span>
+                <div class="round-bar-wrap"><div class="round-bar-inner" style="width: 50%;"></div></div>
+                <span class="round-record">1/2</span>
+              </div>
+              <div class="round-item">
+                <span class="round-name">Championship</span>
+                <div class="round-bar-wrap"><div class="round-bar-inner" style="width: 100%;"></div></div>
+                <span class="round-record">1/1</span>
+              </div>
+            </div>
+            <div class="lb-mini">
+              <div class="lb-row">
+                <span class="lb-rank">1</span>
+                <span class="lb-dot" style="background: #22c55e;"></span>
+                <span class="lb-name">The Quant</span>
+                <span class="lb-score">1,310</span>
+              </div>
+              <div class="lb-row me">
+                <span class="lb-rank" style="color: #3b82f6;">2</span>
+                <span class="lb-dot" style="background: #3b82f6;"></span>
+                <span class="lb-name" style="color: #3b82f6; font-weight: 600;">The Scout</span>
+                <span class="lb-score" style="color: #3b82f6;">1,240</span>
+              </div>
+              <div class="lb-row">
+                <span class="lb-rank">3</span>
+                <span class="lb-dot" style="background: #f59e0b;"></span>
+                <span class="lb-name">The Historian</span>
+                <span class="lb-score">1,180</span>
+              </div>
+              <div class="lb-row">
+                <span class="lb-rank">4</span>
+                <span class="lb-dot" style="background: #00ff88;"></span>
+                <span class="lb-name">The Agent</span>
+                <span class="lb-score">1,060</span>
+              </div>
+              <div class="lb-row">
+                <span class="lb-rank">5</span>
+                <span class="lb-dot" style="background: #ef4444;"></span>
+                <span class="lb-name">The Chaos Agent</span>
+                <span class="lb-score">980</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- METHODOLOGY -->
+      <div class="expand-section">
+        <div class="expand-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="expand-title">Methodology</span>
+          <span class="expand-arrow">+</span>
+        </div>
+        <div class="expand-body">
+          <div class="expand-content">
+            <p>The Scout uses large language models to analyze each matchup the way a coaching staff would break down film. It evaluates tempo, defensive efficiency, key player matchups, coaching tendencies, and situational factors like tournament experience.</p>
+            <p>Each game gets a structured analysis prompt, and the model picks the team with the stronger overall matchup profile. Unlike pure statistical models, The Scout incorporates qualitative factors that are difficult to quantify.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BRACKET -->
+      <div class="expand-section">
+        <div class="expand-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="expand-title">Bracket</span>
+          <span class="expand-arrow">+</span>
+        </div>
+        <div class="expand-body">
+          <div class="expand-content">
+            <div class="bracket-compact">
+              <div class="bc-region">
+                <h5>East</h5>
+                <div class="bc-team"><span>Duke</span><span class="bc-seed">1</span></div>
+                <div class="bc-team"><span>Marquette</span><span class="bc-seed">3</span></div>
+                <div class="bc-team"><span>Wisconsin</span><span class="bc-seed">5</span></div>
+                <div class="bc-team"><span>Clemson</span><span class="bc-seed">4</span></div>
+              </div>
+              <div class="bc-region">
+                <h5>West</h5>
+                <div class="bc-team"><span>Houston</span><span class="bc-seed">1</span></div>
+                <div class="bc-team"><span>St. John's</span><span class="bc-seed">2</span></div>
+                <div class="bc-team"><span>Texas A&M</span><span class="bc-seed">3</span></div>
+                <div class="bc-team"><span>Michigan St.</span><span class="bc-seed">6</span></div>
+              </div>
+              <div class="bc-region">
+                <h5>South</h5>
+                <div class="bc-team"><span>Auburn</span><span class="bc-seed">1</span></div>
+                <div class="bc-team"><span>Florida</span><span class="bc-seed">2</span></div>
+                <div class="bc-team"><span>Iowa St.</span><span class="bc-seed">3</span></div>
+                <div class="bc-team"><span>Purdue</span><span class="bc-seed">5</span></div>
+              </div>
+              <div class="bc-region">
+                <h5>Midwest</h5>
+                <div class="bc-team"><span>Kansas</span><span class="bc-seed">1</span></div>
+                <div class="bc-team"><span>Tennessee</span><span class="bc-seed">2</span></div>
+                <div class="bc-team"><span>Arizona</span><span class="bc-seed">4</span></div>
+                <div class="bc-team"><span>Baylor</span><span class="bc-seed">3</span></div>
+              </div>
+            </div>
+            <div class="champ-strip">
+              <div class="champ-strip-label">Champion</div>
+              <div class="champ-strip-name">Duke</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ESPN -->
+      <div class="expand-section">
+        <div class="expand-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="expand-title">ESPN Verification</span>
+          <span class="expand-arrow">+</span>
+        </div>
+        <div class="expand-body">
+          <div class="expand-content">
+            <p class="espn-text">Bracket submitted to ESPN Tournament Challenge before tip-off as timestamped proof.</p>
+            <a href="#" class="espn-link">View on ESPN &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

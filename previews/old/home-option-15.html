@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Option 15 — Narrative + Bento Stats + Glass Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ANNOTATION */
+    .annotation-badge {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 9999;
+      background: rgba(20,20,20,0.92);
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 8px 14px;
+    }
+    .annotation-badge .opt {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+    }
+    .annotation-badge .name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #efefef;
+      font-weight: 500;
+      display: block;
+    }
+
+    /* NAV */
+    nav {
+      padding: 0 48px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(20,20,20,0.95);
+      backdrop-filter: blur(12px);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: #888; font-weight: 400; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: #888; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #efefef; }
+
+    /* LAYOUT CONTAINER */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ── HERO / PROBLEM-SOLUTION ─────────────────────── */
+    .hero {
+      padding: 80px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00ff88;
+      animation: heroPulse 2s ease-in-out infinite;
+    }
+    @keyframes heroPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+    .hero-headline {
+      font-size: clamp(44px, 6vw, 76px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 20px;
+      max-width: 800px;
+    }
+    .hero-headline em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #ef4444;
+    }
+    .hero-headline .solve {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #00ff88;
+    }
+    .hero-body {
+      font-size: 17px;
+      color: #888;
+      max-width: 600px;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .hero-body strong { color: #efefef; }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      padding: 13px 26px;
+      background: #efefef;
+      color: #141414;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-ghost {
+      padding: 13px 26px;
+      border: 1px solid #2e2e2e;
+      color: #888;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: #efefef; border-color: #555; }
+
+    /* ── BENTO GRID ──────────────────────────────────── */
+    .bento-section {
+      padding: 0 0 72px;
+    }
+    .bento-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .bento-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #222;
+    }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1.4fr;
+      gap: 16px;
+    }
+    .bento-box {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 140px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .bento-box:hover {
+      transform: translateY(-2px);
+    }
+    .bento-box.wide {
+      grid-column: span 1;
+    }
+    .bento-box-key {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: auto;
+    }
+    .bento-box-val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 42px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-top: 20px;
+    }
+    .bento-box-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #555;
+      margin-top: 6px;
+    }
+    .bento-box.accent-green { border-color: rgba(0,255,136,0.2); }
+    .bento-box.accent-green .bento-box-val { color: #00ff88; }
+    .bento-box.accent-blue { border-color: rgba(59,130,246,0.2); }
+    .bento-box.accent-blue .bento-box-val { color: #3b82f6; }
+    .bento-box.accent-amber { border-color: rgba(245,158,11,0.2); }
+    .bento-box.accent-amber .bento-box-val { color: #f59e0b; }
+
+    /* The date box */
+    .bento-box.date-box {
+      border-color: rgba(239,68,68,0.2);
+      background: #1e1e1e;
+    }
+    .date-box-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .date-box-badge {
+      padding: 4px 10px;
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 20px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #ef4444;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .date-box-val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 15px;
+      font-weight: 500;
+      color: #efefef;
+      margin-top: 24px;
+    }
+    .date-box-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #555;
+      margin-top: 4px;
+    }
+    .date-box-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .date-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .date-item-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #555;
+    }
+    .date-item-val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888;
+    }
+
+    /* ── GLASS MODEL CARDS ───────────────────────────── */
+    .models-section {
+      padding: 0 0 80px;
+    }
+    .models-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .models-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #222;
+    }
+    .models-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    /* Glass card with radial glow */
+    .model-card {
+      position: relative;
+      border-radius: 18px;
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(30,30,30,0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), border-color 0.2s;
+    }
+    .model-card:hover {
+      transform: translateY(-6px);
+    }
+    /* Radial glow behind card */
+    .model-card::before {
+      content: '';
+      position: absolute;
+      inset: -40px;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.3s;
+    }
+    .model-card:hover::before { opacity: 0.3; }
+    .model-card > * { position: relative; z-index: 1; }
+
+    /* Per-model glow colors */
+    .model-card.scout::before { background: #3b82f6; }
+    .model-card.scout:hover { border-color: rgba(59,130,246,0.3); }
+    .model-card.quant::before { background: #22c55e; }
+    .model-card.quant:hover { border-color: rgba(34,197,94,0.3); }
+    .model-card.historian::before { background: #f59e0b; }
+    .model-card.historian:hover { border-color: rgba(245,158,11,0.3); }
+    .model-card.chaos::before { background: #ef4444; }
+    .model-card.chaos:hover { border-color: rgba(239,68,68,0.3); }
+    .model-card.agent::before { background: #00ff88; }
+    .model-card.agent:hover { border-color: rgba(0,255,136,0.3); }
+
+    .mc-emoji {
+      font-size: 32px;
+      line-height: 1;
+    }
+    .mc-name {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .mc-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: #888;
+      line-height: 1.4;
+    }
+    .mc-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .mc-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .mc-score {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .mc-score-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .mc-rank {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      align-self: flex-start;
+    }
+    .mc-champ {
+      font-size: 12px;
+      color: #888;
+      font-weight: 500;
+    }
+    .mc-champ strong {
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .mc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: auto;
+      transition: gap 0.2s;
+    }
+    .mc-link:hover { gap: 10px; }
+
+    /* Color helpers */
+    .c-scout { color: #3b82f6; }
+    .c-quant { color: #22c55e; }
+    .c-historian { color: #f59e0b; }
+    .c-chaos { color: #ef4444; }
+    .c-agent { color: #00ff88; }
+    .rank-pill-scout { background: rgba(59,130,246,0.12); color: #3b82f6; border: 1px solid rgba(59,130,246,0.25); }
+    .rank-pill-quant { background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.25); }
+    .rank-pill-historian { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.25); }
+    .rank-pill-chaos { background: rgba(239,68,68,0.12); color: #ef4444; border: 1px solid rgba(239,68,68,0.25); }
+    .rank-pill-agent { background: rgba(0,255,136,0.12); color: #00ff88; border: 1px solid rgba(0,255,136,0.25); }
+
+    /* ── LEADERBOARD ─────────────────────────────────── */
+    .lb-section {
+      padding: 0 0 80px;
+    }
+    .lb-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lb-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #222;
+    }
+    .lb-table {
+      border: 1px solid #222;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .lb-head {
+      display: grid;
+      grid-template-columns: 52px 1fr 120px 120px 100px;
+      padding: 12px 24px;
+      background: #1a1a1a;
+      border-bottom: 1px solid #222;
+    }
+    .lb-head span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .lb-head span:nth-child(3),
+    .lb-head span:nth-child(4),
+    .lb-head span:nth-child(5) { text-align: right; }
+    .lb-row {
+      display: grid;
+      grid-template-columns: 52px 1fr 120px 120px 100px;
+      padding: 16px 24px;
+      align-items: center;
+      border-bottom: 1px solid #1c1c1c;
+      transition: background 0.15s;
+    }
+    .lb-row:last-child { border-bottom: none; }
+    .lb-row:hover { background: rgba(255,255,255,0.02); }
+    .lb-row.leader { background: rgba(0,255,136,0.04); }
+    .lb-rank {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: #555;
+    }
+    .lb-row.leader .lb-rank { color: #00ff88; }
+    .lb-model-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lb-emoji { font-size: 18px; }
+    .lb-name-block {}
+    .lb-model-name {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .lb-model-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #555;
+    }
+    .lb-score {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: right;
+    }
+    .lb-acc {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: #888;
+      text-align: right;
+    }
+    .lb-champ {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      text-align: right;
+    }
+
+    /* Progress mini bar in lb */
+    .lb-row-progress {
+      grid-column: 1 / -1;
+      padding: 0 24px 16px;
+      margin-top: -8px;
+    }
+    .lb-mini-bar {
+      height: 2px;
+      background: #1e1e1e;
+      border-radius: 1px;
+      overflow: hidden;
+    }
+    .lb-mini-fill {
+      height: 100%;
+      border-radius: 1px;
+      opacity: 0.7;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #1e1e1e;
+      padding: 40px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #555;
+    }
+    footer a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #888;
+      text-decoration: none;
+    }
+    footer a:hover { color: #efefef; }
+
+    @media (max-width: 1100px) {
+      .bento-grid { grid-template-columns: 1fr 1fr; }
+      .models-row { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .container { padding: 0 20px; }
+      .hero { padding: 60px 0 48px; }
+      .bento-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .bento-box-val { font-size: 32px; }
+      .models-row { grid-template-columns: 1fr; }
+      .lb-head { grid-template-columns: 40px 1fr 80px 80px; }
+      .lb-head span:last-child { display: none; }
+      .lb-row { grid-template-columns: 40px 1fr 80px 80px; }
+      .lb-row .lb-champ { display: none; }
+      footer { flex-direction: column; gap: 12px; padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOTATION -->
+  <div class="annotation-badge">
+    <span class="opt">Option 15</span>
+    <span class="name">Narrative + Bento Stats + Glass Cards</span>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">The Bracket Lab <span>/ 2026</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Brackets</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        Tournament Active &mdash; March Madness 2026
+      </div>
+      <h1 class="hero-headline">
+        What if <em>five AIs</em> filled<br>out your bracket <span class="solve">instead?</span>
+      </h1>
+      <p class="hero-body">
+        Your bracket dies by Thursday. It always does. So we ran an experiment:
+        <strong>five AI models, five completely different strategies</strong>, all locked in before tip-off.
+        Now we watch them compete against each other &mdash; and against the madness.
+      </p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary">View All Brackets &rarr;</a>
+        <a href="#" class="btn-ghost">How it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BENTO STATS ──────────────────────────────────────────── -->
+  <section class="bento-section">
+    <div class="container">
+      <div class="bento-label">Quick stats</div>
+      <div class="bento-grid">
+
+        <div class="bento-box accent-blue">
+          <div class="bento-box-key">AI Models</div>
+          <div>
+            <div class="bento-box-val">5</div>
+            <div class="bento-box-sub">competing brackets</div>
+          </div>
+        </div>
+
+        <div class="bento-box accent-green">
+          <div class="bento-box-key">Games Tracked</div>
+          <div>
+            <div class="bento-box-val">63</div>
+            <div class="bento-box-sub">all rounds</div>
+          </div>
+        </div>
+
+        <div class="bento-box accent-amber">
+          <div class="bento-box-key">Max Points</div>
+          <div>
+            <div class="bento-box-val">1,920</div>
+            <div class="bento-box-sub">ESPN scoring</div>
+          </div>
+        </div>
+
+        <div class="bento-box date-box">
+          <div class="date-box-top">
+            <div class="bento-box-key">Key Dates</div>
+            <div class="date-box-badge">2026</div>
+          </div>
+          <div class="date-box-items">
+            <div class="date-item">
+              <span class="date-item-label">Selection Sunday</span>
+              <span class="date-item-val">Mar 15</span>
+            </div>
+            <div class="date-item">
+              <span class="date-item-label">Picks Locked</span>
+              <span class="date-item-val">Mar 19</span>
+            </div>
+            <div class="date-item">
+              <span class="date-item-label">Tip-off</span>
+              <span class="date-item-val">Mar 20</span>
+            </div>
+            <div class="date-item">
+              <span class="date-item-label">Championship</span>
+              <span class="date-item-val">Apr 6</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MODEL GLASS CARDS ───────────────────────────────────── -->
+  <section class="models-section">
+    <div class="container">
+      <div class="models-label">The Models</div>
+      <div class="models-row">
+
+        <!-- SCOUT -->
+        <div class="model-card scout">
+          <div class="mc-emoji">🎬</div>
+          <div>
+            <div class="mc-name c-scout">The Scout</div>
+            <div class="mc-tagline">"Film room intelligence at machine speed."</div>
+          </div>
+          <div class="mc-divider"></div>
+          <div class="mc-stats">
+            <div>
+              <div class="mc-score-label">Score</div>
+              <div class="mc-score c-scout">720</div>
+            </div>
+            <div class="mc-rank rank-pill-scout">#2</div>
+          </div>
+          <div class="mc-champ">Champion: <strong class="c-scout">Duke</strong></div>
+          <a href="#" class="mc-link c-scout">Bracket &rarr;</a>
+        </div>
+
+        <!-- QUANT -->
+        <div class="model-card quant">
+          <div class="mc-emoji">📊</div>
+          <div>
+            <div class="mc-name c-quant">The Quant</div>
+            <div class="mc-tagline">"10,000 simulations. Zero feelings."</div>
+          </div>
+          <div class="mc-divider"></div>
+          <div class="mc-stats">
+            <div>
+              <div class="mc-score-label">Score</div>
+              <div class="mc-score c-quant">680</div>
+            </div>
+            <div class="mc-rank rank-pill-quant">#3</div>
+          </div>
+          <div class="mc-champ">Champion: <strong class="c-quant">Houston</strong></div>
+          <a href="#" class="mc-link c-quant">Bracket &rarr;</a>
+        </div>
+
+        <!-- HISTORIAN -->
+        <div class="model-card historian">
+          <div class="mc-emoji">📜</div>
+          <div>
+            <div class="mc-name c-historian">The Historian</div>
+            <div class="mc-tagline">"Every team has a twin. History already played this game."</div>
+          </div>
+          <div class="mc-divider"></div>
+          <div class="mc-stats">
+            <div>
+              <div class="mc-score-label">Score</div>
+              <div class="mc-score c-historian">640</div>
+            </div>
+            <div class="mc-rank rank-pill-historian">#4</div>
+          </div>
+          <div class="mc-champ">Champion: <strong class="c-historian">Kentucky</strong></div>
+          <a href="#" class="mc-link c-historian">Bracket &rarr;</a>
+        </div>
+
+        <!-- CHAOS AGENT -->
+        <div class="model-card chaos">
+          <div class="mc-emoji">🔥</div>
+          <div>
+            <div class="mc-name c-chaos">The Chaos Agent</div>
+            <div class="mc-tagline">"Your bracket is too safe. This one isn't."</div>
+          </div>
+          <div class="mc-divider"></div>
+          <div class="mc-stats">
+            <div>
+              <div class="mc-score-label">Score</div>
+              <div class="mc-score c-chaos">580</div>
+            </div>
+            <div class="mc-rank rank-pill-chaos">#5</div>
+          </div>
+          <div class="mc-champ">Champion: <strong class="c-chaos">NM State</strong></div>
+          <a href="#" class="mc-link c-chaos">Bracket &rarr;</a>
+        </div>
+
+        <!-- THE AGENT -->
+        <div class="model-card agent">
+          <div class="mc-emoji">🤖</div>
+          <div>
+            <div class="mc-name c-agent">The Agent</div>
+            <div class="mc-tagline">"No rules. No prompts. Just: build me a bracket."</div>
+          </div>
+          <div class="mc-divider"></div>
+          <div class="mc-stats">
+            <div>
+              <div class="mc-score-label">Score</div>
+              <div class="mc-score c-agent">760</div>
+            </div>
+            <div class="mc-rank rank-pill-agent">#1</div>
+          </div>
+          <div class="mc-champ">Champion: <strong class="c-agent">Auburn</strong></div>
+          <a href="#" class="mc-link c-agent">Bracket &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LEADERBOARD ──────────────────────────────────────────── -->
+  <section class="lb-section">
+    <div class="container">
+      <div class="lb-label">Full leaderboard</div>
+      <div class="lb-table">
+        <div class="lb-head">
+          <span>Rank</span>
+          <span>Model</span>
+          <span style="text-align:right">Score</span>
+          <span style="text-align:right">Accuracy</span>
+          <span style="text-align:right">Champion</span>
+        </div>
+
+        <!-- Row 1: The Agent -->
+        <div class="lb-row leader">
+          <span class="lb-rank">01</span>
+          <div class="lb-model-info">
+            <span class="lb-emoji">🤖</span>
+            <div class="lb-name-block">
+              <div class="lb-model-name c-agent">The Agent</div>
+              <div class="lb-model-sub">Autonomous AI</div>
+            </div>
+          </div>
+          <span class="lb-score c-agent">760</span>
+          <span class="lb-acc">72.4%</span>
+          <span class="lb-champ">Auburn</span>
+        </div>
+        <div style="padding: 0 24px 14px; margin-top:-6px;">
+          <div class="lb-mini-bar"><div class="lb-mini-fill" style="width:100%;background:#00ff88"></div></div>
+        </div>
+
+        <!-- Row 2: The Scout -->
+        <div class="lb-row">
+          <span class="lb-rank">02</span>
+          <div class="lb-model-info">
+            <span class="lb-emoji">🎬</span>
+            <div class="lb-name-block">
+              <div class="lb-model-name c-scout">The Scout</div>
+              <div class="lb-model-sub">LLM Matchup Analyst</div>
+            </div>
+          </div>
+          <span class="lb-score c-scout">720</span>
+          <span class="lb-acc">68.1%</span>
+          <span class="lb-champ">Duke</span>
+        </div>
+        <div style="padding: 0 24px 14px; margin-top:-6px;">
+          <div class="lb-mini-bar"><div class="lb-mini-fill" style="width:94.7%;background:#3b82f6"></div></div>
+        </div>
+
+        <!-- Row 3: The Quant -->
+        <div class="lb-row">
+          <span class="lb-rank">03</span>
+          <div class="lb-model-info">
+            <span class="lb-emoji">📊</span>
+            <div class="lb-name-block">
+              <div class="lb-model-name c-quant">The Quant</div>
+              <div class="lb-model-sub">Monte Carlo Sim</div>
+            </div>
+          </div>
+          <span class="lb-score c-quant">680</span>
+          <span class="lb-acc">64.4%</span>
+          <span class="lb-champ">Houston</span>
+        </div>
+        <div style="padding: 0 24px 14px; margin-top:-6px;">
+          <div class="lb-mini-bar"><div class="lb-mini-fill" style="width:89.5%;background:#22c55e"></div></div>
+        </div>
+
+        <!-- Row 4: The Historian -->
+        <div class="lb-row">
+          <span class="lb-rank">04</span>
+          <div class="lb-model-info">
+            <span class="lb-emoji">📜</span>
+            <div class="lb-name-block">
+              <div class="lb-model-name c-historian">The Historian</div>
+              <div class="lb-model-sub">Archetype Matching</div>
+            </div>
+          </div>
+          <span class="lb-score c-historian">640</span>
+          <span class="lb-acc">60.7%</span>
+          <span class="lb-champ">Kentucky</span>
+        </div>
+        <div style="padding: 0 24px 14px; margin-top:-6px;">
+          <div class="lb-mini-bar"><div class="lb-mini-fill" style="width:84.2%;background:#f59e0b"></div></div>
+        </div>
+
+        <!-- Row 5: Chaos Agent -->
+        <div class="lb-row">
+          <span class="lb-rank">05</span>
+          <div class="lb-model-info">
+            <span class="lb-emoji">🔥</span>
+            <div class="lb-name-block">
+              <div class="lb-model-name c-chaos">The Chaos Agent</div>
+              <div class="lb-model-sub">Upset Detector</div>
+            </div>
+          </div>
+          <span class="lb-score c-chaos">580</span>
+          <span class="lb-acc">55.0%</span>
+          <span class="lb-champ">NM State</span>
+        </div>
+        <div style="padding: 0 24px 14px; margin-top:-6px;">
+          <div class="lb-mini-bar"><div class="lb-mini-fill" style="width:76.3%;background:#ef4444"></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 The Bracket Lab &middot; Built by Will Clayton &middot; Chicago</p>
+    <div style="display:flex;gap:24px;">
+      <a href="#">About</a>
+      <a href="#">ESPN Brackets</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+</body>
+</html>

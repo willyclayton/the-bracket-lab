@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brackets Option 6 — Timeline Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #faf7f2; color: #2a2a2a; font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
+    .annotation { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+    h1 { font-family: 'Instrument Serif', serif; font-size: 42px; margin-bottom: 4px; color: #1a1a1a; }
+    .subtitle { color: #888; font-size: 15px; margin-bottom: 32px; font-family: 'Instrument Serif', serif; font-style: italic; }
+
+    /* Model Selector */
+    .model-selector { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+    .ms-chip {
+      display: flex; align-items: center; gap: 6px; padding: 8px 16px;
+      border-radius: 20px; border: 1.5px solid #ddd; background: #fff;
+      cursor: pointer; font-size: 13px; color: #888; font-family: 'Space Grotesk', sans-serif;
+      transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .ms-chip:hover { border-color: #aaa; color: #555; }
+    .ms-chip.active { color: #2a2a2a; border-color: #2a2a2a; }
+    .ms-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    /* Timeline */
+    .timeline-scroll { overflow-x: auto; padding-bottom: 20px; }
+    .timeline {
+      display: flex; align-items: flex-start; gap: 0; min-width: 1000px;
+      position: relative; padding: 40px 0;
+    }
+
+    /* Timeline Line */
+    .timeline::before {
+      content: ''; position: absolute; top: 60px; left: 40px; right: 40px;
+      height: 2px; background: #ddd; z-index: 0;
+    }
+
+    /* Station */
+    .station {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      position: relative; z-index: 1; cursor: pointer;
+    }
+    .station-dot {
+      width: 20px; height: 20px; border-radius: 50%; border: 2px solid #ddd;
+      background: #faf7f2; transition: all 0.3s; margin-bottom: 16px;
+    }
+    .station:hover .station-dot { transform: scale(1.2); }
+    .station.active .station-dot { background: #2a2a2a; border-color: #2a2a2a; }
+    .station-label {
+      font-family: 'Instrument Serif', serif; font-size: 16px; color: #1a1a1a;
+      text-align: center; margin-bottom: 4px;
+    }
+    .station-meta {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #999;
+      text-align: center;
+    }
+
+    /* Expanded Content */
+    .station-content {
+      max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.3s;
+      opacity: 0; width: 100%;
+    }
+    .station.active .station-content { max-height: 600px; opacity: 1; }
+    .sc-inner { padding-top: 16px; width: 100%; }
+
+    .matchup-list { display: flex; flex-direction: column; gap: 6px; padding: 0 8px; }
+    .tl-matchup {
+      background: #fff; border: 1px solid #e8e4df; border-radius: 6px;
+      padding: 8px 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .tl-team {
+      display: flex; align-items: center; gap: 6px; padding: 3px 0; font-size: 13px;
+    }
+    .tl-team.winner { font-weight: 600; }
+    .tl-team.loser { color: #aaa; }
+    .tl-seed {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #bbb;
+      width: 16px; text-align: center;
+    }
+    .tl-score {
+      margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #bbb;
+    }
+
+    /* Points earned line */
+    .points-earned {
+      text-align: center; margin-top: 10px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #999;
+    }
+    .points-earned strong { color: #2a2a2a; }
+
+    /* Champion Banner */
+    .champion-banner {
+      margin-top: 40px; text-align: center; padding: 32px;
+      background: #fff; border: 1px solid #e8e4df; border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .cb-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #999;
+      text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px;
+    }
+    .cb-name {
+      font-family: 'Instrument Serif', serif; font-size: 48px; color: #1a1a1a;
+    }
+    .cb-tagline { font-family: 'Instrument Serif', serif; font-style: italic; color: #888; margin-top: 4px; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 32px; }
+      .timeline { min-width: 800px; }
+      .cb-name { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="annotation">Brackets Option 6 — Timeline Flow (Light/Cream, Editorial)</p>
+    <h1>The Path to the Title</h1>
+    <p class="subtitle">Six rounds. Sixty-three games. One champion. Click a round to explore.</p>
+
+    <div class="model-selector">
+      <div class="ms-chip active" style="border-color: #3b82f6;"><span class="ms-dot" style="background: #3b82f6;"></span> The Scout</div>
+      <div class="ms-chip"><span class="ms-dot" style="background: #22c55e;"></span> The Quant</div>
+      <div class="ms-chip"><span class="ms-dot" style="background: #f59e0b;"></span> The Historian</div>
+      <div class="ms-chip"><span class="ms-dot" style="background: #ef4444;"></span> The Chaos Agent</div>
+      <div class="ms-chip"><span class="ms-dot" style="background: #00ff88;"></span> The Agent</div>
+    </div>
+
+    <div class="timeline-scroll">
+      <div class="timeline">
+        <div class="station active" onclick="selectStation(this)">
+          <div class="station-dot"></div>
+          <div class="station-label">Round of 64</div>
+          <div class="station-meta">32 games &middot; 10 pts</div>
+          <div class="station-content">
+            <div class="sc-inner">
+              <div class="matchup-list">
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">1</span>Duke<span class="tl-score">82</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">16</span>Norfolk St<span class="tl-score">55</span></div>
+                </div>
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">8</span>Wisconsin<span class="tl-score">71</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">9</span>Memphis<span class="tl-score">68</span></div>
+                </div>
+                <div class="tl-matchup">
+                  <div class="tl-team loser"><span class="tl-seed">5</span>Marquette<span class="tl-score">64</span></div>
+                  <div class="tl-team winner"><span class="tl-seed">12</span>Yale<span class="tl-score">67</span></div>
+                </div>
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">1</span>Auburn<span class="tl-score">85</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">16</span>UMBC<span class="tl-score">52</span></div>
+                </div>
+              </div>
+              <div class="points-earned">Earned <strong>220 pts</strong> &middot; 22/32 correct</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="station" onclick="selectStation(this)">
+          <div class="station-dot"></div>
+          <div class="station-label">Round of 32</div>
+          <div class="station-meta">16 games &middot; 20 pts</div>
+          <div class="station-content">
+            <div class="sc-inner">
+              <div class="matchup-list">
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">1</span>Duke<span class="tl-score">76</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">8</span>Wisconsin<span class="tl-score">69</span></div>
+                </div>
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">4</span>Purdue<span class="tl-score">73</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">12</span>Yale<span class="tl-score">61</span></div>
+                </div>
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">1</span>Auburn<span class="tl-score">74</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">9</span>Boise St<span class="tl-score">62</span></div>
+                </div>
+              </div>
+              <div class="points-earned">Earned <strong>120 pts</strong> &middot; 6/16 correct</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="station" onclick="selectStation(this)">
+          <div class="station-dot"></div>
+          <div class="station-label">Sweet 16</div>
+          <div class="station-meta">8 games &middot; 40 pts</div>
+          <div class="station-content">
+            <div class="sc-inner">
+              <div class="matchup-list">
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">1</span>Duke<span class="tl-score">81</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">4</span>Purdue<span class="tl-score">74</span></div>
+                </div>
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">2</span>Houston<span class="tl-score">68</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">3</span>Tennessee<span class="tl-score">65</span></div>
+                </div>
+              </div>
+              <div class="points-earned">Earned <strong>40 pts</strong> &middot; 1/8 correct</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="station" onclick="selectStation(this)">
+          <div class="station-dot"></div>
+          <div class="station-label">Elite 8</div>
+          <div class="station-meta">4 games &middot; 80 pts</div>
+          <div class="station-content">
+            <div class="sc-inner">
+              <div class="matchup-list">
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">1</span>Duke<span class="tl-score">72</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">2</span>Houston<span class="tl-score">68</span></div>
+                </div>
+                <div class="tl-matchup">
+                  <div class="tl-team winner"><span class="tl-seed">1</span>Auburn<span class="tl-score">79</span></div>
+                  <div class="tl-team loser"><span class="tl-seed">2</span>UConn<span class="tl-score">74</span></div>
+                </div>
+              </div>
+              <div class="points-earned">Pending</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="station" onclick="selectStation(this)">
+          <div class="station-dot"></div>
+          <div class="station-label">Final Four</div>
+          <div class="station-meta">2 games &middot; 160 pts</div>
+          <div class="station-content">
+            <div class="sc-inner">
+              <div class="matchup-list">
+                <div class="tl-matchup">
+                  <div class="tl-team"><span class="tl-seed">1</span>Duke</div>
+                  <div class="tl-team"><span class="tl-seed">1</span>Auburn</div>
+                </div>
+                <div class="tl-matchup">
+                  <div class="tl-team"><span class="tl-seed">1</span>Gonzaga</div>
+                  <div class="tl-team"><span class="tl-seed">2</span>Kansas</div>
+                </div>
+              </div>
+              <div class="points-earned">Pending</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="station" onclick="selectStation(this)">
+          <div class="station-dot"></div>
+          <div class="station-label">Championship</div>
+          <div class="station-meta">1 game &middot; 320 pts</div>
+          <div class="station-content">
+            <div class="sc-inner">
+              <div class="matchup-list">
+                <div class="tl-matchup">
+                  <div class="tl-team" style="font-weight: 600;"><span class="tl-seed">1</span>Duke</div>
+                  <div class="tl-team"><span class="tl-seed">2</span>Kansas</div>
+                </div>
+              </div>
+              <div class="points-earned">Pending</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="champion-banner">
+      <div class="cb-label">The Scout's Champion</div>
+      <div class="cb-name">Duke</div>
+      <div class="cb-tagline">"Film room said Duke. Film room was right."</div>
+    </div>
+  </div>
+
+  <script>
+    function selectStation(el) {
+      document.querySelectorAll('.station').forEach(s => s.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+</body>
+</html>

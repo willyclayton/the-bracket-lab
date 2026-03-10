@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Detail — Option 2: Sticky Sidebar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: #1e1e1e;
+      border-right: 1px solid #333333;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      overflow-y: auto;
+    }
+    .sidebar-icon {
+      font-size: 40px;
+      text-align: center;
+    }
+    .sidebar-color-bar {
+      height: 4px;
+      background: #3b82f6;
+      border-radius: 2px;
+    }
+    .sidebar-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #3b82f6;
+      text-align: center;
+    }
+    .sidebar-subtitle {
+      font-family: 'Instrument Serif', serif;
+      font-size: 15px;
+      color: #888888;
+      text-align: center;
+      font-style: italic;
+    }
+    .sidebar-tagline {
+      font-size: 13px;
+      color: #aaa;
+      text-align: center;
+      padding: 0 8px;
+    }
+    .sidebar-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px;
+      background: #141414;
+      border-radius: 10px;
+      border: 1px solid #333333;
+    }
+    .sidebar-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sidebar-stat-label {
+      font-size: 12px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sidebar-stat-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 16px;
+      font-weight: 600;
+      color: #efefef;
+    }
+    .sidebar-champion {
+      text-align: center;
+      padding: 16px;
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 10px;
+    }
+    .sidebar-champion-label {
+      font-size: 10px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .sidebar-champion-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #3b82f6;
+      margin-top: 4px;
+    }
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: auto;
+    }
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      color: #888888;
+      text-decoration: none;
+      font-size: 13px;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      background: #262626;
+      color: #efefef;
+    }
+    .sidebar-nav a.active {
+      border-left: 3px solid #3b82f6;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      flex: 1;
+      padding: 48px 48px 80px;
+      max-width: 800px;
+    }
+    .main section {
+      margin-bottom: 64px;
+    }
+    .main h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .main p {
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.8;
+    }
+
+    .key-picks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .pick-card {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .pick-card-round {
+      font-size: 10px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .pick-card-matchup {
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    .pick-card-matchup .winner {
+      color: #3b82f6;
+      font-weight: 600;
+    }
+    .pick-card-confidence {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888888;
+      margin-top: 6px;
+    }
+
+    .bracket-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .region-col h4 {
+      font-size: 12px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .region-team {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .region-team .seed {
+      color: #666;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+    }
+    .espn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 14px 24px;
+      background: #3b82f6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: opacity 0.15s;
+    }
+    .espn-link:hover { opacity: 0.85; }
+
+    /* MOBILE: sidebar becomes top card */
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+      }
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 24px 16px;
+        gap: 12px;
+        border-right: none;
+        border-bottom: 1px solid #333333;
+      }
+      .sidebar-color-bar { width: 100%; }
+      .sidebar-stats { flex-direction: row; gap: 24px; flex-wrap: wrap; justify-content: center; }
+      .sidebar-nav { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 4px; }
+      .main {
+        padding: 24px 16px;
+      }
+      .key-picks { grid-template-columns: 1fr; }
+      .bracket-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <p class="annotation">Sticky sidebar identity card</p>
+      <div class="sidebar-icon">🎬</div>
+      <div class="sidebar-color-bar"></div>
+      <div class="sidebar-name">The Scout</div>
+      <div class="sidebar-subtitle">LLM Matchup Analyst</div>
+      <div class="sidebar-tagline">"Film room intelligence at machine speed."</div>
+
+      <div class="sidebar-stats">
+        <div class="sidebar-stat">
+          <span class="sidebar-stat-label">Score</span>
+          <span class="sidebar-stat-value">1,240</span>
+        </div>
+        <div class="sidebar-stat">
+          <span class="sidebar-stat-label">Max</span>
+          <span class="sidebar-stat-value">1,920</span>
+        </div>
+        <div class="sidebar-stat">
+          <span class="sidebar-stat-label">Rank</span>
+          <span class="sidebar-stat-value">2nd</span>
+        </div>
+        <div class="sidebar-stat">
+          <span class="sidebar-stat-label">Accuracy</span>
+          <span class="sidebar-stat-value">64.6%</span>
+        </div>
+      </div>
+
+      <div class="sidebar-champion">
+        <div class="sidebar-champion-label">Champion Pick</div>
+        <div class="sidebar-champion-name">Duke</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#methodology" class="active">Methodology</a>
+        <a href="#key-picks">Key Picks</a>
+        <a href="#bracket">Bracket</a>
+        <a href="#espn">ESPN Link</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <section id="methodology">
+        <p class="annotation">Section: Methodology</p>
+        <h2>Methodology</h2>
+        <p>The Scout uses large language models to analyze each matchup the way a coaching staff would break down film. It evaluates tempo, defensive efficiency, key player matchups, coaching tendencies, and situational factors like tournament experience. Each game gets a structured analysis prompt, and the model picks the team with the stronger overall matchup profile.</p>
+        <p style="margin-top: 16px;">Unlike pure statistical models, The Scout incorporates qualitative factors that are difficult to quantify: locker room chemistry signals, coaching track records in high-pressure games, and how a team's playing style historically performs in the tournament format. This mirrors how the best human analysts make predictions -- blending data with contextual understanding.</p>
+      </section>
+
+      <section id="key-picks">
+        <p class="annotation">Section: Key Picks</p>
+        <h2>Key Picks</h2>
+        <div class="key-picks">
+          <div class="pick-card">
+            <div class="pick-card-round">Sweet 16</div>
+            <div class="pick-card-matchup"><span class="winner">Wisconsin (5)</span> over Marquette (3)</div>
+            <div class="pick-card-confidence">Confidence: 62%</div>
+          </div>
+          <div class="pick-card">
+            <div class="pick-card-round">Elite 8</div>
+            <div class="pick-card-matchup"><span class="winner">Duke (1)</span> over Florida (2)</div>
+            <div class="pick-card-confidence">Confidence: 74%</div>
+          </div>
+          <div class="pick-card">
+            <div class="pick-card-round">Final Four</div>
+            <div class="pick-card-matchup"><span class="winner">Duke (1)</span> over Houston (1)</div>
+            <div class="pick-card-confidence">Confidence: 58%</div>
+          </div>
+          <div class="pick-card">
+            <div class="pick-card-round">Championship</div>
+            <div class="pick-card-matchup"><span class="winner">Duke (1)</span> over Auburn (1)</div>
+            <div class="pick-card-confidence">Confidence: 55%</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="bracket">
+        <p class="annotation">Section: Bracket Preview</p>
+        <h2>Bracket</h2>
+        <div class="bracket-grid">
+          <div class="region-col">
+            <h4>East</h4>
+            <div class="region-team"><span>Duke</span><span class="seed">1</span></div>
+            <div class="region-team"><span>Marquette</span><span class="seed">3</span></div>
+            <div class="region-team"><span>Wisconsin</span><span class="seed">5</span></div>
+            <div class="region-team"><span>Clemson</span><span class="seed">4</span></div>
+          </div>
+          <div class="region-col">
+            <h4>West</h4>
+            <div class="region-team"><span>Houston</span><span class="seed">1</span></div>
+            <div class="region-team"><span>St. John's</span><span class="seed">2</span></div>
+            <div class="region-team"><span>Texas A&M</span><span class="seed">3</span></div>
+            <div class="region-team"><span>Michigan St.</span><span class="seed">6</span></div>
+          </div>
+          <div class="region-col">
+            <h4>South</h4>
+            <div class="region-team"><span>Auburn</span><span class="seed">1</span></div>
+            <div class="region-team"><span>Florida</span><span class="seed">2</span></div>
+            <div class="region-team"><span>Iowa St.</span><span class="seed">3</span></div>
+            <div class="region-team"><span>Purdue</span><span class="seed">5</span></div>
+          </div>
+          <div class="region-col">
+            <h4>Midwest</h4>
+            <div class="region-team"><span>Kansas</span><span class="seed">1</span></div>
+            <div class="region-team"><span>Tennessee</span><span class="seed">2</span></div>
+            <div class="region-team"><span>Arizona</span><span class="seed">4</span></div>
+            <div class="region-team"><span>Baylor</span><span class="seed">3</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="espn">
+        <p class="annotation">Section: ESPN Verification</p>
+        <h2>ESPN Bracket</h2>
+        <p>The Scout's complete bracket was submitted to ESPN Tournament Challenge before the first game tipped off. This serves as timestamped proof that all picks were locked in advance.</p>
+        <a href="#" class="espn-link">View on ESPN Tournament Challenge &rarr;</a>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>

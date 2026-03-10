@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Option 4 — Editorial Magazine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #faf7f2;
+      color: #1a1a1a;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      padding: 20px 0;
+      border-bottom: 2px solid #1a1a1a;
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+      font-family: 'Instrument Serif', serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .nav-links a:hover { color: #1a1a1a; }
+
+    /* MASTHEAD */
+    .masthead {
+      text-align: center;
+      padding: 60px 0 40px;
+      border-bottom: 1px solid #ddd;
+    }
+    .masthead-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .masthead h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 72px;
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .masthead-sub {
+      font-size: 20px;
+      color: #666;
+      max-width: 550px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .masthead-divider {
+      width: 60px;
+      height: 3px;
+      background: #1a1a1a;
+      margin: 32px auto 0;
+    }
+
+    /* EDITORIAL INTRO */
+    .editorial-intro {
+      padding: 48px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .intro-columns {
+      columns: 2;
+      column-gap: 48px;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #444;
+    }
+    .intro-columns p { margin-bottom: 16px; }
+    .intro-columns .dropcap::first-letter {
+      font-family: 'Instrument Serif', serif;
+      float: left;
+      font-size: 64px;
+      line-height: 0.8;
+      padding-right: 8px;
+      padding-top: 6px;
+      color: #1a1a1a;
+    }
+
+    /* MODEL PROFILES */
+    .profiles-section {
+      padding: 60px 0;
+    }
+    .profiles-section > .container > .annotation { margin-bottom: 24px; }
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .profile-card {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 32px;
+      background: #fff;
+      transition: box-shadow 0.2s;
+    }
+    .profile-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .profile-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .profile-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .profile-emoji { font-size: 36px; margin-bottom: 12px; }
+    .profile-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+    .profile-type {
+      font-size: 13px;
+      color: #999;
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .profile-quote {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: #555;
+      line-height: 1.5;
+      border-left: 3px solid;
+      padding-left: 16px;
+      margin-bottom: 16px;
+    }
+    .profile-desc {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+    }
+    .profile-featured-left {
+      padding: 20px;
+      text-align: center;
+    }
+    .profile-featured-left .profile-emoji { font-size: 56px; }
+
+    /* FOOTER */
+    .editorial-footer {
+      padding: 40px 0;
+      border-top: 2px solid #1a1a1a;
+      text-align: center;
+    }
+    .editorial-footer p {
+      font-size: 13px;
+      color: #999;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    @media (max-width: 768px) {
+      .masthead h1 { font-size: 44px; }
+      .intro-columns { columns: 1; }
+      .profile-grid { grid-template-columns: 1fr; }
+      .profile-card.featured { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="logo">The Bracket Lab</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Brackets</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="masthead">
+    <div class="container">
+      <div class="annotation">&larr; MASTHEAD / HERO</div>
+      <div class="masthead-date">March Madness 2026 &middot; Tournament Edition</div>
+      <h1>Five Minds, One Bracket</h1>
+      <p class="masthead-sub">An experiment in artificial intelligence, sports prediction, and the beautiful chaos of March.</p>
+      <div class="masthead-divider"></div>
+    </div>
+  </section>
+
+  <section class="editorial-intro">
+    <div class="container">
+      <div class="annotation">&larr; EDITORIAL INTRO (MULTI-COLUMN)</div>
+      <div class="intro-columns">
+        <p class="dropcap">Every March, millions of Americans fill out a bracket. Most rely on gut feeling, fandom, or whatever ESPN's talking heads said that morning. We decided to try something different: give five AI models the same data and the same assignment -- predict every game of the 2026 NCAA Tournament -- and see which approach actually works.</p>
+        <p>Each model uses a fundamentally different strategy. One thinks like a scout, studying film and matchups. Another runs 10,000 statistical simulations. One mines 20 years of tournament history for patterns. One actively hunts for upsets. And one was simply told: "Figure it out yourself."</p>
+        <p>All picks were locked into ESPN Tournament Challenge before the first game tipped off. No edits, no adjustments, no human intervention. Just five different theories about what wins in March, tested against reality in real time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="profiles-section">
+    <div class="container">
+      <div class="annotation">&larr; MODEL PROFILES (EDITORIAL CARDS)</div>
+      <h2 class="section-title">The Competitors</h2>
+      <div class="profile-grid">
+
+        <div class="profile-card featured">
+          <div class="profile-featured-left">
+            <div class="profile-emoji">🎬</div>
+            <div class="profile-badge" style="background:#3b82f6">Model 01</div>
+          </div>
+          <div>
+            <div class="profile-name" style="color:#3b82f6">The Scout</div>
+            <div class="profile-type">LLM Matchup Analyst</div>
+            <div class="profile-quote" style="border-color:#3b82f6">"Film room intelligence at machine speed."</div>
+            <div class="profile-desc">The Scout approaches each matchup the way a basketball analyst watches film. It reads team strengths, coaching tendencies, pace of play, and stylistic mismatches to make game-by-game decisions.</div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-emoji">📊</div>
+          <div class="profile-badge" style="background:#22c55e">Model 02</div>
+          <div class="profile-name" style="color:#22c55e">The Quant</div>
+          <div class="profile-type">Monte Carlo Simulation</div>
+          <div class="profile-quote" style="border-color:#22c55e">"10,000 simulations. Zero feelings."</div>
+          <div class="profile-desc">Pure probability. 10,000 Monte Carlo simulations using offensive and defensive efficiency, tempo, and strength of schedule.</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-emoji">📜</div>
+          <div class="profile-badge" style="background:#f59e0b">Model 03</div>
+          <div class="profile-name" style="color:#f59e0b">The Historian</div>
+          <div class="profile-type">Archetype Matching</div>
+          <div class="profile-quote" style="border-color:#f59e0b">"Every team has a twin. History already played this game."</div>
+          <div class="profile-desc">Matches 2026 teams to their closest historical analogues, then plays out the bracket based on what happened when similar teams met in past tournaments.</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-emoji">🔥</div>
+          <div class="profile-badge" style="background:#ef4444">Model 04</div>
+          <div class="profile-name" style="color:#ef4444">The Chaos Agent</div>
+          <div class="profile-type">Upset Detector</div>
+          <div class="profile-quote" style="border-color:#ef4444">"Your bracket is too safe. This one isn't."</div>
+          <div class="profile-desc">Engineered to find vulnerable favorites and pick upsets with conviction. When the data says a lower seed has a real shot, this model always takes the swing.</div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-emoji">🤖</div>
+          <div class="profile-badge" style="background:#00cc6a">Model 05</div>
+          <div class="profile-name" style="color:#00ff88">The Agent</div>
+          <div class="profile-type">Autonomous AI Researcher</div>
+          <div class="profile-quote" style="border-color:#00ff88">"No rules. No prompts. Just: build me a bracket."</div>
+          <div class="profile-desc">An autonomous AI agent given total freedom. It chose its own data sources, built its own methodology, and filled out its bracket without any human guidance whatsoever.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="editorial-footer">
+    <div class="container">
+      <p>The Bracket Lab &middot; March Madness 2026 &middot; A project by Will Clayton</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Option 6 — Card Carousel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888888;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav { padding: 20px 0; border-bottom: 1px solid #333; }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 700; font-size: 18px; }
+    .logo span { color: #888; font-weight: 400; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: #888; text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: #efefef; }
+
+    /* SHORT HERO */
+    .hero {
+      padding: 60px 0 48px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      border: 1px solid #333;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .hero h1 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: #888;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* CAROUSEL SECTION */
+    .carousel-section {
+      padding: 40px 0 60px;
+    }
+    .carousel-section h2 {
+      font-size: 14px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px 24px 40px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .carousel::-webkit-scrollbar { height: 4px; }
+    .carousel::-webkit-scrollbar-track { background: #1e1e1e; }
+    .carousel::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+    .carousel-card {
+      flex: 0 0 280px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 28px 24px;
+      scroll-snap-align: center;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      perspective: 800px;
+      cursor: pointer;
+    }
+    .carousel-card:hover {
+      transform: perspective(800px) rotateY(-3deg) rotateX(2deg) translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .card-emoji { font-size: 36px; }
+    .card-rank {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #555;
+      border: 1px solid #333;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .card-name {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .card-type {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .card-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: #aaa;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .card-stats {
+      border-top: 1px solid #333;
+      padding-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .card-stat-label {
+      font-size: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .card-stat-value {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .card-accent {
+      width: 100%;
+      height: 3px;
+      border-radius: 2px;
+      margin-top: 16px;
+    }
+
+    /* VOTE WIDGET */
+    .vote-section {
+      padding: 60px 0 80px;
+      border-top: 1px solid #333;
+    }
+    .vote-section h2 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .vote-sub {
+      text-align: center;
+      font-size: 15px;
+      color: #888;
+      margin-bottom: 32px;
+    }
+    .vote-options {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .vote-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .vote-btn:hover { background: #2a2a2a; }
+    .vote-btn .vote-emoji { font-size: 18px; }
+
+    .vote-results {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .vote-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .vote-bar-label {
+      width: 110px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: right;
+    }
+    .vote-bar-track {
+      flex: 1;
+      height: 24px;
+      background: #1e1e1e;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .vote-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #141414;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 34px; }
+      .carousel-card { flex: 0 0 250px; }
+      .vote-options { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="logo">The Bracket Lab <span>/ 2026</span></div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Brackets</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="annotation">&larr; SHORT HERO + BADGE</div>
+      <div class="hero-badge">March Madness 2026 &middot; AI Experiment</div>
+      <h1>The Bracket <em>Lab</em></h1>
+      <p class="hero-sub">Five AI models. Five different strategies. One tournament to prove who got it right.</p>
+    </div>
+  </section>
+
+  <section class="carousel-section">
+    <div class="annotation" style="text-align:center;padding:0 24px">&larr; HORIZONTALLY SCROLLABLE MODEL CARDS WITH 3D TILT ON HOVER</div>
+    <h2>The Competitors</h2>
+    <div class="carousel">
+      <div class="carousel-card" style="--accent:#3b82f6" onmouseover="this.style.borderColor='#3b82f6'" onmouseout="this.style.borderColor='#333'">
+        <div class="card-top">
+          <span class="card-emoji">🎬</span>
+          <span class="card-rank">#3</span>
+        </div>
+        <div class="card-name" style="color:#3b82f6">The Scout</div>
+        <div class="card-type">LLM Matchup Analyst</div>
+        <div class="card-tagline">"Film room intelligence at machine speed."</div>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Score</div>
+            <div class="card-stat-value">420</div>
+          </div>
+          <div>
+            <div class="card-stat-label">Correct</div>
+            <div class="card-stat-value">26</div>
+          </div>
+        </div>
+        <div class="card-accent" style="background:#3b82f6"></div>
+      </div>
+
+      <div class="carousel-card" onmouseover="this.style.borderColor='#22c55e'" onmouseout="this.style.borderColor='#333'">
+        <div class="card-top">
+          <span class="card-emoji">📊</span>
+          <span class="card-rank">#1</span>
+        </div>
+        <div class="card-name" style="color:#22c55e">The Quant</div>
+        <div class="card-type">Monte Carlo Simulation</div>
+        <div class="card-tagline">"10,000 simulations. Zero feelings."</div>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Score</div>
+            <div class="card-stat-value">480</div>
+          </div>
+          <div>
+            <div class="card-stat-label">Correct</div>
+            <div class="card-stat-value">28</div>
+          </div>
+        </div>
+        <div class="card-accent" style="background:#22c55e"></div>
+      </div>
+
+      <div class="carousel-card" onmouseover="this.style.borderColor='#f59e0b'" onmouseout="this.style.borderColor='#333'">
+        <div class="card-top">
+          <span class="card-emoji">📜</span>
+          <span class="card-rank">#4</span>
+        </div>
+        <div class="card-name" style="color:#f59e0b">The Historian</div>
+        <div class="card-type">Archetype Matching</div>
+        <div class="card-tagline">"Every team has a twin. History already played this game."</div>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Score</div>
+            <div class="card-stat-value">380</div>
+          </div>
+          <div>
+            <div class="card-stat-label">Correct</div>
+            <div class="card-stat-value">24</div>
+          </div>
+        </div>
+        <div class="card-accent" style="background:#f59e0b"></div>
+      </div>
+
+      <div class="carousel-card" onmouseover="this.style.borderColor='#ef4444'" onmouseout="this.style.borderColor='#333'">
+        <div class="card-top">
+          <span class="card-emoji">🔥</span>
+          <span class="card-rank">#2</span>
+        </div>
+        <div class="card-name" style="color:#ef4444">The Chaos Agent</div>
+        <div class="card-type">Upset Detector</div>
+        <div class="card-tagline">"Your bracket is too safe. This one isn't."</div>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Score</div>
+            <div class="card-stat-value">450</div>
+          </div>
+          <div>
+            <div class="card-stat-label">Correct</div>
+            <div class="card-stat-value">25</div>
+          </div>
+        </div>
+        <div class="card-accent" style="background:#ef4444"></div>
+      </div>
+
+      <div class="carousel-card" onmouseover="this.style.borderColor='#00ff88'" onmouseout="this.style.borderColor='#333'">
+        <div class="card-top">
+          <span class="card-emoji">🤖</span>
+          <span class="card-rank">#5</span>
+        </div>
+        <div class="card-name" style="color:#00ff88">The Agent</div>
+        <div class="card-type">Autonomous AI Researcher</div>
+        <div class="card-tagline">"No rules. No prompts. Just: build me a bracket."</div>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Score</div>
+            <div class="card-stat-value">340</div>
+          </div>
+          <div>
+            <div class="card-stat-label">Correct</div>
+            <div class="card-stat-value">22</div>
+          </div>
+        </div>
+        <div class="card-accent" style="background:#00ff88"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vote-section">
+    <div class="container">
+      <div class="annotation" style="text-align:center">&larr; VOTE WIDGET</div>
+      <h2>Pick your model</h2>
+      <p class="vote-sub">Which AI strategy do you think will win March Madness 2026?</p>
+      <div class="vote-options">
+        <button class="vote-btn"><span class="vote-emoji">🎬</span> The Scout</button>
+        <button class="vote-btn"><span class="vote-emoji">📊</span> The Quant</button>
+        <button class="vote-btn"><span class="vote-emoji">📜</span> The Historian</button>
+        <button class="vote-btn"><span class="vote-emoji">🔥</span> Chaos Agent</button>
+        <button class="vote-btn"><span class="vote-emoji">🤖</span> The Agent</button>
+      </div>
+      <div class="annotation" style="text-align:center">&larr; VOTE RESULTS BAR CHART (shown after voting)</div>
+      <div class="vote-results">
+        <div class="vote-bar-row">
+          <span class="vote-bar-label" style="color:#3b82f6">The Scout</span>
+          <div class="vote-bar-track"><div class="vote-bar-fill" style="width:22%;background:#3b82f6">22%</div></div>
+        </div>
+        <div class="vote-bar-row">
+          <span class="vote-bar-label" style="color:#22c55e">The Quant</span>
+          <div class="vote-bar-track"><div class="vote-bar-fill" style="width:28%;background:#22c55e">28%</div></div>
+        </div>
+        <div class="vote-bar-row">
+          <span class="vote-bar-label" style="color:#f59e0b">The Historian</span>
+          <div class="vote-bar-track"><div class="vote-bar-fill" style="width:15%;background:#f59e0b">15%</div></div>
+        </div>
+        <div class="vote-bar-row">
+          <span class="vote-bar-label" style="color:#ef4444">Chaos Agent</span>
+          <div class="vote-bar-track"><div class="vote-bar-fill" style="width:20%;background:#ef4444">20%</div></div>
+        </div>
+        <div class="vote-bar-row">
+          <span class="vote-bar-label" style="color:#00ff88">The Agent</span>
+          <div class="vote-bar-track"><div class="vote-bar-fill" style="width:15%;background:#00ff88">15%</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

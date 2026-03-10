@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Detail — Option 3: Tabbed Sections</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* HEADER CARD */
+    .header-card {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-top: 3px solid #3b82f6;
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .header-icon {
+      font-size: 56px;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
+    .header-info { flex: 1; }
+    .header-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: #3b82f6;
+    }
+    .header-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 17px;
+      color: #888888;
+      font-style: italic;
+      margin-top: 2px;
+    }
+    .header-meta {
+      display: flex;
+      gap: 24px;
+      margin-top: 12px;
+    }
+    .header-stat {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+    }
+    .header-stat-label {
+      color: #888888;
+      margin-right: 6px;
+    }
+    .header-stat-value {
+      color: #efefef;
+      font-weight: 600;
+    }
+
+    /* TABS */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #333333;
+      margin-bottom: 32px;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .tab {
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #888888;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+      white-space: nowrap;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .tab:hover {
+      color: #ccc;
+    }
+    .tab.active {
+      color: #3b82f6;
+      border-bottom-color: #3b82f6;
+    }
+
+    /* TAB PANELS */
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* OVERVIEW TAB */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-tile {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .stat-tile-label {
+      font-size: 11px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .stat-tile-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 28px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .stat-tile-sub {
+      font-size: 12px;
+      color: #666;
+      margin-top: 2px;
+    }
+    .leaderboard-mini {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .leaderboard-mini h3 {
+      font-size: 13px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 14px 16px 10px;
+    }
+    .lb-row {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      gap: 12px;
+      border-top: 1px solid #222;
+    }
+    .lb-row.current {
+      background: rgba(59, 130, 246, 0.08);
+    }
+    .lb-rank {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #666;
+      width: 24px;
+    }
+    .lb-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .lb-name { font-size: 14px; flex: 1; }
+    .lb-score {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: #888888;
+    }
+
+    /* METHODOLOGY TAB */
+    .methodology-content p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #ccc;
+      margin-bottom: 16px;
+    }
+    .methodology-content .callout {
+      background: rgba(59, 130, 246, 0.06);
+      border-left: 3px solid #3b82f6;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* BRACKET TAB */
+    .bracket-regions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .bracket-region {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .bracket-region h4 {
+      font-size: 12px;
+      color: #3b82f6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .b-team {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 8px;
+      font-size: 13px;
+      border-bottom: 1px solid #222;
+    }
+    .b-team:last-child { border-bottom: none; }
+    .b-seed {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #666;
+    }
+    .final-four-box {
+      margin-top: 24px;
+      text-align: center;
+      padding: 24px;
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 10px;
+    }
+    .ff-label {
+      font-size: 11px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .ff-teams {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 8px;
+      color: #efefef;
+    }
+    .ff-champ {
+      margin-top: 12px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #3b82f6;
+    }
+
+    /* ESPN TAB */
+    .espn-card {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+    }
+    .espn-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .espn-card p {
+      color: #888888;
+      font-size: 14px;
+      max-width: 500px;
+      margin: 0 auto 24px;
+    }
+    .espn-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #3b82f6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .header-card { flex-direction: column; text-align: center; }
+      .header-meta { justify-content: center; flex-wrap: wrap; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .tab { padding: 12px 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <p class="annotation">Model header card</p>
+
+    <!-- HEADER -->
+    <div class="header-card">
+      <div class="header-icon">🎬</div>
+      <div class="header-info">
+        <h1 class="header-name">The Scout</h1>
+        <p class="header-tagline">Film room intelligence at machine speed.</p>
+        <div class="header-meta">
+          <div class="header-stat">
+            <span class="header-stat-label">Score:</span>
+            <span class="header-stat-value">1,240 / 1,920</span>
+          </div>
+          <div class="header-stat">
+            <span class="header-stat-label">Rank:</span>
+            <span class="header-stat-value">2nd of 5</span>
+          </div>
+          <div class="header-stat">
+            <span class="header-stat-label">Champion:</span>
+            <span class="header-stat-value" style="color: #3b82f6;">Duke</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <p class="annotation">Tabbed navigation with model-color underline</p>
+    <div class="tabs">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="bracket">Bracket</button>
+      <button class="tab" data-tab="methodology">Methodology</button>
+      <button class="tab" data-tab="espn">ESPN</button>
+    </div>
+
+    <!-- OVERVIEW PANEL -->
+    <div class="tab-panel active" id="panel-overview">
+      <p class="annotation">Tab: Overview (stats + mini leaderboard)</p>
+      <div class="overview-grid">
+        <div class="stat-tile">
+          <div class="stat-tile-label">Total Score</div>
+          <div class="stat-tile-value">1,240</div>
+          <div class="stat-tile-sub">of 1,920 possible</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-label">Correct Picks</div>
+          <div class="stat-tile-value">42</div>
+          <div class="stat-tile-sub">of 63 games</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-label">Best Round</div>
+          <div class="stat-tile-value" style="font-size: 18px;">Championship</div>
+          <div class="stat-tile-sub">1/1 correct</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-label">Champion</div>
+          <div class="stat-tile-value" style="color: #3b82f6;">Duke</div>
+          <div class="stat-tile-sub">(1) seed, East region</div>
+        </div>
+      </div>
+
+      <div class="leaderboard-mini">
+        <h3>Leaderboard</h3>
+        <div class="lb-row">
+          <div class="lb-rank">1</div>
+          <div class="lb-dot" style="background: #22c55e;"></div>
+          <div class="lb-name">The Quant</div>
+          <div class="lb-score">1,310</div>
+        </div>
+        <div class="lb-row current">
+          <div class="lb-rank">2</div>
+          <div class="lb-dot" style="background: #3b82f6;"></div>
+          <div class="lb-name" style="font-weight: 600; color: #3b82f6;">The Scout</div>
+          <div class="lb-score" style="color: #3b82f6;">1,240</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">3</div>
+          <div class="lb-dot" style="background: #f59e0b;"></div>
+          <div class="lb-name">The Historian</div>
+          <div class="lb-score">1,180</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">4</div>
+          <div class="lb-dot" style="background: #ef4444;"></div>
+          <div class="lb-name">The Chaos Agent</div>
+          <div class="lb-score">980</div>
+        </div>
+        <div class="lb-row">
+          <div class="lb-rank">5</div>
+          <div class="lb-dot" style="background: #00ff88;"></div>
+          <div class="lb-name">The Agent</div>
+          <div class="lb-score">1,060</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRACKET PANEL -->
+    <div class="tab-panel" id="panel-bracket">
+      <p class="annotation">Tab: Bracket (regional picks + Final Four)</p>
+      <div class="bracket-regions">
+        <div class="bracket-region">
+          <h4>East</h4>
+          <div class="b-team"><span>Duke</span><span class="b-seed">1</span></div>
+          <div class="b-team"><span>Marquette</span><span class="b-seed">3</span></div>
+          <div class="b-team"><span>Wisconsin</span><span class="b-seed">5</span></div>
+          <div class="b-team"><span>Clemson</span><span class="b-seed">4</span></div>
+        </div>
+        <div class="bracket-region">
+          <h4>West</h4>
+          <div class="b-team"><span>Houston</span><span class="b-seed">1</span></div>
+          <div class="b-team"><span>St. John's</span><span class="b-seed">2</span></div>
+          <div class="b-team"><span>Texas A&M</span><span class="b-seed">3</span></div>
+          <div class="b-team"><span>Michigan St.</span><span class="b-seed">6</span></div>
+        </div>
+        <div class="bracket-region">
+          <h4>South</h4>
+          <div class="b-team"><span>Auburn</span><span class="b-seed">1</span></div>
+          <div class="b-team"><span>Florida</span><span class="b-seed">2</span></div>
+          <div class="b-team"><span>Iowa St.</span><span class="b-seed">3</span></div>
+          <div class="b-team"><span>Purdue</span><span class="b-seed">5</span></div>
+        </div>
+        <div class="bracket-region">
+          <h4>Midwest</h4>
+          <div class="b-team"><span>Kansas</span><span class="b-seed">1</span></div>
+          <div class="b-team"><span>Tennessee</span><span class="b-seed">2</span></div>
+          <div class="b-team"><span>Arizona</span><span class="b-seed">4</span></div>
+          <div class="b-team"><span>Baylor</span><span class="b-seed">3</span></div>
+        </div>
+      </div>
+      <div class="final-four-box">
+        <div class="ff-label">Final Four</div>
+        <div class="ff-teams">Duke -- Houston -- Auburn -- Kansas</div>
+        <div class="ff-label" style="margin-top: 16px;">Champion</div>
+        <div class="ff-champ">Duke</div>
+      </div>
+    </div>
+
+    <!-- METHODOLOGY PANEL -->
+    <div class="tab-panel" id="panel-methodology">
+      <p class="annotation">Tab: Methodology (long-form)</p>
+      <div class="methodology-content">
+        <p>The Scout uses large language models to analyze each matchup the way a coaching staff would break down film. It evaluates tempo, defensive efficiency, key player matchups, coaching tendencies, and situational factors like tournament experience. Each game gets a structured analysis prompt, and the model picks the team with the stronger overall matchup profile.</p>
+        <div class="callout">
+          Key insight: The Scout weighs coaching tournament experience more heavily in early rounds, where preparation and scheme adjustments often decide close games.
+        </div>
+        <p>Unlike pure statistical models, The Scout incorporates qualitative factors that are difficult to quantify: locker room chemistry signals, coaching track records in high-pressure games, and how a team's playing style historically performs in the tournament format.</p>
+        <p>Each matchup prompt includes team statistics, recent performance trends, head-to-head history (if available), and contextual factors like travel distance and rest days. The LLM synthesizes these inputs and returns a structured pick with confidence level and reasoning.</p>
+      </div>
+    </div>
+
+    <!-- ESPN PANEL -->
+    <div class="tab-panel" id="panel-espn">
+      <p class="annotation">Tab: ESPN verification link</p>
+      <div class="espn-card">
+        <h3>ESPN Tournament Challenge</h3>
+        <p>The Scout's complete bracket was submitted to ESPN Tournament Challenge before the first game tipped off. This serves as timestamped proof that all picks were locked in advance.</p>
+        <a href="#" class="espn-btn">View Bracket on ESPN &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

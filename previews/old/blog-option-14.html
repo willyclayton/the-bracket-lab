@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog Option 14 — Split Panel + Minimal List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #141414;
+      --surface: #1e1e1e;
+      --border: #333333;
+      --muted: #888888;
+      --text: #efefef;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .annotation-badge {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      background: #000;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      z-index: 100;
+    }
+
+    /* Nav */
+    .nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 56px;
+    }
+    .nav-logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin-left: auto;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .nav-links a.active { color: var(--text); }
+
+    /* Page header */
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      max-width: 100%;
+    }
+    .page-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 32px 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .page-header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .page-header .post-count {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Split layout */
+    .split-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 36% 64%;
+      min-height: calc(100vh - 112px);
+    }
+
+    /* Left rail — minimal list */
+    .left-rail {
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+    }
+
+    .rail-row {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 16px 13px 20px;
+      border-bottom: 1px solid rgba(51,51,51,0.6);
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: background 0.1s, border-left-color 0.15s;
+    }
+    .rail-row:hover {
+      background: rgba(255,255,255,0.03);
+      border-left-color: rgba(255,255,255,0.2);
+    }
+    .rail-row.active {
+      background: rgba(255,255,255,0.05);
+      border-left-color: var(--text);
+    }
+
+    .rail-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .rail-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .rail-row.active .rail-title { color: #fff; font-weight: 600; }
+
+    .category-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 100px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .pill-analysis { background: rgba(59,130,246,0.15); color: #3b82f6; }
+    .pill-recap    { background: rgba(34,197,94,0.15);  color: #22c55e; }
+    .pill-obituary { background: rgba(239,68,68,0.15);  color: #ef4444; }
+    .pill-preview  { background: rgba(245,158,11,0.15); color: #f59e0b; }
+
+    /* Right panel */
+    .right-panel {
+      padding: 40px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .preview-img {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+
+    .preview-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .preview-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .preview-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 30px;
+      line-height: 1.2;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .preview-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 16px;
+    }
+
+    .preview-excerpt {
+      font-size: 15px;
+      color: #aaa;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .model-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .model-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+    .tag-scout    { background: rgba(59,130,246,0.1);  color: #3b82f6;  border: 1px solid rgba(59,130,246,0.3); }
+    .tag-quant    { background: rgba(34,197,94,0.1);   color: #22c55e;  border: 1px solid rgba(34,197,94,0.3); }
+    .tag-historian{ background: rgba(245,158,11,0.1);  color: #f59e0b;  border: 1px solid rgba(245,158,11,0.3); }
+    .tag-chaos    { background: rgba(239,68,68,0.1);   color: #ef4444;  border: 1px solid rgba(239,68,68,0.3); }
+    .tag-agent    { background: rgba(0,255,136,0.1);   color: #00ff88;  border: 1px solid rgba(0,255,136,0.3); }
+
+    .read-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      background: var(--text);
+      color: #000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      width: fit-content;
+      letter-spacing: 0.3px;
+      transition: opacity 0.15s;
+    }
+    .read-more-btn:hover { opacity: 0.85; }
+
+    /* Mobile: list only, preview below on click */
+    .mobile-preview {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .annotation-badge { font-size: 9px; padding: 4px 8px; }
+      .nav { padding: 0 16px; }
+      .page-header-inner { padding: 20px 16px 14px; }
+      .page-header h1 { font-size: 20px; }
+      .split-layout { grid-template-columns: 1fr; }
+      .left-rail { border-right: none; }
+      .right-panel { display: none; }
+      .mobile-preview {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px 16px;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+      }
+      .mobile-preview.visible { display: flex; }
+      .mobile-preview .preview-title { font-size: 22px; margin-bottom: 8px; }
+      .mobile-preview .preview-excerpt { font-size: 14px; margin-bottom: 12px; }
+      .rail-row { padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="annotation-badge">Option 14 — Split Panel + Minimal List</div>
+
+<nav class="nav">
+  <a class="nav-logo" href="#">THE BRACKET LAB</a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Brackets</a></li>
+    <li><a href="#" class="active">Blog</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>The Lab Notes</h1>
+    <span class="post-count">8 posts · 2026 Tournament</span>
+  </div>
+</div>
+
+<div class="split-layout">
+  <div class="left-rail" id="rail"></div>
+  <div class="right-panel" id="preview"></div>
+</div>
+
+<!-- Mobile-only preview panel -->
+<div class="mobile-preview" id="mobile-preview"></div>
+
+<script>
+  const posts = [
+    {
+      id: 7,
+      title: "Sweet 16 Preview: Which Models Still Have a Shot?",
+      date: "Mar 26",
+      category: "preview",
+      excerpt: "Heading into the Sweet 16, two models are mathematically eliminated from the top spot. Three are still alive. We break down the remaining paths to victory, the key games each model needs, and every upset scenario that could scramble the entire leaderboard by Sunday night.",
+      models: ["scout","quant","chaos"],
+    },
+    {
+      id: 8,
+      title: "The Quant's Monte Carlo Meltdown",
+      date: "Mar 24",
+      category: "obituary",
+      excerpt: "10,000 simulations ran. The Quant's champion survived 9,847 of them. Unfortunately, basketball is not a simulation. We autopsy the statistical anomaly that ended The Quant's championship hopes and ask: can probability-based models ever account for a hot shooting night?",
+      models: ["quant"],
+    },
+    {
+      id: 5,
+      title: "Eulogy for The Historian: Death by 12-Seed",
+      date: "Mar 22",
+      category: "obituary",
+      excerpt: "The Historian's champion has fallen. In what can only be described as poetic justice, a 12-seed with no historical precedent did exactly what The Historian said couldn't happen — because it had never happened before. We gather here today to honor a model that trusted the past too much.",
+      models: ["historian"],
+    },
+    {
+      id: 4,
+      title: "Round of 64, Day 1: Chaos Reigns",
+      date: "Mar 20",
+      category: "recap",
+      excerpt: "Twelve games. Four upsets. One model already looking shaky. Day 1 of the tournament was exactly what the bracket gods ordered: bedlam. We tracked every pick in real time and watched the leaderboard flip four times before 9pm Eastern.",
+      models: ["chaos","agent"],
+    },
+    {
+      id: 2,
+      title: "The Scout's Film Room: Breaking Down the East Region",
+      date: "Mar 16",
+      category: "recap",
+      excerpt: "The East is loaded with conflicting signals. High seeds with soft schedules. Mid-major darlings who thrive in chaos. The Scout ran 240 matchup analyses and came back with three teams it refuses to trust and two it likes far more than the committee did.",
+      models: ["scout"],
+    },
+    {
+      id: 3,
+      title: "Selection Sunday Reactions: Surprises and Snubs",
+      date: "Mar 15",
+      category: "analysis",
+      excerpt: "The committee giveth and the committee taketh away. We ran all five models on the final bracket within minutes of the announcement and tracked which seeds each model considered egregious. Spoiler: The Chaos Agent flagged three 12-over-5 upsets in the first 90 seconds.",
+      models: ["scout","quant","historian","chaos","agent"],
+    },
+    {
+      id: 6,
+      title: "The Agent Goes Rogue: An Autonomous Bracket Experiment",
+      date: "Mar 12",
+      category: "analysis",
+      excerpt: "We gave an autonomous AI agent a single instruction: build me a March Madness bracket. No constraints. No guardrails. What it did next took 47 minutes, touched 12 APIs, and produced a bracket three of our human analysts called genuinely unsettling.",
+      models: ["agent"],
+    },
+    {
+      id: 1,
+      title: "How We Built 5 AI Models to Destroy Your Bracket",
+      date: "Mar 10",
+      category: "analysis",
+      excerpt: "Building five distinct AI systems to predict March Madness isn't just a technical exercise — it's a meditation on how intelligence, bias, and randomness interact when the stakes are real. We broke down our methodology from first principles and ended up with five very different answers.",
+      models: ["scout","quant","historian","chaos","agent"],
+    },
+  ];
+
+  const pillClass  = { analysis: 'pill-analysis', recap: 'pill-recap', obituary: 'pill-obituary', preview: 'pill-preview' };
+  const tagClass   = { scout: 'tag-scout', quant: 'tag-quant', historian: 'tag-historian', chaos: 'tag-chaos', agent: 'tag-agent' };
+  const modelLabel = { scout: 'The Scout', quant: 'The Quant', historian: 'The Historian', chaos: 'Chaos Agent', agent: 'The Agent' };
+
+  let activeId = posts[0].id;
+  const isMobile = () => window.innerWidth <= 768;
+
+  function buildPreviewHTML(post) {
+    const tagsHtml = post.models.map(m =>
+      `<span class="model-tag ${tagClass[m]}">${modelLabel[m]}</span>`
+    ).join('');
+
+    return `
+      <div class="preview-img">[ IMAGE PLACEHOLDER ]</div>
+      <div class="preview-meta">
+        <span class="preview-date">${post.date}, 2026</span>
+        <span class="category-pill ${pillClass[post.category]}">${post.category}</span>
+      </div>
+      <h2 class="preview-title">${post.title}</h2>
+      <hr class="preview-divider">
+      <p class="preview-excerpt">${post.excerpt}</p>
+      ${post.models.length ? `<div class="model-tags">${tagsHtml}</div>` : ''}
+      <a class="read-more-btn" href="#">Read More &rarr;</a>
+    `;
+  }
+
+  function renderRail() {
+    const rail = document.getElementById('rail');
+    rail.innerHTML = posts.map(p => `
+      <div class="rail-row ${p.id === activeId ? 'active' : ''}" data-id="${p.id}">
+        <span class="rail-date">${p.date}</span>
+        <span class="rail-title">${p.title}</span>
+        <span class="category-pill ${pillClass[p.category]}">${p.category}</span>
+      </div>
+    `).join('');
+
+    rail.querySelectorAll('.rail-row').forEach(el => {
+      el.addEventListener('click', () => {
+        activeId = parseInt(el.dataset.id);
+        renderRail();
+        renderPreview();
+      });
+    });
+  }
+
+  function renderPreview() {
+    const post = posts.find(p => p.id === activeId);
+    if (!post) return;
+
+    const panel = document.getElementById('preview');
+    panel.innerHTML = buildPreviewHTML(post);
+
+    if (isMobile()) {
+      const mob = document.getElementById('mobile-preview');
+      mob.innerHTML = buildPreviewHTML(post);
+      mob.classList.add('visible');
+      mob.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  renderRail();
+  renderPreview();
+</script>
+</body>
+</html>

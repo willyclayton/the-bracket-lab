@@ -181,3 +181,98 @@ body {
   pointer-events: none;
   z-index: 50;
 }
+
+/* ---- Card radial glow per model ---- */
+.card-glow-scout::before   { background: radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.6) 0%, transparent 70%); }
+.card-glow-quant::before   { background: radial-gradient(ellipse at 50% 50%, rgba(34,197,94,0.6) 0%, transparent 70%); }
+.card-glow-historian::before { background: radial-gradient(ellipse at 50% 50%, rgba(245,158,11,0.6) 0%, transparent 70%); }
+.card-glow-chaos::before   { background: radial-gradient(ellipse at 50% 50%, rgba(239,68,68,0.6) 0%, transparent 70%); }
+.card-glow-agent::before   { background: radial-gradient(ellipse at 50% 50%, rgba(0,255,136,0.6) 0%, transparent 70%); }
+.card-glow-scout::before,
+.card-glow-quant::before,
+.card-glow-historian::before,
+.card-glow-chaos::before,
+.card-glow-agent::before {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  opacity: 0.08;
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+/* ---- Blog category gradients ---- */
+.bg-cat-analysis { background: linear-gradient(135deg, #0f3460, #16213e, #1a1a2e); }
+.bg-cat-recap    { background: linear-gradient(135deg, #0a2010, #0f2a15, #101e10); }
+.bg-cat-obituary { background: linear-gradient(135deg, #280808, #1a0404, #120000); }
+.bg-cat-preview  { background: linear-gradient(135deg, #1f1500, #2a1d00, #1a1200); }
+
+/* ---- Blog category pills ---- */
+.cat-pill-analysis { background: rgba(59,130,246,0.18); color: #3b82f6; }
+.cat-pill-recap    { background: rgba(34,197,94,0.18); color: #22c55e; }
+.cat-pill-obituary { background: rgba(239,68,68,0.18); color: #ef4444; }
+.cat-pill-preview  { background: rgba(245,158,11,0.18); color: #f59e0b; }
+.cat-pill-methodology { background: rgba(168,85,247,0.18); color: #a855f7; }
+
+/* ---- Blog content fade ---- */
+.blog-fade {
+  transition: opacity 0.15s ease;
+}
+.blog-fade.fading {
+  opacity: 0;
+}
+
+/* ---- Bracket matchup card states ---- */
+.matchup-card-wrong {
+  border-left-color: #ef4444 !important;
+  border-color: rgba(239,68,68,0.25);
+}
+.matchup-card-cascade {
+  border-left-color: #555 !important;
+  border-color: #222;
+  opacity: 0.6;
+}
+.matchup-card-highlight {
+  box-shadow: 0 0 0 1px var(--mc);
+}
+
+/* ---- Popover animation ---- */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.popover-animate {
+  animation: popIn 0.2s ease;
+}
+
+/* ---- Bar chart fill transitions ---- */
+.h-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  width: 0%;
+  transition: width 0.55s cubic-bezier(0.4,0,0.2,1);
+}
+.h-bar-bg-fill {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  border-radius: 6px;
+  width: 0%;
+  transition: width 0.55s cubic-bezier(0.4,0,0.2,1) 0.15s;
+}
+
+/* ---- Live pulse dot ---- */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+.live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e;
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+/* ---- Bracket panel scrollbar ---- */
+.bracket-panel-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
+.bracket-panel-scroll::-webkit-scrollbar-track { background: transparent; }
+.bracket-panel-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }

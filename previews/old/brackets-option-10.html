@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brackets Option 10 — Model Dashboard Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; color: #efefef; font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
+    .annotation { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+    h1 { font-family: 'Instrument Serif', serif; font-size: 36px; margin-bottom: 4px; }
+    .subtitle { color: #888888; font-size: 14px; margin-bottom: 28px; }
+
+    /* Dashboard Cards Row */
+    .dash-cards-scroll { overflow-x: auto; margin-bottom: 28px; padding-bottom: 8px; }
+    .dash-cards-scroll::-webkit-scrollbar { height: 4px; }
+    .dash-cards-scroll::-webkit-scrollbar-track { background: #1e1e1e; }
+    .dash-cards-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+    .dash-cards {
+      display: flex; gap: 12px; min-width: max-content;
+    }
+
+    .dash-card {
+      min-width: 200px; max-width: 220px; padding: 16px;
+      background: #1e1e1e; border: 1.5px solid #333; border-radius: 10px;
+      cursor: pointer; transition: all 0.2s; position: relative; flex-shrink: 0;
+    }
+    .dash-card:hover { border-color: #555; transform: translateY(-2px); }
+    .dash-card.active { border-width: 2px; transform: translateY(-2px); }
+
+    .dc-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .dc-emoji { font-size: 20px; }
+    .dc-name { font-size: 14px; font-weight: 600; }
+    .dc-type { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888; margin-bottom: 12px; }
+
+    .dc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .dc-stat {}
+    .dc-stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+    .dc-stat-value { font-size: 18px; font-weight: 700; margin-top: 2px; }
+
+    .dc-champ {
+      margin-top: 12px; padding-top: 10px; border-top: 1px solid #2a2a2a;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .dc-champ-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #666; text-transform: uppercase; }
+    .dc-champ-name { font-weight: 600; font-size: 14px; }
+
+    .dc-upset {
+      margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888;
+    }
+    .dc-upset strong { color: #efefef; }
+
+    /* Rank Badge */
+    .dc-rank {
+      position: absolute; top: -8px; right: -8px; width: 28px; height: 28px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #141414;
+    }
+
+    /* Accuracy Bar */
+    .dc-acc-bar { margin-top: 10px; }
+    .dc-acc-track { height: 4px; background: #2a2a2a; border-radius: 2px; overflow: hidden; }
+    .dc-acc-fill { height: 100%; border-radius: 2px; }
+    .dc-acc-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888;
+      margin-top: 3px; display: flex; justify-content: space-between;
+    }
+
+    /* Selected Model Bracket */
+    .selected-bracket { }
+    .sb-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+      padding-bottom: 12px; border-bottom: 1px solid #333;
+    }
+    .sb-emoji { font-size: 24px; }
+    .sb-name { font-size: 20px; font-weight: 600; }
+    .sb-tagline { font-family: 'Instrument Serif', serif; font-style: italic; color: #888; font-size: 14px; margin-left: auto; }
+
+    /* Round Sections */
+    .round-section { margin-bottom: 20px; }
+    .rs-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 8px;
+    }
+    .rs-name { font-size: 15px; font-weight: 600; }
+    .rs-meta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #888; }
+
+    .matchup-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; }
+    .mg-matchup {
+      background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 6px;
+      overflow: hidden; transition: border-color 0.15s;
+    }
+    .mg-matchup:hover { border-color: #444; }
+    .mg-team {
+      display: flex; align-items: center; padding: 7px 10px; gap: 7px; font-size: 13px;
+      border-bottom: 1px solid #222;
+    }
+    .mg-team:last-child { border-bottom: none; }
+    .mg-team.winner { background: rgba(34,197,94,0.06); font-weight: 500; }
+    .mg-seed { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #666; width: 18px; text-align: center; }
+    .mg-name { flex: 1; }
+    .mg-score { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555; }
+    .mg-check { font-size: 11px; }
+    .mg-check.yes { color: #22c55e; }
+    .mg-check.no { color: #ef4444; }
+
+    /* Champion Box */
+    .champ-box {
+      margin-top: 20px; padding: 20px; background: #1e1e1e;
+      border: 2px solid; border-radius: 10px; text-align: center;
+    }
+    .cb-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+    .cb-team { font-size: 28px; font-weight: 700; }
+    .cb-path { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #666; margin-top: 8px; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 28px; }
+      .dash-card { min-width: 180px; }
+      .matchup-grid { grid-template-columns: 1fr; }
+      .sb-tagline { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="annotation">Brackets Option 10 — Model Dashboard Cards (Dark, Dashboard)</p>
+    <h1>Model Brackets</h1>
+    <p class="subtitle">Select a model to view their full bracket. Dashboard cards show at-a-glance stats.</p>
+
+    <!-- Dashboard Cards -->
+    <div class="dash-cards-scroll">
+      <div class="dash-cards">
+        <!-- The Scout -->
+        <div class="dash-card active" style="border-color: #3b82f6;" onclick="selectModel(this)">
+          <div class="dc-rank" style="background: #3b82f6;">1</div>
+          <div class="dc-header">
+            <span class="dc-emoji">&#127916;</span>
+            <span class="dc-name">The Scout</span>
+          </div>
+          <div class="dc-type">LLM Matchup Analyst</div>
+          <div class="dc-stats">
+            <div class="dc-stat">
+              <div class="dc-stat-label">Score</div>
+              <div class="dc-stat-value" style="color: #3b82f6;">420</div>
+            </div>
+            <div class="dc-stat">
+              <div class="dc-stat-label">Correct</div>
+              <div class="dc-stat-value">29/48</div>
+            </div>
+          </div>
+          <div class="dc-acc-bar">
+            <div class="dc-acc-track"><div class="dc-acc-fill" style="width: 60%; background: #3b82f6;"></div></div>
+            <div class="dc-acc-label"><span>Accuracy</span><span>60%</span></div>
+          </div>
+          <div class="dc-champ">
+            <span class="dc-champ-label">Champion</span>
+            <span class="dc-champ-name">Duke</span>
+          </div>
+          <div class="dc-upset">Best upset: <strong>12-Yale</strong> over 5-Marquette</div>
+        </div>
+
+        <!-- The Quant -->
+        <div class="dash-card" style="border-color: #333;" onclick="selectModel(this)">
+          <div class="dc-rank" style="background: #22c55e;">2</div>
+          <div class="dc-header">
+            <span class="dc-emoji">&#128202;</span>
+            <span class="dc-name">The Quant</span>
+          </div>
+          <div class="dc-type">Monte Carlo Simulation</div>
+          <div class="dc-stats">
+            <div class="dc-stat">
+              <div class="dc-stat-label">Score</div>
+              <div class="dc-stat-value" style="color: #22c55e;">400</div>
+            </div>
+            <div class="dc-stat">
+              <div class="dc-stat-label">Correct</div>
+              <div class="dc-stat-value">27/48</div>
+            </div>
+          </div>
+          <div class="dc-acc-bar">
+            <div class="dc-acc-track"><div class="dc-acc-fill" style="width: 56%; background: #22c55e;"></div></div>
+            <div class="dc-acc-label"><span>Accuracy</span><span>56%</span></div>
+          </div>
+          <div class="dc-champ">
+            <span class="dc-champ-label">Champion</span>
+            <span class="dc-champ-name">Houston</span>
+          </div>
+          <div class="dc-upset">Best upset: <strong>11-VCU</strong> over 6-Kentucky</div>
+        </div>
+
+        <!-- The Historian -->
+        <div class="dash-card" style="border-color: #333;" onclick="selectModel(this)">
+          <div class="dc-rank" style="background: #f59e0b;">3</div>
+          <div class="dc-header">
+            <span class="dc-emoji">&#128220;</span>
+            <span class="dc-name">The Historian</span>
+          </div>
+          <div class="dc-type">Archetype Matching</div>
+          <div class="dc-stats">
+            <div class="dc-stat">
+              <div class="dc-stat-label">Score</div>
+              <div class="dc-stat-value" style="color: #f59e0b;">380</div>
+            </div>
+            <div class="dc-stat">
+              <div class="dc-stat-label">Correct</div>
+              <div class="dc-stat-value">26/48</div>
+            </div>
+          </div>
+          <div class="dc-acc-bar">
+            <div class="dc-acc-track"><div class="dc-acc-fill" style="width: 54%; background: #f59e0b;"></div></div>
+            <div class="dc-acc-label"><span>Accuracy</span><span>54%</span></div>
+          </div>
+          <div class="dc-champ">
+            <span class="dc-champ-label">Champion</span>
+            <span class="dc-champ-name">Auburn</span>
+          </div>
+          <div class="dc-upset">Best upset: <strong>10-New Mexico</strong> over 7-Clemson</div>
+        </div>
+
+        <!-- The Chaos Agent -->
+        <div class="dash-card" style="border-color: #333;" onclick="selectModel(this)">
+          <div class="dc-rank" style="background: #ef4444;">4</div>
+          <div class="dc-header">
+            <span class="dc-emoji">&#128293;</span>
+            <span class="dc-name">The Chaos Agent</span>
+          </div>
+          <div class="dc-type">Upset Detector</div>
+          <div class="dc-stats">
+            <div class="dc-stat">
+              <div class="dc-stat-label">Score</div>
+              <div class="dc-stat-value" style="color: #ef4444;">340</div>
+            </div>
+            <div class="dc-stat">
+              <div class="dc-stat-label">Correct</div>
+              <div class="dc-stat-value">24/48</div>
+            </div>
+          </div>
+          <div class="dc-acc-bar">
+            <div class="dc-acc-track"><div class="dc-acc-fill" style="width: 50%; background: #ef4444;"></div></div>
+            <div class="dc-acc-label"><span>Accuracy</span><span>50%</span></div>
+          </div>
+          <div class="dc-champ">
+            <span class="dc-champ-label">Champion</span>
+            <span class="dc-champ-name">Gonzaga</span>
+          </div>
+          <div class="dc-upset">Best upset: <strong>14-Colgate</strong> over 3-Tennessee</div>
+        </div>
+
+        <!-- The Agent -->
+        <div class="dash-card" style="border-color: #333;" onclick="selectModel(this)">
+          <div class="dc-rank" style="background: #00ff88; color: #141414;">5</div>
+          <div class="dc-header">
+            <span class="dc-emoji">&#129302;</span>
+            <span class="dc-name">The Agent</span>
+          </div>
+          <div class="dc-type">Autonomous AI Researcher</div>
+          <div class="dc-stats">
+            <div class="dc-stat">
+              <div class="dc-stat-label">Score</div>
+              <div class="dc-stat-value" style="color: #00ff88;">360</div>
+            </div>
+            <div class="dc-stat">
+              <div class="dc-stat-label">Correct</div>
+              <div class="dc-stat-value">25/48</div>
+            </div>
+          </div>
+          <div class="dc-acc-bar">
+            <div class="dc-acc-track"><div class="dc-acc-fill" style="width: 52%; background: #00ff88;"></div></div>
+            <div class="dc-acc-label"><span>Accuracy</span><span>52%</span></div>
+          </div>
+          <div class="dc-champ">
+            <span class="dc-champ-label">Champion</span>
+            <span class="dc-champ-name">UConn</span>
+          </div>
+          <div class="dc-upset">Best upset: <strong>9-Boise St</strong> over 8-Iowa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Selected Model Bracket -->
+    <div class="selected-bracket">
+      <div class="sb-header" style="border-color: #3b82f6;">
+        <span class="sb-emoji">&#127916;</span>
+        <span class="sb-name" style="color: #3b82f6;">The Scout</span>
+        <span class="sb-tagline">"Film room intelligence at machine speed."</span>
+      </div>
+
+      <!-- Round of 64 -->
+      <div class="round-section">
+        <div class="rs-header">
+          <span class="rs-name">Round of 64</span>
+          <span class="rs-meta">22/32 correct &middot; +220 pts</span>
+        </div>
+        <div class="matchup-grid">
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">1</span><span class="mg-name">Duke</span><span class="mg-score">82</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">16</span><span class="mg-name">Norfolk St</span><span class="mg-score">55</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">8</span><span class="mg-name">Wisconsin</span><span class="mg-score">71</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">9</span><span class="mg-name">Memphis</span><span class="mg-score">68</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team"><span class="mg-seed">5</span><span class="mg-name">Marquette</span><span class="mg-score">64</span></div>
+            <div class="mg-team winner"><span class="mg-seed">12</span><span class="mg-name">Yale</span><span class="mg-score">67</span><span class="mg-check yes">&#10003;</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">4</span><span class="mg-name">Purdue</span><span class="mg-score">78</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">13</span><span class="mg-name">Vermont</span><span class="mg-score">60</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">1</span><span class="mg-name">Auburn</span><span class="mg-score">85</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">16</span><span class="mg-name">UMBC</span><span class="mg-score">52</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">3</span><span class="mg-name">Gonzaga</span><span class="mg-score">79</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">14</span><span class="mg-name">Colgate</span><span class="mg-score">58</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">6</span><span class="mg-name">Kentucky</span><span class="mg-score">75</span><span class="mg-check no">&#10007;</span></div>
+            <div class="mg-team"><span class="mg-seed">11</span><span class="mg-name">VCU</span><span class="mg-score">78</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">2</span><span class="mg-name">Kansas</span><span class="mg-score">81</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">15</span><span class="mg-name">Longwood</span><span class="mg-score">56</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Round of 32 -->
+      <div class="round-section">
+        <div class="rs-header">
+          <span class="rs-name">Round of 32</span>
+          <span class="rs-meta">10/16 correct &middot; +200 pts</span>
+        </div>
+        <div class="matchup-grid">
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">1</span><span class="mg-name">Duke</span><span class="mg-score">76</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">8</span><span class="mg-name">Wisconsin</span><span class="mg-score">69</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team"><span class="mg-seed">12</span><span class="mg-name">Yale</span><span class="mg-score">61</span></div>
+            <div class="mg-team winner"><span class="mg-seed">4</span><span class="mg-name">Purdue</span><span class="mg-score">73</span><span class="mg-check yes">&#10003;</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">1</span><span class="mg-name">Auburn</span><span class="mg-score">74</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">9</span><span class="mg-name">Boise St</span><span class="mg-score">62</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">2</span><span class="mg-name">Kansas</span><span class="mg-score">76</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">3</span><span class="mg-name">Gonzaga</span><span class="mg-score">71</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sweet 16 -->
+      <div class="round-section">
+        <div class="rs-header">
+          <span class="rs-name">Sweet 16</span>
+          <span class="rs-meta">5/8 correct &middot; +200 pts</span>
+        </div>
+        <div class="matchup-grid">
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">1</span><span class="mg-name">Duke</span><span class="mg-score">81</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">4</span><span class="mg-name">Purdue</span><span class="mg-score">74</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">2</span><span class="mg-name">Houston</span><span class="mg-score">68</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">3</span><span class="mg-name">Tennessee</span><span class="mg-score">65</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">1</span><span class="mg-name">Auburn</span><span class="mg-score">79</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">2</span><span class="mg-name">UConn</span><span class="mg-score">74</span></div>
+          </div>
+          <div class="mg-matchup">
+            <div class="mg-team winner"><span class="mg-seed">2</span><span class="mg-name">Kansas</span><span class="mg-score">70</span><span class="mg-check yes">&#10003;</span></div>
+            <div class="mg-team"><span class="mg-seed">3</span><span class="mg-name">Gonzaga</span><span class="mg-score">66</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Championship Pick -->
+      <div class="champ-box" style="border-color: #3b82f6;">
+        <div class="cb-label">Champion Pick</div>
+        <div class="cb-team" style="color: #3b82f6;">Duke</div>
+        <div class="cb-path">Duke &rarr; Wisconsin &rarr; Purdue &rarr; Houston &rarr; Auburn &rarr; Kansas &rarr; &#127942;</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function selectModel(el) {
+      document.querySelectorAll('.dash-card').forEach(c => {
+        c.classList.remove('active');
+        c.style.borderColor = '#333';
+      });
+      el.classList.add('active');
+      // In a real implementation, this would swap the bracket content below
+    }
+  </script>
+</body>
+</html>

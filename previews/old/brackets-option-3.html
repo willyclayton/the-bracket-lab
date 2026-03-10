@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brackets Option 3 — Region Quadrants</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; color: #efefef; font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
+    .annotation { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 32px 20px; }
+    h1 { font-family: 'Instrument Serif', serif; font-size: 36px; margin-bottom: 4px; }
+    .subtitle { color: #888888; font-size: 14px; margin-bottom: 24px; }
+
+    /* Model Selector */
+    .model-selector { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .model-chip {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px; border: 1px solid #333;
+      background: #1e1e1e; cursor: pointer; font-size: 13px; color: #888;
+      font-family: 'Space Grotesk', sans-serif; transition: all 0.2s;
+    }
+    .model-chip:hover { border-color: #555; color: #efefef; }
+    .model-chip.active { color: #efefef; }
+    .model-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    /* Quadrant Grid */
+    .quadrant-grid {
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto;
+      gap: 16px; position: relative;
+    }
+    @media (max-width: 768px) {
+      .quadrant-grid { grid-template-columns: 1fr; }
+      .final-four-center { display: none; }
+      .region-tabs-mobile { display: flex !important; }
+    }
+
+    /* Region Tabs (mobile only) */
+    .region-tabs-mobile {
+      display: none; gap: 0; margin-bottom: 16px; border-bottom: 1px solid #333;
+    }
+    .region-tab-m {
+      flex: 1; padding: 10px; text-align: center; cursor: pointer;
+      font-size: 13px; color: #888; border-bottom: 2px solid transparent;
+      background: none; border-top: none; border-left: none; border-right: none;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .region-tab-m.active { color: #efefef; border-bottom-color: #efefef; }
+
+    /* Region Card */
+    .region-card {
+      background: #1e1e1e; border: 1px solid #333; border-radius: 10px;
+      padding: 20px; position: relative;
+    }
+    .region-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 16px;
+    }
+    .region-name { font-size: 18px; font-weight: 600; }
+    .region-seed-1 {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888;
+      background: #252525; padding: 3px 10px; border-radius: 12px;
+    }
+
+    /* Mini Bracket */
+    .mini-bracket { display: flex; gap: 12px; overflow-x: auto; }
+    .mini-round { display: flex; flex-direction: column; gap: 6px; min-width: 120px; }
+    .mini-round-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555;
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;
+    }
+    .mini-matchup {
+      background: #141414; border: 1px solid #2a2a2a; border-radius: 4px;
+      padding: 4px 8px; font-size: 12px;
+    }
+    .mini-team { display: flex; justify-content: space-between; align-items: center; padding: 2px 0; }
+    .mini-team.winner { color: #efefef; font-weight: 500; }
+    .mini-team.loser { color: #555; }
+    .mini-seed { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #666; margin-right: 4px; }
+
+    /* Region Winner */
+    .region-winner {
+      margin-top: 12px; padding-top: 12px; border-top: 1px solid #333;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .region-winner .rw-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888;
+      text-transform: uppercase;
+    }
+    .region-winner .rw-name { font-weight: 600; font-size: 15px; }
+
+    /* Final Four Center */
+    .final-four-center {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: #1e1e1e; border: 2px solid #333; border-radius: 12px;
+      padding: 20px 24px; z-index: 10; text-align: center; min-width: 200px;
+    }
+    .ff-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888;
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+    }
+    .ff-matchup {
+      padding: 8px 0; border-bottom: 1px solid #2a2a2a; font-size: 14px;
+    }
+    .ff-matchup:last-of-type { border-bottom: none; }
+    .ff-team { padding: 3px 0; }
+    .ff-team.winner { font-weight: 600; }
+    .ff-vs { color: #555; font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+    .ff-champ {
+      margin-top: 12px; padding-top: 12px; border-top: 1px solid #333;
+    }
+    .ff-champ-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888;
+      text-transform: uppercase; letter-spacing: 2px;
+    }
+    .ff-champ-name { font-size: 20px; font-weight: 700; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="annotation">Brackets Option 3 — Region Quadrants (Dark Lab)</p>
+    <h1>Bracket View</h1>
+    <p class="subtitle">Four regions, one champion</p>
+
+    <div class="model-selector">
+      <div class="model-chip active" style="border-color: #3b82f6;"><span class="model-dot" style="background: #3b82f6;"></span> The Scout</div>
+      <div class="model-chip"><span class="model-dot" style="background: #22c55e;"></span> The Quant</div>
+      <div class="model-chip"><span class="model-dot" style="background: #f59e0b;"></span> The Historian</div>
+      <div class="model-chip"><span class="model-dot" style="background: #ef4444;"></span> The Chaos Agent</div>
+      <div class="model-chip"><span class="model-dot" style="background: #00ff88;"></span> The Agent</div>
+    </div>
+
+    <div class="region-tabs-mobile">
+      <button class="region-tab-m active">East</button>
+      <button class="region-tab-m">West</button>
+      <button class="region-tab-m">South</button>
+      <button class="region-tab-m">Midwest</button>
+    </div>
+
+    <div class="quadrant-grid">
+      <!-- East -->
+      <div class="region-card">
+        <div class="region-header">
+          <span class="region-name">East Region</span>
+          <span class="region-seed-1">1-seed: Duke</span>
+        </div>
+        <div class="mini-bracket">
+          <div class="mini-round">
+            <div class="mini-round-label">Rd 64</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Duke</div>
+              <div class="mini-team loser"><span class="mini-seed">16</span>Norfolk St</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">8</span>Wisconsin</div>
+              <div class="mini-team loser"><span class="mini-seed">9</span>Memphis</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team loser"><span class="mini-seed">5</span>Marquette</div>
+              <div class="mini-team winner"><span class="mini-seed">12</span>Yale</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">4</span>Purdue</div>
+              <div class="mini-team loser"><span class="mini-seed">13</span>Vermont</div>
+            </div>
+          </div>
+          <div class="mini-round">
+            <div class="mini-round-label">Rd 32</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Duke</div>
+              <div class="mini-team loser"><span class="mini-seed">8</span>Wisconsin</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team loser"><span class="mini-seed">12</span>Yale</div>
+              <div class="mini-team winner"><span class="mini-seed">4</span>Purdue</div>
+            </div>
+          </div>
+          <div class="mini-round">
+            <div class="mini-round-label">S16</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Duke</div>
+              <div class="mini-team loser"><span class="mini-seed">4</span>Purdue</div>
+            </div>
+          </div>
+        </div>
+        <div class="region-winner">
+          <span class="rw-label">Winner:</span>
+          <span class="rw-name" style="color: #3b82f6;">Duke</span>
+        </div>
+      </div>
+
+      <!-- West -->
+      <div class="region-card">
+        <div class="region-header">
+          <span class="region-name">West Region</span>
+          <span class="region-seed-1">1-seed: Auburn</span>
+        </div>
+        <div class="mini-bracket">
+          <div class="mini-round">
+            <div class="mini-round-label">Rd 64</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Auburn</div>
+              <div class="mini-team loser"><span class="mini-seed">16</span>UMBC</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team loser"><span class="mini-seed">8</span>Iowa</div>
+              <div class="mini-team winner"><span class="mini-seed">9</span>Boise St</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">3</span>Gonzaga</div>
+              <div class="mini-team loser"><span class="mini-seed">14</span>Colgate</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">2</span>UConn</div>
+              <div class="mini-team loser"><span class="mini-seed">15</span>Fairleigh D</div>
+            </div>
+          </div>
+          <div class="mini-round">
+            <div class="mini-round-label">Rd 32</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Auburn</div>
+              <div class="mini-team loser"><span class="mini-seed">9</span>Boise St</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team loser"><span class="mini-seed">3</span>Gonzaga</div>
+              <div class="mini-team winner"><span class="mini-seed">2</span>UConn</div>
+            </div>
+          </div>
+          <div class="mini-round">
+            <div class="mini-round-label">S16</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Auburn</div>
+              <div class="mini-team loser"><span class="mini-seed">2</span>UConn</div>
+            </div>
+          </div>
+        </div>
+        <div class="region-winner">
+          <span class="rw-label">Winner:</span>
+          <span class="rw-name" style="color: #3b82f6;">Auburn</span>
+        </div>
+      </div>
+
+      <!-- South -->
+      <div class="region-card">
+        <div class="region-header">
+          <span class="region-name">South Region</span>
+          <span class="region-seed-1">1-seed: Houston</span>
+        </div>
+        <div class="mini-bracket">
+          <div class="mini-round">
+            <div class="mini-round-label">Rd 64</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Houston</div>
+              <div class="mini-team loser"><span class="mini-seed">16</span>Wagner</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">5</span>Michigan St</div>
+              <div class="mini-team loser"><span class="mini-seed">12</span>Drake</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">3</span>Tennessee</div>
+              <div class="mini-team loser"><span class="mini-seed">14</span>Samford</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">2</span>Kansas</div>
+              <div class="mini-team loser"><span class="mini-seed">15</span>Montana St</div>
+            </div>
+          </div>
+          <div class="mini-round">
+            <div class="mini-round-label">Rd 32</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Houston</div>
+              <div class="mini-team loser"><span class="mini-seed">5</span>Michigan St</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team loser"><span class="mini-seed">3</span>Tennessee</div>
+              <div class="mini-team winner"><span class="mini-seed">2</span>Kansas</div>
+            </div>
+          </div>
+          <div class="mini-round">
+            <div class="mini-round-label">S16</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Houston</div>
+              <div class="mini-team loser"><span class="mini-seed">2</span>Kansas</div>
+            </div>
+          </div>
+        </div>
+        <div class="region-winner">
+          <span class="rw-label">Winner:</span>
+          <span class="rw-name" style="color: #3b82f6;">Houston</span>
+        </div>
+      </div>
+
+      <!-- Midwest -->
+      <div class="region-card">
+        <div class="region-header">
+          <span class="region-name">Midwest Region</span>
+          <span class="region-seed-1">1-seed: Gonzaga</span>
+        </div>
+        <div class="mini-bracket">
+          <div class="mini-round">
+            <div class="mini-round-label">Rd 64</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Arizona</div>
+              <div class="mini-team loser"><span class="mini-seed">16</span>Grambling</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">6</span>Kentucky</div>
+              <div class="mini-team loser"><span class="mini-seed">11</span>VCU</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">3</span>Baylor</div>
+              <div class="mini-team loser"><span class="mini-seed">14</span>Oakland</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">2</span>St. John's</div>
+              <div class="mini-team loser"><span class="mini-seed">15</span>Longwood</div>
+            </div>
+          </div>
+          <div class="mini-round">
+            <div class="mini-round-label">Rd 32</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Arizona</div>
+              <div class="mini-team loser"><span class="mini-seed">6</span>Kentucky</div>
+            </div>
+            <div class="mini-matchup">
+              <div class="mini-team loser"><span class="mini-seed">3</span>Baylor</div>
+              <div class="mini-team winner"><span class="mini-seed">2</span>St. John's</div>
+            </div>
+          </div>
+          <div class="mini-round">
+            <div class="mini-round-label">S16</div>
+            <div class="mini-matchup">
+              <div class="mini-team winner"><span class="mini-seed">1</span>Arizona</div>
+              <div class="mini-team loser"><span class="mini-seed">2</span>St. John's</div>
+            </div>
+          </div>
+        </div>
+        <div class="region-winner">
+          <span class="rw-label">Winner:</span>
+          <span class="rw-name" style="color: #3b82f6;">Arizona</span>
+        </div>
+      </div>
+
+      <!-- Final Four Center Overlay -->
+      <div class="final-four-center">
+        <div class="ff-label">Final Four</div>
+        <div class="ff-matchup">
+          <div class="ff-team winner">Duke</div>
+          <div class="ff-vs">vs</div>
+          <div class="ff-team">Auburn</div>
+        </div>
+        <div class="ff-matchup">
+          <div class="ff-team">Houston</div>
+          <div class="ff-vs">vs</div>
+          <div class="ff-team winner">Arizona</div>
+        </div>
+        <div class="ff-champ">
+          <div class="ff-champ-label">Champion</div>
+          <div class="ff-champ-name" style="color: #3b82f6;">Duke</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Detail — Option 4: Full-Width Hero</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    /* HERO */
+    .hero {
+      width: 100%;
+      min-height: 70vh;
+      background: linear-gradient(160deg, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 60px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+    .hero-subtitle {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: #3b82f6;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .hero-name {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .hero-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.6);
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-stat {}
+    .hero-stat-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 36px;
+      font-weight: 600;
+    }
+    .hero-stat-label {
+      font-size: 12px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+    .hero-champion {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-champion-label {
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .hero-champion-team {
+      font-size: 20px;
+      font-weight: 700;
+      color: #3b82f6;
+    }
+
+    /* CONTENT SECTIONS */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+    .section-card {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-top: 3px solid #3b82f6;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .section-card h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .section-card p {
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.8;
+    }
+
+    /* Accuracy bars */
+    .accuracy-rounds {
+      margin-top: 20px;
+    }
+    .acc-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .acc-label {
+      width: 110px;
+      font-size: 12px;
+      color: #888888;
+      text-align: right;
+      flex-shrink: 0;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .acc-bar-bg {
+      flex: 1;
+      height: 24px;
+      background: #262626;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .acc-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* Key picks */
+    .picks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .pick-item {
+      background: #141414;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .pick-round {
+      font-size: 10px;
+      color: #3b82f6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .pick-team {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .pick-over {
+      font-size: 12px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    /* Bracket mini */
+    .bracket-mini {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .bm-region h4 {
+      text-align: center;
+      font-size: 11px;
+      color: #3b82f6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .bm-team {
+      font-size: 12px;
+      padding: 6px 8px;
+      background: #141414;
+      border: 1px solid #262626;
+      border-radius: 4px;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .bm-seed {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+    }
+
+    /* ESPN */
+    .espn-section {
+      text-align: center;
+    }
+    .espn-btn {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 14px 32px;
+      background: #3b82f6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: opacity 0.15s;
+    }
+    .espn-btn:hover { opacity: 0.85; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 40px 20px; min-height: 60vh; }
+      .hero-name { font-size: 42px; }
+      .hero-stat-value { font-size: 24px; }
+      .hero-stats { gap: 24px; }
+      .picks-grid { grid-template-columns: 1fr; }
+      .bracket-mini { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="annotation" style="color: rgba(255,255,255,0.3);">Full-width hero with model-color gradient</p>
+    <div class="hero-icon">🎬</div>
+    <div class="hero-subtitle">LLM Matchup Analyst</div>
+    <h1 class="hero-name">The Scout</h1>
+    <p class="hero-tagline">"Film room intelligence at machine speed."</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">1,240</div>
+        <div class="hero-stat-label">Score</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">2nd</div>
+        <div class="hero-stat-label">Rank</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">64.6%</div>
+        <div class="hero-stat-label">Accuracy</div>
+      </div>
+    </div>
+    <div class="hero-champion">
+      <span class="hero-champion-label">Champion Pick</span>
+      <span class="hero-champion-team">Duke</span>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <p class="annotation">Card: Methodology</p>
+    <div class="section-card">
+      <h2>Methodology</h2>
+      <p>The Scout uses large language models to analyze each matchup the way a coaching staff would break down film. It evaluates tempo, defensive efficiency, key player matchups, coaching tendencies, and situational factors like tournament experience. Each game gets a structured analysis prompt, and the model picks the team with the stronger overall matchup profile.</p>
+    </div>
+
+    <p class="annotation">Card: Round accuracy</p>
+    <div class="section-card">
+      <h2>Accuracy by Round</h2>
+      <div class="accuracy-rounds">
+        <div class="acc-row">
+          <div class="acc-label">R64</div>
+          <div class="acc-bar-bg"><div class="acc-bar" style="width: 78%;">25/32</div></div>
+        </div>
+        <div class="acc-row">
+          <div class="acc-label">R32</div>
+          <div class="acc-bar-bg"><div class="acc-bar" style="width: 69%;">11/16</div></div>
+        </div>
+        <div class="acc-row">
+          <div class="acc-label">Sweet 16</div>
+          <div class="acc-bar-bg"><div class="acc-bar" style="width: 62%;">5/8</div></div>
+        </div>
+        <div class="acc-row">
+          <div class="acc-label">Elite 8</div>
+          <div class="acc-bar-bg"><div class="acc-bar" style="width: 50%;">2/4</div></div>
+        </div>
+        <div class="acc-row">
+          <div class="acc-label">Final Four</div>
+          <div class="acc-bar-bg"><div class="acc-bar" style="width: 50%;">1/2</div></div>
+        </div>
+        <div class="acc-row">
+          <div class="acc-label">Championship</div>
+          <div class="acc-bar-bg"><div class="acc-bar" style="width: 100%;">1/1</div></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="annotation">Card: Key picks</p>
+    <div class="section-card">
+      <h2>Signature Picks</h2>
+      <div class="picks-grid">
+        <div class="pick-item">
+          <div class="pick-round">Sweet 16</div>
+          <div class="pick-team">Wisconsin</div>
+          <div class="pick-over">over (3) Marquette</div>
+        </div>
+        <div class="pick-item">
+          <div class="pick-round">Elite 8</div>
+          <div class="pick-team">Duke</div>
+          <div class="pick-over">over (2) Florida</div>
+        </div>
+        <div class="pick-item">
+          <div class="pick-round">Final Four</div>
+          <div class="pick-team">Duke</div>
+          <div class="pick-over">over (1) Houston</div>
+        </div>
+        <div class="pick-item">
+          <div class="pick-round">Championship</div>
+          <div class="pick-team" style="color: #3b82f6;">Duke</div>
+          <div class="pick-over">over (1) Auburn</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="annotation">Card: Bracket</p>
+    <div class="section-card">
+      <h2>Bracket</h2>
+      <div class="bracket-mini">
+        <div class="bm-region">
+          <h4>East</h4>
+          <div class="bm-team"><span>Duke</span><span class="bm-seed">1</span></div>
+          <div class="bm-team"><span>Marquette</span><span class="bm-seed">3</span></div>
+          <div class="bm-team"><span>Wisconsin</span><span class="bm-seed">5</span></div>
+          <div class="bm-team"><span>Clemson</span><span class="bm-seed">4</span></div>
+        </div>
+        <div class="bm-region">
+          <h4>West</h4>
+          <div class="bm-team"><span>Houston</span><span class="bm-seed">1</span></div>
+          <div class="bm-team"><span>St. John's</span><span class="bm-seed">2</span></div>
+          <div class="bm-team"><span>Texas A&M</span><span class="bm-seed">3</span></div>
+          <div class="bm-team"><span>Michigan St.</span><span class="bm-seed">6</span></div>
+        </div>
+        <div class="bm-region">
+          <h4>South</h4>
+          <div class="bm-team"><span>Auburn</span><span class="bm-seed">1</span></div>
+          <div class="bm-team"><span>Florida</span><span class="bm-seed">2</span></div>
+          <div class="bm-team"><span>Iowa St.</span><span class="bm-seed">3</span></div>
+          <div class="bm-team"><span>Purdue</span><span class="bm-seed">5</span></div>
+        </div>
+        <div class="bm-region">
+          <h4>Midwest</h4>
+          <div class="bm-team"><span>Kansas</span><span class="bm-seed">1</span></div>
+          <div class="bm-team"><span>Tennessee</span><span class="bm-seed">2</span></div>
+          <div class="bm-team"><span>Arizona</span><span class="bm-seed">4</span></div>
+          <div class="bm-team"><span>Baylor</span><span class="bm-seed">3</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="annotation">Card: ESPN link</p>
+    <div class="section-card espn-section">
+      <h2>ESPN Tournament Challenge</h2>
+      <p>The Scout's complete bracket was submitted to ESPN before tip-off as timestamped proof.</p>
+      <a href="#" class="espn-btn">View on ESPN &rarr;</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

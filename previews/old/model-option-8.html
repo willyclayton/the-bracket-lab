@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Detail — Option 8: Comparison-Ready</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* MODEL HEADER WITH NAV ARROWS */
+    .model-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .nav-arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      color: #888;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .nav-arrow:hover {
+      border-color: #555;
+      color: #efefef;
+    }
+    .model-identity {
+      text-align: center;
+      flex: 1;
+      max-width: 400px;
+    }
+    .model-color-bar {
+      height: 4px;
+      border-radius: 2px;
+      margin-bottom: 12px;
+      transition: background 0.3s;
+    }
+    .model-icon { font-size: 40px; margin-bottom: 8px; }
+    .model-name {
+      font-size: 32px;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+    .model-subtitle {
+      font-family: 'Instrument Serif', serif;
+      font-size: 15px;
+      color: #888;
+      font-style: italic;
+    }
+
+    /* MODEL DOTS */
+    .model-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .model-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0.4;
+      transition: all 0.15s;
+    }
+    .model-dot.active { opacity: 1; transform: scale(1.3); }
+
+    /* STANDARDIZED STAT GRID */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .sg-tile {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .sg-label {
+      font-size: 10px;
+      color: #888888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .sg-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .sg-sub {
+      font-size: 11px;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    /* ROUND ACCURACY - STANDARDIZED POSITIONS */
+    .round-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .rg-cell {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+    .rg-round {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .rg-record {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .rg-pct {
+      font-size: 10px;
+      color: #888;
+      margin-top: 2px;
+    }
+    .rg-bar {
+      height: 4px;
+      background: #262626;
+      border-radius: 2px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .rg-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    /* METHODOLOGY SUMMARY */
+    .method-card {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .method-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .method-card p {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    /* FINAL FOUR / CHAMPION - FIXED POSITION */
+    .path-card {
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .path-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .path-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .path-label {
+      font-size: 10px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      width: 80px;
+      flex-shrink: 0;
+      padding-top: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .path-teams {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .path-team {
+      padding: 6px 14px;
+      background: #262626;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    .path-team.champ {
+      border: 1px solid;
+      font-weight: 600;
+    }
+
+    /* ESPN ROW */
+    .espn-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      border-radius: 10px;
+      padding: 16px 24px;
+    }
+    .espn-row p { font-size: 13px; color: #888; }
+    .espn-btn {
+      padding: 10px 20px;
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .round-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .stat-grid { grid-template-columns: 1fr; }
+      .round-grid { grid-template-columns: repeat(2, 1fr); }
+      .model-name { font-size: 24px; }
+      .nav-arrow { width: 36px; height: 36px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- MODEL NAVIGATION -->
+    <p class="annotation" style="text-align: center;">Navigate between models (same layout, same metric positions)</p>
+    <div class="model-nav">
+      <button class="nav-arrow" id="prevBtn">&larr;</button>
+      <div class="model-identity" id="modelIdentity">
+        <div class="model-color-bar" id="colorBar" style="background: #3b82f6;"></div>
+        <div class="model-icon" id="modelIcon">🎬</div>
+        <div class="model-name" id="modelName" style="color: #3b82f6;">The Scout</div>
+        <div class="model-subtitle" id="modelSubtitle">LLM Matchup Analyst</div>
+      </div>
+      <button class="nav-arrow" id="nextBtn">&rarr;</button>
+    </div>
+
+    <div class="model-dots">
+      <div class="model-dot active" style="background: #3b82f6;" data-idx="0"></div>
+      <div class="model-dot" style="background: #22c55e;" data-idx="1"></div>
+      <div class="model-dot" style="background: #f59e0b;" data-idx="2"></div>
+      <div class="model-dot" style="background: #ef4444;" data-idx="3"></div>
+      <div class="model-dot" style="background: #00ff88;" data-idx="4"></div>
+    </div>
+
+    <!-- STANDARDIZED STATS (always same position) -->
+    <p class="annotation">Stat grid (fixed positions, values change per model)</p>
+    <div class="stat-grid">
+      <div class="sg-tile">
+        <div class="sg-label">Score</div>
+        <div class="sg-value" id="statScore" style="color: #3b82f6;">1,240</div>
+        <div class="sg-sub">of 1,920</div>
+      </div>
+      <div class="sg-tile">
+        <div class="sg-label">Rank</div>
+        <div class="sg-value" id="statRank">2nd</div>
+        <div class="sg-sub">of 5 models</div>
+      </div>
+      <div class="sg-tile">
+        <div class="sg-label">Champion</div>
+        <div class="sg-value" id="statChamp" style="font-size: 22px; color: #3b82f6;">Duke</div>
+        <div class="sg-sub" id="statChampSeed">(1) East</div>
+      </div>
+    </div>
+
+    <!-- ROUND ACCURACY (fixed 6-cell layout) -->
+    <p class="annotation">Round accuracy grid (same 6 cells, same positions)</p>
+    <div class="round-grid" id="roundGrid">
+      <div class="rg-cell">
+        <div class="rg-round">R64</div>
+        <div class="rg-record">25/32</div>
+        <div class="rg-pct">78%</div>
+        <div class="rg-bar"><div class="rg-bar-fill" style="width: 78%; background: #3b82f6;"></div></div>
+      </div>
+      <div class="rg-cell">
+        <div class="rg-round">R32</div>
+        <div class="rg-record">11/16</div>
+        <div class="rg-pct">69%</div>
+        <div class="rg-bar"><div class="rg-bar-fill" style="width: 69%; background: #3b82f6;"></div></div>
+      </div>
+      <div class="rg-cell">
+        <div class="rg-round">S16</div>
+        <div class="rg-record">5/8</div>
+        <div class="rg-pct">62%</div>
+        <div class="rg-bar"><div class="rg-bar-fill" style="width: 62%; background: #3b82f6;"></div></div>
+      </div>
+      <div class="rg-cell">
+        <div class="rg-round">E8</div>
+        <div class="rg-record">2/4</div>
+        <div class="rg-pct">50%</div>
+        <div class="rg-bar"><div class="rg-bar-fill" style="width: 50%; background: #3b82f6;"></div></div>
+      </div>
+      <div class="rg-cell">
+        <div class="rg-round">F4</div>
+        <div class="rg-record">1/2</div>
+        <div class="rg-pct">50%</div>
+        <div class="rg-bar"><div class="rg-bar-fill" style="width: 50%; background: #3b82f6;"></div></div>
+      </div>
+      <div class="rg-cell">
+        <div class="rg-round">Champ</div>
+        <div class="rg-record">1/1</div>
+        <div class="rg-pct">100%</div>
+        <div class="rg-bar"><div class="rg-bar-fill" style="width: 100%; background: #3b82f6;"></div></div>
+      </div>
+    </div>
+
+    <!-- METHODOLOGY (same card, swappable text) -->
+    <p class="annotation">Methodology summary (same position)</p>
+    <div class="method-card">
+      <h3>Methodology</h3>
+      <p id="methodText">The Scout uses large language models to analyze each matchup the way a coaching staff would break down film. It evaluates tempo, defensive efficiency, key player matchups, coaching tendencies, and situational factors like tournament experience. Each game gets a structured analysis prompt, and the model picks the team with the stronger overall matchup profile.</p>
+    </div>
+
+    <!-- PATH TO CHAMPIONSHIP (same layout) -->
+    <p class="annotation">Final Four + Champion path (fixed layout)</p>
+    <div class="path-card">
+      <h3>Path to the Championship</h3>
+      <div class="path-row">
+        <div class="path-label">Final Four</div>
+        <div class="path-teams" id="ffTeams">
+          <div class="path-team">Duke (1)</div>
+          <div class="path-team">Houston (1)</div>
+          <div class="path-team">Auburn (1)</div>
+          <div class="path-team">Kansas (1)</div>
+        </div>
+      </div>
+      <div class="path-row">
+        <div class="path-label">Finals</div>
+        <div class="path-teams" id="finalsTeams">
+          <div class="path-team">Duke</div>
+          <div class="path-team">Auburn</div>
+        </div>
+      </div>
+      <div class="path-row">
+        <div class="path-label">Champion</div>
+        <div class="path-teams" id="champTeam">
+          <div class="path-team champ" style="border-color: #3b82f6; color: #3b82f6;">Duke</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESPN (same position) -->
+    <p class="annotation">ESPN verification (same position)</p>
+    <div class="espn-row">
+      <p>Bracket submitted to ESPN Tournament Challenge as timestamped proof.</p>
+      <a href="#" class="espn-btn" id="espnBtn" style="background: #3b82f6;">View on ESPN &rarr;</a>
+    </div>
+  </div>
+
+  <script>
+    const models = [
+      { name: 'The Scout', icon: '🎬', color: '#3b82f6', sub: 'LLM Matchup Analyst', score: '1,240', rank: '2nd', champ: 'Duke', seed: '(1) East', method: 'The Scout uses large language models to analyze each matchup the way a coaching staff would break down film. It evaluates tempo, defensive efficiency, key player matchups, coaching tendencies, and situational factors like tournament experience.' },
+      { name: 'The Quant', icon: '📊', color: '#22c55e', sub: 'Monte Carlo Simulation', score: '1,310', rank: '1st', champ: 'Houston', seed: '(1) West', method: 'The Quant runs 10,000 Monte Carlo simulations per matchup using tempo-adjusted efficiency metrics, strength of schedule, and historical seed performance data. It assigns win probabilities and builds the bracket from the most likely outcomes.' },
+      { name: 'The Historian', icon: '📜', color: '#f59e0b', sub: 'Archetype Matching', score: '1,180', rank: '3rd', champ: 'Auburn', seed: '(1) South', method: 'The Historian matches each 2026 team to its closest historical twin using statistical fingerprinting. It then looks at how those archetype teams performed in past tournaments to predict outcomes.' },
+      { name: 'The Chaos Agent', icon: '🔥', color: '#ef4444', sub: 'Upset Detector', score: '980', rank: '5th', champ: 'Florida', seed: '(2) South', method: 'The Chaos Agent specifically hunts for upset conditions: teams with volatile performance, matchup vulnerabilities in favorites, and historical upset patterns by seed line. It builds the most contrarian bracket possible.' },
+      { name: 'The Agent', icon: '🤖', color: '#00ff88', sub: 'Autonomous AI Researcher', score: '1,060', rank: '4th', champ: 'Kansas', seed: '(1) Midwest', method: 'The Agent was given one instruction: build me a winning bracket. No methodology was prescribed. It autonomously researched teams, built its own evaluation framework, and filled out the bracket with zero human guidance.' }
+    ];
+
+    let currentIdx = 0;
+
+    function updateDisplay(idx) {
+      const m = models[idx];
+      document.getElementById('colorBar').style.background = m.color;
+      document.getElementById('modelIcon').textContent = m.icon;
+      document.getElementById('modelName').textContent = m.name;
+      document.getElementById('modelName').style.color = m.color;
+      document.getElementById('modelSubtitle').textContent = m.sub;
+      document.getElementById('statScore').textContent = m.score;
+      document.getElementById('statScore').style.color = m.color;
+      document.getElementById('statRank').textContent = m.rank;
+      document.getElementById('statChamp').textContent = m.champ;
+      document.getElementById('statChamp').style.color = m.color;
+      document.getElementById('statChampSeed').textContent = m.seed;
+      document.getElementById('methodText').textContent = m.method;
+      document.getElementById('espnBtn').style.background = m.color;
+
+      // Update bar fills
+      document.querySelectorAll('.rg-bar-fill').forEach(el => el.style.background = m.color);
+
+      // Update champ team
+      const champEl = document.querySelector('.path-team.champ');
+      champEl.textContent = m.champ;
+      champEl.style.borderColor = m.color;
+      champEl.style.color = m.color;
+
+      // Update dots
+      document.querySelectorAll('.model-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === idx);
+      });
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      currentIdx = (currentIdx - 1 + models.length) % models.length;
+      updateDisplay(currentIdx);
+    });
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      currentIdx = (currentIdx + 1) % models.length;
+      updateDisplay(currentIdx);
+    });
+    document.querySelectorAll('.model-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        currentIdx = parseInt(dot.dataset.idx);
+        updateDisplay(currentIdx);
+      });
+    });
+  </script>
+
+</body>
+</html>

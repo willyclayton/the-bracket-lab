@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Detail — Option 12: Arrow Nav + Tabs + Flip Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Annotation */
+    .annotation-badge {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 6px 10px;
+      z-index: 999;
+    }
+    .annotation-badge span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+    }
+    .annotation-badge strong {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #efefef;
+      letter-spacing: 0.5px;
+    }
+
+    /* Arrow nav */
+    .arrow-nav {
+      background: #1a1a1a;
+      border-bottom: 1px solid #252525;
+      padding: 12px 24px;
+    }
+    .arrow-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .nav-side {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 160px;
+    }
+    .nav-side.right { justify-content: flex-end; }
+    .nav-arrow-btn {
+      background: none;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #888;
+      font-size: 16px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .nav-arrow-btn:hover {
+      border-color: currentColor;
+    }
+    .nav-model-preview {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #555;
+      cursor: pointer;
+    }
+    .nav-model-preview:hover { color: #888; }
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .nav-model-name { font-size: 13px; }
+    .nav-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .nav-center-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav-dots-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .nav-dot-ind {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #333;
+      transition: all 0.2s;
+    }
+    .nav-dot-ind.active {
+      width: 8px;
+      height: 8px;
+    }
+
+    /* Layout */
+    .page { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+
+    /* Header */
+    .header-section { margin-bottom: 28px; }
+    .header-accent-bar {
+      height: 3px;
+      width: 60px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+    .header-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .header-left { flex: 1; min-width: 260px; }
+    .model-emoji-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .model-emoji { font-size: 36px; }
+    .model-name {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      transition: color 0.3s;
+    }
+    .model-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: #888;
+      margin-bottom: 14px;
+    }
+    .model-type-badge {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+    }
+
+    /* Mini flip card */
+    .mini-flip-container { margin-bottom: 32px; }
+    .mini-flip-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .mini-flip {
+      width: 220px;
+      height: 110px;
+      perspective: 800px;
+      cursor: pointer;
+    }
+    .mini-flip-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mini-flip.flipped .mini-flip-inner { transform: rotateY(180deg); }
+    .mini-flip-front, .mini-flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      border: 1px solid;
+      background: #1e1e1e;
+      padding: 14px 16px;
+      transition: border-color 0.3s;
+    }
+    .mini-flip-back { transform: rotateY(180deg); }
+    .mini-front-stats {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .mini-stat { display: flex; flex-direction: column; gap: 2px; }
+    .mini-stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .mini-stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+    .mini-flip-hint {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      color: #333;
+    }
+    .mini-back-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: #aaa;
+      line-height: 1.55;
+    }
+
+    /* Tab bar */
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid #333;
+      margin-bottom: 32px;
+      gap: 0;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      padding: 12px 20px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .tab-btn:hover { color: #efefef; }
+    .tab-btn.active { }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      transition: background 0.3s;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Overview text */
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #222;
+    }
+    .overview-text { color: #ccc; font-size: 15px; line-height: 1.75; margin-bottom: 14px; }
+    .key-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .stat-card {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-card-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .stat-card-value {
+      font-size: 24px;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    /* Bracket picks */
+    .bracket-picks { display: flex; flex-direction: column; gap: 8px; }
+    .pick-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: #1e1e1e;
+      border-radius: 6px;
+      border: 1px solid #2a2a2a;
+    }
+    .pick-round {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      width: 120px;
+    }
+    .pick-team { font-size: 14px; font-weight: 500; }
+    .pick-seed { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; }
+
+    /* Placeholder content */
+    .placeholder-block {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 24px;
+      color: #555;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .key-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .model-name { font-size: 32px; }
+      .header-main { flex-direction: column; }
+      .nav-side { min-width: 120px; }
+      .nav-model-name { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="annotation-badge">
+  <span>Option 12</span>
+  <strong>Arrow Nav + Tabs + Flip Card</strong>
+</div>
+
+<!-- Arrow navigation -->
+<div class="arrow-nav">
+  <div class="arrow-nav-inner">
+    <div class="nav-side left">
+      <button class="nav-arrow-btn" id="prevBtn" onclick="navigate(-1)">←</button>
+      <div class="nav-model-preview" onclick="navigate(-1)">
+        <div class="nav-dot" id="prevDot"></div>
+        <span class="nav-model-name" id="prevName"></span>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <span class="nav-center-label">Viewing Model</span>
+      <div class="nav-dots-row" id="navDots"></div>
+    </div>
+
+    <div class="nav-side right">
+      <div class="nav-model-preview" style="flex-direction:row-reverse;" onclick="navigate(1)">
+        <div class="nav-dot" id="nextDot"></div>
+        <span class="nav-model-name" id="nextName"></span>
+      </div>
+      <button class="nav-arrow-btn" id="nextBtn" onclick="navigate(1)">→</button>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header-section">
+    <div class="header-accent-bar" id="accentBar"></div>
+    <div class="header-main">
+      <div class="header-left">
+        <div class="model-emoji-row">
+          <span class="model-emoji" id="modelEmoji">🎬</span>
+          <div class="model-name" id="modelName">The Scout</div>
+        </div>
+        <div class="model-tagline" id="modelTagline">Film room intelligence at machine speed.</div>
+        <span class="model-type-badge" id="modelBadge">LLM Matchup Analyst</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mini flip card -->
+  <div class="mini-flip-container">
+    <div class="mini-flip-label">Quick stats — click to flip</div>
+    <div class="mini-flip" id="miniFlip" onclick="this.classList.toggle('flipped')">
+      <div class="mini-flip-inner">
+        <div class="mini-flip-front" id="miniFlipFront">
+          <div class="mini-front-stats">
+            <div class="mini-stat">
+              <span class="mini-stat-label">Score</span>
+              <span class="mini-stat-value" id="miniScore">720</span>
+            </div>
+            <div class="mini-stat">
+              <span class="mini-stat-label">Rank</span>
+              <span class="mini-stat-value" style="color:#efefef;" id="miniRank">#2</span>
+            </div>
+          </div>
+          <span class="mini-flip-hint">flip →</span>
+        </div>
+        <div class="mini-flip-back" id="miniFlipBack">
+          <p class="mini-back-text" id="miniBackText">LLM film-room analysis. Processes team profiles, form, and coaching into matchup-level narrative predictions.</p>
+          <span class="mini-flip-hint">← back</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" id="tabOverview" onclick="switchTab('overview', this)">Overview</button>
+    <button class="tab-btn" id="tabBracket" onclick="switchTab('bracket', this)">Bracket</button>
+    <button class="tab-btn" id="tabMethodology" onclick="switchTab('methodology', this)">Methodology</button>
+  </div>
+
+  <!-- Overview tab -->
+  <div class="tab-panel active" id="tab-overview">
+    <div class="section-label">Current Standing</div>
+    <div class="key-stats-grid" id="statsGrid">
+      <div class="stat-card">
+        <span class="stat-card-label">Score</span>
+        <span class="stat-card-value" id="gridScore" style="color:#3b82f6;">720</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-label">Rank</span>
+        <span class="stat-card-value" style="color:#efefef;" id="gridRank">#2</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-label">Accuracy</span>
+        <span class="stat-card-value" id="gridAcc" style="color:#3b82f6;">68%</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-label">Champion</span>
+        <span class="stat-card-value" style="color:#efefef;font-size:18px;" id="gridChamp">Duke</span>
+      </div>
+    </div>
+    <div style="margin-top: 28px;">
+      <div class="section-label">Overview</div>
+      <p class="overview-text" id="overviewText">The Scout processes structured team profiles, recent game logs, and coaching tendencies through a large language model, generating narrative matchup analysis before the bracket is announced. It weights recent form and coaching adjustments — signals that raw statistics often miss.</p>
+    </div>
+  </div>
+
+  <!-- Bracket tab -->
+  <div class="tab-panel" id="tab-bracket">
+    <div class="section-label">Championship Path</div>
+    <div class="bracket-picks" id="bracketPicks">
+      <div class="pick-row">
+        <span class="pick-round">Round of 64</span>
+        <span class="pick-team" id="pickChamp1" style="color:#3b82f6;">Duke</span>
+        <span class="pick-seed">#1 East</span>
+      </div>
+      <div class="pick-row">
+        <span class="pick-round">Round of 32</span>
+        <span class="pick-team" id="pickChamp2" style="color:#3b82f6;">Duke</span>
+        <span class="pick-seed">vs. #9 seed</span>
+      </div>
+      <div class="pick-row">
+        <span class="pick-round">Sweet 16</span>
+        <span class="pick-team" id="pickChamp3" style="color:#3b82f6;">Duke</span>
+        <span class="pick-seed">vs. #4 seed</span>
+      </div>
+      <div class="pick-row">
+        <span class="pick-round">Final Four</span>
+        <span class="pick-team" id="pickChamp4" style="color:#3b82f6;">Duke</span>
+        <span class="pick-seed">vs. #1 West</span>
+      </div>
+      <div class="pick-row" style="border-left: 3px solid #3b82f6;">
+        <span class="pick-round">Championship</span>
+        <span class="pick-team" style="font-weight:700;" id="pickChampFinal">Duke 🏆</span>
+        <span class="pick-seed">Champion</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Methodology tab -->
+  <div class="tab-panel" id="tab-methodology">
+    <div class="section-label">How It Works</div>
+    <p class="overview-text">The Scout feeds every matchup into a large language model with detailed team profiles — pace of play, defensive rating, key player matchups, recent schedule strength, and coaching track record in high-pressure games.</p>
+    <p class="overview-text">The LLM synthesizes this into film-room style analysis for each pairing, identifying which team holds the structural advantages. It then ranks teams by projected dominance within their region before making final picks.</p>
+    <p class="overview-text">Key differentiator: The Scout weights coaching adjustability and lineup rotations — factors invisible to statistical models but critical in short-series tournament basketball.</p>
+  </div>
+
+</div>
+
+<script>
+  const models = [
+    { name: 'The Scout',      emoji: '🎬', color: '#3b82f6', type: 'LLM Matchup Analyst',        tagline: 'Film room intelligence at machine speed.',       score: 720, rank: '#2', acc: '68%', champ: 'Duke',    back: 'LLM film-room analysis. Processes team profiles, form, and coaching into matchup-level narrative predictions.', overview: 'The Scout processes structured team profiles, recent game logs, and coaching tendencies through a large language model, generating narrative matchup analysis for every matchup. It weights recent form and coaching adjustments — signals that raw statistics often miss.' },
+    { name: 'The Quant',      emoji: '📊', color: '#22c55e', type: 'Monte Carlo Simulation',       tagline: '10,000 simulations. Zero feelings.',             score: 680, rank: '#3', acc: '65%', champ: 'Houston', back: 'Runs 10,000 Monte Carlo simulations per matchup using Elo ratings and historical game variance.', overview: 'The Quant runs 10,000 Monte Carlo simulations per matchup using Elo ratings, pace-adjusted efficiency metrics, and historical tournament variance models. No narrative, just probability distributions.' },
+    { name: 'The Historian',  emoji: '📜', color: '#f59e0b', type: 'Archetype Matching',           tagline: 'Every team has a twin. History already played this game.', score: 640, rank: '#4', acc: '62%', champ: 'UConn',   back: 'Finds historical twin teams from 1985–2025 and applies their tournament outcomes to today\'s field.', overview: 'The Historian searches 40 years of tournament data to find each team\'s closest historical analogue based on statistical profile, seeding, and momentum. Then applies what that twin team did.' },
+    { name: 'The Chaos Agent', emoji: '🔥', color: '#ef4444', type: 'Upset Detector',              tagline: 'Your bracket is too safe. This one isn\'t.',        score: 580, rank: '#5', acc: '58%', champ: 'Auburn',  back: 'Actively hunts for overvalued favorites and underdog matchups with structural upsets in their DNA.', overview: 'The Chaos Agent identifies teams that are statistically overvalued by the public and finds opponents with upset-favorable profiles — typically a hot three-point shooting team facing a slow-tempo favorite.' },
+    { name: 'The Agent',      emoji: '🤖', color: '#00ff88', type: 'Autonomous AI Researcher',     tagline: 'No rules. No prompts. Just: build me a bracket.',  score: 760, rank: '#1', acc: '71%', champ: 'Duke',    back: 'Autonomous AI agent with web access that researches, reasons, and picks without a defined methodology.', overview: 'The Agent is given a single instruction: build me a bracket. It autonomously searches current news, injury reports, expert analysis, and historical data — then reasons through the tournament without a predefined framework.' },
+  ];
+
+  let currentIdx = 0;
+
+  function buildNavDots() {
+    const container = document.getElementById('navDots');
+    container.innerHTML = models.map((m, i) =>
+      `<div class="nav-dot-ind ${i === currentIdx ? 'active' : ''}" style="${i === currentIdx ? 'background:' + m.color : ''}"></div>`
+    ).join('');
+  }
+
+  function applyModel(idx) {
+    const m = models[idx];
+    const prev = models[(idx - 1 + models.length) % models.length];
+    const next = models[(idx + 1) % models.length];
+
+    // Header
+    document.getElementById('modelEmoji').textContent = m.emoji;
+    document.getElementById('modelName').textContent = m.name;
+    document.getElementById('modelName').style.color = m.color;
+    document.getElementById('modelTagline').textContent = m.tagline;
+    document.getElementById('modelBadge').textContent = m.type;
+    document.getElementById('modelBadge').style.color = m.color;
+    document.getElementById('modelBadge').style.borderColor = m.color + '44';
+    document.getElementById('modelBadge').style.background = m.color + '12';
+    document.getElementById('accentBar').style.background = m.color;
+
+    // Flip card
+    document.getElementById('miniScore').textContent = m.score;
+    document.getElementById('miniScore').style.color = m.color;
+    document.getElementById('miniRank').textContent = m.rank;
+    document.getElementById('miniBackText').textContent = m.back;
+    document.getElementById('miniFlipFront').style.borderColor = m.color + '44';
+    document.getElementById('miniFlipBack').style.borderColor = m.color + '44';
+    // Reset flip
+    document.getElementById('miniFlip').classList.remove('flipped');
+
+    // Stats
+    document.getElementById('gridScore').textContent = m.score;
+    document.getElementById('gridScore').style.color = m.color;
+    document.getElementById('gridRank').textContent = m.rank;
+    document.getElementById('gridAcc').textContent = m.acc;
+    document.getElementById('gridAcc').style.color = m.color;
+    document.getElementById('gridChamp').textContent = m.champ;
+
+    // Overview text
+    document.getElementById('overviewText').textContent = m.overview;
+
+    // Bracket picks champ color
+    ['pickChamp1','pickChamp2','pickChamp3','pickChamp4'].forEach(id => {
+      document.getElementById(id).textContent = m.champ;
+      document.getElementById(id).style.color = m.color;
+    });
+    document.getElementById('pickChampFinal').textContent = m.champ + ' 🏆';
+    document.querySelector('.pick-row:last-child').style.borderLeftColor = m.color;
+
+    // Tab active color
+    document.querySelectorAll('.tab-btn.active').forEach(b => b.style.color = m.color);
+    document.querySelectorAll('.tab-btn.active::after');
+    // Update all active tabs underline via CSS var trick
+    document.documentElement.style.setProperty('--model-color', m.color);
+
+    // Nav arrows
+    document.getElementById('prevName').textContent = prev.name;
+    document.getElementById('prevDot').style.background = prev.color;
+    document.getElementById('prevBtn').style.borderColor = prev.color + '66';
+    document.getElementById('prevBtn').style.color = prev.color;
+
+    document.getElementById('nextName').textContent = next.name;
+    document.getElementById('nextDot').style.background = next.color;
+    document.getElementById('nextBtn').style.borderColor = next.color + '66';
+    document.getElementById('nextBtn').style.color = next.color;
+
+    buildNavDots();
+  }
+
+  function navigate(dir) {
+    currentIdx = (currentIdx + dir + models.length) % models.length;
+    applyModel(currentIdx);
+  }
+
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.style.color = ''; });
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+    btn.style.color = models[currentIdx].color;
+  }
+
+  // Inject dynamic tab underline via style
+  const styleEl = document.createElement('style');
+  styleEl.textContent = `.tab-btn.active::after { background: var(--model-color, #3b82f6); }`;
+  document.head.appendChild(styleEl);
+
+  // Init
+  document.documentElement.style.setProperty('--model-color', '#3b82f6');
+  applyModel(0);
+  document.querySelector('.tab-btn.active').style.color = '#3b82f6';
+</script>
+</body>
+</html>

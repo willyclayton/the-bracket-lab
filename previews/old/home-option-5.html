@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home Option 5 — Dashboard-First</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #141414;
+      color: #efefef;
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.6;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #888888;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: #1e1e1e;
+      border-bottom: 1px solid #333;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar .logo {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .top-bar .logo span { color: #888; font-weight: 400; }
+    .top-bar-links { display: flex; gap: 24px; list-style: none; }
+    .top-bar-links a { color: #888; text-decoration: none; font-size: 13px; font-weight: 500; }
+    .top-bar-links a:hover { color: #efefef; }
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #22c55e;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .live-dot {
+      width: 6px; height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* LAYOUT */
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: calc(100vh - 50px);
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background: #1e1e1e;
+      border-right: 1px solid #333;
+      padding: 20px 16px;
+    }
+    .sidebar-title {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .sidebar-model {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .sidebar-model:hover { background: #2a2a2a; }
+    .sidebar-model.active { background: #2a2a2a; }
+    .sidebar-model-emoji { font-size: 18px; }
+    .sidebar-model-info { flex: 1; }
+    .sidebar-model-name { font-size: 14px; font-weight: 600; }
+    .sidebar-model-score {
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+    }
+    .sidebar-model-rank {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* MAIN AREA */
+    .main-area {
+      padding: 24px 32px;
+    }
+
+    /* STAT COUNTERS */
+    .stat-counters {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-counter {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .stat-counter-label {
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .stat-counter-value {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .stat-counter-sub {
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* LEADERBOARD TABLE */
+    .leaderboard-section { margin-bottom: 32px; }
+    .leaderboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .leaderboard-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .leaderboard-header .round-label {
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th {
+      text-align: left;
+      font-size: 11px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 12px 16px;
+      border-bottom: 1px solid #333;
+      background: #1a1a1a;
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #2a2a2a;
+      font-size: 14px;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: #222; }
+    .rank-cell { font-family: 'IBM Plex Mono', monospace; color: #888; width: 50px; }
+    .model-cell { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+    .model-cell-emoji { font-size: 18px; }
+    .score-cell { font-family: 'IBM Plex Mono', monospace; font-weight: 500; }
+    .correct-cell { font-family: 'IBM Plex Mono', monospace; color: #888; }
+    .bar-cell { width: 120px; }
+    .score-bar {
+      height: 8px;
+      background: #333;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .score-bar-fill { height: 100%; border-radius: 4px; }
+
+    /* RECENT RESULTS */
+    .recent-section { }
+    .recent-section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .recent-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .recent-game {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 14px;
+    }
+    .recent-game-region {
+      font-size: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .recent-game-matchup {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .recent-game-score {
+      font-size: 13px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: #888;
+    }
+    .recent-game-models {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #555;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .dashboard-layout { grid-template-columns: 1fr; }
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #333;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 12px 16px;
+      }
+      .sidebar-title { display: none; }
+      .sidebar-model { flex: 0 0 auto; white-space: nowrap; }
+      .stat-counters { grid-template-columns: repeat(2, 1fr); }
+      .recent-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .stat-counters { grid-template-columns: 1fr; }
+      .main-area { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">The Bracket Lab <span>/ 2026</span></div>
+    <div class="live-badge"><span class="live-dot"></span> Live — Round of 32</div>
+    <ul class="top-bar-links">
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Brackets</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+
+  <div class="dashboard-layout">
+
+    <aside class="sidebar">
+      <div class="annotation">&larr; MODEL SIDEBAR / RAIL</div>
+      <div class="sidebar-title">Models</div>
+      <div class="sidebar-model active">
+        <span class="sidebar-model-emoji">📊</span>
+        <div class="sidebar-model-info">
+          <div class="sidebar-model-name" style="color:#22c55e">The Quant</div>
+          <div class="sidebar-model-score">480 pts</div>
+        </div>
+        <span class="sidebar-model-rank">#1</span>
+      </div>
+      <div class="sidebar-model">
+        <span class="sidebar-model-emoji">🔥</span>
+        <div class="sidebar-model-info">
+          <div class="sidebar-model-name" style="color:#ef4444">Chaos Agent</div>
+          <div class="sidebar-model-score">450 pts</div>
+        </div>
+        <span class="sidebar-model-rank">#2</span>
+      </div>
+      <div class="sidebar-model">
+        <span class="sidebar-model-emoji">🎬</span>
+        <div class="sidebar-model-info">
+          <div class="sidebar-model-name" style="color:#3b82f6">The Scout</div>
+          <div class="sidebar-model-score">420 pts</div>
+        </div>
+        <span class="sidebar-model-rank">#3</span>
+      </div>
+      <div class="sidebar-model">
+        <span class="sidebar-model-emoji">📜</span>
+        <div class="sidebar-model-info">
+          <div class="sidebar-model-name" style="color:#f59e0b">The Historian</div>
+          <div class="sidebar-model-score">380 pts</div>
+        </div>
+        <span class="sidebar-model-rank">#4</span>
+      </div>
+      <div class="sidebar-model">
+        <span class="sidebar-model-emoji">🤖</span>
+        <div class="sidebar-model-info">
+          <div class="sidebar-model-name" style="color:#00ff88">The Agent</div>
+          <div class="sidebar-model-score">340 pts</div>
+        </div>
+        <span class="sidebar-model-rank">#5</span>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <div class="annotation">&larr; MAIN DASHBOARD AREA (NO TRADITIONAL HERO)</div>
+
+      <div class="stat-counters">
+        <div class="annotation" style="grid-column:1/-1">&larr; LIVE STAT COUNTERS</div>
+        <div class="stat-counter">
+          <div class="stat-counter-label">Games Played</div>
+          <div class="stat-counter-value">40</div>
+          <div class="stat-counter-sub">of 63 total</div>
+        </div>
+        <div class="stat-counter">
+          <div class="stat-counter-label">Current Round</div>
+          <div class="stat-counter-value">R32</div>
+          <div class="stat-counter-sub">Round of 32</div>
+        </div>
+        <div class="stat-counter">
+          <div class="stat-counter-label">Leader</div>
+          <div class="stat-counter-value" style="color:#22c55e">Quant</div>
+          <div class="stat-counter-sub">480 points</div>
+        </div>
+        <div class="stat-counter">
+          <div class="stat-counter-label">Avg Accuracy</div>
+          <div class="stat-counter-value">68%</div>
+          <div class="stat-counter-sub">across all models</div>
+        </div>
+      </div>
+
+      <div class="leaderboard-section">
+        <div class="annotation">&larr; LEADERBOARD TABLE</div>
+        <div class="leaderboard-header">
+          <h2>Leaderboard</h2>
+          <span class="round-label">Through Round of 32</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Model</th>
+              <th>Score</th>
+              <th>Correct</th>
+              <th>Progress</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="rank-cell">1</td>
+              <td class="model-cell"><span class="model-cell-emoji">📊</span> <span style="color:#22c55e">The Quant</span></td>
+              <td class="score-cell">480</td>
+              <td class="correct-cell">28/40</td>
+              <td class="bar-cell"><div class="score-bar"><div class="score-bar-fill" style="width:25%;background:#22c55e"></div></div></td>
+            </tr>
+            <tr>
+              <td class="rank-cell">2</td>
+              <td class="model-cell"><span class="model-cell-emoji">🔥</span> <span style="color:#ef4444">The Chaos Agent</span></td>
+              <td class="score-cell">450</td>
+              <td class="correct-cell">25/40</td>
+              <td class="bar-cell"><div class="score-bar"><div class="score-bar-fill" style="width:23.4%;background:#ef4444"></div></div></td>
+            </tr>
+            <tr>
+              <td class="rank-cell">3</td>
+              <td class="model-cell"><span class="model-cell-emoji">🎬</span> <span style="color:#3b82f6">The Scout</span></td>
+              <td class="score-cell">420</td>
+              <td class="correct-cell">26/40</td>
+              <td class="bar-cell"><div class="score-bar"><div class="score-bar-fill" style="width:21.9%;background:#3b82f6"></div></div></td>
+            </tr>
+            <tr>
+              <td class="rank-cell">4</td>
+              <td class="model-cell"><span class="model-cell-emoji">📜</span> <span style="color:#f59e0b">The Historian</span></td>
+              <td class="score-cell">380</td>
+              <td class="correct-cell">24/40</td>
+              <td class="bar-cell"><div class="score-bar"><div class="score-bar-fill" style="width:19.8%;background:#f59e0b"></div></div></td>
+            </tr>
+            <tr>
+              <td class="rank-cell">5</td>
+              <td class="model-cell"><span class="model-cell-emoji">🤖</span> <span style="color:#00ff88">The Agent</span></td>
+              <td class="score-cell">340</td>
+              <td class="correct-cell">22/40</td>
+              <td class="bar-cell"><div class="score-bar"><div class="score-bar-fill" style="width:17.7%;background:#00ff88"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="recent-section">
+        <div class="annotation">&larr; RECENT GAME RESULTS</div>
+        <h2>Recent Results</h2>
+        <div class="recent-grid">
+          <div class="recent-game">
+            <div class="recent-game-region">East &middot; Round of 32</div>
+            <div class="recent-game-matchup">(1) Duke def. (9) Arkansas</div>
+            <div class="recent-game-score">78-65</div>
+            <div class="recent-game-models">Correct: Scout, Quant, Historian</div>
+          </div>
+          <div class="recent-game">
+            <div class="recent-game-region">West &middot; Round of 32</div>
+            <div class="recent-game-matchup">(3) Iowa St def. (6) BYU</div>
+            <div class="recent-game-score">71-62</div>
+            <div class="recent-game-models">Correct: All 5 models</div>
+          </div>
+          <div class="recent-game">
+            <div class="recent-game-region">South &middot; Round of 32</div>
+            <div class="recent-game-matchup">(11) Drake def. (3) Baylor</div>
+            <div class="recent-game-score">68-64</div>
+            <div class="recent-game-models">Correct: Chaos Agent only</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>

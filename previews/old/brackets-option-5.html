@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brackets Option 5 — Side-by-Side Compare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; color: #efefef; font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
+    .annotation { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+    h1 { font-family: 'Instrument Serif', serif; font-size: 36px; margin-bottom: 4px; }
+    .subtitle { color: #888888; font-size: 14px; margin-bottom: 28px; }
+
+    /* Selector Row */
+    .selector-row {
+      display: flex; gap: 16px; margin-bottom: 24px; align-items: center;
+      flex-wrap: wrap;
+    }
+    .model-select-wrap { flex: 1; min-width: 200px; }
+    .model-select-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+    }
+    .model-select {
+      width: 100%; padding: 10px 14px; background: #1e1e1e; border: 1px solid #333;
+      border-radius: 6px; color: #efefef; font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px; appearance: none; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center;
+    }
+    .model-select option { background: #1e1e1e; color: #efefef; }
+    .vs-badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #555;
+      padding-top: 20px;
+    }
+
+    /* Diff Summary */
+    .diff-summary {
+      display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .diff-stat {
+      background: #1e1e1e; border: 1px solid #333; border-radius: 8px;
+      padding: 12px 16px; flex: 1; min-width: 120px;
+    }
+    .diff-stat .ds-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #888;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .diff-stat .ds-value { font-size: 22px; font-weight: 700; margin-top: 4px; }
+    .agree-color { color: #22c55e; }
+    .differ-color { color: #f59e0b; }
+
+    /* Round Filter */
+    .round-filter {
+      display: flex; gap: 6px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 4px;
+    }
+    .rf-btn {
+      padding: 5px 12px; border-radius: 14px; border: 1px solid #2a2a2a;
+      background: transparent; color: #888; font-size: 11px; cursor: pointer;
+      font-family: 'IBM Plex Mono', monospace; white-space: nowrap; transition: all 0.15s;
+    }
+    .rf-btn:hover { border-color: #555; color: #ccc; }
+    .rf-btn.active { border-color: #efefef; color: #efefef; background: #252525; }
+
+    /* Split Panel */
+    .split-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    @media (max-width: 700px) { .split-panel { grid-template-columns: 1fr; } }
+
+    .panel { }
+    .panel-header {
+      padding: 12px 16px; font-weight: 600; font-size: 14px;
+      border-bottom: 2px solid; display: flex; align-items: center; gap: 8px;
+    }
+    .panel-header .ph-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .panel-header .ph-score {
+      margin-left: auto; font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px; font-weight: 400; color: #888;
+    }
+
+    /* Matchup Rows */
+    .compare-section { margin-top: 16px; }
+    .cs-round-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #555;
+      text-transform: uppercase; letter-spacing: 1px; padding: 0 16px; margin-bottom: 8px;
+    }
+    .compare-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    @media (max-width: 700px) { .compare-row { grid-template-columns: 1fr; } }
+    .cr-cell {
+      padding: 8px 16px; font-size: 13px; display: flex; align-items: center; gap: 8px;
+      border-right: 1px solid #2a2a2a;
+    }
+    .cr-cell:last-child { border-right: none; }
+    .cr-seed {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #666;
+      width: 18px; text-align: center; flex-shrink: 0;
+    }
+    .cr-team { flex: 1; }
+    .cr-cell.agree { background: rgba(34, 197, 94, 0.06); }
+    .cr-cell.differ { background: rgba(245, 158, 11, 0.08); }
+    .cr-badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px; padding: 1px 6px;
+      border-radius: 8px; flex-shrink: 0;
+    }
+    .cr-badge.correct { background: rgba(34,197,94,0.15); color: #22c55e; }
+    .cr-badge.wrong { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+    /* Legend */
+    .legend {
+      display: flex; gap: 16px; margin-top: 20px; padding: 12px 16px;
+      background: #1e1e1e; border-radius: 6px; flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888;
+    }
+    .legend-swatch { width: 12px; height: 12px; border-radius: 3px; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="annotation">Brackets Option 5 — Side-by-Side Compare (Dark, Split Panel)</p>
+    <h1>Compare Brackets</h1>
+    <p class="subtitle">Pick any two models. See where they agree and where they diverge.</p>
+
+    <div class="selector-row">
+      <div class="model-select-wrap">
+        <div class="model-select-label">Model A</div>
+        <select class="model-select" style="border-color: #3b82f6;">
+          <option selected>&#127916; The Scout</option>
+          <option>&#128202; The Quant</option>
+          <option>&#128220; The Historian</option>
+          <option>&#128293; The Chaos Agent</option>
+          <option>&#129302; The Agent</option>
+        </select>
+      </div>
+      <span class="vs-badge">VS</span>
+      <div class="model-select-wrap">
+        <div class="model-select-label">Model B</div>
+        <select class="model-select" style="border-color: #ef4444;">
+          <option>&#127916; The Scout</option>
+          <option>&#128202; The Quant</option>
+          <option>&#128220; The Historian</option>
+          <option selected>&#128293; The Chaos Agent</option>
+          <option>&#129302; The Agent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="diff-summary">
+      <div class="diff-stat">
+        <div class="ds-label">Agree</div>
+        <div class="ds-value agree-color">41/63</div>
+      </div>
+      <div class="diff-stat">
+        <div class="ds-label">Differ</div>
+        <div class="ds-value differ-color">22/63</div>
+      </div>
+      <div class="diff-stat">
+        <div class="ds-label">Scout Score</div>
+        <div class="ds-value" style="color: #3b82f6;">420</div>
+      </div>
+      <div class="diff-stat">
+        <div class="ds-label">Chaos Score</div>
+        <div class="ds-value" style="color: #ef4444;">380</div>
+      </div>
+    </div>
+
+    <div class="round-filter">
+      <button class="rf-btn active">All Rounds</button>
+      <button class="rf-btn">R64</button>
+      <button class="rf-btn">R32</button>
+      <button class="rf-btn">S16</button>
+      <button class="rf-btn">E8</button>
+      <button class="rf-btn">F4</button>
+      <button class="rf-btn">Champ</button>
+      <button class="rf-btn">Differences Only</button>
+    </div>
+
+    <!-- Panel Headers -->
+    <div class="split-panel">
+      <div class="panel-header" style="border-bottom-color: #3b82f6;">
+        <span class="ph-dot" style="background: #3b82f6;"></span>
+        The Scout
+        <span class="ph-score">420 pts</span>
+      </div>
+      <div class="panel-header" style="border-bottom-color: #ef4444;">
+        <span class="ph-dot" style="background: #ef4444;"></span>
+        The Chaos Agent
+        <span class="ph-score">380 pts</span>
+      </div>
+    </div>
+
+    <!-- Round of 64 -->
+    <div class="compare-section">
+      <div class="cs-round-label">Round of 64 &mdash; East</div>
+
+      <div class="compare-row">
+        <div class="cr-cell agree">
+          <span class="cr-seed">1</span><span class="cr-team">Duke</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell agree">
+          <span class="cr-seed">1</span><span class="cr-team">Duke</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="cr-cell agree">
+          <span class="cr-seed">8</span><span class="cr-team">Wisconsin</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell agree">
+          <span class="cr-seed">8</span><span class="cr-team">Wisconsin</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="cr-cell differ">
+          <span class="cr-seed">12</span><span class="cr-team">Yale</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell differ">
+          <span class="cr-seed">5</span><span class="cr-team">Marquette</span>
+          <span class="cr-badge wrong">&#10007;</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="cr-cell agree">
+          <span class="cr-seed">4</span><span class="cr-team">Purdue</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell agree">
+          <span class="cr-seed">4</span><span class="cr-team">Purdue</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+      </div>
+
+      <div class="cs-round-label" style="margin-top: 16px;">Round of 64 &mdash; West</div>
+
+      <div class="compare-row">
+        <div class="cr-cell agree">
+          <span class="cr-seed">1</span><span class="cr-team">Auburn</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell agree">
+          <span class="cr-seed">1</span><span class="cr-team">Auburn</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="cr-cell differ">
+          <span class="cr-seed">3</span><span class="cr-team">Gonzaga</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell differ">
+          <span class="cr-seed">14</span><span class="cr-team">Colgate</span>
+          <span class="cr-badge wrong">&#10007;</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="cr-cell agree">
+          <span class="cr-seed">2</span><span class="cr-team">UConn</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell agree">
+          <span class="cr-seed">2</span><span class="cr-team">UConn</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+      </div>
+
+      <div class="cs-round-label" style="margin-top: 16px;">Round of 32 &mdash; East</div>
+
+      <div class="compare-row">
+        <div class="cr-cell agree">
+          <span class="cr-seed">1</span><span class="cr-team">Duke</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell agree">
+          <span class="cr-seed">1</span><span class="cr-team">Duke</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="cr-cell differ">
+          <span class="cr-seed">4</span><span class="cr-team">Purdue</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell differ">
+          <span class="cr-seed">12</span><span class="cr-team">Yale</span>
+          <span class="cr-badge wrong">&#10007;</span>
+        </div>
+      </div>
+
+      <div class="cs-round-label" style="margin-top: 16px;">Sweet 16</div>
+
+      <div class="compare-row">
+        <div class="cr-cell agree">
+          <span class="cr-seed">1</span><span class="cr-team">Duke</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+        <div class="cr-cell agree">
+          <span class="cr-seed">1</span><span class="cr-team">Duke</span>
+          <span class="cr-badge correct">&#10003;</span>
+        </div>
+      </div>
+
+      <div class="compare-row">
+        <div class="cr-cell differ">
+          <span class="cr-seed">2</span><span class="cr-team">Houston</span>
+        </div>
+        <div class="cr-cell differ">
+          <span class="cr-seed">3</span><span class="cr-team">Tennessee</span>
+        </div>
+      </div>
+
+      <div class="cs-round-label" style="margin-top: 16px;">Championship</div>
+
+      <div class="compare-row">
+        <div class="cr-cell differ" style="font-weight: 600;">
+          <span class="cr-seed">1</span><span class="cr-team">Duke</span>
+        </div>
+        <div class="cr-cell differ" style="font-weight: 600;">
+          <span class="cr-seed">1</span><span class="cr-team">Auburn</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-swatch" style="background: rgba(34,197,94,0.15);"></div> Models agree</div>
+      <div class="legend-item"><div class="legend-swatch" style="background: rgba(245,158,11,0.15);"></div> Models differ</div>
+      <div class="legend-item"><div class="legend-swatch" style="background: rgba(34,197,94,0.3); border: 1px solid #22c55e;"></div> Correct pick</div>
+      <div class="legend-item"><div class="legend-swatch" style="background: rgba(239,68,68,0.3); border: 1px solid #ef4444;"></div> Wrong pick</div>
+    </div>
+  </div>
+</body>
+</html>

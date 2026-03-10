@@ -1,12 +1,15 @@
 'use client';
 
+import { useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { MODELS } from '@/lib/models';
-import { BracketData, Results } from '@/lib/types';
-import BracketTree from '@/components/BracketTree';
+import { MODELS, ROUND_LABELS } from '@/lib/models';
+import { BracketData, Game, Results } from '@/lib/types';
+import BracketCardsPanel, { REGIONS, type Region, type GamesByRegion } from '@/components/BracketCardsPanel';
+import BracketGridPanel from '@/components/BracketGridPanel';
+import MatchupPopover from '@/components/MatchupPopover';
 
-// 2026 (current — will be populated before tournament)
+// 2026 (current)
 import scoutData     from '@/data/models/the-scout.json';
 import quantData     from '@/data/models/the-quant.json';
 import historianData from '@/data/models/the-historian.json';
@@ -47,6 +50,35 @@ const ALL_RESULTS: Record<Year, Results> = {
   '2025': results2025 as unknown as Results,
 };
 
+const ROUND_ORDER = ['round_of_64', 'round_of_32', 'sweet_16', 'elite_8', 'final_four', 'championship'] as const;
+
+function getGamesByRegion(bracket: BracketData): GamesByRegion {
+  const result: GamesByRegion = {};
+  for (const roundKey of ROUND_ORDER) {
+    const games = bracket.rounds[roundKey as keyof typeof bracket.rounds] ?? [];
+    for (const game of games) {
+      const region = game.region || 'ff';
+      if (!result[region]) result[region] = {};
+      if (!result[region][roundKey]) result[region][roundKey] = [];
+      result[region][roundKey].push(game);
+    }
+  }
+  return result;
+}
+
+function countUpsets(bracket: BracketData): number {
+  let count = 0;
+  for (const roundKey of ROUND_ORDER) {
+    const games = bracket.rounds[roundKey as keyof typeof bracket.rounds] ?? [];
+    for (const game of games) {
+      const pickedSeed = game.pick === game.team1 ? game.seed1 : game.seed2;
+      const otherSeed = game.pick === game.team1 ? game.seed2 : game.seed1;
+      if (pickedSeed > otherSeed) count++;
+    }
+  }
+  return count;
+}
+
 export default function BracketsClient() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -62,6 +94,27 @@ export default function BracketsClient() {
   const bracket = BRACKET_DATA[activeYear][activeModelId];
   const results = ALL_RESULTS[activeYear];
 
+  const [currentRegion, setCurrentRegion] = useState<Region>('east');
+  const [mobileView, setMobileView] = useState<'cards' | 'bracket'>('cards');
+  const [highlightedMatchId, setHighlightedMatchId] = useState<string | null>(null);
+  const [popoverData, setPopoverData] = useState<{ game: Game; roundLabel: string } | null>(null);
+
+  // Build winner map
+  const winnerMap: Record<string, string> = {};
+  if (results) {
+    for (const g of results.games) {
+      if (g.completed && g.winner) winnerMap[g.gameId] = g.winner;
+    }
+  }
+
+  const gamesByRegion = getGamesByRegion(bracket);
+  const upsetCount = countUpsets(bracket);
+
+  // Check if bracket is empty
+  const isEmpty = ROUND_ORDER.every(
+    (r) => (bracket.rounds[r as keyof typeof bracket.rounds] ?? []).length === 0
+  );
+
   function selectModel(id: string) {
     const params = new URLSearchParams();
     if (activeYear !== '2026') params.set('year', activeYear);
@@ -76,15 +129,29 @@ export default function BracketsClient() {
     router.push(`/brackets?${params}`, { scroll: false });
   }
 
-  return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+  function handleCardMatchClick(matchId: string, game: Game, roundLabel: string) {
+    setHighlightedMatchId(matchId);
+    setPopoverData({ game, roundLabel });
+  }
 
-      {/* ---- Page header ---- */}
-      <div className="mb-8 flex items-end justify-between">
+  function handleGridMatchClick(matchId: string, game: Game, roundLabel: string) {
+    setHighlightedMatchId(matchId);
+    setPopoverData({ game, roundLabel });
+  }
+
+  return (
+    <div className="mx-auto max-w-[1400px] px-6 py-12">
+      {/* Page header */}
+      <div className="mb-5 flex items-end justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-lab-white mb-1">Brackets</h1>
+          <h1
+            className="text-[32px] text-lab-white mb-1"
+            style={{ fontFamily: 'var(--font-serif)' }}
+          >
+            {activeYear} Brackets
+          </h1>
           <p className="text-sm text-lab-muted">
-            Select a model to explore its full bracket. Click any game to read the reasoning.
+            Side-by-side card stack and bracket view. Click any matchup for details.
           </p>
         </div>
         {/* Year toggle */}
@@ -95,8 +162,8 @@ export default function BracketsClient() {
               onClick={() => selectYear(year)}
               className="font-mono text-xs px-3 py-1.5 rounded-lg border transition-all duration-150"
               style={{
-                borderColor: activeYear === year ? '#888888' : '#333333',
-                color: activeYear === year ? '#efefef' : '#666666',
+                borderColor: activeYear === year ? '#888' : '#333',
+                color: activeYear === year ? '#efefef' : '#666',
                 background: activeYear === year ? '#1e1e1e' : 'transparent',
               }}
             >
@@ -106,22 +173,24 @@ export default function BracketsClient() {
         </div>
       </div>
 
-      {/* ---- Model tabs ---- */}
-      <div className="flex gap-2 mb-8 overflow-x-auto pb-1 border-b border-lab-border">
+      {/* Model tabs */}
+      <div className="flex border-b border-lab-border mb-0 overflow-x-auto">
         {MODELS.map((model) => {
           const isActive = model.id === activeModelId;
           return (
             <button
               key={model.id}
               onClick={() => selectModel(model.id)}
-              className="flex-shrink-0 flex items-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-150 relative"
-              style={{ color: isActive ? model.color : '#888' }}
+              className="flex-shrink-0 flex items-center gap-[7px] px-5 py-2.5 text-[13px] font-semibold transition-all relative whitespace-nowrap"
+              style={{ color: isActive ? '#efefef' : '#888' }}
             >
-              <span>{model.icon}</span>
-              <span>{model.name}</span>
-              {/* Active underline */}
               <span
-                className="absolute bottom-0 left-0 right-0 h-0.5 transition-all duration-150"
+                className="w-1.5 h-1.5 rounded-full inline-block"
+                style={{ background: model.color }}
+              />
+              {model.name}
+              <span
+                className="absolute bottom-0 left-0 right-0 h-[3px] transition-all"
                 style={{ background: isActive ? model.color : 'transparent' }}
               />
             </button>
@@ -129,83 +198,149 @@ export default function BracketsClient() {
         })}
       </div>
 
-      {/* ---- Model summary card ---- */}
-      <div
-        className="rounded-2xl border bg-lab-surface p-6 mb-8 flex flex-col sm:flex-row gap-5 sm:items-center sm:justify-between"
-        style={{ borderColor: `${activeModel.color}2a` }}
-      >
-        <div className="flex items-start gap-4">
-          <span
-            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
-            style={{ background: `${activeModel.color}15` }}
-          >
-            {activeModel.icon}
-          </span>
-          <div>
-            <div className="flex items-center gap-2 mb-1 flex-wrap">
-              <h2 className="text-xl font-bold" style={{ color: activeModel.color }}>
-                {activeModel.name}
-              </h2>
-              <span
-                className="text-[10px] font-mono px-2 py-0.5 rounded uppercase tracking-wider"
-                style={{ background: `${activeModel.color}15`, color: activeModel.color }}
-              >
-                {activeModel.subtitle}
-              </span>
-            </div>
-            <p className="text-sm italic text-lab-muted" style={{ fontFamily: 'var(--font-serif)' }}>
-              &ldquo;{activeModel.tagline}&rdquo;
-            </p>
-          </div>
+      {/* Summary strip */}
+      <div className="flex items-center bg-[#1a1a1a] border border-[#2a2a2a] border-t-0 mb-4">
+        <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
+          <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">Score</p>
+          <p className="font-mono text-[13px] font-semibold" style={{ color: activeModel.color }}>
+            &mdash;
+          </p>
         </div>
-
-        <div className="flex items-center gap-6 flex-shrink-0">
-          {/* Champion */}
-          <div className="text-center">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-lab-muted mb-1">Champion</p>
-            <p className="font-mono text-sm text-lab-white">
-              {bracket?.champion || '—'}
-            </p>
-          </div>
-          {/* Score */}
-          <div className="text-center">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-lab-muted mb-1">Score</p>
-            <p className="font-mono text-sm text-lab-muted">—</p>
-          </div>
-          {/* Links */}
-          <div className="flex flex-col gap-2">
-            <Link
-              href={`/models/${activeModel.slug}`}
-              className="text-xs font-medium px-3 py-1.5 rounded-lg border border-lab-border text-lab-muted hover:text-lab-white hover:border-lab-muted transition-all duration-150"
-            >
-              Methodology →
-            </Link>
-            {bracket?.espnBracketUrl ? (
-              <a
-                href={bracket.espnBracketUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-medium px-3 py-1.5 rounded-lg border transition-all duration-150 text-center"
-                style={{ color: activeModel.color, borderColor: `${activeModel.color}44`, background: `${activeModel.color}0d` }}
-              >
-                ESPN →
-              </a>
-            ) : (
-              <span className="text-xs font-mono text-lab-muted px-3 py-1.5 text-center">
-                ESPN TBD
-              </span>
-            )}
-          </div>
+        <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
+          <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">Accuracy</p>
+          <p className="font-mono text-[13px] font-semibold text-lab-white">&mdash;</p>
+        </div>
+        <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
+          <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">Champion</p>
+          <p className="font-mono text-[13px] font-semibold" style={{ color: activeModel.color }}>
+            {bracket?.champion || '\u2014'}
+          </p>
+        </div>
+        <div className="flex-1 text-center py-2 px-3">
+          <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">Upsets</p>
+          <p className="font-mono text-[13px] font-semibold text-lab-white">
+            {isEmpty ? '\u2014' : upsetCount}
+          </p>
         </div>
       </div>
 
-      {/* ---- Bracket tree ---- */}
-      <BracketTree
-        bracket={bracket}
-        modelColor={activeModel.color}
-        results={results}
-      />
+      {isEmpty ? (
+        <div className="rounded-2xl border border-lab-border bg-lab-surface p-16 text-center">
+          <p className="font-mono text-2xl mb-3">&#128274;</p>
+          <p className="text-lab-white font-semibold mb-2">Picks lock March 19</p>
+          <p className="text-sm text-lab-muted max-w-sm mx-auto">
+            After the First Four play-in games (Mar 17-18), this model will run on the final
+            64-team field and the full bracket will appear here.
+          </p>
+        </div>
+      ) : (
+        <>
+          {/* Desktop: Side-by-side */}
+          <div className="hidden lg:flex gap-4">
+            <div className="w-[40%] flex-shrink-0">
+              <BracketCardsPanel
+                gamesByRegion={gamesByRegion}
+                modelColor={activeModel.color}
+                currentRegion={currentRegion}
+                onRegionChange={setCurrentRegion}
+                highlightedMatchId={highlightedMatchId}
+                onMatchClick={handleCardMatchClick}
+                winnerMap={winnerMap}
+              />
+            </div>
+            <div className="flex-1">
+              <BracketGridPanel
+                gamesByRegion={gamesByRegion}
+                modelColor={activeModel.color}
+                champion={bracket?.champion ?? null}
+                highlightedMatchId={highlightedMatchId}
+                onMatchClick={handleGridMatchClick}
+                winnerMap={winnerMap}
+              />
+            </div>
+          </div>
 
+          {/* Mobile: Toggle */}
+          <div className="lg:hidden">
+            {/* Controls */}
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <div className="flex items-center bg-lab-surface border border-lab-border rounded-md overflow-hidden flex-shrink-0">
+                <button
+                  className={`px-3.5 py-1.5 text-[11px] font-mono uppercase transition-all ${
+                    mobileView === 'cards' ? 'bg-lab-border text-lab-white' : 'text-[#666]'
+                  }`}
+                  onClick={() => setMobileView('cards')}
+                >
+                  Cards
+                </button>
+                <button
+                  className={`px-3.5 py-1.5 text-[11px] font-mono uppercase transition-all ${
+                    mobileView === 'bracket' ? 'bg-lab-border text-lab-white' : 'text-[#666]'
+                  }`}
+                  onClick={() => setMobileView('bracket')}
+                >
+                  Bracket
+                </button>
+              </div>
+              {mobileView === 'cards' && (
+                <div className="flex gap-1.5">
+                  {REGIONS.map((r) => (
+                    <button
+                      key={r}
+                      onClick={() => setCurrentRegion(r)}
+                      className="px-3 py-1 rounded-full border text-[11px] font-semibold transition-all capitalize"
+                      style={{
+                        borderColor: currentRegion === r ? 'transparent' : '#333',
+                        color: currentRegion === r ? '#141414' : '#888',
+                        background: currentRegion === r ? activeModel.color : 'transparent',
+                      }}
+                    >
+                      {r === 'ff' ? 'FF' : r}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile cards view */}
+            {mobileView === 'cards' && (
+              <BracketCardsPanel
+                gamesByRegion={gamesByRegion}
+                modelColor={activeModel.color}
+                currentRegion={currentRegion}
+                onRegionChange={setCurrentRegion}
+                highlightedMatchId={highlightedMatchId}
+                onMatchClick={handleCardMatchClick}
+                winnerMap={winnerMap}
+              />
+            )}
+
+            {/* Mobile bracket view */}
+            {mobileView === 'bracket' && (
+              <div className="overflow-x-auto pb-4">
+                <BracketGridPanel
+                  gamesByRegion={gamesByRegion}
+                  modelColor={activeModel.color}
+                  champion={bracket?.champion ?? null}
+                  highlightedMatchId={highlightedMatchId}
+                  onMatchClick={handleGridMatchClick}
+                  winnerMap={winnerMap}
+                />
+              </div>
+            )}
+          </div>
+        </>
+      )}
+
+      {/* Popover */}
+      <MatchupPopover
+        data={popoverData}
+        modelColor={activeModel.color}
+        onClose={() => {
+          setPopoverData(null);
+          setHighlightedMatchId(null);
+        }}
+      />
     </div>
   );
 }

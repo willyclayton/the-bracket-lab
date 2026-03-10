@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog Option 13 — Category Tabs + Timeline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #141414;
+      --surface: #1e1e1e;
+      --border: #333333;
+      --muted: #888888;
+      --text: #efefef;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .annotation-badge {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      background: #000;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      z-index: 100;
+    }
+
+    /* Nav */
+    .nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 56px;
+    }
+    .nav-logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin-left: auto;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .nav-links a.active { color: var(--text); }
+
+    /* Page header */
+    .page-header {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 32px 0;
+    }
+    .page-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 4px;
+    }
+    .page-header p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Tabs */
+    .tabs-bar {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px 32px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 0;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 10px 20px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tab-btn:first-child { padding-left: 0; }
+    .tab-btn.active {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+    .tab-btn:hover:not(.active) { color: #ccc; }
+
+    /* Timeline container */
+    .timeline-outer {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+
+    /* Feed — animated */
+    .timeline-feed {
+      position: relative;
+    }
+
+    /* The vertical line */
+    .timeline-feed::before {
+      content: '';
+      position: absolute;
+      left: 100px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 0%, var(--border) 5%, var(--border) 95%, transparent 100%);
+    }
+
+    /* Individual entry */
+    .timeline-entry {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0 28px;
+      margin-bottom: 40px;
+      opacity: 1;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .timeline-entry.hidden {
+      display: none;
+    }
+    .timeline-entry.fade-out {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    /* Date side */
+    .timeline-date-col {
+      text-align: right;
+      padding-top: 18px;
+      position: relative;
+    }
+    .timeline-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.3;
+      display: block;
+    }
+
+    /* Dot on the line */
+    .timeline-dot {
+      position: absolute;
+      right: -35px;
+      top: 22px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--bg);
+    }
+    .timeline-entry[data-category="obituary"] .timeline-dot { border-color: #ef4444; background: rgba(239,68,68,0.2); }
+    .timeline-entry[data-category="recap"]    .timeline-dot { border-color: #22c55e; background: rgba(34,197,94,0.2); }
+    .timeline-entry[data-category="analysis"] .timeline-dot { border-color: #3b82f6; background: rgba(59,130,246,0.2); }
+    .timeline-entry[data-category="preview"]  .timeline-dot { border-color: #f59e0b; background: rgba(245,158,11,0.2); }
+
+    /* Card side */
+    .timeline-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 20px 22px;
+      transition: border-color 0.15s;
+    }
+    .timeline-card:hover { border-color: #555; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .category-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pill-analysis { background: rgba(59,130,246,0.15); color: #3b82f6; }
+    .pill-recap    { background: rgba(34,197,94,0.15);  color: #22c55e; }
+    .pill-obituary { background: rgba(239,68,68,0.15);  color: #ef4444; }
+    .pill-preview  { background: rgba(245,158,11,0.15); color: #f59e0b; }
+
+    .card-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 20px;
+      line-height: 1.3;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .card-excerpt {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .model-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .model-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .tag-scout    { background: rgba(59,130,246,0.12);  color: #3b82f6;  border: 1px solid rgba(59,130,246,0.25); }
+    .tag-quant    { background: rgba(34,197,94,0.12);   color: #22c55e;  border: 1px solid rgba(34,197,94,0.25); }
+    .tag-historian{ background: rgba(245,158,11,0.12);  color: #f59e0b;  border: 1px solid rgba(245,158,11,0.25); }
+    .tag-chaos    { background: rgba(239,68,68,0.12);   color: #ef4444;  border: 1px solid rgba(239,68,68,0.25); }
+    .tag-agent    { background: rgba(0,255,136,0.12);   color: #00ff88;  border: 1px solid rgba(0,255,136,0.25); }
+
+    .read-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.15s;
+    }
+    .read-link:hover { color: var(--text); }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 640px) {
+      .annotation-badge { font-size: 9px; padding: 4px 8px; }
+      .nav { padding: 0 16px; }
+      .page-header { padding: 24px 16px 0; }
+      .page-header h1 { font-size: 26px; }
+      .tabs-bar { padding: 16px 16px 0; overflow-x: auto; }
+      .tab-btn { font-size: 13px; padding: 8px 12px; white-space: nowrap; }
+      .tab-btn:first-child { padding-left: 8px; }
+      .timeline-outer { padding: 24px 16px 60px; }
+      .timeline-feed::before { left: 0; display: none; }
+      .timeline-entry { grid-template-columns: 1fr; }
+      .timeline-date-col { display: none; }
+      .timeline-dot { display: none; }
+      .card-title { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="annotation-badge">Option 13 — Category Tabs + Timeline</div>
+
+<nav class="nav">
+  <a class="nav-logo" href="#">THE BRACKET LAB</a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Brackets</a></li>
+    <li><a href="#" class="active">Blog</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <h1>The Lab Notes</h1>
+  <p>A running record of the experiment — in chronological order.</p>
+</div>
+
+<div class="tabs-bar">
+  <button class="tab-btn active" data-filter="all">All</button>
+  <button class="tab-btn" data-filter="recap">Recaps</button>
+  <button class="tab-btn" data-filter="obituary">Obituaries</button>
+  <button class="tab-btn" data-filter="analysis">Analysis</button>
+  <button class="tab-btn" data-filter="preview">Previews</button>
+</div>
+
+<div class="timeline-outer">
+  <div class="timeline-feed" id="feed"></div>
+  <div class="empty-state" id="empty" style="display:none;">No posts in this category yet.</div>
+</div>
+
+<script>
+  const posts = [
+    {
+      id: 7,
+      title: "Sweet 16 Preview: Which Models Still Have a Shot?",
+      date: "Mar 26",
+      dateShort: "MAR\n26",
+      category: "preview",
+      excerpt: "Heading into the Sweet 16, two models are mathematically eliminated. Three are still alive. We break down the remaining paths to victory, the key games each model needs to go its way, and every upset scenario that could scramble the leaderboard by Sunday night.",
+      models: ["scout","quant","chaos"],
+    },
+    {
+      id: 8,
+      title: "The Quant's Monte Carlo Meltdown",
+      date: "Mar 24",
+      dateShort: "MAR\n24",
+      category: "obituary",
+      excerpt: "10,000 simulations ran. The Quant's champion survived 9,847 of them. Unfortunately, basketball is not a simulation. We autopsy the statistical anomaly that ended The Quant's championship hopes and ask: can probability-based models account for a hot shooting night?",
+      models: ["quant"],
+    },
+    {
+      id: 5,
+      title: "Eulogy for The Historian: Death by 12-Seed",
+      date: "Mar 22",
+      dateShort: "MAR\n22",
+      category: "obituary",
+      excerpt: "The Historian's champion has fallen. In what can only be described as poetic justice, a 12-seed with no historical precedent did exactly what The Historian said couldn't happen — because it had never happened before. We gather here today to honor a model that trusted the past a little too much.",
+      models: ["historian"],
+    },
+    {
+      id: 4,
+      title: "Round of 64, Day 1: Chaos Reigns",
+      date: "Mar 20",
+      dateShort: "MAR\n20",
+      category: "recap",
+      excerpt: "Twelve games. Four upsets. One model already looking shaky. Day 1 of the tournament was exactly what the bracket gods ordered: bedlam. We tracked every pick in real time and watched the leaderboard flip four times before 9pm Eastern.",
+      models: ["chaos","agent"],
+    },
+    {
+      id: 2,
+      title: "The Scout's Film Room: Breaking Down the East Region",
+      date: "Mar 16",
+      dateShort: "MAR\n16",
+      category: "recap",
+      excerpt: "The East is loaded with conflicting signals. High seeds with soft schedules. Mid-major darlings who thrive in chaos. The Scout ran 240 matchup analyses on East Region games and came back with three teams it refuses to trust and two it likes far more than the committee did.",
+      models: ["scout"],
+    },
+    {
+      id: 3,
+      title: "Selection Sunday Reactions: Surprises and Snubs",
+      date: "Mar 15",
+      dateShort: "MAR\n15",
+      category: "analysis",
+      excerpt: "The committee giveth and the committee taketh away. We ran all five models on the final bracket within minutes of the announcement and tracked which seeds each model considered egregious. Spoiler: The Chaos Agent flagged three 12-over-5 upsets in the first 90 seconds.",
+      models: ["scout","quant","historian","chaos","agent"],
+    },
+    {
+      id: 6,
+      title: "The Agent Goes Rogue: An Autonomous Bracket Experiment",
+      date: "Mar 12",
+      dateShort: "MAR\n12",
+      category: "analysis",
+      excerpt: "We gave an autonomous AI agent a single instruction: build me a March Madness bracket. No constraints. No guardrails. What it did next took 47 minutes, touched 12 different APIs, and produced a bracket that three of our human analysts called genuinely unsettling. Here's the full run log.",
+      models: ["agent"],
+    },
+    {
+      id: 1,
+      title: "How We Built 5 AI Models to Destroy Your Bracket",
+      date: "Mar 10",
+      dateShort: "MAR\n10",
+      category: "analysis",
+      excerpt: "Building five distinct AI systems to predict March Madness isn't just a technical exercise — it's a meditation on how intelligence, bias, and randomness interact when the stakes are real. We broke down our methodology from first principles and ended up with five very different answers.",
+      models: ["scout","quant","historian","chaos","agent"],
+    },
+  ];
+
+  const pillClass  = { analysis: 'pill-analysis', recap: 'pill-recap', obituary: 'pill-obituary', preview: 'pill-preview' };
+  const tagClass   = { scout: 'tag-scout', quant: 'tag-quant', historian: 'tag-historian', chaos: 'tag-chaos', agent: 'tag-agent' };
+  const modelLabel = { scout: 'The Scout', quant: 'The Quant', historian: 'The Historian', chaos: 'Chaos Agent', agent: 'The Agent' };
+
+  let activeFilter = 'all';
+
+  function renderFeed(filter) {
+    const feed = document.getElementById('feed');
+    const empty = document.getElementById('empty');
+    const list = filter === 'all' ? posts : posts.filter(p => p.category === filter);
+
+    // Fade out all entries
+    const entries = feed.querySelectorAll('.timeline-entry');
+    entries.forEach(e => e.classList.add('fade-out'));
+
+    setTimeout(() => {
+      if (!list.length) {
+        feed.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+      feed.innerHTML = list.map(p => {
+        const tagsHtml = p.models.map(m =>
+          `<span class="model-tag ${tagClass[m]}">${modelLabel[m]}</span>`
+        ).join('');
+
+        return `
+          <div class="timeline-entry" data-category="${p.category}">
+            <div class="timeline-date-col">
+              <span class="timeline-date">${p.dateShort.replace('\n', '<br>')}</span>
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="card-header">
+                <span class="category-pill ${pillClass[p.category]}">${p.category}</span>
+              </div>
+              <h3 class="card-title">${p.title}</h3>
+              <p class="card-excerpt">${p.excerpt}</p>
+              <div class="card-footer">
+                <div class="model-tags">${tagsHtml}</div>
+                <a class="read-link" href="#">Read &rarr;</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }, 180);
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      renderFeed(activeFilter);
+    });
+  });
+
+  renderFeed('all');
+</script>
+</body>
+</html>

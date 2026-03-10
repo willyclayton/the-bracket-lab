@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brackets Option 4 — Card Stack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #141414; color: #efefef; font-family: 'Space Grotesk', sans-serif; min-height: 100vh; }
+    .annotation { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .container { max-width: 640px; margin: 0 auto; padding: 32px 20px; }
+    h1 { font-family: 'Instrument Serif', serif; font-size: 36px; margin-bottom: 4px; }
+    .subtitle { color: #888888; font-size: 14px; margin-bottom: 28px; }
+
+    /* Model Pills */
+    .model-pills { display: flex; gap: 6px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 4px; }
+    .model-pill {
+      display: flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 16px;
+      border: 1px solid #333; background: #1e1e1e; cursor: pointer; font-size: 12px;
+      color: #888; white-space: nowrap; font-family: 'Space Grotesk', sans-serif; transition: all 0.2s;
+    }
+    .model-pill:hover { border-color: #555; color: #ccc; }
+    .model-pill.active { color: #efefef; }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 5px 12px; border-radius: 14px; border: 1px solid #2a2a2a;
+      background: transparent; color: #888; font-size: 12px; cursor: pointer;
+      font-family: 'IBM Plex Mono', monospace; transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: #555; color: #ccc; }
+    .filter-btn.active { border-color: #efefef; color: #efefef; background: #252525; }
+
+    /* Round Divider */
+    .round-divider {
+      display: flex; align-items: center; gap: 12px; margin: 24px 0 12px;
+    }
+    .round-divider .rd-line { flex: 1; height: 1px; background: #333; }
+    .round-divider .rd-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #888;
+      text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;
+    }
+    .round-divider .rd-pts {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      color: #3b82f6; background: rgba(59,130,246,0.1); padding: 2px 8px; border-radius: 10px;
+    }
+
+    /* Matchup Card */
+    .matchup-card {
+      background: #1e1e1e; border: 1px solid #333; border-radius: 8px;
+      margin-bottom: 8px; overflow: hidden; cursor: pointer; transition: all 0.2s;
+    }
+    .matchup-card:hover { border-color: #444; }
+    .matchup-card.expanded { border-color: #555; }
+    .matchup-top {
+      display: flex; align-items: stretch;
+    }
+    .matchup-teams { flex: 1; }
+    .mc-team {
+      display: flex; align-items: center; padding: 10px 14px; gap: 10px; font-size: 14px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .mc-team:last-child { border-bottom: none; }
+    .mc-team.winner { background: rgba(34, 197, 94, 0.06); }
+    .mc-team.winner .mc-name { font-weight: 600; }
+    .mc-seed {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888;
+      background: #252525; width: 24px; height: 24px; display: flex; align-items: center;
+      justify-content: center; border-radius: 4px; flex-shrink: 0;
+    }
+    .mc-name { flex: 1; }
+    .mc-score { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #666; }
+    .mc-result {
+      width: 40px; display: flex; align-items: center; justify-content: center;
+      border-left: 1px solid #2a2a2a; flex-shrink: 0;
+    }
+    .mc-result.correct { color: #22c55e; }
+    .mc-result.wrong { color: #ef4444; }
+
+    /* Reasoning (expandable) */
+    .mc-reasoning {
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+      background: #191919;
+    }
+    .matchup-card.expanded .mc-reasoning { max-height: 300px; }
+    .mc-reasoning-inner {
+      padding: 12px 14px; font-size: 13px; color: #aaa; line-height: 1.6;
+      border-top: 1px solid #2a2a2a;
+    }
+    .mc-reasoning-inner .reasoning-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+    }
+    .confidence-bar {
+      margin-top: 8px; display: flex; align-items: center; gap: 8px;
+    }
+    .conf-track { flex: 1; height: 4px; background: #2a2a2a; border-radius: 2px; overflow: hidden; }
+    .conf-fill { height: 100%; border-radius: 2px; }
+    .conf-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; }
+
+    /* Region Badge */
+    .region-badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #555;
+      margin-left: auto;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="annotation">Brackets Option 4 — Card Stack (Dark Lab)</p>
+    <h1>Bracket Picks</h1>
+    <p class="subtitle">Click any matchup to see the model's reasoning</p>
+
+    <div class="model-pills">
+      <div class="model-pill active" style="border-color: #3b82f6;"><span class="pill-dot" style="background: #3b82f6;"></span>The Scout</div>
+      <div class="model-pill"><span class="pill-dot" style="background: #22c55e;"></span>The Quant</div>
+      <div class="model-pill"><span class="pill-dot" style="background: #f59e0b;"></span>The Historian</div>
+      <div class="model-pill"><span class="pill-dot" style="background: #ef4444;"></span>The Chaos Agent</div>
+      <div class="model-pill"><span class="pill-dot" style="background: #00ff88;"></span>The Agent</div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active">All Rounds</button>
+      <button class="filter-btn">Upsets Only</button>
+      <button class="filter-btn">Wrong Picks</button>
+      <button class="filter-btn">High Confidence</button>
+    </div>
+
+    <!-- Round of 64 -->
+    <div class="round-divider">
+      <span class="rd-line"></span>
+      <span class="rd-label">Round of 64</span>
+      <span class="rd-pts">10 pts each</span>
+      <span class="rd-line"></span>
+    </div>
+
+    <div class="matchup-card expanded" onclick="this.classList.toggle('expanded')">
+      <div class="matchup-top">
+        <div class="matchup-teams">
+          <div class="mc-team winner">
+            <span class="mc-seed">1</span>
+            <span class="mc-name">Duke</span>
+            <span class="region-badge">EAST</span>
+            <span class="mc-score">82</span>
+          </div>
+          <div class="mc-team">
+            <span class="mc-seed">16</span>
+            <span class="mc-name">Norfolk St</span>
+            <span class="mc-score">55</span>
+          </div>
+        </div>
+        <div class="mc-result correct">&#10003;</div>
+      </div>
+      <div class="mc-reasoning">
+        <div class="mc-reasoning-inner">
+          <div class="reasoning-label">Model Reasoning</div>
+          Duke's defensive efficiency (top 5 nationally) and tournament experience make this a straightforward pick. Norfolk St lacks the shooting to keep pace. Coach K's system thrives in these early-round matchups against mid-major opponents who struggle with Duke's length.
+          <div class="confidence-bar">
+            <span class="conf-label">Confidence</span>
+            <div class="conf-track"><div class="conf-fill" style="width: 95%; background: #3b82f6;"></div></div>
+            <span class="conf-label">95%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matchup-card" onclick="this.classList.toggle('expanded')">
+      <div class="matchup-top">
+        <div class="matchup-teams">
+          <div class="mc-team">
+            <span class="mc-seed">5</span>
+            <span class="mc-name">Marquette</span>
+            <span class="region-badge">EAST</span>
+            <span class="mc-score">64</span>
+          </div>
+          <div class="mc-team winner">
+            <span class="mc-seed">12</span>
+            <span class="mc-name">Yale</span>
+            <span class="mc-score">67</span>
+          </div>
+        </div>
+        <div class="mc-result correct">&#10003;</div>
+      </div>
+      <div class="mc-reasoning">
+        <div class="mc-reasoning-inner">
+          <div class="reasoning-label">Model Reasoning</div>
+          Classic 5-12 upset territory. Yale's offensive efficiency profile (top 20 in half-court offense) matches up well against Marquette's aggressive defense. Ivy League teams with tournament experience are historically dangerous here. Yale plays slow, controlled basketball that neutralizes Marquette's transition game.
+          <div class="confidence-bar">
+            <span class="conf-label">Confidence</span>
+            <div class="conf-track"><div class="conf-fill" style="width: 62%; background: #3b82f6;"></div></div>
+            <span class="conf-label">62%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matchup-card" onclick="this.classList.toggle('expanded')">
+      <div class="matchup-top">
+        <div class="matchup-teams">
+          <div class="mc-team winner">
+            <span class="mc-seed">4</span>
+            <span class="mc-name">Purdue</span>
+            <span class="region-badge">EAST</span>
+            <span class="mc-score">78</span>
+          </div>
+          <div class="mc-team">
+            <span class="mc-seed">13</span>
+            <span class="mc-name">Vermont</span>
+            <span class="mc-score">60</span>
+          </div>
+        </div>
+        <div class="mc-result correct">&#10003;</div>
+      </div>
+      <div class="mc-reasoning">
+        <div class="mc-reasoning-inner">
+          <div class="reasoning-label">Model Reasoning</div>
+          Purdue's size advantage is overwhelming. Zach Edey's successor continues the tradition of dominant Boilermaker big men. Vermont's perimeter-oriented attack won't generate enough easy looks against Purdue's paint protection.
+          <div class="confidence-bar">
+            <span class="conf-label">Confidence</span>
+            <div class="conf-track"><div class="conf-fill" style="width: 84%; background: #3b82f6;"></div></div>
+            <span class="conf-label">84%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matchup-card" onclick="this.classList.toggle('expanded')">
+      <div class="matchup-top">
+        <div class="matchup-teams">
+          <div class="mc-team winner">
+            <span class="mc-seed">1</span>
+            <span class="mc-name">Auburn</span>
+            <span class="region-badge">WEST</span>
+            <span class="mc-score">85</span>
+          </div>
+          <div class="mc-team">
+            <span class="mc-seed">16</span>
+            <span class="mc-name">UMBC</span>
+            <span class="mc-score">52</span>
+          </div>
+        </div>
+        <div class="mc-result correct">&#10003;</div>
+      </div>
+      <div class="mc-reasoning">
+        <div class="mc-reasoning-inner">
+          <div class="reasoning-label">Model Reasoning</div>
+          Auburn's athleticism and depth make this a mismatch. Their tempo and pressure defense will overwhelm UMBC's half-court sets. Expecting a 25+ point margin.
+          <div class="confidence-bar">
+            <span class="conf-label">Confidence</span>
+            <div class="conf-track"><div class="conf-fill" style="width: 97%; background: #3b82f6;"></div></div>
+            <span class="conf-label">97%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matchup-card" onclick="this.classList.toggle('expanded')">
+      <div class="matchup-top">
+        <div class="matchup-teams">
+          <div class="mc-team">
+            <span class="mc-seed">6</span>
+            <span class="mc-name">Kentucky</span>
+            <span class="region-badge">MIDWEST</span>
+            <span class="mc-score">72</span>
+          </div>
+          <div class="mc-team winner">
+            <span class="mc-seed">11</span>
+            <span class="mc-name">VCU</span>
+            <span class="mc-score">75</span>
+          </div>
+        </div>
+        <div class="mc-result wrong">&#10007;</div>
+      </div>
+      <div class="mc-reasoning">
+        <div class="mc-reasoning-inner">
+          <div class="reasoning-label">Model Reasoning</div>
+          Picked Kentucky based on superior talent ratings. VCU's havoc defense proved too disruptive — Kentucky's young guards turned it over 19 times. A reminder that talent doesn't always translate to tournament success.
+          <div class="confidence-bar">
+            <span class="conf-label">Confidence</span>
+            <div class="conf-track"><div class="conf-fill" style="width: 58%; background: #ef4444;"></div></div>
+            <span class="conf-label">58%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Round of 32 -->
+    <div class="round-divider">
+      <span class="rd-line"></span>
+      <span class="rd-label">Round of 32</span>
+      <span class="rd-pts">20 pts each</span>
+      <span class="rd-line"></span>
+    </div>
+
+    <div class="matchup-card" onclick="this.classList.toggle('expanded')">
+      <div class="matchup-top">
+        <div class="matchup-teams">
+          <div class="mc-team winner">
+            <span class="mc-seed">1</span>
+            <span class="mc-name">Duke</span>
+            <span class="region-badge">EAST</span>
+            <span class="mc-score">76</span>
+          </div>
+          <div class="mc-team">
+            <span class="mc-seed">8</span>
+            <span class="mc-name">Wisconsin</span>
+            <span class="mc-score">69</span>
+          </div>
+        </div>
+        <div class="mc-result correct">&#10003;</div>
+      </div>
+      <div class="mc-reasoning">
+        <div class="mc-reasoning-inner">
+          <div class="reasoning-label">Model Reasoning</div>
+          Duke's offensive versatility overwhelms Wisconsin's pack-line defense. Wisconsin keeps it close through disciplined half-court play but Duke's athletes create separation in transition and the final 5 minutes.
+          <div class="confidence-bar">
+            <span class="conf-label">Confidence</span>
+            <div class="conf-track"><div class="conf-fill" style="width: 78%; background: #3b82f6;"></div></div>
+            <span class="conf-label">78%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matchup-card" onclick="this.classList.toggle('expanded')">
+      <div class="matchup-top">
+        <div class="matchup-teams">
+          <div class="mc-team winner">
+            <span class="mc-seed">2</span>
+            <span class="mc-name">Houston</span>
+            <span class="region-badge">SOUTH</span>
+            <span class="mc-score">68</span>
+          </div>
+          <div class="mc-team">
+            <span class="mc-seed">3</span>
+            <span class="mc-name">Tennessee</span>
+            <span class="mc-score">65</span>
+          </div>
+        </div>
+        <div class="mc-result correct">&#10003;</div>
+      </div>
+      <div class="mc-reasoning">
+        <div class="mc-reasoning-inner">
+          <div class="reasoning-label">Model Reasoning</div>
+          A defensive slugfest. Houston's rebounding edge (top 3 nationally) and superior free throw shooting clinch it. Tennessee can't generate second-chance points against Houston's physicality.
+          <div class="confidence-bar">
+            <span class="conf-label">Confidence</span>
+            <div class="conf-track"><div class="conf-fill" style="width: 55%; background: #3b82f6;"></div></div>
+            <span class="conf-label">55%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sweet 16 -->
+    <div class="round-divider">
+      <span class="rd-line"></span>
+      <span class="rd-label">Sweet 16</span>
+      <span class="rd-pts">40 pts each</span>
+      <span class="rd-line"></span>
+    </div>
+
+    <div class="matchup-card" onclick="this.classList.toggle('expanded')">
+      <div class="matchup-top">
+        <div class="matchup-teams">
+          <div class="mc-team winner">
+            <span class="mc-seed">1</span>
+            <span class="mc-name">Duke</span>
+            <span class="region-badge">EAST</span>
+            <span class="mc-score">81</span>
+          </div>
+          <div class="mc-team">
+            <span class="mc-seed">4</span>
+            <span class="mc-name">Purdue</span>
+            <span class="mc-score">74</span>
+          </div>
+        </div>
+        <div class="mc-result correct">&#10003;</div>
+      </div>
+      <div class="mc-reasoning">
+        <div class="mc-reasoning-inner">
+          <div class="reasoning-label">Model Reasoning</div>
+          Duke's perimeter shooting exploits Purdue's zone defense tendencies. The Blue Devils' guard play is the differentiator — they get to the rim against Purdue's stretched defense and hit 11 threes.
+          <div class="confidence-bar">
+            <span class="conf-label">Confidence</span>
+            <div class="conf-track"><div class="conf-fill" style="width: 71%; background: #3b82f6;"></div></div>
+            <span class="conf-label">71%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

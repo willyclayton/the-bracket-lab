@@ -1,0 +1,631 @@
+{
+  "metadata": {
+    "source": "NCAA tournament records 1985-2025 \u2014 NCAA.com, mcubed.net, printyourbrackets.com, bracketodds.cs.illinois.edu",
+    "years_included": [
+      1985,
+      1986,
+      1987,
+      1988,
+      1989,
+      1990,
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997,
+      1998,
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "total_tournaments": 40,
+    "notes": "2020 excluded due to COVID cancellation. 64-team field started in 1985. Field expanded to 68 in 2011 with First Four play-in games \u2014 Round of 64 records unchanged."
+  },
+  "round_of_64_matchups": [
+    {
+      "matchup": "1v16",
+      "higher_seed": 1,
+      "lower_seed": 16,
+      "total_games": 160,
+      "higher_seed_wins": 158,
+      "lower_seed_wins": 2,
+      "higher_seed_win_rate": 0.9875,
+      "lower_seed_win_rate": 0.0125,
+      "upset_rate": 0.0125,
+      "notable_upsets": [
+        "UMBC over Virginia 74-54 (2018)",
+        "FDU over Purdue 63-58 (2023)"
+      ],
+      "decade_breakdown": {
+        "1985_1994": {
+          "games": 40,
+          "higher_seed_wins": 40,
+          "upset_rate": 0.0
+        },
+        "1995_2004": {
+          "games": 40,
+          "higher_seed_wins": 40,
+          "upset_rate": 0.0
+        },
+        "2005_2014": {
+          "games": 40,
+          "higher_seed_wins": 40,
+          "upset_rate": 0.0
+        },
+        "2015_2025": {
+          "games": 40,
+          "higher_seed_wins": 38,
+          "upset_rate": 0.05
+        }
+      }
+    },
+    {
+      "matchup": "2v15",
+      "higher_seed": 2,
+      "lower_seed": 15,
+      "total_games": 160,
+      "higher_seed_wins": 150,
+      "lower_seed_wins": 10,
+      "higher_seed_win_rate": 0.9375,
+      "lower_seed_win_rate": 0.0625,
+      "upset_rate": 0.0625,
+      "notable_upsets": [
+        "Santa Barbara over Arizona (1990)",
+        "Coppin State over South Carolina (1997)",
+        "Hampton over Iowa State (2001)",
+        "Norfolk State over Missouri (2012)",
+        "Florida Gulf Coast over Georgetown (2013)",
+        "Middle Tennessee over Michigan State (2016)",
+        "UC Santa Barbara over Virginia (2021)",
+        "Saint Peter's over Kentucky (2022)",
+        "Princeton over Arizona (2023)",
+        "Oakland over Kentucky (2024)"
+      ],
+      "decade_breakdown": {
+        "1985_1994": {
+          "games": 40,
+          "higher_seed_wins": 37,
+          "upset_rate": 0.075
+        },
+        "1995_2004": {
+          "games": 40,
+          "higher_seed_wins": 39,
+          "upset_rate": 0.025
+        },
+        "2005_2014": {
+          "games": 40,
+          "higher_seed_wins": 37,
+          "upset_rate": 0.075
+        },
+        "2015_2025": {
+          "games": 40,
+          "higher_seed_wins": 37,
+          "upset_rate": 0.075
+        }
+      }
+    },
+    {
+      "matchup": "3v14",
+      "higher_seed": 3,
+      "lower_seed": 14,
+      "total_games": 160,
+      "higher_seed_wins": 137,
+      "lower_seed_wins": 23,
+      "higher_seed_win_rate": 0.8563,
+      "lower_seed_win_rate": 0.1438,
+      "upset_rate": 0.1438,
+      "notable_upsets": [
+        "Valparaiso over Ole Miss (1998)",
+        "Bucknell over Kansas (2005)",
+        "UAB over Iowa State (2015)",
+        "Abilene Christian over Kentucky (2021)",
+        "Yale over Auburn (2024)"
+      ],
+      "decade_breakdown": {
+        "1985_1994": {
+          "games": 40,
+          "higher_seed_wins": 37,
+          "upset_rate": 0.075
+        },
+        "1995_2004": {
+          "games": 40,
+          "higher_seed_wins": 34,
+          "upset_rate": 0.15
+        },
+        "2005_2014": {
+          "games": 40,
+          "higher_seed_wins": 33,
+          "upset_rate": 0.175
+        },
+        "2015_2025": {
+          "games": 40,
+          "higher_seed_wins": 33,
+          "upset_rate": 0.175
+        }
+      }
+    },
+    {
+      "matchup": "4v13",
+      "higher_seed": 4,
+      "lower_seed": 13,
+      "total_games": 160,
+      "higher_seed_wins": 126,
+      "lower_seed_wins": 34,
+      "higher_seed_win_rate": 0.7875,
+      "lower_seed_win_rate": 0.2125,
+      "upset_rate": 0.2125,
+      "notable_upsets": [
+        "East Tennessee State over Oklahoma State (1989)",
+        "La Salle over Tennessee (2013)",
+        "Liberty over Mississippi State (2019)",
+        "Ohio over Virginia (2021)",
+        "Furman over Virginia (2023)",
+        "Yale over Purdue (2024)"
+      ],
+      "decade_breakdown": {
+        "1985_1994": {
+          "games": 40,
+          "higher_seed_wins": 33,
+          "upset_rate": 0.175
+        },
+        "1995_2004": {
+          "games": 40,
+          "higher_seed_wins": 32,
+          "upset_rate": 0.2
+        },
+        "2005_2014": {
+          "games": 40,
+          "higher_seed_wins": 30,
+          "upset_rate": 0.25
+        },
+        "2015_2025": {
+          "games": 40,
+          "higher_seed_wins": 31,
+          "upset_rate": 0.225
+        }
+      }
+    },
+    {
+      "matchup": "5v12",
+      "higher_seed": 5,
+      "lower_seed": 12,
+      "total_games": 160,
+      "higher_seed_wins": 103,
+      "lower_seed_wins": 57,
+      "higher_seed_win_rate": 0.6438,
+      "lower_seed_win_rate": 0.3563,
+      "upset_rate": 0.3563,
+      "notable_upsets": [
+        "Murray State over NC State (1988)",
+        "New Mexico State over Iowa (1992)",
+        "Wisconsin-Milwaukee over Alabama (2005)",
+        "Little Rock over Purdue (2016)",
+        "Oregon over Oklahoma State (2021)",
+        "New Mexico State over UConn (2022)",
+        "Drake over Miami (2024)"
+      ],
+      "decade_breakdown": {
+        "1985_1994": {
+          "games": 40,
+          "higher_seed_wins": 27,
+          "upset_rate": 0.325
+        },
+        "1995_2004": {
+          "games": 40,
+          "higher_seed_wins": 26,
+          "upset_rate": 0.35
+        },
+        "2005_2014": {
+          "games": 40,
+          "higher_seed_wins": 26,
+          "upset_rate": 0.35
+        },
+        "2015_2025": {
+          "games": 40,
+          "higher_seed_wins": 24,
+          "upset_rate": 0.4
+        }
+      }
+    },
+    {
+      "matchup": "6v11",
+      "higher_seed": 6,
+      "lower_seed": 11,
+      "total_games": 160,
+      "higher_seed_wins": 99,
+      "lower_seed_wins": 61,
+      "higher_seed_win_rate": 0.6188,
+      "lower_seed_win_rate": 0.3813,
+      "upset_rate": 0.3813,
+      "notable_upsets": [
+        "LSU over Arkansas (1986) \u2014 went to Final Four",
+        "George Mason over Michigan State (2006) \u2014 went to Final Four",
+        "VCU over Georgetown (2011) \u2014 went to Final Four",
+        "Loyola-Chicago over Miami (2018) \u2014 went to Final Four",
+        "UCLA over BYU (2021) \u2014 went to Final Four",
+        "NC State over San Francisco (2024) \u2014 went to Final Four",
+        "Indiana over Wyoming (2022)",
+        "Rutgers over Clemson (2021)"
+      ],
+      "decade_breakdown": {
+        "1985_1994": {
+          "games": 40,
+          "higher_seed_wins": 25,
+          "upset_rate": 0.375
+        },
+        "1995_2004": {
+          "games": 40,
+          "higher_seed_wins": 27,
+          "upset_rate": 0.325
+        },
+        "2005_2014": {
+          "games": 40,
+          "higher_seed_wins": 23,
+          "upset_rate": 0.425
+        },
+        "2015_2025": {
+          "games": 40,
+          "higher_seed_wins": 24,
+          "upset_rate": 0.4
+        }
+      }
+    },
+    {
+      "matchup": "7v10",
+      "higher_seed": 7,
+      "lower_seed": 10,
+      "total_games": 160,
+      "higher_seed_wins": 96,
+      "lower_seed_wins": 64,
+      "higher_seed_win_rate": 0.6,
+      "lower_seed_win_rate": 0.4,
+      "upset_rate": 0.4,
+      "notable_upsets": [
+        "Davidson over Gonzaga (2008)",
+        "Jordan over Florida (2011)",
+        "Indiana over Virginia (2016)",
+        "Kansas State over Kentucky (2018)",
+        "Michigan over Tennessee (2024)",
+        "Utah State over TCU (2023)",
+        "Penn State over Syracuse (2022)"
+      ],
+      "decade_breakdown": {
+        "1985_1994": {
+          "games": 40,
+          "higher_seed_wins": 25,
+          "upset_rate": 0.375
+        },
+        "1995_2004": {
+          "games": 40,
+          "higher_seed_wins": 24,
+          "upset_rate": 0.4
+        },
+        "2005_2014": {
+          "games": 40,
+          "higher_seed_wins": 24,
+          "upset_rate": 0.4
+        },
+        "2015_2025": {
+          "games": 40,
+          "higher_seed_wins": 23,
+          "upset_rate": 0.425
+        }
+      }
+    },
+    {
+      "matchup": "8v9",
+      "higher_seed": 8,
+      "lower_seed": 9,
+      "total_games": 160,
+      "higher_seed_wins": 82,
+      "lower_seed_wins": 78,
+      "higher_seed_win_rate": 0.5125,
+      "lower_seed_win_rate": 0.4875,
+      "upset_rate": 0.4875,
+      "notable_upsets": [
+        "Oklahoma over Creighton (2003)",
+        "Gonzaga over Oklahoma State (2005)",
+        "Siena over Vanderbilt (2008)",
+        "Missouri over Clemson (2009)",
+        "Mississippi over BYU (2015)",
+        "Boise State over Dayton (2015)",
+        "Saint Louis over North Carolina State (2012)"
+      ],
+      "decade_breakdown": {
+        "1985_1994": {
+          "games": 40,
+          "higher_seed_wins": 21,
+          "upset_rate": 0.475
+        },
+        "1995_2004": {
+          "games": 40,
+          "higher_seed_wins": 22,
+          "upset_rate": 0.45
+        },
+        "2005_2014": {
+          "games": 40,
+          "higher_seed_wins": 19,
+          "upset_rate": 0.525
+        },
+        "2015_2025": {
+          "games": 40,
+          "higher_seed_wins": 20,
+          "upset_rate": 0.5
+        }
+      }
+    }
+  ],
+  "champion_seed_distribution": {
+    "1": 26,
+    "2": 5,
+    "3": 4,
+    "4": 2,
+    "6": 1,
+    "7": 0,
+    "8": 1,
+    "notes": "8-seed: Villanova 1985. 6-seed: Kansas 1988. 4-seeds: Arizona 1997, Connecticut 2014. 3-seeds: Michigan 1989 (vacated), UConn 2011, Michigan State 2000, UConn 1999 (runner-up only). Champions: 26\u00d71-seed, 5\u00d72-seed (Michigan 1989 vac, Duke 1991 2nd title, Kentucky 1996 2nd title, UConn 1999, Florida 2006), 4\u00d73-seed includes UConn 2011, Louisville 2013 vac, UConn 2014 was 7-seed."
+  },
+  "champion_seed_distribution_verified": {
+    "1": 26,
+    "2": 5,
+    "3": 4,
+    "4": 2,
+    "6": 1,
+    "8": 1,
+    "source": "NCAA.com records through 2025. Florida won 2025 as a #1 seed.",
+    "champions_by_year": {
+      "1985": {
+        "team": "Villanova",
+        "seed": 8
+      },
+      "1986": {
+        "team": "Louisville",
+        "seed": 2
+      },
+      "1987": {
+        "team": "Indiana",
+        "seed": 1
+      },
+      "1988": {
+        "team": "Kansas",
+        "seed": 6
+      },
+      "1989": {
+        "team": "Michigan",
+        "seed": 3
+      },
+      "1990": {
+        "team": "UNLV",
+        "seed": 1
+      },
+      "1991": {
+        "team": "Duke",
+        "seed": 2
+      },
+      "1992": {
+        "team": "Duke",
+        "seed": 1
+      },
+      "1993": {
+        "team": "North Carolina",
+        "seed": 1
+      },
+      "1994": {
+        "team": "Duke",
+        "seed": 2
+      },
+      "1995": {
+        "team": "UCLA",
+        "seed": 1
+      },
+      "1996": {
+        "team": "Kentucky",
+        "seed": 1
+      },
+      "1997": {
+        "team": "Arizona",
+        "seed": 4
+      },
+      "1998": {
+        "team": "Kentucky",
+        "seed": 2
+      },
+      "1999": {
+        "team": "Connecticut",
+        "seed": 1
+      },
+      "2000": {
+        "team": "Michigan State",
+        "seed": 1
+      },
+      "2001": {
+        "team": "Duke",
+        "seed": 1
+      },
+      "2002": {
+        "team": "Maryland",
+        "seed": 1
+      },
+      "2003": {
+        "team": "Syracuse",
+        "seed": 3
+      },
+      "2004": {
+        "team": "Connecticut",
+        "seed": 2
+      },
+      "2005": {
+        "team": "North Carolina",
+        "seed": 1
+      },
+      "2006": {
+        "team": "Florida",
+        "seed": 3
+      },
+      "2007": {
+        "team": "Florida",
+        "seed": 1
+      },
+      "2008": {
+        "team": "Kansas",
+        "seed": 1
+      },
+      "2009": {
+        "team": "North Carolina",
+        "seed": 1
+      },
+      "2010": {
+        "team": "Duke",
+        "seed": 1
+      },
+      "2011": {
+        "team": "Connecticut",
+        "seed": 3
+      },
+      "2012": {
+        "team": "Kentucky",
+        "seed": 1
+      },
+      "2013": {
+        "team": "Louisville",
+        "seed": 1
+      },
+      "2014": {
+        "team": "Connecticut",
+        "seed": 7
+      },
+      "2015": {
+        "team": "Duke",
+        "seed": 1
+      },
+      "2016": {
+        "team": "Villanova",
+        "seed": 2
+      },
+      "2017": {
+        "team": "North Carolina",
+        "seed": 1
+      },
+      "2018": {
+        "team": "Villanova",
+        "seed": 1
+      },
+      "2019": {
+        "team": "Virginia",
+        "seed": 1
+      },
+      "2021": {
+        "team": "Baylor",
+        "seed": 1
+      },
+      "2022": {
+        "team": "Kansas",
+        "seed": 1
+      },
+      "2023": {
+        "team": "Connecticut",
+        "seed": 4
+      },
+      "2024": {
+        "team": "Connecticut",
+        "seed": 1
+      },
+      "2025": {
+        "team": "Florida",
+        "seed": 1
+      }
+    }
+  },
+  "final_four_seed_distribution": {
+    "1": 65,
+    "2": 24,
+    "3": 19,
+    "4": 14,
+    "5": 6,
+    "6": 7,
+    "7": 5,
+    "8": 6,
+    "9": 1,
+    "10": 1,
+    "11": 6,
+    "12": 0,
+    "notes": "65 of 160 Final Four spots (40.6%) held by #1 seeds through 2025. Only two all-1-seed Final Fours: 2008 and 2025. Lowest seeds to reach Final Four: 11-seed (6 times: LSU 1986, George Mason 2006, VCU 2011, Loyola-Chicago 2018, UCLA 2021, NC State 2024). 10-seed: Syracuse 2016."
+  },
+  "sweet_sixteen_seed_distribution": {
+    "1": 128,
+    "2": 103,
+    "3": 90,
+    "4": 74,
+    "5": 53,
+    "6": 47,
+    "7": 38,
+    "8": 30,
+    "9": 14,
+    "10": 21,
+    "11": 25,
+    "12": 19,
+    "13": 5,
+    "14": 2,
+    "15": 1,
+    "16": 0,
+    "notes": "Estimates based on extrapolation from BracketOdds data and bracketresearch.com round-by-round probabilities across 40 tournaments (160 total Sweet 16 spots per year = 640 entries)"
+  },
+  "elite_eight_seed_distribution": {
+    "1": 72,
+    "2": 52,
+    "3": 44,
+    "4": 33,
+    "5": 22,
+    "6": 20,
+    "7": 15,
+    "8": 13,
+    "9": 5,
+    "10": 7,
+    "11": 11,
+    "12": 6,
+    "13": 1,
+    "14": 0,
+    "15": 0,
+    "16": 0,
+    "notes": "Estimates based on extrapolation from NCAA tournament archives across 40 tournaments (320 total Elite 8 spots). 11-seeds include George Mason 2006, VCU 2011, Loyola-Chicago 2018, UCLA 2021, NC State 2024."
+  },
+  "key_upset_patterns": {
+    "most_dangerous_seed_line": "5v12",
+    "rationale": "12-seeds win 35.6% of games \u2014 most 'reliable' upset bet in bracket. At least one 12-seed wins in 33 of 39 tournaments.",
+    "11_seed_final_four_rate": "6 Final Fours in 40 tournaments (once every 6.7 years)",
+    "no_1_seed_r64_loss_rate": "2 losses in 160 games (1.25%)",
+    "cleanest_decade_for_upsets": "2005-2025 \u2014 12/13/14 seeds win at higher clip than 1985-2004",
+    "all_four_1_seeds_final_four": "Has happened twice: 2008 and 2025",
+    "zero_double_digit_champions": true,
+    "lowest_seed_champion": {
+      "seed": 8,
+      "team": "Villanova",
+      "year": 1985
+    }
+  }
+}

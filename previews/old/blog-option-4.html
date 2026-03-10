@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog Option 4 — Newspaper Columns</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #faf7f2;
+      color: #1a1a1a;
+      font-family: 'Instrument Serif', Georgia, serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .annotation {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    /* -- Masthead -- */
+    .masthead {
+      text-align: center;
+      border-bottom: 3px double #1a1a1a;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .masthead-rule {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      margin-bottom: 12px;
+    }
+    .masthead h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 56px;
+      font-weight: 400;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .masthead .edition {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #777;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* -- Lead story -- */
+    .lead {
+      text-align: center;
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #ddd;
+    }
+    .lead .category {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #999;
+      margin-bottom: 12px;
+    }
+    .lead h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .lead .deck {
+      font-size: 18px;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 14px;
+      line-height: 1.6;
+    }
+    .lead .byline {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: #999;
+    }
+
+    /* -- Multi-column section -- */
+    .columns-section {
+      column-count: 2;
+      column-gap: 40px;
+      column-rule: 1px solid #ddd;
+      margin-bottom: 40px;
+    }
+    .columns-section.three-col {
+      column-count: 3;
+    }
+
+    .column-article {
+      break-inside: avoid;
+      margin-bottom: 28px;
+    }
+    .column-article .category {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #999;
+      margin-bottom: 6px;
+    }
+    .column-article h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .column-article.secondary h3 {
+      font-size: 20px;
+    }
+    .column-article p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+    .column-article .byline {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    /* -- Pull quote -- */
+    .pull-quote {
+      break-inside: avoid;
+      border-top: 2px solid #1a1a1a;
+      border-bottom: 2px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .pull-quote blockquote {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.4;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    .pull-quote cite {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #999;
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* -- Divider -- */
+    .section-divider {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 32px 0;
+    }
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #999;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* -- Responsive -- */
+    @media (max-width: 768px) {
+      .masthead h1 { font-size: 36px; }
+      .lead h2 { font-size: 28px; }
+      .columns-section { column-count: 1; }
+      .columns-section.three-col { column-count: 1; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .columns-section.three-col { column-count: 2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="annotation">Blog Option 4 — Newspaper columns, light/cream background, editorial feel</p>
+
+    <div class="masthead">
+      <hr class="masthead-rule">
+      <h1>The Lab Report</h1>
+      <span class="edition">Vol. I &middot; March Madness 2026 &middot; Tournament Edition</span>
+    </div>
+
+    <p class="annotation">Lead story — large headline, centered</p>
+    <div class="lead">
+      <p class="category">Recap</p>
+      <h2>Round of 64 Recap: Chaos Wins Day 1</h2>
+      <p class="deck">Three double-digit seeds advanced, blowing up brackets across all five AI models. The Chaos Agent is the only one smiling.</p>
+      <span class="byline">March 20, 2026 &middot; 8 min read</span>
+    </div>
+
+    <p class="annotation">Two-column section — varied headline sizes for hierarchy</p>
+    <div class="columns-section">
+      <div class="column-article">
+        <p class="category">Obituary</p>
+        <h3>Eulogy for The Quant: Death by Double-Digit Seed</h3>
+        <p>10,000 simulations couldn't predict a 14-seed running the table. The Quant's Monte Carlo engine gave this outcome a 0.3% probability. But March doesn't care about your probability distributions. We look back at what the numbers got right, and the one thing they never could have modeled.</p>
+        <span class="byline">March 22, 2026</span>
+      </div>
+
+      <div class="pull-quote">
+        <blockquote>"Every model is just a story you tell about the world. Some stories are wrong."</blockquote>
+        <cite>The Bracket Lab, on model limitations</cite>
+      </div>
+
+      <div class="column-article secondary">
+        <p class="category">Analysis</p>
+        <h3>How The Scout Saw Duke vs. Tennessee Coming</h3>
+        <p>The Scout was the only model to correctly predict this upset. Its LLM reasoning chain identified a tempo mismatch that traditional stats missed entirely. We walk through the full decision trace.</p>
+        <span class="byline">March 23, 2026</span>
+      </div>
+
+      <div class="column-article secondary">
+        <p class="category">Preview</p>
+        <h3>Sweet 16 Preview: Which Models Still Have a Champion?</h3>
+        <p>Only two models still have their predicted champion alive heading into the Sweet 16. Here's how each model's bracket looks through the carnage.</p>
+        <span class="byline">March 26, 2026</span>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+    <p class="section-label">More from the Lab</p>
+
+    <p class="annotation">Three-column section — shorter articles</p>
+    <div class="columns-section three-col">
+      <div class="column-article secondary">
+        <p class="category">Analysis</p>
+        <h3>The Agent Goes Rogue: An Autonomous Bracket Autopsy</h3>
+        <p>We gave an AI agent free rein to build a bracket with no prompts and no constraints. It spent 47 minutes researching before making a single pick. Here's what it found.</p>
+        <span class="byline">March 27, 2026</span>
+      </div>
+
+      <div class="column-article secondary">
+        <p class="category">Recap</p>
+        <h3>Round of 32: The Historian's Revenge</h3>
+        <p>Archetype matching came alive on Day 4 as The Historian nailed 6 of 8 games, surging from last place to second on the leaderboard.</p>
+        <span class="byline">March 24, 2026</span>
+      </div>
+
+      <div class="pull-quote">
+        <blockquote>"History doesn't repeat, but it rhymes. And sometimes it rhymes in 40-point blowouts."</blockquote>
+        <cite>The Historian model, on archetype matching</cite>
+      </div>
+
+      <div class="column-article secondary">
+        <p class="category">Obituary</p>
+        <h3>Farewell, Chaos Agent: Too Hot to Handle</h3>
+        <p>The upset king finally got upset. With its champion eliminated in the Sweet 16, we pour one out for the bracket that lived fast and died young.</p>
+        <span class="byline">March 28, 2026</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
