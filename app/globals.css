@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+}
+
+/* ---- Base ---- */
+body {
+  background: #0a0a0f;
+  color: #e5e7eb;
+  font-family: var(--font-body);
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: #1e1e2e; border-radius: 3px; }
+
+/* ---- Selection ---- */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: #f9fafb;
+}
+
+/* ---- Model accent borders ---- */
+.model-scout { border-color: #3b82f6; }
+.model-quant { border-color: #22c55e; }
+.model-historian { border-color: #f59e0b; }
+.model-chaos { border-color: #ef4444; }
+.model-agent { border-color: #00ff88; }
+
+/* ---- Model accent backgrounds (subtle) ---- */
+.model-scout-bg { background: rgba(59, 130, 246, 0.08); }
+.model-quant-bg { background: rgba(34, 197, 94, 0.08); }
+.model-historian-bg { background: rgba(245, 158, 11, 0.08); }
+.model-chaos-bg { background: rgba(239, 68, 68, 0.08); }
+.model-agent-bg { background: rgba(0, 255, 136, 0.08); }
+
+/* ---- Glow effects ---- */
+.glow-scout { box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); }
+.glow-quant { box-shadow: 0 0 20px rgba(34, 197, 94, 0.15); }
+.glow-historian { box-shadow: 0 0 20px rgba(245, 158, 11, 0.15); }
+.glow-chaos { box-shadow: 0 0 20px rgba(239, 68, 68, 0.15); }
+.glow-agent { box-shadow: 0 0 20px rgba(0, 255, 136, 0.15); }
+
+/* ---- Eliminated state ---- */
+.eliminated {
+  opacity: 0.5;
+  filter: grayscale(60%);
+  position: relative;
+}
+.eliminated::after {
+  content: 'ELIMINATED';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ef4444;
+  letter-spacing: 0.15em;
+  border: 2px solid #ef4444;
+  padding: 0.25rem 1rem;
+  background: rgba(10, 10, 15, 0.85);
+}
+
+/* ---- Prose for blog/mdx ---- */
+.prose h1 { font-family: var(--font-display); font-weight: 700; color: #f9fafb; }
+.prose h2 { font-family: var(--font-display); font-weight: 600; color: #f9fafb; }
+.prose h3 { font-family: var(--font-display); font-weight: 600; color: #e5e7eb; }
+.prose p { color: #d1d5db; line-height: 1.75; }
+.prose a { color: #3b82f6; text-decoration: underline; }
+.prose code { font-family: var(--font-mono); background: #1e1e2e; padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em; }
+.prose blockquote { border-left: 3px solid #3b82f6; padding-left: 1rem; color: #9ca3af; font-style: italic; }
+
+/* ---- Noise texture overlay ---- */
+.noise::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 50;
+}
