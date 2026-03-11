@@ -39,11 +39,12 @@ export default function Home() {
 
         <h1
           className="hero-fade-2 text-4xl sm:text-5xl md:text-6xl tracking-tight text-lab-white mb-5 leading-[1.1] max-w-4xl mx-auto px-6"
-          style={{ fontFamily: 'var(--font-serif)' }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700 }}
         >
           No gut feelings. No office pools.
           <br />
-          Just math, history, and chaos.
+          Just math, history, and{' '}
+          <span style={{ fontStyle: 'italic', fontWeight: 900, color: '#f59e0b' }}>chaos.</span>
         </h1>
 
         <p className="hero-fade-3 text-base text-lab-muted max-w-xl mx-auto mb-8 leading-relaxed px-6">

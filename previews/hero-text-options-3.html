@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Text Options (Set 3 — Chalk) — The Bracket Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Architects+Daughter&family=Schoolbell&family=Indie+Flower&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #141414;
+      --white: #efefef;
+      --chalk: #f0ede6;      /* slightly warm white, like real chalk */
+      --muted: #888888;
+      --border: #333333;
+      --blue: #3b82f6;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --neon: #00ff88;
+      --chalk-blue: #93c5fd;
+      --chalk-green: #86efac;
+      --chalk-amber: #fde68a;
+      --chalk-pink: #f9a8d4;
+      --chalk-red: #fca5a5;
+
+      --f-caveat: 'Caveat', cursive;
+      --f-kalam: 'Kalam', cursive;
+      --f-patrick: 'Patrick Hand', cursive;
+      --f-arch: 'Architects Daughter', cursive;
+      --f-school: 'Schoolbell', cursive;
+      --f-indie: 'Indie Flower', cursive;
+      --f-mono: 'IBM Plex Mono', monospace;
+    }
+
+    body { background: var(--bg); color: var(--white); }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: #0d0d0dee; backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    }
+    .nav-label { font-family: var(--f-mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-right: 6px; }
+    .nav a {
+      font-family: var(--f-mono); font-size: 11px; color: var(--muted);
+      text-decoration: none; border: 1px solid var(--border); border-radius: 6px;
+      padding: 4px 10px; white-space: nowrap; transition: color 0.15s, border-color 0.15s;
+    }
+    .nav a:hover { color: var(--white); border-color: #666; }
+
+    /* Section */
+    .section { border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .section-label {
+      position: absolute; top: 16px; right: 20px;
+      font-family: var(--f-mono); font-size: 10px; color: #3a3a3a;
+      text-transform: uppercase; letter-spacing: 0.1em; z-index: 10;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center; padding: 80px 24px 72px;
+      position: relative; max-width: 900px; margin: 0 auto;
+    }
+
+    /* Glow variants */
+    .glow {
+      position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 400px; pointer-events: none;
+      background: radial-gradient(ellipse at top center, rgba(59,130,246,0.10) 0%, transparent 70%);
+    }
+    .glow-green  { background: radial-gradient(ellipse at top center, rgba(34,197,94,0.10) 0%, transparent 70%); }
+    .glow-amber  { background: radial-gradient(ellipse at top center, rgba(245,158,11,0.08) 0%, transparent 70%); }
+    .glow-neon   { background: radial-gradient(ellipse at top center, rgba(0,255,136,0.09) 0%, transparent 70%); }
+    .glow-none   { display: none; }
+
+    /* Tag */
+    .tag {
+      display: inline-block; font-family: var(--f-mono); font-size: 10px;
+      color: var(--muted); border: 1px solid var(--border); border-radius: 999px;
+      padding: 6px 16px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 28px;
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-family: 'Patrick Hand', cursive; font-size: 17px; color: rgba(240,237,230,0.5);
+      max-width: 480px; margin: 18px auto 32px; line-height: 1.7;
+    }
+    .subtitle strong { color: rgba(240,237,230,0.8); font-weight: 400; }
+
+    /* Buttons */
+    .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .btn-p {
+      font-family: var(--f-mono); font-size: 12px; font-weight: 500;
+      color: #141414; background: var(--chalk); border: none; border-radius: 6px;
+      padding: 10px 22px; cursor: pointer;
+    }
+    .btn-s {
+      font-family: var(--f-mono); font-size: 12px; color: var(--muted);
+      background: transparent; border: 1px solid var(--border); border-radius: 6px;
+      padding: 10px 22px; cursor: pointer;
+    }
+
+    /* ── Cursors ── */
+    @keyframes blink      { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes blink-slow { 0%,100%{opacity:1} 40%,60%{opacity:0} }
+
+    .cur          { animation: blink 1s step-end infinite; }
+    .cur-slow     { animation: blink-slow 1.4s step-end infinite; }
+    .cur-white    { color: var(--chalk); }
+    .cur-neon     { color: var(--neon); }
+    .cur-blue     { color: var(--chalk-blue); }
+    .cur-amber    { color: var(--chalk-amber); }
+    .cur-green    { color: var(--chalk-green); }
+    .cur-pink     { color: var(--chalk-pink); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cur, .cur-slow { animation: none; }
+    }
+
+    /* ══════════════════════════════════════════
+       OPTION 21
+       Caveat 700 · warm chalk white · block cursor █
+    ══════════════════════════════════════════ */
+    .opt21 h1 {
+      font-family: var(--f-caveat);
+      font-weight: 700;
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
+      color: var(--chalk);
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      margin-bottom: 0;
+      text-shadow: 0 0 20px rgba(240,237,230,0.08);
+    }
+
+    /* ══════════════════════════════════════════
+       OPTION 22
+       Caveat 700 · lowercase chalk · neon cursor — chalk meets terminal
+    ══════════════════════════════════════════ */
+    .opt22 h1 {
+      font-family: var(--f-caveat);
+      font-weight: 700;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      color: var(--chalk);
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+    .opt22 .hi { color: var(--neon); }
+
+    /* ══════════════════════════════════════════
+       OPTION 23
+       Kalam 700 · blue chalk tint · underscore cursor
+    ══════════════════════════════════════════ */
+    .opt23 h1 {
+      font-family: var(--f-kalam);
+      font-weight: 700;
+      font-size: clamp(2.2rem, 5.5vw, 4.4rem);
+      color: var(--chalk-blue);
+      text-shadow: 0 0 30px rgba(59,130,246,0.25);
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+
+    /* ══════════════════════════════════════════
+       OPTION 24
+       Architects Daughter · code comment style · mono prefix
+    ══════════════════════════════════════════ */
+    .opt24 h1 {
+      font-family: var(--f-arch);
+      font-size: clamp(1.7rem, 4vw, 3.2rem);
+      letter-spacing: 0.02em;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .opt24 .comment { color: #555; font-family: var(--f-arch); }
+    .opt24 .line-text { color: var(--chalk); }
+    .opt24 .kw { color: var(--chalk-blue); }
+
+    /* ══════════════════════════════════════════
+       OPTION 25
+       Patrick Hand · terminal $ prompt · clean + techy
+    ══════════════════════════════════════════ */
+    .opt25 h1 {
+      font-family: var(--f-patrick);
+      font-size: clamp(1.9rem, 4.5vw, 3.6rem);
+      line-height: 1.5;
+      text-align: left;
+      max-width: 680px;
+      margin: 0 auto 0;
+      display: inline-block;
+    }
+    .opt25 .prompt { color: var(--neon); font-weight: 700; }
+    .opt25 .cmd    { color: var(--chalk); }
+    .opt25 .arg    { color: var(--chalk-amber); }
+
+    /* ══════════════════════════════════════════
+       OPTION 26
+       Caveat 700 · white→blue gradient chalk · blue pipe cursor
+    ══════════════════════════════════════════ */
+    .opt26 h1 {
+      font-family: var(--f-caveat);
+      font-weight: 700;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      margin-bottom: 0;
+      background: linear-gradient(100deg, var(--chalk) 15%, var(--chalk-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    /* cursor needs fill color so it's outside the h1 gradient */
+    .opt26 .cur-wrap { font-family: var(--f-caveat); font-size: clamp(2.4rem, 6vw, 4.8rem); font-weight: 700; }
+
+    /* ══════════════════════════════════════════
+       OPTION 27
+       Schoolbell · split: warm white / neon green lines
+    ══════════════════════════════════════════ */
+    .opt27 h1 {
+      font-family: var(--f-school);
+      font-size: clamp(2.2rem, 5.5vw, 4.4rem);
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+      margin-bottom: 0;
+    }
+    .opt27 .l1 { display: block; color: rgba(240,237,230,0.65); }
+    .opt27 .l2 { display: block; color: var(--chalk-green); text-shadow: 0 0 20px rgba(34,197,94,0.25); }
+
+    /* ══════════════════════════════════════════
+       OPTION 28
+       Kalam 400 · annotated · caret ^ markers like markup
+    ══════════════════════════════════════════ */
+    .opt28 { text-align: left; }
+    .opt28 .hero { text-align: left; }
+    .opt28 h1 {
+      font-family: var(--f-kalam);
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.35;
+      color: var(--chalk);
+      margin-bottom: 0;
+      display: inline-block;
+    }
+    .opt28 .ann {
+      font-family: var(--f-kalam);
+      font-size: clamp(0.75rem, 1.5vw, 1rem);
+      color: var(--chalk-amber);
+      display: block;
+      padding-left: 0.2em;
+      letter-spacing: 0.05em;
+      margin-top: -4px;
+    }
+    .opt28 .bracket { color: #555; }
+
+    /* ══════════════════════════════════════════
+       OPTION 29
+       Indie Flower · large · warm chalk · pink cursor
+       most "hand-drawn" feeling
+    ══════════════════════════════════════════ */
+    .opt29 h1 {
+      font-family: var(--f-indie);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      color: var(--chalk);
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      margin-bottom: 0;
+      text-shadow: 0 0 30px rgba(240,237,230,0.07);
+    }
+
+    /* ══════════════════════════════════════════
+       OPTION 30
+       Patrick Hand · data-label prefix · #tag notation
+       most "chalk + data science" vibe
+    ══════════════════════════════════════════ */
+    .opt30 { }
+    .opt30 h1 {
+      font-family: var(--f-patrick);
+      font-size: clamp(1.8rem, 4.5vw, 3.8rem);
+      line-height: 1.35;
+      margin-bottom: 0;
+    }
+    .opt30 .label {
+      font-family: var(--f-mono);
+      font-size: 0.42em;
+      color: var(--muted);
+      display: block;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.1em;
+    }
+    .opt30 .stmt { color: var(--chalk); display: block; }
+    .opt30 .stmt2 { color: var(--chalk); display: block; }
+    .opt30 .hi-g { color: var(--chalk-green); }
+    .opt30 .hi-a { color: var(--chalk-amber); }
+    .opt30 .hi-r { color: var(--chalk-red); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-label">Set 3 · Chalk</span>
+    <a href="#opt21">21 · Chalk block</a>
+    <a href="#opt22">22 · Chalk+neon</a>
+    <a href="#opt23">23 · Blue chalk</a>
+    <a href="#opt24">24 · Code comment</a>
+    <a href="#opt25">25 · $ prompt</a>
+    <a href="#opt26">26 · Gradient</a>
+    <a href="#opt27">27 · Split color</a>
+    <a href="#opt28">28 · Annotated</a>
+    <a href="#opt29">29 · Indie script</a>
+    <a href="#opt30">30 · Data labels</a>
+  </nav>
+
+
+  <!-- ─── 21: Caveat, warm white, block cursor ─── -->
+  <div class="section opt21" id="opt21">
+    <span class="section-label">21 — Caveat 700 · warm chalk white · block cursor</span>
+    <div class="hero">
+      <div class="glow glow-none"></div>
+      <div class="tag">March Madness 2026 Experiment</div>
+      <h1>
+        No gut feelings. No office pools.<br/>
+        Just math, history, and chaos.<span class="cur cur-white">█</span>
+      </h1>
+      <p class="subtitle">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── 22: Caveat, lowercase, neon hi + cursor ─── -->
+  <div class="section opt22" id="opt22">
+    <span class="section-label">22 — Caveat 700 · lowercase · "chaos" neon · neon cursor</span>
+    <div class="hero">
+      <div class="glow glow-neon"></div>
+      <div class="tag">March Madness 2026 Experiment</div>
+      <h1>
+        no gut feelings. no office pools.<br/>
+        just math, history, and <span class="hi">chaos.</span><span class="cur cur-neon">|</span>
+      </h1>
+      <p class="subtitle">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── 23: Kalam, blue chalk tint, underscore ─── -->
+  <div class="section opt23" id="opt23">
+    <span class="section-label">23 — Kalam 700 · blue chalk tint · underscore cursor</span>
+    <div class="hero">
+      <div class="glow"></div>
+      <div class="tag">March Madness 2026 Experiment</div>
+      <h1>
+        No gut feelings. No office pools.<br/>
+        Just math, history, and chaos.<span class="cur cur-blue" style="font-family:'IBM Plex Mono',monospace;font-size:0.75em;vertical-align:baseline">_</span>
+      </h1>
+      <p class="subtitle">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── 24: Architects Daughter, code comment ─── -->
+  <div class="section opt24" id="opt24">
+    <span class="section-label">24 — Architects Daughter · // code comment style</span>
+    <div class="hero">
+      <div class="glow glow-none"></div>
+      <div class="tag">March Madness 2026 Experiment</div>
+      <h1>
+        <span class="comment">// input:</span><br/>
+        <span class="line-text">No gut feelings. No office pools.</span><br/>
+        <span class="comment">// output:</span><br/>
+        <span class="line-text">Just <span class="kw">math</span>, history, and chaos.<span class="cur cur-blue">|</span></span>
+      </h1>
+      <p class="subtitle" style="margin-top:24px">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── 25: Patrick Hand, $ prompt ─── -->
+  <div class="section opt25" id="opt25">
+    <span class="section-label">25 — Patrick Hand · terminal $ prompt · left-aligned</span>
+    <div class="hero" style="text-align:left">
+      <div class="glow glow-neon"></div>
+      <div class="tag" style="display:block;width:fit-content;margin-bottom:36px">March Madness 2026 Experiment</div>
+      <h1>
+        <span class="prompt">$</span> <span class="cmd">no gut feelings. no office pools.</span><br/>
+        <span class="prompt">$</span> <span class="cmd">just <span class="arg">math</span>, <span class="arg">history</span>, and <span class="arg">chaos.</span></span><span class="cur cur-neon cur-slow">█</span>
+      </h1>
+      <p class="subtitle" style="margin-left:0;margin-right:auto;text-align:left;margin-top:24px">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns" style="justify-content:flex-start">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── 26: Caveat gradient chalk ─── -->
+  <div class="section opt26" id="opt26">
+    <span class="section-label">26 — Caveat 700 · white→blue gradient · blue cursor</span>
+    <div class="hero">
+      <div class="glow"></div>
+      <div class="tag">March Madness 2026 Experiment</div>
+      <h1>
+        No gut feelings. No office pools.<br/>
+        Just math, history, and chaos.
+      </h1><!--
+      --><span class="cur-wrap"><span class="cur cur-blue" style="color:#93c5fd">|</span></span>
+      <p class="subtitle">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── 27: Schoolbell, split lines ─── -->
+  <div class="section opt27" id="opt27">
+    <span class="section-label">27 — Schoolbell · faded line 1 · neon green line 2</span>
+    <div class="hero">
+      <div class="glow glow-green"></div>
+      <div class="tag">March Madness 2026 Experiment</div>
+      <h1>
+        <span class="l1">No gut feelings. No office pools.</span>
+        <span class="l2">Just math, history, and chaos.<span class="cur cur-green">|</span></span>
+      </h1>
+      <p class="subtitle">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── 28: Kalam annotated ─── -->
+  <div class="section opt28" id="opt28">
+    <span class="section-label">28 — Kalam 400 · annotation markup · left-aligned</span>
+    <div class="hero" style="text-align:left">
+      <div class="glow glow-amber"></div>
+      <div class="tag" style="display:block;width:fit-content;margin-bottom:36px">March Madness 2026 Experiment</div>
+      <h1>
+        <span class="bracket">[</span>premise<span class="bracket">]</span> No gut feelings. No office pools.<br/>
+        <span class="ann">^ assumptions discarded</span>
+        <span class="bracket">[</span>result<span class="bracket">]</span>&nbsp;&nbsp;Just math, history, and chaos.<span class="cur cur-amber">|</span><br/>
+        <span class="ann">^ n=10,000 simulations</span>
+      </h1>
+      <p class="subtitle" style="margin-left:0;margin-right:auto;text-align:left;margin-top:20px">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns" style="justify-content:flex-start">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── 29: Indie Flower, flowing, pink cursor ─── -->
+  <div class="section opt29" id="opt29">
+    <span class="section-label">29 — Indie Flower · large flowing script · pink cursor</span>
+    <div class="hero">
+      <div class="glow glow-none"></div>
+      <div class="tag">March Madness 2026 Experiment</div>
+      <h1>
+        No gut feelings. No office pools.<br/>
+        Just math, history, and chaos.<span class="cur cur-pink">|</span>
+      </h1>
+      <p class="subtitle">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── 30: Patrick Hand, data labels ─── -->
+  <div class="section opt30" id="opt30">
+    <span class="section-label">30 — Patrick Hand · mono data labels · color keywords</span>
+    <div class="hero">
+      <div class="glow glow-none"></div>
+      <div class="tag">March Madness 2026 Experiment</div>
+      <h1>
+        <span class="label">hypothesis_01</span>
+        <span class="stmt">No gut feelings. No office pools.</span>
+        <span class="label" style="margin-top:0.5em">output</span>
+        <span class="stmt2">Just <span class="hi-g">math</span>, <span class="hi-a">history</span>, and <span class="hi-r">chaos.</span><span class="cur cur-white">|</span></span>
+      </h1>
+      <p class="subtitle">
+        Five AI models built brackets five completely different ways.
+        <strong>Now we wait to see which one survived contact with reality.</strong>
+      </p>
+      <div class="btns">
+        <button class="btn-p">See the Brackets</button>
+        <button class="btn-s">Meet the Models →</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
