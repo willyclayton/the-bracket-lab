@@ -4,22 +4,45 @@
 
 ```
 data/
-  models/
-    the-scout.json          # Bracket picks + reasoning
-    the-quant.json          # Bracket picks + probability distributions
-    the-historian.json      # Bracket picks + archetype mappings
-    the-chaos-agent.json    # Bracket picks + upset scores
-    the-agent.json          # Bracket picks + research log
+  models/                              # 2026 bracket picks (current season)
+    the-scout.json
+    the-quant.json
+    the-historian.json
+    the-chaos-agent.json
+    the-agent.json
   results/
-    actual-results.json     # Real game outcomes (updated live during tournament)
+    actual-results.json                # 2026 real game outcomes (updated live)
   meta/
-    teams.json              # Team metadata (populated after Selection Sunday)
-    schedule.json           # Game schedule (optional)
+    teams.json                         # Team metadata (populated after Selection Sunday)
+  research/                            # Research data used by models
+    historical-teams.json
+    seed-history.json
+    upset-factors.json
+  archive/                             # Completed tournament data
+    2025/
+      models/                          # 2025 model bracket picks
+        the-scout.json
+        the-quant.json
+        the-historian.json
+        the-chaos-agent.json
+        the-agent.json
+      results/
+        actual-results.json            # 2025 verified results (ESPN-sourced)
+  README.md                            # Data integrity policy
 ```
+
+## Data Integrity
+
+**Results data must NEVER be AI-generated.** See `data/README.md` for the full verification policy.
+
+- All game scores must come from ESPN box scores or NCAA.com
+- Bracket structure must match the official NCAA bracket
+- Model predictions ARE AI-generated (that's the point)
+- After play-in games, use actual winners in bracket structure
 
 ## Bracket JSON Schema (per model)
 
-Each model outputs one JSON file following this schema. TypeScript interface in `lib/types.ts`.
+Each model outputs one JSON file. TypeScript interface in `lib/types.ts`.
 
 ```json
 {
@@ -27,24 +50,25 @@ Each model outputs one JSON file following this schema. TypeScript interface in 
   "displayName": "The Scout",
   "tagline": "Film room intelligence at machine speed.",
   "color": "#3b82f6",
-  "generated": "2026-03-19T12:00:00Z",
+  "generated": "2025-03-19",
   "locked": true,
-  "espnBracketUrl": "https://fantasy.espn.com/tournament-challenge-bracket/2026/en/entry?entryID=XXXXX",
-  "champion": "Duke",
+  "espnBracketUrl": null,
+  "champion": "Florida",
   "championEliminated": false,
-  "finalFour": ["Duke", "Arizona", "Michigan", "Florida"],
+  "finalFour": ["Duke", "Houston", "Michigan State", "Florida"],
   "rounds": {
     "round_of_64": [
       {
-        "gameId": "R64_E1",
-        "region": "East",
+        "gameId": "r64-south-1",
+        "round": "round_of_64",
+        "region": "South",
         "seed1": 1,
-        "team1": "Duke",
+        "team1": "Auburn",
         "seed2": 16,
-        "team2": "Norfolk State",
-        "pick": "Duke",
-        "confidence": 0.97,
-        "reasoning": "Elite coaching + 5-star talent depth vs. 16-seed with no tournament experience"
+        "team2": "Alabama State",
+        "pick": "Auburn",
+        "confidence": 97,
+        "reasoning": "Auburn's interior depth and Johni Broome's dominance..."
       }
     ],
     "round_of_32": [ ... ],
@@ -57,10 +81,16 @@ Each model outputs one JSON file following this schema. TypeScript interface in 
 ```
 
 ### Game ID Convention
-Format: `{ROUND}_{REGION}{NUMBER}`
-- Regions: E (East), W (West), S (South), MW (Midwest) — or whatever the NCAA uses in 2026
-- Examples: `R64_E1`, `R64_E2`, ... `R32_E1`, ... `S16_E1`, ... `E8_E1`, `F4_1`, `CHAMP`
-- Game IDs must be consistent across all model files and the results file
+Format: `{round}-{region}-{number}`
+- Rounds: `r64`, `r32`, `s16`, `e8`, `f4`, `championship`
+- Regions: `south`, `east`, `midwest`, `west`
+- Numbers: 1-8 for R64, 1-4 for R32, 1-2 for S16, no number for E8
+- Final Four: `f4-south-west`, `f4-east-midwest`
+- Championship: `championship`
+
+Examples: `r64-south-1`, `r32-east-3`, `s16-midwest-2`, `e8-west`, `f4-south-west`, `championship`
+
+Game IDs must be consistent across all model files and the results file.
 
 ### Round Keys
 ```
@@ -73,7 +103,6 @@ championship   — 1 game
 ```
 
 ### Bracket Population Rules
-- Each round's games are derived from the previous round's winners
 - round_of_64: Determined by NCAA bracket seeding (Selection Sunday)
 - round_of_32: Winners of R64 games in each region
 - sweet_16: Winners of R32 games in each region
@@ -83,26 +112,26 @@ championship   — 1 game
 
 ## Results JSON Schema
 
-Updated during the tournament as games complete. This is the source of truth for scoring.
+Updated during the tournament as games complete. Source of truth for scoring.
 
 ```json
 {
-  "lastUpdated": "2026-03-20T22:30:00Z",
-  "currentRound": "round_of_64",
+  "lastUpdated": "2025-04-07T23:59:00Z",
+  "currentRound": "completed",
   "games": [
     {
-      "gameId": "R64_E1",
+      "gameId": "r64-south-1",
       "round": "round_of_64",
-      "region": "East",
-      "team1": "Duke",
+      "region": "South",
+      "team1": "Auburn",
       "seed1": 1,
-      "team2": "Norfolk State",
+      "team2": "Alabama State",
       "seed2": 16,
-      "score1": 82,
-      "score2": 56,
-      "winner": "Duke",
+      "score1": 83,
+      "score2": 63,
+      "winner": "Auburn",
       "completed": true,
-      "gameTime": "2026-03-20T12:15:00Z"
+      "gameTime": "2025-03-20T12:15:00Z"
     }
   ]
 }
@@ -110,9 +139,10 @@ Updated during the tournament as games complete. This is the source of truth for
 
 ### Update process
 1. Game finishes
-2. Add/update game entry in `actual-results.json` with `completed: true` and `winner`
-3. `git push` → Vercel redeploys
-4. Scoring engine recalculates on next page load
+2. **Verify score from ESPN** (never use AI-generated scores)
+3. Add/update game entry in `actual-results.json` with `completed: true` and `winner`
+4. `git push` → Vercel redeploys
+5. Scoring engine recalculates on next page load
 
 ## Teams Metadata
 
@@ -150,12 +180,12 @@ const ROUND_POINTS = {
 ```
 
 ### Max possible score
-- R64: 32 games × 10 = 320
-- R32: 16 games × 20 = 320
-- S16: 8 games × 40 = 320
-- E8: 4 games × 80 = 320
-- F4: 2 games × 160 = 320
-- Championship: 1 game × 320 = 320
+- R64: 32 games x 10 = 320
+- R32: 16 games x 20 = 320
+- S16: 8 games x 40 = 320
+- E8: 4 games x 80 = 320
+- F4: 2 games x 160 = 320
+- Championship: 1 game x 320 = 320
 - **Total: 1,920 points**
 
 ### Scoring logic
@@ -169,16 +199,16 @@ For each completed game in results:
 ```typescript
 interface ModelScore {
   modelId: string;
-  round_of_64: number;   // points earned in this round
+  round_of_64: number;
   round_of_32: number;
   sweet_16: number;
   elite_8: number;
   final_four: number;
   championship: number;
-  total: number;          // sum of all rounds
+  total: number;
   correctPicks: number;
   totalPicks: number;
-  accuracy: number;       // correctPicks / totalPicks as percentage
+  accuracy: number;
 }
 ```
 

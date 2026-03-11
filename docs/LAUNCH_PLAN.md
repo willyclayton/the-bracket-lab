@@ -1,5 +1,7 @@
 # Launch Plan & Content Calendar
 
+> **Note:** This plan was originally written for the 2025 launch. The 2025 tournament is complete and archived in `data/archive/2025/`. The same plan applies to the 2026 tournament with updated dates. Key 2026 dates: Selection Sunday March 15, First Four March 17-18, Picks lock March 19, Tournament starts March 20, Final Four April 4-6.
+
 ## Two-Phase Launch Strategy
 
 ### Phase 1: "The Models" — March 15-16 (post-Selection Sunday)

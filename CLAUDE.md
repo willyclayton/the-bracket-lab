@@ -40,22 +40,26 @@ See `docs/MODELS.md` for full specifications on each model.
 ## Architecture
 
 ### Pages
-- `/` — Landing page (hero, 5 model cards, voting widget, email signup)
-- `/models` — Model overview (side-by-side comparison, consensus/divergence)
-- `/models/[slug]` — Individual model deep dives (methodology, bracket, ESPN link)
+- `/` — Landing page (hero + stats bar + leaderboard + 5 model sections + vote widget)
+- `/brackets` — Bracket explorer (model tabs, BracketTree, summary card, year toggle)
+- `/models` — Model overview (side-by-side comparison)
+- `/models/[slug]` — Individual model deep dives (methodology, CTA to /brackets)
 - `/dashboard` — Live tournament dashboard (leaderboard, bracket view, recaps)
-- `/blog` — Writeups and recaps (MDX-driven)
-- `/about` — About, tech stack, ESPN bracket links
+- `/blog` — Writeups and recaps (MDX-driven via `next-mdx-remote`)
+- `/about` — About, tech stack, ESPN bracket links (linked from footer, not nav)
 
 ### Data
-- `data/models/*.json` — Bracket data per model (picks, confidence, reasoning)
-- `data/results/actual-results.json` — Real game outcomes, updated during tournament
+- `data/models/*.json` — 2026 bracket data per model (picks, confidence, reasoning)
+- `data/results/actual-results.json` — 2026 real game outcomes, updated during tournament
+- `data/archive/2025/` — Archived 2025 tournament data (models + verified results)
 - `data/meta/teams.json` — Team metadata (seeds, regions, conferences)
+- `data/research/` — Research data (historical teams, seed history, upset factors)
 - `lib/models.ts` — Single source of truth for model metadata
 - `lib/types.ts` — TypeScript interfaces for all data
 - `lib/scoring.ts` — Client-side scoring engine (ESPN-style points)
+- `lib/blog.ts` — MDX reader utility (getAllPosts, getPostBySlug)
 
-See `docs/DATA_SCHEMA.md` for complete schemas.
+See `docs/DATA_SCHEMA.md` for complete schemas and `data/README.md` for data integrity policy.
 
 ### Content
 - `content/models/*.mdx` — Methodology writeups per model
@@ -82,6 +86,14 @@ ESPN-style bracket scoring (defined in `lib/models.ts`):
 - Championship: 320 pts
 - Max possible: 1,920 pts
 
+## Data Integrity
+
+- **Results data must NEVER be AI-generated or fabricated.** All game scores must come from verified sports data sources (ESPN, NCAA.com).
+- **Bracket structure (teams, seeds, regions) must match the official NCAA bracket.** After play-in games, use actual winners, not the pre-play-in matchups.
+- **When adding results, include the source URL in commit messages** for traceability.
+- **Model predictions ARE AI-generated** — that's the entire premise. But the data they're scored against (actual results) must be real.
+- See `data/README.md` for the full data verification policy.
+
 ## Code Conventions
 
 - TypeScript throughout
@@ -96,9 +108,9 @@ ESPN-style bracket scoring (defined in `lib/models.ts`):
 
 See `docs/TODO.md` for the full prioritized task list.
 
-**Scaffold exists for:** Landing page, model pages, dashboard, blog, about, model cards, leaderboard, scoring engine, data schemas, CSS with model colors/glows/eliminated states.
+**Built and deployed:** Landing page (redesigned), brackets page with BracketTree, model pages (redesigned), blog with MDX rendering, about page, voting widget, leaderboard, scoring engine, 2025 archive with verified data, year toggle.
 
-**Still needs:** Polish design, wire up MDX blog rendering, build bracket visualization component, implement voting widget, write methodology content, build model scripts (Python), OG social card.
+**Still needs:** Model Python scripts (Quant, Historian, Chaos), 2026 bracket data (after Selection Sunday March 15), methodology blog posts, OG social card, consensus/divergence views.
 
 ## Update Workflow During Tournament
 
@@ -114,11 +126,16 @@ Optional automation: GitHub Actions cron job every 15 min during game windows to
 
 | File | Purpose |
 |------|---------|
-| `lib/models.ts` | Single source of truth for all model metadata |
+| `lib/models.ts` | Single source of truth for all model metadata + ROUND_POINTS |
 | `lib/types.ts` | TypeScript interfaces for brackets, results, scores |
 | `lib/scoring.ts` | Scoring engine |
-| `app/globals.css` | All custom CSS including model colors, glows, eliminated states |
-| `tailwind.config.js` | Extended theme with model colors |
-| `data/models/*.json` | Bracket data per model |
-| `data/results/actual-results.json` | Real tournament results |
+| `lib/blog.ts` | MDX reader utility (getAllPosts, getPostBySlug) |
+| `app/globals.css` | All custom CSS including model colors, glows, eliminated states, hero animations |
+| `tailwind.config.js` | Extended theme with model colors and lab.* tokens |
+| `data/models/*.json` | 2026 bracket data per model |
+| `data/results/actual-results.json` | 2026 real tournament results |
+| `data/archive/2025/` | Archived 2025 tournament data (verified) |
+| `data/README.md` | Data integrity and verification policy |
+| `app/brackets/BracketsClient.tsx` | Client-side bracket page with model tabs + year toggle |
+| `components/VoteWidget.tsx` | Voting widget (localStorage + seeded counts) |
 | `docs/` | All project documentation |
