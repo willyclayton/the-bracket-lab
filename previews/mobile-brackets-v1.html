@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brackets Mobile V1 — Stacked Centered Header</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; gap: 20px; }
+  .label { color: #555; font-size: 11px; font-family: monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+  .device { width: 390px; background: #141414; border: 1px solid #333; border-radius: 24px; overflow: hidden; box-shadow: 0 0 60px rgba(0,0,0,0.8); }
+  .title-card { color: #fff; font-size: 13px; font-family: monospace; background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 8px 12px; margin-bottom: 20px; }
+
+  /* Nav */
+  nav { background: rgba(20,20,20,0.9); border-bottom: 1px solid #222; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-size: 15px; font-weight: 700; color: #efefef; letter-spacing: -0.01em; }
+  .nav-menu { display: flex; gap: 12px; }
+  .nav-link { font-size: 11px; color: #888; font-family: monospace; }
+  .nav-link.active { color: #efefef; }
+
+  /* Page content */
+  .page { padding: 16px; }
+
+  /* V1: Stacked Centered Header */
+  .header-centered { text-align: center; margin-bottom: 16px; }
+  .header-centered h1 { font-size: 26px; color: #efefef; font-family: Georgia, serif; margin-bottom: 4px; }
+  .header-centered p { font-size: 11px; color: #666; margin-bottom: 12px; }
+  .year-toggle-centered { display: flex; justify-content: center; gap: 6px; }
+  .year-btn { font-family: monospace; font-size: 11px; padding: 5px 14px; border-radius: 8px; border: 1px solid #333; color: #666; background: transparent; cursor: pointer; }
+  .year-btn.active { border-color: #888; color: #efefef; background: #1e1e1e; }
+
+  /* Model tabs */
+  .model-tabs { display: flex; border-bottom: 1px solid #222; overflow-x: auto; scrollbar-width: none; }
+  .model-tabs::-webkit-scrollbar { display: none; }
+  .model-tab { flex-shrink: 0; display: flex; align-items: center; gap: 5px; padding: 8px 14px; font-size: 11px; font-weight: 600; color: #888; white-space: nowrap; position: relative; cursor: pointer; }
+  .model-tab.active { color: #efefef; }
+  .model-tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; }
+
+  /* Summary strip */
+  .summary-strip { display: flex; background: #1a1a1a; border: 1px solid #2a2a2a; border-top: none; margin-bottom: 12px; }
+  .stat-cell { flex: 1; text-align: center; padding: 7px 6px; border-right: 1px solid #2a2a2a; }
+  .stat-cell:last-child { border-right: none; }
+  .stat-label { font-family: monospace; font-size: 8px; color: #555; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 2px; }
+  .stat-val { font-family: monospace; font-size: 12px; font-weight: 600; }
+
+  /* Mobile controls — single combined row */
+  .mobile-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .view-toggle { display: flex; background: #1e1e1e; border: 1px solid #333; border-radius: 6px; overflow: hidden; }
+  .view-btn { padding: 5px 10px; font-size: 10px; font-family: monospace; text-transform: uppercase; color: #666; cursor: pointer; }
+  .view-btn.active { background: #333; color: #efefef; }
+  .region-pills { display: flex; gap: 5px; flex-wrap: nowrap; }
+  .region-pill { padding: 3px 9px; border-radius: 99px; border: 1px solid #333; font-size: 10px; font-weight: 600; color: #888; cursor: pointer; text-transform: capitalize; }
+  .region-pill.active { border-color: transparent; color: #141414; }
+
+  /* Cards panel — NO region pills inside */
+  .cards-panel { border: 1px solid #2a2a2a; border-radius: 8px; background: #1a1a1a; overflow: hidden; }
+  .cards-panel-body { padding: 8px; }
+  .round-label { display: flex; align-items: center; gap: 8px; margin: 10px 0 6px; }
+  .round-label span { flex: 1; height: 1px; background: #252525; }
+  .round-label em { font-family: monospace; font-size: 9px; color: #555; text-transform: uppercase; font-style: normal; letter-spacing: 0.08em; }
+  .matchup-card { border: 1px solid #2a2a2a; border-left-width: 3px; border-radius: 6px; background: #1e1e1e; margin-bottom: 5px; overflow: hidden; display: flex; }
+  .matchup-teams { flex: 1; }
+  .team-row { display: flex; align-items: center; gap: 6px; padding: 6px 8px; font-size: 11px; }
+  .team-row:first-child { border-bottom: 1px solid #252525; }
+  .seed-badge { font-family: monospace; font-size: 8px; color: #888; background: #252525; width: 18px; height: 18px; border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .team-name { flex: 1; font-size: 11px; color: #bbb; }
+  .team-name.pick { color: #efefef; font-weight: 600; }
+  .conf-side { width: 36px; border-left: 1px solid #252525; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .conf-val { font-family: monospace; font-size: 10px; font-weight: 500; }
+
+  .annotation { font-size: 10px; color: #22c55e; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); border-radius: 6px; padding: 6px 10px; margin-top: 8px; font-family: monospace; }
+  .annotation.red { color: #ef4444; background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2); }
+</style>
+</head>
+<body>
+  <div class="label">V1 — Stacked Centered Header · 390px mobile</div>
+  <div class="title-card">Brackets page — mobile. Key changes: title+subtitle centered, year toggle centered below, single set of region pills in controls row (removed from BracketCardsPanel internal header).</div>
+
+  <div class="device">
+    <!-- Nav -->
+    <nav>
+      <span class="nav-logo">The Bracket Lab</span>
+      <div class="nav-menu">
+        <span class="nav-link">Home</span>
+        <span class="nav-link active">Brackets</span>
+        <span class="nav-link">Blog</span>
+      </div>
+    </nav>
+
+    <div class="page">
+      <!-- Centered header -->
+      <div class="header-centered">
+        <h1>2026 Brackets</h1>
+        <p>Side-by-side card stack and bracket view. Click any matchup.</p>
+        <div class="year-toggle-centered">
+          <button class="year-btn active">2026</button>
+          <button class="year-btn">2025</button>
+        </div>
+      </div>
+
+      <!-- Model tabs -->
+      <div class="model-tabs">
+        <div class="model-tab active" style="--c:#3b82f6">
+          <div class="dot" style="background:#3b82f6"></div>
+          The Scout
+          <span style="position:absolute;bottom:0;left:0;right:0;height:2px;background:#3b82f6"></span>
+        </div>
+        <div class="model-tab">
+          <div class="dot" style="background:#22c55e"></div>
+          The Quant
+        </div>
+        <div class="model-tab">
+          <div class="dot" style="background:#f59e0b"></div>
+          The Historian
+        </div>
+        <div class="model-tab">
+          <div class="dot" style="background:#ef4444"></div>
+          Chaos
+        </div>
+        <div class="model-tab">
+          <div class="dot" style="background:#00ff88"></div>
+          The Agent
+        </div>
+      </div>
+
+      <!-- Summary strip -->
+      <div class="summary-strip">
+        <div class="stat-cell"><span class="stat-label">Score</span><span class="stat-val" style="color:#3b82f6">—</span></div>
+        <div class="stat-cell"><span class="stat-label">Accuracy</span><span class="stat-val" style="color:#efefef">—</span></div>
+        <div class="stat-cell"><span class="stat-label">Champion</span><span class="stat-val" style="color:#3b82f6">—</span></div>
+        <div class="stat-cell"><span class="stat-label">Upsets</span><span class="stat-val" style="color:#efefef">—</span></div>
+      </div>
+
+      <!-- Mobile controls: view toggle + region pills — SINGLE ROW -->
+      <div class="mobile-controls">
+        <div class="view-toggle">
+          <div class="view-btn active">Cards</div>
+          <div class="view-btn">Bracket</div>
+        </div>
+        <div class="region-pills">
+          <div class="region-pill active" style="background:#3b82f6">East</div>
+          <div class="region-pill">West</div>
+          <div class="region-pill">South</div>
+          <div class="region-pill">MW</div>
+          <div class="region-pill">FF</div>
+        </div>
+      </div>
+
+      <!-- Cards panel — no region pills inside header -->
+      <div class="cards-panel">
+        <div class="cards-panel-body">
+          <div class="annotation">✓ Region pills only appear above — NOT inside this panel</div>
+
+          <div class="round-label"><span></span><em>Round of 64</em><span></span></div>
+          <div class="matchup-card" style="border-left-color:#3b82f6">
+            <div class="matchup-teams">
+              <div class="team-row"><div class="seed-badge">1</div><span class="team-name pick">Duke</span></div>
+              <div class="team-row"><div class="seed-badge">16</div><span class="team-name">FAMU</span></div>
+            </div>
+            <div class="conf-side"><span class="conf-val" style="color:#3b82f6">94%</span></div>
+          </div>
+          <div class="matchup-card" style="border-left-color:#3b82f6">
+            <div class="matchup-teams">
+              <div class="team-row"><div class="seed-badge">2</div><span class="team-name">Auburn</span></div>
+              <div class="team-row"><div class="seed-badge">15</div><span class="team-name pick">UCSB</span></div>
+            </div>
+            <div class="conf-side"><span class="conf-val" style="color:#3b82f6">58%</span></div>
+          </div>
+
+          <div class="round-label"><span></span><em>Round of 32</em><span></span></div>
+          <div class="matchup-card" style="border-left-color:#3b82f6">
+            <div class="matchup-teams">
+              <div class="team-row"><div class="seed-badge">1</div><span class="team-name pick">Duke</span></div>
+              <div class="team-row"><div class="seed-badge">9</div><span class="team-name">Michigan St</span></div>
+            </div>
+            <div class="conf-side"><span class="conf-val" style="color:#3b82f6">81%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="title-card" style="width:390px">
+    <strong style="color:#22c55e">Fixes applied in V1:</strong><br>
+    • Title + subtitle centered (not left-aligned)<br>
+    • Year toggle centered below subtitle<br>
+    • Region pills removed from BracketCardsPanel internal header<br>
+    • Single pill row in mobile controls only<br>
+    • Nav title stays on one line (unchanged here, fix in layout.tsx)
+  </div>
+</body>
+</html>

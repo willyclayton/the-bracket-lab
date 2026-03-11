@@ -147,21 +147,29 @@ export default function BracketsClient() {
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 py-12">
-      {/* Page header */}
-      <div className="mb-5 flex items-end justify-between">
+      {/* Page header — V3: title left, year chip right */}
+      <div className="mb-5 flex items-center justify-between">
         <div>
           <h1
             className="text-[32px] text-lab-white mb-1"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
-            {activeYear} Brackets
+            Brackets
           </h1>
-          <p className="text-sm text-lab-muted">
+          <p className="hidden sm:block text-sm text-lab-muted">
             Side-by-side card stack and bracket view. Click any matchup for details.
           </p>
         </div>
-        {/* Year toggle */}
-        <div className="flex gap-1 flex-shrink-0">
+        {/* Mobile: single year chip that toggles */}
+        <button
+          className="sm:hidden flex items-center gap-1 font-mono text-xs px-3 py-1.5 rounded-lg border flex-shrink-0 transition-all"
+          style={{ borderColor: '#888', color: '#efefef', background: '#1e1e1e' }}
+          onClick={() => selectYear(activeYear === '2026' ? '2025' : '2026')}
+        >
+          {activeYear} &#9662;
+        </button>
+        {/* Desktop: original two-button toggle */}
+        <div className="hidden sm:flex gap-1 flex-shrink-0">
           {VALID_YEARS.map((year) => (
             <button
               key={year}

@@ -131,7 +131,7 @@ export default function ModelDetailTabs({ model, bracket }: ModelDetailTabsProps
               <button
                 key={m}
                 onClick={() => setActiveMetric(m)}
-                className={`px-4 py-[7px] rounded-full border text-[13px] font-medium transition-all whitespace-nowrap ${
+                className={`px-2.5 py-1 rounded-full border text-[11px] font-medium transition-all whitespace-nowrap ${
                   activeMetric === m ? '' : 'border-lab-border text-lab-muted hover:border-[#555] hover:text-lab-white'
                 }`}
                 style={

@@ -76,8 +76,7 @@ export default function ModelPage({ params }: { params: { slug: string } }) {
                 className="w-2 h-2 rounded-full flex-shrink-0"
                 style={{ background: m.color }}
               />
-              <span className="hidden sm:inline">{m.name}</span>
-              <span className="sm:hidden">{m.icon}</span>
+              <span>{m.name}</span>
             </Link>
           );
         })}
@@ -104,7 +103,7 @@ export default function ModelPage({ params }: { params: { slug: string } }) {
         style={{ borderTopWidth: '3px', borderTopColor: model.color }}
       >
         {/* Left: emoji + name + tagline */}
-        <div className="flex items-center gap-5 flex-1 min-w-[280px]">
+        <div className="flex items-center gap-5 flex-1">
           <div
             className="w-[72px] h-[72px] rounded-2xl flex items-center justify-center text-[44px] flex-shrink-0 border"
             style={{
@@ -130,37 +129,23 @@ export default function ModelPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* Right: stat tiles */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 gap-2.5 flex-shrink-0">
-          <div className="bg-lab-bg border border-[#2a2a2a] rounded-lg px-3.5 py-3 min-w-[100px]">
-            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">
-              Score
-            </span>
-            <span className="text-[22px] font-bold leading-none" style={{ color: model.color }}>
-              &mdash;
-            </span>
+        {/* Right: horizontal stat bar */}
+        <div className="flex border border-[#2a2a2a] rounded-lg overflow-hidden flex-shrink-0">
+          <div className="flex-1 text-center py-2.5 px-2 border-r border-[#2a2a2a]">
+            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">Score</span>
+            <span className="font-mono text-sm font-bold leading-none" style={{ color: model.color }}>&mdash;</span>
           </div>
-          <div className="bg-lab-bg border border-[#2a2a2a] rounded-lg px-3.5 py-3 min-w-[100px]">
-            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">
-              Rank
-            </span>
-            <span className="text-lg font-bold text-lab-white leading-none">
-              &mdash;
-            </span>
+          <div className="flex-1 text-center py-2.5 px-2 border-r border-[#2a2a2a]">
+            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">Rank</span>
+            <span className="font-mono text-sm font-bold text-lab-white leading-none">&mdash;</span>
           </div>
-          <div className="bg-lab-bg border border-[#2a2a2a] rounded-lg px-3.5 py-3 min-w-[100px]">
-            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">
-              Accuracy
-            </span>
-            <span className="text-[22px] font-bold leading-none" style={{ color: model.color }}>
-              &mdash;
-            </span>
+          <div className="flex-1 text-center py-2.5 px-2 border-r border-[#2a2a2a]">
+            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">Accuracy</span>
+            <span className="font-mono text-sm font-bold leading-none" style={{ color: model.color }}>&mdash;</span>
           </div>
-          <div className="bg-lab-bg border border-[#2a2a2a] rounded-lg px-3.5 py-3 min-w-[100px]">
-            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">
-              Champion
-            </span>
-            <span className="text-lg font-bold text-lab-white leading-none">
+          <div className="flex-1 text-center py-2.5 px-2">
+            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">Champion</span>
+            <span className="font-mono text-sm font-bold text-lab-white leading-none">
               {bracket?.champion ?? '\u2014'}
             </span>
           </div>

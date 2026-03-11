@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <nav className="sticky top-0 z-40 border-b border-lab-border bg-lab-bg/80 backdrop-blur-md">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
             <Link href="/" className="flex items-center gap-2 group">
-              <span className="text-lg font-bold tracking-tight text-lab-white group-hover:text-scout transition-colors">
+              <span className="text-base sm:text-lg font-bold tracking-tight text-lab-white group-hover:text-scout transition-colors">
                 The Bracket Lab
               </span>
               <span className="hidden sm:inline text-xs font-mono text-lab-muted border border-lab-border rounded px-2 py-0.5">

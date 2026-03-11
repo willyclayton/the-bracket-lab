@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Models Mobile V4 — Name + Color Bar Header</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; gap: 20px; }
+  .label { color: #555; font-size: 11px; font-family: monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+  .device { width: 390px; background: #141414; border: 1px solid #333; border-radius: 24px; overflow: hidden; box-shadow: 0 0 60px rgba(0,0,0,0.8); }
+  .title-card { color: #fff; font-size: 13px; font-family: monospace; background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 8px; padding: 8px 12px; margin-bottom: 20px; }
+
+  nav { background: rgba(20,20,20,0.9); border-bottom: 1px solid #222; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-size: 15px; font-weight: 700; color: #efefef; }
+  .nav-menu { display: flex; gap: 12px; }
+  .nav-link { font-size: 11px; color: #888; font-family: monospace; }
+  .nav-link.active { color: #efefef; }
+
+  .page { padding: 12px; }
+
+  /* V4: All names in nav with dots below them as colored indicators -->  */
+  .model-nav-v4 { display: flex; gap: 2px; margin-bottom: 14px; overflow-x: auto; scrollbar-width: none; align-items: flex-start; }
+  .model-nav-v4::-webkit-scrollbar { display: none; }
+  .model-nav-item { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 4px 8px; border-radius: 6px; cursor: pointer; }
+  .model-nav-item.active { background: rgba(255,255,255,0.04); }
+  .model-nav-name { font-family: monospace; font-size: 10px; color: #666; white-space: nowrap; }
+  .model-nav-item.active .model-nav-name { color: #efefef; }
+  .model-nav-dot { width: 14px; height: 3px; border-radius: 2px; }
+  .model-nav-item.active .model-nav-dot { opacity: 1; }
+  .model-nav-dot { opacity: 0.4; }
+
+  .header-card { background: #1e1e1e; border: 1px solid #2a2a2a; border-top-width: 3px; border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
+  /* Color bar left side accent -->  */
+  .header-inner { display: flex; }
+  .color-bar { width: 4px; background: #3b82f6; flex-shrink: 0; }
+  .header-content { flex: 1; padding: 14px; }
+  .header-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .model-icon { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
+  .model-name { font-size: 22px; font-weight: 700; line-height: 1; margin-bottom: 3px; }
+  .model-tagline { font-size: 11px; color: #888; font-style: italic; }
+
+  /* V4: inline label:value pairs instead of tiles -->  */
+  .stats-pairs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+  .stat-pair { display: flex; flex-direction: column; }
+  .stat-label { font-family: monospace; font-size: 8px; color: #555; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+  .stat-val { font-size: 15px; font-weight: 700; line-height: 1; }
+
+  .tab-bar { display: flex; border-bottom: 1px solid #222; margin-bottom: 14px; }
+  .tab { padding: 8px 12px; font-size: 12px; font-weight: 500; color: #555; position: relative; }
+  .tab.active { color: #3b82f6; }
+  .tab.active::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: #3b82f6; }
+
+  /* V4: 2 pills per row -->  */
+  .metric-pills { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 14px; }
+  .metric-pill { padding: 6px 10px; border-radius: 8px; border: 1px solid #2a2a2a; font-size: 11px; font-weight: 500; color: #666; text-align: center; }
+  .metric-pill.active { background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.5); color: #3b82f6; }
+
+  .annotation { font-size: 10px; color: #22c55e; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); border-radius: 6px; padding: 6px 10px; font-family: monospace; }
+</style>
+</head>
+<body>
+  <div class="label">V4 — Name + Color Bar Header · 390px mobile</div>
+  <div class="title-card">Nav shows abbreviated names in monospace with colored underbar indicators. Header has left color-bar accent. Pills in 2×2 grid.</div>
+
+  <div class="device">
+    <nav>
+      <span class="nav-logo">The Bracket Lab</span>
+      <div class="nav-menu">
+        <span class="nav-link">Home</span>
+        <span class="nav-link">Brackets</span>
+        <span class="nav-link active">Models</span>
+      </div>
+    </nav>
+
+    <div class="page">
+      <!-- V4 model nav: short names + colored dot-bars below -->
+      <div class="model-nav-v4">
+        <div class="model-nav-item active">
+          <span class="model-nav-name">Scout</span>
+          <div class="model-nav-dot" style="background:#3b82f6;opacity:1"></div>
+        </div>
+        <div class="model-nav-item">
+          <span class="model-nav-name">Quant</span>
+          <div class="model-nav-dot" style="background:#22c55e"></div>
+        </div>
+        <div class="model-nav-item">
+          <span class="model-nav-name">Historian</span>
+          <div class="model-nav-dot" style="background:#f59e0b"></div>
+        </div>
+        <div class="model-nav-item">
+          <span class="model-nav-name">Chaos</span>
+          <div class="model-nav-dot" style="background:#ef4444"></div>
+        </div>
+        <div class="model-nav-item">
+          <span class="model-nav-name">Agent</span>
+          <div class="model-nav-dot" style="background:#00ff88"></div>
+        </div>
+      </div>
+
+      <!-- Header card with left color bar -->
+      <div class="header-card" style="border-top-color:#3b82f6">
+        <div class="header-inner">
+          <div class="color-bar"></div>
+          <div class="header-content">
+            <div class="header-top">
+              <div class="model-icon" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2)">🎬</div>
+              <div>
+                <div class="model-name" style="color:#3b82f6">The Scout</div>
+                <div class="model-tagline">"Film room intelligence at machine speed."</div>
+              </div>
+            </div>
+
+            <!-- Stats as 2×2 inline pairs -->
+            <div class="stats-pairs">
+              <div class="stat-pair">
+                <span class="stat-label">Score</span>
+                <span class="stat-val" style="color:#3b82f6">—</span>
+              </div>
+              <div class="stat-pair">
+                <span class="stat-label">Rank</span>
+                <span class="stat-val" style="color:#efefef">—</span>
+              </div>
+              <div class="stat-pair">
+                <span class="stat-label">Accuracy</span>
+                <span class="stat-val" style="color:#3b82f6">—</span>
+              </div>
+              <div class="stat-pair">
+                <span class="stat-label">Champion</span>
+                <span class="stat-val" style="color:#efefef;font-size:13px">Duke</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tab-bar">
+        <div class="tab active">Overview</div>
+        <div class="tab">Bracket</div>
+        <div class="tab">Method</div>
+        <div class="tab">ESPN</div>
+      </div>
+
+      <!-- Metric pills: 2×2 grid -->
+      <div class="metric-pills">
+        <div class="metric-pill active">By Round</div>
+        <div class="metric-pill">Upsets</div>
+        <div class="metric-pill">Confidence</div>
+        <div class="metric-pill">Seeds</div>
+      </div>
+
+      <div class="annotation">✓ Monospace names in nav · left color bar · inline stat pairs · 2×2 pills</div>
+    </div>
+  </div>
+
+  <div class="title-card" style="width:390px">
+    <strong style="color:#22c55e">V4 distinctive traits:</strong><br>
+    • Nav uses short monospace names + colored bar indicators (no dots)<br>
+    • Header has left vertical color bar accent (different visual language)<br>
+    • Stats as flat inline label:value pairs — no tiles<br>
+    • Metric pills in 2×2 grid — each pill full width → guaranteed no overflow<br>
+    • Tabs use "Method" abbreviation to fit 4 tabs on one line
+  </div>
+</body>
+</html>
