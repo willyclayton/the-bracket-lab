@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MODELS } from '@/lib/models';
 import { BracketData } from '@/lib/types';
 import ModelDetailTabs from '@/components/ModelDetailTabs';
+import ModelNavStrip from '@/components/ModelNavStrip';
 
 import scoutData     from '@/data/models/the-scout.json';
 import quantData     from '@/data/models/the-quant.json';
@@ -35,67 +35,12 @@ export default function ModelPage({ params }: { params: { slug: string } }) {
   const model = MODELS.find((m) => m.slug === params.slug);
   if (!model) notFound();
 
-  const index = MODELS.findIndex((m) => m.slug === params.slug);
-  const prevModel = index > 0 ? MODELS[index - 1] : null;
-  const nextModel = index < MODELS.length - 1 ? MODELS[index + 1] : null;
   const bracket = BRACKET_MAP[model.id] ?? null;
 
   return (
     <div className="mx-auto max-w-[900px] px-6 pt-6 pb-16">
       {/* ---- Model nav strip ---- */}
-      <div className="flex items-center gap-1 mb-6 overflow-x-auto pb-1">
-        {/* Prev arrow */}
-        {prevModel ? (
-          <Link
-            href={`/models/${prevModel.slug}`}
-            className="flex-shrink-0 w-8 h-8 rounded-lg border border-lab-border flex items-center justify-center text-lab-muted hover:text-lab-white hover:border-lab-muted transition-all text-sm"
-            aria-label={`Previous: ${prevModel.name}`}
-          >
-            &#8592;
-          </Link>
-        ) : (
-          <span className="flex-shrink-0 w-8 h-8 rounded-lg border border-lab-border flex items-center justify-center text-[#333] text-sm">
-            &#8592;
-          </span>
-        )}
-
-        {/* Model buttons */}
-        {MODELS.map((m) => {
-          const isCurrent = m.id === model.id;
-          return (
-            <Link
-              key={m.id}
-              href={`/models/${m.slug}`}
-              className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                isCurrent
-                  ? 'bg-white/[0.08] text-lab-white'
-                  : 'text-lab-muted hover:text-lab-white'
-              }`}
-            >
-              <span
-                className="w-2 h-2 rounded-full flex-shrink-0"
-                style={{ background: m.color }}
-              />
-              <span>{m.name}</span>
-            </Link>
-          );
-        })}
-
-        {/* Next arrow */}
-        {nextModel ? (
-          <Link
-            href={`/models/${nextModel.slug}`}
-            className="flex-shrink-0 w-8 h-8 rounded-lg border border-lab-border flex items-center justify-center text-lab-muted hover:text-lab-white hover:border-lab-muted transition-all text-sm"
-            aria-label={`Next: ${nextModel.name}`}
-          >
-            &#8594;
-          </Link>
-        ) : (
-          <span className="flex-shrink-0 w-8 h-8 rounded-lg border border-lab-border flex items-center justify-center text-[#333] text-sm">
-            &#8594;
-          </span>
-        )}
-      </div>
+      <ModelNavStrip currentSlug={params.slug} />
 
       {/* ---- Header card with stat tiles ---- */}
       <div

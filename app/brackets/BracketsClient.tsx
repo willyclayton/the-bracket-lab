@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { MODELS, ROUND_LABELS } from '@/lib/models';
@@ -94,6 +94,12 @@ export default function BracketsClient() {
 
   const bracket = BRACKET_DATA[activeYear][activeModelId];
   const results = ALL_RESULTS[activeYear];
+
+  const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  useEffect(() => {
+    const el = tabRefs.current[activeModelId];
+    if (el) el.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+  }, [activeModelId]);
 
   const [currentRegion, setCurrentRegion] = useState<Region>('east');
   const [mobileView, setMobileView] = useState<'cards' | 'bracket'>('cards');
@@ -194,6 +200,7 @@ export default function BracketsClient() {
           return (
             <button
               key={model.id}
+              ref={(el) => { tabRefs.current[model.id] = el; }}
               onClick={() => selectModel(model.id)}
               className="flex-shrink-0 flex items-center gap-[7px] px-5 py-2.5 text-[13px] font-semibold transition-all relative whitespace-nowrap"
               style={{ color: isActive ? '#efefef' : '#888' }}
