@@ -47,9 +47,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {' '}&middot;{' '}
                 <Link href="/about" className="text-lab-text hover:text-lab-white transition-colors underline underline-offset-2">About</Link>
                 {' '}&middot;{' '}
-                <a href="https://github.com/willclayton/the-bracket-lab" className="text-lab-text hover:text-lab-white transition-colors underline underline-offset-2">GitHub</a>
+                <a href="https://github.com/willyclayton" className="text-lab-text hover:text-lab-white transition-colors underline underline-offset-2">GitHub</a>
                 {' '}&middot;{' '}
-                <a href="https://linkedin.com/in/willclayton" className="text-lab-text hover:text-lab-white transition-colors underline underline-offset-2">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/willuclayton/" className="text-lab-text hover:text-lab-white transition-colors underline underline-offset-2">LinkedIn</a>
               </p>
               <p className="text-xs text-lab-muted font-mono">
                 Built by{' '}
