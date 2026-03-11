@@ -5,11 +5,21 @@ import { ROUND_LABELS } from '@/lib/models';
 import type { GamesByRegion } from './BracketCardsPanel';
 
 const ROUND_KEYS = ['round_of_64', 'round_of_32', 'sweet_16', 'elite_8'] as const;
-const ROUND_SPACING: Record<string, number> = {
-  round_of_64: 2,
-  round_of_32: 10,
-  sweet_16: 26,
-  elite_8: 54,
+
+// Bracket funnel layout: each later round is vertically centered between its feeder matchups.
+// SLOT_H = approximate rendered height of one MatchupSlot (2 team rows + borders).
+// BASE_GAP = vertical space between R64 matchups.
+// UNIT = one "slot unit" in the grid (slot + gap).
+// For round N (0-indexed): offset = (2^N - 1) * UNIT / 2, gap = 2^N * UNIT - SLOT_H
+const SLOT_H = 42;
+const BASE_GAP = 4;
+const UNIT = SLOT_H + BASE_GAP;
+
+const ROUND_LAYOUT: Record<string, { offset: number; gap: number }> = {
+  round_of_64: { offset: 0, gap: BASE_GAP },
+  round_of_32: { offset: Math.round(UNIT / 2), gap: Math.round(UNIT * 2 - SLOT_H) },
+  sweet_16:    { offset: Math.round(UNIT * 1.5), gap: Math.round(UNIT * 4 - SLOT_H) },
+  elite_8:     { offset: Math.round(UNIT * 3.5), gap: 0 },
 };
 
 interface BracketGridPanelProps {
@@ -34,7 +44,7 @@ function MatchupSlot({
   isHighlighted: boolean;
   onClick: () => void;
   winnerMap: Record<string, string>;
-  marginTop: number;
+  marginTop?: number;
 }) {
   const isPick1 = game.pick === game.team1;
   const isPick2 = game.pick === game.team2;
@@ -47,7 +57,7 @@ function MatchupSlot({
         isWrong ? 'border-red-500/30' : ''
       } ${isHighlighted ? 'border-current shadow-[0_0_0_1px_currentColor]' : ''}`}
       style={{
-        marginTop: `${marginTop}px`,
+        marginTop: marginTop ? `${marginTop}px` : undefined,
         marginLeft: '3px',
         marginRight: '3px',
         color: isHighlighted ? modelColor : undefined,
@@ -130,7 +140,6 @@ function RegionBracket({
   reverse?: boolean;
 }) {
   const regionData = gamesByRegion[region] ?? {};
-  const rounds = reverse ? [...ROUND_KEYS].reverse() : [...ROUND_KEYS];
 
   return (
     <div>
@@ -138,9 +147,9 @@ function RegionBracket({
         {region}
       </div>
       <div className={`flex items-start ${reverse ? 'flex-row-reverse' : ''}`}>
-        {rounds.map((roundKey) => {
+        {ROUND_KEYS.map((roundKey) => {
           const games = regionData[roundKey] ?? [];
-          const spacing = ROUND_SPACING[roundKey] ?? 2;
+          const layout = ROUND_LAYOUT[roundKey] ?? { offset: 0, gap: BASE_GAP };
           const label = ROUND_LABELS[roundKey] ?? roundKey;
 
           return (
@@ -148,17 +157,19 @@ function RegionBracket({
               <div className="font-mono text-[8px] text-[#444] uppercase tracking-wider text-center mb-1">
                 {label}
               </div>
-              {games.map((game, idx) => (
-                <MatchupSlot
-                  key={game.gameId}
-                  game={game}
-                  modelColor={modelColor}
-                  isHighlighted={highlightedMatchId === game.gameId}
-                  onClick={() => onMatchClick(game.gameId, game, label)}
-                  winnerMap={winnerMap}
-                  marginTop={idx > 0 ? spacing : 0}
-                />
-              ))}
+              <div style={{ paddingTop: layout.offset }}>
+                {games.map((game, idx) => (
+                  <MatchupSlot
+                    key={game.gameId}
+                    game={game}
+                    modelColor={modelColor}
+                    isHighlighted={highlightedMatchId === game.gameId}
+                    onClick={() => onMatchClick(game.gameId, game, label)}
+                    winnerMap={winnerMap}
+                    marginTop={idx > 0 ? layout.gap : undefined}
+                  />
+                ))}
+              </div>
             </div>
           );
         })}
@@ -186,10 +197,10 @@ export default function BracketGridPanel({
       </div>
       <div className="flex-1 overflow-auto p-3 bracket-panel-scroll">
         <div className="flex items-start min-w-[850px]">
-          {/* Left side: East + West (L-to-R) */}
+          {/* Left side: South + West (L-to-R, funnel right) */}
           <div className="flex flex-col gap-5">
             <RegionBracket
-              region="east"
+              region="south"
               gamesByRegion={gamesByRegion}
               modelColor={modelColor}
               highlightedMatchId={highlightedMatchId}
@@ -247,10 +258,10 @@ export default function BracketGridPanel({
             </div>
           </div>
 
-          {/* Right side: South + Midwest (R-to-L) */}
+          {/* Right side: East + Midwest (R-to-L, funnel left) */}
           <div className="flex flex-col gap-5">
             <RegionBracket
-              region="south"
+              region="east"
               gamesByRegion={gamesByRegion}
               modelColor={modelColor}
               highlightedMatchId={highlightedMatchId}
