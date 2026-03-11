@@ -30,6 +30,7 @@ interface BracketGridPanelProps {
   onMatchClick: (matchId: string, game: Game, roundLabel: string) => void;
   winnerMap: Record<string, string>;
   eliminatedTeams: Set<string>;
+  bustedModelPicks: Set<string>;
 }
 
 function MatchupSlot({
@@ -39,6 +40,7 @@ function MatchupSlot({
   onClick,
   winnerMap,
   eliminatedTeams,
+  bustedModelPicks,
   marginTop,
 }: {
   game: Game;
@@ -47,81 +49,110 @@ function MatchupSlot({
   onClick: () => void;
   winnerMap: Record<string, string>;
   eliminatedTeams: Set<string>;
+  bustedModelPicks: Set<string>;
   marginTop?: number;
 }) {
   const isPick1 = game.pick === game.team1;
   const isPick2 = game.pick === game.team2;
   const result = winnerMap[game.gameId];
+  const isCorrect = result ? game.pick === result : undefined;
   const isWrong = result ? game.pick !== result : false;
   const isBusted = !result && game.pick && eliminatedTeams.has(game.pick);
 
+  const teamState = (team: string, isPick: boolean) => {
+    if (isPick) {
+      if (isCorrect) return 'correct';
+      if (isWrong) return 'wrong';
+      if (isBusted) return 'busted-pick';
+      return 'pending';
+    }
+    if (bustedModelPicks.has(team)) return 'ghost';
+    return 'normal';
+  };
+  const state1 = teamState(game.team1, isPick1);
+  const state2 = teamState(game.team2, isPick2);
+
+  const textCls: Record<string, string> = {
+    correct: 'text-[#ddd] font-semibold',
+    wrong: 'text-red-500 line-through font-semibold',
+    'busted-pick': 'text-red-500 line-through font-semibold',
+    pending: 'text-[#ddd] font-semibold',
+    ghost: 'text-[#444]',
+    normal: 'text-[#777]',
+  };
+  const rowBg: Record<string, string> = {
+    correct: 'bg-green-500/[0.08]',
+    wrong: 'bg-red-500/[0.08]',
+    'busted-pick': 'bg-red-500/[0.08]',
+    pending: 'bg-white/[0.04]',
+    ghost: 'bg-black/20',
+    normal: '',
+  };
+
   return (
     <div
-      className={`bg-lab-surface border border-[#252525] rounded-[3px] overflow-hidden cursor-pointer transition-all w-[110px] relative ${
-        isWrong || isBusted ? 'border-red-500/30' : ''
+      className={`border border-[#252525] rounded-[3px] overflow-hidden cursor-pointer transition-all w-[110px] relative ${
+        isWrong ? 'border-red-500/30' : ''
       } ${isHighlighted ? 'border-current shadow-[0_0_0_1px_currentColor]' : ''}`}
       style={{
         marginTop: marginTop ? `${marginTop}px` : undefined,
         marginLeft: '3px',
         marginRight: '3px',
         color: isHighlighted ? modelColor : undefined,
-        opacity: isBusted ? 0.3 : undefined,
+        background: isBusted ? 'rgba(239,68,68,0.05)' : '#1e1e1e',
       }}
       onClick={onClick}
     >
-      {/* Team 1 */}
-      <div
-        className={`flex items-center gap-[3px] px-[5px] py-[3px] text-[9px] border-b border-[#1a1a1a] ${
-          isPick1 ? 'bg-white/[0.04]' : ''
-        }`}
-      >
-        <span className="font-mono text-[8px] text-[#555] w-[11px] text-right flex-shrink-0">
-          {game.seed1}
+      {isBusted && (
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 font-mono text-[7px] font-black text-red-500/25 tracking-[2px] uppercase pointer-events-none z-10">
+          BUSTED
         </span>
-        <span
-          className={`text-[9px] whitespace-nowrap overflow-hidden text-ellipsis flex-1 ${
-            isPick1
-              ? isWrong || isBusted
-                ? 'text-red-500 line-through font-semibold'
-                : 'text-[#ddd] font-semibold'
-              : 'text-[#777]'
-          }`}
+      )}
+      <div className={isBusted ? 'opacity-[0.35]' : undefined}>
+        {/* Team 1 */}
+        <div
+          className={`flex items-center gap-[3px] px-[5px] py-[3px] text-[9px] border-b border-[#1a1a1a] ${rowBg[state1]}`}
         >
-          {game.team1}
-        </span>
-        {isPick1 && !isWrong && !isBusted && (
+          <span className="font-mono text-[8px] text-[#555] w-[11px] text-right flex-shrink-0">
+            {game.seed1}
+          </span>
           <span
-            className="w-[3px] h-[3px] rounded-full flex-shrink-0"
-            style={{ background: modelColor }}
-          />
-        )}
-      </div>
-      {/* Team 2 */}
-      <div
-        className={`flex items-center gap-[3px] px-[5px] py-[3px] text-[9px] ${
-          isPick2 ? 'bg-white/[0.04]' : ''
-        }`}
-      >
-        <span className="font-mono text-[8px] text-[#555] w-[11px] text-right flex-shrink-0">
-          {game.seed2}
-        </span>
-        <span
-          className={`text-[9px] whitespace-nowrap overflow-hidden text-ellipsis flex-1 ${
-            isPick2
-              ? isWrong || isBusted
-                ? 'text-red-500 line-through font-semibold'
-                : 'text-[#ddd] font-semibold'
-              : 'text-[#777]'
-          }`}
+            className={`text-[9px] whitespace-nowrap overflow-hidden text-ellipsis flex-1 ${textCls[state1]}`}
+          >
+            {game.team1}
+          </span>
+          {isPick1 && state1 === 'correct' && (
+            <span className="w-[3px] h-[3px] rounded-full bg-green-500 flex-shrink-0" />
+          )}
+          {isPick1 && state1 === 'pending' && (
+            <span
+              className="w-[3px] h-[3px] rounded-full flex-shrink-0"
+              style={{ background: modelColor }}
+            />
+          )}
+        </div>
+        {/* Team 2 */}
+        <div
+          className={`flex items-center gap-[3px] px-[5px] py-[3px] text-[9px] ${rowBg[state2]}`}
         >
-          {game.team2}
-        </span>
-        {isPick2 && !isWrong && !isBusted && (
+          <span className="font-mono text-[8px] text-[#555] w-[11px] text-right flex-shrink-0">
+            {game.seed2}
+          </span>
           <span
-            className="w-[3px] h-[3px] rounded-full flex-shrink-0"
-            style={{ background: modelColor }}
-          />
-        )}
+            className={`text-[9px] whitespace-nowrap overflow-hidden text-ellipsis flex-1 ${textCls[state2]}`}
+          >
+            {game.team2}
+          </span>
+          {isPick2 && state2 === 'correct' && (
+            <span className="w-[3px] h-[3px] rounded-full bg-green-500 flex-shrink-0" />
+          )}
+          {isPick2 && state2 === 'pending' && (
+            <span
+              className="w-[3px] h-[3px] rounded-full flex-shrink-0"
+              style={{ background: modelColor }}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
@@ -135,6 +166,7 @@ function RegionBracket({
   onMatchClick,
   winnerMap,
   eliminatedTeams,
+  bustedModelPicks,
   reverse,
 }: {
   region: string;
@@ -144,6 +176,7 @@ function RegionBracket({
   onMatchClick: (matchId: string, game: Game, roundLabel: string) => void;
   winnerMap: Record<string, string>;
   eliminatedTeams: Set<string>;
+  bustedModelPicks: Set<string>;
   reverse?: boolean;
 }) {
   const regionData = gamesByRegion[region] ?? {};
@@ -174,6 +207,7 @@ function RegionBracket({
                     onClick={() => onMatchClick(game.gameId, game, label)}
                     winnerMap={winnerMap}
                     eliminatedTeams={eliminatedTeams}
+                    bustedModelPicks={bustedModelPicks}
                     marginTop={idx > 0 ? layout.gap : undefined}
                   />
                 ))}
@@ -194,6 +228,7 @@ export default function BracketGridPanel({
   onMatchClick,
   winnerMap,
   eliminatedTeams,
+  bustedModelPicks,
 }: BracketGridPanelProps) {
   const ffGames = gamesByRegion['ff'] ?? {};
   const finalFour = ffGames['final_four'] ?? [];
@@ -216,6 +251,7 @@ export default function BracketGridPanel({
               onMatchClick={onMatchClick}
               winnerMap={winnerMap}
               eliminatedTeams={eliminatedTeams}
+              bustedModelPicks={bustedModelPicks}
             />
             <RegionBracket
               region="west"
@@ -225,6 +261,7 @@ export default function BracketGridPanel({
               onMatchClick={onMatchClick}
               winnerMap={winnerMap}
               eliminatedTeams={eliminatedTeams}
+              bustedModelPicks={bustedModelPicks}
             />
           </div>
 
@@ -242,6 +279,7 @@ export default function BracketGridPanel({
                 onClick={() => onMatchClick(game.gameId, game, 'F4')}
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
+                bustedModelPicks={bustedModelPicks}
                 marginTop={6}
               />
             ))}
@@ -254,6 +292,7 @@ export default function BracketGridPanel({
                 onClick={() => onMatchClick(game.gameId, game, 'Final')}
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
+                bustedModelPicks={bustedModelPicks}
                 marginTop={8}
               />
             ))}
@@ -281,6 +320,7 @@ export default function BracketGridPanel({
               onMatchClick={onMatchClick}
               winnerMap={winnerMap}
               eliminatedTeams={eliminatedTeams}
+              bustedModelPicks={bustedModelPicks}
               reverse
             />
             <RegionBracket
@@ -291,6 +331,7 @@ export default function BracketGridPanel({
               onMatchClick={onMatchClick}
               winnerMap={winnerMap}
               eliminatedTeams={eliminatedTeams}
+              bustedModelPicks={bustedModelPicks}
               reverse
             />
           </div>

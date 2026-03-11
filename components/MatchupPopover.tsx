@@ -13,11 +13,12 @@ interface MatchupPopoverProps {
   modelColor: string;
   winnerMap: Record<string, string>;
   eliminatedTeams: Set<string>;
+  bustedModelPicks: Set<string>;
   result?: ResultGame | null;
   onClose: () => void;
 }
 
-export default function MatchupPopover({ data, modelColor, winnerMap, eliminatedTeams, result, onClose }: MatchupPopoverProps) {
+export default function MatchupPopover({ data, modelColor, winnerMap, eliminatedTeams, bustedModelPicks, result, onClose }: MatchupPopoverProps) {
   if (!data) return null;
 
   const { game, roundLabel } = data;
@@ -87,66 +88,66 @@ export default function MatchupPopover({ data, modelColor, winnerMap, eliminated
 
         {/* Teams */}
         <div className="px-5 py-4 border-b border-[#2a2a2a]">
-          {/* Team 1 */}
-          <div className={`flex items-center gap-3 py-2.5 border-b border-[#252525]`}>
-            <span className="font-mono text-[11px] text-lab-muted bg-[#2a2a2a] w-[26px] h-[26px] rounded-[5px] flex items-center justify-center flex-shrink-0">
-              {game.seed1}
-            </span>
-            <span className={`flex-1 text-[15px] ${
-              isPick1
-                ? isWrong || isBusted
-                  ? 'text-red-500 line-through font-bold'
-                  : 'text-lab-white font-bold'
-                : actualWinner === game.team1
-                  ? 'text-green-500 font-bold'
-                  : 'text-[#bbb] font-medium'
-            }`}>
-              {game.team1}
-            </span>
-            {isPick1 && (
-              <span
-                className="font-mono text-[10px] px-2 py-0.5 rounded bg-white/[0.08] font-medium"
-                style={{ color: isWrong || isBusted ? '#ef4444' : modelColor }}
-              >
-                Pick
-              </span>
-            )}
-            {result && result.completed && (
-              <span className="font-mono text-[11px] text-lab-muted">
-                {result.score1}
-              </span>
-            )}
-          </div>
-          {/* Team 2 */}
-          <div className="flex items-center gap-3 py-2.5">
-            <span className="font-mono text-[11px] text-lab-muted bg-[#2a2a2a] w-[26px] h-[26px] rounded-[5px] flex items-center justify-center flex-shrink-0">
-              {game.seed2}
-            </span>
-            <span className={`flex-1 text-[15px] ${
-              isPick2
-                ? isWrong || isBusted
-                  ? 'text-red-500 line-through font-bold'
-                  : 'text-lab-white font-bold'
-                : actualWinner === game.team2
-                  ? 'text-green-500 font-bold'
-                  : 'text-[#bbb] font-medium'
-            }`}>
-              {game.team2}
-            </span>
-            {isPick2 && (
-              <span
-                className="font-mono text-[10px] px-2 py-0.5 rounded bg-white/[0.08] font-medium"
-                style={{ color: isWrong || isBusted ? '#ef4444' : modelColor }}
-              >
-                Pick
-              </span>
-            )}
-            {result && result.completed && (
-              <span className="font-mono text-[11px] text-lab-muted">
-                {result.score2}
-              </span>
-            )}
-          </div>
+          {[
+            { team: game.team1, seed: game.seed1, isPick: isPick1, score: result?.completed ? result.score1 : null, isFirst: true },
+            { team: game.team2, seed: game.seed2, isPick: isPick2, score: result?.completed ? result.score2 : null, isFirst: false },
+          ].map(({ team, seed, isPick, score, isFirst }) => {
+            const state = isPick
+              ? isCorrect ? 'correct'
+                : isWrong ? 'wrong'
+                : isBusted ? 'busted-pick'
+                : 'pending'
+              : actualWinner === team ? 'winner'
+              : bustedModelPicks.has(team) ? 'ghost'
+              : 'normal';
+
+            const textCls: Record<string, string> = {
+              correct: 'text-lab-white font-bold',
+              wrong: 'text-red-500 line-through font-bold',
+              'busted-pick': 'text-red-500 line-through font-bold',
+              pending: 'text-lab-white font-bold',
+              winner: 'text-green-500 font-bold',
+              ghost: 'text-[#444] font-medium',
+              normal: 'text-[#bbb] font-medium',
+            };
+            const bgCls: Record<string, string> = {
+              correct: 'bg-green-500/[0.08]',
+              wrong: 'bg-red-500/[0.08]',
+              'busted-pick': 'bg-red-500/[0.08]',
+              ghost: 'bg-black/20',
+              pending: '', winner: '', normal: '',
+            };
+
+            return (
+              <div key={team} className={`flex items-center gap-3 py-2.5 rounded-md ${isFirst ? 'border-b border-[#252525] mb-0.5' : ''} ${bgCls[state]}`}>
+                <span className="font-mono text-[11px] text-lab-muted bg-[#2a2a2a] w-[26px] h-[26px] rounded-[5px] flex items-center justify-center flex-shrink-0 ml-1">
+                  {seed}
+                </span>
+                <span className={`flex-1 text-[15px] ${textCls[state]}`}>
+                  {team}
+                </span>
+                {isPick && state === 'correct' && (
+                  <span className="w-[7px] h-[7px] rounded-full bg-green-500 flex-shrink-0" />
+                )}
+                {isPick && state === 'pending' && (
+                  <span className="w-[7px] h-[7px] rounded-full flex-shrink-0" style={{ background: modelColor }} />
+                )}
+                {isPick && (
+                  <span
+                    className="font-mono text-[10px] px-2 py-0.5 rounded bg-white/[0.08] font-medium"
+                    style={{ color: state === 'wrong' || state === 'busted-pick' ? '#ef4444' : modelColor }}
+                  >
+                    Pick
+                  </span>
+                )}
+                {score !== null && (
+                  <span className="font-mono text-[11px] text-lab-muted">
+                    {score}
+                  </span>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* Reasoning */}

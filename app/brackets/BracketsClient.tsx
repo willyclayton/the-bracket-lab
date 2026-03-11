@@ -144,7 +144,19 @@ export default function BracketsClient() {
     }
   }
 
+  // Teams this model picked in at least one game that are now eliminated
+  const bustedModelPicks = new Set<string>();
   const gamesByRegion = getGamesByRegion(bracket);
+  for (const games of Object.values(gamesByRegion)) {
+    for (const roundGames of Object.values(games)) {
+      for (const game of roundGames) {
+        if (game.pick && eliminatedTeams.has(game.pick)) {
+          bustedModelPicks.add(game.pick);
+        }
+      }
+    }
+  }
+
   const upsetCount = countUpsets(bracket);
 
   // Compute score if results exist
@@ -303,6 +315,7 @@ export default function BracketsClient() {
                 onMatchClick={handleCardMatchClick}
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
+                bustedModelPicks={bustedModelPicks}
               />
             </div>
             <div className="flex-1">
@@ -314,6 +327,7 @@ export default function BracketsClient() {
                 onMatchClick={handleGridMatchClick}
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
+                bustedModelPicks={bustedModelPicks}
               />
             </div>
           </div>
@@ -371,6 +385,7 @@ export default function BracketsClient() {
                 onMatchClick={handleCardMatchClick}
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
+                bustedModelPicks={bustedModelPicks}
               />
             )}
 
@@ -385,6 +400,7 @@ export default function BracketsClient() {
                   onMatchClick={handleGridMatchClick}
                   winnerMap={winnerMap}
                   eliminatedTeams={eliminatedTeams}
+                  bustedModelPicks={bustedModelPicks}
                 />
               </div>
             )}
@@ -398,6 +414,7 @@ export default function BracketsClient() {
         modelColor={activeModel.color}
         winnerMap={winnerMap}
         eliminatedTeams={eliminatedTeams}
+        bustedModelPicks={bustedModelPicks}
         result={popoverData ? (resultsMap[popoverData.game.gameId] ?? null) : null}
         onClose={() => {
           setPopoverData(null);
