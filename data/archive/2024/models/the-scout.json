@@ -1,0 +1,98 @@
+{
+  "model": "the-scout",
+  "displayName": "The Scout",
+  "tagline": "Film room intelligence at machine speed.",
+  "color": "#3b82f6",
+  "generated": "2024-03-19",
+  "locked": true,
+  "espnBracketUrl": null,
+  "champion": "UConn",
+  "championEliminated": false,
+  "finalFour": ["UConn", "Houston", "Purdue", "North Carolina"],
+  "rounds": {
+    "round_of_64": [
+      { "gameId": "r64-south-1", "round": "round_of_64", "region": "South", "seed1": 1, "team1": "Houston", "seed2": 16, "team2": "Longwood", "pick": "Houston", "confidence": 99, "reasoning": "Houston's elite defensive pressure overwhelms Longwood in every matchup dimension." },
+      { "gameId": "r64-south-2", "round": "round_of_64", "region": "South", "seed1": 8, "team1": "Nebraska", "seed2": 9, "team2": "Texas A&M", "pick": "Texas A&M", "confidence": 54, "reasoning": "Texas A&M's length and defensive versatility give them the edge in this coin-flip matchup." },
+      { "gameId": "r64-south-3", "round": "round_of_64", "region": "South", "seed1": 5, "team1": "Wisconsin", "seed2": 12, "team2": "James Madison", "pick": "Wisconsin", "confidence": 62, "reasoning": "Wisconsin's half-court execution and rebounding should control tempo against James Madison's pace." },
+      { "gameId": "r64-south-4", "round": "round_of_64", "region": "South", "seed1": 4, "team1": "Duke", "seed2": 13, "team2": "Vermont", "pick": "Duke", "confidence": 88, "reasoning": "Duke's talent advantage is significant and their perimeter defense matches up well against Vermont's shooters." },
+      { "gameId": "r64-south-5", "round": "round_of_64", "region": "South", "seed1": 6, "team1": "Texas Tech", "seed2": 11, "team2": "NC State", "pick": "NC State", "confidence": 52, "reasoning": "NC State's momentum and DJ Burns' interior presence create matchup problems for Texas Tech's undersized frontcourt." },
+      { "gameId": "r64-south-6", "round": "round_of_64", "region": "South", "seed1": 3, "team1": "Kentucky", "seed2": 14, "team2": "Oakland", "pick": "Kentucky", "confidence": 85, "reasoning": "Kentucky's athleticism and depth should wear down Oakland despite the Golden Grizzlies' shooting." },
+      { "gameId": "r64-south-7", "round": "round_of_64", "region": "South", "seed1": 7, "team1": "Florida", "seed2": 10, "team2": "Colorado", "pick": "Colorado", "confidence": 55, "reasoning": "Colorado's experienced backcourt and efficient half-court offense give them a slight edge over Florida." },
+      { "gameId": "r64-south-8", "round": "round_of_64", "region": "South", "seed1": 2, "team1": "Marquette", "seed2": 15, "team2": "Western Kentucky", "pick": "Marquette", "confidence": 93, "reasoning": "Marquette's balanced attack and Shaka Smart's coaching give them a clear advantage at every position." },
+
+      { "gameId": "r64-east-1", "round": "round_of_64", "region": "East", "seed1": 1, "team1": "UConn", "seed2": 16, "team2": "Stetson", "pick": "UConn", "confidence": 99, "reasoning": "UConn is the most complete team in the field. Stetson has no matchup advantages anywhere." },
+      { "gameId": "r64-east-2", "round": "round_of_64", "region": "East", "seed1": 8, "team1": "FAU", "seed2": 9, "team2": "Northwestern", "pick": "Northwestern", "confidence": 53, "reasoning": "Northwestern's defensive discipline and Boo Buie's shot creation give them the edge in a grind-it-out game." },
+      { "gameId": "r64-east-3", "round": "round_of_64", "region": "East", "seed1": 5, "team1": "San Diego State", "seed2": 12, "team2": "UAB", "pick": "San Diego State", "confidence": 72, "reasoning": "San Diego State's elite defense and tournament experience from last year's Final Four run give them the edge." },
+      { "gameId": "r64-east-4", "round": "round_of_64", "region": "East", "seed1": 4, "team1": "Auburn", "seed2": 13, "team2": "Yale", "pick": "Auburn", "confidence": 82, "reasoning": "Auburn's athleticism and transition game are too much for Yale to match despite the Bulldogs' shooting." },
+      { "gameId": "r64-east-5", "round": "round_of_64", "region": "East", "seed1": 6, "team1": "BYU", "seed2": 11, "team2": "Duquesne", "pick": "BYU", "confidence": 64, "reasoning": "BYU's size and shooting should control the game against Duquesne's smaller lineup." },
+      { "gameId": "r64-east-6", "round": "round_of_64", "region": "East", "seed1": 3, "team1": "Illinois", "seed2": 14, "team2": "Morehead State", "pick": "Illinois", "confidence": 89, "reasoning": "Terrence Shannon Jr. and Illinois' depth create an overwhelming talent mismatch for Morehead State." },
+      { "gameId": "r64-east-7", "round": "round_of_64", "region": "East", "seed1": 7, "team1": "Washington State", "seed2": 10, "team2": "Drake", "pick": "Drake", "confidence": 55, "reasoning": "Drake's disciplined half-court offense and strong interior defense neutralize Washington State's transition game." },
+      { "gameId": "r64-east-8", "round": "round_of_64", "region": "East", "seed1": 2, "team1": "Iowa State", "seed2": 15, "team2": "South Dakota State", "pick": "Iowa State", "confidence": 94, "reasoning": "Iowa State's suffocating defense and Big 12 battle-tested roster are too much for South Dakota State." },
+
+      { "gameId": "r64-midwest-1", "round": "round_of_64", "region": "Midwest", "seed1": 1, "team1": "Purdue", "seed2": 16, "team2": "Grambling", "pick": "Purdue", "confidence": 99, "reasoning": "Zach Edey is an unstoppable force inside. Grambling has no answer for his size and skill." },
+      { "gameId": "r64-midwest-2", "round": "round_of_64", "region": "Midwest", "seed1": 8, "team1": "Utah State", "seed2": 9, "team2": "TCU", "pick": "TCU", "confidence": 56, "reasoning": "TCU's physicality and Big 12 experience give them a slight advantage in this evenly matched game." },
+      { "gameId": "r64-midwest-3", "round": "round_of_64", "region": "Midwest", "seed1": 5, "team1": "Gonzaga", "seed2": 12, "team2": "McNeese", "pick": "Gonzaga", "confidence": 80, "reasoning": "Gonzaga's offensive firepower and tournament pedigree make them a tough out despite McNeese's hot shooting." },
+      { "gameId": "r64-midwest-4", "round": "round_of_64", "region": "Midwest", "seed1": 4, "team1": "Kansas", "seed2": 13, "team2": "Samford", "pick": "Kansas", "confidence": 84, "reasoning": "Kansas' size and Bill Self's tournament preparation create too many problems for Samford's offense." },
+      { "gameId": "r64-midwest-5", "round": "round_of_64", "region": "Midwest", "seed1": 6, "team1": "South Carolina", "seed2": 11, "team2": "Oregon", "pick": "Oregon", "confidence": 54, "reasoning": "Oregon's guard play and pace create matchup problems for South Carolina's slower tempo." },
+      { "gameId": "r64-midwest-6", "round": "round_of_64", "region": "Midwest", "seed1": 3, "team1": "Creighton", "seed2": 14, "team2": "Akron", "pick": "Creighton", "confidence": 88, "reasoning": "Creighton's elite shooting and perimeter talent overwhelm Akron's mid-major defense." },
+      { "gameId": "r64-midwest-7", "round": "round_of_64", "region": "Midwest", "seed1": 7, "team1": "Texas", "seed2": 10, "team2": "Colorado State", "pick": "Texas", "confidence": 60, "reasoning": "Texas' defensive length and athleticism should contain Colorado State's efficient offense." },
+      { "gameId": "r64-midwest-8", "round": "round_of_64", "region": "Midwest", "seed1": 2, "team1": "Tennessee", "seed2": 15, "team2": "Saint Peter's", "pick": "Tennessee", "confidence": 95, "reasoning": "Tennessee's stifling defense and interior size are a nightmare matchup for Saint Peter's." },
+
+      { "gameId": "r64-west-1", "round": "round_of_64", "region": "West", "seed1": 1, "team1": "North Carolina", "seed2": 16, "team2": "Wagner", "pick": "North Carolina", "confidence": 99, "reasoning": "North Carolina's talent, size, and experience make this a mismatch at every position." },
+      { "gameId": "r64-west-2", "round": "round_of_64", "region": "West", "seed1": 8, "team1": "Mississippi State", "seed2": 9, "team2": "Michigan State", "pick": "Michigan State", "confidence": 57, "reasoning": "Tom Izzo's tournament track record and Michigan State's defensive toughness tilt this toss-up." },
+      { "gameId": "r64-west-3", "round": "round_of_64", "region": "West", "seed1": 5, "team1": "Saint Mary's", "seed2": 12, "team2": "Grand Canyon", "pick": "Saint Mary's", "confidence": 68, "reasoning": "Saint Mary's methodical offensive system and rebounding should grind down Grand Canyon." },
+      { "gameId": "r64-west-4", "round": "round_of_64", "region": "West", "seed1": 4, "team1": "Alabama", "seed2": 13, "team2": "Charleston", "pick": "Alabama", "confidence": 83, "reasoning": "Alabama's explosive athleticism and three-point shooting volume overwhelm Charleston's zone." },
+      { "gameId": "r64-west-5", "round": "round_of_64", "region": "West", "seed1": 6, "team1": "Clemson", "seed2": 11, "team2": "New Mexico", "pick": "Clemson", "confidence": 61, "reasoning": "Clemson's defensive intensity and PJ Hall's interior presence give them the edge over New Mexico." },
+      { "gameId": "r64-west-6", "round": "round_of_64", "region": "West", "seed1": 3, "team1": "Baylor", "seed2": 14, "team2": "Colgate", "pick": "Baylor", "confidence": 87, "reasoning": "Baylor's physicality and depth create a significant talent gap that Colgate can't overcome." },
+      { "gameId": "r64-west-7", "round": "round_of_64", "region": "West", "seed1": 7, "team1": "Dayton", "seed2": 10, "team2": "Nevada", "pick": "Dayton", "confidence": 59, "reasoning": "Dayton's balanced scoring attack and DaRon Holmes' two-way play should edge out Nevada." },
+      { "gameId": "r64-west-8", "round": "round_of_64", "region": "West", "seed1": 2, "team1": "Arizona", "seed2": 15, "team2": "Long Beach State", "pick": "Arizona", "confidence": 96, "reasoning": "Arizona's length and offensive versatility are too much for Long Beach State at every position." }
+    ],
+    "round_of_32": [
+      { "gameId": "r32-south-1", "round": "round_of_32", "region": "South", "seed1": 1, "team1": "Houston", "seed2": 9, "team2": "Texas A&M", "pick": "Houston", "confidence": 90, "reasoning": "Houston's defensive intensity smothers Texas A&M. The Cougars control tempo and the glass." },
+      { "gameId": "r32-south-2", "round": "round_of_32", "region": "South", "seed1": 5, "team1": "Wisconsin", "seed2": 4, "team2": "Duke", "pick": "Duke", "confidence": 65, "reasoning": "Duke's talent wins out as their perimeter creation exploits Wisconsin's deliberate pace." },
+      { "gameId": "r32-south-3", "round": "round_of_32", "region": "South", "seed1": 11, "team1": "NC State", "seed2": 3, "team2": "Kentucky", "pick": "Kentucky", "confidence": 68, "reasoning": "Kentucky's athleticism and depth should wear down NC State in the second half." },
+      { "gameId": "r32-south-4", "round": "round_of_32", "region": "South", "seed1": 10, "team1": "Colorado", "seed2": 2, "team2": "Marquette", "pick": "Marquette", "confidence": 78, "reasoning": "Marquette's guard depth and transition game overwhelm Colorado's half-court approach." },
+
+      { "gameId": "r32-east-1", "round": "round_of_32", "region": "East", "seed1": 1, "team1": "UConn", "seed2": 9, "team2": "Northwestern", "pick": "UConn", "confidence": 92, "reasoning": "UConn's size and offensive versatility dismantle Northwestern's pack-line defense." },
+      { "gameId": "r32-east-2", "round": "round_of_32", "region": "East", "seed1": 5, "team1": "San Diego State", "seed2": 4, "team2": "Auburn", "pick": "San Diego State", "confidence": 55, "reasoning": "San Diego State's defensive discipline stifles Auburn's chaotic style and forces turnovers." },
+      { "gameId": "r32-east-3", "round": "round_of_32", "region": "East", "seed1": 6, "team1": "BYU", "seed2": 3, "team2": "Illinois", "pick": "Illinois", "confidence": 70, "reasoning": "Illinois' athleticism and Terrence Shannon's shot creation overwhelm BYU's slower guards." },
+      { "gameId": "r32-east-4", "round": "round_of_32", "region": "East", "seed1": 10, "team1": "Drake", "seed2": 2, "team2": "Iowa State", "pick": "Iowa State", "confidence": 75, "reasoning": "Iowa State's pressure defense and rebounding dominate Drake's methodical offense." },
+
+      { "gameId": "r32-midwest-1", "round": "round_of_32", "region": "Midwest", "seed1": 1, "team1": "Purdue", "seed2": 9, "team2": "TCU", "pick": "Purdue", "confidence": 85, "reasoning": "Zach Edey is simply unguardable for TCU. Purdue's size advantage is decisive." },
+      { "gameId": "r32-midwest-2", "round": "round_of_32", "region": "Midwest", "seed1": 5, "team1": "Gonzaga", "seed2": 4, "team2": "Kansas", "pick": "Gonzaga", "confidence": 55, "reasoning": "Gonzaga's offensive execution and shooting give them a slight edge in a high-level matchup." },
+      { "gameId": "r32-midwest-3", "round": "round_of_32", "region": "Midwest", "seed1": 11, "team1": "Oregon", "seed2": 3, "team2": "Creighton", "pick": "Creighton", "confidence": 66, "reasoning": "Creighton's shooting and offensive spacing exploit Oregon's aggressive defensive rotations." },
+      { "gameId": "r32-midwest-4", "round": "round_of_32", "region": "Midwest", "seed1": 7, "team1": "Texas", "seed2": 2, "team2": "Tennessee", "pick": "Tennessee", "confidence": 72, "reasoning": "Tennessee's elite defense suffocates Texas' inconsistent offense. The Vols control the paint." },
+
+      { "gameId": "r32-west-1", "round": "round_of_32", "region": "West", "seed1": 1, "team1": "North Carolina", "seed2": 9, "team2": "Michigan State", "pick": "North Carolina", "confidence": 74, "reasoning": "North Carolina's offensive firepower and Armando Bacot's presence overpower Michigan State." },
+      { "gameId": "r32-west-2", "round": "round_of_32", "region": "West", "seed1": 5, "team1": "Saint Mary's", "seed2": 4, "team2": "Alabama", "pick": "Alabama", "confidence": 68, "reasoning": "Alabama's pace and three-point volume disrupt Saint Mary's slow, methodical approach." },
+      { "gameId": "r32-west-3", "round": "round_of_32", "region": "West", "seed1": 6, "team1": "Clemson", "seed2": 3, "team2": "Baylor", "pick": "Clemson", "confidence": 53, "reasoning": "Clemson's defensive toughness and PJ Hall neutralize Baylor's frontcourt in a grind-it-out game." },
+      { "gameId": "r32-west-4", "round": "round_of_32", "region": "West", "seed1": 7, "team1": "Dayton", "seed2": 2, "team2": "Arizona", "pick": "Arizona", "confidence": 76, "reasoning": "Arizona's length and offensive talent overwhelm Dayton in the second half." }
+    ],
+    "sweet_16": [
+      { "gameId": "s16-south-1", "round": "sweet_16", "region": "South", "seed1": 1, "team1": "Houston", "seed2": 4, "team2": "Duke", "pick": "Houston", "confidence": 72, "reasoning": "Houston's defensive intensity smothers Duke's perimeter players and controls the boards." },
+      { "gameId": "s16-south-2", "round": "sweet_16", "region": "South", "seed1": 3, "team1": "Kentucky", "seed2": 2, "team2": "Marquette", "pick": "Marquette", "confidence": 60, "reasoning": "Marquette's guard play and team chemistry give them the edge over Kentucky's inconsistent rotation." },
+
+      { "gameId": "s16-east-1", "round": "sweet_16", "region": "East", "seed1": 1, "team1": "UConn", "seed2": 5, "team2": "San Diego State", "pick": "UConn", "confidence": 80, "reasoning": "UConn's offensive firepower breaks through San Diego State's defense. Too many weapons." },
+      { "gameId": "s16-east-2", "round": "sweet_16", "region": "East", "seed1": 3, "team1": "Illinois", "seed2": 2, "team2": "Iowa State", "pick": "Illinois", "confidence": 58, "reasoning": "Illinois' offensive talent breaks Iowa State's press. Shannon and Grandison create too many scoring opportunities." },
+
+      { "gameId": "s16-midwest-1", "round": "sweet_16", "region": "Midwest", "seed1": 1, "team1": "Purdue", "seed2": 5, "team2": "Gonzaga", "pick": "Purdue", "confidence": 65, "reasoning": "Zach Edey dominates inside and Purdue's size wears Gonzaga down in the paint." },
+      { "gameId": "s16-midwest-2", "round": "sweet_16", "region": "Midwest", "seed1": 3, "team1": "Creighton", "seed2": 2, "team2": "Tennessee", "pick": "Tennessee", "confidence": 62, "reasoning": "Tennessee's defense clamps Creighton's shooters and forces tough two-point attempts." },
+
+      { "gameId": "s16-west-1", "round": "sweet_16", "region": "West", "seed1": 1, "team1": "North Carolina", "seed2": 4, "team2": "Alabama", "pick": "North Carolina", "confidence": 63, "reasoning": "North Carolina's rebounding and interior presence exploit Alabama's defensive weaknesses." },
+      { "gameId": "s16-west-2", "round": "sweet_16", "region": "West", "seed1": 6, "team1": "Clemson", "seed2": 2, "team2": "Arizona", "pick": "Arizona", "confidence": 70, "reasoning": "Arizona's offensive versatility and transition game overwhelm Clemson's half-court defense." }
+    ],
+    "elite_8": [
+      { "gameId": "e8-south", "round": "elite_8", "region": "South", "seed1": 1, "team1": "Houston", "seed2": 2, "team2": "Marquette", "pick": "Houston", "confidence": 73, "reasoning": "Houston's elite defense shuts down Marquette's guards. The Cougars impose their will physically." },
+      { "gameId": "e8-east", "round": "elite_8", "region": "East", "seed1": 1, "team1": "UConn", "seed2": 3, "team2": "Illinois", "pick": "UConn", "confidence": 78, "reasoning": "UConn's depth and balanced scoring create too many problems for Illinois to solve defensively." },
+      { "gameId": "e8-midwest", "round": "elite_8", "region": "Midwest", "seed1": 1, "team1": "Purdue", "seed2": 2, "team2": "Tennessee", "pick": "Purdue", "confidence": 64, "reasoning": "Edey's dominance inside is the difference. Tennessee's defense bends against Purdue's size." },
+      { "gameId": "e8-west", "round": "elite_8", "region": "West", "seed1": 1, "team1": "North Carolina", "seed2": 2, "team2": "Arizona", "pick": "North Carolina", "confidence": 58, "reasoning": "North Carolina's experience and toughness edge out Arizona in a back-and-forth classic." }
+    ],
+    "final_four": [
+      { "gameId": "f4-east-west", "round": "final_four", "region": "National", "seed1": 1, "team1": "UConn", "seed2": 1, "team2": "North Carolina", "pick": "UConn", "confidence": 72, "reasoning": "UConn's complete roster and defensive versatility contain North Carolina's interior attack." },
+      { "gameId": "f4-south-midwest", "round": "final_four", "region": "National", "seed1": 1, "team1": "Houston", "seed2": 1, "team2": "Purdue", "pick": "Houston", "confidence": 58, "reasoning": "Houston's perimeter defense and rebounding neutralize Purdue's size advantage." }
+    ],
+    "championship": [
+      { "gameId": "championship", "round": "championship", "region": "National", "seed1": 1, "team1": "UConn", "seed2": 1, "team2": "Houston", "pick": "UConn", "confidence": 65, "reasoning": "UConn's balanced offense and depth wear down Houston in the title game. The Huskies' versatility is the difference." }
+    ]
+  }
+}

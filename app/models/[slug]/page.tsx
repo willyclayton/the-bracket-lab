@@ -12,6 +12,7 @@ import quantData     from '@/data/models/the-quant.json';
 import historianData from '@/data/models/the-historian.json';
 import chaosData     from '@/data/models/the-chaos-agent.json';
 import agentData     from '@/data/models/the-agent.json';
+import superAgentData from '@/data/models/the-super-agent.json';
 
 const BRACKET_MAP: Record<string, BracketData> = {
   'the-scout':       scoutData     as unknown as BracketData,
@@ -19,6 +20,7 @@ const BRACKET_MAP: Record<string, BracketData> = {
   'the-historian':   historianData as unknown as BracketData,
   'the-chaos-agent': chaosData     as unknown as BracketData,
   'the-agent':       agentData     as unknown as BracketData,
+  'the-super-agent': superAgentData as unknown as BracketData,
 };
 
 export function generateStaticParams() {

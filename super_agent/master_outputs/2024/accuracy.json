@@ -1,0 +1,85 @@
+{
+  "year": 2024,
+  "cascade": {
+    "round_of_64": {
+      "correct": 25,
+      "total": 32,
+      "accuracy": 0.78125,
+      "points": 250
+    },
+    "round_of_32": {
+      "correct": 12,
+      "total": 16,
+      "accuracy": 0.75,
+      "points": 240
+    },
+    "sweet_16": {
+      "correct": 1,
+      "total": 8,
+      "accuracy": 0.125,
+      "points": 40
+    },
+    "elite_8": {
+      "correct": 1,
+      "total": 4,
+      "accuracy": 0.25,
+      "points": 80
+    },
+    "final_four": {
+      "correct": 1,
+      "total": 2,
+      "accuracy": 0.5,
+      "points": 160
+    },
+    "championship": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0,
+      "points": 320
+    },
+    "summary": {
+      "total_correct": 41,
+      "total_games": 63,
+      "overall_accuracy": 0.6507936507936508,
+      "espn_score": 1090,
+      "max_possible": 1920
+    }
+  },
+  "independent": {
+    "round_of_64": {
+      "correct": 25,
+      "total": 32,
+      "accuracy": 0.78125
+    },
+    "round_of_32": {
+      "correct": 13,
+      "total": 16,
+      "accuracy": 0.8125
+    },
+    "sweet_16": {
+      "correct": 3,
+      "total": 8,
+      "accuracy": 0.375
+    },
+    "elite_8": {
+      "correct": 3,
+      "total": 4,
+      "accuracy": 0.75
+    },
+    "final_four": {
+      "correct": 2,
+      "total": 2,
+      "accuracy": 1.0
+    },
+    "championship": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "summary": {
+      "total_correct": 47,
+      "total_games": 63,
+      "overall_accuracy": 0.746031746031746
+    }
+  }
+}
