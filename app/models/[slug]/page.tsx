@@ -1,4 +1,7 @@
 import { notFound } from 'next/navigation';
+import fs from 'fs';
+import path from 'path';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import { MODELS } from '@/lib/models';
 import { BracketData } from '@/lib/types';
 import ModelDetailTabs from '@/components/ModelDetailTabs';
@@ -36,6 +39,11 @@ export default function ModelPage({ params }: { params: { slug: string } }) {
   if (!model) notFound();
 
   const bracket = BRACKET_MAP[model.id] ?? null;
+
+  const mdxPath = path.join(process.cwd(), 'content/models', `${model.slug}.mdx`);
+  const methodologyContent = fs.existsSync(mdxPath)
+    ? <MDXRemote source={fs.readFileSync(mdxPath, 'utf8')} />
+    : null;
 
   return (
     <div className="mx-auto max-w-[900px] px-6 pt-6 pb-16">
@@ -98,7 +106,7 @@ export default function ModelPage({ params }: { params: { slug: string } }) {
       </div>
 
       {/* ---- Tabs ---- */}
-      <ModelDetailTabs model={model} bracket={bracket} />
+      <ModelDetailTabs model={model} bracket={bracket} methodologyContent={methodologyContent} />
     </div>
   );
 }

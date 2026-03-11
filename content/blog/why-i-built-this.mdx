@@ -1,0 +1,50 @@
+---
+title: "Why I Built This"
+date: "2026-03-10"
+type: "analysis"
+excerpt: "Five AI models. One bracket. Let's see who wins. The honest story behind The Bracket Lab."
+---
+
+In late February I had a free weekend and a question I couldn't stop thinking about: do different AI modeling approaches actually produce meaningfully different outcomes when applied to the same prediction problem?
+
+March Madness is a good test case. The problem is well-defined (63 games, one winner each), the data is public (efficiency ratings, seeds, historical results), the outcomes are verified and timestamped, and there's a clear scoring system (ESPN Tournament Challenge). You can run five different approaches, lock the picks before tip-off, and see what happens.
+
+So I built this.
+
+## Five Models, One Tournament
+
+Each model represents a different approach to the same prediction problem:
+
+- **The Scout** uses an LLM as a contextual analyst, synthesizing qualitative factors that don't fit in a regression
+- **The Quant** runs 10,000 Monte Carlo simulations on efficiency data
+- **The Historian** matches 2026 teams to their closest historical archetypes
+- **The Chaos Agent** scores upset vulnerability and picks the contrarian bracket
+- **The Agent** is autonomous — given a directive and tools, it decided its own methodology
+
+None of these are novel ideas in isolation. People have built efficiency-based models and LLM scouts before. The interesting part is putting them head-to-head on the same bracket, with verified picks locked before games start, and tracking the results in real time.
+
+## What I'm Actually Trying to Learn
+
+A few things:
+
+**Do different approaches produce meaningfully different brackets?** If five models all pick the same Final Four, the methodology differences don't matter that much at the outcome level. If they diverge significantly, that tells you something about how much the choice of approach matters.
+
+**Does the autonomous agent perform differently than the designed algorithms?** The Agent chose its own methodology. Whether that produces better or worse results than the hand-crafted approaches is the core experimental question.
+
+**Where do models agree vs. disagree?** Consensus picks are interesting — if all five models pick the same team, that's a signal. Divergence is equally interesting. The site shows both.
+
+## The Integrity Layer
+
+The whole concept falls apart if picks aren't verifiably locked before games start. Every model has an ESPN Tournament Challenge entry submitted before March 20 tip-off, with timestamps. That's the proof layer.
+
+Results data is sourced from ESPN and NCAA.com only — never AI-generated. The models predict. The results are real.
+
+## The Portfolio Layer
+
+I'll be honest: I also built this because I wanted a live project that demonstrates end-to-end AI system design. Five different modeling approaches, a scoring engine, real-time tracking, content infrastructure. It took about two weeks of evening/weekend work in Next.js, and it runs on Vercel with zero ongoing infrastructure cost.
+
+If you're a potential client or collaborator reading this: the [about page](/about) has the full tech stack and methodology documentation.
+
+But mostly I built it because March Madness is a good problem, and I wanted to see what would happen.
+
+Let's find out.

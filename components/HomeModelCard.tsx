@@ -113,14 +113,22 @@ export default function HomeModelCard({
         </div>
       </div>
 
-      {/* Link */}
-      <Link
-        href={`/brackets?model=${model.id}`}
-        className="relative inline-block font-mono text-xs hover:opacity-80 transition-opacity"
-        style={{ color: model.color }}
-      >
-        View bracket &rarr;
-      </Link>
+      {/* Links */}
+      <div className="relative flex flex-col gap-2.5">
+        <Link
+          href={`/brackets?model=${model.id}`}
+          className="relative inline-block font-mono text-xs hover:opacity-80 transition-opacity"
+          style={{ color: model.color }}
+        >
+          View bracket &rarr;
+        </Link>
+        <Link
+          href={`/models/${model.slug}`}
+          className="relative inline-block font-mono text-xs text-lab-muted hover:opacity-80 transition-opacity"
+        >
+          How it works &rarr;
+        </Link>
+      </div>
     </div>
   );
 }

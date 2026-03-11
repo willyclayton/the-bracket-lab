@@ -1,0 +1,54 @@
+---
+title: "Meet The Chaos Agent: Your Bracket Is Too Safe"
+date: "2026-03-15"
+model: "the-chaos-agent"
+type: "methodology"
+excerpt: "Why most brackets are boring, and the upset-detection logic designed to exploit that. Built for pools, not predictions."
+---
+
+Here's the thing about your bracket: it looks like everyone else's.
+
+The national bracket average follows seeds more than 70% of the time in the first round. Most people take the same two or three 12-over-5 upsets. Everyone's Final Four has at least two 1-seeds. By the Sweet 16, the average bracket looks practically identical to the consensus pick.
+
+That's a losing strategy in a pool. The Chaos Agent is built to not do that.
+
+## The Insight
+
+Bracket pools reward differentiation. If you pick the same teams as everyone else and those teams win, you advance at roughly the same rate as everyone else. One correctly called 12-over-5 that no one else in your pool picked is worth more than five correctly called 1-seed wins.
+
+The Chaos Agent is optimized for pool-winning potential, not raw accuracy. It accepts more wrong picks in exchange for the right kind of right picks.
+
+## Upset Vulnerability Scoring
+
+For every first- and second-round matchup, the model scores the higher seed on five upset vulnerability factors:
+
+**Efficiency gap close** — how much does the lower seed's KenPom rating reduce the seed gap? A #12 seed in the top 40 of adjusted efficiency is flagged immediately.
+
+**Tempo mismatch** — if the higher seed's offense depends on pace and the lower seed plays slow, that's a structural advantage for the upset. High-tempo teams don't perform as well when forced into halfcourt games.
+
+**Experience differential** — a #5 seed with three freshmen starters vs. a #12 with a senior backcourt is a setup. Experience matters in single-elimination games more than in a conference schedule.
+
+**Bracket position** — not all 5-12 matchups are equal. Some regional draws produce more upsets historically. Thursday afternoon games have different upset rates than Saturday evening games.
+
+**Brand bias correction** — the Chaos Agent explicitly downweights brand-name programs when the underlying data is ambiguous. Duke losing in Round 1 has happened. Kansas has lost to #8 seeds. History doesn't care about tradition.
+
+## The Threshold
+
+Vulnerability score of 65 or above: take the upset.
+Vulnerability score of 80 or above: high confidence upset.
+
+The result is a bracket with roughly 40% more first- and second-round upsets than the national average. Most will be wrong. That's expected.
+
+## The Math Behind Contrarian Brackets
+
+Expected Points Added (EPA) analysis of historical pool data shows that high-upset strategies beat chalk strategies in about 35% of head-to-head pool matchups — but when they win, they win by more.
+
+In other words: if you want to reliably finish in the middle of your pool, pick chalk. If you want a shot at winning, you need some of the Chaos Agent's picks to hit.
+
+## Limitations
+
+The model accepts more incorrect picks by design. In years where chalk runs deep through the Sweet 16, this model will underperform significantly.
+
+It also doesn't adjust downstream — picking a #12 over a #5 doesn't automatically ripple forward through the region. A manual consistency pass is applied to avoid structural impossibilities, but the bracket can have more variance than a fully path-dependent model would.
+
+Picks lock March 19. Track the carnage on the [dashboard](/dashboard).

@@ -1,0 +1,54 @@
+---
+title: "Meet The Agent: No Rules. No Prompts. Just Build Me a Bracket."
+date: "2026-03-15"
+model: "the-agent"
+type: "methodology"
+excerpt: "The experiment: give an AI agent a single directive, access to tools, and no methodology. See what it builds. This is what happened."
+---
+
+The other four models have defined algorithms. The Agent wrote its own.
+
+This is the experiment at the center of the whole project: what happens when you give an autonomous AI agent a single high-level directive and let it decide how to build a bracket?
+
+## The Directive
+
+```
+You are an autonomous research agent. Your goal is to build the most
+accurate 2026 NCAA tournament bracket possible. You have access to:
+- Web search
+- Python execution environment
+- Structured team statistics database
+
+Decide your own methodology. Document your reasoning at each step.
+Submit a final bracket in JSON format.
+```
+
+No formula. No factors list. No scoring function. Just: figure it out.
+
+## What The Agent Did
+
+The Agent ran a multi-phase process before picking a single game.
+
+**Phase 1: Data audit.** It queried available sources and evaluated which metrics had the strongest historical correlation with tournament advancement. It chose to weight efficiency margin over raw offensive statistics, citing the relative instability of offense-only metrics in single-elimination games.
+
+**Phase 2: Hypothesis generation.** Before looking at any specific matchup, it formed three bracket-level hypotheses: that one region was structurally weak relative to the others, that a specific high seed was overseeded based on their efficiency ranking vs. committee perception, and that late-season injury data was underweighted in the public consensus. It noted all three explicitly in its reasoning log before analyzing any games.
+
+**Phase 3: Matchup analysis.** For the 32 first-round games, it built independent analyses, then did a second pass looking for internal conflicts in its own reasoning. If it had flagged the same factor favoring opposite conclusions in two different games, it noted and resolved the conflict.
+
+**Phase 4: Champion selection.** It picked its champion last, working backward from which team had the clearest path given the bracket it had already built. It explicitly stated that picking the champion first and reverse-engineering the bracket would introduce bias.
+
+## What Makes This Interesting
+
+The Scout, Quant, Historian, and Chaos Agent all have auditable logic. You can trace any pick back to a specific formula or factor weight.
+
+The Agent's logic is inspectable in the reasoning chains, but the implicit weighting in its final calls isn't fully auditable. When it resolved conflicts between efficiency data and historical matchup patterns, the resolution reflects something in the model's training that isn't easy to decompose.
+
+That's either a feature or a bug depending on how it performs.
+
+## The Real Experiment
+
+Five models, five methodologies. At the end of the tournament, one will have the highest score. But the more interesting question is: did the autonomous approach — where the model chose its own process — outperform the designed algorithms?
+
+If it does, that's a signal about agentic decision-making. If it doesn't, that's a signal too.
+
+Picks lock March 19. The Agent's full reasoning log is available in the bracket detail view. See how it holds up on the [dashboard](/dashboard).

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Option E — Flow / Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #141414; color: #d1d5db; font-family: 'Space Grotesk', sans-serif; font-size: 14px; line-height: 1.7; padding: 48px 24px; }
+  .page { max-width: 740px; margin: 0 auto; }
+
+  /* Section block */
+  .section { margin-bottom: 60px; }
+  .section-tag { font-family: 'IBM Plex Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 2.5px; color: #3b82f6; margin-bottom: 4px; }
+  .section-title { font-size: 21px; font-weight: 700; color: #f9fafb; margin-bottom: 28px; }
+
+  /* Overview items — compact list style */
+  .ov-item { display: flex; gap: 0; margin-bottom: 20px; }
+  .ov-key { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #3b3b3b; min-width: 160px; padding-top: 3px; }
+  .ov-val { flex: 1; font-size: 13px; color: #ccc; border-left: 1px solid #242424; padding-left: 20px; }
+  .ov-val ul { list-style: none; padding: 0; }
+  .ov-val li { padding: 2px 0; }
+  .ov-val li::before { content: '→ '; color: #3b82f6; font-size: 11px; }
+  .ov-val strong { color: #eee; font-weight: 600; }
+
+  /* Champion highlight */
+  .champion-block { margin-bottom: 24px; }
+  .champ-name { font-size: 22px; font-weight: 700; color: #3b82f6; letter-spacing: -0.3px; }
+  .champ-note { font-size: 12px; color: #555; margin-top: 3px; }
+
+  /* Chart */
+  .chart { display: flex; flex-direction: column; gap: 10px; margin-bottom: 4px; }
+  .chart-row { display: flex; align-items: center; gap: 10px; }
+  .cl { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #444; width: 160px; flex-shrink: 0; }
+  .cb { flex: 1; height: 4px; background: #1e1e1e; border-radius: 2px; }
+  .cf { height: 4px; border-radius: 2px; background: #3b82f6; }
+  .cv { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #333; width: 26px; text-align: right; }
+
+  /* Methodology subsections */
+  .meth-sub { margin-bottom: 32px; }
+  .meth-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #3b82f6; margin-bottom: 12px; }
+  .meth-content { font-size: 13px; color: #bbb; }
+  .meth-content ul { list-style: none; padding: 0; }
+  .meth-content li { padding: 4px 0 4px 16px; position: relative; }
+  .meth-content li::before { content: ''; position: absolute; left: 0; top: 10px; width: 5px; height: 1px; background: #333; }
+  .meth-content strong { color: #eee; font-weight: 600; }
+
+  /* TIMELINE STEPS */
+  .timeline { position: relative; padding-left: 36px; }
+  .timeline::before { content: ''; position: absolute; left: 10px; top: 12px; bottom: 12px; width: 1px; background: linear-gradient(to bottom, #3b82f6, #1a2a3f); }
+  .t-step { position: relative; margin-bottom: 20px; }
+  .t-step:last-child { margin-bottom: 0; }
+  .t-dot { position: absolute; left: -30px; top: 3px; width: 10px; height: 10px; border-radius: 50%; background: #141414; border: 1px solid #3b82f6; }
+  .t-step:last-child .t-dot { background: rgba(59,130,246,0.15); }
+  .t-title { font-size: 14px; font-weight: 600; color: #eee; margin-bottom: 2px; }
+  .t-desc { font-size: 12px; color: #666; }
+
+  /* Example */
+  .example-box { background: #181818; border: 1px solid #252525; border-radius: 6px; padding: 18px; }
+  .ex-header { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #3b3b3b; margin-bottom: 10px; }
+  .ex-verdict { font-size: 16px; font-weight: 700; color: #3b82f6; margin-bottom: 8px; }
+  .ex-text { font-size: 13px; color: #777; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <div class="section-tag">Overview</div>
+    <div class="section-title">Quick Mental Model</div>
+
+    <div class="ov-item">
+      <div class="ov-key">Core Philosophy</div>
+      <div class="ov-val">
+        <p>The Scout treats every matchup the way a real analyst would. Where efficiency models see numbers, it sees context: the injured point guard, the road-weary roster, the first-year coach about to crack.</p>
+      </div>
+    </div>
+
+    <div class="ov-item">
+      <div class="ov-key">Key Inputs</div>
+      <div class="ov-val">
+        <ul>
+          <li><strong>Coaching experience</strong> — tournament wins, Final Four appearances</li>
+          <li><strong>Roster age</strong> — senior vs. freshman distribution</li>
+          <li><strong>Injury / availability</strong> — beat reporters + official logs</li>
+          <li><strong>Clutch performance</strong> — record in games decided by ≤5 pts</li>
+          <li><strong>Momentum</strong> — last 10 games, conference tournament</li>
+          <li><strong>Travel and rest</strong> — distance, days between games</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ov-item">
+      <div class="ov-key">Strengths</div>
+      <div class="ov-val">
+        <ul>
+          <li>Captures intangibles pure efficiency models miss</li>
+          <li>Contextual synthesis of 6 factors simultaneously</li>
+          <li>No normalization required — model understands magnitude natively</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ov-item">
+      <div class="ov-key">Predicted Champion</div>
+      <div class="ov-val">
+        <div class="champion-block">
+          <div class="champ-name">TBD — March 19</div>
+          <div class="champ-note">Picks lock after the First Four. Champion reflects best combination of coaching, health, and bracket draw.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ov-item">
+      <div class="ov-key">Factor Weights</div>
+      <div class="ov-val">
+        <div class="chart">
+          <div class="chart-row"><span class="cl">Injury / availability</span><div class="cb"><div class="cf" style="width:90%"></div></div><span class="cv">90%</span></div>
+          <div class="chart-row"><span class="cl">Coaching experience</span><div class="cb"><div class="cf" style="width:85%"></div></div><span class="cv">85%</span></div>
+          <div class="chart-row"><span class="cl">Roster age</span><div class="cb"><div class="cf" style="width:70%"></div></div><span class="cv">70%</span></div>
+          <div class="chart-row"><span class="cl">Clutch performance</span><div class="cb"><div class="cf" style="width:65%"></div></div><span class="cv">65%</span></div>
+          <div class="chart-row"><span class="cl">Momentum</span><div class="cb"><div class="cf" style="width:55%"></div></div><span class="cv">55%</span></div>
+          <div class="chart-row"><span class="cl">Travel and rest</span><div class="cb"><div class="cf" style="width:40%"></div></div><span class="cv">40%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="section">
+    <div class="section-tag">Methodology</div>
+    <div class="section-title">The Actual Build</div>
+
+    <div class="meth-sub">
+      <div class="meth-label">The Process</div>
+      <div class="timeline">
+        <div class="t-step"><div class="t-dot"></div><div class="t-title">Pull team data</div><div class="t-desc">Coaching record, roster age, injury log, recent results, travel schedule for each team.</div></div>
+        <div class="t-step"><div class="t-dot"></div><div class="t-title">Build matchup context objects</div><div class="t-desc">Pair Team A vs. Team B into a structured JSON block for each of the 32 first-round games.</div></div>
+        <div class="t-step"><div class="t-dot"></div><div class="t-title">Run structured analyst prompt</div><div class="t-desc">Feed context to Claude with analyst role. Returns scouting report + confidence-weighted pick in JSON.</div></div>
+        <div class="t-step"><div class="t-dot"></div><div class="t-title">Advance bracket round by round</div><div class="t-desc">Winners become context for the next round. Repeat through the championship.</div></div>
+        <div class="t-step"><div class="t-dot"></div><div class="t-title">Lock picks March 19</div><div class="t-desc">Final bracket exported to JSON. ESPN Tournament Challenge submitted as timestamp proof.</div></div>
+      </div>
+    </div>
+
+    <div class="meth-sub">
+      <div class="meth-label">Data Sources</div>
+      <div class="meth-content">
+        <ul>
+          <li>KenPom — efficiency ratings, 2026 season through conference tournaments</li>
+          <li>Sports Reference — coaching records and tournament history</li>
+          <li>Beat reporter injury coverage (ESPN, team beat writers)</li>
+          <li>Official injury designations where available</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="meth-sub">
+      <div class="meth-label">Key Assumptions</div>
+      <div class="meth-content">
+        <ul>
+          <li>LLM contextual synthesis outperforms regression on the same inputs</li>
+          <li>Coaching experience is a consistent predictor across eras</li>
+          <li>Injury data 48 hours before lock is sufficiently current</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="meth-sub">
+      <div class="meth-label">Limitations</div>
+      <div class="meth-content">
+        <ul>
+          <li>Hallucination risk on player stats — mitigated by injecting verified data</li>
+          <li>LLM bias toward brand-name programs — prompted against, imperfectly corrected</li>
+          <li>No live updates after March 19</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="meth-sub">
+      <div class="meth-label">Example — Duke (#5) vs. Oregon (#12), South R64</div>
+      <div class="example-box">
+        <div class="ex-header">#5 DUKE vs. #12 OREGON · SOUTH REGION · ROUND OF 64</div>
+        <div class="ex-verdict">Pick: Oregon — 61% confidence</div>
+        <div class="ex-text">Duke has 3 freshman starters. Oregon is senior-led with a 9-1 clutch record. Coaching gap favors Duke (Scheyer 2 years vs. Altman 16), but Oregon's pace control and road experience outweigh it. The Scout flags this as a live upset.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

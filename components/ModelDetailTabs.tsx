@@ -10,6 +10,7 @@ type Metric = 'byRound' | 'upsets' | 'confidence' | 'seeds';
 interface ModelDetailTabsProps {
   model: Model;
   bracket: BracketData | null;
+  methodologyContent?: React.ReactNode;
 }
 
 // Placeholder chart data (pre-tournament)
@@ -53,7 +54,7 @@ const PLACEHOLDER_CHART: Record<Metric, { title: string; subtitle: string; bars:
 
 const ROUND_ORDER = ['round_of_64', 'round_of_32', 'sweet_16', 'elite_8', 'final_four', 'championship'] as const;
 
-export default function ModelDetailTabs({ model, bracket }: ModelDetailTabsProps) {
+export default function ModelDetailTabs({ model, bracket, methodologyContent }: ModelDetailTabsProps) {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
   const [activeMetric, setActiveMetric] = useState<Metric>('byRound');
   const [animated, setAnimated] = useState(false);
@@ -246,15 +247,21 @@ export default function ModelDetailTabs({ model, bracket }: ModelDetailTabsProps
           <p className="font-mono text-[11px] text-lab-muted uppercase tracking-[1.5px] mb-3.5 pb-2 border-b border-[#222]">
             Methodology
           </p>
-          <div className="text-[15px] text-[#ccc] leading-[1.75] space-y-4">
-            <p>{model.description}</p>
-            <p>
-              Full methodology writeup will appear here on Selection Sunday (March 15).
-              Each model&apos;s approach &mdash; what data it uses, how it processes matchups,
-              and why it makes the choices it does &mdash; will be documented in detail
-              before picks lock on March 19.
-            </p>
-          </div>
+          {methodologyContent ? (
+            <div>
+              {methodologyContent}
+            </div>
+          ) : (
+            <div className="text-[15px] text-[#ccc] leading-[1.75] space-y-4">
+              <p>{model.description}</p>
+              <p>
+                Full methodology writeup will appear here on Selection Sunday (March 15).
+                Each model&apos;s approach — what data it uses, how it processes matchups,
+                and why it makes the choices it does — will be documented in detail
+                before picks lock on March 19.
+              </p>
+            </div>
+          )}
         </div>
       )}
 
