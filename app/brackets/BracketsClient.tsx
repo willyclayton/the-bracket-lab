@@ -58,7 +58,8 @@ function getGamesByRegion(bracket: BracketData): GamesByRegion {
   for (const roundKey of ROUND_ORDER) {
     const games = bracket.rounds[roundKey as keyof typeof bracket.rounds] ?? [];
     for (const game of games) {
-      const region = (game.region || 'ff').toLowerCase();
+      let region = (game.region || 'ff').toLowerCase();
+      if (region === 'national') region = 'ff';
       if (!result[region]) result[region] = {};
       if (!result[region][roundKey]) result[region][roundKey] = [];
       result[region][roundKey].push(game);
