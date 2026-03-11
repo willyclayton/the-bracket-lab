@@ -46,6 +46,7 @@ body {
 .model-historian { border-color: #f59e0b; }
 .model-chaos { border-color: #ef4444; }
 .model-agent { border-color: #00ff88; }
+.model-superagent { border-color: #a855f7; }
 
 /* ---- Model accent backgrounds (subtle) ---- */
 .model-scout-bg { background: rgba(59, 130, 246, 0.08); }
@@ -53,6 +54,7 @@ body {
 .model-historian-bg { background: rgba(245, 158, 11, 0.08); }
 .model-chaos-bg { background: rgba(239, 68, 68, 0.08); }
 .model-agent-bg { background: rgba(0, 255, 136, 0.08); }
+.model-superagent-bg { background: rgba(168, 85, 247, 0.08); }
 
 /* ---- Glow effects (hover-triggered, stronger) ---- */
 .glow-scout:hover     { box-shadow: 0 10px 36px rgba(59, 130, 246, 0.22); }
@@ -60,6 +62,7 @@ body {
 .glow-historian:hover { box-shadow: 0 10px 36px rgba(245, 158, 11, 0.22); }
 .glow-chaos:hover     { box-shadow: 0 10px 36px rgba(239, 68, 68, 0.22); }
 .glow-agent:hover     { box-shadow: 0 10px 36px rgba(0, 255, 136, 0.22); }
+.glow-superagent:hover { box-shadow: 0 10px 36px rgba(168, 85, 247, 0.22); }
 
 /* ---- Eliminated state ---- */
 .eliminated {
@@ -188,11 +191,13 @@ body {
 .card-glow-historian::before { background: radial-gradient(ellipse at 50% 50%, rgba(245,158,11,0.6) 0%, transparent 70%); }
 .card-glow-chaos::before   { background: radial-gradient(ellipse at 50% 50%, rgba(239,68,68,0.6) 0%, transparent 70%); }
 .card-glow-agent::before   { background: radial-gradient(ellipse at 50% 50%, rgba(0,255,136,0.6) 0%, transparent 70%); }
+.card-glow-superagent::before { background: radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.6) 0%, transparent 70%); }
 .card-glow-scout::before,
 .card-glow-quant::before,
 .card-glow-historian::before,
 .card-glow-chaos::before,
-.card-glow-agent::before {
+.card-glow-agent::before,
+.card-glow-superagent::before {
   content: '';
   position: absolute;
   inset: -40px;

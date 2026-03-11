@@ -1,0 +1,946 @@
+year,round,game_id,team1,seed1,team2,seed2,winner,score1,score2
+2010,round_of_64,2010_round_of_64_1,Lehigh,16,Kansas,1,Kansas,74,90
+2010,round_of_64,2010_round_of_64_2,Northern Iowa,9,UNLV,8,Northern Iowa,69,66
+2010,round_of_64,2010_round_of_64_3,Michigan State,5,New Mexico State,12,Michigan State,70,67
+2010,round_of_64,2010_round_of_64_4,Maryland,4,Houston,13,Maryland,89,77
+2010,round_of_64,2010_round_of_64_5,San Diego State,11,Tennessee,6,Tennessee,59,62
+2010,round_of_64,2010_round_of_64_6,Georgetown,3,Ohio,14,Ohio,83,97
+2010,round_of_64,2010_round_of_64_7,Oklahoma State,7,Georgia Tech,10,Georgia Tech,59,64
+2010,round_of_64,2010_round_of_64_8,Ohio State,2,UC Santa Barbara,15,Ohio State,68,51
+2010,round_of_32,2010_round_of_32_9,Northern Iowa,9,Kansas,1,Northern Iowa,69,67
+2010,round_of_32,2010_round_of_32_10,Michigan State,5,Maryland,4,Michigan State,85,83
+2010,round_of_32,2010_round_of_32_11,Tennessee,6,Ohio,14,Tennessee,83,68
+2010,round_of_32,2010_round_of_32_12,Georgia Tech,10,Ohio State,2,Ohio State,66,75
+2010,sweet_16,2010_sweet_16_13,Michigan State,5,Northern Iowa,9,Michigan State,59,52
+2010,sweet_16,2010_sweet_16_14,Tennessee,6,Ohio State,2,Tennessee,76,73
+2010,elite_8,2010_elite_8_15,Tennessee,6,Michigan State,5,Michigan State,69,70
+2010,round_of_64,2010_round_of_64_16,Vermont,16,Syracuse,1,Syracuse,56,79
+2010,round_of_64,2010_round_of_64_17,Gonzaga,8,Florida State,9,Gonzaga,67,60
+2010,round_of_64,2010_round_of_64_18,UTEP,12,Butler,5,Butler,59,77
+2010,round_of_64,2010_round_of_64_19,Vanderbilt,4,Murray State,13,Murray State,65,66
+2010,round_of_64,2010_round_of_64_20,Xavier,6,Minnesota,11,Xavier,65,54
+2010,round_of_64,2010_round_of_64_21,Oakland,14,Pittsburgh,3,Pittsburgh,66,89
+2010,round_of_64,2010_round_of_64_22,Florida,10,BYU,7,BYU,92,99
+2010,round_of_64,2010_round_of_64_23,Kansas State,2,North Texas,15,Kansas State,82,62
+2010,round_of_32,2010_round_of_32_24,Syracuse,1,Gonzaga,8,Syracuse,87,65
+2010,round_of_32,2010_round_of_32_25,Murray State,13,Butler,5,Butler,52,54
+2010,round_of_32,2010_round_of_32_26,Xavier,6,Pittsburgh,3,Xavier,71,68
+2010,round_of_32,2010_round_of_32_27,Kansas State,2,BYU,7,Kansas State,84,72
+2010,sweet_16,2010_sweet_16_28,Butler,5,Syracuse,1,Butler,63,59
+2010,sweet_16,2010_sweet_16_29,Xavier,6,Kansas State,2,Kansas State,96,101
+2010,elite_8,2010_elite_8_30,Kansas State,2,Butler,5,Butler,56,63
+2010,round_of_64,2010_round_of_64_31,East Tennessee State,16,Kentucky,1,Kentucky,71,100
+2010,round_of_64,2010_round_of_64_32,Texas,8,Wake Forest,9,Wake Forest,80,81
+2010,round_of_64,2010_round_of_64_33,Temple,5,Cornell,12,Cornell,65,78
+2010,round_of_64,2010_round_of_64_34,Wofford,13,Wisconsin,4,Wisconsin,49,53
+2010,round_of_64,2010_round_of_64_35,Washington,11,Marquette,6,Washington,80,78
+2010,round_of_64,2010_round_of_64_36,Montana,14,New Mexico,3,New Mexico,57,62
+2010,round_of_64,2010_round_of_64_37,Clemson,7,Missouri,10,Missouri,78,86
+2010,round_of_64,2010_round_of_64_38,Morgan State,15,West Virginia,2,West Virginia,50,77
+2010,round_of_32,2010_round_of_32_39,Wake Forest,9,Kentucky,1,Kentucky,60,90
+2010,round_of_32,2010_round_of_32_40,Wisconsin,4,Cornell,12,Cornell,69,87
+2010,round_of_32,2010_round_of_32_41,New Mexico,3,Washington,11,Washington,64,82
+2010,round_of_32,2010_round_of_32_42,West Virginia,2,Missouri,10,West Virginia,68,59
+2010,sweet_16,2010_sweet_16_43,Kentucky,1,Cornell,12,Kentucky,62,45
+2010,sweet_16,2010_sweet_16_44,West Virginia,2,Washington,11,West Virginia,69,56
+2010,elite_8,2010_elite_8_45,West Virginia,2,Kentucky,1,West Virginia,73,66
+2010,round_of_64,2010_round_of_64_46,Duke,1,Arkansas-Pine Bluff,16,Duke,73,44
+2010,round_of_64,2010_round_of_64_47,California,8,Louisville,9,California,77,62
+2010,round_of_64,2010_round_of_64_48,Texas A&M,5,Utah State,12,Texas A&M,69,53
+2010,round_of_64,2010_round_of_64_49,Siena,13,Purdue,4,Purdue,64,72
+2010,round_of_64,2010_round_of_64_50,Old Dominion,11,Notre Dame,6,Old Dominion,51,50
+2010,round_of_64,2010_round_of_64_51,Baylor,3,Sam Houston State,14,Baylor,68,59
+2010,round_of_64,2010_round_of_64_52,Saint Mary's,10,Richmond,7,Saint Mary's,80,71
+2010,round_of_64,2010_round_of_64_53,Villanova,2,Robert Morris,15,Villanova,73,70
+2010,round_of_32,2010_round_of_32_54,California,8,Duke,1,Duke,53,68
+2010,round_of_32,2010_round_of_32_55,Texas A&M,5,Purdue,4,Purdue,61,63
+2010,round_of_32,2010_round_of_32_56,Old Dominion,11,Baylor,3,Baylor,68,76
+2010,round_of_32,2010_round_of_32_57,Saint Mary's,10,Villanova,2,Saint Mary's,75,68
+2010,sweet_16,2010_sweet_16_58,Purdue,4,Duke,1,Duke,57,70
+2010,sweet_16,2010_sweet_16_59,Baylor,3,Saint Mary's,10,Baylor,72,49
+2010,elite_8,2010_elite_8_60,Duke,1,Baylor,3,Duke,78,71
+2010,final_four,2010_final_four_61,Michigan State,5,Butler,5,Butler,50,52
+2010,final_four,2010_final_four_62,West Virginia,2,Duke,1,Duke,57,78
+2010,championship,2010_championship_63,Butler,5,Duke,1,Duke,59,61
+2011,round_of_64,2011_round_of_64_64,UTSA,16,Ohio State,1,Ohio State,46,75
+2011,round_of_64,2011_round_of_64_65,Villanova,9,George Mason,8,George Mason,57,61
+2011,round_of_64,2011_round_of_64_66,Clemson,12,West Virginia,5,West Virginia,76,84
+2011,round_of_64,2011_round_of_64_67,Kentucky,4,Princeton,13,Kentucky,59,57
+2011,round_of_64,2011_round_of_64_68,Marquette,11,Xavier,6,Marquette,66,55
+2011,round_of_64,2011_round_of_64_69,Syracuse,3,Indiana State,14,Syracuse,77,60
+2011,round_of_64,2011_round_of_64_70,Washington,7,Georgia,10,Washington,68,65
+2011,round_of_64,2011_round_of_64_71,North Carolina,2,Long Island,15,North Carolina,102,87
+2011,round_of_32,2011_round_of_32_72,George Mason,8,Ohio State,1,Ohio State,66,98
+2011,round_of_32,2011_round_of_32_73,West Virginia,5,Kentucky,4,Kentucky,63,71
+2011,round_of_32,2011_round_of_32_74,Marquette,11,Syracuse,3,Marquette,66,62
+2011,round_of_32,2011_round_of_32_75,Washington,7,North Carolina,2,North Carolina,83,86
+2011,sweet_16,2011_sweet_16_76,Kentucky,4,Ohio State,1,Kentucky,62,60
+2011,sweet_16,2011_sweet_16_77,Marquette,11,North Carolina,2,North Carolina,63,81
+2011,elite_8,2011_elite_8_78,Kentucky,4,North Carolina,2,Kentucky,76,69
+2011,round_of_64,2011_round_of_64_79,Duke,1,Hampton,16,Duke,87,45
+2011,round_of_64,2011_round_of_64_80,Michigan,8,Tennessee,9,Michigan,75,45
+2011,round_of_64,2011_round_of_64_81,Memphis,12,Arizona,5,Arizona,75,77
+2011,round_of_64,2011_round_of_64_82,Texas,4,Oakland,13,Texas,85,81
+2011,round_of_64,2011_round_of_64_83,Missouri,11,Cincinnati,6,Cincinnati,63,78
+2011,round_of_64,2011_round_of_64_84,Bucknell,14,Connecticut,3,Connecticut,52,81
+2011,round_of_64,2011_round_of_64_85,Temple,7,Penn State,10,Temple,66,64
+2011,round_of_64,2011_round_of_64_86,San Diego State,2,Northern Colorado,15,San Diego State,68,50
+2011,round_of_32,2011_round_of_32_87,Michigan,8,Duke,1,Duke,71,73
+2011,round_of_32,2011_round_of_32_88,Texas,4,Arizona,5,Arizona,69,70
+2011,round_of_32,2011_round_of_32_89,Connecticut,3,Cincinnati,6,Connecticut,69,58
+2011,round_of_32,2011_round_of_32_90,San Diego State,2,Temple,7,San Diego State,71,64
+2011,sweet_16,2011_sweet_16_91,Arizona,5,Duke,1,Arizona,93,77
+2011,sweet_16,2011_sweet_16_92,San Diego State,2,Connecticut,3,Connecticut,67,74
+2011,elite_8,2011_elite_8_93,Arizona,5,Connecticut,3,Connecticut,63,65
+2011,round_of_64,2011_round_of_64_94,Kansas,1,Boston University,16,Kansas,72,53
+2011,round_of_64,2011_round_of_64_95,Illinois,9,UNLV,8,Illinois,73,62
+2011,round_of_64,2011_round_of_64_96,Richmond,12,Vanderbilt,5,Richmond,69,66
+2011,round_of_64,2011_round_of_64_97,Louisville,4,Morehead State,13,Morehead State,61,62
+2011,round_of_64,2011_round_of_64_98,Georgetown,6,VCU,11,VCU,56,74
+2011,round_of_64,2011_round_of_64_99,Saint Peter's,14,Purdue,3,Purdue,43,65
+2011,round_of_64,2011_round_of_64_100,Texas A&M,7,Florida State,10,Florida State,50,57
+2011,round_of_64,2011_round_of_64_101,Notre Dame,2,Akron,15,Notre Dame,69,56
+2011,round_of_32,2011_round_of_32_102,Illinois,9,Kansas,1,Kansas,59,73
+2011,round_of_32,2011_round_of_32_103,Morehead State,13,Richmond,12,Richmond,48,65
+2011,round_of_32,2011_round_of_32_104,Purdue,3,VCU,11,VCU,76,94
+2011,round_of_32,2011_round_of_32_105,Florida State,10,Notre Dame,2,Florida State,71,57
+2011,sweet_16,2011_sweet_16_106,Richmond,12,Kansas,1,Kansas,57,77
+2011,sweet_16,2011_sweet_16_107,VCU,11,Florida State,10,VCU,72,71
+2011,elite_8,2011_elite_8_108,VCU,11,Kansas,1,VCU,71,61
+2011,round_of_64,2011_round_of_64_109,Pittsburgh,1,UNC Asheville,16,Pittsburgh,74,51
+2011,round_of_64,2011_round_of_64_110,Old Dominion,9,Butler,8,Butler,58,60
+2011,round_of_64,2011_round_of_64_111,Utah State,12,Kansas State,5,Kansas State,68,73
+2011,round_of_64,2011_round_of_64_112,Wisconsin,4,Belmont,13,Wisconsin,72,58
+2011,round_of_64,2011_round_of_64_113,St. John's,6,Gonzaga,11,Gonzaga,71,86
+2011,round_of_64,2011_round_of_64_114,BYU,3,Wofford,14,BYU,74,66
+2011,round_of_64,2011_round_of_64_115,Michigan State,10,UCLA,7,UCLA,76,78
+2011,round_of_64,2011_round_of_64_116,UC Santa Barbara,15,Florida,2,Florida,51,79
+2011,round_of_32,2011_round_of_32_117,Butler,8,Pittsburgh,1,Butler,71,70
+2011,round_of_32,2011_round_of_32_118,Kansas State,5,Wisconsin,4,Wisconsin,65,70
+2011,round_of_32,2011_round_of_32_119,Gonzaga,11,BYU,3,BYU,67,89
+2011,round_of_32,2011_round_of_32_120,Florida,2,UCLA,7,Florida,73,65
+2011,sweet_16,2011_sweet_16_121,Wisconsin,4,Butler,8,Butler,54,61
+2011,sweet_16,2011_sweet_16_122,BYU,3,Florida,2,Florida,74,83
+2011,elite_8,2011_elite_8_123,Florida,2,Butler,8,Butler,71,74
+2011,final_four,2011_final_four_124,Kentucky,4,Connecticut,3,Connecticut,55,56
+2011,final_four,2011_final_four_125,Butler,8,VCU,11,Butler,70,62
+2011,championship,2011_championship_126,Connecticut,3,Butler,8,Connecticut,53,41
+2012,round_of_64,2012_round_of_64_127,Kentucky,1,Western Kentucky,16,Kentucky,81,66
+2012,round_of_64,2012_round_of_64_128,Connecticut,9,Iowa State,8,Iowa State,64,77
+2012,round_of_64,2012_round_of_64_129,Wichita State,5,VCU,12,VCU,59,62
+2012,round_of_64,2012_round_of_64_130,New Mexico State,13,Indiana,4,Indiana,66,79
+2012,round_of_64,2012_round_of_64_131,Colorado,11,UNLV,6,Colorado,68,64
+2012,round_of_64,2012_round_of_64_132,Baylor,3,South Dakota State,14,Baylor,68,60
+2012,round_of_64,2012_round_of_64_133,Notre Dame,7,Xavier,10,Xavier,63,67
+2012,round_of_64,2012_round_of_64_134,Duke,2,Lehigh,15,Lehigh,70,75
+2012,round_of_32,2012_round_of_32_135,Kentucky,1,Iowa State,8,Kentucky,87,71
+2012,round_of_32,2012_round_of_32_136,Indiana,4,VCU,12,Indiana,63,61
+2012,round_of_32,2012_round_of_32_137,Baylor,3,Colorado,11,Baylor,80,63
+2012,round_of_32,2012_round_of_32_138,Lehigh,15,Xavier,10,Xavier,58,70
+2012,sweet_16,2012_sweet_16_139,Indiana,4,Kentucky,1,Kentucky,90,102
+2012,sweet_16,2012_sweet_16_140,Baylor,3,Xavier,10,Baylor,75,70
+2012,elite_8,2012_elite_8_141,Kentucky,1,Baylor,3,Kentucky,82,70
+2012,round_of_64,2012_round_of_64_142,Long Island,16,Michigan State,1,Michigan State,67,89
+2012,round_of_64,2012_round_of_64_143,Saint Louis,9,Memphis,8,Saint Louis,61,54
+2012,round_of_64,2012_round_of_64_144,Long Beach State,12,New Mexico,5,New Mexico,68,75
+2012,round_of_64,2012_round_of_64_145,,4,Davidson,13,,69,62
+2012,round_of_64,2012_round_of_64_146,Murray State,6,Colorado State,11,Murray State,58,41
+2012,round_of_64,2012_round_of_64_147,BYU,14,Marquette,3,Marquette,68,88
+2012,round_of_64,2012_round_of_64_148,Virginia,10,Florida,7,Florida,45,71
+2012,round_of_64,2012_round_of_64_149,Norfolk State,15,Missouri,2,Norfolk State,86,84
+2012,round_of_32,2012_round_of_32_150,Michigan State,1,Saint Louis,9,Michigan State,65,61
+2012,round_of_32,2012_round_of_32_151,New Mexico,5,,4,,56,59
+2012,round_of_32,2012_round_of_32_152,Murray State,6,Marquette,3,Marquette,53,62
+2012,round_of_32,2012_round_of_32_153,Florida,7,Norfolk State,15,Florida,84,50
+2012,sweet_16,2012_sweet_16_154,Michigan State,1,,4,,44,57
+2012,sweet_16,2012_sweet_16_155,Florida,7,Marquette,3,Florida,68,58
+2012,elite_8,2012_elite_8_156,,4,Florida,7,,72,68
+2012,round_of_64,2012_round_of_64_157,Syracuse,1,UNC Asheville,16,Syracuse,72,65
+2012,round_of_64,2012_round_of_64_158,Southern Miss,9,Kansas State,8,Kansas State,64,70
+2012,round_of_64,2012_round_of_64_159,Vanderbilt,5,Harvard,12,Vanderbilt,79,70
+2012,round_of_64,2012_round_of_64_160,Wisconsin,4,Montana,13,Wisconsin,73,49
+2012,round_of_64,2012_round_of_64_161,Cincinnati,6,Texas,11,Cincinnati,65,59
+2012,round_of_64,2012_round_of_64_162,St. Bonaventure,14,Florida State,3,Florida State,63,66
+2012,round_of_64,2012_round_of_64_163,Gonzaga,7,West Virginia,10,Gonzaga,77,54
+2012,round_of_64,2012_round_of_64_164,Loyola (MD),15,Ohio State,2,Ohio State,59,78
+2012,round_of_32,2012_round_of_32_165,Kansas State,8,Syracuse,1,Syracuse,59,75
+2012,round_of_32,2012_round_of_32_166,Wisconsin,4,Vanderbilt,5,Wisconsin,60,57
+2012,round_of_32,2012_round_of_32_167,Cincinnati,6,Florida State,3,Cincinnati,62,56
+2012,round_of_32,2012_round_of_32_168,Gonzaga,7,Ohio State,2,Ohio State,66,73
+2012,sweet_16,2012_sweet_16_169,Syracuse,1,Wisconsin,4,Syracuse,64,63
+2012,sweet_16,2012_sweet_16_170,Ohio State,2,Cincinnati,6,Ohio State,81,66
+2012,elite_8,2012_elite_8_171,Syracuse,1,Ohio State,2,Ohio State,70,77
+2012,round_of_64,2012_round_of_64_172,Vermont,16,North Carolina,1,North Carolina,58,77
+2012,round_of_64,2012_round_of_64_173,Creighton,8,Alabama,9,Creighton,58,57
+2012,round_of_64,2012_round_of_64_174,Temple,5,South Florida,12,South Florida,44,58
+2012,round_of_64,2012_round_of_64_175,Michigan,4,Ohio,13,Ohio,60,65
+2012,round_of_64,2012_round_of_64_176,NC State,11,San Diego State,6,NC State,79,65
+2012,round_of_64,2012_round_of_64_177,Georgetown,3,Belmont,14,Georgetown,74,59
+2012,round_of_64,2012_round_of_64_178,Purdue,10,Saint Mary's,7,Purdue,72,69
+2012,round_of_64,2012_round_of_64_179,Kansas,2,Detroit,15,Kansas,65,50
+2012,round_of_32,2012_round_of_32_180,North Carolina,1,Creighton,8,North Carolina,87,73
+2012,round_of_32,2012_round_of_32_181,South Florida,12,Ohio,13,Ohio,56,62
+2012,round_of_32,2012_round_of_32_182,Georgetown,3,NC State,11,NC State,63,66
+2012,round_of_32,2012_round_of_32_183,Purdue,10,Kansas,2,Kansas,60,63
+2012,sweet_16,2012_sweet_16_184,North Carolina,1,Ohio,13,North Carolina,73,65
+2012,sweet_16,2012_sweet_16_185,Kansas,2,NC State,11,Kansas,60,57
+2012,elite_8,2012_elite_8_186,Kansas,2,North Carolina,1,Kansas,80,67
+2012,final_four,2012_final_four_187,,4,Kentucky,1,Kentucky,61,69
+2012,final_four,2012_final_four_188,Kansas,2,Ohio State,2,Kansas,64,62
+2012,championship,2012_championship_189,Kentucky,1,Kansas,2,Kentucky,67,59
+2013,round_of_64,2013_round_of_64_190,Louisville,1,North Carolina A&T,16,Louisville,79,48
+2013,round_of_64,2013_round_of_64_191,Colorado State,8,Missouri,9,Colorado State,84,72
+2013,round_of_64,2013_round_of_64_192,Oregon,12,Oklahoma State,5,Oregon,68,55
+2013,round_of_64,2013_round_of_64_193,Saint Louis,4,New Mexico State,13,Saint Louis,64,44
+2013,round_of_64,2013_round_of_64_194,Saint Mary's,11,Memphis,6,Memphis,52,54
+2013,round_of_64,2013_round_of_64_195,Michigan State,3,Valparaiso,14,Michigan State,65,54
+2013,round_of_64,2013_round_of_64_196,Cincinnati,10,Creighton,7,Creighton,63,67
+2013,round_of_64,2013_round_of_64_197,Albany,15,Duke,2,Duke,61,73
+2013,round_of_32,2013_round_of_32_198,Louisville,1,Colorado State,8,Louisville,82,56
+2013,round_of_32,2013_round_of_32_199,Saint Louis,4,Oregon,12,Oregon,57,74
+2013,round_of_32,2013_round_of_32_200,Memphis,6,Michigan State,3,Michigan State,48,70
+2013,round_of_32,2013_round_of_32_201,Creighton,7,Duke,2,Duke,50,66
+2013,sweet_16,2013_sweet_16_202,Oregon,12,Louisville,1,Louisville,69,77
+2013,sweet_16,2013_sweet_16_203,Michigan State,3,Duke,2,Duke,61,71
+2013,elite_8,2013_elite_8_204,Louisville,1,Duke,2,Louisville,85,63
+2013,round_of_64,2013_round_of_64_205,Gonzaga,1,Southern,16,Gonzaga,64,58
+2013,round_of_64,2013_round_of_64_206,Wichita State,9,Pittsburgh,8,Wichita State,73,55
+2013,round_of_64,2013_round_of_64_207,Ole Miss,12,Wisconsin,5,Ole Miss,57,46
+2013,round_of_64,2013_round_of_64_208,La Salle,13,Kansas State,4,La Salle,63,61
+2013,round_of_64,2013_round_of_64_209,Arizona,6,Belmont,11,Arizona,81,64
+2013,round_of_64,2013_round_of_64_210,New Mexico,3,Harvard,14,Harvard,62,68
+2013,round_of_64,2013_round_of_64_211,Iowa State,10,Notre Dame,7,Iowa State,76,58
+2013,round_of_64,2013_round_of_64_212,Iona,15,Ohio State,2,Ohio State,70,95
+2013,round_of_32,2013_round_of_32_213,Wichita State,9,Gonzaga,1,Wichita State,76,70
+2013,round_of_32,2013_round_of_32_214,La Salle,13,Ole Miss,12,La Salle,76,74
+2013,round_of_32,2013_round_of_32_215,Harvard,14,Arizona,6,Arizona,51,74
+2013,round_of_32,2013_round_of_32_216,Iowa State,10,Ohio State,2,Ohio State,75,78
+2013,sweet_16,2013_sweet_16_217,La Salle,13,Wichita State,9,Wichita State,58,72
+2013,sweet_16,2013_sweet_16_218,Arizona,6,Ohio State,2,Ohio State,70,73
+2013,elite_8,2013_elite_8_219,Wichita State,9,Ohio State,2,Wichita State,70,66
+2013,round_of_64,2013_round_of_64_220,Kansas,1,Western Kentucky,16,Kansas,64,57
+2013,round_of_64,2013_round_of_64_221,Villanova,9,North Carolina,8,North Carolina,71,78
+2013,round_of_64,2013_round_of_64_222,Akron,12,VCU,5,VCU,42,88
+2013,round_of_64,2013_round_of_64_223,South Dakota State,13,Michigan,4,Michigan,56,71
+2013,round_of_64,2013_round_of_64_224,UCLA,6,Minnesota,11,Minnesota,63,83
+2013,round_of_64,2013_round_of_64_225,Florida,3,Northwestern State,14,Florida,79,47
+2013,round_of_64,2013_round_of_64_226,Oklahoma,10,San Diego State,7,San Diego State,55,70
+2013,round_of_64,2013_round_of_64_227,Georgetown,2,Florida Gulf Coast,15,Florida Gulf Coast,68,78
+2013,round_of_32,2013_round_of_32_228,North Carolina,8,Kansas,1,Kansas,58,70
+2013,round_of_32,2013_round_of_32_229,Michigan,4,VCU,5,Michigan,78,53
+2013,round_of_32,2013_round_of_32_230,Minnesota,11,Florida,3,Florida,64,78
+2013,round_of_32,2013_round_of_32_231,Florida Gulf Coast,15,San Diego State,7,Florida Gulf Coast,81,71
+2013,sweet_16,2013_sweet_16_232,Michigan,4,Kansas,1,Michigan,87,85
+2013,sweet_16,2013_sweet_16_233,Florida Gulf Coast,15,Florida,3,Florida,50,62
+2013,elite_8,2013_elite_8_234,Florida,3,Michigan,4,Michigan,59,79
+2013,round_of_64,2013_round_of_64_235,Indiana,1,James Madison,16,Indiana,83,62
+2013,round_of_64,2013_round_of_64_236,Temple,9,NC State,8,Temple,76,72
+2013,round_of_64,2013_round_of_64_237,UNLV,5,California,12,California,61,64
+2013,round_of_64,2013_round_of_64_238,Syracuse,4,Montana,13,Syracuse,81,34
+2013,round_of_64,2013_round_of_64_239,Bucknell,11,Butler,6,Butler,56,68
+2013,round_of_64,2013_round_of_64_240,Davidson,14,Marquette,3,Marquette,58,59
+2013,round_of_64,2013_round_of_64_241,Illinois,7,Colorado,10,Illinois,57,49
+2013,round_of_64,2013_round_of_64_242,Pacific,15,Miami (FL),2,Miami (FL),49,78
+2013,round_of_32,2013_round_of_32_243,Temple,9,Indiana,1,Indiana,52,58
+2013,round_of_32,2013_round_of_32_244,California,12,Syracuse,4,Syracuse,60,66
+2013,round_of_32,2013_round_of_32_245,Marquette,3,Butler,6,Marquette,74,72
+2013,round_of_32,2013_round_of_32_246,Illinois,7,Miami (FL),2,Miami (FL),59,63
+2013,sweet_16,2013_sweet_16_247,Syracuse,4,Indiana,1,Syracuse,61,50
+2013,sweet_16,2013_sweet_16_248,Marquette,3,Miami (FL),2,Marquette,71,61
+2013,elite_8,2013_elite_8_249,Marquette,3,Syracuse,4,Syracuse,39,55
+2013,final_four,2013_final_four_250,Louisville,1,Wichita State,9,Louisville,72,68
+2013,final_four,2013_final_four_251,Michigan,4,Syracuse,4,Michigan,61,56
+2013,championship,2013_championship_252,Michigan,4,Louisville,1,Louisville,76,82
+2014,round_of_64,2014_round_of_64_253,Florida,1,Albany,16,Florida,67,55
+2014,round_of_64,2014_round_of_64_254,Pittsburgh,9,Colorado,8,Pittsburgh,77,48
+2014,round_of_64,2014_round_of_64_255,VCU,5,Stephen F. Austin,12,Stephen F. Austin,75,77
+2014,round_of_64,2014_round_of_64_256,Tulsa,13,UCLA,4,UCLA,59,76
+2014,round_of_64,2014_round_of_64_257,Dayton,11,Ohio State,6,Dayton,60,59
+2014,round_of_64,2014_round_of_64_258,Syracuse,3,Western Michigan,14,Syracuse,77,53
+2014,round_of_64,2014_round_of_64_259,Stanford,10,New Mexico,7,Stanford,58,53
+2014,round_of_64,2014_round_of_64_260,Eastern Kentucky,15,Kansas,2,Kansas,69,80
+2014,round_of_32,2014_round_of_32_261,Pittsburgh,9,Florida,1,Florida,45,61
+2014,round_of_32,2014_round_of_32_262,Stephen F. Austin,12,UCLA,4,UCLA,60,77
+2014,round_of_32,2014_round_of_32_263,Dayton,11,Syracuse,3,Dayton,55,53
+2014,round_of_32,2014_round_of_32_264,Stanford,10,Kansas,2,Stanford,60,57
+2014,sweet_16,2014_sweet_16_265,UCLA,4,Florida,1,Florida,68,79
+2014,sweet_16,2014_sweet_16_266,Stanford,10,Dayton,11,Dayton,72,82
+2014,elite_8,2014_elite_8_267,Dayton,11,Florida,1,Florida,52,62
+2014,round_of_64,2014_round_of_64_268,Coastal Carolina,16,Virginia,1,Virginia,59,70
+2014,round_of_64,2014_round_of_64_269,George Washington,9,Memphis,8,Memphis,66,71
+2014,round_of_64,2014_round_of_64_270,Harvard,12,Cincinnati,5,Harvard,61,57
+2014,round_of_64,2014_round_of_64_271,Delaware,13,Michigan State,4,Michigan State,78,93
+2014,round_of_64,2014_round_of_64_272,North Carolina,6,Providence,11,North Carolina,79,77
+2014,round_of_64,2014_round_of_64_273,NC Central,14,Iowa State,3,Iowa State,75,93
+2014,round_of_64,2014_round_of_64_274,Saint Joseph's,10,UConn,7,UConn,81,89
+2014,round_of_64,2014_round_of_64_275,Villanova,2,Milwaukee,15,Villanova,73,53
+2014,round_of_32,2014_round_of_32_276,Virginia,1,Memphis,8,Virginia,78,60
+2014,round_of_32,2014_round_of_32_277,Michigan State,4,Harvard,12,Michigan State,80,73
+2014,round_of_32,2014_round_of_32_278,North Carolina,6,Iowa State,3,Iowa State,83,85
+2014,round_of_32,2014_round_of_32_279,UConn,7,Villanova,2,UConn,77,65
+2014,sweet_16,2014_sweet_16_280,Virginia,1,Michigan State,4,Michigan State,59,61
+2014,sweet_16,2014_sweet_16_281,Iowa State,3,UConn,7,UConn,76,81
+2014,elite_8,2014_elite_8_282,UConn,7,Michigan State,4,UConn,60,54
+2014,round_of_64,2014_round_of_64_283,Weber State,16,Arizona,1,Arizona,59,68
+2014,round_of_64,2014_round_of_64_284,Gonzaga,8,Oklahoma State,9,Gonzaga,85,77
+2014,round_of_64,2014_round_of_64_285,North Dakota State,12,Oklahoma,5,North Dakota State,80,75
+2014,round_of_64,2014_round_of_64_286,New Mexico State,13,San Diego State,4,San Diego State,69,73
+2014,round_of_64,2014_round_of_64_287,Nebraska,11,Baylor,6,Baylor,60,74
+2014,round_of_64,2014_round_of_64_288,Creighton,3,Louisiana–Lafayette,14,Creighton,76,66
+2014,round_of_64,2014_round_of_64_289,Oregon,7,BYU,10,Oregon,87,68
+2014,round_of_64,2014_round_of_64_290,Wisconsin,2,American,15,Wisconsin,75,35
+2014,round_of_32,2014_round_of_32_291,Arizona,1,Gonzaga,8,Arizona,84,61
+2014,round_of_32,2014_round_of_32_292,North Dakota State,12,San Diego State,4,San Diego State,44,63
+2014,round_of_32,2014_round_of_32_293,Creighton,3,Baylor,6,Baylor,55,85
+2014,round_of_32,2014_round_of_32_294,Wisconsin,2,Oregon,7,Wisconsin,85,77
+2014,sweet_16,2014_sweet_16_295,San Diego State,4,Arizona,1,Arizona,64,70
+2014,sweet_16,2014_sweet_16_296,Baylor,6,Wisconsin,2,Wisconsin,52,69
+2014,elite_8,2014_elite_8_297,Wisconsin,2,Arizona,1,Wisconsin,64,63
+2014,round_of_64,2014_round_of_64_298,Wichita State,1,Cal Poly,16,Wichita State,64,37
+2014,round_of_64,2014_round_of_64_299,Kentucky,8,Kansas State,9,Kentucky,56,49
+2014,round_of_64,2014_round_of_64_300,NC State,12,Saint Louis,5,Saint Louis,80,83
+2014,round_of_64,2014_round_of_64_301,Manhattan,13,,4,,64,71
+2014,round_of_64,2014_round_of_64_302,Massachusetts,6,Tennessee,11,Tennessee,67,86
+2014,round_of_64,2014_round_of_64_303,Duke,3,Mercer,14,Mercer,71,78
+2014,round_of_64,2014_round_of_64_304,Arizona State,10,Texas,7,Texas,85,87
+2014,round_of_64,2014_round_of_64_305,Michigan,2,Wofford,15,Michigan,57,40
+2014,round_of_32,2014_round_of_32_306,Kentucky,8,Wichita State,1,Kentucky,78,76
+2014,round_of_32,2014_round_of_32_307,,4,Saint Louis,5,,66,51
+2014,round_of_32,2014_round_of_32_308,Mercer,14,Tennessee,11,Tennessee,63,83
+2014,round_of_32,2014_round_of_32_309,Texas,7,Michigan,2,Michigan,65,79
+2014,sweet_16,2014_sweet_16_310,,4,Kentucky,8,Kentucky,69,74
+2014,sweet_16,2014_sweet_16_311,Tennessee,11,Michigan,2,Michigan,71,73
+2014,elite_8,2014_elite_8_312,Kentucky,8,Michigan,2,Kentucky,75,72
+2014,final_four,2014_final_four_313,Kentucky,8,Wisconsin,2,Kentucky,74,73
+2014,final_four,2014_final_four_314,UConn,7,Florida,1,UConn,63,53
+2014,championship,2014_championship_315,Kentucky,8,UConn,7,UConn,54,60
+2015,round_of_64,2015_round_of_64_316,Hampton,16,Kentucky,1,Kentucky,56,79
+2015,round_of_64,2015_round_of_64_317,Cincinnati,8,Purdue,9,Cincinnati,66,65
+2015,round_of_64,2015_round_of_64_318,Buffalo,12,West Virginia,5,West Virginia,62,68
+2015,round_of_64,2015_round_of_64_319,Maryland,4,Valparaiso,13,Maryland,65,62
+2015,round_of_64,2015_round_of_64_320,Texas,11,Butler,6,Butler,48,56
+2015,round_of_64,2015_round_of_64_321,Northeastern,14,Notre Dame,3,Notre Dame,65,69
+2015,round_of_64,2015_round_of_64_322,Indiana,10,Wichita State,7,Wichita State,76,81
+2015,round_of_64,2015_round_of_64_323,New Mexico State,15,Kansas,2,Kansas,56,75
+2015,round_of_32,2015_round_of_32_324,Cincinnati,8,Kentucky,1,Kentucky,51,64
+2015,round_of_32,2015_round_of_32_325,West Virginia,5,Maryland,4,West Virginia,69,59
+2015,round_of_32,2015_round_of_32_326,Butler,6,Notre Dame,3,Notre Dame,64,67
+2015,round_of_32,2015_round_of_32_327,Wichita State,7,Kansas,2,Wichita State,78,65
+2015,sweet_16,2015_sweet_16_328,West Virginia,5,Kentucky,1,Kentucky,39,78
+2015,sweet_16,2015_sweet_16_329,Wichita State,7,Notre Dame,3,Notre Dame,70,81
+2015,elite_8,2015_elite_8_330,Notre Dame,3,Kentucky,1,Kentucky,66,68
+2015,round_of_64,2015_round_of_64_331,Coastal Carolina,16,Wisconsin,1,Wisconsin,72,86
+2015,round_of_64,2015_round_of_64_332,Oregon,8,Oklahoma State,9,Oregon,79,73
+2015,round_of_64,2015_round_of_64_333,Wofford,12,Arkansas,5,Arkansas,53,56
+2015,round_of_64,2015_round_of_64_334,North Carolina,4,Harvard,13,North Carolina,67,65
+2015,round_of_64,2015_round_of_64_335,Ole Miss,11,Xavier,6,Xavier,57,76
+2015,round_of_64,2015_round_of_64_336,Baylor,3,Georgia State,14,Georgia State,56,57
+2015,round_of_64,2015_round_of_64_337,Ohio State,10,Virginia Commonwealth,7,Ohio State,75,72
+2015,round_of_64,2015_round_of_64_338,Texas Southern,15,Arizona,2,Arizona,72,93
+2015,round_of_32,2015_round_of_32_339,Wisconsin,1,Oregon,8,Wisconsin,72,65
+2015,round_of_32,2015_round_of_32_340,North Carolina,4,Arkansas,5,North Carolina,87,78
+2015,round_of_32,2015_round_of_32_341,Georgia State,14,Xavier,6,Xavier,67,75
+2015,round_of_32,2015_round_of_32_342,Arizona,2,Ohio State,10,Arizona,73,58
+2015,sweet_16,2015_sweet_16_343,Wisconsin,1,North Carolina,4,Wisconsin,79,72
+2015,sweet_16,2015_sweet_16_344,Arizona,2,Xavier,6,Arizona,68,60
+2015,elite_8,2015_elite_8_345,Wisconsin,1,Arizona,2,Wisconsin,85,78
+2015,round_of_64,2015_round_of_64_346,Lafayette,16,Villanova,1,Villanova,52,93
+2015,round_of_64,2015_round_of_64_347,LSU,9,NC State,8,NC State,65,66
+2015,round_of_64,2015_round_of_64_348,Northern Iowa,5,Wyoming,12,Northern Iowa,71,54
+2015,round_of_64,2015_round_of_64_349,California-Irvine,13,Louisville,4,Louisville,55,57
+2015,round_of_64,2015_round_of_64_350,Dayton,11,Providence,6,Dayton,66,53
+2015,round_of_64,2015_round_of_64_351,Albany,14,Oklahoma,3,Oklahoma,60,69
+2015,round_of_64,2015_round_of_64_352,Georgia,10,Michigan State,7,Michigan State,63,70
+2015,round_of_64,2015_round_of_64_353,Belmont,15,Virginia,2,Virginia,67,79
+2015,round_of_32,2015_round_of_32_354,NC State,8,Villanova,1,NC State,71,68
+2015,round_of_32,2015_round_of_32_355,Northern Iowa,5,Louisville,4,Louisville,53,66
+2015,round_of_32,2015_round_of_32_356,Oklahoma,3,Dayton,11,Oklahoma,72,66
+2015,round_of_32,2015_round_of_32_357,Virginia,2,Michigan State,7,Michigan State,54,60
+2015,sweet_16,2015_sweet_16_358,Louisville,4,NC State,8,Louisville,75,65
+2015,sweet_16,2015_sweet_16_359,Michigan State,7,Oklahoma,3,Michigan State,62,58
+2015,elite_8,2015_elite_8_360,Michigan State,7,Louisville,4,Michigan State,76,70
+2015,round_of_64,2015_round_of_64_361,Robert Morris,16,Duke,1,Duke,56,85
+2015,round_of_64,2015_round_of_64_362,San Diego State,8,St. John's,9,San Diego State,76,64
+2015,round_of_64,2015_round_of_64_363,Stephen F. Austin,12,Utah,5,Utah,50,57
+2015,round_of_64,2015_round_of_64_364,Eastern Washington,13,Georgetown,4,Georgetown,74,84
+2015,round_of_64,2015_round_of_64_365,UCLA,11,SMU,6,UCLA,60,59
+2015,round_of_64,2015_round_of_64_366,Iowa State,3,UAB,14,UAB,59,60
+2015,round_of_64,2015_round_of_64_367,Iowa,7,Davidson,10,Iowa,83,52
+2015,round_of_64,2015_round_of_64_368,North Dakota State,15,Gonzaga,2,Gonzaga,76,86
+2015,round_of_32,2015_round_of_32_369,Duke,1,San Diego State,8,Duke,68,49
+2015,round_of_32,2015_round_of_32_370,Georgetown,4,Utah,5,Utah,64,75
+2015,round_of_32,2015_round_of_32_371,UAB,14,UCLA,11,UCLA,75,92
+2015,round_of_32,2015_round_of_32_372,Iowa,7,Gonzaga,2,Gonzaga,68,87
+2015,sweet_16,2015_sweet_16_373,Utah,5,Duke,1,Duke,57,63
+2015,sweet_16,2015_sweet_16_374,UCLA,11,Gonzaga,2,Gonzaga,62,74
+2015,elite_8,2015_elite_8_375,Duke,1,Gonzaga,2,Duke,66,52
+2015,final_four,2015_final_four_376,Wisconsin,1,Kentucky,1,Wisconsin,71,64
+2015,final_four,2015_final_four_377,Michigan State,7,Duke,1,Duke,61,81
+2015,championship,2015_championship_378,Duke,1,Wisconsin,1,Duke,68,63
+2016,round_of_64,2016_round_of_64_379,Kansas,1,Austin Peay,16,Kansas,105,79
+2016,round_of_64,2016_round_of_64_380,Colorado,8,UConn,9,UConn,67,74
+2016,round_of_64,2016_round_of_64_381,South Dakota State,12,Maryland,5,Maryland,74,79
+2016,round_of_64,2016_round_of_64_382,Hawaii,13,California,4,Hawaii,77,66
+2016,round_of_64,2016_round_of_64_383,Wichita State,11,Arizona,6,Wichita State,65,55
+2016,round_of_64,2016_round_of_64_384,Miami (FL),3,Buffalo,14,Miami (FL),79,72
+2016,round_of_64,2016_round_of_64_385,Iowa,7,Temple,10,Iowa,72,70
+2016,round_of_64,2016_round_of_64_386,Villanova,2,UNC Asheville,15,Villanova,86,56
+2016,round_of_32,2016_round_of_32_387,Kansas,1,UConn,9,Kansas,73,61
+2016,round_of_32,2016_round_of_32_388,Maryland,5,Hawaii,13,Maryland,73,60
+2016,round_of_32,2016_round_of_32_389,Wichita State,11,Miami (FL),3,Miami (FL),57,65
+2016,round_of_32,2016_round_of_32_390,Iowa,7,Villanova,2,Villanova,68,87
+2016,sweet_16,2016_sweet_16_391,Maryland,5,Kansas,1,Kansas,63,79
+2016,sweet_16,2016_sweet_16_392,Miami (FL),3,Villanova,2,Villanova,69,92
+2016,elite_8,2016_elite_8_393,Villanova,2,Kansas,1,Villanova,64,59
+2016,round_of_64,2016_round_of_64_394,Holy Cross,16,Oregon,1,Oregon,52,91
+2016,round_of_64,2016_round_of_64_395,Saint Joseph's,8,Cincinnati,9,Saint Joseph's,78,76
+2016,round_of_64,2016_round_of_64_396,Yale,12,Baylor,5,Yale,79,75
+2016,round_of_64,2016_round_of_64_397,Duke,4,UNC Wilmington,13,Duke,93,85
+2016,round_of_64,2016_round_of_64_398,Texas,6,Northern Iowa,11,Northern Iowa,72,75
+2016,round_of_64,2016_round_of_64_399,Green Bay,14,Texas A&M,3,Texas A&M,65,92
+2016,round_of_64,2016_round_of_64_400,VCU,10,Oregon State,7,VCU,75,67
+2016,round_of_64,2016_round_of_64_401,Oklahoma,2,Cal State Bakersfield,15,Oklahoma,82,68
+2016,round_of_32,2016_round_of_32_402,Oregon,1,Saint Joseph's,8,Oregon,69,64
+2016,round_of_32,2016_round_of_32_403,Duke,4,Yale,12,Duke,71,64
+2016,round_of_32,2016_round_of_32_404,Northern Iowa,11,Texas A&M,3,Texas A&M,88,92
+2016,round_of_32,2016_round_of_32_405,VCU,10,Oklahoma,2,Oklahoma,81,85
+2016,sweet_16,2016_sweet_16_406,Oregon,1,Duke,4,Oregon,82,68
+2016,sweet_16,2016_sweet_16_407,Oklahoma,2,Texas A&M,3,Oklahoma,77,63
+2016,elite_8,2016_elite_8_408,Oregon,1,Oklahoma,2,Oklahoma,68,80
+2016,round_of_64,2016_round_of_64_409,Florida Gulf Coast,16,North Carolina,1,North Carolina,67,83
+2016,round_of_64,2016_round_of_64_410,Providence,9,USC,8,Providence,70,69
+2016,round_of_64,2016_round_of_64_411,Chattanooga,12,Indiana,5,Indiana,74,99
+2016,round_of_64,2016_round_of_64_412,Stony Brook,13,Kentucky,4,Kentucky,57,85
+2016,round_of_64,2016_round_of_64_413,Michigan,11,Notre Dame,6,Notre Dame,63,70
+2016,round_of_64,2016_round_of_64_414,Stephen F. Austin,14,West Virginia,3,Stephen F. Austin,70,56
+2016,round_of_64,2016_round_of_64_415,Wisconsin,7,Pittsburgh,10,Wisconsin,47,43
+2016,round_of_64,2016_round_of_64_416,Xavier,2,Weber State,15,Xavier,71,53
+2016,round_of_32,2016_round_of_32_417,North Carolina,1,Providence,9,North Carolina,85,66
+2016,round_of_32,2016_round_of_32_418,Indiana,5,Kentucky,4,Indiana,73,67
+2016,round_of_32,2016_round_of_32_419,Stephen F. Austin,14,Notre Dame,6,Notre Dame,75,76
+2016,round_of_32,2016_round_of_32_420,Wisconsin,7,Xavier,2,Wisconsin,66,63
+2016,sweet_16,2016_sweet_16_421,North Carolina,1,Indiana,5,North Carolina,101,86
+2016,sweet_16,2016_sweet_16_422,Wisconsin,7,Notre Dame,6,Notre Dame,56,61
+2016,elite_8,2016_elite_8_423,North Carolina,1,Notre Dame,6,North Carolina,88,74
+2016,round_of_64,2016_round_of_64_424,Hampton,16,Virginia,1,Virginia,45,81
+2016,round_of_64,2016_round_of_64_425,Butler,9,Texas Tech,8,Butler,71,61
+2016,round_of_64,2016_round_of_64_426,Little Rock,12,Purdue,5,Little Rock,85,83
+2016,round_of_64,2016_round_of_64_427,Iona,13,Iowa State,4,Iowa State,81,94
+2016,round_of_64,2016_round_of_64_428,Gonzaga,11,Seton Hall,6,Gonzaga,68,52
+2016,round_of_64,2016_round_of_64_429,Fresno State,14,Utah,3,Utah,69,80
+2016,round_of_64,2016_round_of_64_430,Dayton,7,Syracuse,10,Syracuse,51,70
+2016,round_of_64,2016_round_of_64_431,Middle Tennessee,15,Michigan State,2,Middle Tennessee,90,81
+2016,round_of_32,2016_round_of_32_432,Virginia,1,Butler,9,Virginia,77,69
+2016,round_of_32,2016_round_of_32_433,Iowa State,4,Little Rock,12,Iowa State,78,61
+2016,round_of_32,2016_round_of_32_434,Utah,3,Gonzaga,11,Gonzaga,59,82
+2016,round_of_32,2016_round_of_32_435,Middle Tennessee,15,Syracuse,10,Syracuse,50,75
+2016,sweet_16,2016_sweet_16_436,Virginia,1,Iowa State,4,Virginia,84,71
+2016,sweet_16,2016_sweet_16_437,Syracuse,10,Gonzaga,11,Syracuse,63,60
+2016,elite_8,2016_elite_8_438,Virginia,1,Syracuse,10,Syracuse,62,68
+2016,final_four,2016_final_four_439,Villanova,2,Oklahoma,2,Villanova,95,51
+2016,final_four,2016_final_four_440,Syracuse,10,North Carolina,1,North Carolina,66,83
+2016,championship,2016_championship_441,North Carolina,1,Villanova,2,Villanova,74,77
+2017,round_of_64,2017_round_of_64_442,Mount St. Mary's,16,Villanova,1,Villanova,56,76
+2017,round_of_64,2017_round_of_64_443,Virginia Tech,9,Wisconsin,8,Wisconsin,74,84
+2017,round_of_64,2017_round_of_64_444,UNC Wilmington,12,Virginia,5,Virginia,71,76
+2017,round_of_64,2017_round_of_64_445,East Tennessee State,13,Florida,4,Florida,65,80
+2017,round_of_64,2017_round_of_64_446,SMU,6,USC,11,USC,65,66
+2017,round_of_64,2017_round_of_64_447,New Mexico State,14,Baylor,3,Baylor,73,91
+2017,round_of_64,2017_round_of_64_448,Marquette,10,South Carolina,7,South Carolina,73,93
+2017,round_of_64,2017_round_of_64_449,Troy,15,Duke,2,Duke,65,87
+2017,round_of_32,2017_round_of_32_450,Villanova,1,Wisconsin,8,Wisconsin,62,65
+2017,round_of_32,2017_round_of_32_451,Virginia,5,Florida,4,Florida,39,65
+2017,round_of_32,2017_round_of_32_452,USC,11,Baylor,3,Baylor,78,82
+2017,round_of_32,2017_round_of_32_453,South Carolina,7,Duke,2,South Carolina,88,81
+2017,sweet_16,2017_sweet_16_454,Florida,4,Wisconsin,8,Florida,84,83
+2017,sweet_16,2017_sweet_16_455,South Carolina,7,Baylor,3,South Carolina,70,50
+2017,elite_8,2017_elite_8_456,Florida,4,South Carolina,7,South Carolina,70,77
+2017,round_of_64,2017_round_of_64_457,South Dakota State,16,Gonzaga,1,Gonzaga,46,66
+2017,round_of_64,2017_round_of_64_458,Vanderbilt,9,Northwestern,8,Northwestern,66,68
+2017,round_of_64,2017_round_of_64_459,Princeton,12,Notre Dame,5,Notre Dame,58,60
+2017,round_of_64,2017_round_of_64_460,West Virginia,4,Bucknell,13,West Virginia,86,80
+2017,round_of_64,2017_round_of_64_461,Xavier,11,Maryland,6,Xavier,76,65
+2017,round_of_64,2017_round_of_64_462,Florida State,3,Florida Gulf Coast,14,Florida State,86,80
+2017,round_of_64,2017_round_of_64_463,Saint Mary's,7,VCU,10,Saint Mary's,85,77
+2017,round_of_64,2017_round_of_64_464,Arizona,2,North Dakota,15,Arizona,100,82
+2017,round_of_32,2017_round_of_32_465,Northwestern,8,Gonzaga,1,Gonzaga,73,79
+2017,round_of_32,2017_round_of_32_466,West Virginia,4,Notre Dame,5,West Virginia,83,71
+2017,round_of_32,2017_round_of_32_467,Xavier,11,Florida State,3,Xavier,91,66
+2017,round_of_32,2017_round_of_32_468,Saint Mary's,7,Arizona,2,Arizona,60,69
+2017,sweet_16,2017_sweet_16_469,West Virginia,4,Gonzaga,1,Gonzaga,58,61
+2017,sweet_16,2017_sweet_16_470,Xavier,11,Arizona,2,Xavier,73,71
+2017,elite_8,2017_elite_8_471,Gonzaga,1,Xavier,11,Gonzaga,83,59
+2017,round_of_64,2017_round_of_64_472,UC Davis,16,Kansas,1,Kansas,62,100
+2017,round_of_64,2017_round_of_64_473,Michigan State,9,Miami (FL),8,Michigan State,78,58
+2017,round_of_64,2017_round_of_64_474,Iowa State,5,Nevada,12,Iowa State,84,73
+2017,round_of_64,2017_round_of_64_475,Purdue,4,Vermont,13,Purdue,80,70
+2017,round_of_64,2017_round_of_64_476,Creighton,6,Rhode Island,11,Rhode Island,72,84
+2017,round_of_64,2017_round_of_64_477,Iona,14,Oregon,3,Oregon,77,93
+2017,round_of_64,2017_round_of_64_478,Oklahoma State,10,Michigan,7,Michigan,91,92
+2017,round_of_64,2017_round_of_64_479,Jacksonville State,15,Louisville,2,Louisville,63,78
+2017,round_of_32,2017_round_of_32_480,Michigan State,9,Kansas,1,Kansas,70,90
+2017,round_of_32,2017_round_of_32_481,Purdue,4,Iowa State,5,Purdue,80,76
+2017,round_of_32,2017_round_of_32_482,Oregon,3,Rhode Island,11,Oregon,75,72
+2017,round_of_32,2017_round_of_32_483,Michigan,7,Louisville,2,Michigan,73,69
+2017,sweet_16,2017_sweet_16_484,Purdue,4,Kansas,1,Kansas,66,98
+2017,sweet_16,2017_sweet_16_485,Michigan,7,Oregon,3,Oregon,68,69
+2017,elite_8,2017_elite_8_486,Kansas,1,Oregon,3,Oregon,60,74
+2017,round_of_64,2017_round_of_64_487,North Carolina,1,Texas Southern,16,North Carolina,103,64
+2017,round_of_64,2017_round_of_64_488,Seton Hall,9,Arkansas,8,Arkansas,71,77
+2017,round_of_64,2017_round_of_64_489,Minnesota,5,Middle Tennessee,12,Middle Tennessee,72,81
+2017,round_of_64,2017_round_of_64_490,Winthrop,13,Butler,4,Butler,64,76
+2017,round_of_64,2017_round_of_64_491,Cincinnati,6,Kansas State,11,Cincinnati,75,61
+2017,round_of_64,2017_round_of_64_492,UCLA,3,Kent State,14,UCLA,97,80
+2017,round_of_64,2017_round_of_64_493,Wichita State,10,Dayton,7,Wichita State,64,58
+2017,round_of_64,2017_round_of_64_494,Kentucky,2,Northern Kentucky,15,Kentucky,79,70
+2017,round_of_32,2017_round_of_32_495,North Carolina,1,Arkansas,8,North Carolina,72,65
+2017,round_of_32,2017_round_of_32_496,Middle Tennessee,12,Butler,4,Butler,65,74
+2017,round_of_32,2017_round_of_32_497,UCLA,3,Cincinnati,6,UCLA,79,67
+2017,round_of_32,2017_round_of_32_498,Kentucky,2,Wichita State,10,Kentucky,65,62
+2017,sweet_16,2017_sweet_16_499,North Carolina,1,Butler,4,North Carolina,92,80
+2017,sweet_16,2017_sweet_16_500,Kentucky,2,UCLA,3,Kentucky,86,75
+2017,elite_8,2017_elite_8_501,Kentucky,2,North Carolina,1,North Carolina,73,75
+2017,final_four,2017_final_four_502,Gonzaga,1,South Carolina,7,Gonzaga,77,73
+2017,final_four,2017_final_four_503,North Carolina,1,Oregon,3,North Carolina,77,76
+2017,championship,2017_championship_504,Gonzaga,1,North Carolina,1,North Carolina,65,71
+2018,round_of_64,2018_round_of_64_505,UMBC,16,Virginia,1,UMBC,74,54
+2018,round_of_64,2018_round_of_64_506,Creighton,8,Kansas State,9,Kansas State,59,69
+2018,round_of_64,2018_round_of_64_507,Kentucky,5,Davidson,12,Kentucky,78,73
+2018,round_of_64,2018_round_of_64_508,Buffalo,13,Arizona,4,Buffalo,89,68
+2018,round_of_64,2018_round_of_64_509,Loyola–Chicago,11,Miami (FL),6,Loyola–Chicago,64,62
+2018,round_of_64,2018_round_of_64_510,Tennessee,3,Wright State,14,Tennessee,73,47
+2018,round_of_64,2018_round_of_64_511,Nevada,7,Texas,10,Nevada,87,83
+2018,round_of_64,2018_round_of_64_512,Cincinnati,2,Georgia State,15,Cincinnati,68,53
+2018,round_of_32,2018_round_of_32_513,UMBC,16,Kansas State,9,Kansas State,43,50
+2018,round_of_32,2018_round_of_32_514,Kentucky,5,Buffalo,13,Kentucky,95,75
+2018,round_of_32,2018_round_of_32_515,Tennessee,3,Loyola–Chicago,11,Loyola–Chicago,62,63
+2018,round_of_32,2018_round_of_32_516,Cincinnati,2,Nevada,7,Nevada,73,75
+2018,sweet_16,2018_sweet_16_517,Kansas State,9,Kentucky,5,Kansas State,61,58
+2018,sweet_16,2018_sweet_16_518,Loyola–Chicago,11,Nevada,7,Loyola–Chicago,69,68
+2018,elite_8,2018_elite_8_519,Loyola–Chicago,11,Kansas State,9,Loyola–Chicago,78,62
+2018,round_of_64,2018_round_of_64_520,Texas Southern,16,Xavier,1,Xavier,83,102
+2018,round_of_64,2018_round_of_64_521,Missouri,8,Florida State,9,Florida State,54,67
+2018,round_of_64,2018_round_of_64_522,Ohio State,5,South Dakota State,12,Ohio State,81,73
+2018,round_of_64,2018_round_of_64_523,UNC Greensboro,13,Gonzaga,4,Gonzaga,64,68
+2018,round_of_64,2018_round_of_64_524,San Diego State,11,Houston,6,Houston,65,67
+2018,round_of_64,2018_round_of_64_525,Montana,14,Michigan,3,Michigan,47,61
+2018,round_of_64,2018_round_of_64_526,Providence,10,Texas A&M,7,Texas A&M,69,73
+2018,round_of_64,2018_round_of_64_527,Lipscomb,15,North Carolina,2,North Carolina,66,84
+2018,round_of_32,2018_round_of_32_528,Florida State,9,Xavier,1,Florida State,75,70
+2018,round_of_32,2018_round_of_32_529,Gonzaga,4,Ohio State,5,Gonzaga,90,84
+2018,round_of_32,2018_round_of_32_530,Michigan,3,Houston,6,Michigan,64,63
+2018,round_of_32,2018_round_of_32_531,Texas A&M,7,North Carolina,2,Texas A&M,86,65
+2018,sweet_16,2018_sweet_16_532,Gonzaga,4,Florida State,9,Florida State,60,75
+2018,sweet_16,2018_sweet_16_533,Texas A&M,7,Michigan,3,Michigan,72,99
+2018,elite_8,2018_elite_8_534,Michigan,3,Florida State,9,Michigan,58,54
+2018,round_of_64,2018_round_of_64_535,Radford,16,Villanova,1,Villanova,61,87
+2018,round_of_64,2018_round_of_64_536,Virginia Tech,8,Alabama,9,Alabama,83,86
+2018,round_of_64,2018_round_of_64_537,West Virginia,5,Murray State,12,West Virginia,85,68
+2018,round_of_64,2018_round_of_64_538,Wichita State,4,Marshall,13,Marshall,75,81
+2018,round_of_64,2018_round_of_64_539,St. Bonaventure,11,Florida,6,Florida,62,77
+2018,round_of_64,2018_round_of_64_540,Texas Tech,3,Stephen F. Austin,14,Texas Tech,70,60
+2018,round_of_64,2018_round_of_64_541,Arkansas,7,Butler,10,Butler,62,79
+2018,round_of_64,2018_round_of_64_542,Cal State Fullerton,15,Purdue,2,Purdue,48,74
+2018,round_of_32,2018_round_of_32_543,Villanova,1,Alabama,9,Villanova,81,58
+2018,round_of_32,2018_round_of_32_544,West Virginia,5,Marshall,13,West Virginia,94,71
+2018,round_of_32,2018_round_of_32_545,Texas Tech,3,Florida,6,Texas Tech,69,66
+2018,round_of_32,2018_round_of_32_546,Butler,10,Purdue,2,Purdue,73,76
+2018,sweet_16,2018_sweet_16_547,West Virginia,5,Villanova,1,Villanova,78,90
+2018,sweet_16,2018_sweet_16_548,Texas Tech,3,Purdue,2,Texas Tech,78,65
+2018,elite_8,2018_elite_8_549,Texas Tech,3,Villanova,1,Villanova,59,71
+2018,round_of_64,2018_round_of_64_550,Kansas#,1,Penn,16,Kansas#,76,60
+2018,round_of_64,2018_round_of_64_551,NC State,9,Seton Hall,8,Seton Hall,83,94
+2018,round_of_64,2018_round_of_64_552,New Mexico State,12,Clemson,5,Clemson,68,79
+2018,round_of_64,2018_round_of_64_553,Auburn,4,College of Charleston,13,Auburn,62,58
+2018,round_of_64,2018_round_of_64_554,TCU,6,Syracuse,11,Syracuse,52,57
+2018,round_of_64,2018_round_of_64_555,Bucknell,14,Michigan State,3,Michigan State,78,82
+2018,round_of_64,2018_round_of_64_556,Oklahoma,10,Rhode Island,7,Rhode Island,78,83
+2018,round_of_64,2018_round_of_64_557,Duke,2,Iona,15,Duke,89,67
+2018,round_of_32,2018_round_of_32_558,Seton Hall,8,Kansas#,1,Kansas#,79,83
+2018,round_of_32,2018_round_of_32_559,Auburn,4,Clemson,5,Clemson,53,84
+2018,round_of_32,2018_round_of_32_560,Syracuse,11,Michigan State,3,Syracuse,55,53
+2018,round_of_32,2018_round_of_32_561,Duke,2,Rhode Island,7,Duke,87,62
+2018,sweet_16,2018_sweet_16_562,Kansas#,1,Clemson,5,Kansas#,80,76
+2018,sweet_16,2018_sweet_16_563,Syracuse,11,Duke,2,Duke,65,69
+2018,elite_8,2018_elite_8_564,Kansas#,1,Duke,2,Kansas#,85,81
+2018,final_four,2018_final_four_565,Loyola–Chicago,11,Michigan,3,Michigan,57,69
+2018,final_four,2018_final_four_566,Kansas#,1,Villanova,1,Villanova,79,95
+2018,championship,2018_championship_567,Villanova,1,Michigan,3,Villanova,79,62
+2019,round_of_64,2019_round_of_64_568,North Dakota State,16,Duke,1,Duke,62,85
+2019,round_of_64,2019_round_of_64_569,VCU,8,UCF,9,UCF,58,73
+2019,round_of_64,2019_round_of_64_570,Mississippi State,5,Liberty,12,Liberty,76,80
+2019,round_of_64,2019_round_of_64_571,Saint Louis,13,Virginia Tech,4,Virginia Tech,52,66
+2019,round_of_64,2019_round_of_64_572,Maryland,6,Belmont,11,Maryland,79,77
+2019,round_of_64,2019_round_of_64_573,Yale,14,LSU,3,LSU,74,79
+2019,round_of_64,2019_round_of_64_574,Louisville,7,Minnesota,10,Minnesota,76,86
+2019,round_of_64,2019_round_of_64_575,Michigan State,2,Bradley,15,Michigan State,76,65
+2019,round_of_32,2019_round_of_32_576,UCF,9,Duke,1,Duke,76,77
+2019,round_of_32,2019_round_of_32_577,Liberty,12,Virginia Tech,4,Virginia Tech,58,67
+2019,round_of_32,2019_round_of_32_578,LSU,3,Maryland,6,LSU,69,67
+2019,round_of_32,2019_round_of_32_579,Michigan State,2,Minnesota,10,Michigan State,70,50
+2019,sweet_16,2019_sweet_16_580,Virginia Tech,4,Duke,1,Duke,73,75
+2019,sweet_16,2019_sweet_16_581,Michigan State,2,LSU,3,Michigan State,80,63
+2019,elite_8,2019_elite_8_582,Duke,1,Michigan State,2,Michigan State,67,68
+2019,round_of_64,2019_round_of_64_583,Fairleigh Dickinson,16,Gonzaga,1,Gonzaga,49,87
+2019,round_of_64,2019_round_of_64_584,Baylor,9,Syracuse,8,Baylor,78,69
+2019,round_of_64,2019_round_of_64_585,Marquette,5,Murray State,12,Murray State,64,83
+2019,round_of_64,2019_round_of_64_586,Florida State,4,Vermont,13,Florida State,76,69
+2019,round_of_64,2019_round_of_64_587,Buffalo,6,Arizona State,11,Buffalo,91,74
+2019,round_of_64,2019_round_of_64_588,Northern Kentucky,14,Texas Tech,3,Texas Tech,57,72
+2019,round_of_64,2019_round_of_64_589,Florida,10,Nevada,7,Florida,70,61
+2019,round_of_64,2019_round_of_64_590,Michigan,2,Montana,15,Michigan,74,55
+2019,round_of_32,2019_round_of_32_591,Baylor,9,Gonzaga,1,Gonzaga,71,83
+2019,round_of_32,2019_round_of_32_592,Florida State,4,Murray State,12,Florida State,90,62
+2019,round_of_32,2019_round_of_32_593,Texas Tech,3,Buffalo,6,Texas Tech,78,58
+2019,round_of_32,2019_round_of_32_594,Florida,10,Michigan,2,Michigan,49,64
+2019,sweet_16,2019_sweet_16_595,Gonzaga,1,Florida State,4,Gonzaga,72,58
+2019,sweet_16,2019_sweet_16_596,Michigan,2,Texas Tech,3,Texas Tech,44,63
+2019,elite_8,2019_elite_8_597,Gonzaga,1,Texas Tech,3,Texas Tech,69,75
+2019,round_of_64,2019_round_of_64_598,Virginia,1,Gardner–Webb,16,Virginia,71,56
+2019,round_of_64,2019_round_of_64_599,Oklahoma,9,Ole Miss,8,Oklahoma,95,72
+2019,round_of_64,2019_round_of_64_600,Wisconsin,5,Oregon,12,Oregon,54,72
+2019,round_of_64,2019_round_of_64_601,UC Irvine,13,Kansas State,4,UC Irvine,70,64
+2019,round_of_64,2019_round_of_64_602,Saint Mary's,11,Villanova,6,Villanova,57,61
+2019,round_of_64,2019_round_of_64_603,Purdue,3,Old Dominion,14,Purdue,61,48
+2019,round_of_64,2019_round_of_64_604,Cincinnati,7,Iowa,10,Iowa,72,79
+2019,round_of_64,2019_round_of_64_605,Colgate,15,Tennessee,2,Tennessee,70,77
+2019,round_of_32,2019_round_of_32_606,Oklahoma,9,Virginia,1,Virginia,51,63
+2019,round_of_32,2019_round_of_32_607,Oregon,12,UC Irvine,13,Oregon,73,54
+2019,round_of_32,2019_round_of_32_608,Villanova,6,Purdue,3,Purdue,61,87
+2019,round_of_32,2019_round_of_32_609,Tennessee,2,Iowa,10,Tennessee,83,77
+2019,sweet_16,2019_sweet_16_610,Virginia,1,Oregon,12,Virginia,53,49
+2019,sweet_16,2019_sweet_16_611,Tennessee,2,Purdue,3,Purdue,94,99
+2019,elite_8,2019_elite_8_612,Virginia,1,Purdue,3,Virginia,80,75
+2019,round_of_64,2019_round_of_64_613,Iona,16,North Carolina,1,North Carolina,73,88
+2019,round_of_64,2019_round_of_64_614,Washington,9,Utah State,8,Washington,78,61
+2019,round_of_64,2019_round_of_64_615,New Mexico State,12,Auburn,5,Auburn,77,78
+2019,round_of_64,2019_round_of_64_616,Kansas,4,Northeastern,13,Kansas,87,53
+2019,round_of_64,2019_round_of_64_617,Iowa State,6,Ohio State,11,Ohio State,59,62
+2019,round_of_64,2019_round_of_64_618,Houston,3,Georgia State,14,Houston,84,55
+2019,round_of_64,2019_round_of_64_619,Seton Hall,10,Wofford,7,Wofford,68,84
+2019,round_of_64,2019_round_of_64_620,Kentucky,2,Abilene Christian,15,Kentucky,79,44
+2019,round_of_32,2019_round_of_32_621,North Carolina,1,Washington,9,North Carolina,81,59
+2019,round_of_32,2019_round_of_32_622,Auburn,5,Kansas,4,Auburn,89,75
+2019,round_of_32,2019_round_of_32_623,Houston,3,Ohio State,11,Houston,74,59
+2019,round_of_32,2019_round_of_32_624,Kentucky,2,Wofford,7,Kentucky,62,56
+2019,sweet_16,2019_sweet_16_625,North Carolina,1,Auburn,5,Auburn,80,97
+2019,sweet_16,2019_sweet_16_626,Houston,3,Kentucky,2,Kentucky,58,62
+2019,elite_8,2019_elite_8_627,Auburn,5,Kentucky,2,Auburn,77,71
+2019,final_four,2019_final_four_628,Texas Tech,3,Michigan State,2,Texas Tech,61,51
+2019,final_four,2019_final_four_629,Virginia,1,Auburn,5,Virginia,63,62
+2019,championship,2019_championship_630,Texas Tech,3,Virginia,1,Virginia,77,85
+2021,round_of_64,2021_round_of_64_631,Norfolk State,16,Gonzaga,1,Gonzaga,55,98
+2021,round_of_64,2021_round_of_64_632,Missouri,9,Oklahoma,8,Oklahoma,68,72
+2021,round_of_64,2021_round_of_64_633,Creighton,5,UC Santa Barbara,12,Creighton,63,62
+2021,round_of_64,2021_round_of_64_634,Ohio,13,Virginia,4,Ohio,62,58
+2021,round_of_64,2021_round_of_64_635,USC,6,Drake,11,USC,72,56
+2021,round_of_64,2021_round_of_64_636,Kansas,3,Eastern Washington,14,Kansas,93,84
+2021,round_of_64,2021_round_of_64_637,Oregon,7,VCU,10,Oregon,1,0
+2021,round_of_64,2021_round_of_64_638,Iowa,2,Grand Canyon,15,Iowa,86,74
+2021,round_of_32,2021_round_of_32_639,Oklahoma,8,Gonzaga,1,Gonzaga,71,87
+2021,round_of_32,2021_round_of_32_640,Creighton,5,Ohio,13,Creighton,72,58
+2021,round_of_32,2021_round_of_32_641,Kansas,3,USC,6,USC,51,85
+2021,round_of_32,2021_round_of_32_642,Iowa,2,Oregon,7,Oregon,80,95
+2021,sweet_16,2021_sweet_16_643,Creighton,5,Gonzaga,1,Gonzaga,65,83
+2021,sweet_16,2021_sweet_16_644,USC,6,Oregon,7,USC,82,68
+2021,elite_8,2021_elite_8_645,USC,6,Gonzaga,1,Gonzaga,66,85
+2021,round_of_64,2021_round_of_64_646,Michigan,1,Texas Southern,16,Michigan,82,66
+2021,round_of_64,2021_round_of_64_647,St. Bonaventure,9,LSU,8,LSU,61,76
+2021,round_of_64,2021_round_of_64_648,Georgetown,12,Colorado,5,Colorado,73,96
+2021,round_of_64,2021_round_of_64_649,Florida State,4,UNC Greensboro,13,Florida State,64,54
+2021,round_of_64,2021_round_of_64_650,UCLA,11,BYU,6,UCLA,73,62
+2021,round_of_64,2021_round_of_64_651,Abilene Christian,14,Texas,3,Abilene Christian,53,52
+2021,round_of_64,2021_round_of_64_652,Maryland,10,UConn,7,Maryland,63,54
+2021,round_of_64,2021_round_of_64_653,Iona,15,Alabama,2,Alabama,55,68
+2021,round_of_32,2021_round_of_32_654,Michigan,1,LSU,8,Michigan,86,78
+2021,round_of_32,2021_round_of_32_655,Colorado,5,Florida State,4,Florida State,53,71
+2021,round_of_32,2021_round_of_32_656,UCLA,11,Abilene Christian,14,UCLA,67,47
+2021,round_of_32,2021_round_of_32_657,Alabama,2,Maryland,10,Alabama,96,77
+2021,sweet_16,2021_sweet_16_658,Florida State,4,Michigan,1,Michigan,58,76
+2021,sweet_16,2021_sweet_16_659,UCLA,11,Alabama,2,UCLA,88,78
+2021,elite_8,2021_elite_8_660,UCLA,11,Michigan,1,UCLA,51,49
+2021,round_of_64,2021_round_of_64_661,Hartford,16,Baylor,1,Baylor,55,79
+2021,round_of_64,2021_round_of_64_662,Wisconsin,9,North Carolina,8,Wisconsin,85,62
+2021,round_of_64,2021_round_of_64_663,Winthrop,12,Villanova,5,Villanova,63,73
+2021,round_of_64,2021_round_of_64_664,North Texas,13,Purdue,4,North Texas,78,69
+2021,round_of_64,2021_round_of_64_665,Utah State,11,Texas Tech,6,Texas Tech,53,65
+2021,round_of_64,2021_round_of_64_666,Colgate,14,Arkansas,3,Arkansas,68,85
+2021,round_of_64,2021_round_of_64_667,Virginia Tech,10,Florida,7,Florida,70,75
+2021,round_of_64,2021_round_of_64_668,Oral Roberts,15,Ohio State,2,Oral Roberts,75,72
+2021,round_of_32,2021_round_of_32_669,Wisconsin,9,Baylor,1,Baylor,63,76
+2021,round_of_32,2021_round_of_32_670,Villanova,5,North Texas,13,Villanova,84,61
+2021,round_of_32,2021_round_of_32_671,Arkansas,3,Texas Tech,6,Arkansas,68,66
+2021,round_of_32,2021_round_of_32_672,Florida,7,Oral Roberts,15,Oral Roberts,78,81
+2021,sweet_16,2021_sweet_16_673,Villanova,5,Baylor,1,Baylor,51,62
+2021,sweet_16,2021_sweet_16_674,Arkansas,3,Oral Roberts,15,Arkansas,72,70
+2021,elite_8,2021_elite_8_675,Arkansas,3,Baylor,1,Baylor,72,81
+2021,round_of_64,2021_round_of_64_676,Drexel,16,Illinois,1,Illinois,49,78
+2021,round_of_64,2021_round_of_64_677,Georgia Tech,9,Loyola Chicago,8,Loyola Chicago,60,71
+2021,round_of_64,2021_round_of_64_678,Tennessee,5,Oregon State,12,Oregon State,56,70
+2021,round_of_64,2021_round_of_64_679,Oklahoma State,4,Liberty,13,Oklahoma State,69,60
+2021,round_of_64,2021_round_of_64_680,Syracuse,11,San Diego State,6,Syracuse,78,62
+2021,round_of_64,2021_round_of_64_681,Morehead State,14,West Virginia,3,West Virginia,67,84
+2021,round_of_64,2021_round_of_64_682,Rutgers,10,Clemson,7,Rutgers,60,56
+2021,round_of_64,2021_round_of_64_683,Houston,2,Cleveland State,15,Houston,87,56
+2021,round_of_32,2021_round_of_32_684,Loyola Chicago,8,Illinois,1,Loyola Chicago,71,58
+2021,round_of_32,2021_round_of_32_685,Oregon State,12,Oklahoma State,4,Oregon State,80,70
+2021,round_of_32,2021_round_of_32_686,Syracuse,11,West Virginia,3,Syracuse,75,72
+2021,round_of_32,2021_round_of_32_687,Rutgers,10,Houston,2,Houston,60,63
+2021,sweet_16,2021_sweet_16_688,Oregon State,12,Loyola Chicago,8,Oregon State,65,58
+2021,sweet_16,2021_sweet_16_689,Houston,2,Syracuse,11,Houston,62,46
+2021,elite_8,2021_elite_8_690,Oregon State,12,Houston,2,Houston,61,67
+2021,final_four,2021_final_four_691,UCLA,11,Gonzaga,1,Gonzaga,90,93
+2021,final_four,2021_final_four_692,Baylor,1,Houston,2,Baylor,78,59
+2021,championship,2021_championship_693,Gonzaga,1,Baylor,1,Baylor,70,86
+2022,round_of_64,2022_round_of_64_694,Georgia State,16,Gonzaga,1,Gonzaga,72,93
+2022,round_of_64,2022_round_of_64_695,Boise State,8,Memphis,9,Memphis,53,64
+2022,round_of_64,2022_round_of_64_696,UConn,5,New Mexico State,12,New Mexico State,63,70
+2022,round_of_64,2022_round_of_64_697,Vermont,13,Arkansas,4,Arkansas,71,75
+2022,round_of_64,2022_round_of_64_698,Alabama,6,Notre Dame,11,Notre Dame,64,78
+2022,round_of_64,2022_round_of_64_699,Texas Tech,3,Montana State,14,Texas Tech,97,62
+2022,round_of_64,2022_round_of_64_700,Davidson,10,Michigan State,7,Michigan State,73,74
+2022,round_of_64,2022_round_of_64_701,Cal State Fullerton,15,Duke,2,Duke,61,78
+2022,round_of_32,2022_round_of_32_702,Memphis,9,Gonzaga,1,Gonzaga,78,82
+2022,round_of_32,2022_round_of_32_703,New Mexico State,12,Arkansas,4,Arkansas,48,53
+2022,round_of_32,2022_round_of_32_704,Texas Tech,3,Notre Dame,11,Texas Tech,59,53
+2022,round_of_32,2022_round_of_32_705,Duke,2,Michigan State,7,Duke,85,76
+2022,sweet_16,2022_sweet_16_706,Arkansas,4,Gonzaga,1,Arkansas,74,68
+2022,sweet_16,2022_sweet_16_707,Texas Tech,3,Duke,2,Duke,73,78
+2022,elite_8,2022_elite_8_708,Arkansas,4,Duke,2,Duke,69,78
+2022,round_of_64,2022_round_of_64_709,Baylor,1,Norfolk State,16,Baylor,85,49
+2022,round_of_64,2022_round_of_64_710,North Carolina,8,Marquette,9,North Carolina,95,63
+2022,round_of_64,2022_round_of_64_711,Indiana,12,Saint Mary's,5,Saint Mary's,53,82
+2022,round_of_64,2022_round_of_64_712,Akron,13,UCLA,4,UCLA,53,57
+2022,round_of_64,2022_round_of_64_713,Virginia Tech,11,Texas,6,Texas,73,81
+2022,round_of_64,2022_round_of_64_714,Yale,14,Purdue,3,Purdue,56,78
+2022,round_of_64,2022_round_of_64_715,Murray State,7,San Francisco,10,Murray State,92,87
+2022,round_of_64,2022_round_of_64_716,Saint Peter's,15,Kentucky,2,Saint Peter's,85,79
+2022,round_of_32,2022_round_of_32_717,North Carolina,8,Baylor,1,North Carolina,93,86
+2022,round_of_32,2022_round_of_32_718,UCLA,4,Saint Mary's,5,UCLA,72,56
+2022,round_of_32,2022_round_of_32_719,Purdue,3,Texas,6,Purdue,81,71
+2022,round_of_32,2022_round_of_32_720,Saint Peter's,15,Murray State,7,Saint Peter's,70,60
+2022,sweet_16,2022_sweet_16_721,North Carolina,8,UCLA,4,North Carolina,73,66
+2022,sweet_16,2022_sweet_16_722,Purdue,3,Saint Peter's,15,Saint Peter's,64,67
+2022,elite_8,2022_elite_8_723,Saint Peter's,15,North Carolina,8,North Carolina,49,69
+2022,round_of_64,2022_round_of_64_724,Wright State,16,Arizona,1,Arizona,70,87
+2022,round_of_64,2022_round_of_64_725,Seton Hall,8,TCU,9,TCU,42,69
+2022,round_of_64,2022_round_of_64_726,UAB,12,Houston,5,Houston,68,82
+2022,round_of_64,2022_round_of_64_727,Chattanooga,13,Illinois,4,Illinois,53,54
+2022,round_of_64,2022_round_of_64_728,Michigan,11,Colorado State,6,Michigan,75,63
+2022,round_of_64,2022_round_of_64_729,Tennessee,3,Longwood,14,Tennessee,88,56
+2022,round_of_64,2022_round_of_64_730,Loyola Chicago,10,Ohio State,7,Ohio State,41,54
+2022,round_of_64,2022_round_of_64_731,Villanova,2,Delaware,15,Villanova,80,60
+2022,round_of_32,2022_round_of_32_732,TCU,9,Arizona,1,Arizona,80,85
+2022,round_of_32,2022_round_of_32_733,Illinois,4,Houston,5,Houston,53,68
+2022,round_of_32,2022_round_of_32_734,Michigan,11,Tennessee,3,Michigan,76,68
+2022,round_of_32,2022_round_of_32_735,Ohio State,7,Villanova,2,Villanova,61,71
+2022,sweet_16,2022_sweet_16_736,Arizona,1,Houston,5,Houston,60,72
+2022,sweet_16,2022_sweet_16_737,Villanova,2,Michigan,11,Villanova,63,55
+2022,elite_8,2022_elite_8_738,Villanova,2,Houston,5,Villanova,50,44
+2022,round_of_64,2022_round_of_64_739,Kansas,1,Texas Southern,16,Kansas,83,56
+2022,round_of_64,2022_round_of_64_740,Creighton,9,San Diego State,8,Creighton,72,69
+2022,round_of_64,2022_round_of_64_741,Iowa,5,Richmond,12,Richmond,63,67
+2022,round_of_64,2022_round_of_64_742,South Dakota State,13,Providence,4,Providence,57,66
+2022,round_of_64,2022_round_of_64_743,Iowa State,11,LSU,6,Iowa State,59,54
+2022,round_of_64,2022_round_of_64_744,Colgate,14,Wisconsin,3,Wisconsin,60,67
+2022,round_of_64,2022_round_of_64_745,Miami (FL),10,USC,7,Miami (FL),68,66
+2022,round_of_64,2022_round_of_64_746,Jacksonville State,15,Auburn,2,Auburn,61,80
+2022,round_of_32,2022_round_of_32_747,Creighton,9,Kansas,1,Kansas,72,79
+2022,round_of_32,2022_round_of_32_748,Richmond,12,Providence,4,Providence,51,79
+2022,round_of_32,2022_round_of_32_749,Iowa State,11,Wisconsin,3,Iowa State,54,49
+2022,round_of_32,2022_round_of_32_750,Miami (FL),10,Auburn,2,Miami (FL),79,61
+2022,sweet_16,2022_sweet_16_751,Kansas,1,Providence,4,Kansas,66,61
+2022,sweet_16,2022_sweet_16_752,Iowa State,11,Miami (FL),10,Miami (FL),56,70
+2022,elite_8,2022_elite_8_753,Kansas,1,Miami (FL),10,Kansas,76,50
+2022,final_four,2022_final_four_754,Duke,2,North Carolina,8,North Carolina,77,81
+2022,final_four,2022_final_four_755,Villanova,2,Kansas,1,Kansas,65,81
+2022,championship,2022_championship_756,North Carolina,8,Kansas,1,Kansas,69,72
+2023,round_of_64,2023_round_of_64_757,Texas A&M–Corpus Christi,16,Alabama,1,Alabama,75,96
+2023,round_of_64,2023_round_of_64_758,Maryland,8,West Virginia,9,Maryland,67,65
+2023,round_of_64,2023_round_of_64_759,San Diego State,5,Charleston,12,San Diego State,63,57
+2023,round_of_64,2023_round_of_64_760,Furman,13,Virginia,4,Furman,68,67
+2023,round_of_64,2023_round_of_64_761,North Carolina State,11,Creighton,6,Creighton,63,72
+2023,round_of_64,2023_round_of_64_762,UC Santa Barbara,14,Baylor,3,Baylor,56,74
+2023,round_of_64,2023_round_of_64_763,Utah State,10,Missouri,7,Missouri,65,76
+2023,round_of_64,2023_round_of_64_764,Princeton,15,Arizona,2,Princeton,59,55
+2023,round_of_32,2023_round_of_32_765,Maryland,8,Alabama,1,Alabama,51,73
+2023,round_of_32,2023_round_of_32_766,Furman,13,San Diego State,5,San Diego State,52,75
+2023,round_of_32,2023_round_of_32_767,Creighton,6,Baylor,3,Creighton,85,76
+2023,round_of_32,2023_round_of_32_768,Missouri,7,Princeton,15,Princeton,63,78
+2023,sweet_16,2023_sweet_16_769,San Diego State,5,Alabama,1,San Diego State,71,64
+2023,sweet_16,2023_sweet_16_770,Princeton,15,Creighton,6,Creighton,75,86
+2023,elite_8,2023_elite_8_771,Creighton,6,San Diego State,5,San Diego State,56,57
+2023,round_of_64,2023_round_of_64_772,Fairleigh Dickinson,16,Purdue,1,Fairleigh Dickinson,63,58
+2023,round_of_64,2023_round_of_64_773,Florida Atlantic,9,Memphis,8,Florida Atlantic,66,65
+2023,round_of_64,2023_round_of_64_774,Oral Roberts,12,Duke,5,Duke,51,74
+2023,round_of_64,2023_round_of_64_775,Louisiana,13,Tennessee,4,Tennessee,55,58
+2023,round_of_64,2023_round_of_64_776,Kentucky,6,Providence,11,Kentucky,61,53
+2023,round_of_64,2023_round_of_64_777,Montana State,14,Kansas State,3,Kansas State,65,77
+2023,round_of_64,2023_round_of_64_778,USC,10,Michigan State,7,Michigan State,62,72
+2023,round_of_64,2023_round_of_64_779,Marquette,2,Vermont,15,Marquette,78,61
+2023,round_of_32,2023_round_of_32_780,Florida Atlantic,9,Fairleigh Dickinson,16,Florida Atlantic,78,70
+2023,round_of_32,2023_round_of_32_781,Duke,5,Tennessee,4,Tennessee,52,65
+2023,round_of_32,2023_round_of_32_782,Kansas State,3,Kentucky,6,Kansas State,75,69
+2023,round_of_32,2023_round_of_32_783,Marquette,2,Michigan State,7,Michigan State,60,69
+2023,sweet_16,2023_sweet_16_784,Tennessee,4,Florida Atlantic,9,Florida Atlantic,55,62
+2023,sweet_16,2023_sweet_16_785,Kansas State,3,Michigan State,7,Kansas State,98,93
+2023,elite_8,2023_elite_8_786,Kansas State,3,Florida Atlantic,9,Florida Atlantic,76,79
+2023,round_of_64,2023_round_of_64_787,Northern Kentucky,16,Houston,1,Houston,52,63
+2023,round_of_64,2023_round_of_64_788,Auburn,9,Iowa,8,Auburn,83,75
+2023,round_of_64,2023_round_of_64_789,Drake,12,Miami (FL),5,Miami (FL),56,63
+2023,round_of_64,2023_round_of_64_790,Indiana,4,Kent State,13,Indiana,71,60
+2023,round_of_64,2023_round_of_64_791,Iowa State,6,Pittsburgh,11,Pittsburgh,41,59
+2023,round_of_64,2023_round_of_64_792,Kennesaw State,14,Xavier,3,Xavier,67,72
+2023,round_of_64,2023_round_of_64_793,Texas A&M,7,Penn State,10,Penn State,59,76
+2023,round_of_64,2023_round_of_64_794,Colgate,15,Texas,2,Texas,61,81
+2023,round_of_32,2023_round_of_32_795,Houston,1,Auburn,9,Houston,81,64
+2023,round_of_32,2023_round_of_32_796,Indiana,4,Miami (FL),5,Miami (FL),69,85
+2023,round_of_32,2023_round_of_32_797,Xavier,3,Pittsburgh,11,Xavier,84,73
+2023,round_of_32,2023_round_of_32_798,Penn State,10,Texas,2,Texas,66,71
+2023,sweet_16,2023_sweet_16_799,Houston,1,Miami (FL),5,Miami (FL),75,89
+2023,sweet_16,2023_sweet_16_800,Xavier,3,Texas,2,Texas,71,83
+2023,elite_8,2023_elite_8_801,Miami (FL),5,Texas,2,Miami (FL),88,81
+2023,round_of_64,2023_round_of_64_802,Kansas,1,Howard,16,Kansas,96,68
+2023,round_of_64,2023_round_of_64_803,Illinois,9,Arkansas,8,Arkansas,63,73
+2023,round_of_64,2023_round_of_64_804,VCU,12,Saint Mary's,5,Saint Mary's,51,63
+2023,round_of_64,2023_round_of_64_805,UConn,4,Iona,13,UConn,87,63
+2023,round_of_64,2023_round_of_64_806,TCU,6,Arizona State,11,TCU,72,70
+2023,round_of_64,2023_round_of_64_807,Grand Canyon,14,Gonzaga,3,Gonzaga,70,82
+2023,round_of_64,2023_round_of_64_808,Northwestern,7,Boise State,10,Northwestern,75,67
+2023,round_of_64,2023_round_of_64_809,UNC Asheville,15,UCLA,2,UCLA,53,86
+2023,round_of_32,2023_round_of_32_810,Kansas,1,Arkansas,8,Arkansas,71,72
+2023,round_of_32,2023_round_of_32_811,UConn,4,Saint Mary's,5,UConn,70,55
+2023,round_of_32,2023_round_of_32_812,Gonzaga,3,TCU,6,Gonzaga,84,81
+2023,round_of_32,2023_round_of_32_813,UCLA,2,Northwestern,7,UCLA,68,63
+2023,sweet_16,2023_sweet_16_814,Arkansas,8,UConn,4,UConn,65,88
+2023,sweet_16,2023_sweet_16_815,UCLA,2,Gonzaga,3,Gonzaga,76,79
+2023,elite_8,2023_elite_8_816,UConn,4,Gonzaga,3,UConn,82,54
+2023,final_four,2023_final_four_817,Florida Atlantic,9,San Diego State,5,San Diego State,71,72
+2023,final_four,2023_final_four_818,UConn,4,Miami (FL),5,UConn,72,59
+2023,championship,2023_championship_819,San Diego State,5,UConn,4,UConn,59,76
+2024,round_of_64,2024_round_of_64_820,Stetson,16,UConn,1,UConn,52,91
+2024,round_of_64,2024_round_of_64_821,Florida Atlantic,8,Northwestern,9,Northwestern,65,77
+2024,round_of_64,2024_round_of_64_822,San Diego State,5,UAB,12,San Diego State,69,65
+2024,round_of_64,2024_round_of_64_823,Auburn,4,Yale,13,Yale,76,78
+2024,round_of_64,2024_round_of_64_824,BYU,6,Duquesne,11,Duquesne,67,71
+2024,round_of_64,2024_round_of_64_825,Morehead State,14,Illinois,3,Illinois,69,85
+2024,round_of_64,2024_round_of_64_826,Washington State,7,Drake,10,Washington State,66,61
+2024,round_of_64,2024_round_of_64_827,Iowa State,2,South Dakota State,15,Iowa State,82,65
+2024,round_of_32,2024_round_of_32_828,Northwestern,9,UConn,1,UConn,58,75
+2024,round_of_32,2024_round_of_32_829,Yale,13,San Diego State,5,San Diego State,57,85
+2024,round_of_32,2024_round_of_32_830,Duquesne,11,Illinois,3,Illinois,63,89
+2024,round_of_32,2024_round_of_32_831,Washington State,7,Iowa State,2,Iowa State,56,67
+2024,sweet_16,2024_sweet_16_832,UConn,1,San Diego State,5,UConn,82,52
+2024,sweet_16,2024_sweet_16_833,Iowa State,2,Illinois,3,Illinois,69,72
+2024,elite_8,2024_elite_8_834,UConn,1,Illinois,3,UConn,77,52
+2024,round_of_64,2024_round_of_64_835,Wagner,16,North Carolina,1,North Carolina,62,90
+2024,round_of_64,2024_round_of_64_836,Michigan State,9,Mississippi State,8,Michigan State,69,51
+2024,round_of_64,2024_round_of_64_837,Saint Mary's,5,Grand Canyon,12,Grand Canyon,66,75
+2024,round_of_64,2024_round_of_64_838,Alabama,4,Charleston,13,Alabama,109,96
+2024,round_of_64,2024_round_of_64_839,Clemson,6,New Mexico,11,Clemson,77,56
+2024,round_of_64,2024_round_of_64_840,Colgate,14,Baylor,3,Baylor,67,92
+2024,round_of_64,2024_round_of_64_841,Dayton,7,Nevada,10,Dayton,63,60
+2024,round_of_64,2024_round_of_64_842,Long Beach State,15,Arizona,2,Arizona,65,85
+2024,round_of_32,2024_round_of_32_843,Michigan State,9,North Carolina,1,North Carolina,69,85
+2024,round_of_32,2024_round_of_32_844,Grand Canyon,12,Alabama,4,Alabama,61,72
+2024,round_of_32,2024_round_of_32_845,Baylor,3,Clemson,6,Clemson,64,72
+2024,round_of_32,2024_round_of_32_846,Dayton,7,Arizona,2,Arizona,68,78
+2024,sweet_16,2024_sweet_16_847,Alabama,4,North Carolina,1,Alabama,89,87
+2024,sweet_16,2024_sweet_16_848,Clemson,6,Arizona,2,Clemson,77,72
+2024,elite_8,2024_elite_8_849,Clemson,6,Alabama,4,Alabama,82,89
+2024,round_of_64,2024_round_of_64_850,Longwood,16,Houston,1,Houston,46,86
+2024,round_of_64,2024_round_of_64_851,Nebraska,8,Texas A&M,9,Texas A&M,83,98
+2024,round_of_64,2024_round_of_64_852,James Madison,12,Wisconsin,5,James Madison,72,61
+2024,round_of_64,2024_round_of_64_853,Duke,4,Vermont,13,Duke,64,47
+2024,round_of_64,2024_round_of_64_854,Texas Tech,6,NC State,11,NC State,67,80
+2024,round_of_64,2024_round_of_64_855,Kentucky,3,Oakland,14,Oakland,76,80
+2024,round_of_64,2024_round_of_64_856,Florida,7,Colorado,10,Colorado,100,102
+2024,round_of_64,2024_round_of_64_857,Western Kentucky,15,Marquette,2,Marquette,69,87
+2024,round_of_32,2024_round_of_32_858,Houston,1,Texas A&M,9,Houston,100,95
+2024,round_of_32,2024_round_of_32_859,Duke,4,James Madison,12,Duke,93,55
+2024,round_of_32,2024_round_of_32_860,Oakland,14,NC State,11,NC State,73,79
+2024,round_of_32,2024_round_of_32_861,Colorado,10,Marquette,2,Marquette,77,81
+2024,sweet_16,2024_sweet_16_862,Duke,4,Houston,1,Duke,54,51
+2024,sweet_16,2024_sweet_16_863,Marquette,2,NC State,11,NC State,58,67
+2024,elite_8,2024_elite_8_864,Duke,4,NC State,11,NC State,64,76
+2024,round_of_64,2024_round_of_64_865,Purdue,1,Grambling State,16,Purdue,78,50
+2024,round_of_64,2024_round_of_64_866,TCU,9,Utah State,8,Utah State,72,88
+2024,round_of_64,2024_round_of_64_867,Gonzaga,5,McNeese,12,Gonzaga,86,65
+2024,round_of_64,2024_round_of_64_868,Kansas,4,Samford,13,Kansas,93,89
+2024,round_of_64,2024_round_of_64_869,Oregon,11,South Carolina,6,Oregon,87,73
+2024,round_of_64,2024_round_of_64_870,Akron,14,Creighton,3,Creighton,60,77
+2024,round_of_64,2024_round_of_64_871,Colorado State,10,Texas,7,Texas,44,56
+2024,round_of_64,2024_round_of_64_872,Saint Peter's,15,Tennessee,2,Tennessee,49,83
+2024,round_of_32,2024_round_of_32_873,Purdue,1,Utah State,8,Purdue,106,67
+2024,round_of_32,2024_round_of_32_874,Gonzaga,5,Kansas,4,Gonzaga,89,68
+2024,round_of_32,2024_round_of_32_875,Oregon,11,Creighton,3,Creighton,73,86
+2024,round_of_32,2024_round_of_32_876,Texas,7,Tennessee,2,Tennessee,58,62
+2024,sweet_16,2024_sweet_16_877,Purdue,1,Gonzaga,5,Purdue,80,68
+2024,sweet_16,2024_sweet_16_878,Creighton,3,Tennessee,2,Tennessee,75,82
+2024,elite_8,2024_elite_8_879,Purdue,1,Tennessee,2,Purdue,72,66
+2024,final_four,2024_final_four_880,UConn,1,Alabama,4,UConn,86,72
+2024,final_four,2024_final_four_881,Purdue,1,NC State,11,Purdue,63,50
+2024,championship,2024_championship_882,UConn,1,Purdue,1,UConn,75,60
+2025,round_of_64,2025_round_of_64_883,Auburn,1,Alabama State,16,Auburn,83,63
+2025,round_of_64,2025_round_of_64_884,Louisville,8,Creighton,9,Creighton,75,89
+2025,round_of_64,2025_round_of_64_885,UC San Diego,12,Michigan,5,Michigan,65,68
+2025,round_of_64,2025_round_of_64_886,Yale,13,Texas A&M,4,Texas A&M,71,80
+2025,round_of_64,2025_round_of_64_887,Ole Miss,6,North Carolina,11,Ole Miss,71,64
+2025,round_of_64,2025_round_of_64_888,Iowa State,3,Lipscomb,14,Iowa State,82,55
+2025,round_of_64,2025_round_of_64_889,New Mexico,10,Marquette,7,New Mexico,75,66
+2025,round_of_64,2025_round_of_64_890,Bryant,15,Michigan State,2,Michigan State,62,87
+2025,round_of_64,2025_round_of_64_891,Mount St. Mary's,16,Duke,1,Duke,49,93
+2025,round_of_64,2025_round_of_64_892,Baylor,9,Mississippi State,8,Baylor,75,72
+2025,round_of_64,2025_round_of_64_893,Oregon,5,Liberty,12,Oregon,81,52
+2025,round_of_64,2025_round_of_64_894,Akron,13,Arizona,4,Arizona,65,93
+2025,round_of_64,2025_round_of_64_895,BYU,6,VCU,11,BYU,80,71
+2025,round_of_64,2025_round_of_64_896,Wisconsin,3,Montana,14,Wisconsin,85,66
+2025,round_of_64,2025_round_of_64_897,Saint Mary's,7,Vanderbilt,10,Saint Mary's,59,56
+2025,round_of_64,2025_round_of_64_898,Alabama,2,Robert Morris,15,Alabama,90,81
+2025,round_of_64,2025_round_of_64_899,SIU Edwardsville,16,Houston,1,Houston,40,78
+2025,round_of_64,2025_round_of_64_900,Georgia,9,Gonzaga,8,Gonzaga,68,89
+2025,round_of_64,2025_round_of_64_901,Clemson,5,McNeese,12,McNeese,67,69
+2025,round_of_64,2025_round_of_64_902,Purdue,4,High Point,13,Purdue,75,63
+2025,round_of_64,2025_round_of_64_903,Xavier,11,Illinois,6,Illinois,73,86
+2025,round_of_64,2025_round_of_64_904,Troy,14,Kentucky,3,Kentucky,57,76
+2025,round_of_64,2025_round_of_64_905,UCLA,7,Utah State,10,UCLA,72,47
+2025,round_of_64,2025_round_of_64_906,Wofford,15,Tennessee,2,Tennessee,62,77
+2025,round_of_64,2025_round_of_64_907,Norfolk State,16,Florida,1,Florida,69,95
+2025,round_of_64,2025_round_of_64_908,Oklahoma,9,UConn,8,UConn,59,67
+2025,round_of_64,2025_round_of_64_909,Colorado State,12,Memphis,5,Colorado State,78,70
+2025,round_of_64,2025_round_of_64_910,Grand Canyon,13,Maryland,4,Maryland,49,81
+2025,round_of_64,2025_round_of_64_911,Drake,11,Missouri,6,Drake,67,57
+2025,round_of_64,2025_round_of_64_912,UNC Wilmington,14,Texas Tech,3,Texas Tech,72,82
+2025,round_of_64,2025_round_of_64_913,Arkansas,10,Kansas,7,Arkansas,79,72
+2025,round_of_64,2025_round_of_64_914,Omaha,15,St. John's,2,St. John's,53,83
+2025,round_of_32,2025_round_of_32_915,Creighton,9,Auburn,1,Auburn,70,82
+2025,round_of_32,2025_round_of_32_916,Michigan,5,Texas A&M,4,Michigan,91,79
+2025,round_of_32,2025_round_of_32_917,Iowa State,3,Ole Miss,6,Ole Miss,78,91
+2025,round_of_32,2025_round_of_32_918,New Mexico,10,Michigan State,2,Michigan State,63,71
+2025,round_of_32,2025_round_of_32_919,Baylor,9,Duke,1,Duke,66,89
+2025,round_of_32,2025_round_of_32_920,Oregon,5,Arizona,4,Arizona,83,87
+2025,round_of_32,2025_round_of_32_921,Wisconsin,3,BYU,6,BYU,89,91
+2025,round_of_32,2025_round_of_32_922,Saint Mary's,7,Alabama,2,Alabama,66,80
+2025,round_of_32,2025_round_of_32_923,Gonzaga,8,Houston,1,Houston,76,81
+2025,round_of_32,2025_round_of_32_924,McNeese,12,Purdue,4,Purdue,62,76
+2025,round_of_32,2025_round_of_32_925,Illinois,6,Kentucky,3,Kentucky,75,84
+2025,round_of_32,2025_round_of_32_926,Tennessee,2,UCLA,7,Tennessee,67,58
+2025,round_of_32,2025_round_of_32_927,Florida,1,UConn,8,Florida,77,75
+2025,round_of_32,2025_round_of_32_928,Colorado State,12,Maryland,4,Maryland,71,72
+2025,round_of_32,2025_round_of_32_929,Drake,11,Texas Tech,3,Texas Tech,64,77
+2025,round_of_32,2025_round_of_32_930,Arkansas,10,St. John's,2,Arkansas,75,66
+2025,sweet_16,2025_sweet_16_931,Auburn,1,Michigan,5,Auburn,78,65
+2025,sweet_16,2025_sweet_16_932,Ole Miss,6,Michigan State,2,Michigan State,70,73
+2025,sweet_16,2025_sweet_16_933,Duke,1,Arizona,4,Duke,100,93
+2025,sweet_16,2025_sweet_16_934,Alabama,2,BYU,6,Alabama,113,88
+2025,sweet_16,2025_sweet_16_935,Purdue,4,Houston,1,Houston,60,62
+2025,sweet_16,2025_sweet_16_936,Kentucky,3,Tennessee,2,Tennessee,65,78
+2025,sweet_16,2025_sweet_16_937,Maryland,4,Florida,1,Florida,71,87
+2025,sweet_16,2025_sweet_16_938,Arkansas,10,Texas Tech,3,Texas Tech,83,85
+2025,elite_8,2025_elite_8_939,Michigan State,2,Auburn,1,Auburn,64,70
+2025,elite_8,2025_elite_8_940,Duke,1,Alabama,2,Duke,85,65
+2025,elite_8,2025_elite_8_941,Tennessee,2,Houston,1,Houston,50,69
+2025,elite_8,2025_elite_8_942,Florida,1,Texas Tech,3,Florida,84,79
+2025,final_four,2025_final_four_943,Auburn,1,Florida,1,Florida,73,79
+2025,final_four,2025_final_four_944,Duke,1,Houston,1,Houston,67,70
+2025,championship,2025_championship_945,Florida,1,Houston,1,Florida,65,63

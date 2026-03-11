@@ -1,0 +1,116 @@
+<div className="mb-14">
+  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
+    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#a855f7'}}>Overview</span>
+    <span className="text-[20px] font-semibold text-[#f9fafb]">Quick Mental Model</span>
+  </div>
+
+  <div className="mb-7">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Core Philosophy</p>
+    <p className="text-[15px] text-[#ccc] leading-[1.75]">The Agent improvised. This one trained. The Super Agent builds its March Madness predictions through actual iterative ML research — training on a decade of tournament data (2010-2020), testing against a holdout year (2021), and improving across three disciplined iterations before stopping for human review. No cherrypicking. No peeking at outcomes. Every signal must earn its place.</p>
+  </div>
+
+  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Inputs</p>
+    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
+      <li>— Tournament results 2010-2021 (teams, seeds, scores, round reached)</li>
+      <li>— Pre-tournament team season stats (efficiency, tempo, strength of schedule)</li>
+      <li>— Advanced metrics (KenPom/BartTorvik equivalent — adjusted offense, defense, experience)</li>
+      <li>— Contextual features (coaching records, upset rates by seed, conference strength)</li>
+    </ul>
+  </div>
+
+  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Strengths</p>
+    <p className="text-[15px] text-[#ccc] leading-[1.75]">Measurable improvement over a pure baseline. Each iteration adds signal that demonstrably increases accuracy on holdout data. The entire research process is logged and auditable — from data collection through integrity checks to final predictions. The model cannot overfit to test data because it only gets three shots.</p>
+  </div>
+
+  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
+    <div className="rounded-md p-4" style={{borderLeft: '3px solid #a855f7', backgroundColor: 'rgba(168,85,247,0.05)'}}>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2" style={{color:'#a855f7'}}>2026 Predicted Champion</p>
+      <p className="text-[16px] font-semibold text-[#f9fafb]">TBD — Locks March 19</p>
+      <p className="text-[13px] text-[#888] mt-1">All picks finalized after First Four play-in games.</p>
+    </div>
+  </div>
+
+  <div className="pt-5 border-t border-[#1e1e1e]">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Iteration Results</p>
+    <div className="rounded p-4 bg-[#1a1a1a] border border-[#2a2a2a]">
+      <p className="text-[13px] text-[#777] leading-[1.65]">Three runs. Each one builds on the last. The checkpoint report documents accuracy progression, predictive signals ranked by importance, and an honest feasibility assessment for applying the model to 2026.</p>
+      <p className="text-[12px] font-mono mt-3" style={{color:'#a855f7'}}>See: super_agent/checkpoint_report.md</p>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
+    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#a855f7'}}>Methodology</span>
+    <span className="text-[20px] font-semibold text-[#f9fafb]">The Iterative Pipeline</span>
+  </div>
+
+  <div className="mb-10">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-5">Process</p>
+    <div className="space-y-5">
+      {[
+        {n:'01', title:'Research phase', desc:'Gather and isolate all training data in a self-contained directory. Tournament results, team stats, advanced metrics — all from 2010-2021. Document temporal availability to ensure no future data leaks into the model.'},
+        {n:'02', title:'Integrity framework', desc:'Before every run: verify no features encode outcomes, confirm data is only from before March of the test year. After every run: independently verify accuracy against a second source, flag any suspicious accuracy jumps >10%.'},
+        {n:'03', title:'Run 1 — Seed baseline', desc:'Lower seed always wins. No model, no features. This establishes the floor — the accuracy you get for free just by trusting the committee. Every subsequent run must beat this to justify its complexity.'},
+        {n:'04', title:'Run 2 — First signal', desc:'Add the single most promising feature from the research phase. Simple model (logistic regression). Compare to the seed baseline. If it does not improve accuracy, the feature is noise and gets discarded.'},
+        {n:'05', title:'Run 3 — Iteration', desc:'One more signal or approach change based on Run 2 learnings. This is the final model. After Run 3, stop. Write the checkpoint report. No more iterations until human review.'},
+      ].map(s => (
+        <div key={s.n} className="flex gap-4">
+          <span className="font-mono text-[13px] shrink-0 mt-0.5" style={{color:'#a855f7'}}>{s.n}</span>
+          <div>
+            <p className="text-[14px] font-semibold text-[#efefef] mb-1">{s.title}</p>
+            <p className="text-[14px] text-[#888] leading-[1.65]">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Data Isolation</p>
+    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
+      <li>— All ML code and data lives in <code className="font-mono text-[13px] bg-[#1e1e1e] px-1.5 py-0.5 rounded">super_agent/</code> at the project root</li>
+      <li>— No imports from <code className="font-mono text-[13px] bg-[#1e1e1e] px-1.5 py-0.5 rounded">data/research/</code> or other model directories</li>
+      <li>— Self-contained: research data, integrity logs, source code, and run logs all in one place</li>
+      <li>— This prevents any accidental cherrypicking from other models' research</li>
+    </ul>
+  </div>
+
+  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Assumptions</p>
+    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
+      <li>— Three iterations is enough to demonstrate whether a signal is real or noise</li>
+      <li>— A single holdout year (2021) provides meaningful validation despite small sample size</li>
+      <li>— Simple models (logistic regression) with good features outperform complex models with bad features</li>
+      <li>— Stopping early and documenting honestly is more valuable than overfitting to perfection</li>
+    </ul>
+  </div>
+
+  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Limitations</p>
+    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
+      <li>— Single holdout year means validation is noisy. A model could beat baseline on 2021 by luck.</li>
+      <li>— Three iterations may not be enough to find the best feature combination.</li>
+      <li>— Tournament prediction is fundamentally limited — even perfect models cap around 75-80% game accuracy.</li>
+      <li>— The model trains on 2010-2020 data, which may not capture recent shifts in college basketball (transfer portal, NIL).</li>
+    </ul>
+  </div>
+
+  <div className="pt-6 border-t border-[#1e1e1e]">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Deliverable</p>
+    <div className="rounded-md p-5 bg-[#1a1a1a] border border-[#2a2a2a]">
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-3">Checkpoint Report</p>
+      <p className="text-[14px] text-[#aaa] mb-2">After 3 iterations, a full report is generated:</p>
+      <ul className="text-[14px] text-[#888] leading-[1.65] space-y-1">
+        <li>— Results table: accuracy per run vs. baseline</li>
+        <li>— Predictive signals ranked by importance</li>
+        <li>— Convergence assessment: is the model still improving?</li>
+        <li>— Honest 80% feasibility assessment for 2026 application</li>
+        <li>— Proposed next steps for future iterations</li>
+      </ul>
+      <p className="text-[12px] font-mono mt-3" style={{color:'#a855f7'}}>Human review required before proceeding to 2026 predictions.</p>
+    </div>
+  </div>
+</div>

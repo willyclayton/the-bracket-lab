@@ -23,6 +23,7 @@ module.exports = {
         historian: '#f59e0b',   // amber
         chaos: '#ef4444',       // red
         agent: '#00ff88',       // neon green
+        superagent: '#a855f7', // purple
       },
       fontFamily: {
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],

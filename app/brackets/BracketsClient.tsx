@@ -16,6 +16,7 @@ import quantData     from '@/data/models/the-quant.json';
 import historianData from '@/data/models/the-historian.json';
 import chaosData     from '@/data/models/the-chaos-agent.json';
 import agentData     from '@/data/models/the-agent.json';
+import superAgentData from '@/data/models/the-super-agent.json';
 import results2026   from '@/data/results/actual-results.json';
 
 // 2025 (archive)
@@ -24,9 +25,19 @@ import quantData2025     from '@/data/archive/2025/models/the-quant.json';
 import historianData2025 from '@/data/archive/2025/models/the-historian.json';
 import chaosData2025     from '@/data/archive/2025/models/the-chaos-agent.json';
 import agentData2025     from '@/data/archive/2025/models/the-agent.json';
+import superAgentData2025 from '@/data/archive/2025/models/the-super-agent.json';
 import results2025       from '@/data/archive/2025/results/actual-results.json';
 
-const VALID_YEARS = ['2026', '2025'] as const;
+// 2024 (archive)
+import scoutData2024     from '@/data/archive/2024/models/the-scout.json';
+import quantData2024     from '@/data/archive/2024/models/the-quant.json';
+import historianData2024 from '@/data/archive/2024/models/the-historian.json';
+import chaosData2024     from '@/data/archive/2024/models/the-chaos-agent.json';
+import agentData2024     from '@/data/archive/2024/models/the-agent.json';
+import superAgentData2024 from '@/data/archive/2024/models/the-super-agent.json';
+import results2024       from '@/data/archive/2024/results/actual-results.json';
+
+const VALID_YEARS = ['2026', '2025', '2024'] as const;
 type Year = typeof VALID_YEARS[number];
 
 const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
@@ -36,6 +47,7 @@ const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
     'the-historian':   historianData as unknown as BracketData,
     'the-chaos-agent': chaosData     as unknown as BracketData,
     'the-agent':       agentData     as unknown as BracketData,
+    'the-super-agent': superAgentData as unknown as BracketData,
   },
   '2025': {
     'the-scout':       scoutData2025     as unknown as BracketData,
@@ -43,12 +55,22 @@ const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
     'the-historian':   historianData2025 as unknown as BracketData,
     'the-chaos-agent': chaosData2025     as unknown as BracketData,
     'the-agent':       agentData2025     as unknown as BracketData,
+    'the-super-agent': superAgentData2025 as unknown as BracketData,
+  },
+  '2024': {
+    'the-scout':       scoutData2024     as unknown as BracketData,
+    'the-quant':       quantData2024     as unknown as BracketData,
+    'the-historian':   historianData2024 as unknown as BracketData,
+    'the-chaos-agent': chaosData2024     as unknown as BracketData,
+    'the-agent':       agentData2024     as unknown as BracketData,
+    'the-super-agent': superAgentData2024 as unknown as BracketData,
   },
 };
 
 const ALL_RESULTS: Record<Year, Results> = {
   '2026': results2026 as unknown as Results,
   '2025': results2025 as unknown as Results,
+  '2024': results2024 as unknown as Results,
 };
 
 const ROUND_ORDER = ['round_of_64', 'round_of_32', 'sweet_16', 'elite_8', 'final_four', 'championship'] as const;
@@ -171,7 +193,10 @@ export default function BracketsClient() {
         <button
           className="sm:hidden flex items-center gap-1 font-mono text-xs px-3 py-1.5 rounded-lg border flex-shrink-0 transition-all"
           style={{ borderColor: '#888', color: '#efefef', background: '#1e1e1e' }}
-          onClick={() => selectYear(activeYear === '2026' ? '2025' : '2026')}
+          onClick={() => {
+            const idx = VALID_YEARS.indexOf(activeYear);
+            selectYear(VALID_YEARS[(idx + 1) % VALID_YEARS.length]);
+          }}
         >
           {activeYear} &#9662;
         </button>

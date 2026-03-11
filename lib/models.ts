@@ -79,6 +79,19 @@ export const MODELS: Model[] = [
     icon: '🤖',
     description: 'Claude Code pointed at the tournament with one instruction: figure it out. No methodology defined. The agent decides what matters. The story is the process.',
   },
+  {
+    id: 'the-super-agent',
+    slug: 'the-super-agent',
+    name: 'The Super Agent',
+    subtitle: 'Iterative ML Predictor',
+    tagline: 'The Agent improvised. This one trained.',
+    color: '#a855f7',
+    colorClass: 'text-superagent',
+    bgClass: 'model-superagent-bg',
+    glowClass: 'glow-superagent',
+    icon: '🧠',
+    description: 'Trains on a decade of tournament data, tests against a holdout year, and iterates across 3 research cycles. No cherrypicking — the model earns its bracket through measurable improvement.',
+  },
 ];
 
 export const MODEL_MAP = Object.fromEntries(MODELS.map((m) => [m.id, m]));

@@ -221,13 +221,53 @@ Every other model has a human-defined methodology. This one doesn't. The story i
 
 ---
 
+## Model 6: The Super Agent — Iterative ML Predictor
+
+**Tagline:** "The Agent improvised. This one trained."
+**Color:** Purple `#a855f7`
+**Icon:** 🧠
+**Slug:** `/models/the-super-agent`
+**CSS classes:** `text-superagent`, `model-superagent-bg`, `glow-superagent`, `model-superagent`
+
+### Why it's sixth
+The logical evolution of The Agent. Where Model 5 improvised from scratch, Model 6 actually trains — building measurable ML predictions through iterative research. It's the most methodologically rigorous model in the lineup, and it earns its position by proving its approach works on historical data before touching 2026.
+
+### Methodology
+Iterative ML pipeline with three disciplined research cycles:
+
+1. **Research phase** — Gather all training data (2010-2020 tournament results, team stats, advanced metrics) into isolated `super_agent/` directory
+2. **Run 1: Seed baseline** — Lower seed always wins. Establishes the accuracy floor.
+3. **Run 2: First signal** — Add the single most promising feature. Simple logistic regression. Must beat baseline.
+4. **Run 3: Iteration** — One more signal or approach change. This is the final model.
+5. **Checkpoint** — Stop. Write report. Human reviews before any 2026 predictions.
+
+### Data isolation
+All ML code and data lives in `super_agent/` at the project root. No imports from `data/research/` or other model directories. This prevents any accidental cherrypicking from other models' research.
+
+### Integrity framework
+- Pre-run checks: verify no future data leakage, no outcome-encoding features
+- Post-run checks: independently verify accuracy, flag >10% accuracy jumps
+- All checks logged in `super_agent/integrity/`
+
+### How to build it
+- Python scripts in `super_agent/src/`
+- Training data: 2010-2020 tournament results + team stats
+- Test data: 2021 tournament (holdout year)
+- 3 iterations, each logged in `super_agent/run_log.md`
+- Final deliverable: `super_agent/checkpoint_report.md`
+
+### What makes it distinct
+The only model that proves its methodology works before applying it. Every other model has a methodology that sounds good — this one has accuracy numbers on holdout data. The constraint of exactly 3 iterations prevents overfitting and forces honest assessment of what signals actually matter.
+
+---
+
 ## Model Comparison Matrix
 
-| Attribute | The Scout | The Quant | The Historian | The Chaos Agent | The Agent |
-|-----------|-----------|-----------|---------------|-----------------|-----------|
-| Approach | Qualitative | Quantitative | Historical | Contrarian | Autonomous |
-| Built with | LLM prompts | Python script | Python + data | Python + data | Claude Code |
-| Upset tendency | Moderate | Low | Varies | Very High | Unknown |
-| Key strength | Matchup nuance | Statistical rigor | Narrative depth | Contrarian edge | Unpredictability |
-| Content value | Scouting reports | Probability charts | Historical parallels | Spicy picks | Process story |
-| Prep possible now? | Prompt design | Script + backtest | Historical DB | Score formula | Just the prompt |
+| Attribute | The Scout | The Quant | The Historian | The Chaos Agent | The Agent | The Super Agent |
+|-----------|-----------|-----------|---------------|-----------------|-----------|----------------|
+| Approach | Qualitative | Quantitative | Historical | Contrarian | Autonomous | Iterative ML |
+| Built with | LLM prompts | Python script | Python + data | Python + data | Claude Code | Python ML pipeline |
+| Upset tendency | Moderate | Low | Varies | Very High | Unknown | Data-driven |
+| Key strength | Matchup nuance | Statistical rigor | Narrative depth | Contrarian edge | Unpredictability | Proven accuracy |
+| Content value | Scouting reports | Probability charts | Historical parallels | Spicy picks | Process story | Research log |
+| Prep possible now? | Prompt design | Script + backtest | Historical DB | Score formula | Just the prompt | Full pipeline |
