@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { MODELS, ROUND_LABELS } from '@/lib/models';
-import { BracketData, Game, Results } from '@/lib/types';
+import { BracketData, Game, ResultGame, Results } from '@/lib/types';
 import { calculateScore } from '@/lib/scoring';
 import BracketCardsPanel, { REGIONS, type Region, type GamesByRegion } from '@/components/BracketCardsPanel';
 import BracketGridPanel from '@/components/BracketGridPanel';
@@ -129,11 +129,18 @@ export default function BracketsClient() {
   const [highlightedMatchId, setHighlightedMatchId] = useState<string | null>(null);
   const [popoverData, setPopoverData] = useState<{ game: Game; roundLabel: string } | null>(null);
 
-  // Build winner map
+  // Build winner map + eliminated teams set
   const winnerMap: Record<string, string> = {};
+  const eliminatedTeams = new Set<string>();
+  const resultsMap: Record<string, ResultGame> = {};
   if (results) {
     for (const g of results.games) {
-      if (g.completed && g.winner) winnerMap[g.gameId] = g.winner;
+      if (g.completed && g.winner) {
+        winnerMap[g.gameId] = g.winner;
+        const loser = g.winner === g.team1 ? g.team2 : g.team1;
+        eliminatedTeams.add(loser);
+      }
+      resultsMap[g.gameId] = g;
     }
   }
 
@@ -295,6 +302,7 @@ export default function BracketsClient() {
                 highlightedMatchId={highlightedMatchId}
                 onMatchClick={handleCardMatchClick}
                 winnerMap={winnerMap}
+                eliminatedTeams={eliminatedTeams}
               />
             </div>
             <div className="flex-1">
@@ -305,6 +313,7 @@ export default function BracketsClient() {
                 highlightedMatchId={highlightedMatchId}
                 onMatchClick={handleGridMatchClick}
                 winnerMap={winnerMap}
+                eliminatedTeams={eliminatedTeams}
               />
             </div>
           </div>
@@ -361,6 +370,7 @@ export default function BracketsClient() {
                 highlightedMatchId={highlightedMatchId}
                 onMatchClick={handleCardMatchClick}
                 winnerMap={winnerMap}
+                eliminatedTeams={eliminatedTeams}
               />
             )}
 
@@ -374,6 +384,7 @@ export default function BracketsClient() {
                   highlightedMatchId={highlightedMatchId}
                   onMatchClick={handleGridMatchClick}
                   winnerMap={winnerMap}
+                  eliminatedTeams={eliminatedTeams}
                 />
               </div>
             )}
@@ -385,6 +396,9 @@ export default function BracketsClient() {
       <MatchupPopover
         data={popoverData}
         modelColor={activeModel.color}
+        winnerMap={winnerMap}
+        eliminatedTeams={eliminatedTeams}
+        result={popoverData ? (resultsMap[popoverData.game.gameId] ?? null) : null}
         onClose={() => {
           setPopoverData(null);
           setHighlightedMatchId(null);

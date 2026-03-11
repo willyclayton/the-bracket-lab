@@ -30,6 +30,7 @@ interface BracketCardsPanelProps {
   highlightedMatchId: string | null;
   onMatchClick: (matchId: string, game: Game, roundLabel: string) => void;
   winnerMap: Record<string, string>;
+  eliminatedTeams: Set<string>;
 }
 
 export default function BracketCardsPanel({
@@ -40,6 +41,7 @@ export default function BracketCardsPanel({
   highlightedMatchId,
   onMatchClick,
   winnerMap,
+  eliminatedTeams,
 }: BracketCardsPanelProps) {
   const regionData = gamesByRegion[currentRegion] ?? {};
 
@@ -71,19 +73,21 @@ export default function BracketCardsPanel({
                 const result = winnerMap[game.gameId];
                 const isCorrect = result ? game.pick === result : undefined;
                 const isWrong = result ? game.pick !== result : false;
+                const isBusted = !result && game.pick && eliminatedTeams.has(game.pick);
                 const isHighlighted = highlightedMatchId === matchId;
 
                 return (
                   <div
                     key={matchId}
                     className={`mb-1.5 rounded-md border bg-lab-surface overflow-hidden cursor-pointer transition-all ${
-                      isWrong ? 'matchup-card-wrong' : ''
+                      isWrong || isBusted ? 'matchup-card-wrong' : ''
                     } ${isHighlighted ? 'matchup-card-highlight' : ''}`}
                     style={{
                       borderLeftWidth: '3px',
-                      borderLeftColor: isWrong ? '#ef4444' : modelColor,
+                      borderLeftColor: isWrong || isBusted ? '#ef4444' : modelColor,
                       borderColor: isHighlighted ? modelColor : undefined,
                       ['--mc' as string]: modelColor,
+                      opacity: isBusted ? 0.3 : undefined,
                     }}
                     onClick={() => onMatchClick(matchId, game, label)}
                   >
@@ -101,7 +105,7 @@ export default function BracketCardsPanel({
                           <span
                             className={`flex-1 text-xs ${
                               isPick1
-                                ? isWrong
+                                ? isWrong || isBusted
                                   ? 'text-red-500 line-through font-semibold'
                                   : 'text-lab-white font-semibold'
                                 : 'text-[#bbb]'
@@ -109,7 +113,7 @@ export default function BracketCardsPanel({
                           >
                             {game.team1}
                           </span>
-                          {isPick1 && !isWrong && (
+                          {isPick1 && !isWrong && !isBusted && (
                             <span className="text-[10px]" style={{ color: isCorrect ? '#22c55e' : modelColor }}>
                               {isCorrect ? '\u2713' : '\u2713'}
                             </span>
@@ -127,7 +131,7 @@ export default function BracketCardsPanel({
                           <span
                             className={`flex-1 text-xs ${
                               isPick2
-                                ? isWrong
+                                ? isWrong || isBusted
                                   ? 'text-red-500 line-through font-semibold'
                                   : 'text-lab-white font-semibold'
                                 : 'text-[#bbb]'
@@ -135,7 +139,7 @@ export default function BracketCardsPanel({
                           >
                             {game.team2}
                           </span>
-                          {isPick2 && !isWrong && (
+                          {isPick2 && !isWrong && !isBusted && (
                             <span className="text-[10px]" style={{ color: isCorrect ? '#22c55e' : modelColor }}>
                               {isCorrect ? '\u2713' : '\u2713'}
                             </span>

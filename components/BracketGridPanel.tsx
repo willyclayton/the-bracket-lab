@@ -29,6 +29,7 @@ interface BracketGridPanelProps {
   highlightedMatchId: string | null;
   onMatchClick: (matchId: string, game: Game, roundLabel: string) => void;
   winnerMap: Record<string, string>;
+  eliminatedTeams: Set<string>;
 }
 
 function MatchupSlot({
@@ -37,6 +38,7 @@ function MatchupSlot({
   isHighlighted,
   onClick,
   winnerMap,
+  eliminatedTeams,
   marginTop,
 }: {
   game: Game;
@@ -44,23 +46,26 @@ function MatchupSlot({
   isHighlighted: boolean;
   onClick: () => void;
   winnerMap: Record<string, string>;
+  eliminatedTeams: Set<string>;
   marginTop?: number;
 }) {
   const isPick1 = game.pick === game.team1;
   const isPick2 = game.pick === game.team2;
   const result = winnerMap[game.gameId];
   const isWrong = result ? game.pick !== result : false;
+  const isBusted = !result && game.pick && eliminatedTeams.has(game.pick);
 
   return (
     <div
       className={`bg-lab-surface border border-[#252525] rounded-[3px] overflow-hidden cursor-pointer transition-all w-[110px] relative ${
-        isWrong ? 'border-red-500/30' : ''
+        isWrong || isBusted ? 'border-red-500/30' : ''
       } ${isHighlighted ? 'border-current shadow-[0_0_0_1px_currentColor]' : ''}`}
       style={{
         marginTop: marginTop ? `${marginTop}px` : undefined,
         marginLeft: '3px',
         marginRight: '3px',
         color: isHighlighted ? modelColor : undefined,
+        opacity: isBusted ? 0.3 : undefined,
       }}
       onClick={onClick}
     >
@@ -76,7 +81,7 @@ function MatchupSlot({
         <span
           className={`text-[9px] whitespace-nowrap overflow-hidden text-ellipsis flex-1 ${
             isPick1
-              ? isWrong
+              ? isWrong || isBusted
                 ? 'text-red-500 line-through font-semibold'
                 : 'text-[#ddd] font-semibold'
               : 'text-[#777]'
@@ -84,7 +89,7 @@ function MatchupSlot({
         >
           {game.team1}
         </span>
-        {isPick1 && !isWrong && (
+        {isPick1 && !isWrong && !isBusted && (
           <span
             className="w-[3px] h-[3px] rounded-full flex-shrink-0"
             style={{ background: modelColor }}
@@ -103,7 +108,7 @@ function MatchupSlot({
         <span
           className={`text-[9px] whitespace-nowrap overflow-hidden text-ellipsis flex-1 ${
             isPick2
-              ? isWrong
+              ? isWrong || isBusted
                 ? 'text-red-500 line-through font-semibold'
                 : 'text-[#ddd] font-semibold'
               : 'text-[#777]'
@@ -111,7 +116,7 @@ function MatchupSlot({
         >
           {game.team2}
         </span>
-        {isPick2 && !isWrong && (
+        {isPick2 && !isWrong && !isBusted && (
           <span
             className="w-[3px] h-[3px] rounded-full flex-shrink-0"
             style={{ background: modelColor }}
@@ -129,6 +134,7 @@ function RegionBracket({
   highlightedMatchId,
   onMatchClick,
   winnerMap,
+  eliminatedTeams,
   reverse,
 }: {
   region: string;
@@ -137,6 +143,7 @@ function RegionBracket({
   highlightedMatchId: string | null;
   onMatchClick: (matchId: string, game: Game, roundLabel: string) => void;
   winnerMap: Record<string, string>;
+  eliminatedTeams: Set<string>;
   reverse?: boolean;
 }) {
   const regionData = gamesByRegion[region] ?? {};
@@ -166,6 +173,7 @@ function RegionBracket({
                     isHighlighted={highlightedMatchId === game.gameId}
                     onClick={() => onMatchClick(game.gameId, game, label)}
                     winnerMap={winnerMap}
+                    eliminatedTeams={eliminatedTeams}
                     marginTop={idx > 0 ? layout.gap : undefined}
                   />
                 ))}
@@ -185,6 +193,7 @@ export default function BracketGridPanel({
   highlightedMatchId,
   onMatchClick,
   winnerMap,
+  eliminatedTeams,
 }: BracketGridPanelProps) {
   const ffGames = gamesByRegion['ff'] ?? {};
   const finalFour = ffGames['final_four'] ?? [];
@@ -206,6 +215,7 @@ export default function BracketGridPanel({
               highlightedMatchId={highlightedMatchId}
               onMatchClick={onMatchClick}
               winnerMap={winnerMap}
+              eliminatedTeams={eliminatedTeams}
             />
             <RegionBracket
               region="west"
@@ -214,6 +224,7 @@ export default function BracketGridPanel({
               highlightedMatchId={highlightedMatchId}
               onMatchClick={onMatchClick}
               winnerMap={winnerMap}
+              eliminatedTeams={eliminatedTeams}
             />
           </div>
 
@@ -230,6 +241,7 @@ export default function BracketGridPanel({
                 isHighlighted={highlightedMatchId === game.gameId}
                 onClick={() => onMatchClick(game.gameId, game, 'F4')}
                 winnerMap={winnerMap}
+                eliminatedTeams={eliminatedTeams}
                 marginTop={6}
               />
             ))}
@@ -241,6 +253,7 @@ export default function BracketGridPanel({
                 isHighlighted={highlightedMatchId === game.gameId}
                 onClick={() => onMatchClick(game.gameId, game, 'Final')}
                 winnerMap={winnerMap}
+                eliminatedTeams={eliminatedTeams}
                 marginTop={8}
               />
             ))}
@@ -267,6 +280,7 @@ export default function BracketGridPanel({
               highlightedMatchId={highlightedMatchId}
               onMatchClick={onMatchClick}
               winnerMap={winnerMap}
+              eliminatedTeams={eliminatedTeams}
               reverse
             />
             <RegionBracket
@@ -276,6 +290,7 @@ export default function BracketGridPanel({
               highlightedMatchId={highlightedMatchId}
               onMatchClick={onMatchClick}
               winnerMap={winnerMap}
+              eliminatedTeams={eliminatedTeams}
               reverse
             />
           </div>
