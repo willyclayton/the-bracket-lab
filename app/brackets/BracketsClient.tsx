@@ -124,7 +124,7 @@ export default function BracketsClient() {
   const activeModelId = MODELS.find((m) => m.id === modelParam)?.id ?? defaultModel;
   const activeModel = MODELS.find((m) => m.id === activeModelId)!;
 
-  const bracket = BRACKET_DATA[activeYear][activeModelId];
+  const bracket = BRACKET_DATA[activeYear][activeModelId] ?? null;
   const results = ALL_RESULTS[activeYear];
 
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -155,7 +155,7 @@ export default function BracketsClient() {
 
   // Teams this model picked in at least one game that are now eliminated
   const bustedModelPicks = new Set<string>();
-  const gamesByRegion = getGamesByRegion(bracket);
+  const gamesByRegion = bracket ? getGamesByRegion(bracket) : {};
   for (const games of Object.values(gamesByRegion)) {
     for (const roundGames of Object.values(games)) {
       for (const game of roundGames) {
@@ -166,17 +166,17 @@ export default function BracketsClient() {
     }
   }
 
-  const upsetCount = countUpsets(bracket);
+  const upsetCount = bracket ? countUpsets(bracket) : 0;
 
   // Compute score if results exist
-  const modelScore = results && results.games.length > 0
+  const modelScore = bracket && results && results.games.length > 0
     ? calculateScore(bracket, results)
     : null;
 
   const espnPct = modelScore ? getEspnPercentile(modelScore.total, activeYear) : null;
 
-  // Check if bracket is empty
-  const isEmpty = ROUND_ORDER.every(
+  // Check if bracket is empty (or missing for this year)
+  const isEmpty = !bracket || ROUND_ORDER.every(
     (r) => (bracket.rounds[r as keyof typeof bracket.rounds] ?? []).length === 0
   );
 
