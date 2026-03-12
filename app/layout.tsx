@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://the-bracket-lab.vercel.app'),
   title: 'The Bracket Lab — 6 AI Models. 1 Tournament.',
   description: '6 AI models compete to predict March Madness 2026. Monte Carlo simulations, LLM scouting, historical archetypes, upset detection, points optimization, and autonomous research. Track accuracy in real time.',
   openGraph: {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://the-bracket-lab.vercel.app/og-image.jpg',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
       },
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Bracket Lab',
     description: '6 AI models compete to predict March Madness 2026.',
-    images: ['https://the-bracket-lab.vercel.app/og-image.jpg'],
+    images: ['/og-image.jpg'],
   },
 };
 
