@@ -1,41 +1,101 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { VISIBLE_MODELS } from '@/lib/models';
 
 const STORAGE_KEY = 'bracket-lab-vote-2026';
+
+interface VoteData {
+  counts: Record<string, number>;
+  userVote: string | null;
+}
 
 export default function VoteWidget() {
   const [vote, setVote] = useState<string | null>(null);
   const [votes, setVotes] = useState<Record<string, number>>({});
   const [mounted, setMounted] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      try {
+  // Read localStorage cache for instant render
+  const readCache = useCallback((): VoteData | null => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
         const data = JSON.parse(stored);
-        setVote(data.vote ?? null);
-        setVotes(data.votes ?? {});
-      } catch {
-        // ignore bad data
+        return { counts: data.counts ?? {}, userVote: data.userVote ?? null };
       }
-    } else {
-      // seed some initial counts so bar chart isn't empty
-      const seed: Record<string, number> = {};
-      VISIBLE_MODELS.forEach((m, i) => { seed[m.id] = [34, 28, 19, 15, 12, 7][i] ?? 10; });
-      setVotes(seed);
+    } catch {
+      // ignore
+    }
+    return null;
+  }, []);
+
+  const writeCache = useCallback((data: VoteData) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch {
+      // ignore
     }
   }, []);
 
-  function handleVote(modelId: string) {
-    if (vote) return; // already voted
-    const newVotes = { ...votes, [modelId]: (votes[modelId] ?? 0) + 1 };
-    const data = { vote: modelId, votes: newVotes };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    setVote(modelId);
-    setVotes(newVotes);
+  useEffect(() => {
+    setMounted(true);
+
+    // Show cached data immediately
+    const cached = readCache();
+    if (cached) {
+      setVotes(cached.counts);
+      setVote(cached.userVote);
+    }
+
+    // Fetch real data from API
+    fetch('/api/votes')
+      .then((res) => res.json())
+      .then((data: VoteData) => {
+        setVotes(data.counts);
+        setVote(data.userVote);
+        writeCache(data);
+      })
+      .catch(() => {
+        // API unavailable — keep cached data if we have it
+      })
+      .finally(() => setLoading(false));
+  }, [readCache, writeCache]);
+
+  async function handleVote(modelId: string) {
+    if (vote || submitting) return;
+    setSubmitting(true);
+
+    try {
+      const res = await fetch('/api/votes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ modelId }),
+      });
+
+      if (res.ok) {
+        const data: VoteData = await res.json();
+        setVotes(data.counts);
+        setVote(data.userVote);
+        writeCache(data);
+      } else if (res.status === 409) {
+        // Already voted — fetch current state
+        const refresh = await fetch('/api/votes');
+        const data: VoteData = await refresh.json();
+        setVotes(data.counts);
+        setVote(data.userVote);
+        writeCache(data);
+      }
+    } catch {
+      // Network error — optimistic update so it doesn't feel broken
+      const newVotes = { ...votes, [modelId]: (votes[modelId] ?? 0) + 1 };
+      setVotes(newVotes);
+      setVote(modelId);
+      writeCache({ counts: newVotes, userVote: modelId });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   const total = Object.values(votes).reduce((a, b) => a + b, 0);
@@ -68,7 +128,7 @@ export default function VoteWidget() {
             <button
               key={model.id}
               onClick={() => handleVote(model.id)}
-              disabled={hasVoted}
+              disabled={hasVoted || submitting}
               className={`
                 relative w-full flex items-center justify-between rounded-lg px-4 py-3 text-left
                 border transition-all duration-150
@@ -113,7 +173,7 @@ export default function VoteWidget() {
 
       {vote && (
         <p className="text-center text-xs font-mono text-lab-muted mt-5">
-          {total} VOTES CAST
+          {loading ? '...' : `${total} VOTES CAST`}
         </p>
       )}
     </div>
