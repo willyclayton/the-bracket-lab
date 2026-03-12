@@ -1,22 +1,22 @@
 {/* ---- TL;DR ---- */}
-<div className="rounded-md p-5 mb-7" style={{border: '1px solid rgba(6,182,212,0.3)', borderLeft: '3px solid #06b6d4', backgroundColor: 'rgba(6,182,212,0.04)'}}>
+<div className="rounded-md p-5 mb-7 border border-optimizer/30 border-l-[3px] border-l-optimizer bg-optimizer/[0.04]">
   <div className="flex gap-3 mb-2.5 items-baseline">
-    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#06b6d4'}}>What it does</span>
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px] text-optimizer">What it does</span>
     <span className="text-[15px] text-[#ccc] leading-[1.5]">Trains a win probability model, simulates 5,000 brackets, scores each by ESPN points, and picks the bracket with the highest expected total.</span>
   </div>
   <div className="flex gap-3 mb-2.5 items-baseline">
-    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#06b6d4'}}>Why different</span>
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px] text-optimizer">Why different</span>
     <span className="text-[15px] text-[#ccc] leading-[1.5]">Optimizes for ESPN points, not correct picks. A correct champion is worth 32 first-round picks — this model exploits that asymmetry.</span>
   </div>
   <div className="flex gap-3 items-baseline">
-    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#06b6d4'}}>2024 result</span>
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px] text-optimizer">2024 result</span>
     <span className="text-[15px] text-[#ccc] leading-[1.5]">~1,065 avg ESPN points — 85th percentile (backtested).</span>
   </div>
 </div>
 
 {/* ---- Champion ---- */}
-<div className="rounded-md p-4 mb-7" style={{borderLeft: '3px solid #06b6d4', backgroundColor: 'rgba(6,182,212,0.05)'}}>
-  <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2" style={{color:'#06b6d4'}}>2026 Predicted Champion</p>
+<div className="rounded-md p-4 mb-7 border-l-[3px] border-l-optimizer bg-optimizer/[0.05]">
+  <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2 text-optimizer">2026 Predicted Champion</p>
   <p className="text-[16px] font-semibold text-[#f9fafb]">TBD — Locks March 19</p>
   <p className="text-[13px] text-[#888] mt-1">All picks finalized after First Four play-in games.</p>
 </div>
@@ -24,12 +24,12 @@
 {/* ---- Compact Steps ---- */}
 <div className="mb-2">
   <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Process</p>
-  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#06b6d4'}}>01</span><span className="text-[14px] font-medium text-[#ccc]">Train win probability model</span></div>
-  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#06b6d4'}}>02</span><span className="text-[14px] font-medium text-[#ccc]">Assign matchup probabilities</span></div>
-  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#06b6d4'}}>03</span><span className="text-[14px] font-medium text-[#ccc]">Simulate 5,000 full brackets</span></div>
-  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#06b6d4'}}>04</span><span className="text-[14px] font-medium text-[#ccc]">Score each bracket by ESPN points</span></div>
-  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#06b6d4'}}>05</span><span className="text-[14px] font-medium text-[#ccc]">Select highest-scoring bracket</span></div>
-  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#06b6d4'}}>06</span><span className="text-[14px] font-medium text-[#ccc]">Lock March 19</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0 text-optimizer">01</span><span className="text-[14px] font-medium text-[#ccc]">Train win probability model</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0 text-optimizer">02</span><span className="text-[14px] font-medium text-[#ccc]">Assign matchup probabilities</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0 text-optimizer">03</span><span className="text-[14px] font-medium text-[#ccc]">Simulate 5,000 full brackets</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0 text-optimizer">04</span><span className="text-[14px] font-medium text-[#ccc]">Score each bracket by ESPN points</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0 text-optimizer">05</span><span className="text-[14px] font-medium text-[#ccc]">Select highest-scoring bracket</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0 text-optimizer">06</span><span className="text-[14px] font-medium text-[#ccc]">Lock March 19</span></div>
 </div>
 
 {/* ---- Deep Dive Divider ---- */}
@@ -44,35 +44,35 @@
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
     <div>
       <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Key Inputs</p>
-      <ul className="space-y-1">
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">SRS (Simple Rating System)</li>
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">MOV (Margin of Victory)</li>
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">SOS (Strength of Schedule)</li>
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Win percentage</li>
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Seed (committee ranking signal)</li>
+      <ul className="space-y-1 list-none pl-0">
+        <li className="text-[13px] text-[#888] leading-[1.65]">— SRS (Simple Rating System)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65]">— MOV (Margin of Victory)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65]">— SOS (Strength of Schedule)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65]">— Win percentage</li>
+        <li className="text-[13px] text-[#888] leading-[1.65]">— Seed (committee ranking signal)</li>
       </ul>
     </div>
     <div>
       <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Data Sources</p>
-      <ul className="space-y-1">
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Sports-reference.com (SRS, MOV, SOS, W-L)</li>
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">NCAA bracket seedings (2010-2024 training)</li>
+      <ul className="space-y-1 list-none pl-0">
+        <li className="text-[13px] text-[#888] leading-[1.65]">— Sports-reference.com (SRS, MOV, SOS, W-L)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65]">— NCAA bracket seedings (2010-2024 training)</li>
       </ul>
     </div>
     <div>
       <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Assumptions</p>
-      <ul className="space-y-1">
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">ESPN point optimization beats per-game accuracy</li>
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Logistic regression on SRS/MOV/SOS is well-calibrated</li>
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">5,000 simulations sufficient for stable estimates</li>
+      <ul className="space-y-1 list-none pl-0">
+        <li className="text-[13px] text-[#888] leading-[1.65]">— ESPN point optimization beats per-game accuracy</li>
+        <li className="text-[13px] text-[#888] leading-[1.65]">— Logistic regression on SRS/MOV/SOS is well-calibrated</li>
+        <li className="text-[13px] text-[#888] leading-[1.65]">— 5,000 simulations sufficient for stable estimates</li>
       </ul>
     </div>
     <div>
       <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Limitations</p>
-      <ul className="space-y-1">
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">EV optimization can produce "bold" picks that miss</li>
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Training data may miss recent style shifts</li>
-        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">No injury, suspension, or momentum adjustment</li>
+      <ul className="space-y-1 list-none pl-0">
+        <li className="text-[13px] text-[#888] leading-[1.65]">— EV optimization can produce "bold" picks that miss</li>
+        <li className="text-[13px] text-[#888] leading-[1.65]">— Training data may miss recent style shifts</li>
+        <li className="text-[13px] text-[#888] leading-[1.65]">— No injury, suspension, or momentum adjustment</li>
       </ul>
     </div>
   </div>
@@ -90,7 +90,7 @@
         {n:'06', title:'Lock March 19', desc:'All 63 picks finalized after the First Four. ESPN Tournament Challenge bracket filled out as timestamp proof.'},
       ].map(s => (
         <div key={s.n} className="flex gap-3.5">
-          <span className="font-mono text-[13px] shrink-0 mt-0.5" style={{color:'#06b6d4'}}>{s.n}</span>
+          <span className="font-mono text-[13px] shrink-0 mt-0.5 text-optimizer">{s.n}</span>
           <div>
             <p className="text-[14px] font-semibold text-[#ddd] mb-1">{s.title}</p>
             <p className="text-[13px] text-[#777] leading-[1.55]">{s.desc}</p>
