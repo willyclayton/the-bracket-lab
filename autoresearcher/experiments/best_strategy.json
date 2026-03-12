@@ -1,0 +1,64 @@
+{
+  "strategy_name": "ml_optimized",
+  "description": "Ensemble ML model (Logistic Regression + Random Forest + Gradient Boosting) with Monte Carlo bracket optimization for expected ESPN point maximization",
+  "avg_espn_points": 1065.0,
+  "champion_correct_rate": 0.43,
+  "champions_correct": 6,
+  "years_tested": 14,
+  "vs_baseline_improvement": "+28.1%",
+  "baseline": "always_higher_seed (831 avg)",
+
+  "model": {
+    "type": "ensemble",
+    "components": [
+      {"name": "LogisticRegression", "weight": 0.40, "params": {"C": 1.0, "max_iter": 1000}},
+      {"name": "RandomForestClassifier", "weight": 0.25, "params": {"n_estimators": 300, "max_depth": 6, "min_samples_leaf": 5}},
+      {"name": "GradientBoostingClassifier", "weight": 0.35, "params": {"n_estimators": 200, "max_depth": 4, "learning_rate": 0.1}}
+    ],
+    "training": "leave-one-year-out cross-validation (train on 13 years, test on 1)",
+    "scaler": "StandardScaler"
+  },
+
+  "features": [
+    {"name": "seed_diff", "description": "seed_1 - seed_2 (negative = team_1 is higher seed)", "importance": "medium"},
+    {"name": "srs_diff", "description": "SRS rating difference (sports-reference Simple Rating System)", "importance": "highest"},
+    {"name": "mov_diff", "description": "Margin of victory difference", "importance": "medium"},
+    {"name": "sos_diff", "description": "Strength of schedule difference", "importance": "high"},
+    {"name": "ppg_diff", "description": "Points per game difference", "importance": "low"},
+    {"name": "opp_ppg_diff", "description": "Opponent PPG difference (defensive quality)", "importance": "low"},
+    {"name": "win_pct_diff", "description": "Win percentage difference", "importance": "high"},
+    {"name": "srs_rank_diff", "description": "SRS rank difference", "importance": "medium"},
+    {"name": "round_num", "description": "Round ordinal (0=R64, 5=Championship)", "importance": "low"},
+    {"name": "seed_product", "description": "seed_1 * seed_2 (captures matchup closeness)", "importance": "low"},
+    {"name": "seed_sum", "description": "seed_1 + seed_2", "importance": "low"}
+  ],
+
+  "optimizer": {
+    "type": "Monte Carlo expected value",
+    "n_sims": 5000,
+    "method": "Simulate thousands of brackets using model probabilities, count team advancement frequencies, build bracket by picking team with highest expected ESPN point value at each decision",
+    "key_insight": "Optimizing for expected ESPN points rather than game-by-game accuracy shifts champion picks toward higher-probability paths through the bracket, worth ~75 points/year over naive favorites"
+  },
+
+  "data_sources": [
+    "sports-reference.com (bracket results + SRS ratings, 2010-2024)",
+    "Computed seed-vs-seed historical win rates from 882 tournament games"
+  ],
+
+  "performance_by_year": {
+    "2010": {"points": 1250, "champion_pick": "Duke", "actual": "Duke", "correct": true},
+    "2011": {"points": 500, "champion_pick": "Ohio State", "actual": "UConn", "correct": false},
+    "2012": {"points": 1460, "champion_pick": "Kentucky", "actual": "Kentucky", "correct": true},
+    "2013": {"points": 1500, "champion_pick": "Louisville", "actual": "Louisville", "correct": true},
+    "2014": {"points": 880, "champion_pick": "Arizona", "actual": "UConn", "correct": false},
+    "2015": {"points": 1090, "champion_pick": "Kentucky", "actual": "Duke", "correct": false},
+    "2016": {"points": 980, "champion_pick": "Kansas", "actual": "Villanova", "correct": false},
+    "2017": {"points": 1020, "champion_pick": "Kansas", "actual": "UNC", "correct": false},
+    "2018": {"points": 1260, "champion_pick": "Villanova", "actual": "Villanova", "correct": true},
+    "2019": {"points": 1290, "champion_pick": "Virginia", "actual": "Virginia", "correct": true},
+    "2021": {"points": 970, "champion_pick": "Gonzaga", "actual": "Baylor", "correct": false},
+    "2022": {"points": 1280, "champion_pick": "Kansas", "actual": "Kansas", "correct": true},
+    "2023": {"points": 480, "champion_pick": "UCLA", "actual": "UConn", "correct": false},
+    "2024": {"points": 950, "champion_pick": "Purdue", "actual": "UConn", "correct": false}
+  }
+}

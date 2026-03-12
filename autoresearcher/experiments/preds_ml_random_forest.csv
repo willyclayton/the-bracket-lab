@@ -1,0 +1,828 @@
+year,round,team_1,team_2,seed_1,seed_2,winner,region,prob_team1,pred_winner,correct,model
+2010,R64,Kentucky,ETSU,1,16,Kentucky,Region_1,0.9765762602250067,Kentucky,1,ml_random_forest
+2010,R64,Texas,Wake Forest,8,9,Wake Forest,Region_1,0.548279286673593,Texas,0,ml_random_forest
+2010,R64,Temple,Cornell,5,12,Cornell,Region_1,0.5973757398878221,Temple,0,ml_random_forest
+2010,R64,Wisconsin,Wofford,4,13,Wisconsin,Region_1,0.8545345025460827,Wisconsin,1,ml_random_forest
+2010,R64,Marquette,Washington,6,11,Washington,Region_1,0.4207849827482336,Washington,1,ml_random_forest
+2010,R64,New Mexico,Montana,3,14,New Mexico,Region_1,0.77584274815448,New Mexico,1,ml_random_forest
+2010,R64,Clemson,Missouri,7,10,Missouri,Region_1,0.593005161463278,Clemson,0,ml_random_forest
+2010,R64,West Virginia,Morgan State,2,15,West Virginia,Region_1,0.9294407210906466,West Virginia,1,ml_random_forest
+2010,R32,Kentucky,Wake Forest,1,9,Kentucky,Region_1,0.8705278069122587,Kentucky,1,ml_random_forest
+2010,R32,Cornell,Wisconsin,12,4,Cornell,Region_1,0.16104949222947365,Wisconsin,0,ml_random_forest
+2010,R32,Washington,New Mexico,11,3,Washington,Region_1,0.636764501936272,Washington,1,ml_random_forest
+2010,R32,Missouri,West Virginia,10,2,West Virginia,Region_1,0.23341063494498263,West Virginia,1,ml_random_forest
+2010,S16,Kentucky,Cornell,1,12,Kentucky,Region_1,0.8006916507598332,Kentucky,1,ml_random_forest
+2010,S16,Washington,West Virginia,11,2,West Virginia,Region_1,0.34620412238618586,West Virginia,1,ml_random_forest
+2010,E8,Kentucky,West Virginia,1,2,West Virginia,Region_1,0.4431269767680415,West Virginia,1,ml_random_forest
+2010,R64,Kansas,Lehigh,1,16,Kansas,Region_2,0.9915495691379287,Kansas,1,ml_random_forest
+2010,R64,Michigan State,New Mexico State,5,12,Michigan State,Region_2,0.8599270426753772,Michigan State,1,ml_random_forest
+2010,R64,Maryland,Houston,4,13,Maryland,Region_2,0.8716283636881585,Maryland,1,ml_random_forest
+2010,R64,Tennessee,San Diego State,6,11,Tennessee,Region_2,0.6615121844784427,Tennessee,1,ml_random_forest
+2010,R64,Georgetown,Ohio,3,14,Ohio,Region_2,0.7796291151820488,Georgetown,0,ml_random_forest
+2010,R64,Oklahoma State,Georgia Tech,7,10,Georgia Tech,Region_2,0.3955307294309524,Georgia Tech,1,ml_random_forest
+2010,R32,Kansas,Northern Iowa,1,9,Northern Iowa,Region_2,0.7922842897454754,Kansas,0,ml_random_forest
+2010,R32,Michigan State,Maryland,5,4,Michigan State,Region_2,0.43358093019608146,Maryland,0,ml_random_forest
+2010,R32,Tennessee,Ohio,6,14,Tennessee,Region_2,0.8536570412360082,Tennessee,1,ml_random_forest
+2010,R32,Georgia Tech,Ohio State,10,2,Ohio State,Region_2,0.2963987302394974,Ohio State,1,ml_random_forest
+2010,S16,Northern Iowa,Michigan State,9,5,Michigan State,Region_2,0.40897371409903455,Michigan State,1,ml_random_forest
+2010,S16,Tennessee,Ohio State,6,2,Tennessee,Region_2,0.4433703298552014,Ohio State,0,ml_random_forest
+2010,E8,Michigan State,Tennessee,5,6,Michigan State,Region_2,0.47828201629508943,Tennessee,0,ml_random_forest
+2010,R64,Duke,Arkansas-Pine Bluff,1,16,Duke,Region_3,0.9768329802184805,Duke,1,ml_random_forest
+2010,R64,California,Louisville,8,9,California,Region_3,0.5820930293474825,California,1,ml_random_forest
+2010,R64,Texas A&M,Utah State,5,12,Texas A&M,Region_3,0.5641733740738203,Texas A&M,1,ml_random_forest
+2010,R64,Purdue,Siena,4,13,Purdue,Region_3,0.7164156987567847,Purdue,1,ml_random_forest
+2010,R64,Notre Dame,Old Dominion,6,11,Old Dominion,Region_3,0.44464099217618186,Old Dominion,1,ml_random_forest
+2010,R64,Baylor,Sam Houston,3,14,Baylor,Region_3,0.8560299679211639,Baylor,1,ml_random_forest
+2010,R64,Villanova,Robert Morris,2,15,Villanova,Region_3,0.9151691616399021,Villanova,1,ml_random_forest
+2010,R32,Duke,California,1,8,Duke,Region_3,0.8376976144605311,Duke,1,ml_random_forest
+2010,R32,Texas A&M,Purdue,5,4,Purdue,Region_3,0.3562305370214536,Purdue,1,ml_random_forest
+2010,R32,Old Dominion,Baylor,11,3,Baylor,Region_3,0.2790606918142294,Baylor,1,ml_random_forest
+2010,S16,Duke,Purdue,1,4,Duke,Region_3,0.5453193180267255,Duke,1,ml_random_forest
+2010,E8,Duke,Baylor,1,3,Duke,Region_3,0.7682466253328762,Duke,1,ml_random_forest
+2010,R64,Syracuse,Vermont,1,16,Syracuse,Region_4,0.9747598906857484,Syracuse,1,ml_random_forest
+2010,R64,Gonzaga,Florida State,8,9,Gonzaga,Region_4,0.3732708806224177,Florida State,0,ml_random_forest
+2010,R64,Butler,UTEP,5,12,Butler,Region_4,0.6227960548364109,Butler,1,ml_random_forest
+2010,R64,Vanderbilt,Murray State,4,13,Murray State,Region_4,0.6533621238245563,Vanderbilt,0,ml_random_forest
+2010,R64,Xavier,Minnesota,6,11,Xavier,Region_4,0.4622559902746598,Minnesota,0,ml_random_forest
+2010,R64,Pitt,Oakland,3,14,Pitt,Region_4,0.8809777547681377,Pitt,1,ml_random_forest
+2010,R64,Kansas State,North Texas,2,15,Kansas State,Region_4,0.951037281600093,Kansas State,1,ml_random_forest
+2010,R32,Syracuse,Gonzaga,1,8,Syracuse,Region_4,0.8027119682004401,Syracuse,1,ml_random_forest
+2010,R32,Butler,Murray State,5,13,Butler,Region_4,0.6584886201989008,Butler,1,ml_random_forest
+2010,R32,Xavier,Pitt,6,3,Xavier,Region_4,0.4527420588453712,Pitt,0,ml_random_forest
+2010,S16,Syracuse,Butler,1,5,Butler,Region_4,0.6790746149749673,Syracuse,0,ml_random_forest
+2010,S16,Xavier,Kansas State,6,2,Kansas State,Region_4,0.2715787890284809,Kansas State,1,ml_random_forest
+2010,E8,Butler,Kansas State,5,2,Butler,Region_4,0.2947482348225721,Kansas State,0,ml_random_forest
+2010,F4,West Virginia,Duke,2,1,Duke,Final Four,0.328998616046011,Duke,1,ml_random_forest
+2010,F4,Michigan State,Butler,5,5,Butler,Final Four,0.545012119849453,Michigan State,0,ml_random_forest
+2010,Championship,Duke,Butler,1,5,Duke,Final Four,0.7983982305771237,Duke,1,ml_random_forest
+2011,R64,Ohio State,UTSA,1,16,Ohio State,Region_1,0.9877525559129706,Ohio State,1,ml_random_forest
+2011,R64,George Mason,Villanova,8,9,George Mason,Region_1,0.42924773065512833,Villanova,0,ml_random_forest
+2011,R64,West Virginia,Clemson,5,12,West Virginia,Region_1,0.5829414238181777,West Virginia,1,ml_random_forest
+2011,R64,Kentucky,Princeton,4,13,Kentucky,Region_1,0.9309022966158087,Kentucky,1,ml_random_forest
+2011,R64,Xavier,Marquette,6,11,Marquette,Region_1,0.3511369060447673,Marquette,1,ml_random_forest
+2011,R64,Syracuse,Indiana State,3,14,Syracuse,Region_1,0.8839421808461626,Syracuse,1,ml_random_forest
+2011,R64,Washington,Georgia,7,10,Washington,Region_1,0.6375994463434069,Washington,1,ml_random_forest
+2011,R32,Ohio State,George Mason,1,8,Ohio State,Region_1,0.9406860098377325,Ohio State,1,ml_random_forest
+2011,R32,West Virginia,Kentucky,5,4,Kentucky,Region_1,0.3760056348510265,Kentucky,1,ml_random_forest
+2011,R32,Marquette,Syracuse,11,3,Marquette,Region_1,0.36549720907161165,Syracuse,0,ml_random_forest
+2011,R32,Washington,UNC,7,2,UNC,Region_1,0.3863306042742223,UNC,1,ml_random_forest
+2011,S16,Ohio State,Kentucky,1,4,Kentucky,Region_1,0.7455974057178932,Ohio State,0,ml_random_forest
+2011,S16,Marquette,UNC,11,2,UNC,Region_1,0.3244355366983747,UNC,1,ml_random_forest
+2011,E8,Kentucky,UNC,4,2,Kentucky,Region_1,0.46461764407329154,UNC,0,ml_random_forest
+2011,R64,Pitt,UNC Asheville,1,16,Pitt,Region_2,0.9829102822037764,Pitt,1,ml_random_forest
+2011,R64,Butler,Old Dominion,8,9,Butler,Region_2,0.5971554312297346,Butler,1,ml_random_forest
+2011,R64,Kansas State,Utah State,5,12,Kansas State,Region_2,0.4394182546928489,Utah State,0,ml_random_forest
+2011,R64,Wisconsin,Belmont,4,13,Wisconsin,Region_2,0.6186492414674651,Wisconsin,1,ml_random_forest
+2011,R64,St. John's (NY),Gonzaga,6,11,Gonzaga,Region_2,0.4525113341734605,Gonzaga,1,ml_random_forest
+2011,R64,UCLA,Michigan State,7,10,UCLA,Region_2,0.36227458277141705,Michigan State,0,ml_random_forest
+2011,R32,Pitt,Butler,1,8,Butler,Region_2,0.8843886704760218,Pitt,0,ml_random_forest
+2011,R32,Kansas State,Wisconsin,5,4,Wisconsin,Region_2,0.3649661583010158,Wisconsin,1,ml_random_forest
+2011,R32,UCLA,Florida,7,2,Florida,Region_2,0.4455540641821894,Florida,1,ml_random_forest
+2011,S16,Butler,Wisconsin,8,4,Butler,Region_2,0.17483860597313391,Wisconsin,0,ml_random_forest
+2011,E8,Butler,Florida,8,2,Butler,Region_2,0.3812168323662631,Florida,0,ml_random_forest
+2011,R64,Kansas,Boston University,1,16,Kansas,Region_3,0.9743075630900361,Kansas,1,ml_random_forest
+2011,R64,Vanderbilt,Richmond,5,12,Richmond,Region_3,0.48143675595649027,Richmond,1,ml_random_forest
+2011,R64,Louisville,Morehead State,4,13,Morehead State,Region_3,0.9315380445978056,Louisville,0,ml_random_forest
+2011,R64,Georgetown,VCU,6,11,VCU,Region_3,0.7154988516764853,Georgetown,0,ml_random_forest
+2011,R64,Texas A&M,Florida State,7,10,Florida State,Region_3,0.45120354913075505,Florida State,1,ml_random_forest
+2011,R64,Notre Dame,Akron,2,15,Notre Dame,Region_3,0.9100871869218509,Notre Dame,1,ml_random_forest
+2011,R32,Kansas,Illinois,1,9,Kansas,Region_3,0.8230242235334587,Kansas,1,ml_random_forest
+2011,R32,Richmond,Morehead State,12,13,Richmond,Region_3,0.7723182124147159,Richmond,1,ml_random_forest
+2011,R32,VCU,Purdue,11,3,VCU,Region_3,0.0816222876920537,Purdue,0,ml_random_forest
+2011,R32,Florida State,Notre Dame,10,2,Florida State,Region_3,0.4715566083181365,Notre Dame,0,ml_random_forest
+2011,S16,Kansas,Richmond,1,12,Kansas,Region_3,0.8551636874391723,Kansas,1,ml_random_forest
+2011,S16,VCU,Florida State,11,10,VCU,Region_3,0.3419039927977675,Florida State,0,ml_random_forest
+2011,E8,Kansas,VCU,1,11,VCU,Region_3,0.9523346847280849,Kansas,0,ml_random_forest
+2011,R64,Duke,Hampton,1,16,Duke,Region_4,0.9325570387805758,Duke,1,ml_random_forest
+2011,R64,Michigan,Tennessee,8,9,Michigan,Region_4,0.6898316191746123,Michigan,1,ml_random_forest
+2011,R64,Arizona,Memphis,5,12,Arizona,Region_4,0.7957760903215282,Arizona,1,ml_random_forest
+2011,R64,Texas,Oakland,4,13,Texas,Region_4,0.7257634463457185,Texas,1,ml_random_forest
+2011,R64,Cincinnati,Missouri,6,11,Cincinnati,Region_4,0.48096428091548393,Missouri,0,ml_random_forest
+2011,R64,UConn,Bucknell,3,14,UConn,Region_4,0.9380256485394262,UConn,1,ml_random_forest
+2011,R64,Temple,Penn State,7,10,Temple,Region_4,0.5970158774886505,Temple,1,ml_random_forest
+2011,R64,San Diego State,Northern Colorado,2,15,San Diego State,Region_4,0.94964028079895,San Diego State,1,ml_random_forest
+2011,R32,Duke,Michigan,1,8,Duke,Region_4,0.9205884087412635,Duke,1,ml_random_forest
+2011,R32,Arizona,Texas,5,4,Arizona,Region_4,0.42186259199160003,Texas,0,ml_random_forest
+2011,R32,Cincinnati,UConn,6,3,UConn,Region_4,0.21351091396030478,UConn,1,ml_random_forest
+2011,R32,Temple,San Diego State,7,2,San Diego State,Region_4,0.23168678068798934,San Diego State,1,ml_random_forest
+2011,S16,Duke,Arizona,1,5,Arizona,Region_4,0.6594343896778436,Duke,0,ml_random_forest
+2011,S16,UConn,San Diego State,3,2,UConn,Region_4,0.39215063904298186,San Diego State,0,ml_random_forest
+2011,E8,Arizona,UConn,5,3,UConn,Region_4,0.31137541099027477,UConn,1,ml_random_forest
+2011,F4,Kentucky,UConn,4,3,UConn,Final Four,0.5331767649679804,Kentucky,0,ml_random_forest
+2011,F4,Butler,VCU,8,11,Butler,Final Four,0.6263596090471797,Butler,1,ml_random_forest
+2011,Championship,UConn,Butler,3,8,UConn,Final Four,0.7591482307316939,UConn,1,ml_random_forest
+2012,R64,Syracuse,UNC Asheville,1,16,Syracuse,Region_1,0.9131327795861559,Syracuse,1,ml_random_forest
+2012,R64,Vanderbilt,Harvard,5,12,Vanderbilt,Region_1,0.45599564442019974,Harvard,0,ml_random_forest
+2012,R64,Wisconsin,Montana,4,13,Wisconsin,Region_1,0.8812609708488698,Wisconsin,1,ml_random_forest
+2012,R64,Cincinnati,Texas,6,11,Cincinnati,Region_1,0.4320855796631564,Texas,0,ml_random_forest
+2012,R64,Florida State,St. Bonaventure,3,14,Florida State,Region_1,0.7139497357252514,Florida State,1,ml_random_forest
+2012,R64,Gonzaga,West Virginia,7,10,Gonzaga,Region_1,0.6349393962347762,Gonzaga,1,ml_random_forest
+2012,R64,Ohio State,Loyola (MD),2,15,Ohio State,Region_1,0.9111366040227027,Ohio State,1,ml_random_forest
+2012,R32,Syracuse,Kansas State,1,8,Syracuse,Region_1,0.761701626198035,Syracuse,1,ml_random_forest
+2012,R32,Vanderbilt,Wisconsin,5,4,Wisconsin,Region_1,0.4846487498964138,Wisconsin,1,ml_random_forest
+2012,R32,Cincinnati,Florida State,6,3,Cincinnati,Region_1,0.3718511569422398,Florida State,0,ml_random_forest
+2012,R32,Gonzaga,Ohio State,7,2,Ohio State,Region_1,0.22376683518154172,Ohio State,1,ml_random_forest
+2012,S16,Syracuse,Wisconsin,1,4,Syracuse,Region_1,0.6473511435730372,Syracuse,1,ml_random_forest
+2012,S16,Cincinnati,Ohio State,6,2,Ohio State,Region_1,0.2056125957855305,Ohio State,1,ml_random_forest
+2012,E8,Syracuse,Ohio State,1,2,Ohio State,Region_1,0.4820830416691953,Ohio State,1,ml_random_forest
+2012,R64,UNC,Vermont,1,16,UNC,Region_2,0.9853727265137917,UNC,1,ml_random_forest
+2012,R64,Creighton,Alabama,8,9,Creighton,Region_2,0.5781512464384737,Creighton,1,ml_random_forest
+2012,R64,Temple,South Florida,5,12,South Florida,Region_2,0.5587144537542609,Temple,0,ml_random_forest
+2012,R64,Michigan,Ohio,4,13,Ohio,Region_2,0.6240880632428274,Michigan,0,ml_random_forest
+2012,R64,San Diego State,NC State,6,11,NC State,Region_2,0.39247335977699654,NC State,1,ml_random_forest
+2012,R64,Georgetown,Belmont,3,14,Georgetown,Region_2,0.5817473911128981,Georgetown,1,ml_random_forest
+2012,R64,Kansas,Detroit Mercy,2,15,Kansas,Region_2,0.9766582129840337,Kansas,1,ml_random_forest
+2012,R32,UNC,Creighton,1,8,UNC,Region_2,0.7250213335943599,UNC,1,ml_random_forest
+2012,R32,South Florida,Ohio,12,13,Ohio,Region_2,0.5863320673827451,South Florida,0,ml_random_forest
+2012,R32,NC State,Georgetown,11,3,NC State,Region_2,0.47735351636820694,Georgetown,0,ml_random_forest
+2012,R32,Purdue,Kansas,10,2,Kansas,Region_2,0.13696825126155038,Kansas,1,ml_random_forest
+2012,S16,UNC,Ohio,1,13,UNC,Region_2,0.6961693423084172,UNC,1,ml_random_forest
+2012,S16,NC State,Kansas,11,2,Kansas,Region_2,0.1869247789993841,Kansas,1,ml_random_forest
+2012,E8,UNC,Kansas,1,2,Kansas,Region_2,0.344020047229854,Kansas,1,ml_random_forest
+2012,R64,Kentucky,Western Kentucky,1,16,Kentucky,Region_3,0.947740019339628,Kentucky,1,ml_random_forest
+2012,R64,Iowa State,UConn,8,9,Iowa State,Region_3,0.5129773035272868,Iowa State,1,ml_random_forest
+2012,R64,Wichita State,VCU,5,12,VCU,Region_3,0.6265290582123176,Wichita State,0,ml_random_forest
+2012,R64,Indiana,New Mexico State,4,13,Indiana,Region_3,0.7415134552053619,Indiana,1,ml_random_forest
+2012,R64,Baylor,South Dakota State,3,14,Baylor,Region_3,0.7052632216291997,Baylor,1,ml_random_forest
+2012,R64,Notre Dame,Xavier,7,10,Xavier,Region_3,0.5983028719303846,Notre Dame,0,ml_random_forest
+2012,R64,Duke,Lehigh,2,15,Lehigh,Region_3,0.8434117012388094,Duke,0,ml_random_forest
+2012,R32,Kentucky,Iowa State,1,8,Kentucky,Region_3,0.9213550633776525,Kentucky,1,ml_random_forest
+2012,R32,VCU,Indiana,12,4,Indiana,Region_3,0.1576795548891506,Indiana,1,ml_random_forest
+2012,R32,Colorado,Baylor,11,3,Baylor,Region_3,0.24705677146646907,Baylor,1,ml_random_forest
+2012,R32,Xavier,Lehigh,10,15,Xavier,Region_3,0.6354407278335161,Xavier,1,ml_random_forest
+2012,S16,Kentucky,Indiana,1,4,Kentucky,Region_3,0.8225042169372477,Kentucky,1,ml_random_forest
+2012,S16,Baylor,Xavier,3,10,Baylor,Region_3,0.7683071143165741,Baylor,1,ml_random_forest
+2012,E8,Kentucky,Baylor,1,3,Kentucky,Region_3,0.7143453427501378,Kentucky,1,ml_random_forest
+2012,R64,Memphis,Saint Louis,8,9,Saint Louis,Region_4,0.5837068365148292,Memphis,0,ml_random_forest
+2012,R64,New Mexico,Long Beach State,5,12,New Mexico,Region_4,0.7148592912723273,New Mexico,1,ml_random_forest
+2012,R64,Louisville,Davidson,4,13,Louisville,Region_4,0.6673136486416894,Louisville,1,ml_random_forest
+2012,R64,Murray State,Colorado State,6,11,Murray State,Region_4,0.6405848092284123,Murray State,1,ml_random_forest
+2012,R64,Florida,Virginia,7,10,Florida,Region_4,0.6098490119718839,Florida,1,ml_random_forest
+2012,R64,Missouri,Norfolk State,2,15,Norfolk State,Region_4,0.9849172679540027,Missouri,0,ml_random_forest
+2012,R32,Michigan State,Saint Louis,1,9,Michigan State,Region_4,0.6773313933768371,Michigan State,1,ml_random_forest
+2012,R32,New Mexico,Louisville,5,4,Louisville,Region_4,0.35073001811448884,Louisville,1,ml_random_forest
+2012,R32,Murray State,Marquette,6,3,Marquette,Region_4,0.2513598185693175,Marquette,1,ml_random_forest
+2012,R32,Florida,Norfolk State,7,15,Florida,Region_4,0.9248658051470127,Florida,1,ml_random_forest
+2012,S16,Michigan State,Louisville,1,4,Louisville,Region_4,0.6047160816245732,Michigan State,0,ml_random_forest
+2012,S16,Marquette,Florida,3,7,Florida,Region_4,0.4387691736883779,Florida,1,ml_random_forest
+2012,E8,Louisville,Florida,4,7,Louisville,Region_4,0.564904457686599,Louisville,1,ml_random_forest
+2012,F4,Ohio State,Kansas,2,2,Kansas,Final Four,0.4516872483504933,Kansas,1,ml_random_forest
+2012,F4,Kentucky,Louisville,1,4,Kentucky,Final Four,0.8151390366039957,Kentucky,1,ml_random_forest
+2012,Championship,Kansas,Kentucky,2,1,Kentucky,Final Four,0.4109315374439961,Kentucky,1,ml_random_forest
+2013,R64,Indiana,James Madison,1,16,Indiana,Region_1,0.9750662881737281,Indiana,1,ml_random_forest
+2013,R64,NC State,Temple,8,9,Temple,Region_1,0.7019547694584558,NC State,0,ml_random_forest
+2013,R64,Syracuse,Montana,4,13,Syracuse,Region_1,0.9561859800424947,Syracuse,1,ml_random_forest
+2013,R64,Butler,Bucknell,6,11,Butler,Region_1,0.5044060193047615,Butler,1,ml_random_forest
+2013,R64,Marquette,Davidson,3,14,Marquette,Region_1,0.7043487510567948,Marquette,1,ml_random_forest
+2013,R64,Illinois,Colorado,7,10,Illinois,Region_1,0.6477467549480178,Illinois,1,ml_random_forest
+2013,R64,Miami (FL),Pacific,2,15,Miami (FL),Region_1,0.8983251114655595,Miami (FL),1,ml_random_forest
+2013,R32,Indiana,Temple,1,9,Indiana,Region_1,0.824153387646961,Indiana,1,ml_random_forest
+2013,R32,California,Syracuse,12,4,Syracuse,Region_1,0.20685340083034984,Syracuse,1,ml_random_forest
+2013,R32,Butler,Marquette,6,3,Marquette,Region_1,0.3445418757305795,Marquette,1,ml_random_forest
+2013,R32,Illinois,Miami (FL),7,2,Miami (FL),Region_1,0.3933879912162113,Miami (FL),1,ml_random_forest
+2013,S16,Indiana,Syracuse,1,4,Syracuse,Region_1,0.46161018986188385,Syracuse,1,ml_random_forest
+2013,S16,Marquette,Miami (FL),3,2,Marquette,Region_1,0.4275054971379706,Miami (FL),0,ml_random_forest
+2013,E8,Syracuse,Marquette,4,3,Syracuse,Region_1,0.5214363649647931,Syracuse,1,ml_random_forest
+2013,R64,Louisville,North Carolina A&T,1,16,Louisville,Region_2,0.9722058519231996,Louisville,1,ml_random_forest
+2013,R64,Colorado State,Missouri,8,9,Colorado State,Region_2,0.4545012664379911,Missouri,0,ml_random_forest
+2013,R64,Oklahoma State,Oregon,5,12,Oregon,Region_2,0.582466864331763,Oklahoma State,0,ml_random_forest
+2013,R64,Saint Louis,New Mexico State,4,13,Saint Louis,Region_2,0.7828023509150208,Saint Louis,1,ml_random_forest
+2013,R64,Michigan State,Valparaiso,3,14,Michigan State,Region_2,0.8190571565967069,Michigan State,1,ml_random_forest
+2013,R64,Creighton,Cincinnati,7,10,Creighton,Region_2,0.5280889554783531,Creighton,1,ml_random_forest
+2013,R64,Duke,Albany (NY),2,15,Duke,Region_2,0.9646306394783596,Duke,1,ml_random_forest
+2013,R32,Louisville,Colorado State,1,8,Louisville,Region_2,0.8866987951978945,Louisville,1,ml_random_forest
+2013,R32,Oregon,Saint Louis,12,4,Oregon,Region_2,0.5268495173069785,Oregon,1,ml_random_forest
+2013,R32,Memphis,Michigan State,6,3,Michigan State,Region_2,0.40487360921840093,Michigan State,1,ml_random_forest
+2013,R32,Creighton,Duke,7,2,Duke,Region_2,0.3289114510695121,Duke,1,ml_random_forest
+2013,S16,Louisville,Oregon,1,12,Louisville,Region_2,0.8404294307456333,Louisville,1,ml_random_forest
+2013,S16,Michigan State,Duke,3,2,Duke,Region_2,0.43938743609036524,Duke,1,ml_random_forest
+2013,E8,Louisville,Duke,1,2,Louisville,Region_2,0.4857442450400261,Duke,0,ml_random_forest
+2013,R64,Kansas,Western Kentucky,1,16,Kansas,Region_3,0.9757487475449473,Kansas,1,ml_random_forest
+2013,R64,UNC,Villanova,8,9,UNC,Region_3,0.5604503634421762,UNC,1,ml_random_forest
+2013,R64,VCU,Akron,5,12,VCU,Region_3,0.7002657492155289,VCU,1,ml_random_forest
+2013,R64,Michigan,South Dakota State,4,13,Michigan,Region_3,0.949123377713042,Michigan,1,ml_random_forest
+2013,R64,UCLA,Minnesota,6,11,Minnesota,Region_3,0.4034270064161048,Minnesota,1,ml_random_forest
+2013,R64,Florida,Northwestern State,3,14,Florida,Region_3,0.9092311817001085,Florida,1,ml_random_forest
+2013,R64,San Diego State,Oklahoma,7,10,San Diego State,Region_3,0.46254931058464166,Oklahoma,0,ml_random_forest
+2013,R64,Georgetown,Florida Gulf Coast,2,15,Florida Gulf Coast,Region_3,0.7970843151290286,Georgetown,0,ml_random_forest
+2013,R32,Kansas,UNC,1,8,Kansas,Region_3,0.6786885332801365,Kansas,1,ml_random_forest
+2013,R32,VCU,Michigan,5,4,Michigan,Region_3,0.24989391756960644,Michigan,1,ml_random_forest
+2013,R32,Minnesota,Florida,11,3,Florida,Region_3,0.34115409088716186,Florida,1,ml_random_forest
+2013,R32,San Diego State,Florida Gulf Coast,7,15,Florida Gulf Coast,Region_3,0.8288698592362187,San Diego State,0,ml_random_forest
+2013,S16,Kansas,Michigan,1,4,Michigan,Region_3,0.32735865509227285,Michigan,1,ml_random_forest
+2013,S16,Florida,Florida Gulf Coast,3,15,Florida,Region_3,0.8438249801835755,Florida,1,ml_random_forest
+2013,E8,Michigan,Florida,4,3,Michigan,Region_3,0.5262904351840153,Michigan,1,ml_random_forest
+2013,R64,Gonzaga,Southern,1,16,Gonzaga,Region_4,0.9855072648214531,Gonzaga,1,ml_random_forest
+2013,R64,Pitt,Wichita State,8,9,Wichita State,Region_4,0.5248706852074666,Pitt,0,ml_random_forest
+2013,R64,Wisconsin,Ole Miss,5,12,Ole Miss,Region_4,0.6445561318969433,Wisconsin,0,ml_random_forest
+2013,R64,Kansas State,La Salle,4,13,La Salle,Region_4,0.7137062626714623,Kansas State,0,ml_random_forest
+2013,R64,Arizona,Belmont,6,11,Arizona,Region_4,0.662218545538565,Arizona,1,ml_random_forest
+2013,R64,New Mexico,Harvard,3,14,Harvard,Region_4,0.8393154594216442,New Mexico,0,ml_random_forest
+2013,R64,Notre Dame,Iowa State,7,10,Iowa State,Region_4,0.49582273659842274,Iowa State,1,ml_random_forest
+2013,R64,Ohio State,Iona,2,15,Ohio State,Region_4,0.9054309214775814,Ohio State,1,ml_random_forest
+2013,R32,Gonzaga,Wichita State,1,9,Wichita State,Region_4,0.7173518945503893,Gonzaga,0,ml_random_forest
+2013,R32,Ole Miss,La Salle,12,13,La Salle,Region_4,0.4667998541630103,La Salle,1,ml_random_forest
+2013,R32,Arizona,Harvard,6,14,Arizona,Region_4,0.8591830839951007,Arizona,1,ml_random_forest
+2013,R32,Iowa State,Ohio State,10,2,Ohio State,Region_4,0.2997140429060647,Ohio State,1,ml_random_forest
+2013,S16,Wichita State,La Salle,9,13,Wichita State,Region_4,0.73053716365792,Wichita State,1,ml_random_forest
+2013,S16,Arizona,Ohio State,6,2,Ohio State,Region_4,0.4017675924440973,Ohio State,1,ml_random_forest
+2013,E8,Wichita State,Ohio State,9,2,Wichita State,Region_4,0.35879005400103714,Ohio State,0,ml_random_forest
+2013,F4,Syracuse,Michigan,4,4,Michigan,Final Four,0.37530533697659246,Michigan,1,ml_random_forest
+2013,F4,Louisville,Wichita State,1,9,Louisville,Final Four,0.8231165276644713,Louisville,1,ml_random_forest
+2013,Championship,Michigan,Louisville,4,1,Louisville,Final Four,0.3977310449252066,Louisville,1,ml_random_forest
+2014,R64,Virginia,Coastal Carolina,1,16,Virginia,Region_1,0.9297765022300724,Virginia,1,ml_random_forest
+2014,R64,Memphis,George Washington,8,9,Memphis,Region_1,0.6466476065818295,Memphis,1,ml_random_forest
+2014,R64,Cincinnati,Harvard,5,12,Harvard,Region_1,0.6434607760241912,Cincinnati,0,ml_random_forest
+2014,R64,Michigan State,Delaware,4,13,Michigan State,Region_1,0.9029646617195666,Michigan State,1,ml_random_forest
+2014,R64,UNC,Providence,6,11,UNC,Region_1,0.5608192396615042,UNC,1,ml_random_forest
+2014,R64,Iowa State,North Carolina Central,3,14,Iowa State,Region_1,0.8319292966665244,Iowa State,1,ml_random_forest
+2014,R64,Villanova,Milwaukee,2,15,Villanova,Region_1,0.9585064866752477,Villanova,1,ml_random_forest
+2014,R32,Virginia,Memphis,1,8,Virginia,Region_1,0.6694158295370769,Virginia,1,ml_random_forest
+2014,R32,Harvard,Michigan State,12,4,Michigan State,Region_1,0.14286938001441474,Michigan State,1,ml_random_forest
+2014,R32,UNC,Iowa State,6,3,Iowa State,Region_1,0.3750928790016358,Iowa State,1,ml_random_forest
+2014,R32,UConn,Villanova,7,2,UConn,Region_1,0.5728177572311408,UConn,1,ml_random_forest
+2014,S16,Virginia,Michigan State,1,4,Michigan State,Region_1,0.3652376698433015,Michigan State,1,ml_random_forest
+2014,S16,Iowa State,UConn,3,7,UConn,Region_1,0.5502126014761395,Iowa State,0,ml_random_forest
+2014,E8,Michigan State,UConn,4,7,UConn,Region_1,0.5084782503396829,Michigan State,0,ml_random_forest
+2014,R64,Wichita State,Cal Poly,1,16,Wichita State,Region_2,0.9412412312280685,Wichita State,1,ml_random_forest
+2014,R64,Kentucky,Kansas State,8,9,Kentucky,Region_2,0.7121667733194683,Kentucky,1,ml_random_forest
+2014,R64,Saint Louis,NC State,5,12,Saint Louis,Region_2,0.6211750150259233,Saint Louis,1,ml_random_forest
+2014,R64,Louisville,Manhattan,4,13,Louisville,Region_2,0.7673814168212851,Louisville,1,ml_random_forest
+2014,R64,Duke,Mercer,3,14,Mercer,Region_2,0.8909676270782699,Duke,0,ml_random_forest
+2014,R64,Texas,Arizona State,7,10,Texas,Region_2,0.46215013546839906,Arizona State,0,ml_random_forest
+2014,R64,Michigan,Wofford,2,15,Michigan,Region_2,0.969949408252518,Michigan,1,ml_random_forest
+2014,R32,Wichita State,Kentucky,1,8,Kentucky,Region_2,0.5376309475994345,Wichita State,0,ml_random_forest
+2014,R32,Saint Louis,Louisville,5,4,Louisville,Region_2,0.17921185150546196,Louisville,1,ml_random_forest
+2014,R32,Tennessee,Mercer,11,14,Tennessee,Region_2,0.8140088375771309,Tennessee,1,ml_random_forest
+2014,R32,Texas,Michigan,7,2,Michigan,Region_2,0.35111334662236654,Michigan,1,ml_random_forest
+2014,S16,Kentucky,Louisville,8,4,Kentucky,Region_2,0.2319272197014621,Louisville,0,ml_random_forest
+2014,S16,Tennessee,Michigan,11,2,Michigan,Region_2,0.38325090904012865,Michigan,1,ml_random_forest
+2014,E8,Kentucky,Michigan,8,2,Kentucky,Region_2,0.43806494450943473,Michigan,0,ml_random_forest
+2014,R64,Florida,Albany (NY),1,16,Florida,Region_3,0.9893193705870021,Florida,1,ml_random_forest
+2014,R64,Colorado,Pitt,8,9,Pitt,Region_3,0.24298676244150377,Pitt,1,ml_random_forest
+2014,R64,VCU,Stephen F. Austin,5,12,Stephen F. Austin,Region_3,0.7005896310014506,VCU,0,ml_random_forest
+2014,R64,UCLA,Tulsa,4,13,UCLA,Region_3,0.7953651027384128,UCLA,1,ml_random_forest
+2014,R64,Ohio State,Dayton,6,11,Dayton,Region_3,0.7594276872682785,Ohio State,0,ml_random_forest
+2014,R64,Syracuse,Western Michigan,3,14,Syracuse,Region_3,0.8394510411396774,Syracuse,1,ml_random_forest
+2014,R64,New Mexico,Stanford,7,10,Stanford,Region_3,0.49081326590886554,Stanford,1,ml_random_forest
+2014,R64,Kansas,Eastern Kentucky,2,15,Kansas,Region_3,0.961536268827158,Kansas,1,ml_random_forest
+2014,R32,Florida,Pitt,1,9,Florida,Region_3,0.7023196361254447,Florida,1,ml_random_forest
+2014,R32,Stephen F. Austin,UCLA,12,4,UCLA,Region_3,0.19060222014725614,UCLA,1,ml_random_forest
+2014,R32,Dayton,Syracuse,11,3,Dayton,Region_3,0.4129169535440865,Syracuse,0,ml_random_forest
+2014,R32,Stanford,Kansas,10,2,Stanford,Region_3,0.29263252709976545,Kansas,0,ml_random_forest
+2014,S16,Florida,UCLA,1,4,Florida,Region_3,0.6804818166549563,Florida,1,ml_random_forest
+2014,S16,Dayton,Stanford,11,10,Dayton,Region_3,0.3347448708848532,Stanford,0,ml_random_forest
+2014,E8,Florida,Dayton,1,11,Florida,Region_3,0.8910515618083472,Florida,1,ml_random_forest
+2014,R64,Arizona,Weber State,1,16,Arizona,Region_4,0.9849658019882812,Arizona,1,ml_random_forest
+2014,R64,Gonzaga,Oklahoma State,8,9,Gonzaga,Region_4,0.5758523349144798,Gonzaga,1,ml_random_forest
+2014,R64,Oklahoma,North Dakota State,5,12,North Dakota State,Region_4,0.5682604037609732,Oklahoma,0,ml_random_forest
+2014,R64,San Diego State,New Mexico State,4,13,San Diego State,Region_4,0.7749709069129449,San Diego State,1,ml_random_forest
+2014,R64,Baylor,Nebraska,6,11,Baylor,Region_4,0.6062925352757456,Baylor,1,ml_random_forest
+2014,R64,Creighton,Louisiana,3,14,Creighton,Region_4,0.800896538405279,Creighton,1,ml_random_forest
+2014,R64,Wisconsin,American,2,15,Wisconsin,Region_4,0.9778059188815924,Wisconsin,1,ml_random_forest
+2014,R32,Arizona,Gonzaga,1,8,Arizona,Region_4,0.7425125088262292,Arizona,1,ml_random_forest
+2014,R32,North Dakota State,San Diego State,12,4,San Diego State,Region_4,0.3080897911571067,San Diego State,1,ml_random_forest
+2014,R32,Baylor,Creighton,6,3,Baylor,Region_4,0.40794562526771383,Creighton,0,ml_random_forest
+2014,R32,Oregon,Wisconsin,7,2,Wisconsin,Region_4,0.3459613651065201,Wisconsin,1,ml_random_forest
+2014,S16,Arizona,San Diego State,1,4,Arizona,Region_4,0.7738906974697003,Arizona,1,ml_random_forest
+2014,S16,Baylor,Wisconsin,6,2,Wisconsin,Region_4,0.36286408593153024,Wisconsin,1,ml_random_forest
+2014,E8,Arizona,Wisconsin,1,2,Wisconsin,Region_4,0.5923128874920781,Arizona,0,ml_random_forest
+2014,F4,UConn,Florida,7,1,UConn,Final Four,0.36724317738439327,Florida,0,ml_random_forest
+2014,F4,Kentucky,Wisconsin,8,2,Kentucky,Final Four,0.38564273395097326,Wisconsin,0,ml_random_forest
+2014,Championship,UConn,Kentucky,7,8,UConn,Final Four,0.39575425571630196,Kentucky,0,ml_random_forest
+2015,R64,Villanova,Lafayette,1,16,Villanova,Region_1,0.9763142092750883,Villanova,1,ml_random_forest
+2015,R64,NC State,LSU,8,9,NC State,Region_1,0.6496604941294735,NC State,1,ml_random_forest
+2015,R64,Northern Iowa,Wyoming,5,12,Northern Iowa,Region_1,0.8087073721204461,Northern Iowa,1,ml_random_forest
+2015,R64,Louisville,UC-Irvine,4,13,Louisville,Region_1,0.8753988222682182,Louisville,1,ml_random_forest
+2015,R64,Providence,Dayton,6,11,Dayton,Region_1,0.48418888726083686,Dayton,1,ml_random_forest
+2015,R64,Oklahoma,Albany (NY),3,14,Oklahoma,Region_1,0.9626838583614087,Oklahoma,1,ml_random_forest
+2015,R64,Michigan State,Georgia,7,10,Michigan State,Region_1,0.6516346110464445,Michigan State,1,ml_random_forest
+2015,R64,Virginia,Belmont,2,15,Virginia,Region_1,0.9464530725318308,Virginia,1,ml_random_forest
+2015,R32,Villanova,NC State,1,8,NC State,Region_1,0.919586167524954,Villanova,0,ml_random_forest
+2015,R32,Northern Iowa,Louisville,5,4,Louisville,Region_1,0.26986805926688684,Louisville,1,ml_random_forest
+2015,R32,Dayton,Oklahoma,11,3,Oklahoma,Region_1,0.2757875810849087,Oklahoma,1,ml_random_forest
+2015,R32,Michigan State,Virginia,7,2,Michigan State,Region_1,0.37634568762437065,Virginia,0,ml_random_forest
+2015,S16,NC State,Louisville,8,4,Louisville,Region_1,0.4179504795844542,Louisville,1,ml_random_forest
+2015,S16,Oklahoma,Michigan State,3,7,Michigan State,Region_1,0.5249522688772091,Oklahoma,0,ml_random_forest
+2015,E8,Louisville,Michigan State,4,7,Michigan State,Region_1,0.5528840232798092,Louisville,0,ml_random_forest
+2015,R64,Kentucky,Hampton,1,16,Kentucky,Region_2,0.9610480771383796,Kentucky,1,ml_random_forest
+2015,R64,Cincinnati,Purdue,8,9,Cincinnati,Region_2,0.3482732902228963,Purdue,0,ml_random_forest
+2015,R64,West Virginia,Buffalo,5,12,West Virginia,Region_2,0.7246132268867599,West Virginia,1,ml_random_forest
+2015,R64,Maryland,Valparaiso,4,13,Maryland,Region_2,0.595130760757586,Maryland,1,ml_random_forest
+2015,R64,Butler,Texas,6,11,Butler,Region_2,0.4511204686738358,Texas,0,ml_random_forest
+2015,R64,Notre Dame,Northeastern,3,14,Notre Dame,Region_2,0.9506563713632841,Notre Dame,1,ml_random_forest
+2015,R64,Wichita State,Indiana,7,10,Wichita State,Region_2,0.7478250280203274,Wichita State,1,ml_random_forest
+2015,R64,Kansas,New Mexico State,2,15,Kansas,Region_2,0.806849036100578,Kansas,1,ml_random_forest
+2015,R32,Kentucky,Cincinnati,1,8,Kentucky,Region_2,0.9158563215281443,Kentucky,1,ml_random_forest
+2015,R32,West Virginia,Maryland,5,4,West Virginia,Region_2,0.5160140955230702,West Virginia,1,ml_random_forest
+2015,R32,Butler,Notre Dame,6,3,Notre Dame,Region_2,0.39497814074275267,Notre Dame,1,ml_random_forest
+2015,R32,Wichita State,Kansas,7,2,Wichita State,Region_2,0.27203764988965207,Kansas,0,ml_random_forest
+2015,S16,Kentucky,West Virginia,1,5,Kentucky,Region_2,0.9124438583302495,Kentucky,1,ml_random_forest
+2015,S16,Notre Dame,Wichita State,3,7,Notre Dame,Region_2,0.5267656523176854,Notre Dame,1,ml_random_forest
+2015,E8,Kentucky,Notre Dame,1,3,Kentucky,Region_2,0.8385601970822835,Kentucky,1,ml_random_forest
+2015,R64,Duke,Robert Morris,1,16,Duke,Region_3,0.9957287579752481,Duke,1,ml_random_forest
+2015,R64,San Diego State,St. John's (NY),8,9,San Diego State,Region_3,0.32735946659134235,St. John's (NY),0,ml_random_forest
+2015,R64,Utah,Stephen F. Austin,5,12,Utah,Region_3,0.8249945764037395,Utah,1,ml_random_forest
+2015,R64,Georgetown,Eastern Washington,4,13,Georgetown,Region_3,0.890586735443077,Georgetown,1,ml_random_forest
+2015,R64,SMU,UCLA,6,11,UCLA,Region_3,0.6461449413062307,SMU,0,ml_random_forest
+2015,R64,Iowa State,UAB,3,14,UAB,Region_3,0.9307441380871208,Iowa State,0,ml_random_forest
+2015,R64,Iowa,Davidson,7,10,Iowa,Region_3,0.5302843009076426,Iowa,1,ml_random_forest
+2015,R64,Gonzaga,North Dakota State,2,15,Gonzaga,Region_3,0.9444555833119055,Gonzaga,1,ml_random_forest
+2015,R32,Duke,San Diego State,1,8,Duke,Region_3,0.8279522406522261,Duke,1,ml_random_forest
+2015,R32,Utah,Georgetown,5,4,Utah,Region_3,0.5364354438710203,Utah,1,ml_random_forest
+2015,R32,UCLA,UAB,11,14,UCLA,Region_3,0.8139596646706334,UCLA,1,ml_random_forest
+2015,R32,Iowa,Gonzaga,7,2,Gonzaga,Region_3,0.350477948065786,Gonzaga,1,ml_random_forest
+2015,S16,Duke,Utah,1,5,Duke,Region_3,0.6320138229168917,Duke,1,ml_random_forest
+2015,S16,UCLA,Gonzaga,11,2,Gonzaga,Region_3,0.1800204529642233,Gonzaga,1,ml_random_forest
+2015,E8,Duke,Gonzaga,1,2,Duke,Region_3,0.565076088387784,Duke,1,ml_random_forest
+2015,R64,Wisconsin,Coastal Carolina,1,16,Wisconsin,Region_4,0.9849510160522402,Wisconsin,1,ml_random_forest
+2015,R64,Oregon,Oklahoma State,8,9,Oregon,Region_4,0.5646088948337491,Oregon,1,ml_random_forest
+2015,R64,Arkansas,Wofford,5,12,Arkansas,Region_4,0.6888349983932628,Arkansas,1,ml_random_forest
+2015,R64,UNC,Harvard,4,13,UNC,Region_4,0.803894041697723,UNC,1,ml_random_forest
+2015,R64,Xavier,Ole Miss,6,11,Xavier,Region_4,0.6482805271009704,Xavier,1,ml_random_forest
+2015,R64,Baylor,Georgia State,3,14,Georgia State,Region_4,0.8444068376275679,Baylor,0,ml_random_forest
+2015,R64,VCU,Ohio State,7,10,Ohio State,Region_4,0.29660043694195826,Ohio State,1,ml_random_forest
+2015,R64,Arizona,Texas Southern,2,15,Arizona,Region_4,0.9649189288546411,Arizona,1,ml_random_forest
+2015,R32,Wisconsin,Oregon,1,8,Wisconsin,Region_4,0.9204898023047243,Wisconsin,1,ml_random_forest
+2015,R32,Arkansas,UNC,5,4,UNC,Region_4,0.2162362942723231,UNC,1,ml_random_forest
+2015,R32,Xavier,Georgia State,6,14,Xavier,Region_4,0.6740082850818551,Xavier,1,ml_random_forest
+2015,R32,Ohio State,Arizona,10,2,Arizona,Region_4,0.37416228766842957,Arizona,1,ml_random_forest
+2015,S16,Wisconsin,UNC,1,4,Wisconsin,Region_4,0.7894857121104176,Wisconsin,1,ml_random_forest
+2015,S16,Xavier,Arizona,6,2,Arizona,Region_4,0.18610172653581414,Arizona,1,ml_random_forest
+2015,E8,Wisconsin,Arizona,1,2,Wisconsin,Region_4,0.505516530512728,Wisconsin,1,ml_random_forest
+2015,F4,Michigan State,Duke,7,1,Duke,Final Four,0.23763374186158703,Duke,1,ml_random_forest
+2015,F4,Kentucky,Wisconsin,1,1,Wisconsin,Final Four,0.49015340432254056,Wisconsin,1,ml_random_forest
+2015,Championship,Duke,Wisconsin,1,1,Duke,Final Four,0.3245924686890342,Wisconsin,0,ml_random_forest
+2016,R64,UNC,Florida Gulf Coast,1,16,UNC,Region_1,0.985043906431608,UNC,1,ml_random_forest
+2016,R64,Indiana,Chattanooga,5,12,Indiana,Region_1,0.8394781381268903,Indiana,1,ml_random_forest
+2016,R64,Kentucky,Stony Brook,4,13,Kentucky,Region_1,0.914804547843958,Kentucky,1,ml_random_forest
+2016,R64,Notre Dame,Michigan,6,11,Notre Dame,Region_1,0.5376397627215013,Notre Dame,1,ml_random_forest
+2016,R64,West Virginia,Stephen F. Austin,3,14,Stephen F. Austin,Region_1,0.8173862034447843,West Virginia,0,ml_random_forest
+2016,R64,Wisconsin,Pitt,7,10,Wisconsin,Region_1,0.473874232636697,Pitt,0,ml_random_forest
+2016,R64,Xavier,Weber State,2,15,Xavier,Region_1,0.93136935621626,Xavier,1,ml_random_forest
+2016,R32,UNC,Providence,1,9,UNC,Region_1,0.8826039570624289,UNC,1,ml_random_forest
+2016,R32,Indiana,Kentucky,5,4,Indiana,Region_1,0.33167149764793197,Kentucky,0,ml_random_forest
+2016,R32,Notre Dame,Stephen F. Austin,6,14,Notre Dame,Region_1,0.5428300561663247,Notre Dame,1,ml_random_forest
+2016,R32,Wisconsin,Xavier,7,2,Wisconsin,Region_1,0.22978115339055208,Xavier,0,ml_random_forest
+2016,S16,UNC,Indiana,1,5,UNC,Region_1,0.6925502381635414,UNC,1,ml_random_forest
+2016,S16,Notre Dame,Wisconsin,6,7,Notre Dame,Region_1,0.45233587727929614,Wisconsin,0,ml_random_forest
+2016,E8,UNC,Notre Dame,1,6,UNC,Region_1,0.8398574264405597,UNC,1,ml_random_forest
+2016,R64,Virginia,Hampton,1,16,Virginia,Region_2,0.8946804529867209,Virginia,1,ml_random_forest
+2016,R64,Texas Tech,Butler,8,9,Butler,Region_2,0.5125333418656807,Texas Tech,0,ml_random_forest
+2016,R64,Purdue,Little Rock,5,12,Little Rock,Region_2,0.758414096504957,Purdue,0,ml_random_forest
+2016,R64,Iowa State,Iona,4,13,Iowa State,Region_2,0.8475212443494736,Iowa State,1,ml_random_forest
+2016,R64,Seton Hall,Gonzaga,6,11,Gonzaga,Region_2,0.48164126581274946,Gonzaga,1,ml_random_forest
+2016,R64,Utah,Fresno State,3,14,Utah,Region_2,0.7962026779094059,Utah,1,ml_random_forest
+2016,R64,Dayton,Syracuse,7,10,Syracuse,Region_2,0.4388078294221024,Syracuse,1,ml_random_forest
+2016,R64,Michigan State,Middle Tennessee,2,15,Middle Tennessee,Region_2,0.9230294638044404,Michigan State,0,ml_random_forest
+2016,R32,Virginia,Butler,1,9,Virginia,Region_2,0.7534972188225351,Virginia,1,ml_random_forest
+2016,R32,Little Rock,Iowa State,12,4,Iowa State,Region_2,0.28879700103895173,Iowa State,1,ml_random_forest
+2016,R32,Gonzaga,Utah,11,3,Gonzaga,Region_2,0.42619960746522256,Utah,0,ml_random_forest
+2016,R32,Syracuse,Middle Tennessee,10,15,Syracuse,Region_2,0.8043328237208743,Syracuse,1,ml_random_forest
+2016,S16,Virginia,Iowa State,1,4,Virginia,Region_2,0.6967815809443684,Virginia,1,ml_random_forest
+2016,S16,Gonzaga,Syracuse,11,10,Syracuse,Region_2,0.6177569124860134,Gonzaga,0,ml_random_forest
+2016,E8,Virginia,Syracuse,1,10,Syracuse,Region_2,0.8628450585237806,Virginia,0,ml_random_forest
+2016,R64,Kansas,Austin Peay,1,16,Kansas,Region_3,0.9835707659072621,Kansas,1,ml_random_forest
+2016,R64,Colorado,UConn,8,9,UConn,Region_3,0.47067764639629883,UConn,1,ml_random_forest
+2016,R64,Maryland,South Dakota State,5,12,Maryland,Region_3,0.820454701815204,Maryland,1,ml_random_forest
+2016,R64,California,Hawaii,4,13,Hawaii,Region_3,0.6151418896452433,California,0,ml_random_forest
+2016,R64,Arizona,Wichita State,6,11,Wichita State,Region_3,0.5496969068975455,Arizona,0,ml_random_forest
+2016,R64,Miami (FL),Buffalo,3,14,Miami (FL),Region_3,0.9602936472594122,Miami (FL),1,ml_random_forest
+2016,R64,Iowa,Temple,7,10,Iowa,Region_3,0.6740100265343602,Iowa,1,ml_random_forest
+2016,R64,Villanova,UNC Asheville,2,15,Villanova,Region_3,0.9909655219451624,Villanova,1,ml_random_forest
+2016,R32,Kansas,UConn,1,9,Kansas,Region_3,0.8685276850640569,Kansas,1,ml_random_forest
+2016,R32,Maryland,Hawaii,5,13,Maryland,Region_3,0.7370125014332886,Maryland,1,ml_random_forest
+2016,R32,Wichita State,Miami (FL),11,3,Miami (FL),Region_3,0.3062359792821304,Miami (FL),1,ml_random_forest
+2016,R32,Iowa,Villanova,7,2,Villanova,Region_3,0.12932557382074436,Villanova,1,ml_random_forest
+2016,S16,Kansas,Maryland,1,5,Kansas,Region_3,0.8146300673382181,Kansas,1,ml_random_forest
+2016,S16,Miami (FL),Villanova,3,2,Villanova,Region_3,0.32437338316204006,Villanova,1,ml_random_forest
+2016,E8,Kansas,Villanova,1,2,Villanova,Region_3,0.496114249654082,Villanova,1,ml_random_forest
+2016,R64,Oregon,Holy Cross,1,16,Oregon,Region_4,0.9618956026342463,Oregon,1,ml_random_forest
+2016,R64,Baylor,Yale,5,12,Yale,Region_4,0.6146002139157009,Baylor,0,ml_random_forest
+2016,R64,Duke,UNC Wilmington,4,13,Duke,Region_4,0.8641334765636797,Duke,1,ml_random_forest
+2016,R64,Texas,Northern Iowa,6,11,Northern Iowa,Region_4,0.6865502254545593,Texas,0,ml_random_forest
+2016,R64,Texas A&M,Green Bay,3,14,Texas A&M,Region_4,0.9069899751481203,Texas A&M,1,ml_random_forest
+2016,R64,Oregon State,VCU,7,10,VCU,Region_4,0.44630398114018693,VCU,1,ml_random_forest
+2016,R64,Oklahoma,Cal State Bakersfield,2,15,Oklahoma,Region_4,0.8923020302129534,Oklahoma,1,ml_random_forest
+2016,R32,Yale,Duke,12,4,Duke,Region_4,0.1311232750119043,Duke,1,ml_random_forest
+2016,R32,Northern Iowa,Texas A&M,11,3,Texas A&M,Region_4,0.20392189276700484,Texas A&M,1,ml_random_forest
+2016,R32,VCU,Oklahoma,10,2,Oklahoma,Region_4,0.2934857554154018,Oklahoma,1,ml_random_forest
+2016,S16,Oregon,Duke,1,4,Oregon,Region_4,0.3808092574913294,Duke,0,ml_random_forest
+2016,S16,Texas A&M,Oklahoma,3,2,Oklahoma,Region_4,0.281628446735463,Oklahoma,1,ml_random_forest
+2016,E8,Oregon,Oklahoma,1,2,Oklahoma,Region_4,0.28677482457529424,Oklahoma,1,ml_random_forest
+2016,F4,UNC,Syracuse,1,10,UNC,Final Four,0.8794184583004993,UNC,1,ml_random_forest
+2016,F4,Villanova,Oklahoma,2,2,Villanova,Final Four,0.5558316229492104,Villanova,1,ml_random_forest
+2016,Championship,UNC,Villanova,1,2,Villanova,Final Four,0.3689383591751053,Villanova,1,ml_random_forest
+2017,R64,Villanova,Mount St. Mary's,1,16,Villanova,Region_1,0.9817906286495017,Villanova,1,ml_random_forest
+2017,R64,Wisconsin,Virginia Tech,8,9,Wisconsin,Region_1,0.6655377568030533,Wisconsin,1,ml_random_forest
+2017,R64,Virginia,UNC Wilmington,5,12,Virginia,Region_1,0.7385997921902132,Virginia,1,ml_random_forest
+2017,R64,Florida,ETSU,4,13,Florida,Region_1,0.8608788426968906,Florida,1,ml_random_forest
+2017,R64,Baylor,New Mexico State,3,14,Baylor,Region_1,0.8404161148937752,Baylor,1,ml_random_forest
+2017,R64,South Carolina,Marquette,7,10,South Carolina,Region_1,0.6215931176358899,South Carolina,1,ml_random_forest
+2017,R64,Duke,Troy,2,15,Duke,Region_1,0.9820078758557703,Duke,1,ml_random_forest
+2017,R32,Villanova,Wisconsin,1,8,Wisconsin,Region_1,0.6684553501493677,Villanova,0,ml_random_forest
+2017,R32,Virginia,Florida,5,4,Florida,Region_1,0.3502504459547476,Florida,1,ml_random_forest
+2017,R32,South Carolina,Duke,7,2,South Carolina,Region_1,0.479625817460271,Duke,0,ml_random_forest
+2017,S16,Wisconsin,Florida,8,4,Florida,Region_1,0.49059910959237063,Florida,1,ml_random_forest
+2017,S16,Baylor,South Carolina,3,7,South Carolina,Region_1,0.6678245458054302,Baylor,0,ml_random_forest
+2017,E8,Florida,South Carolina,4,7,South Carolina,Region_1,0.640745298764297,Florida,0,ml_random_forest
+2017,R64,Kansas,UC-Davis,1,16,Kansas,Region_2,0.9618796471952968,Kansas,1,ml_random_forest
+2017,R64,Miami (FL),Michigan State,8,9,Michigan State,Region_2,0.5591069942666587,Miami (FL),0,ml_random_forest
+2017,R64,Iowa State,Nevada,5,12,Iowa State,Region_2,0.7094951284903451,Iowa State,1,ml_random_forest
+2017,R64,Purdue,Vermont,4,13,Purdue,Region_2,0.8160161849435227,Purdue,1,ml_random_forest
+2017,R64,Creighton,Rhode Island,6,11,Rhode Island,Region_2,0.5859411988537874,Creighton,0,ml_random_forest
+2017,R64,Oregon,Iona,3,14,Oregon,Region_2,0.9675872417879969,Oregon,1,ml_random_forest
+2017,R64,Michigan,Oklahoma State,7,10,Michigan,Region_2,0.4125895353728939,Oklahoma State,0,ml_random_forest
+2017,R64,Louisville,Jacksonville State,2,15,Louisville,Region_2,0.9747521144734335,Louisville,1,ml_random_forest
+2017,R32,Kansas,Michigan State,1,9,Kansas,Region_2,0.9177653734982304,Kansas,1,ml_random_forest
+2017,R32,Iowa State,Purdue,5,4,Purdue,Region_2,0.5596863359422135,Iowa State,0,ml_random_forest
+2017,R32,Rhode Island,Oregon,11,3,Oregon,Region_2,0.23192740979273144,Oregon,1,ml_random_forest
+2017,R32,Michigan,Louisville,7,2,Michigan,Region_2,0.4323877669173821,Louisville,0,ml_random_forest
+2017,S16,Kansas,Purdue,1,4,Kansas,Region_2,0.7519441645511268,Kansas,1,ml_random_forest
+2017,S16,Oregon,Michigan,3,7,Oregon,Region_2,0.5935437214243048,Oregon,1,ml_random_forest
+2017,E8,Kansas,Oregon,1,3,Oregon,Region_2,0.663551938271756,Kansas,0,ml_random_forest
+2017,R64,UNC,Texas Southern,1,16,UNC,Region_3,0.934063259575074,UNC,1,ml_random_forest
+2017,R64,Arkansas,Seton Hall,8,9,Arkansas,Region_3,0.5060934221876889,Arkansas,1,ml_random_forest
+2017,R64,Minnesota,Middle Tennessee,5,12,Middle Tennessee,Region_3,0.532008981122702,Minnesota,0,ml_random_forest
+2017,R64,Butler,Winthrop,4,13,Butler,Region_3,0.9051642530952702,Butler,1,ml_random_forest
+2017,R64,Cincinnati,Kansas State,6,11,Cincinnati,Region_3,0.6657397486223412,Cincinnati,1,ml_random_forest
+2017,R64,UCLA,Kent State,3,14,UCLA,Region_3,0.9147099747645882,UCLA,1,ml_random_forest
+2017,R64,Dayton,Wichita State,7,10,Wichita State,Region_3,0.23263305111798355,Wichita State,1,ml_random_forest
+2017,R64,Kentucky,Northern Kentucky,2,15,Kentucky,Region_3,0.9677439515580727,Kentucky,1,ml_random_forest
+2017,R32,UNC,Arkansas,1,8,UNC,Region_3,0.8751516640361584,UNC,1,ml_random_forest
+2017,R32,Middle Tennessee,Butler,12,4,Butler,Region_3,0.25890157528211316,Butler,1,ml_random_forest
+2017,R32,Cincinnati,UCLA,6,3,UCLA,Region_3,0.41211579493650713,UCLA,1,ml_random_forest
+2017,R32,Wichita State,Kentucky,10,2,Kentucky,Region_3,0.33285487761891003,Kentucky,1,ml_random_forest
+2017,S16,UNC,Butler,1,4,UNC,Region_3,0.7406913291852265,UNC,1,ml_random_forest
+2017,S16,UCLA,Kentucky,3,2,Kentucky,Region_3,0.2375668018739862,Kentucky,1,ml_random_forest
+2017,E8,UNC,Kentucky,1,2,UNC,Region_3,0.5171243127526508,UNC,1,ml_random_forest
+2017,R64,Gonzaga,South Dakota State,1,16,Gonzaga,Region_4,0.948512919012851,Gonzaga,1,ml_random_forest
+2017,R64,Northwestern,Vanderbilt,8,9,Northwestern,Region_4,0.506555070129422,Northwestern,1,ml_random_forest
+2017,R64,Notre Dame,Princeton,5,12,Notre Dame,Region_4,0.7510095509347888,Notre Dame,1,ml_random_forest
+2017,R64,West Virginia,Bucknell,4,13,West Virginia,Region_4,0.8571720511428769,West Virginia,1,ml_random_forest
+2017,R64,Maryland,Xavier,6,11,Xavier,Region_4,0.34033348667343055,Xavier,1,ml_random_forest
+2017,R64,Florida State,Florida Gulf Coast,3,14,Florida State,Region_4,0.8779002644260965,Florida State,1,ml_random_forest
+2017,R64,Arizona,North Dakota,2,15,Arizona,Region_4,0.952693376260624,Arizona,1,ml_random_forest
+2017,R32,Gonzaga,Northwestern,1,8,Gonzaga,Region_4,0.9022057524455861,Gonzaga,1,ml_random_forest
+2017,R32,Notre Dame,West Virginia,5,4,West Virginia,Region_4,0.24656956128907367,West Virginia,1,ml_random_forest
+2017,R32,Xavier,Florida State,11,3,Xavier,Region_4,0.48532042221854244,Florida State,0,ml_random_forest
+2017,S16,Gonzaga,West Virginia,1,4,Gonzaga,Region_4,0.5705269315878713,Gonzaga,1,ml_random_forest
+2017,S16,Xavier,Arizona,11,2,Xavier,Region_4,0.35262342918289724,Arizona,0,ml_random_forest
+2017,E8,Gonzaga,Xavier,1,11,Gonzaga,Region_4,0.834074350186709,Gonzaga,1,ml_random_forest
+2017,F4,South Carolina,Gonzaga,7,1,Gonzaga,Final Four,0.1930002132032193,Gonzaga,1,ml_random_forest
+2017,F4,Oregon,UNC,3,1,UNC,Final Four,0.3455162333506288,UNC,1,ml_random_forest
+2017,Championship,Gonzaga,UNC,1,1,UNC,Final Four,0.45282110220441885,UNC,1,ml_random_forest
+2018,R64,Villanova,Radford,1,16,Villanova,Region_1,0.9883594076162603,Villanova,1,ml_random_forest
+2018,R64,Virginia Tech,Alabama,8,9,Alabama,Region_1,0.4440764092442232,Alabama,1,ml_random_forest
+2018,R64,West Virginia,Murray State,5,12,West Virginia,Region_1,0.7290507060121203,West Virginia,1,ml_random_forest
+2018,R64,Wichita State,Marshall,4,13,Marshall,Region_1,0.8252908291043176,Wichita State,0,ml_random_forest
+2018,R64,Florida,St. Bonaventure,6,11,Florida,Region_1,0.6714611454649623,Florida,1,ml_random_forest
+2018,R64,Texas Tech,Stephen F. Austin,3,14,Texas Tech,Region_1,0.8942111630078773,Texas Tech,1,ml_random_forest
+2018,R64,Arkansas,Butler,7,10,Butler,Region_1,0.4186039753805371,Butler,1,ml_random_forest
+2018,R64,Purdue,Cal State Fullerton,2,15,Purdue,Region_1,0.9519973477386082,Purdue,1,ml_random_forest
+2018,R32,Villanova,Alabama,1,9,Villanova,Region_1,0.9267212853237387,Villanova,1,ml_random_forest
+2018,R32,West Virginia,Marshall,5,13,West Virginia,Region_1,0.849999186081765,West Virginia,1,ml_random_forest
+2018,R32,Florida,Texas Tech,6,3,Texas Tech,Region_1,0.40931627372185675,Texas Tech,1,ml_random_forest
+2018,R32,Butler,Purdue,10,2,Purdue,Region_1,0.2585278079174142,Purdue,1,ml_random_forest
+2018,S16,Villanova,West Virginia,1,5,Villanova,Region_1,0.8019429399067507,Villanova,1,ml_random_forest
+2018,S16,Texas Tech,Purdue,3,2,Texas Tech,Region_1,0.34788545354029926,Purdue,0,ml_random_forest
+2018,E8,Villanova,Texas Tech,1,3,Villanova,Region_1,0.8059254681256751,Villanova,1,ml_random_forest
+2018,R64,Seton Hall,NC State,8,9,Seton Hall,Region_2,0.748830046328045,Seton Hall,1,ml_random_forest
+2018,R64,Clemson,New Mexico State,5,12,Clemson,Region_2,0.6107754249522537,Clemson,1,ml_random_forest
+2018,R64,Auburn,College of Charleston,4,13,Auburn,Region_2,0.7911272641083689,Auburn,1,ml_random_forest
+2018,R64,TCU,Syracuse,6,11,Syracuse,Region_2,0.4690746063948398,Syracuse,1,ml_random_forest
+2018,R64,Michigan State,Bucknell,3,14,Michigan State,Region_2,0.9263905336500589,Michigan State,1,ml_random_forest
+2018,R64,Rhode Island,Oklahoma,7,10,Rhode Island,Region_2,0.5239649106294683,Rhode Island,1,ml_random_forest
+2018,R64,Duke,Iona,2,15,Duke,Region_2,0.9797764017073325,Duke,1,ml_random_forest
+2018,R32,Kansas,Seton Hall,1,8,Kansas,Region_2,0.7830261816934274,Kansas,1,ml_random_forest
+2018,R32,Clemson,Auburn,5,4,Clemson,Region_2,0.49918429117961294,Auburn,0,ml_random_forest
+2018,R32,Syracuse,Michigan State,11,3,Syracuse,Region_2,0.13904349109752834,Michigan State,0,ml_random_forest
+2018,R32,Rhode Island,Duke,7,2,Duke,Region_2,0.12411636598892468,Duke,1,ml_random_forest
+2018,S16,Kansas,Clemson,1,5,Kansas,Region_2,0.634161616264393,Kansas,1,ml_random_forest
+2018,S16,Syracuse,Duke,11,2,Duke,Region_2,0.1593570578809753,Duke,1,ml_random_forest
+2018,E8,Kansas,Duke,1,2,Kansas,Region_2,0.4253355450712147,Duke,0,ml_random_forest
+2018,R64,Creighton,Kansas State,8,9,Kansas State,Region_3,0.4677452030022731,Kansas State,1,ml_random_forest
+2018,R64,Kentucky,Davidson,5,12,Kentucky,Region_3,0.6807858701830428,Kentucky,1,ml_random_forest
+2018,R64,Arizona,Buffalo,4,13,Buffalo,Region_3,0.7099877220035447,Arizona,0,ml_random_forest
+2018,R64,Miami (FL),Loyola (IL),6,11,Loyola (IL),Region_3,0.5036186846503306,Miami (FL),0,ml_random_forest
+2018,R64,Tennessee,Wright State,3,14,Tennessee,Region_3,0.9645119049804326,Tennessee,1,ml_random_forest
+2018,R64,Nevada,Texas,7,10,Nevada,Region_3,0.5982146312878521,Nevada,1,ml_random_forest
+2018,R64,Cincinnati,Georgia State,2,15,Cincinnati,Region_3,0.9035647043610148,Cincinnati,1,ml_random_forest
+2018,R32,Kentucky,Buffalo,5,13,Kentucky,Region_3,0.7426576643458419,Kentucky,1,ml_random_forest
+2018,R32,Loyola (IL),Tennessee,11,3,Loyola (IL),Region_3,0.1266015234274912,Tennessee,0,ml_random_forest
+2018,R32,Nevada,Cincinnati,7,2,Nevada,Region_3,0.2777890957675832,Cincinnati,0,ml_random_forest
+2018,S16,Kansas State,Kentucky,9,5,Kansas State,Region_3,0.4571661534010022,Kentucky,0,ml_random_forest
+2018,S16,Loyola (IL),Nevada,11,7,Loyola (IL),Region_3,0.4356941870277426,Nevada,0,ml_random_forest
+2018,E8,Kansas State,Loyola (IL),9,11,Loyola (IL),Region_3,0.6162502727029345,Kansas State,0,ml_random_forest
+2018,R64,Xavier,Texas Southern,1,16,Xavier,Region_4,0.9746941114523037,Xavier,1,ml_random_forest
+2018,R64,Missouri,Florida State,8,9,Florida State,Region_4,0.4710460971245692,Florida State,1,ml_random_forest
+2018,R64,Ohio State,South Dakota State,5,12,Ohio State,Region_4,0.7377076248058052,Ohio State,1,ml_random_forest
+2018,R64,Gonzaga,UNC Greensboro,4,13,Gonzaga,Region_4,0.7887920721230184,Gonzaga,1,ml_random_forest
+2018,R64,Houston,San Diego State,6,11,Houston,Region_4,0.6402621116578475,Houston,1,ml_random_forest
+2018,R64,Michigan,Montana,3,14,Michigan,Region_4,0.8002837547767623,Michigan,1,ml_random_forest
+2018,R64,Texas A&M,Providence,7,10,Texas A&M,Region_4,0.6108042538722129,Texas A&M,1,ml_random_forest
+2018,R64,UNC,Lipscomb,2,15,UNC,Region_4,0.9578158704183338,UNC,1,ml_random_forest
+2018,R32,Xavier,Florida State,1,9,Florida State,Region_4,0.755613909072252,Xavier,0,ml_random_forest
+2018,R32,Ohio State,Gonzaga,5,4,Gonzaga,Region_4,0.4164623127704299,Gonzaga,1,ml_random_forest
+2018,R32,Houston,Michigan,6,3,Michigan,Region_4,0.2266918161527864,Michigan,1,ml_random_forest
+2018,R32,Texas A&M,UNC,7,2,Texas A&M,Region_4,0.43511583387808334,UNC,0,ml_random_forest
+2018,S16,Florida State,Gonzaga,9,4,Florida State,Region_4,0.4284763142098699,Gonzaga,0,ml_random_forest
+2018,S16,Michigan,Texas A&M,3,7,Michigan,Region_4,0.7677067764461574,Michigan,1,ml_random_forest
+2018,E8,Florida State,Michigan,9,3,Michigan,Region_4,0.427242310160198,Michigan,1,ml_random_forest
+2018,F4,Villanova,Kansas,1,1,Villanova,Final Four,0.4583351517753426,Kansas,0,ml_random_forest
+2018,F4,Loyola (IL),Michigan,11,3,Michigan,Final Four,0.15625833648626034,Michigan,1,ml_random_forest
+2018,Championship,Villanova,Michigan,1,3,Villanova,Final Four,0.6669443480180821,Villanova,1,ml_random_forest
+2019,R64,Duke,North Dakota State,1,16,Duke,Region_1,0.9872140925521105,Duke,1,ml_random_forest
+2019,R64,VCU,UCF,8,9,UCF,Region_1,0.43244938407578765,UCF,1,ml_random_forest
+2019,R64,Mississippi State,Liberty,5,12,Liberty,Region_1,0.7341878862773918,Mississippi State,0,ml_random_forest
+2019,R64,Virginia Tech,Saint Louis,4,13,Virginia Tech,Region_1,0.8002348789958221,Virginia Tech,1,ml_random_forest
+2019,R64,Maryland,Belmont,6,11,Maryland,Region_1,0.6775819668983167,Maryland,1,ml_random_forest
+2019,R64,LSU,Yale,3,14,LSU,Region_1,0.7941560537620085,LSU,1,ml_random_forest
+2019,R64,Louisville,Minnesota,7,10,Minnesota,Region_1,0.5256953690635605,Louisville,0,ml_random_forest
+2019,R64,Michigan State,Bradley,2,15,Michigan State,Region_1,0.9761674616175766,Michigan State,1,ml_random_forest
+2019,R32,Duke,UCF,1,9,Duke,Region_1,0.8236430438092603,Duke,1,ml_random_forest
+2019,R32,Liberty,Virginia Tech,12,4,Virginia Tech,Region_1,0.1865827984912231,Virginia Tech,1,ml_random_forest
+2019,R32,Maryland,LSU,6,3,LSU,Region_1,0.30711203935573955,LSU,1,ml_random_forest
+2019,R32,Minnesota,Michigan State,10,2,Michigan State,Region_1,0.11286330467577806,Michigan State,1,ml_random_forest
+2019,S16,Duke,Virginia Tech,1,4,Duke,Region_1,0.7815263357182212,Duke,1,ml_random_forest
+2019,S16,LSU,Michigan State,3,2,Michigan State,Region_1,0.2566481544596512,Michigan State,1,ml_random_forest
+2019,E8,Duke,Michigan State,1,2,Michigan State,Region_1,0.5231085987593532,Duke,0,ml_random_forest
+2019,R64,UNC,Iona,1,16,UNC,Region_2,0.9833564443953452,UNC,1,ml_random_forest
+2019,R64,Utah State,Washington,8,9,Washington,Region_2,0.3792553042809266,Washington,1,ml_random_forest
+2019,R64,Auburn,New Mexico State,5,12,Auburn,Region_2,0.7130712898000512,Auburn,1,ml_random_forest
+2019,R64,Kansas,Northeastern,4,13,Kansas,Region_2,0.9020522738756572,Kansas,1,ml_random_forest
+2019,R64,Iowa State,Ohio State,6,11,Ohio State,Region_2,0.5079365373538219,Iowa State,0,ml_random_forest
+2019,R64,Houston,Georgia State,3,14,Houston,Region_2,0.88942003053961,Houston,1,ml_random_forest
+2019,R64,Wofford,Seton Hall,7,10,Wofford,Region_2,0.7598782439019868,Wofford,1,ml_random_forest
+2019,R64,Kentucky,Abilene Christian,2,15,Kentucky,Region_2,0.9536123429331717,Kentucky,1,ml_random_forest
+2019,R32,UNC,Washington,1,9,UNC,Region_2,0.6704804162017459,UNC,1,ml_random_forest
+2019,R32,Auburn,Kansas,5,4,Auburn,Region_2,0.4519836382877247,Kansas,0,ml_random_forest
+2019,R32,Ohio State,Houston,11,3,Houston,Region_2,0.3947313763743286,Houston,1,ml_random_forest
+2019,R32,Wofford,Kentucky,7,2,Kentucky,Region_2,0.2274166113210188,Kentucky,1,ml_random_forest
+2019,S16,UNC,Auburn,1,5,Auburn,Region_2,0.5459059482153623,UNC,0,ml_random_forest
+2019,S16,Houston,Kentucky,3,2,Kentucky,Region_2,0.28118819032907044,Kentucky,1,ml_random_forest
+2019,E8,Auburn,Kentucky,5,2,Auburn,Region_2,0.3514175275222026,Kentucky,0,ml_random_forest
+2019,R64,Virginia,Gardner-Webb,1,16,Virginia,Region_3,0.9413868237124299,Virginia,1,ml_random_forest
+2019,R64,Ole Miss,Oklahoma,8,9,Oklahoma,Region_3,0.38545636457896976,Oklahoma,1,ml_random_forest
+2019,R64,Wisconsin,Oregon,5,12,Oregon,Region_3,0.7078395047317184,Wisconsin,0,ml_random_forest
+2019,R64,Kansas State,UC-Irvine,4,13,UC-Irvine,Region_3,0.782114416747819,Kansas State,0,ml_random_forest
+2019,R64,Purdue,Old Dominion,3,14,Purdue,Region_3,0.8772821585252306,Purdue,1,ml_random_forest
+2019,R64,Cincinnati,Iowa,7,10,Iowa,Region_3,0.5908743508960534,Cincinnati,0,ml_random_forest
+2019,R64,Tennessee,Colgate,2,15,Tennessee,Region_3,0.9856182179566975,Tennessee,1,ml_random_forest
+2019,R32,Virginia,Oklahoma,1,9,Virginia,Region_3,0.8991974484691313,Virginia,1,ml_random_forest
+2019,R32,Oregon,UC-Irvine,12,13,Oregon,Region_3,0.6636154398820913,Oregon,1,ml_random_forest
+2019,R32,Villanova,Purdue,6,3,Purdue,Region_3,0.25381641410492756,Purdue,1,ml_random_forest
+2019,R32,Iowa,Tennessee,10,2,Tennessee,Region_3,0.16622621069361787,Tennessee,1,ml_random_forest
+2019,S16,Virginia,Oregon,1,12,Virginia,Region_3,0.9036840406276844,Virginia,1,ml_random_forest
+2019,S16,Purdue,Tennessee,3,2,Purdue,Region_3,0.3864771874267898,Tennessee,0,ml_random_forest
+2019,E8,Virginia,Purdue,1,3,Virginia,Region_3,0.8187178632379535,Virginia,1,ml_random_forest
+2019,R64,Gonzaga,FDU,1,16,Gonzaga,Region_4,0.9786174594854263,Gonzaga,1,ml_random_forest
+2019,R64,Syracuse,Baylor,8,9,Baylor,Region_4,0.5449126716076247,Syracuse,0,ml_random_forest
+2019,R64,Marquette,Murray State,5,12,Murray State,Region_4,0.6585740503355392,Marquette,0,ml_random_forest
+2019,R64,Florida State,Vermont,4,13,Florida State,Region_4,0.81510461140564,Florida State,1,ml_random_forest
+2019,R64,Buffalo,Arizona State,6,11,Buffalo,Region_4,0.7735684858311878,Buffalo,1,ml_random_forest
+2019,R64,Texas Tech,Northern Kentucky,3,14,Texas Tech,Region_4,0.9048675185605107,Texas Tech,1,ml_random_forest
+2019,R64,Nevada,Florida,7,10,Florida,Region_4,0.7522902646480122,Nevada,0,ml_random_forest
+2019,R64,Michigan,Montana,2,15,Michigan,Region_4,0.9323282856133549,Michigan,1,ml_random_forest
+2019,R32,Gonzaga,Baylor,1,9,Gonzaga,Region_4,0.9175775699780242,Gonzaga,1,ml_random_forest
+2019,R32,Murray State,Florida State,12,4,Florida State,Region_4,0.23417360013080474,Florida State,1,ml_random_forest
+2019,R32,Buffalo,Texas Tech,6,3,Texas Tech,Region_4,0.3440330170542014,Texas Tech,1,ml_random_forest
+2019,R32,Florida,Michigan,10,2,Michigan,Region_4,0.26178870374753266,Michigan,1,ml_random_forest
+2019,S16,Gonzaga,Florida State,1,4,Gonzaga,Region_4,0.6576187809633754,Gonzaga,1,ml_random_forest
+2019,S16,Texas Tech,Michigan,3,2,Texas Tech,Region_4,0.38975118277139825,Michigan,0,ml_random_forest
+2019,E8,Gonzaga,Texas Tech,1,3,Texas Tech,Region_4,0.5163111455995631,Gonzaga,0,ml_random_forest
+2019,F4,Michigan State,Texas Tech,2,3,Texas Tech,Final Four,0.6318863177310683,Michigan State,0,ml_random_forest
+2019,F4,Auburn,Virginia,5,1,Virginia,Final Four,0.4122644210454328,Virginia,1,ml_random_forest
+2019,Championship,Texas Tech,Virginia,3,1,Virginia,Final Four,0.26869557178734665,Virginia,1,ml_random_forest
+2021,R64,Michigan,Texas Southern,1,16,Michigan,Region_1,0.9562283781755045,Michigan,1,ml_random_forest
+2021,R64,LSU,St. Bonaventure,8,9,LSU,Region_1,0.3882058188071087,St. Bonaventure,0,ml_random_forest
+2021,R64,Colorado,Georgetown,5,12,Colorado,Region_1,0.8361966110605352,Colorado,1,ml_random_forest
+2021,R64,Florida State,UNC Greensboro,4,13,Florida State,Region_1,0.8669760637207408,Florida State,1,ml_random_forest
+2021,R64,Texas,Abilene Christian,3,14,Abilene Christian,Region_1,0.6017611230495621,Texas,0,ml_random_forest
+2021,R64,UConn,Maryland,7,10,Maryland,Region_1,0.5708438788134587,UConn,0,ml_random_forest
+2021,R64,Alabama,Iona,2,15,Alabama,Region_1,0.9612591318428447,Alabama,1,ml_random_forest
+2021,R32,Michigan,LSU,1,8,Michigan,Region_1,0.8230323524945292,Michigan,1,ml_random_forest
+2021,R32,Colorado,Florida State,5,4,Florida State,Region_1,0.5637192093148571,Colorado,0,ml_random_forest
+2021,R32,UCLA,Abilene Christian,11,14,UCLA,Region_1,0.6797661629449449,UCLA,1,ml_random_forest
+2021,R32,Maryland,Alabama,10,2,Alabama,Region_1,0.32718394610090146,Alabama,1,ml_random_forest
+2021,S16,Michigan,Florida State,1,4,Michigan,Region_1,0.7175016413920496,Michigan,1,ml_random_forest
+2021,S16,UCLA,Alabama,11,2,UCLA,Region_1,0.4772371648284469,Alabama,0,ml_random_forest
+2021,E8,Michigan,UCLA,1,11,UCLA,Region_1,0.6677146999814556,Michigan,0,ml_random_forest
+2021,R64,Illinois,Drexel,1,16,Illinois,Region_2,0.9858069615056386,Illinois,1,ml_random_forest
+2021,R64,Loyola (IL),Georgia Tech,8,9,Loyola (IL),Region_2,0.7560943561487562,Loyola (IL),1,ml_random_forest
+2021,R64,Tennessee,Oregon State,5,12,Oregon State,Region_2,0.5594991828374661,Tennessee,0,ml_random_forest
+2021,R64,Oklahoma State,Liberty,4,13,Oklahoma State,Region_2,0.6262472391065721,Oklahoma State,1,ml_random_forest
+2021,R64,San Diego State,Syracuse,6,11,Syracuse,Region_2,0.6974619326322928,San Diego State,0,ml_random_forest
+2021,R64,West Virginia,Morehead State,3,14,West Virginia,Region_2,0.920828026802558,West Virginia,1,ml_random_forest
+2021,R64,Clemson,Rutgers,7,10,Rutgers,Region_2,0.4299348657936047,Rutgers,1,ml_random_forest
+2021,R64,Houston,Cleveland State,2,15,Houston,Region_2,0.9568131581299034,Houston,1,ml_random_forest
+2021,R32,Illinois,Loyola (IL),1,8,Loyola (IL),Region_2,0.6752992223273341,Illinois,0,ml_random_forest
+2021,R32,Oregon State,Oklahoma State,12,4,Oregon State,Region_2,0.4331065800264375,Oklahoma State,0,ml_random_forest
+2021,R32,Syracuse,West Virginia,11,3,Syracuse,Region_2,0.4510108970079442,West Virginia,0,ml_random_forest
+2021,R32,Rutgers,Houston,10,2,Houston,Region_2,0.2287220845647289,Houston,1,ml_random_forest
+2021,S16,Loyola (IL),Oregon State,8,12,Oregon State,Region_2,0.787633053876916,Loyola (IL),0,ml_random_forest
+2021,S16,Syracuse,Houston,11,2,Houston,Region_2,0.2589313439570539,Houston,1,ml_random_forest
+2021,E8,Oregon State,Houston,12,2,Houston,Region_2,0.23558067941260144,Houston,1,ml_random_forest
+2021,R64,Baylor,Hartford,1,16,Baylor,Region_3,0.9847690059594117,Baylor,1,ml_random_forest
+2021,R64,UNC,Wisconsin,8,9,Wisconsin,Region_3,0.3700062508224682,Wisconsin,1,ml_random_forest
+2021,R64,Villanova,Winthrop,5,12,Villanova,Region_3,0.7135944821706538,Villanova,1,ml_random_forest
+2021,R64,Purdue,North Texas,4,13,North Texas,Region_3,0.7496874153212523,Purdue,0,ml_random_forest
+2021,R64,Texas Tech,Utah State,6,11,Texas Tech,Region_3,0.6168735459891453,Texas Tech,1,ml_random_forest
+2021,R64,Arkansas,Colgate,3,14,Arkansas,Region_3,0.5096200226312851,Arkansas,1,ml_random_forest
+2021,R64,Florida,Virginia Tech,7,10,Florida,Region_3,0.5277766778031642,Florida,1,ml_random_forest
+2021,R64,Ohio State,Oral Roberts,2,15,Oral Roberts,Region_3,0.9703076196976215,Ohio State,0,ml_random_forest
+2021,R32,Baylor,Wisconsin,1,9,Baylor,Region_3,0.825848951309401,Baylor,1,ml_random_forest
+2021,R32,Villanova,North Texas,5,13,Villanova,Region_3,0.7748442757123131,Villanova,1,ml_random_forest
+2021,R32,Texas Tech,Arkansas,6,3,Arkansas,Region_3,0.26652476643029854,Arkansas,1,ml_random_forest
+2021,R32,Florida,Oral Roberts,7,15,Oral Roberts,Region_3,0.8666080791502567,Florida,0,ml_random_forest
+2021,S16,Baylor,Villanova,1,5,Baylor,Region_3,0.8158676193507457,Baylor,1,ml_random_forest
+2021,S16,Arkansas,Oral Roberts,3,15,Arkansas,Region_3,0.920305943778813,Arkansas,1,ml_random_forest
+2021,E8,Baylor,Arkansas,1,3,Baylor,Region_3,0.7980243876395012,Baylor,1,ml_random_forest
+2021,R64,Gonzaga,Norfolk State,1,16,Gonzaga,Region_4,0.9799847532652545,Gonzaga,1,ml_random_forest
+2021,R64,Oklahoma,Missouri,8,9,Oklahoma,Region_4,0.4562834381674249,Missouri,0,ml_random_forest
+2021,R64,Virginia,Ohio,4,13,Ohio,Region_4,0.7775579603764843,Virginia,0,ml_random_forest
+2021,R64,Kansas,Eastern Washington,3,14,Kansas,Region_4,0.7797027982824428,Kansas,1,ml_random_forest
+2021,R64,Oregon,VCU,7,10,Oregon,Region_4,0.702050754595089,Oregon,1,ml_random_forest
+2021,R64,Iowa,Grand Canyon,2,15,Iowa,Region_4,0.8402420680520237,Iowa,1,ml_random_forest
+2021,R32,Gonzaga,Oklahoma,1,8,Gonzaga,Region_4,0.9094198980271266,Gonzaga,1,ml_random_forest
+2021,R32,Creighton,Ohio,5,13,Creighton,Region_4,0.8337269141855995,Creighton,1,ml_random_forest
+2021,R32,Oregon,Iowa,7,2,Oregon,Region_4,0.43001549169776143,Iowa,0,ml_random_forest
+2021,S16,Gonzaga,Creighton,1,5,Gonzaga,Region_4,0.8503549159744169,Gonzaga,1,ml_random_forest
+2021,F4,UCLA,Gonzaga,11,1,Gonzaga,Final Four,0.3173516290650279,Gonzaga,1,ml_random_forest
+2021,F4,Houston,Baylor,2,1,Baylor,Final Four,0.3250533318416769,Baylor,1,ml_random_forest
+2021,Championship,Gonzaga,Baylor,1,1,Baylor,Final Four,0.39663501449804983,Baylor,1,ml_random_forest
+2022,R64,Baylor,Norfolk State,1,16,Baylor,Region_1,0.928906863495526,Baylor,1,ml_random_forest
+2022,R64,UNC,Marquette,8,9,UNC,Region_1,0.6454611817317907,UNC,1,ml_random_forest
+2022,R64,UCLA,Akron,4,13,UCLA,Region_1,0.9371383743621294,UCLA,1,ml_random_forest
+2022,R64,Texas,Virginia Tech,6,11,Texas,Region_1,0.7129125191199167,Texas,1,ml_random_forest
+2022,R64,Purdue,Yale,3,14,Purdue,Region_1,0.9238430132031381,Purdue,1,ml_random_forest
+2022,R64,Murray State,San Francisco,7,10,Murray State,Region_1,0.5827975653755074,Murray State,1,ml_random_forest
+2022,R32,Baylor,UNC,1,8,UNC,Region_1,0.6453643319188027,Baylor,0,ml_random_forest
+2022,R32,Texas,Purdue,6,3,Purdue,Region_1,0.3217567088527558,Purdue,1,ml_random_forest
+2022,S16,UNC,UCLA,8,4,UNC,Region_1,0.5012527483103019,UNC,1,ml_random_forest
+2022,R64,Kansas,Texas Southern,1,16,Kansas,Region_2,0.964673801892102,Kansas,1,ml_random_forest
+2022,R64,San Diego State,Creighton,8,9,Creighton,Region_2,0.5553479936397658,San Diego State,0,ml_random_forest
+2022,R64,Iowa,Richmond,5,12,Richmond,Region_2,0.7438671616614867,Iowa,0,ml_random_forest
+2022,R64,Providence,South Dakota State,4,13,Providence,Region_2,0.7003183179453504,Providence,1,ml_random_forest
+2022,R64,LSU,Iowa State,6,11,Iowa State,Region_2,0.47406118008837483,Iowa State,1,ml_random_forest
+2022,R64,Wisconsin,Colgate,3,14,Wisconsin,Region_2,0.7848964777284266,Wisconsin,1,ml_random_forest
+2022,R64,Auburn,Jacksonville State,2,15,Auburn,Region_2,0.971462366625821,Auburn,1,ml_random_forest
+2022,R32,Kansas,Creighton,1,9,Kansas,Region_2,0.9209183415672885,Kansas,1,ml_random_forest
+2022,R32,Richmond,Providence,12,4,Providence,Region_2,0.266459013356802,Providence,1,ml_random_forest
+2022,R32,Iowa State,Wisconsin,11,3,Iowa State,Region_2,0.4314079478433308,Wisconsin,0,ml_random_forest
+2022,R32,Miami (FL),Auburn,10,2,Miami (FL),Region_2,0.08357642334183339,Auburn,0,ml_random_forest
+2022,S16,Kansas,Providence,1,4,Kansas,Region_2,0.7529822875041419,Kansas,1,ml_random_forest
+2022,S16,Iowa State,Miami (FL),11,10,Miami (FL),Region_2,0.6437671457534222,Iowa State,0,ml_random_forest
+2022,E8,Kansas,Miami (FL),1,10,Kansas,Region_2,0.8836247547525736,Kansas,1,ml_random_forest
+2022,R64,Arizona,Wright State,1,16,Arizona,Region_3,0.9754130840806556,Arizona,1,ml_random_forest
+2022,R64,Seton Hall,TCU,8,9,TCU,Region_3,0.37237694950887035,TCU,1,ml_random_forest
+2022,R64,Houston,UAB,5,12,Houston,Region_3,0.8036826330128123,Houston,1,ml_random_forest
+2022,R64,Illinois,Chattanooga,4,13,Illinois,Region_3,0.7298294262035981,Illinois,1,ml_random_forest
+2022,R64,Colorado State,Michigan,6,11,Michigan,Region_3,0.5889428152459446,Colorado State,0,ml_random_forest
+2022,R64,Tennessee,Longwood,3,14,Tennessee,Region_3,0.929569675846594,Tennessee,1,ml_random_forest
+2022,R64,Ohio State,Loyola (IL),7,10,Ohio State,Region_3,0.4427648174265502,Loyola (IL),0,ml_random_forest
+2022,R64,Villanova,Delaware,2,15,Villanova,Region_3,0.9711778428696327,Villanova,1,ml_random_forest
+2022,R32,Arizona,TCU,1,9,Arizona,Region_3,0.8817461672534176,Arizona,1,ml_random_forest
+2022,R32,Houston,Illinois,5,4,Houston,Region_3,0.7143076317522565,Houston,1,ml_random_forest
+2022,R32,Michigan,Tennessee,11,3,Michigan,Region_3,0.2278933438586966,Tennessee,0,ml_random_forest
+2022,R32,Ohio State,Villanova,7,2,Villanova,Region_3,0.35989672868381434,Villanova,1,ml_random_forest
+2022,S16,Arizona,Houston,1,5,Houston,Region_3,0.46732675620617536,Houston,1,ml_random_forest
+2022,S16,Michigan,Villanova,11,2,Villanova,Region_3,0.3222210033427064,Villanova,1,ml_random_forest
+2022,E8,Houston,Villanova,5,2,Villanova,Region_3,0.5394286184049607,Houston,0,ml_random_forest
+2022,R64,Gonzaga,Georgia State,1,16,Gonzaga,Region_4,0.9468948994747354,Gonzaga,1,ml_random_forest
+2022,R64,Boise State,Memphis,8,9,Memphis,Region_4,0.5592140336707596,Boise State,0,ml_random_forest
+2022,R64,UConn,New Mexico State,5,12,New Mexico State,Region_4,0.7291301051433644,UConn,0,ml_random_forest
+2022,R64,Arkansas,Vermont,4,13,Arkansas,Region_4,0.6437216988639243,Arkansas,1,ml_random_forest
+2022,R64,Alabama,Notre Dame,6,11,Notre Dame,Region_4,0.468775457070243,Notre Dame,1,ml_random_forest
+2022,R64,Texas Tech,Montana State,3,14,Texas Tech,Region_4,0.9494959439150896,Texas Tech,1,ml_random_forest
+2022,R64,Michigan State,Davidson,7,10,Michigan State,Region_4,0.5776812034980805,Michigan State,1,ml_random_forest
+2022,R64,Duke,Cal State Fullerton,2,15,Duke,Region_4,0.9253535443381096,Duke,1,ml_random_forest
+2022,R32,Gonzaga,Memphis,1,9,Gonzaga,Region_4,0.929317299126785,Gonzaga,1,ml_random_forest
+2022,R32,New Mexico State,Arkansas,12,4,Arkansas,Region_4,0.13485424378257477,Arkansas,1,ml_random_forest
+2022,R32,Notre Dame,Texas Tech,11,3,Texas Tech,Region_4,0.21112590601459433,Texas Tech,1,ml_random_forest
+2022,R32,Michigan State,Duke,7,2,Duke,Region_4,0.2264866800242866,Duke,1,ml_random_forest
+2022,S16,Gonzaga,Arkansas,1,4,Arkansas,Region_4,0.7674771969270114,Gonzaga,0,ml_random_forest
+2022,S16,Texas Tech,Duke,3,2,Duke,Region_4,0.5005863804884357,Texas Tech,0,ml_random_forest
+2022,E8,Arkansas,Duke,4,2,Duke,Region_4,0.5102876987483961,Arkansas,0,ml_random_forest
+2022,F4,UNC,Duke,8,2,UNC,Final Four,0.4760424211326647,Duke,0,ml_random_forest
+2022,F4,Kansas,Villanova,1,2,Kansas,Final Four,0.510122470591967,Kansas,1,ml_random_forest
+2022,Championship,UNC,Kansas,8,1,Kansas,Final Four,0.3134133768174802,Kansas,1,ml_random_forest
+2023,R64,Purdue,FDU,1,16,FDU,Region_1,0.9949502762728578,Purdue,0,ml_random_forest
+2023,R64,Memphis,Florida Atlantic,8,9,Florida Atlantic,Region_1,0.5556143877096212,Memphis,0,ml_random_forest
+2023,R64,Duke,Oral Roberts,5,12,Duke,Region_1,0.6850862616898662,Duke,1,ml_random_forest
+2023,R64,Tennessee,Louisiana,4,13,Tennessee,Region_1,0.8603282010334973,Tennessee,1,ml_random_forest
+2023,R64,Kentucky,Providence,6,11,Kentucky,Region_1,0.5765194572478726,Kentucky,1,ml_random_forest
+2023,R64,Kansas State,Montana State,3,14,Kansas State,Region_1,0.805809553378705,Kansas State,1,ml_random_forest
+2023,R64,Marquette,Vermont,2,15,Marquette,Region_1,0.8768032791558629,Marquette,1,ml_random_forest
+2023,R32,FDU,Florida Atlantic,16,9,Florida Atlantic,Region_1,0.2170044475516919,Florida Atlantic,1,ml_random_forest
+2023,R32,Duke,Tennessee,5,4,Tennessee,Region_1,0.46236309005315984,Tennessee,1,ml_random_forest
+2023,R32,Kentucky,Kansas State,6,3,Kansas State,Region_1,0.3451912744790282,Kansas State,1,ml_random_forest
+2023,R32,Michigan State,Marquette,7,2,Michigan State,Region_1,0.400484470671844,Marquette,0,ml_random_forest
+2023,S16,Florida Atlantic,Tennessee,9,4,Florida Atlantic,Region_1,0.4304400599851985,Tennessee,0,ml_random_forest
+2023,S16,Kansas State,Michigan State,3,7,Kansas State,Region_1,0.5087035018733437,Kansas State,1,ml_random_forest
+2023,E8,Florida Atlantic,Kansas State,9,3,Florida Atlantic,Region_1,0.4222631526175735,Kansas State,0,ml_random_forest
+2023,R64,Houston,Northern Kentucky,1,16,Houston,Region_2,0.9641078510571648,Houston,1,ml_random_forest
+2023,R64,Iowa,Auburn,8,9,Auburn,Region_2,0.3955793514893549,Auburn,1,ml_random_forest
+2023,R64,Miami (FL),Drake,5,12,Miami (FL),Region_2,0.5537193524951355,Miami (FL),1,ml_random_forest
+2023,R64,Indiana,Kent State,4,13,Indiana,Region_2,0.55165636546518,Indiana,1,ml_random_forest
+2023,R64,Iowa State,Pitt,6,11,Pitt,Region_2,0.6145881194154854,Iowa State,0,ml_random_forest
+2023,R64,Xavier,Kennesaw State,3,14,Xavier,Region_2,0.8841904138644235,Xavier,1,ml_random_forest
+2023,R64,Texas A&M,Penn State,7,10,Penn State,Region_2,0.5464679858189481,Texas A&M,0,ml_random_forest
+2023,R64,Texas,Colgate,2,15,Texas,Region_2,0.9152624352462781,Texas,1,ml_random_forest
+2023,R32,Houston,Auburn,1,9,Houston,Region_2,0.8568567336556537,Houston,1,ml_random_forest
+2023,R32,Miami (FL),Indiana,5,4,Miami (FL),Region_2,0.38965315729771616,Indiana,0,ml_random_forest
+2023,R32,Pitt,Xavier,11,3,Xavier,Region_2,0.3113245613885313,Xavier,1,ml_random_forest
+2023,R32,Penn State,Texas,10,2,Texas,Region_2,0.1747360200650016,Texas,1,ml_random_forest
+2023,S16,Houston,Miami (FL),1,5,Miami (FL),Region_2,0.77678350139867,Houston,0,ml_random_forest
+2023,S16,Xavier,Texas,3,2,Texas,Region_2,0.3911606015712337,Texas,1,ml_random_forest
+2023,E8,Miami (FL),Texas,5,2,Miami (FL),Region_2,0.23069172750714154,Texas,0,ml_random_forest
+2023,R64,Alabama,Texas A&M-Corpus Christi,1,16,Alabama,Region_3,0.9843211277114886,Alabama,1,ml_random_forest
+2023,R64,Maryland,West Virginia,8,9,Maryland,Region_3,0.3841591320963532,West Virginia,0,ml_random_forest
+2023,R64,San Diego State,College of Charleston,5,12,San Diego State,Region_3,0.7112637881398458,San Diego State,1,ml_random_forest
+2023,R64,Virginia,Furman,4,13,Furman,Region_3,0.7025694777280616,Virginia,0,ml_random_forest
+2023,R64,Creighton,NC State,6,11,Creighton,Region_3,0.670073893860561,Creighton,1,ml_random_forest
+2023,R64,Missouri,Utah State,7,10,Missouri,Region_3,0.35236435933198096,Utah State,0,ml_random_forest
+2023,R64,Arizona,Princeton,2,15,Princeton,Region_3,0.7984712076516945,Arizona,0,ml_random_forest
+2023,R32,Alabama,Maryland,1,8,Alabama,Region_3,0.8936835029845792,Alabama,1,ml_random_forest
+2023,R32,San Diego State,Furman,5,13,San Diego State,Region_3,0.8126369064722004,San Diego State,1,ml_random_forest
+2023,R32,Creighton,Baylor,6,3,Creighton,Region_3,0.45110619483878195,Baylor,0,ml_random_forest
+2023,R32,Missouri,Princeton,7,15,Princeton,Region_3,0.655866446798973,Missouri,0,ml_random_forest
+2023,S16,Alabama,San Diego State,1,5,San Diego State,Region_3,0.5657491951916104,Alabama,0,ml_random_forest
+2023,S16,Creighton,Princeton,6,15,Creighton,Region_3,0.8695349099672055,Creighton,1,ml_random_forest
+2023,E8,San Diego State,Creighton,5,6,San Diego State,Region_3,0.5259351936137461,San Diego State,1,ml_random_forest
+2023,R64,Kansas,Howard,1,16,Kansas,Region_4,0.980702176676061,Kansas,1,ml_random_forest
+2023,R64,Arkansas,Illinois,8,9,Arkansas,Region_4,0.6461009874852313,Arkansas,1,ml_random_forest
+2023,R64,UConn,Iona,4,13,UConn,Region_4,0.87587373649476,UConn,1,ml_random_forest
+2023,R64,TCU,Arizona State,6,11,TCU,Region_4,0.5335285219793987,TCU,1,ml_random_forest
+2023,R64,Gonzaga,Grand Canyon,3,14,Gonzaga,Region_4,0.8326412059814191,Gonzaga,1,ml_random_forest
+2023,R64,Northwestern,Boise State,7,10,Northwestern,Region_4,0.6322850591815035,Northwestern,1,ml_random_forest
+2023,R64,UCLA,UNC Asheville,2,15,UCLA,Region_4,0.9529433666483759,UCLA,1,ml_random_forest
+2023,R32,Kansas,Arkansas,1,8,Arkansas,Region_4,0.7508531416197367,Kansas,0,ml_random_forest
+2023,R32,TCU,Gonzaga,6,3,Gonzaga,Region_4,0.31645533633072864,Gonzaga,1,ml_random_forest
+2023,R32,Northwestern,UCLA,7,2,UCLA,Region_4,0.14247811476768413,UCLA,1,ml_random_forest
+2023,S16,Arkansas,UConn,8,4,UConn,Region_4,0.2567407981516895,UConn,1,ml_random_forest
+2023,S16,Gonzaga,UCLA,3,2,Gonzaga,Region_4,0.3567875278565018,UCLA,0,ml_random_forest
+2023,E8,UConn,Gonzaga,4,3,UConn,Region_4,0.5459034404048763,UConn,1,ml_random_forest
+2023,F4,Florida Atlantic,San Diego State,9,5,San Diego State,Final Four,0.293168321221324,San Diego State,1,ml_random_forest
+2023,F4,Miami (FL),UConn,5,4,UConn,Final Four,0.19752491873716416,UConn,1,ml_random_forest
+2023,Championship,San Diego State,UConn,5,4,UConn,Final Four,0.32638652812431057,UConn,1,ml_random_forest
+2024,R64,UConn,Stetson,1,16,UConn,Region_1,0.9779505219771276,UConn,1,ml_random_forest
+2024,R64,Florida Atlantic,Northwestern,8,9,Northwestern,Region_1,0.4612577384942957,Northwestern,1,ml_random_forest
+2024,R64,San Diego State,UAB,5,12,San Diego State,Region_1,0.7459425042952527,San Diego State,1,ml_random_forest
+2024,R64,Auburn,Yale,4,13,Yale,Region_1,0.8504476034907176,Auburn,0,ml_random_forest
+2024,R64,Illinois,Morehead State,3,14,Illinois,Region_1,0.9054123707662451,Illinois,1,ml_random_forest
+2024,R64,Washington State,Drake,7,10,Washington State,Region_1,0.5745481093450991,Washington State,1,ml_random_forest
+2024,R64,Iowa State,South Dakota State,2,15,Iowa State,Region_1,0.9734204338008978,Iowa State,1,ml_random_forest
+2024,R32,UConn,Northwestern,1,9,UConn,Region_1,0.9334889662440206,UConn,1,ml_random_forest
+2024,R32,San Diego State,Yale,5,13,San Diego State,Region_1,0.8087819262455633,San Diego State,1,ml_random_forest
+2024,R32,Duquesne,Illinois,11,3,Illinois,Region_1,0.18615064363991202,Illinois,1,ml_random_forest
+2024,R32,Washington State,Iowa State,7,2,Iowa State,Region_1,0.17088531351147926,Iowa State,1,ml_random_forest
+2024,S16,UConn,San Diego State,1,5,UConn,Region_1,0.8845254601731423,UConn,1,ml_random_forest
+2024,S16,Illinois,Iowa State,3,2,Illinois,Region_1,0.4116720200572704,Iowa State,0,ml_random_forest
+2024,E8,UConn,Illinois,1,3,UConn,Region_1,0.8211401976288811,UConn,1,ml_random_forest
+2024,R64,Purdue,Grambling,1,16,Purdue,Region_2,0.9512348982668904,Purdue,1,ml_random_forest
+2024,R64,Utah State,TCU,8,9,Utah State,Region_2,0.5571129382806552,Utah State,1,ml_random_forest
+2024,R64,Gonzaga,McNeese State,5,12,Gonzaga,Region_2,0.6915014989369944,Gonzaga,1,ml_random_forest
+2024,R64,Kansas,Samford,4,13,Kansas,Region_2,0.7363772817459879,Kansas,1,ml_random_forest
+2024,R64,South Carolina,Oregon,6,11,Oregon,Region_2,0.39717892945227895,Oregon,1,ml_random_forest
+2024,R64,Creighton,Akron,3,14,Creighton,Region_2,0.9021042785373639,Creighton,1,ml_random_forest
+2024,R64,Texas,Colorado State,7,10,Texas,Region_2,0.605517266833462,Texas,1,ml_random_forest
+2024,R32,Purdue,Utah State,1,8,Purdue,Region_2,0.8536818557687583,Purdue,1,ml_random_forest
+2024,R32,Gonzaga,Kansas,5,4,Gonzaga,Region_2,0.47342507959524954,Kansas,0,ml_random_forest
+2024,R32,Oregon,Creighton,11,3,Creighton,Region_2,0.25586731510492344,Creighton,1,ml_random_forest
+2024,R32,Texas,Tennessee,7,2,Tennessee,Region_2,0.19447923871592893,Tennessee,1,ml_random_forest
+2024,S16,Purdue,Gonzaga,1,5,Purdue,Region_2,0.8126890349060445,Purdue,1,ml_random_forest
+2024,S16,Creighton,Tennessee,3,2,Tennessee,Region_2,0.37649553443405925,Tennessee,1,ml_random_forest
+2024,E8,Purdue,Tennessee,1,2,Purdue,Region_2,0.6643653529586383,Purdue,1,ml_random_forest
+2024,R64,Houston,Longwood,1,16,Houston,Region_3,0.9790989875410495,Houston,1,ml_random_forest
+2024,R64,Nebraska,Texas A&M,8,9,Texas A&M,Region_3,0.5996268518809406,Nebraska,0,ml_random_forest
+2024,R64,Wisconsin,James Madison,5,12,James Madison,Region_3,0.7263213705306636,Wisconsin,0,ml_random_forest
+2024,R64,Duke,Vermont,4,13,Duke,Region_3,0.8997866561209323,Duke,1,ml_random_forest
+2024,R64,Texas Tech,NC State,6,11,NC State,Region_3,0.5654770508306265,Texas Tech,0,ml_random_forest
+2024,R64,Kentucky,Oakland,3,14,Oakland,Region_3,0.8441833643698397,Kentucky,0,ml_random_forest
+2024,R64,Florida,Colorado,7,10,Colorado,Region_3,0.34829921374600376,Colorado,1,ml_random_forest
+2024,R64,Marquette,Western Kentucky,2,15,Marquette,Region_3,0.8948982174796903,Marquette,1,ml_random_forest
+2024,R32,Houston,Texas A&M,1,9,Houston,Region_3,0.903987471876448,Houston,1,ml_random_forest
+2024,R32,James Madison,Duke,12,4,Duke,Region_3,0.2732026426260126,Duke,1,ml_random_forest
+2024,R32,NC State,Oakland,11,14,NC State,Region_3,0.7980468919016089,NC State,1,ml_random_forest
+2024,R32,Colorado,Marquette,10,2,Marquette,Region_3,0.36120358327715707,Marquette,1,ml_random_forest
+2024,S16,Houston,Duke,1,4,Duke,Region_3,0.8460644795490028,Houston,0,ml_random_forest
+2024,S16,NC State,Marquette,11,2,NC State,Region_3,0.289220540520873,Marquette,0,ml_random_forest
+2024,E8,Duke,NC State,4,11,NC State,Region_3,0.7200446176864166,Duke,0,ml_random_forest
+2024,R64,UNC,Wagner,1,16,UNC,Region_4,0.9322780004478541,UNC,1,ml_random_forest
+2024,R64,Mississippi State,Michigan State,8,9,Michigan State,Region_4,0.37491290544821865,Michigan State,1,ml_random_forest
+2024,R64,Alabama,College of Charleston,4,13,Alabama,Region_4,0.9010341669799813,Alabama,1,ml_random_forest
+2024,R64,Clemson,New Mexico,6,11,Clemson,Region_4,0.5653455022335133,Clemson,1,ml_random_forest
+2024,R64,Baylor,Colgate,3,14,Baylor,Region_4,0.957746862323516,Baylor,1,ml_random_forest
+2024,R64,Dayton,Nevada,7,10,Dayton,Region_4,0.5726476509175824,Dayton,1,ml_random_forest
+2024,R64,Arizona,Long Beach State,2,15,Arizona,Region_4,0.9466288453726877,Arizona,1,ml_random_forest
+2024,R32,UNC,Michigan State,1,9,UNC,Region_4,0.686804631265256,UNC,1,ml_random_forest
+2024,R32,Grand Canyon,Alabama,12,4,Alabama,Region_4,0.25174644342962277,Alabama,1,ml_random_forest
+2024,R32,Clemson,Baylor,6,3,Clemson,Region_4,0.39850030626559835,Baylor,0,ml_random_forest
+2024,R32,Dayton,Arizona,7,2,Arizona,Region_4,0.20907733034176212,Arizona,1,ml_random_forest
+2024,S16,UNC,Alabama,1,4,Alabama,Region_4,0.5803221706219005,UNC,0,ml_random_forest
+2024,S16,Clemson,Arizona,6,2,Clemson,Region_4,0.14830596492910508,Arizona,0,ml_random_forest
+2024,E8,Alabama,Clemson,4,6,Alabama,Region_4,0.5087859205065378,Alabama,1,ml_random_forest
+2024,F4,UConn,Alabama,1,4,UConn,Final Four,0.8020319458289684,UConn,1,ml_random_forest
+2024,F4,Purdue,NC State,1,11,Purdue,Final Four,0.8444817449602221,Purdue,1,ml_random_forest
+2024,Championship,UConn,Purdue,1,1,UConn,Final Four,0.33123297806944557,Purdue,0,ml_random_forest

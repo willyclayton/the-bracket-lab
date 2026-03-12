@@ -15,6 +15,7 @@ import agentData     from '@/data/models/the-agent.json';
 import superAgentData from '@/data/models/the-super-agent.json';
 import optimizerData from '@/data/models/the-optimizer.json';
 import scoutPrimeData from '@/data/models/the-scout-prime.json';
+import autoResearcherData from '@/data/models/the-auto-researcher.json';
 
 const BRACKET_MAP: Record<string, BracketData> = {
   'the-scout':       scoutData     as unknown as BracketData,
@@ -25,6 +26,7 @@ const BRACKET_MAP: Record<string, BracketData> = {
   'the-super-agent': superAgentData as unknown as BracketData,
   'the-optimizer':   optimizerData as unknown as BracketData,
   'the-scout-prime': scoutPrimeData as unknown as BracketData,
+  'the-auto-researcher': autoResearcherData as unknown as BracketData,
 };
 
 export function generateStaticParams() {

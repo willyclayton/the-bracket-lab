@@ -26,6 +26,7 @@ module.exports = {
         superagent: '#a855f7', // purple
         optimizer: '#06b6d4', // cyan
         scoutprime: '#64748b', // slate
+        autoresearcher: '#f97316', // orange
       },
       fontFamily: {
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],

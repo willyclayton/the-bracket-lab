@@ -20,6 +20,7 @@ import agentData     from '@/data/models/the-agent.json';
 import superAgentData from '@/data/models/the-super-agent.json';
 import optimizerData from '@/data/models/the-optimizer.json';
 import scoutPrimeData from '@/data/models/the-scout-prime.json';
+import autoResearcherData from '@/data/models/the-auto-researcher.json';
 import results2026   from '@/data/results/actual-results.json';
 
 // 2025 (archive)
@@ -55,6 +56,7 @@ const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
     'the-super-agent': superAgentData as unknown as BracketData,
     'the-optimizer':   optimizerData as unknown as BracketData,
     'the-scout-prime': scoutPrimeData as unknown as BracketData,
+    'the-auto-researcher': autoResearcherData as unknown as BracketData,
   },
   '2025': {
     'the-scout':       scoutData2025     as unknown as BracketData,

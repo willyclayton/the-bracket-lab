@@ -49,6 +49,7 @@ body {
 .model-superagent { border-color: #a855f7; }
 .model-optimizer { border-color: #06b6d4; }
 .model-scoutprime { border-color: #64748b; }
+.model-autoresearcher { border-color: #f97316; }
 
 /* ---- Model accent backgrounds (subtle) ---- */
 .model-scout-bg { background: rgba(59, 130, 246, 0.08); }
@@ -59,6 +60,7 @@ body {
 .model-superagent-bg { background: rgba(168, 85, 247, 0.08); }
 .model-optimizer-bg { background: rgba(6, 182, 212, 0.08); }
 .model-scoutprime-bg { background: rgba(100, 116, 139, 0.08); }
+.model-autoresearcher-bg { background: rgba(249, 115, 22, 0.08); }
 
 /* ---- Glow effects (hover-triggered, stronger) ---- */
 .glow-scout:hover     { box-shadow: 0 10px 36px rgba(59, 130, 246, 0.22); }
@@ -69,6 +71,7 @@ body {
 .glow-superagent:hover { box-shadow: 0 10px 36px rgba(168, 85, 247, 0.22); }
 .glow-optimizer:hover { box-shadow: 0 10px 36px rgba(6, 182, 212, 0.22); }
 .glow-scoutprime:hover { box-shadow: 0 10px 36px rgba(100, 116, 139, 0.22); }
+.glow-autoresearcher:hover { box-shadow: 0 10px 36px rgba(249, 115, 22, 0.22); }
 
 /* ---- Eliminated state ---- */
 .eliminated {
@@ -200,6 +203,7 @@ body {
 .card-glow-superagent::before { background: radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.6) 0%, transparent 70%); }
 .card-glow-optimizer::before { background: radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.6) 0%, transparent 70%); }
 .card-glow-scoutprime::before { background: radial-gradient(ellipse at 50% 50%, rgba(100,116,139,0.6) 0%, transparent 70%); }
+.card-glow-autoresearcher::before { background: radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.6) 0%, transparent 70%); }
 .card-glow-scout::before,
 .card-glow-quant::before,
 .card-glow-historian::before,
@@ -207,7 +211,8 @@ body {
 .card-glow-agent::before,
 .card-glow-superagent::before,
 .card-glow-optimizer::before,
-.card-glow-scoutprime::before {
+.card-glow-scoutprime::before,
+.card-glow-autoresearcher::before {
   content: '';
   position: absolute;
   inset: -40px;

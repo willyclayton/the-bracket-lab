@@ -11,6 +11,8 @@ const GLOW_CLASS: Record<string, string> = {
   'the-agent': 'card-glow-agent',
   'the-super-agent': 'card-glow-superagent',
   'the-optimizer': 'card-glow-optimizer',
+  'the-scout-prime': 'card-glow-scoutprime',
+  'the-auto-researcher': 'card-glow-autoresearcher',
 };
 
 interface HomeModelCardProps {

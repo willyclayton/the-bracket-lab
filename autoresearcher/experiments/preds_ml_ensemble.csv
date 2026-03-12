@@ -1,0 +1,828 @@
+year,round,team_1,team_2,seed_1,seed_2,winner,region,prob_team1,pred_winner,correct,model
+2010,R64,Kentucky,ETSU,1,16,Kentucky,Region_1,0.9781002403688301,Kentucky,1,ml_ensemble
+2010,R64,Texas,Wake Forest,8,9,Wake Forest,Region_1,0.47773267076925907,Wake Forest,1,ml_ensemble
+2010,R64,Temple,Cornell,5,12,Cornell,Region_1,0.6144598923175743,Temple,0,ml_ensemble
+2010,R64,Wisconsin,Wofford,4,13,Wisconsin,Region_1,0.8793694332667936,Wisconsin,1,ml_ensemble
+2010,R64,Marquette,Washington,6,11,Washington,Region_1,0.207757205913177,Washington,1,ml_ensemble
+2010,R64,New Mexico,Montana,3,14,New Mexico,Region_1,0.814191972261324,New Mexico,1,ml_ensemble
+2010,R64,Clemson,Missouri,7,10,Missouri,Region_1,0.5986883395484642,Clemson,0,ml_ensemble
+2010,R64,West Virginia,Morgan State,2,15,West Virginia,Region_1,0.960575063909916,West Virginia,1,ml_ensemble
+2010,R32,Kentucky,Wake Forest,1,9,Kentucky,Region_1,0.8261782286617301,Kentucky,1,ml_ensemble
+2010,R32,Cornell,Wisconsin,12,4,Cornell,Region_1,0.25899548541950895,Wisconsin,0,ml_ensemble
+2010,R32,Washington,New Mexico,11,3,Washington,Region_1,0.8145869561439842,Washington,1,ml_ensemble
+2010,R32,Missouri,West Virginia,10,2,West Virginia,Region_1,0.13968988848729888,West Virginia,1,ml_ensemble
+2010,S16,Kentucky,Cornell,1,12,Kentucky,Region_1,0.7969862385802869,Kentucky,1,ml_ensemble
+2010,S16,Washington,West Virginia,11,2,West Virginia,Region_1,0.3029995883056849,West Virginia,1,ml_ensemble
+2010,E8,Kentucky,West Virginia,1,2,West Virginia,Region_1,0.5081953983842332,Kentucky,0,ml_ensemble
+2010,R64,Kansas,Lehigh,1,16,Kansas,Region_2,0.9949881951583173,Kansas,1,ml_ensemble
+2010,R64,Michigan State,New Mexico State,5,12,Michigan State,Region_2,0.9179494381224064,Michigan State,1,ml_ensemble
+2010,R64,Maryland,Houston,4,13,Maryland,Region_2,0.9097123779016556,Maryland,1,ml_ensemble
+2010,R64,Tennessee,San Diego State,6,11,Tennessee,Region_2,0.6571888491467549,Tennessee,1,ml_ensemble
+2010,R64,Georgetown,Ohio,3,14,Ohio,Region_2,0.8531556295219888,Georgetown,0,ml_ensemble
+2010,R64,Oklahoma State,Georgia Tech,7,10,Georgia Tech,Region_2,0.3863806402376942,Georgia Tech,1,ml_ensemble
+2010,R32,Kansas,Northern Iowa,1,9,Northern Iowa,Region_2,0.8205942102804116,Kansas,0,ml_ensemble
+2010,R32,Michigan State,Maryland,5,4,Michigan State,Region_2,0.44110283083998825,Maryland,0,ml_ensemble
+2010,R32,Tennessee,Ohio,6,14,Tennessee,Region_2,0.9348129330335827,Tennessee,1,ml_ensemble
+2010,R32,Georgia Tech,Ohio State,10,2,Ohio State,Region_2,0.334578244656971,Ohio State,1,ml_ensemble
+2010,S16,Northern Iowa,Michigan State,9,5,Michigan State,Region_2,0.4228246339918634,Michigan State,1,ml_ensemble
+2010,S16,Tennessee,Ohio State,6,2,Tennessee,Region_2,0.5588668341926112,Tennessee,1,ml_ensemble
+2010,E8,Michigan State,Tennessee,5,6,Michigan State,Region_2,0.3658934658844148,Tennessee,0,ml_ensemble
+2010,R64,Duke,Arkansas-Pine Bluff,1,16,Duke,Region_3,0.990721635626682,Duke,1,ml_ensemble
+2010,R64,California,Louisville,8,9,California,Region_3,0.7157745916906979,California,1,ml_ensemble
+2010,R64,Texas A&M,Utah State,5,12,Texas A&M,Region_3,0.6199917727407296,Texas A&M,1,ml_ensemble
+2010,R64,Purdue,Siena,4,13,Purdue,Region_3,0.8101939023109009,Purdue,1,ml_ensemble
+2010,R64,Notre Dame,Old Dominion,6,11,Old Dominion,Region_3,0.2900017523110939,Old Dominion,1,ml_ensemble
+2010,R64,Baylor,Sam Houston,3,14,Baylor,Region_3,0.8354427011768122,Baylor,1,ml_ensemble
+2010,R64,Villanova,Robert Morris,2,15,Villanova,Region_3,0.9437327444269994,Villanova,1,ml_ensemble
+2010,R32,Duke,California,1,8,Duke,Region_3,0.8827256289696868,Duke,1,ml_ensemble
+2010,R32,Texas A&M,Purdue,5,4,Purdue,Region_3,0.21540554337788775,Purdue,1,ml_ensemble
+2010,R32,Old Dominion,Baylor,11,3,Baylor,Region_3,0.21843685390331924,Baylor,1,ml_ensemble
+2010,S16,Duke,Purdue,1,4,Duke,Region_3,0.5480500349293076,Duke,1,ml_ensemble
+2010,E8,Duke,Baylor,1,3,Duke,Region_3,0.8762180799823223,Duke,1,ml_ensemble
+2010,R64,Syracuse,Vermont,1,16,Syracuse,Region_4,0.9752666027938829,Syracuse,1,ml_ensemble
+2010,R64,Gonzaga,Florida State,8,9,Gonzaga,Region_4,0.4043682508522193,Florida State,0,ml_ensemble
+2010,R64,Butler,UTEP,5,12,Butler,Region_4,0.6048242721143541,Butler,1,ml_ensemble
+2010,R64,Vanderbilt,Murray State,4,13,Murray State,Region_4,0.6419813421781272,Vanderbilt,0,ml_ensemble
+2010,R64,Xavier,Minnesota,6,11,Xavier,Region_4,0.5326019944463539,Xavier,1,ml_ensemble
+2010,R64,Pitt,Oakland,3,14,Pitt,Region_4,0.8093579673129375,Pitt,1,ml_ensemble
+2010,R64,Kansas State,North Texas,2,15,Kansas State,Region_4,0.9583281665660716,Kansas State,1,ml_ensemble
+2010,R32,Syracuse,Gonzaga,1,8,Syracuse,Region_4,0.769595143065669,Syracuse,1,ml_ensemble
+2010,R32,Butler,Murray State,5,13,Butler,Region_4,0.7792330709769336,Butler,1,ml_ensemble
+2010,R32,Xavier,Pitt,6,3,Xavier,Region_4,0.48207638134138303,Pitt,0,ml_ensemble
+2010,S16,Syracuse,Butler,1,5,Butler,Region_4,0.6433465788183249,Syracuse,0,ml_ensemble
+2010,S16,Xavier,Kansas State,6,2,Kansas State,Region_4,0.17922377170591183,Kansas State,1,ml_ensemble
+2010,E8,Butler,Kansas State,5,2,Butler,Region_4,0.24272851283618047,Kansas State,0,ml_ensemble
+2010,F4,West Virginia,Duke,2,1,Duke,Final Four,0.2699510877458604,Duke,1,ml_ensemble
+2010,F4,Michigan State,Butler,5,5,Butler,Final Four,0.46980117639782026,Butler,1,ml_ensemble
+2010,Championship,Duke,Butler,1,5,Duke,Final Four,0.8549556210777824,Duke,1,ml_ensemble
+2011,R64,Ohio State,UTSA,1,16,Ohio State,Region_1,0.9930835988109701,Ohio State,1,ml_ensemble
+2011,R64,George Mason,Villanova,8,9,George Mason,Region_1,0.3747718401955114,Villanova,0,ml_ensemble
+2011,R64,West Virginia,Clemson,5,12,West Virginia,Region_1,0.45875307869165055,Clemson,0,ml_ensemble
+2011,R64,Kentucky,Princeton,4,13,Kentucky,Region_1,0.9137228905982152,Kentucky,1,ml_ensemble
+2011,R64,Xavier,Marquette,6,11,Marquette,Region_1,0.22829308646664345,Marquette,1,ml_ensemble
+2011,R64,Syracuse,Indiana State,3,14,Syracuse,Region_1,0.9106202338962667,Syracuse,1,ml_ensemble
+2011,R64,Washington,Georgia,7,10,Washington,Region_1,0.6547516860646467,Washington,1,ml_ensemble
+2011,R32,Ohio State,George Mason,1,8,Ohio State,Region_1,0.9683334589223862,Ohio State,1,ml_ensemble
+2011,R32,West Virginia,Kentucky,5,4,Kentucky,Region_1,0.301754201907793,Kentucky,1,ml_ensemble
+2011,R32,Marquette,Syracuse,11,3,Marquette,Region_1,0.2314409304725218,Syracuse,0,ml_ensemble
+2011,R32,Washington,UNC,7,2,UNC,Region_1,0.2833688982293456,UNC,1,ml_ensemble
+2011,S16,Ohio State,Kentucky,1,4,Kentucky,Region_1,0.8320655798797643,Ohio State,0,ml_ensemble
+2011,S16,Marquette,UNC,11,2,UNC,Region_1,0.24160386944054715,UNC,1,ml_ensemble
+2011,E8,Kentucky,UNC,4,2,Kentucky,Region_1,0.4838636902980598,UNC,0,ml_ensemble
+2011,R64,Pitt,UNC Asheville,1,16,Pitt,Region_2,0.9822795501973203,Pitt,1,ml_ensemble
+2011,R64,Butler,Old Dominion,8,9,Butler,Region_2,0.6744818188984603,Butler,1,ml_ensemble
+2011,R64,Kansas State,Utah State,5,12,Kansas State,Region_2,0.2324068892863289,Utah State,0,ml_ensemble
+2011,R64,Wisconsin,Belmont,4,13,Wisconsin,Region_2,0.7698650793817325,Wisconsin,1,ml_ensemble
+2011,R64,St. John's (NY),Gonzaga,6,11,Gonzaga,Region_2,0.35369715661537554,Gonzaga,1,ml_ensemble
+2011,R64,UCLA,Michigan State,7,10,UCLA,Region_2,0.28233988615167804,Michigan State,0,ml_ensemble
+2011,R32,Pitt,Butler,1,8,Butler,Region_2,0.8436692097435851,Pitt,0,ml_ensemble
+2011,R32,Kansas State,Wisconsin,5,4,Wisconsin,Region_2,0.22230588543936916,Wisconsin,1,ml_ensemble
+2011,R32,UCLA,Florida,7,2,Florida,Region_2,0.5809263130429861,UCLA,0,ml_ensemble
+2011,S16,Butler,Wisconsin,8,4,Butler,Region_2,0.1278733955475668,Wisconsin,0,ml_ensemble
+2011,E8,Butler,Florida,8,2,Butler,Region_2,0.3251556098993821,Florida,0,ml_ensemble
+2011,R64,Kansas,Boston University,1,16,Kansas,Region_3,0.9874104726275537,Kansas,1,ml_ensemble
+2011,R64,Vanderbilt,Richmond,5,12,Richmond,Region_3,0.28918620293566855,Richmond,1,ml_ensemble
+2011,R64,Louisville,Morehead State,4,13,Morehead State,Region_3,0.9326464355874835,Louisville,0,ml_ensemble
+2011,R64,Georgetown,VCU,6,11,VCU,Region_3,0.7260010152834404,Georgetown,0,ml_ensemble
+2011,R64,Texas A&M,Florida State,7,10,Florida State,Region_3,0.42637883379058916,Florida State,1,ml_ensemble
+2011,R64,Notre Dame,Akron,2,15,Notre Dame,Region_3,0.9306423075751405,Notre Dame,1,ml_ensemble
+2011,R32,Kansas,Illinois,1,9,Kansas,Region_3,0.8768137738233897,Kansas,1,ml_ensemble
+2011,R32,Richmond,Morehead State,12,13,Richmond,Region_3,0.9104710828446154,Richmond,1,ml_ensemble
+2011,R32,VCU,Purdue,11,3,VCU,Region_3,0.08207465062661093,Purdue,0,ml_ensemble
+2011,R32,Florida State,Notre Dame,10,2,Florida State,Region_3,0.4308159066125296,Notre Dame,0,ml_ensemble
+2011,S16,Kansas,Richmond,1,12,Kansas,Region_3,0.868969687703443,Kansas,1,ml_ensemble
+2011,S16,VCU,Florida State,11,10,VCU,Region_3,0.2705309132881962,Florida State,0,ml_ensemble
+2011,E8,Kansas,VCU,1,11,VCU,Region_3,0.9618798870937996,Kansas,0,ml_ensemble
+2011,R64,Duke,Hampton,1,16,Duke,Region_4,0.9640985544082388,Duke,1,ml_ensemble
+2011,R64,Michigan,Tennessee,8,9,Michigan,Region_4,0.7879784361871063,Michigan,1,ml_ensemble
+2011,R64,Arizona,Memphis,5,12,Arizona,Region_4,0.8137822606459119,Arizona,1,ml_ensemble
+2011,R64,Texas,Oakland,4,13,Texas,Region_4,0.7937171484699265,Texas,1,ml_ensemble
+2011,R64,Cincinnati,Missouri,6,11,Cincinnati,Region_4,0.5148569993840532,Cincinnati,1,ml_ensemble
+2011,R64,UConn,Bucknell,3,14,UConn,Region_4,0.9618825757601778,UConn,1,ml_ensemble
+2011,R64,Temple,Penn State,7,10,Temple,Region_4,0.6312650765905268,Temple,1,ml_ensemble
+2011,R64,San Diego State,Northern Colorado,2,15,San Diego State,Region_4,0.9685194593764561,San Diego State,1,ml_ensemble
+2011,R32,Duke,Michigan,1,8,Duke,Region_4,0.9259546323254294,Duke,1,ml_ensemble
+2011,R32,Arizona,Texas,5,4,Arizona,Region_4,0.5267306132834447,Arizona,1,ml_ensemble
+2011,R32,Cincinnati,UConn,6,3,UConn,Region_4,0.12144186383212302,UConn,1,ml_ensemble
+2011,R32,Temple,San Diego State,7,2,San Diego State,Region_4,0.11433524223974334,San Diego State,1,ml_ensemble
+2011,S16,Duke,Arizona,1,5,Arizona,Region_4,0.6938089658691848,Duke,0,ml_ensemble
+2011,S16,UConn,San Diego State,3,2,UConn,Region_4,0.2980076446264736,San Diego State,0,ml_ensemble
+2011,E8,Arizona,UConn,5,3,UConn,Region_4,0.27344244080574526,UConn,1,ml_ensemble
+2011,F4,Kentucky,UConn,4,3,UConn,Final Four,0.5925720662147507,Kentucky,0,ml_ensemble
+2011,F4,Butler,VCU,8,11,Butler,Final Four,0.6631221222063084,Butler,1,ml_ensemble
+2011,Championship,UConn,Butler,3,8,UConn,Final Four,0.7709492466511679,UConn,1,ml_ensemble
+2012,R64,Syracuse,UNC Asheville,1,16,Syracuse,Region_1,0.9551358656462389,Syracuse,1,ml_ensemble
+2012,R64,Vanderbilt,Harvard,5,12,Vanderbilt,Region_1,0.30568781561680364,Harvard,0,ml_ensemble
+2012,R64,Wisconsin,Montana,4,13,Wisconsin,Region_1,0.8889213732831959,Wisconsin,1,ml_ensemble
+2012,R64,Cincinnati,Texas,6,11,Cincinnati,Region_1,0.40347721013727894,Texas,0,ml_ensemble
+2012,R64,Florida State,St. Bonaventure,3,14,Florida State,Region_1,0.677150424650271,Florida State,1,ml_ensemble
+2012,R64,Gonzaga,West Virginia,7,10,Gonzaga,Region_1,0.7415229824916496,Gonzaga,1,ml_ensemble
+2012,R64,Ohio State,Loyola (MD),2,15,Ohio State,Region_1,0.9259713752714812,Ohio State,1,ml_ensemble
+2012,R32,Syracuse,Kansas State,1,8,Syracuse,Region_1,0.8728838640286912,Syracuse,1,ml_ensemble
+2012,R32,Vanderbilt,Wisconsin,5,4,Wisconsin,Region_1,0.423180839797884,Wisconsin,1,ml_ensemble
+2012,R32,Cincinnati,Florida State,6,3,Cincinnati,Region_1,0.44582119120793523,Florida State,0,ml_ensemble
+2012,R32,Gonzaga,Ohio State,7,2,Ohio State,Region_1,0.23418696788786933,Ohio State,1,ml_ensemble
+2012,S16,Syracuse,Wisconsin,1,4,Syracuse,Region_1,0.829877604342311,Syracuse,1,ml_ensemble
+2012,S16,Cincinnati,Ohio State,6,2,Ohio State,Region_1,0.10718436276640327,Ohio State,1,ml_ensemble
+2012,E8,Syracuse,Ohio State,1,2,Ohio State,Region_1,0.5605030945143117,Syracuse,0,ml_ensemble
+2012,R64,UNC,Vermont,1,16,UNC,Region_2,0.9778658023637572,UNC,1,ml_ensemble
+2012,R64,Creighton,Alabama,8,9,Creighton,Region_2,0.7734886467512837,Creighton,1,ml_ensemble
+2012,R64,Temple,South Florida,5,12,South Florida,Region_2,0.5794609318036144,Temple,0,ml_ensemble
+2012,R64,Michigan,Ohio,4,13,Ohio,Region_2,0.5587077170058934,Michigan,0,ml_ensemble
+2012,R64,San Diego State,NC State,6,11,NC State,Region_2,0.250941084348475,NC State,1,ml_ensemble
+2012,R64,Georgetown,Belmont,3,14,Georgetown,Region_2,0.41485371542637,Belmont,0,ml_ensemble
+2012,R64,Kansas,Detroit Mercy,2,15,Kansas,Region_2,0.9774203304436698,Kansas,1,ml_ensemble
+2012,R32,UNC,Creighton,1,8,UNC,Region_2,0.6635853688896488,UNC,1,ml_ensemble
+2012,R32,South Florida,Ohio,12,13,Ohio,Region_2,0.497626736491666,Ohio,1,ml_ensemble
+2012,R32,NC State,Georgetown,11,3,NC State,Region_2,0.5732027696641782,NC State,1,ml_ensemble
+2012,R32,Purdue,Kansas,10,2,Kansas,Region_2,0.08488724147636466,Kansas,1,ml_ensemble
+2012,S16,UNC,Ohio,1,13,UNC,Region_2,0.5353322708985213,UNC,1,ml_ensemble
+2012,S16,NC State,Kansas,11,2,Kansas,Region_2,0.10794859389173263,Kansas,1,ml_ensemble
+2012,E8,UNC,Kansas,1,2,Kansas,Region_2,0.2480315624613941,Kansas,1,ml_ensemble
+2012,R64,Kentucky,Western Kentucky,1,16,Kentucky,Region_3,0.9253935878577629,Kentucky,1,ml_ensemble
+2012,R64,Iowa State,UConn,8,9,Iowa State,Region_3,0.6970579926743379,Iowa State,1,ml_ensemble
+2012,R64,Wichita State,VCU,5,12,VCU,Region_3,0.4717919453912302,VCU,1,ml_ensemble
+2012,R64,Indiana,New Mexico State,4,13,Indiana,Region_3,0.7634124850626064,Indiana,1,ml_ensemble
+2012,R64,Baylor,South Dakota State,3,14,Baylor,Region_3,0.6845609914220474,Baylor,1,ml_ensemble
+2012,R64,Notre Dame,Xavier,7,10,Xavier,Region_3,0.641506890230313,Notre Dame,0,ml_ensemble
+2012,R64,Duke,Lehigh,2,15,Lehigh,Region_3,0.873212190918074,Duke,0,ml_ensemble
+2012,R32,Kentucky,Iowa State,1,8,Kentucky,Region_3,0.9590026772913847,Kentucky,1,ml_ensemble
+2012,R32,VCU,Indiana,12,4,Indiana,Region_3,0.23188753717793642,Indiana,1,ml_ensemble
+2012,R32,Colorado,Baylor,11,3,Baylor,Region_3,0.38868657384652555,Baylor,1,ml_ensemble
+2012,R32,Xavier,Lehigh,10,15,Xavier,Region_3,0.7587438573133493,Xavier,1,ml_ensemble
+2012,S16,Kentucky,Indiana,1,4,Kentucky,Region_3,0.918790384730208,Kentucky,1,ml_ensemble
+2012,S16,Baylor,Xavier,3,10,Baylor,Region_3,0.7928782461457281,Baylor,1,ml_ensemble
+2012,E8,Kentucky,Baylor,1,3,Kentucky,Region_3,0.8132903924609289,Kentucky,1,ml_ensemble
+2012,R64,Memphis,Saint Louis,8,9,Saint Louis,Region_4,0.616142881235182,Memphis,0,ml_ensemble
+2012,R64,New Mexico,Long Beach State,5,12,New Mexico,Region_4,0.6755014181208536,New Mexico,1,ml_ensemble
+2012,R64,Louisville,Davidson,4,13,Louisville,Region_4,0.7206021821534151,Louisville,1,ml_ensemble
+2012,R64,Murray State,Colorado State,6,11,Murray State,Region_4,0.6615344620826336,Murray State,1,ml_ensemble
+2012,R64,Florida,Virginia,7,10,Florida,Region_4,0.7285336053861151,Florida,1,ml_ensemble
+2012,R64,Missouri,Norfolk State,2,15,Norfolk State,Region_4,0.9615371047271966,Missouri,0,ml_ensemble
+2012,R32,Michigan State,Saint Louis,1,9,Michigan State,Region_4,0.6460556564890148,Michigan State,1,ml_ensemble
+2012,R32,New Mexico,Louisville,5,4,Louisville,Region_4,0.2377674763472979,Louisville,1,ml_ensemble
+2012,R32,Murray State,Marquette,6,3,Marquette,Region_4,0.2081174655063576,Marquette,1,ml_ensemble
+2012,R32,Florida,Norfolk State,7,15,Florida,Region_4,0.9073970775111581,Florida,1,ml_ensemble
+2012,S16,Michigan State,Louisville,1,4,Louisville,Region_4,0.6254711303264454,Michigan State,0,ml_ensemble
+2012,S16,Marquette,Florida,3,7,Florida,Region_4,0.3750488747659004,Florida,1,ml_ensemble
+2012,E8,Louisville,Florida,4,7,Louisville,Region_4,0.5957799359415251,Louisville,1,ml_ensemble
+2012,F4,Ohio State,Kansas,2,2,Kansas,Final Four,0.3739406650709209,Kansas,1,ml_ensemble
+2012,F4,Kentucky,Louisville,1,4,Kentucky,Final Four,0.9057214858178994,Kentucky,1,ml_ensemble
+2012,Championship,Kansas,Kentucky,2,1,Kentucky,Final Four,0.23716324312174256,Kentucky,1,ml_ensemble
+2013,R64,Indiana,James Madison,1,16,Indiana,Region_1,0.980213601424777,Indiana,1,ml_ensemble
+2013,R64,NC State,Temple,8,9,Temple,Region_1,0.7567874800243413,NC State,0,ml_ensemble
+2013,R64,Syracuse,Montana,4,13,Syracuse,Region_1,0.9441911795660786,Syracuse,1,ml_ensemble
+2013,R64,Butler,Bucknell,6,11,Butler,Region_1,0.6055631644471239,Butler,1,ml_ensemble
+2013,R64,Marquette,Davidson,3,14,Marquette,Region_1,0.678197138426687,Marquette,1,ml_ensemble
+2013,R64,Illinois,Colorado,7,10,Illinois,Region_1,0.7109587949663858,Illinois,1,ml_ensemble
+2013,R64,Miami (FL),Pacific,2,15,Miami (FL),Region_1,0.8719947294614375,Miami (FL),1,ml_ensemble
+2013,R32,Indiana,Temple,1,9,Indiana,Region_1,0.8051013648919043,Indiana,1,ml_ensemble
+2013,R32,California,Syracuse,12,4,Syracuse,Region_1,0.25723720465746774,Syracuse,1,ml_ensemble
+2013,R32,Butler,Marquette,6,3,Marquette,Region_1,0.4051272729485393,Marquette,1,ml_ensemble
+2013,R32,Illinois,Miami (FL),7,2,Miami (FL),Region_1,0.3735673680594258,Miami (FL),1,ml_ensemble
+2013,S16,Indiana,Syracuse,1,4,Syracuse,Region_1,0.3773298724227734,Syracuse,1,ml_ensemble
+2013,S16,Marquette,Miami (FL),3,2,Marquette,Region_1,0.32581152382371803,Miami (FL),0,ml_ensemble
+2013,E8,Syracuse,Marquette,4,3,Syracuse,Region_1,0.5919587731360877,Syracuse,1,ml_ensemble
+2013,R64,Louisville,North Carolina A&T,1,16,Louisville,Region_2,0.9876967910565239,Louisville,1,ml_ensemble
+2013,R64,Colorado State,Missouri,8,9,Colorado State,Region_2,0.5351912683495468,Colorado State,1,ml_ensemble
+2013,R64,Oklahoma State,Oregon,5,12,Oregon,Region_2,0.39862854360803884,Oregon,1,ml_ensemble
+2013,R64,Saint Louis,New Mexico State,4,13,Saint Louis,Region_2,0.7460237452971095,Saint Louis,1,ml_ensemble
+2013,R64,Michigan State,Valparaiso,3,14,Michigan State,Region_2,0.8792787894099653,Michigan State,1,ml_ensemble
+2013,R64,Creighton,Cincinnati,7,10,Creighton,Region_2,0.7005798364388646,Creighton,1,ml_ensemble
+2013,R64,Duke,Albany (NY),2,15,Duke,Region_2,0.9794953256991145,Duke,1,ml_ensemble
+2013,R32,Louisville,Colorado State,1,8,Louisville,Region_2,0.9138901864928428,Louisville,1,ml_ensemble
+2013,R32,Oregon,Saint Louis,12,4,Oregon,Region_2,0.7623573822840549,Oregon,1,ml_ensemble
+2013,R32,Memphis,Michigan State,6,3,Michigan State,Region_2,0.49940002594165184,Michigan State,1,ml_ensemble
+2013,R32,Creighton,Duke,7,2,Duke,Region_2,0.20206321970262597,Duke,1,ml_ensemble
+2013,S16,Louisville,Oregon,1,12,Louisville,Region_2,0.8157609846054986,Louisville,1,ml_ensemble
+2013,S16,Michigan State,Duke,3,2,Duke,Region_2,0.38261854285088664,Duke,1,ml_ensemble
+2013,E8,Louisville,Duke,1,2,Louisville,Region_2,0.44132538427190243,Duke,0,ml_ensemble
+2013,R64,Kansas,Western Kentucky,1,16,Kansas,Region_3,0.9707361796124226,Kansas,1,ml_ensemble
+2013,R64,UNC,Villanova,8,9,UNC,Region_3,0.7257608515909838,UNC,1,ml_ensemble
+2013,R64,VCU,Akron,5,12,VCU,Region_3,0.5483136576004694,VCU,1,ml_ensemble
+2013,R64,Michigan,South Dakota State,4,13,Michigan,Region_3,0.9718236374208221,Michigan,1,ml_ensemble
+2013,R64,UCLA,Minnesota,6,11,Minnesota,Region_3,0.287182615963599,Minnesota,1,ml_ensemble
+2013,R64,Florida,Northwestern State,3,14,Florida,Region_3,0.9465558503561528,Florida,1,ml_ensemble
+2013,R64,San Diego State,Oklahoma,7,10,San Diego State,Region_3,0.40014911075439513,Oklahoma,0,ml_ensemble
+2013,R64,Georgetown,Florida Gulf Coast,2,15,Florida Gulf Coast,Region_3,0.8043379332745868,Georgetown,0,ml_ensemble
+2013,R32,Kansas,UNC,1,8,Kansas,Region_3,0.6006885153843233,Kansas,1,ml_ensemble
+2013,R32,VCU,Michigan,5,4,Michigan,Region_3,0.10188620703769759,Michigan,1,ml_ensemble
+2013,R32,Minnesota,Florida,11,3,Florida,Region_3,0.4211713012773002,Florida,1,ml_ensemble
+2013,R32,San Diego State,Florida Gulf Coast,7,15,Florida Gulf Coast,Region_3,0.7904952637568314,San Diego State,0,ml_ensemble
+2013,S16,Kansas,Michigan,1,4,Michigan,Region_3,0.2051405076612726,Michigan,1,ml_ensemble
+2013,S16,Florida,Florida Gulf Coast,3,15,Florida,Region_3,0.7943427725781902,Florida,1,ml_ensemble
+2013,E8,Michigan,Florida,4,3,Michigan,Region_3,0.5803972393837545,Michigan,1,ml_ensemble
+2013,R64,Gonzaga,Southern,1,16,Gonzaga,Region_4,0.9885257465147884,Gonzaga,1,ml_ensemble
+2013,R64,Pitt,Wichita State,8,9,Wichita State,Region_4,0.3963152664128417,Wichita State,1,ml_ensemble
+2013,R64,Wisconsin,Ole Miss,5,12,Ole Miss,Region_4,0.4310303977796981,Ole Miss,1,ml_ensemble
+2013,R64,Kansas State,La Salle,4,13,La Salle,Region_4,0.6071756181517852,Kansas State,0,ml_ensemble
+2013,R64,Arizona,Belmont,6,11,Arizona,Region_4,0.8150540795342464,Arizona,1,ml_ensemble
+2013,R64,New Mexico,Harvard,3,14,Harvard,Region_4,0.8594509687588716,New Mexico,0,ml_ensemble
+2013,R64,Notre Dame,Iowa State,7,10,Iowa State,Region_4,0.6770087804387289,Notre Dame,0,ml_ensemble
+2013,R64,Ohio State,Iona,2,15,Ohio State,Region_4,0.9526726467988689,Ohio State,1,ml_ensemble
+2013,R32,Gonzaga,Wichita State,1,9,Wichita State,Region_4,0.6465187926999739,Gonzaga,0,ml_ensemble
+2013,R32,Ole Miss,La Salle,12,13,La Salle,Region_4,0.5293844514527742,Ole Miss,0,ml_ensemble
+2013,R32,Arizona,Harvard,6,14,Arizona,Region_4,0.8684335606765888,Arizona,1,ml_ensemble
+2013,R32,Iowa State,Ohio State,10,2,Ohio State,Region_4,0.20391033429181718,Ohio State,1,ml_ensemble
+2013,S16,Wichita State,La Salle,9,13,Wichita State,Region_4,0.7475953560513124,Wichita State,1,ml_ensemble
+2013,S16,Arizona,Ohio State,6,2,Ohio State,Region_4,0.518188194379907,Arizona,0,ml_ensemble
+2013,E8,Wichita State,Ohio State,9,2,Wichita State,Region_4,0.4561027696602055,Ohio State,0,ml_ensemble
+2013,F4,Syracuse,Michigan,4,4,Michigan,Final Four,0.18648416144205585,Michigan,1,ml_ensemble
+2013,F4,Louisville,Wichita State,1,9,Louisville,Final Four,0.8416821314772948,Louisville,1,ml_ensemble
+2013,Championship,Michigan,Louisville,4,1,Louisville,Final Four,0.3534427909124361,Louisville,1,ml_ensemble
+2014,R64,Virginia,Coastal Carolina,1,16,Virginia,Region_1,0.9603796417759529,Virginia,1,ml_ensemble
+2014,R64,Memphis,George Washington,8,9,Memphis,Region_1,0.6871041729394789,Memphis,1,ml_ensemble
+2014,R64,Cincinnati,Harvard,5,12,Harvard,Region_1,0.6437644326438532,Cincinnati,0,ml_ensemble
+2014,R64,Michigan State,Delaware,4,13,Michigan State,Region_1,0.8935137880394537,Michigan State,1,ml_ensemble
+2014,R64,UNC,Providence,6,11,UNC,Region_1,0.5689025786540491,UNC,1,ml_ensemble
+2014,R64,Iowa State,North Carolina Central,3,14,Iowa State,Region_1,0.921531186119398,Iowa State,1,ml_ensemble
+2014,R64,Villanova,Milwaukee,2,15,Villanova,Region_1,0.9576064645460386,Villanova,1,ml_ensemble
+2014,R32,Virginia,Memphis,1,8,Virginia,Region_1,0.6866514294159134,Virginia,1,ml_ensemble
+2014,R32,Harvard,Michigan State,12,4,Michigan State,Region_1,0.14574699395905605,Michigan State,1,ml_ensemble
+2014,R32,UNC,Iowa State,6,3,Iowa State,Region_1,0.251705233780513,Iowa State,1,ml_ensemble
+2014,R32,UConn,Villanova,7,2,UConn,Region_1,0.7499198602176097,UConn,1,ml_ensemble
+2014,S16,Virginia,Michigan State,1,4,Michigan State,Region_1,0.2604300665732166,Michigan State,1,ml_ensemble
+2014,S16,Iowa State,UConn,3,7,UConn,Region_1,0.37752368667937675,UConn,1,ml_ensemble
+2014,E8,Michigan State,UConn,4,7,UConn,Region_1,0.3299854817031281,UConn,1,ml_ensemble
+2014,R64,Wichita State,Cal Poly,1,16,Wichita State,Region_2,0.9589480927253998,Wichita State,1,ml_ensemble
+2014,R64,Kentucky,Kansas State,8,9,Kentucky,Region_2,0.8657263845741103,Kentucky,1,ml_ensemble
+2014,R64,Saint Louis,NC State,5,12,Saint Louis,Region_2,0.39913544598369405,NC State,0,ml_ensemble
+2014,R64,Louisville,Manhattan,4,13,Louisville,Region_2,0.7581235277063141,Louisville,1,ml_ensemble
+2014,R64,Duke,Mercer,3,14,Mercer,Region_2,0.905063780752728,Duke,0,ml_ensemble
+2014,R64,Texas,Arizona State,7,10,Texas,Region_2,0.6582853837214021,Texas,1,ml_ensemble
+2014,R64,Michigan,Wofford,2,15,Michigan,Region_2,0.9800612880862265,Michigan,1,ml_ensemble
+2014,R32,Wichita State,Kentucky,1,8,Kentucky,Region_2,0.3534611245481443,Kentucky,1,ml_ensemble
+2014,R32,Saint Louis,Louisville,5,4,Louisville,Region_2,0.10659565288742756,Louisville,1,ml_ensemble
+2014,R32,Tennessee,Mercer,11,14,Tennessee,Region_2,0.9168442768526575,Tennessee,1,ml_ensemble
+2014,R32,Texas,Michigan,7,2,Michigan,Region_2,0.37586611233524775,Michigan,1,ml_ensemble
+2014,S16,Kentucky,Louisville,8,4,Kentucky,Region_2,0.2734699388484994,Louisville,0,ml_ensemble
+2014,S16,Tennessee,Michigan,11,2,Michigan,Region_2,0.48794261734052063,Michigan,1,ml_ensemble
+2014,E8,Kentucky,Michigan,8,2,Kentucky,Region_2,0.6265483679120325,Kentucky,1,ml_ensemble
+2014,R64,Florida,Albany (NY),1,16,Florida,Region_3,0.9930202913865654,Florida,1,ml_ensemble
+2014,R64,Colorado,Pitt,8,9,Pitt,Region_3,0.1708869584435838,Pitt,1,ml_ensemble
+2014,R64,VCU,Stephen F. Austin,5,12,Stephen F. Austin,Region_3,0.6667649907879941,VCU,0,ml_ensemble
+2014,R64,UCLA,Tulsa,4,13,UCLA,Region_3,0.8868627729833238,UCLA,1,ml_ensemble
+2014,R64,Ohio State,Dayton,6,11,Dayton,Region_3,0.748279061610214,Ohio State,0,ml_ensemble
+2014,R64,Syracuse,Western Michigan,3,14,Syracuse,Region_3,0.8548690098839117,Syracuse,1,ml_ensemble
+2014,R64,New Mexico,Stanford,7,10,Stanford,Region_3,0.36776635621743087,Stanford,1,ml_ensemble
+2014,R64,Kansas,Eastern Kentucky,2,15,Kansas,Region_3,0.9551814066594398,Kansas,1,ml_ensemble
+2014,R32,Florida,Pitt,1,9,Florida,Region_3,0.6779669512558146,Florida,1,ml_ensemble
+2014,R32,Stephen F. Austin,UCLA,12,4,UCLA,Region_3,0.13007096505179125,UCLA,1,ml_ensemble
+2014,R32,Dayton,Syracuse,11,3,Dayton,Region_3,0.4784128459600729,Syracuse,0,ml_ensemble
+2014,R32,Stanford,Kansas,10,2,Stanford,Region_3,0.28760719983162675,Kansas,0,ml_ensemble
+2014,S16,Florida,UCLA,1,4,Florida,Region_3,0.7373118653385565,Florida,1,ml_ensemble
+2014,S16,Dayton,Stanford,11,10,Dayton,Region_3,0.4571427264180774,Stanford,0,ml_ensemble
+2014,E8,Florida,Dayton,1,11,Florida,Region_3,0.8966860787805823,Florida,1,ml_ensemble
+2014,R64,Arizona,Weber State,1,16,Arizona,Region_4,0.9896624378608553,Arizona,1,ml_ensemble
+2014,R64,Gonzaga,Oklahoma State,8,9,Gonzaga,Region_4,0.7074802301762798,Gonzaga,1,ml_ensemble
+2014,R64,Oklahoma,North Dakota State,5,12,North Dakota State,Region_4,0.6238350836563424,Oklahoma,0,ml_ensemble
+2014,R64,San Diego State,New Mexico State,4,13,San Diego State,Region_4,0.8594818680531517,San Diego State,1,ml_ensemble
+2014,R64,Baylor,Nebraska,6,11,Baylor,Region_4,0.7534367097281583,Baylor,1,ml_ensemble
+2014,R64,Creighton,Louisiana,3,14,Creighton,Region_4,0.8616972691512185,Creighton,1,ml_ensemble
+2014,R64,Wisconsin,American,2,15,Wisconsin,Region_4,0.9845813531017505,Wisconsin,1,ml_ensemble
+2014,R32,Arizona,Gonzaga,1,8,Arizona,Region_4,0.762442449369301,Arizona,1,ml_ensemble
+2014,R32,North Dakota State,San Diego State,12,4,San Diego State,Region_4,0.36330634403554624,San Diego State,1,ml_ensemble
+2014,R32,Baylor,Creighton,6,3,Baylor,Region_4,0.4064295553405704,Creighton,0,ml_ensemble
+2014,R32,Oregon,Wisconsin,7,2,Wisconsin,Region_4,0.20780137081464511,Wisconsin,1,ml_ensemble
+2014,S16,Arizona,San Diego State,1,4,Arizona,Region_4,0.8626298648143713,Arizona,1,ml_ensemble
+2014,S16,Baylor,Wisconsin,6,2,Wisconsin,Region_4,0.2841348867330158,Wisconsin,1,ml_ensemble
+2014,E8,Arizona,Wisconsin,1,2,Wisconsin,Region_4,0.6613629801687146,Arizona,0,ml_ensemble
+2014,F4,UConn,Florida,7,1,UConn,Final Four,0.31271238740921986,Florida,0,ml_ensemble
+2014,F4,Kentucky,Wisconsin,8,2,Kentucky,Final Four,0.44258117139646935,Wisconsin,0,ml_ensemble
+2014,Championship,UConn,Kentucky,7,8,UConn,Final Four,0.4775424281718624,Kentucky,0,ml_ensemble
+2015,R64,Villanova,Lafayette,1,16,Villanova,Region_1,0.9856409055406767,Villanova,1,ml_ensemble
+2015,R64,NC State,LSU,8,9,NC State,Region_1,0.7494682066685577,NC State,1,ml_ensemble
+2015,R64,Northern Iowa,Wyoming,5,12,Northern Iowa,Region_1,0.8436077459047038,Northern Iowa,1,ml_ensemble
+2015,R64,Louisville,UC-Irvine,4,13,Louisville,Region_1,0.9299405139589062,Louisville,1,ml_ensemble
+2015,R64,Providence,Dayton,6,11,Dayton,Region_1,0.3296221419852741,Dayton,1,ml_ensemble
+2015,R64,Oklahoma,Albany (NY),3,14,Oklahoma,Region_1,0.9465884946792874,Oklahoma,1,ml_ensemble
+2015,R64,Michigan State,Georgia,7,10,Michigan State,Region_1,0.7072028188323142,Michigan State,1,ml_ensemble
+2015,R64,Virginia,Belmont,2,15,Virginia,Region_1,0.9770975249438746,Virginia,1,ml_ensemble
+2015,R32,Villanova,NC State,1,8,NC State,Region_1,0.9361283810955149,Villanova,0,ml_ensemble
+2015,R32,Northern Iowa,Louisville,5,4,Louisville,Region_1,0.21609737375858626,Louisville,1,ml_ensemble
+2015,R32,Dayton,Oklahoma,11,3,Oklahoma,Region_1,0.3267642958756754,Oklahoma,1,ml_ensemble
+2015,R32,Michigan State,Virginia,7,2,Michigan State,Region_1,0.22443116970757016,Virginia,0,ml_ensemble
+2015,S16,NC State,Louisville,8,4,Louisville,Region_1,0.3215676229447977,Louisville,1,ml_ensemble
+2015,S16,Oklahoma,Michigan State,3,7,Michigan State,Region_1,0.3535781003039478,Michigan State,1,ml_ensemble
+2015,E8,Louisville,Michigan State,4,7,Michigan State,Region_1,0.503175535901143,Louisville,0,ml_ensemble
+2015,R64,Kentucky,Hampton,1,16,Kentucky,Region_2,0.9845724809015662,Kentucky,1,ml_ensemble
+2015,R64,Cincinnati,Purdue,8,9,Cincinnati,Region_2,0.3002469831954113,Purdue,0,ml_ensemble
+2015,R64,West Virginia,Buffalo,5,12,West Virginia,Region_2,0.7869666650272986,West Virginia,1,ml_ensemble
+2015,R64,Maryland,Valparaiso,4,13,Maryland,Region_2,0.6236669918054792,Maryland,1,ml_ensemble
+2015,R64,Butler,Texas,6,11,Butler,Region_2,0.40818607679303537,Texas,0,ml_ensemble
+2015,R64,Notre Dame,Northeastern,3,14,Notre Dame,Region_2,0.9622032303513519,Notre Dame,1,ml_ensemble
+2015,R64,Wichita State,Indiana,7,10,Wichita State,Region_2,0.8823442806830751,Wichita State,1,ml_ensemble
+2015,R64,Kansas,New Mexico State,2,15,Kansas,Region_2,0.9154964331544235,Kansas,1,ml_ensemble
+2015,R32,Kentucky,Cincinnati,1,8,Kentucky,Region_2,0.9644951756943666,Kentucky,1,ml_ensemble
+2015,R32,West Virginia,Maryland,5,4,West Virginia,Region_2,0.4443382588151838,Maryland,0,ml_ensemble
+2015,R32,Butler,Notre Dame,6,3,Notre Dame,Region_2,0.2578065726690111,Notre Dame,1,ml_ensemble
+2015,R32,Wichita State,Kansas,7,2,Wichita State,Region_2,0.2568355292203907,Kansas,0,ml_ensemble
+2015,S16,Kentucky,West Virginia,1,5,Kentucky,Region_2,0.9641096482725654,Kentucky,1,ml_ensemble
+2015,S16,Notre Dame,Wichita State,3,7,Notre Dame,Region_2,0.5329915846111688,Notre Dame,1,ml_ensemble
+2015,E8,Kentucky,Notre Dame,1,3,Kentucky,Region_2,0.9285159681606148,Kentucky,1,ml_ensemble
+2015,R64,Duke,Robert Morris,1,16,Duke,Region_3,0.9952041269264379,Duke,1,ml_ensemble
+2015,R64,San Diego State,St. John's (NY),8,9,San Diego State,Region_3,0.34029009680192296,St. John's (NY),0,ml_ensemble
+2015,R64,Utah,Stephen F. Austin,5,12,Utah,Region_3,0.8807836472404782,Utah,1,ml_ensemble
+2015,R64,Georgetown,Eastern Washington,4,13,Georgetown,Region_3,0.9005559558209466,Georgetown,1,ml_ensemble
+2015,R64,SMU,UCLA,6,11,UCLA,Region_3,0.5931944619351149,SMU,0,ml_ensemble
+2015,R64,Iowa State,UAB,3,14,UAB,Region_3,0.9426948692255964,Iowa State,0,ml_ensemble
+2015,R64,Iowa,Davidson,7,10,Iowa,Region_3,0.47479715698956887,Davidson,0,ml_ensemble
+2015,R64,Gonzaga,North Dakota State,2,15,Gonzaga,Region_3,0.9633269541152613,Gonzaga,1,ml_ensemble
+2015,R32,Duke,San Diego State,1,8,Duke,Region_3,0.8812988659625959,Duke,1,ml_ensemble
+2015,R32,Utah,Georgetown,5,4,Utah,Region_3,0.5333997299180954,Utah,1,ml_ensemble
+2015,R32,UCLA,UAB,11,14,UCLA,Region_3,0.9066492317527061,UCLA,1,ml_ensemble
+2015,R32,Iowa,Gonzaga,7,2,Gonzaga,Region_3,0.17005227073492724,Gonzaga,1,ml_ensemble
+2015,S16,Duke,Utah,1,5,Duke,Region_3,0.8086763492849481,Duke,1,ml_ensemble
+2015,S16,UCLA,Gonzaga,11,2,Gonzaga,Region_3,0.09778969812692116,Gonzaga,1,ml_ensemble
+2015,E8,Duke,Gonzaga,1,2,Duke,Region_3,0.6567097180020794,Duke,1,ml_ensemble
+2015,R64,Wisconsin,Coastal Carolina,1,16,Wisconsin,Region_4,0.9913139677494361,Wisconsin,1,ml_ensemble
+2015,R64,Oregon,Oklahoma State,8,9,Oregon,Region_4,0.7894308455469655,Oregon,1,ml_ensemble
+2015,R64,Arkansas,Wofford,5,12,Arkansas,Region_4,0.5228989243481769,Arkansas,1,ml_ensemble
+2015,R64,UNC,Harvard,4,13,UNC,Region_4,0.8459888480038288,UNC,1,ml_ensemble
+2015,R64,Xavier,Ole Miss,6,11,Xavier,Region_4,0.6283727773743069,Xavier,1,ml_ensemble
+2015,R64,Baylor,Georgia State,3,14,Georgia State,Region_4,0.878778971029945,Baylor,0,ml_ensemble
+2015,R64,VCU,Ohio State,7,10,Ohio State,Region_4,0.24710455773379128,Ohio State,1,ml_ensemble
+2015,R64,Arizona,Texas Southern,2,15,Arizona,Region_4,0.9826992572083623,Arizona,1,ml_ensemble
+2015,R32,Wisconsin,Oregon,1,8,Wisconsin,Region_4,0.9528051599723358,Wisconsin,1,ml_ensemble
+2015,R32,Arkansas,UNC,5,4,UNC,Region_4,0.14398001756626547,UNC,1,ml_ensemble
+2015,R32,Xavier,Georgia State,6,14,Xavier,Region_4,0.750239236124898,Xavier,1,ml_ensemble
+2015,R32,Ohio State,Arizona,10,2,Arizona,Region_4,0.2348405139659031,Arizona,1,ml_ensemble
+2015,S16,Wisconsin,UNC,1,4,Wisconsin,Region_4,0.8977135952917825,Wisconsin,1,ml_ensemble
+2015,S16,Xavier,Arizona,6,2,Arizona,Region_4,0.07178417551880818,Arizona,1,ml_ensemble
+2015,E8,Wisconsin,Arizona,1,2,Wisconsin,Region_4,0.6544574965302125,Wisconsin,1,ml_ensemble
+2015,F4,Michigan State,Duke,7,1,Duke,Final Four,0.14449882887512525,Duke,1,ml_ensemble
+2015,F4,Kentucky,Wisconsin,1,1,Wisconsin,Final Four,0.6717591221089675,Kentucky,0,ml_ensemble
+2015,Championship,Duke,Wisconsin,1,1,Duke,Final Four,0.30087893899430695,Wisconsin,0,ml_ensemble
+2016,R64,UNC,Florida Gulf Coast,1,16,UNC,Region_1,0.9896209687441798,UNC,1,ml_ensemble
+2016,R64,Indiana,Chattanooga,5,12,Indiana,Region_1,0.8785948908168502,Indiana,1,ml_ensemble
+2016,R64,Kentucky,Stony Brook,4,13,Kentucky,Region_1,0.9441725937484721,Kentucky,1,ml_ensemble
+2016,R64,Notre Dame,Michigan,6,11,Notre Dame,Region_1,0.5164787161611001,Notre Dame,1,ml_ensemble
+2016,R64,West Virginia,Stephen F. Austin,3,14,Stephen F. Austin,Region_1,0.8988059633861002,West Virginia,0,ml_ensemble
+2016,R64,Wisconsin,Pitt,7,10,Wisconsin,Region_1,0.4766216994774015,Pitt,0,ml_ensemble
+2016,R64,Xavier,Weber State,2,15,Xavier,Region_1,0.9247097998260857,Xavier,1,ml_ensemble
+2016,R32,UNC,Providence,1,9,UNC,Region_1,0.886858421983062,UNC,1,ml_ensemble
+2016,R32,Indiana,Kentucky,5,4,Indiana,Region_1,0.3531217303388523,Kentucky,0,ml_ensemble
+2016,R32,Notre Dame,Stephen F. Austin,6,14,Notre Dame,Region_1,0.5439672670093697,Notre Dame,1,ml_ensemble
+2016,R32,Wisconsin,Xavier,7,2,Wisconsin,Region_1,0.16343797300025767,Xavier,0,ml_ensemble
+2016,S16,UNC,Indiana,1,5,UNC,Region_1,0.8013521056409179,UNC,1,ml_ensemble
+2016,S16,Notre Dame,Wisconsin,6,7,Notre Dame,Region_1,0.44939319180534804,Wisconsin,0,ml_ensemble
+2016,E8,UNC,Notre Dame,1,6,UNC,Region_1,0.8685589895541844,UNC,1,ml_ensemble
+2016,R64,Virginia,Hampton,1,16,Virginia,Region_2,0.9511522774815836,Virginia,1,ml_ensemble
+2016,R64,Texas Tech,Butler,8,9,Butler,Region_2,0.5438067450447134,Texas Tech,0,ml_ensemble
+2016,R64,Purdue,Little Rock,5,12,Little Rock,Region_2,0.693399992776488,Purdue,0,ml_ensemble
+2016,R64,Iowa State,Iona,4,13,Iowa State,Region_2,0.9079160867992878,Iowa State,1,ml_ensemble
+2016,R64,Seton Hall,Gonzaga,6,11,Gonzaga,Region_2,0.4062046807462187,Gonzaga,1,ml_ensemble
+2016,R64,Utah,Fresno State,3,14,Utah,Region_2,0.7151551031573965,Utah,1,ml_ensemble
+2016,R64,Dayton,Syracuse,7,10,Syracuse,Region_2,0.34395872944186007,Syracuse,1,ml_ensemble
+2016,R64,Michigan State,Middle Tennessee,2,15,Middle Tennessee,Region_2,0.9104478016014416,Michigan State,0,ml_ensemble
+2016,R32,Virginia,Butler,1,9,Virginia,Region_2,0.8038112549630458,Virginia,1,ml_ensemble
+2016,R32,Little Rock,Iowa State,12,4,Iowa State,Region_2,0.3521787287390685,Iowa State,1,ml_ensemble
+2016,R32,Gonzaga,Utah,11,3,Gonzaga,Region_2,0.4666359745864314,Utah,0,ml_ensemble
+2016,R32,Syracuse,Middle Tennessee,10,15,Syracuse,Region_2,0.8608706644227501,Syracuse,1,ml_ensemble
+2016,S16,Virginia,Iowa State,1,4,Virginia,Region_2,0.771638040568785,Virginia,1,ml_ensemble
+2016,S16,Gonzaga,Syracuse,11,10,Syracuse,Region_2,0.776260300641115,Gonzaga,0,ml_ensemble
+2016,E8,Virginia,Syracuse,1,10,Syracuse,Region_2,0.7761579515313123,Virginia,0,ml_ensemble
+2016,R64,Kansas,Austin Peay,1,16,Kansas,Region_3,0.9914041762538132,Kansas,1,ml_ensemble
+2016,R64,Colorado,UConn,8,9,UConn,Region_3,0.44890286414384395,UConn,1,ml_ensemble
+2016,R64,Maryland,South Dakota State,5,12,Maryland,Region_3,0.8801772910671888,Maryland,1,ml_ensemble
+2016,R64,California,Hawaii,4,13,Hawaii,Region_3,0.4869225746982712,Hawaii,1,ml_ensemble
+2016,R64,Arizona,Wichita State,6,11,Wichita State,Region_3,0.4166776496397328,Wichita State,1,ml_ensemble
+2016,R64,Miami (FL),Buffalo,3,14,Miami (FL),Region_3,0.9759049906170271,Miami (FL),1,ml_ensemble
+2016,R64,Iowa,Temple,7,10,Iowa,Region_3,0.7642116306474457,Iowa,1,ml_ensemble
+2016,R64,Villanova,UNC Asheville,2,15,Villanova,Region_3,0.9925249430951383,Villanova,1,ml_ensemble
+2016,R32,Kansas,UConn,1,9,Kansas,Region_3,0.9251678673296718,Kansas,1,ml_ensemble
+2016,R32,Maryland,Hawaii,5,13,Maryland,Region_3,0.7552479461666178,Maryland,1,ml_ensemble
+2016,R32,Wichita State,Miami (FL),11,3,Miami (FL),Region_3,0.22163554420127843,Miami (FL),1,ml_ensemble
+2016,R32,Iowa,Villanova,7,2,Villanova,Region_3,0.07474830694055515,Villanova,1,ml_ensemble
+2016,S16,Kansas,Maryland,1,5,Kansas,Region_3,0.8775293912339045,Kansas,1,ml_ensemble
+2016,S16,Miami (FL),Villanova,3,2,Villanova,Region_3,0.20330466867103747,Villanova,1,ml_ensemble
+2016,E8,Kansas,Villanova,1,2,Villanova,Region_3,0.5914861131806152,Kansas,0,ml_ensemble
+2016,R64,Oregon,Holy Cross,1,16,Oregon,Region_4,0.9833859834644301,Oregon,1,ml_ensemble
+2016,R64,Baylor,Yale,5,12,Yale,Region_4,0.7427833187097281,Baylor,0,ml_ensemble
+2016,R64,Duke,UNC Wilmington,4,13,Duke,Region_4,0.8526906705103992,Duke,1,ml_ensemble
+2016,R64,Texas,Northern Iowa,6,11,Northern Iowa,Region_4,0.656332556955893,Texas,0,ml_ensemble
+2016,R64,Texas A&M,Green Bay,3,14,Texas A&M,Region_4,0.9340059631613572,Texas A&M,1,ml_ensemble
+2016,R64,Oregon State,VCU,7,10,VCU,Region_4,0.43013334872846604,VCU,1,ml_ensemble
+2016,R64,Oklahoma,Cal State Bakersfield,2,15,Oklahoma,Region_4,0.9492791258867617,Oklahoma,1,ml_ensemble
+2016,R32,Yale,Duke,12,4,Duke,Region_4,0.1114848253959831,Duke,1,ml_ensemble
+2016,R32,Northern Iowa,Texas A&M,11,3,Texas A&M,Region_4,0.16929756333384308,Texas A&M,1,ml_ensemble
+2016,R32,VCU,Oklahoma,10,2,Oklahoma,Region_4,0.13749886589705015,Oklahoma,1,ml_ensemble
+2016,S16,Oregon,Duke,1,4,Oregon,Region_4,0.3017481161303763,Duke,0,ml_ensemble
+2016,S16,Texas A&M,Oklahoma,3,2,Oklahoma,Region_4,0.17908990389370097,Oklahoma,1,ml_ensemble
+2016,E8,Oregon,Oklahoma,1,2,Oklahoma,Region_4,0.2192515363348699,Oklahoma,1,ml_ensemble
+2016,F4,UNC,Syracuse,1,10,UNC,Final Four,0.866425354884892,UNC,1,ml_ensemble
+2016,F4,Villanova,Oklahoma,2,2,Villanova,Final Four,0.6100062563271954,Villanova,1,ml_ensemble
+2016,Championship,UNC,Villanova,1,2,Villanova,Final Four,0.23449754909845036,Villanova,1,ml_ensemble
+2017,R64,Villanova,Mount St. Mary's,1,16,Villanova,Region_1,0.9902371042284134,Villanova,1,ml_ensemble
+2017,R64,Wisconsin,Virginia Tech,8,9,Wisconsin,Region_1,0.8353169920527891,Wisconsin,1,ml_ensemble
+2017,R64,Virginia,UNC Wilmington,5,12,Virginia,Region_1,0.7859587805010051,Virginia,1,ml_ensemble
+2017,R64,Florida,ETSU,4,13,Florida,Region_1,0.9262163288089983,Florida,1,ml_ensemble
+2017,R64,Baylor,New Mexico State,3,14,Baylor,Region_1,0.9127620647227067,Baylor,1,ml_ensemble
+2017,R64,South Carolina,Marquette,7,10,South Carolina,Region_1,0.7661606278581822,South Carolina,1,ml_ensemble
+2017,R64,Duke,Troy,2,15,Duke,Region_1,0.9860878625998301,Duke,1,ml_ensemble
+2017,R32,Villanova,Wisconsin,1,8,Wisconsin,Region_1,0.6032903355530895,Villanova,0,ml_ensemble
+2017,R32,Virginia,Florida,5,4,Florida,Region_1,0.35668960595875104,Florida,1,ml_ensemble
+2017,R32,South Carolina,Duke,7,2,South Carolina,Region_1,0.5117825194142818,South Carolina,1,ml_ensemble
+2017,S16,Wisconsin,Florida,8,4,Florida,Region_1,0.36238341899129,Florida,1,ml_ensemble
+2017,S16,Baylor,South Carolina,3,7,South Carolina,Region_1,0.7341464111799595,Baylor,0,ml_ensemble
+2017,E8,Florida,South Carolina,4,7,South Carolina,Region_1,0.5584555010954,Florida,0,ml_ensemble
+2017,R64,Kansas,UC-Davis,1,16,Kansas,Region_2,0.9845143093184179,Kansas,1,ml_ensemble
+2017,R64,Miami (FL),Michigan State,8,9,Michigan State,Region_2,0.6766179923558028,Miami (FL),0,ml_ensemble
+2017,R64,Iowa State,Nevada,5,12,Iowa State,Region_2,0.6307239535014331,Iowa State,1,ml_ensemble
+2017,R64,Purdue,Vermont,4,13,Purdue,Region_2,0.8809437230720499,Purdue,1,ml_ensemble
+2017,R64,Creighton,Rhode Island,6,11,Rhode Island,Region_2,0.5386529539025743,Creighton,0,ml_ensemble
+2017,R64,Oregon,Iona,3,14,Oregon,Region_2,0.9818489456179996,Oregon,1,ml_ensemble
+2017,R64,Michigan,Oklahoma State,7,10,Michigan,Region_2,0.5021612702683695,Michigan,1,ml_ensemble
+2017,R64,Louisville,Jacksonville State,2,15,Louisville,Region_2,0.9820991085258233,Louisville,1,ml_ensemble
+2017,R32,Kansas,Michigan State,1,9,Kansas,Region_2,0.9560459925135586,Kansas,1,ml_ensemble
+2017,R32,Iowa State,Purdue,5,4,Purdue,Region_2,0.6640747623192068,Iowa State,0,ml_ensemble
+2017,R32,Rhode Island,Oregon,11,3,Oregon,Region_2,0.16477622274417456,Oregon,1,ml_ensemble
+2017,R32,Michigan,Louisville,7,2,Michigan,Region_2,0.46180486652729086,Louisville,0,ml_ensemble
+2017,S16,Kansas,Purdue,1,4,Kansas,Region_2,0.8781123158326779,Kansas,1,ml_ensemble
+2017,S16,Oregon,Michigan,3,7,Oregon,Region_2,0.6949859542047454,Oregon,1,ml_ensemble
+2017,E8,Kansas,Oregon,1,3,Oregon,Region_2,0.7910172095100368,Kansas,0,ml_ensemble
+2017,R64,UNC,Texas Southern,1,16,UNC,Region_3,0.9714016436264795,UNC,1,ml_ensemble
+2017,R64,Arkansas,Seton Hall,8,9,Arkansas,Region_3,0.6001057539944957,Arkansas,1,ml_ensemble
+2017,R64,Minnesota,Middle Tennessee,5,12,Middle Tennessee,Region_3,0.5399709341962305,Minnesota,0,ml_ensemble
+2017,R64,Butler,Winthrop,4,13,Butler,Region_3,0.9462669097028492,Butler,1,ml_ensemble
+2017,R64,Cincinnati,Kansas State,6,11,Cincinnati,Region_3,0.7215837455533375,Cincinnati,1,ml_ensemble
+2017,R64,UCLA,Kent State,3,14,UCLA,Region_3,0.9630199181629749,UCLA,1,ml_ensemble
+2017,R64,Dayton,Wichita State,7,10,Wichita State,Region_3,0.11171387947487323,Wichita State,1,ml_ensemble
+2017,R64,Kentucky,Northern Kentucky,2,15,Kentucky,Region_3,0.9811454996619206,Kentucky,1,ml_ensemble
+2017,R32,UNC,Arkansas,1,8,UNC,Region_3,0.8751843530025764,UNC,1,ml_ensemble
+2017,R32,Middle Tennessee,Butler,12,4,Butler,Region_3,0.2747244110002888,Butler,1,ml_ensemble
+2017,R32,Cincinnati,UCLA,6,3,UCLA,Region_3,0.5732259231191451,Cincinnati,0,ml_ensemble
+2017,R32,Wichita State,Kentucky,10,2,Kentucky,Region_3,0.2869603049747031,Kentucky,1,ml_ensemble
+2017,S16,UNC,Butler,1,4,UNC,Region_3,0.8285344815322194,UNC,1,ml_ensemble
+2017,S16,UCLA,Kentucky,3,2,Kentucky,Region_3,0.14232641372385704,Kentucky,1,ml_ensemble
+2017,E8,UNC,Kentucky,1,2,UNC,Region_3,0.39543721716029373,Kentucky,0,ml_ensemble
+2017,R64,Gonzaga,South Dakota State,1,16,Gonzaga,Region_4,0.9760795539593525,Gonzaga,1,ml_ensemble
+2017,R64,Northwestern,Vanderbilt,8,9,Northwestern,Region_4,0.4885931951383271,Vanderbilt,0,ml_ensemble
+2017,R64,Notre Dame,Princeton,5,12,Notre Dame,Region_4,0.8735769178076128,Notre Dame,1,ml_ensemble
+2017,R64,West Virginia,Bucknell,4,13,West Virginia,Region_4,0.9254183727037993,West Virginia,1,ml_ensemble
+2017,R64,Maryland,Xavier,6,11,Xavier,Region_4,0.2222618609390821,Xavier,1,ml_ensemble
+2017,R64,Florida State,Florida Gulf Coast,3,14,Florida State,Region_4,0.8968898733982749,Florida State,1,ml_ensemble
+2017,R64,Arizona,North Dakota,2,15,Arizona,Region_4,0.9714814089015444,Arizona,1,ml_ensemble
+2017,R32,Gonzaga,Northwestern,1,8,Gonzaga,Region_4,0.8985154056683498,Gonzaga,1,ml_ensemble
+2017,R32,Notre Dame,West Virginia,5,4,West Virginia,Region_4,0.18186189144014156,West Virginia,1,ml_ensemble
+2017,R32,Xavier,Florida State,11,3,Xavier,Region_4,0.6686659114984614,Xavier,1,ml_ensemble
+2017,S16,Gonzaga,West Virginia,1,4,Gonzaga,Region_4,0.6071114594931467,Gonzaga,1,ml_ensemble
+2017,S16,Xavier,Arizona,11,2,Xavier,Region_4,0.35417544505497406,Arizona,0,ml_ensemble
+2017,E8,Gonzaga,Xavier,1,11,Gonzaga,Region_4,0.7425415920432639,Gonzaga,1,ml_ensemble
+2017,F4,South Carolina,Gonzaga,7,1,Gonzaga,Final Four,0.17167993665436287,Gonzaga,1,ml_ensemble
+2017,F4,Oregon,UNC,3,1,UNC,Final Four,0.2586268028961291,UNC,1,ml_ensemble
+2017,Championship,Gonzaga,UNC,1,1,UNC,Final Four,0.5456904751193149,Gonzaga,0,ml_ensemble
+2018,R64,Villanova,Radford,1,16,Villanova,Region_1,0.9576282569184689,Villanova,1,ml_ensemble
+2018,R64,Virginia Tech,Alabama,8,9,Alabama,Region_1,0.29756655172218516,Alabama,1,ml_ensemble
+2018,R64,West Virginia,Murray State,5,12,West Virginia,Region_1,0.7969727878467664,West Virginia,1,ml_ensemble
+2018,R64,Wichita State,Marshall,4,13,Marshall,Region_1,0.7814936842377459,Wichita State,0,ml_ensemble
+2018,R64,Florida,St. Bonaventure,6,11,Florida,Region_1,0.5052794588568917,Florida,1,ml_ensemble
+2018,R64,Texas Tech,Stephen F. Austin,3,14,Texas Tech,Region_1,0.930714017056595,Texas Tech,1,ml_ensemble
+2018,R64,Arkansas,Butler,7,10,Butler,Region_1,0.4915755484772825,Butler,1,ml_ensemble
+2018,R64,Purdue,Cal State Fullerton,2,15,Purdue,Region_1,0.968741470261809,Purdue,1,ml_ensemble
+2018,R32,Villanova,Alabama,1,9,Villanova,Region_1,0.962766135342752,Villanova,1,ml_ensemble
+2018,R32,West Virginia,Marshall,5,13,West Virginia,Region_1,0.7728652589679128,West Virginia,1,ml_ensemble
+2018,R32,Florida,Texas Tech,6,3,Texas Tech,Region_1,0.3026552100602046,Texas Tech,1,ml_ensemble
+2018,R32,Butler,Purdue,10,2,Purdue,Region_1,0.2600437431706895,Purdue,1,ml_ensemble
+2018,S16,Villanova,West Virginia,1,5,Villanova,Region_1,0.892096476038421,Villanova,1,ml_ensemble
+2018,S16,Texas Tech,Purdue,3,2,Texas Tech,Region_1,0.18905091592981657,Purdue,0,ml_ensemble
+2018,E8,Villanova,Texas Tech,1,3,Villanova,Region_1,0.915782396409281,Villanova,1,ml_ensemble
+2018,R64,Seton Hall,NC State,8,9,Seton Hall,Region_2,0.8446305921111975,Seton Hall,1,ml_ensemble
+2018,R64,Clemson,New Mexico State,5,12,Clemson,Region_2,0.6478715512488961,Clemson,1,ml_ensemble
+2018,R64,Auburn,College of Charleston,4,13,Auburn,Region_2,0.7260754598393854,Auburn,1,ml_ensemble
+2018,R64,TCU,Syracuse,6,11,Syracuse,Region_2,0.32065322450906325,Syracuse,1,ml_ensemble
+2018,R64,Michigan State,Bucknell,3,14,Michigan State,Region_2,0.9580331643361776,Michigan State,1,ml_ensemble
+2018,R64,Rhode Island,Oklahoma,7,10,Rhode Island,Region_2,0.6527536139956475,Rhode Island,1,ml_ensemble
+2018,R64,Duke,Iona,2,15,Duke,Region_2,0.9864834773377745,Duke,1,ml_ensemble
+2018,R32,Kansas,Seton Hall,1,8,Kansas,Region_2,0.7917174822307741,Kansas,1,ml_ensemble
+2018,R32,Clemson,Auburn,5,4,Clemson,Region_2,0.519724179300829,Clemson,1,ml_ensemble
+2018,R32,Syracuse,Michigan State,11,3,Syracuse,Region_2,0.19790933306398736,Michigan State,0,ml_ensemble
+2018,R32,Rhode Island,Duke,7,2,Duke,Region_2,0.15389291549158446,Duke,1,ml_ensemble
+2018,S16,Kansas,Clemson,1,5,Kansas,Region_2,0.6724904169357268,Kansas,1,ml_ensemble
+2018,S16,Syracuse,Duke,11,2,Duke,Region_2,0.14633687258442865,Duke,1,ml_ensemble
+2018,E8,Kansas,Duke,1,2,Kansas,Region_2,0.45186037038413085,Duke,0,ml_ensemble
+2018,R64,Creighton,Kansas State,8,9,Kansas State,Region_3,0.3526191435344043,Kansas State,1,ml_ensemble
+2018,R64,Kentucky,Davidson,5,12,Kentucky,Region_3,0.8348791191845341,Kentucky,1,ml_ensemble
+2018,R64,Arizona,Buffalo,4,13,Buffalo,Region_3,0.7401132742485803,Arizona,0,ml_ensemble
+2018,R64,Miami (FL),Loyola (IL),6,11,Loyola (IL),Region_3,0.26795133001750965,Loyola (IL),1,ml_ensemble
+2018,R64,Tennessee,Wright State,3,14,Tennessee,Region_3,0.9564614687625418,Tennessee,1,ml_ensemble
+2018,R64,Nevada,Texas,7,10,Nevada,Region_3,0.6850380323713923,Nevada,1,ml_ensemble
+2018,R64,Cincinnati,Georgia State,2,15,Cincinnati,Region_3,0.8936820002415952,Cincinnati,1,ml_ensemble
+2018,R32,Kentucky,Buffalo,5,13,Kentucky,Region_3,0.725034642856421,Kentucky,1,ml_ensemble
+2018,R32,Loyola (IL),Tennessee,11,3,Loyola (IL),Region_3,0.23521006665235303,Tennessee,0,ml_ensemble
+2018,R32,Nevada,Cincinnati,7,2,Nevada,Region_3,0.28073955166209086,Cincinnati,0,ml_ensemble
+2018,S16,Kansas State,Kentucky,9,5,Kansas State,Region_3,0.5294357441242422,Kansas State,1,ml_ensemble
+2018,S16,Loyola (IL),Nevada,11,7,Loyola (IL),Region_3,0.6670752557199094,Loyola (IL),1,ml_ensemble
+2018,E8,Kansas State,Loyola (IL),9,11,Loyola (IL),Region_3,0.5811828548657983,Kansas State,0,ml_ensemble
+2018,R64,Xavier,Texas Southern,1,16,Xavier,Region_4,0.987573654228402,Xavier,1,ml_ensemble
+2018,R64,Missouri,Florida State,8,9,Florida State,Region_4,0.4534147541962856,Florida State,1,ml_ensemble
+2018,R64,Ohio State,South Dakota State,5,12,Ohio State,Region_4,0.7444861910060409,Ohio State,1,ml_ensemble
+2018,R64,Gonzaga,UNC Greensboro,4,13,Gonzaga,Region_4,0.8434451576534855,Gonzaga,1,ml_ensemble
+2018,R64,Houston,San Diego State,6,11,Houston,Region_4,0.5979565716884152,Houston,1,ml_ensemble
+2018,R64,Michigan,Montana,3,14,Michigan,Region_4,0.8684423869534793,Michigan,1,ml_ensemble
+2018,R64,Texas A&M,Providence,7,10,Texas A&M,Region_4,0.623670557608541,Texas A&M,1,ml_ensemble
+2018,R64,UNC,Lipscomb,2,15,UNC,Region_4,0.9513798219184717,UNC,1,ml_ensemble
+2018,R32,Xavier,Florida State,1,9,Florida State,Region_4,0.7285342938793727,Xavier,0,ml_ensemble
+2018,R32,Ohio State,Gonzaga,5,4,Gonzaga,Region_4,0.6010370371528497,Ohio State,0,ml_ensemble
+2018,R32,Houston,Michigan,6,3,Michigan,Region_4,0.12602603426589218,Michigan,1,ml_ensemble
+2018,R32,Texas A&M,UNC,7,2,Texas A&M,Region_4,0.36098981378040373,UNC,0,ml_ensemble
+2018,S16,Florida State,Gonzaga,9,4,Florida State,Region_4,0.5503674246378106,Florida State,1,ml_ensemble
+2018,S16,Michigan,Texas A&M,3,7,Michigan,Region_4,0.7702845988549504,Michigan,1,ml_ensemble
+2018,E8,Florida State,Michigan,9,3,Michigan,Region_4,0.33566722215883216,Michigan,1,ml_ensemble
+2018,F4,Villanova,Kansas,1,1,Villanova,Final Four,0.48324633764479136,Kansas,0,ml_ensemble
+2018,F4,Loyola (IL),Michigan,11,3,Michigan,Final Four,0.1574708341075127,Michigan,1,ml_ensemble
+2018,Championship,Villanova,Michigan,1,3,Villanova,Final Four,0.8042034870670539,Villanova,1,ml_ensemble
+2019,R64,Duke,North Dakota State,1,16,Duke,Region_1,0.9920810617563168,Duke,1,ml_ensemble
+2019,R64,VCU,UCF,8,9,UCF,Region_1,0.37519801258273255,UCF,1,ml_ensemble
+2019,R64,Mississippi State,Liberty,5,12,Liberty,Region_1,0.8208197220145879,Mississippi State,0,ml_ensemble
+2019,R64,Virginia Tech,Saint Louis,4,13,Virginia Tech,Region_1,0.8598284745415855,Virginia Tech,1,ml_ensemble
+2019,R64,Maryland,Belmont,6,11,Maryland,Region_1,0.8009481181055863,Maryland,1,ml_ensemble
+2019,R64,LSU,Yale,3,14,LSU,Region_1,0.8788020595262539,LSU,1,ml_ensemble
+2019,R64,Louisville,Minnesota,7,10,Minnesota,Region_1,0.3790938566810284,Minnesota,1,ml_ensemble
+2019,R64,Michigan State,Bradley,2,15,Michigan State,Region_1,0.9887909997405931,Michigan State,1,ml_ensemble
+2019,R32,Duke,UCF,1,9,Duke,Region_1,0.9051970855092059,Duke,1,ml_ensemble
+2019,R32,Liberty,Virginia Tech,12,4,Virginia Tech,Region_1,0.1313721773726603,Virginia Tech,1,ml_ensemble
+2019,R32,Maryland,LSU,6,3,LSU,Region_1,0.24148366337232322,LSU,1,ml_ensemble
+2019,R32,Minnesota,Michigan State,10,2,Michigan State,Region_1,0.06089603496540441,Michigan State,1,ml_ensemble
+2019,S16,Duke,Virginia Tech,1,4,Duke,Region_1,0.9116279201715319,Duke,1,ml_ensemble
+2019,S16,LSU,Michigan State,3,2,Michigan State,Region_1,0.14707806994425557,Michigan State,1,ml_ensemble
+2019,E8,Duke,Michigan State,1,2,Michigan State,Region_1,0.5122587899883104,Duke,0,ml_ensemble
+2019,R64,UNC,Iona,1,16,UNC,Region_2,0.9910896257783163,UNC,1,ml_ensemble
+2019,R64,Utah State,Washington,8,9,Washington,Region_2,0.20138163858633207,Washington,1,ml_ensemble
+2019,R64,Auburn,New Mexico State,5,12,Auburn,Region_2,0.7716477826076646,Auburn,1,ml_ensemble
+2019,R64,Kansas,Northeastern,4,13,Kansas,Region_2,0.9437990422363419,Kansas,1,ml_ensemble
+2019,R64,Iowa State,Ohio State,6,11,Ohio State,Region_2,0.3256369327326774,Ohio State,1,ml_ensemble
+2019,R64,Houston,Georgia State,3,14,Houston,Region_2,0.8869625326230511,Houston,1,ml_ensemble
+2019,R64,Wofford,Seton Hall,7,10,Wofford,Region_2,0.8039952422975727,Wofford,1,ml_ensemble
+2019,R64,Kentucky,Abilene Christian,2,15,Kentucky,Region_2,0.9671945636818059,Kentucky,1,ml_ensemble
+2019,R32,UNC,Washington,1,9,UNC,Region_2,0.5697528009130138,UNC,1,ml_ensemble
+2019,R32,Auburn,Kansas,5,4,Auburn,Region_2,0.4590642678939758,Kansas,0,ml_ensemble
+2019,R32,Ohio State,Houston,11,3,Houston,Region_2,0.48180361914652803,Houston,1,ml_ensemble
+2019,R32,Wofford,Kentucky,7,2,Kentucky,Region_2,0.10598061486213213,Kentucky,1,ml_ensemble
+2019,S16,UNC,Auburn,1,5,Auburn,Region_2,0.41901378096550196,Auburn,1,ml_ensemble
+2019,S16,Houston,Kentucky,3,2,Kentucky,Region_2,0.19708553684422717,Kentucky,1,ml_ensemble
+2019,E8,Auburn,Kentucky,5,2,Auburn,Region_2,0.3551922389559697,Kentucky,0,ml_ensemble
+2019,R64,Virginia,Gardner-Webb,1,16,Virginia,Region_3,0.9782379774652389,Virginia,1,ml_ensemble
+2019,R64,Ole Miss,Oklahoma,8,9,Oklahoma,Region_3,0.21288387651457485,Oklahoma,1,ml_ensemble
+2019,R64,Wisconsin,Oregon,5,12,Oregon,Region_3,0.7579606288142697,Wisconsin,0,ml_ensemble
+2019,R64,Kansas State,UC-Irvine,4,13,UC-Irvine,Region_3,0.785210968892207,Kansas State,0,ml_ensemble
+2019,R64,Purdue,Old Dominion,3,14,Purdue,Region_3,0.9104435051340672,Purdue,1,ml_ensemble
+2019,R64,Cincinnati,Iowa,7,10,Iowa,Region_3,0.5331342479515697,Cincinnati,0,ml_ensemble
+2019,R64,Tennessee,Colgate,2,15,Tennessee,Region_3,0.9869676021535828,Tennessee,1,ml_ensemble
+2019,R32,Virginia,Oklahoma,1,9,Virginia,Region_3,0.924371118299438,Virginia,1,ml_ensemble
+2019,R32,Oregon,UC-Irvine,12,13,Oregon,Region_3,0.6692572327205669,Oregon,1,ml_ensemble
+2019,R32,Villanova,Purdue,6,3,Purdue,Region_3,0.18886355579093264,Purdue,1,ml_ensemble
+2019,R32,Iowa,Tennessee,10,2,Tennessee,Region_3,0.13160745223727638,Tennessee,1,ml_ensemble
+2019,S16,Virginia,Oregon,1,12,Virginia,Region_3,0.9506436121454219,Virginia,1,ml_ensemble
+2019,S16,Purdue,Tennessee,3,2,Purdue,Region_3,0.348735555802133,Tennessee,0,ml_ensemble
+2019,E8,Virginia,Purdue,1,3,Virginia,Region_3,0.877705602746393,Virginia,1,ml_ensemble
+2019,R64,Gonzaga,FDU,1,16,Gonzaga,Region_4,0.9874734974371009,Gonzaga,1,ml_ensemble
+2019,R64,Syracuse,Baylor,8,9,Baylor,Region_4,0.6332019421094498,Syracuse,0,ml_ensemble
+2019,R64,Marquette,Murray State,5,12,Murray State,Region_4,0.654986413596146,Marquette,0,ml_ensemble
+2019,R64,Florida State,Vermont,4,13,Florida State,Region_4,0.9047448744639603,Florida State,1,ml_ensemble
+2019,R64,Buffalo,Arizona State,6,11,Buffalo,Region_4,0.8209104879819309,Buffalo,1,ml_ensemble
+2019,R64,Texas Tech,Northern Kentucky,3,14,Texas Tech,Region_4,0.9483273935862732,Texas Tech,1,ml_ensemble
+2019,R64,Nevada,Florida,7,10,Florida,Region_4,0.7882953919066639,Nevada,0,ml_ensemble
+2019,R64,Michigan,Montana,2,15,Michigan,Region_4,0.9629550265447699,Michigan,1,ml_ensemble
+2019,R32,Gonzaga,Baylor,1,9,Gonzaga,Region_4,0.9232049270250987,Gonzaga,1,ml_ensemble
+2019,R32,Murray State,Florida State,12,4,Florida State,Region_4,0.19207975495202145,Florida State,1,ml_ensemble
+2019,R32,Buffalo,Texas Tech,6,3,Texas Tech,Region_4,0.3008987625914333,Texas Tech,1,ml_ensemble
+2019,R32,Florida,Michigan,10,2,Michigan,Region_4,0.13365082284896027,Michigan,1,ml_ensemble
+2019,S16,Gonzaga,Florida State,1,4,Gonzaga,Region_4,0.5331049328517229,Gonzaga,1,ml_ensemble
+2019,S16,Texas Tech,Michigan,3,2,Texas Tech,Region_4,0.42136131463456766,Michigan,0,ml_ensemble
+2019,E8,Gonzaga,Texas Tech,1,3,Texas Tech,Region_4,0.33245320629997516,Texas Tech,1,ml_ensemble
+2019,F4,Michigan State,Texas Tech,2,3,Texas Tech,Final Four,0.732826955882099,Michigan State,0,ml_ensemble
+2019,F4,Auburn,Virginia,5,1,Virginia,Final Four,0.2783394460441804,Virginia,1,ml_ensemble
+2019,Championship,Texas Tech,Virginia,3,1,Virginia,Final Four,0.14705796709759303,Virginia,1,ml_ensemble
+2021,R64,Michigan,Texas Southern,1,16,Michigan,Region_1,0.9801550912725734,Michigan,1,ml_ensemble
+2021,R64,LSU,St. Bonaventure,8,9,LSU,Region_1,0.3558145590698472,St. Bonaventure,0,ml_ensemble
+2021,R64,Colorado,Georgetown,5,12,Colorado,Region_1,0.8699371901337299,Colorado,1,ml_ensemble
+2021,R64,Florida State,UNC Greensboro,4,13,Florida State,Region_1,0.9034864802644411,Florida State,1,ml_ensemble
+2021,R64,Texas,Abilene Christian,3,14,Abilene Christian,Region_1,0.5517367669802464,Texas,0,ml_ensemble
+2021,R64,UConn,Maryland,7,10,Maryland,Region_1,0.5730225937597142,UConn,0,ml_ensemble
+2021,R64,Alabama,Iona,2,15,Alabama,Region_1,0.9823481064046385,Alabama,1,ml_ensemble
+2021,R32,Michigan,LSU,1,8,Michigan,Region_1,0.8647751544932577,Michigan,1,ml_ensemble
+2021,R32,Colorado,Florida State,5,4,Florida State,Region_1,0.7047938836404946,Colorado,0,ml_ensemble
+2021,R32,UCLA,Abilene Christian,11,14,UCLA,Region_1,0.7894328032448534,UCLA,1,ml_ensemble
+2021,R32,Maryland,Alabama,10,2,Alabama,Region_1,0.30539588199753326,Alabama,1,ml_ensemble
+2021,S16,Michigan,Florida State,1,4,Michigan,Region_1,0.8278774582055518,Michigan,1,ml_ensemble
+2021,S16,UCLA,Alabama,11,2,UCLA,Region_1,0.6806503007932259,UCLA,1,ml_ensemble
+2021,E8,Michigan,UCLA,1,11,UCLA,Region_1,0.45105173026012474,UCLA,1,ml_ensemble
+2021,R64,Illinois,Drexel,1,16,Illinois,Region_2,0.9881998355756524,Illinois,1,ml_ensemble
+2021,R64,Loyola (IL),Georgia Tech,8,9,Loyola (IL),Region_2,0.7757785031643124,Loyola (IL),1,ml_ensemble
+2021,R64,Tennessee,Oregon State,5,12,Oregon State,Region_2,0.2680206165419652,Oregon State,1,ml_ensemble
+2021,R64,Oklahoma State,Liberty,4,13,Oklahoma State,Region_2,0.6710380413892555,Oklahoma State,1,ml_ensemble
+2021,R64,San Diego State,Syracuse,6,11,Syracuse,Region_2,0.47175672349912307,Syracuse,1,ml_ensemble
+2021,R64,West Virginia,Morehead State,3,14,West Virginia,Region_2,0.8787120854783516,West Virginia,1,ml_ensemble
+2021,R64,Clemson,Rutgers,7,10,Rutgers,Region_2,0.42515303238200947,Rutgers,1,ml_ensemble
+2021,R64,Houston,Cleveland State,2,15,Houston,Region_2,0.9697113879240771,Houston,1,ml_ensemble
+2021,R32,Illinois,Loyola (IL),1,8,Loyola (IL),Region_2,0.8196293560181989,Illinois,0,ml_ensemble
+2021,R32,Oregon State,Oklahoma State,12,4,Oregon State,Region_2,0.5705571123673475,Oregon State,1,ml_ensemble
+2021,R32,Syracuse,West Virginia,11,3,Syracuse,Region_2,0.6060409178396345,Syracuse,1,ml_ensemble
+2021,R32,Rutgers,Houston,10,2,Houston,Region_2,0.21534942206977292,Houston,1,ml_ensemble
+2021,S16,Loyola (IL),Oregon State,8,12,Oregon State,Region_2,0.5235710084012251,Loyola (IL),0,ml_ensemble
+2021,S16,Syracuse,Houston,11,2,Houston,Region_2,0.22405617838285632,Houston,1,ml_ensemble
+2021,E8,Oregon State,Houston,12,2,Houston,Region_2,0.2491800321481961,Houston,1,ml_ensemble
+2021,R64,Baylor,Hartford,1,16,Baylor,Region_3,0.9914878742691915,Baylor,1,ml_ensemble
+2021,R64,UNC,Wisconsin,8,9,Wisconsin,Region_3,0.27933218660102865,Wisconsin,1,ml_ensemble
+2021,R64,Villanova,Winthrop,5,12,Villanova,Region_3,0.622957856657525,Villanova,1,ml_ensemble
+2021,R64,Purdue,North Texas,4,13,North Texas,Region_3,0.8375362924334038,Purdue,0,ml_ensemble
+2021,R64,Texas Tech,Utah State,6,11,Texas Tech,Region_3,0.6384732675559378,Texas Tech,1,ml_ensemble
+2021,R64,Arkansas,Colgate,3,14,Arkansas,Region_3,0.3227437605095453,Colgate,0,ml_ensemble
+2021,R64,Florida,Virginia Tech,7,10,Florida,Region_3,0.5283790928101006,Florida,1,ml_ensemble
+2021,R64,Ohio State,Oral Roberts,2,15,Oral Roberts,Region_3,0.9488604002107376,Ohio State,0,ml_ensemble
+2021,R32,Baylor,Wisconsin,1,9,Baylor,Region_3,0.8190946939911102,Baylor,1,ml_ensemble
+2021,R32,Villanova,North Texas,5,13,Villanova,Region_3,0.8241131492762728,Villanova,1,ml_ensemble
+2021,R32,Texas Tech,Arkansas,6,3,Arkansas,Region_3,0.16058357584387714,Arkansas,1,ml_ensemble
+2021,R32,Florida,Oral Roberts,7,15,Oral Roberts,Region_3,0.8717202472524201,Florida,0,ml_ensemble
+2021,S16,Baylor,Villanova,1,5,Baylor,Region_3,0.8945821494671523,Baylor,1,ml_ensemble
+2021,S16,Arkansas,Oral Roberts,3,15,Arkansas,Region_3,0.8891687484481029,Arkansas,1,ml_ensemble
+2021,E8,Baylor,Arkansas,1,3,Baylor,Region_3,0.8918341565547095,Baylor,1,ml_ensemble
+2021,R64,Gonzaga,Norfolk State,1,16,Gonzaga,Region_4,0.9910275357483068,Gonzaga,1,ml_ensemble
+2021,R64,Oklahoma,Missouri,8,9,Oklahoma,Region_4,0.2646973490229056,Missouri,0,ml_ensemble
+2021,R64,Virginia,Ohio,4,13,Ohio,Region_4,0.8426551902773319,Virginia,0,ml_ensemble
+2021,R64,Kansas,Eastern Washington,3,14,Kansas,Region_4,0.8650820180251898,Kansas,1,ml_ensemble
+2021,R64,Oregon,VCU,7,10,Oregon,Region_4,0.8229807499609909,Oregon,1,ml_ensemble
+2021,R64,Iowa,Grand Canyon,2,15,Iowa,Region_4,0.9111041251289075,Iowa,1,ml_ensemble
+2021,R32,Gonzaga,Oklahoma,1,8,Gonzaga,Region_4,0.9563403265798098,Gonzaga,1,ml_ensemble
+2021,R32,Creighton,Ohio,5,13,Creighton,Region_4,0.8719728280604554,Creighton,1,ml_ensemble
+2021,R32,Oregon,Iowa,7,2,Oregon,Region_4,0.6678560373430855,Oregon,1,ml_ensemble
+2021,S16,Gonzaga,Creighton,1,5,Gonzaga,Region_4,0.9154014464088619,Gonzaga,1,ml_ensemble
+2021,F4,UCLA,Gonzaga,11,1,Gonzaga,Final Four,0.4284928912365753,Gonzaga,1,ml_ensemble
+2021,F4,Houston,Baylor,2,1,Baylor,Final Four,0.18964995958597983,Baylor,1,ml_ensemble
+2021,Championship,Gonzaga,Baylor,1,1,Baylor,Final Four,0.43184352534858333,Baylor,1,ml_ensemble
+2022,R64,Baylor,Norfolk State,1,16,Baylor,Region_1,0.9420669870806307,Baylor,1,ml_ensemble
+2022,R64,UNC,Marquette,8,9,UNC,Region_1,0.7438519697144219,UNC,1,ml_ensemble
+2022,R64,UCLA,Akron,4,13,UCLA,Region_1,0.9641767799601734,UCLA,1,ml_ensemble
+2022,R64,Texas,Virginia Tech,6,11,Texas,Region_1,0.6682642062932901,Texas,1,ml_ensemble
+2022,R64,Purdue,Yale,3,14,Purdue,Region_1,0.9491467478673715,Purdue,1,ml_ensemble
+2022,R64,Murray State,San Francisco,7,10,Murray State,Region_1,0.3674861599570205,San Francisco,0,ml_ensemble
+2022,R32,Baylor,UNC,1,8,UNC,Region_1,0.4656008898055679,UNC,1,ml_ensemble
+2022,R32,Texas,Purdue,6,3,Purdue,Region_1,0.21953642172186272,Purdue,1,ml_ensemble
+2022,S16,UNC,UCLA,8,4,UNC,Region_1,0.6488847528811367,UNC,1,ml_ensemble
+2022,R64,Kansas,Texas Southern,1,16,Kansas,Region_2,0.9841076920742514,Kansas,1,ml_ensemble
+2022,R64,San Diego State,Creighton,8,9,Creighton,Region_2,0.5218074658120219,San Diego State,0,ml_ensemble
+2022,R64,Iowa,Richmond,5,12,Richmond,Region_2,0.7456621312685615,Iowa,0,ml_ensemble
+2022,R64,Providence,South Dakota State,4,13,Providence,Region_2,0.6954278925840304,Providence,1,ml_ensemble
+2022,R64,LSU,Iowa State,6,11,Iowa State,Region_2,0.29034148924232567,Iowa State,1,ml_ensemble
+2022,R64,Wisconsin,Colgate,3,14,Wisconsin,Region_2,0.8289104411383047,Wisconsin,1,ml_ensemble
+2022,R64,Auburn,Jacksonville State,2,15,Auburn,Region_2,0.9718153398587558,Auburn,1,ml_ensemble
+2022,R32,Kansas,Creighton,1,9,Kansas,Region_2,0.9367182374683569,Kansas,1,ml_ensemble
+2022,R32,Richmond,Providence,12,4,Providence,Region_2,0.16172754788060542,Providence,1,ml_ensemble
+2022,R32,Iowa State,Wisconsin,11,3,Iowa State,Region_2,0.47597369580946297,Wisconsin,0,ml_ensemble
+2022,R32,Miami (FL),Auburn,10,2,Miami (FL),Region_2,0.15212155023738655,Auburn,0,ml_ensemble
+2022,S16,Kansas,Providence,1,4,Kansas,Region_2,0.8498477309042262,Kansas,1,ml_ensemble
+2022,S16,Iowa State,Miami (FL),11,10,Miami (FL),Region_2,0.727692549094908,Iowa State,0,ml_ensemble
+2022,E8,Kansas,Miami (FL),1,10,Kansas,Region_2,0.8805169230661273,Kansas,1,ml_ensemble
+2022,R64,Arizona,Wright State,1,16,Arizona,Region_3,0.9814796268353213,Arizona,1,ml_ensemble
+2022,R64,Seton Hall,TCU,8,9,TCU,Region_3,0.3317847078345264,TCU,1,ml_ensemble
+2022,R64,Houston,UAB,5,12,Houston,Region_3,0.8908196862444365,Houston,1,ml_ensemble
+2022,R64,Illinois,Chattanooga,4,13,Illinois,Region_3,0.745163041587749,Illinois,1,ml_ensemble
+2022,R64,Colorado State,Michigan,6,11,Michigan,Region_3,0.6470686153915863,Colorado State,0,ml_ensemble
+2022,R64,Tennessee,Longwood,3,14,Tennessee,Region_3,0.9549351654695033,Tennessee,1,ml_ensemble
+2022,R64,Ohio State,Loyola (IL),7,10,Ohio State,Region_3,0.37789962495390483,Loyola (IL),0,ml_ensemble
+2022,R64,Villanova,Delaware,2,15,Villanova,Region_3,0.9726187008791477,Villanova,1,ml_ensemble
+2022,R32,Arizona,TCU,1,9,Arizona,Region_3,0.8681211988972569,Arizona,1,ml_ensemble
+2022,R32,Houston,Illinois,5,4,Houston,Region_3,0.8321222982975333,Houston,1,ml_ensemble
+2022,R32,Michigan,Tennessee,11,3,Michigan,Region_3,0.18018920760133691,Tennessee,0,ml_ensemble
+2022,R32,Ohio State,Villanova,7,2,Villanova,Region_3,0.22318857211449997,Villanova,1,ml_ensemble
+2022,S16,Arizona,Houston,1,5,Houston,Region_3,0.34525222856895615,Houston,1,ml_ensemble
+2022,S16,Michigan,Villanova,11,2,Villanova,Region_3,0.2856525943012799,Villanova,1,ml_ensemble
+2022,E8,Houston,Villanova,5,2,Villanova,Region_3,0.6452840256640462,Houston,0,ml_ensemble
+2022,R64,Gonzaga,Georgia State,1,16,Gonzaga,Region_4,0.9409015021225503,Gonzaga,1,ml_ensemble
+2022,R64,Boise State,Memphis,8,9,Memphis,Region_4,0.712049418160558,Boise State,0,ml_ensemble
+2022,R64,UConn,New Mexico State,5,12,New Mexico State,Region_4,0.4988122656695209,New Mexico State,1,ml_ensemble
+2022,R64,Arkansas,Vermont,4,13,Arkansas,Region_4,0.7762602365311481,Arkansas,1,ml_ensemble
+2022,R64,Alabama,Notre Dame,6,11,Notre Dame,Region_4,0.2671363970733851,Notre Dame,1,ml_ensemble
+2022,R64,Texas Tech,Montana State,3,14,Texas Tech,Region_4,0.9370814349979381,Texas Tech,1,ml_ensemble
+2022,R64,Michigan State,Davidson,7,10,Michigan State,Region_4,0.5448805066320728,Michigan State,1,ml_ensemble
+2022,R64,Duke,Cal State Fullerton,2,15,Duke,Region_4,0.9239505029987752,Duke,1,ml_ensemble
+2022,R32,Gonzaga,Memphis,1,9,Gonzaga,Region_4,0.8685334104551665,Gonzaga,1,ml_ensemble
+2022,R32,New Mexico State,Arkansas,12,4,Arkansas,Region_4,0.21889053195124464,Arkansas,1,ml_ensemble
+2022,R32,Notre Dame,Texas Tech,11,3,Texas Tech,Region_4,0.2590541103033838,Texas Tech,1,ml_ensemble
+2022,R32,Michigan State,Duke,7,2,Duke,Region_4,0.20386993888372093,Duke,1,ml_ensemble
+2022,S16,Gonzaga,Arkansas,1,4,Arkansas,Region_4,0.7088291802604072,Gonzaga,0,ml_ensemble
+2022,S16,Texas Tech,Duke,3,2,Duke,Region_4,0.4246412166622963,Duke,1,ml_ensemble
+2022,E8,Arkansas,Duke,4,2,Duke,Region_4,0.4749794695168035,Duke,1,ml_ensemble
+2022,F4,UNC,Duke,8,2,UNC,Final Four,0.5630817800020808,UNC,1,ml_ensemble
+2022,F4,Kansas,Villanova,1,2,Kansas,Final Four,0.6021166603300898,Kansas,1,ml_ensemble
+2022,Championship,UNC,Kansas,8,1,Kansas,Final Four,0.19647072719342085,Kansas,1,ml_ensemble
+2023,R64,Purdue,FDU,1,16,FDU,Region_1,0.9959818864505031,Purdue,0,ml_ensemble
+2023,R64,Memphis,Florida Atlantic,8,9,Florida Atlantic,Region_1,0.46031739163564245,Florida Atlantic,1,ml_ensemble
+2023,R64,Duke,Oral Roberts,5,12,Duke,Region_1,0.6962357754301949,Duke,1,ml_ensemble
+2023,R64,Tennessee,Louisiana,4,13,Tennessee,Region_1,0.7892344811654416,Tennessee,1,ml_ensemble
+2023,R64,Kentucky,Providence,6,11,Kentucky,Region_1,0.38921134142333275,Providence,0,ml_ensemble
+2023,R64,Kansas State,Montana State,3,14,Kansas State,Region_1,0.811713975767906,Kansas State,1,ml_ensemble
+2023,R64,Marquette,Vermont,2,15,Marquette,Region_1,0.9223032059370498,Marquette,1,ml_ensemble
+2023,R32,FDU,Florida Atlantic,16,9,Florida Atlantic,Region_1,0.0795874455129767,Florida Atlantic,1,ml_ensemble
+2023,R32,Duke,Tennessee,5,4,Tennessee,Region_1,0.6373929008730389,Duke,0,ml_ensemble
+2023,R32,Kentucky,Kansas State,6,3,Kansas State,Region_1,0.3335558348948242,Kansas State,1,ml_ensemble
+2023,R32,Michigan State,Marquette,7,2,Michigan State,Region_1,0.438881376704191,Marquette,0,ml_ensemble
+2023,S16,Florida Atlantic,Tennessee,9,4,Florida Atlantic,Region_1,0.7051614403723141,Florida Atlantic,1,ml_ensemble
+2023,S16,Kansas State,Michigan State,3,7,Kansas State,Region_1,0.5153899169474788,Kansas State,1,ml_ensemble
+2023,E8,Florida Atlantic,Kansas State,9,3,Florida Atlantic,Region_1,0.6940983290041518,Florida Atlantic,1,ml_ensemble
+2023,R64,Houston,Northern Kentucky,1,16,Houston,Region_2,0.9643080158713514,Houston,1,ml_ensemble
+2023,R64,Iowa,Auburn,8,9,Auburn,Region_2,0.24406807925649013,Auburn,1,ml_ensemble
+2023,R64,Miami (FL),Drake,5,12,Miami (FL),Region_2,0.7039001655903198,Miami (FL),1,ml_ensemble
+2023,R64,Indiana,Kent State,4,13,Indiana,Region_2,0.3352065667538153,Kent State,0,ml_ensemble
+2023,R64,Iowa State,Pitt,6,11,Pitt,Region_2,0.391984303361524,Pitt,1,ml_ensemble
+2023,R64,Xavier,Kennesaw State,3,14,Xavier,Region_2,0.8321873398980806,Xavier,1,ml_ensemble
+2023,R64,Texas A&M,Penn State,7,10,Penn State,Region_2,0.3854809475028907,Penn State,1,ml_ensemble
+2023,R64,Texas,Colgate,2,15,Texas,Region_2,0.9517994210952773,Texas,1,ml_ensemble
+2023,R32,Houston,Auburn,1,9,Houston,Region_2,0.8343153346310607,Houston,1,ml_ensemble
+2023,R32,Miami (FL),Indiana,5,4,Miami (FL),Region_2,0.6997794259840378,Miami (FL),1,ml_ensemble
+2023,R32,Pitt,Xavier,11,3,Xavier,Region_2,0.32572134660345003,Xavier,1,ml_ensemble
+2023,R32,Penn State,Texas,10,2,Texas,Region_2,0.17117099732085064,Texas,1,ml_ensemble
+2023,S16,Houston,Miami (FL),1,5,Miami (FL),Region_2,0.7635910003192508,Houston,0,ml_ensemble
+2023,S16,Xavier,Texas,3,2,Texas,Region_2,0.3206425467384907,Texas,1,ml_ensemble
+2023,E8,Miami (FL),Texas,5,2,Miami (FL),Region_2,0.2169930303221573,Texas,0,ml_ensemble
+2023,R64,Alabama,Texas A&M-Corpus Christi,1,16,Alabama,Region_3,0.9873830863524692,Alabama,1,ml_ensemble
+2023,R64,Maryland,West Virginia,8,9,Maryland,Region_3,0.3292889505713765,West Virginia,0,ml_ensemble
+2023,R64,San Diego State,College of Charleston,5,12,San Diego State,Region_3,0.8622520346331445,San Diego State,1,ml_ensemble
+2023,R64,Virginia,Furman,4,13,Furman,Region_3,0.6954814289844541,Virginia,0,ml_ensemble
+2023,R64,Creighton,NC State,6,11,Creighton,Region_3,0.5955194530569775,Creighton,1,ml_ensemble
+2023,R64,Missouri,Utah State,7,10,Missouri,Region_3,0.23193591819764012,Utah State,0,ml_ensemble
+2023,R64,Arizona,Princeton,2,15,Princeton,Region_3,0.8276222364675642,Arizona,0,ml_ensemble
+2023,R32,Alabama,Maryland,1,8,Alabama,Region_3,0.93057994391451,Alabama,1,ml_ensemble
+2023,R32,San Diego State,Furman,5,13,San Diego State,Region_3,0.9132807296175783,San Diego State,1,ml_ensemble
+2023,R32,Creighton,Baylor,6,3,Creighton,Region_3,0.519619755863285,Creighton,1,ml_ensemble
+2023,R32,Missouri,Princeton,7,15,Princeton,Region_3,0.7443023443517877,Missouri,0,ml_ensemble
+2023,S16,Alabama,San Diego State,1,5,San Diego State,Region_3,0.4009693059482524,San Diego State,1,ml_ensemble
+2023,S16,Creighton,Princeton,6,15,Creighton,Region_3,0.8493692994163998,Creighton,1,ml_ensemble
+2023,E8,San Diego State,Creighton,5,6,San Diego State,Region_3,0.7557949869511326,San Diego State,1,ml_ensemble
+2023,R64,Kansas,Howard,1,16,Kansas,Region_4,0.9837150306747727,Kansas,1,ml_ensemble
+2023,R64,Arkansas,Illinois,8,9,Arkansas,Region_4,0.744150859655338,Arkansas,1,ml_ensemble
+2023,R64,UConn,Iona,4,13,UConn,Region_4,0.9288328015301702,UConn,1,ml_ensemble
+2023,R64,TCU,Arizona State,6,11,TCU,Region_4,0.45069951445330586,Arizona State,0,ml_ensemble
+2023,R64,Gonzaga,Grand Canyon,3,14,Gonzaga,Region_4,0.9052050063257702,Gonzaga,1,ml_ensemble
+2023,R64,Northwestern,Boise State,7,10,Northwestern,Region_4,0.5779674690882,Northwestern,1,ml_ensemble
+2023,R64,UCLA,UNC Asheville,2,15,UCLA,Region_4,0.95261398272249,UCLA,1,ml_ensemble
+2023,R32,Kansas,Arkansas,1,8,Arkansas,Region_4,0.818730493357377,Kansas,0,ml_ensemble
+2023,R32,TCU,Gonzaga,6,3,Gonzaga,Region_4,0.14522720441173978,Gonzaga,1,ml_ensemble
+2023,R32,Northwestern,UCLA,7,2,UCLA,Region_4,0.08076231201520707,UCLA,1,ml_ensemble
+2023,S16,Arkansas,UConn,8,4,UConn,Region_4,0.18446381474336168,UConn,1,ml_ensemble
+2023,S16,Gonzaga,UCLA,3,2,Gonzaga,Region_4,0.27814736000050455,UCLA,0,ml_ensemble
+2023,E8,UConn,Gonzaga,4,3,UConn,Region_4,0.48887308542754676,Gonzaga,0,ml_ensemble
+2023,F4,Florida Atlantic,San Diego State,9,5,San Diego State,Final Four,0.25218471331047954,San Diego State,1,ml_ensemble
+2023,F4,Miami (FL),UConn,5,4,UConn,Final Four,0.1276357645757714,UConn,1,ml_ensemble
+2023,Championship,San Diego State,UConn,5,4,UConn,Final Four,0.49929060713888823,UConn,1,ml_ensemble
+2024,R64,UConn,Stetson,1,16,UConn,Region_1,0.972423140378794,UConn,1,ml_ensemble
+2024,R64,Florida Atlantic,Northwestern,8,9,Northwestern,Region_1,0.4289768874825312,Northwestern,1,ml_ensemble
+2024,R64,San Diego State,UAB,5,12,San Diego State,Region_1,0.674100398211662,San Diego State,1,ml_ensemble
+2024,R64,Auburn,Yale,4,13,Yale,Region_1,0.9003543856087401,Auburn,0,ml_ensemble
+2024,R64,Illinois,Morehead State,3,14,Illinois,Region_1,0.9399488745736394,Illinois,1,ml_ensemble
+2024,R64,Washington State,Drake,7,10,Washington State,Region_1,0.6550169249026329,Washington State,1,ml_ensemble
+2024,R64,Iowa State,South Dakota State,2,15,Iowa State,Region_1,0.977904806017282,Iowa State,1,ml_ensemble
+2024,R32,UConn,Northwestern,1,9,UConn,Region_1,0.9533171308396721,UConn,1,ml_ensemble
+2024,R32,San Diego State,Yale,5,13,San Diego State,Region_1,0.8291062612335255,San Diego State,1,ml_ensemble
+2024,R32,Duquesne,Illinois,11,3,Illinois,Region_1,0.3541880336937257,Illinois,1,ml_ensemble
+2024,R32,Washington State,Iowa State,7,2,Iowa State,Region_1,0.19217155051547155,Iowa State,1,ml_ensemble
+2024,S16,UConn,San Diego State,1,5,UConn,Region_1,0.9434844448424705,UConn,1,ml_ensemble
+2024,S16,Illinois,Iowa State,3,2,Illinois,Region_1,0.5203779836258368,Illinois,1,ml_ensemble
+2024,E8,UConn,Illinois,1,3,UConn,Region_1,0.8964778192837142,UConn,1,ml_ensemble
+2024,R64,Purdue,Grambling,1,16,Purdue,Region_2,0.7278590427544859,Purdue,1,ml_ensemble
+2024,R64,Utah State,TCU,8,9,Utah State,Region_2,0.7919705961412085,Utah State,1,ml_ensemble
+2024,R64,Gonzaga,McNeese State,5,12,Gonzaga,Region_2,0.6826733435154936,Gonzaga,1,ml_ensemble
+2024,R64,Kansas,Samford,4,13,Kansas,Region_2,0.6206983301379502,Kansas,1,ml_ensemble
+2024,R64,South Carolina,Oregon,6,11,Oregon,Region_2,0.3253524828971833,Oregon,1,ml_ensemble
+2024,R64,Creighton,Akron,3,14,Creighton,Region_2,0.9213620313108857,Creighton,1,ml_ensemble
+2024,R64,Texas,Colorado State,7,10,Texas,Region_2,0.563539043802908,Texas,1,ml_ensemble
+2024,R32,Purdue,Utah State,1,8,Purdue,Region_2,0.9052589918563645,Purdue,1,ml_ensemble
+2024,R32,Gonzaga,Kansas,5,4,Gonzaga,Region_2,0.370378014004686,Kansas,0,ml_ensemble
+2024,R32,Oregon,Creighton,11,3,Creighton,Region_2,0.5446916153268943,Oregon,0,ml_ensemble
+2024,R32,Texas,Tennessee,7,2,Tennessee,Region_2,0.13170120341726374,Tennessee,1,ml_ensemble
+2024,S16,Purdue,Gonzaga,1,5,Purdue,Region_2,0.9075519942779456,Purdue,1,ml_ensemble
+2024,S16,Creighton,Tennessee,3,2,Tennessee,Region_2,0.25093892229644194,Tennessee,1,ml_ensemble
+2024,E8,Purdue,Tennessee,1,2,Purdue,Region_2,0.8071054725912931,Purdue,1,ml_ensemble
+2024,R64,Houston,Longwood,1,16,Houston,Region_3,0.9899840787703598,Houston,1,ml_ensemble
+2024,R64,Nebraska,Texas A&M,8,9,Texas A&M,Region_3,0.7058235117420307,Nebraska,0,ml_ensemble
+2024,R64,Wisconsin,James Madison,5,12,James Madison,Region_3,0.6821157850656222,Wisconsin,0,ml_ensemble
+2024,R64,Duke,Vermont,4,13,Duke,Region_3,0.9104745068789551,Duke,1,ml_ensemble
+2024,R64,Texas Tech,NC State,6,11,NC State,Region_3,0.5140021987460934,Texas Tech,0,ml_ensemble
+2024,R64,Kentucky,Oakland,3,14,Oakland,Region_3,0.813630624224186,Kentucky,0,ml_ensemble
+2024,R64,Florida,Colorado,7,10,Colorado,Region_3,0.23986313159783404,Colorado,1,ml_ensemble
+2024,R64,Marquette,Western Kentucky,2,15,Marquette,Region_3,0.9306245221795951,Marquette,1,ml_ensemble
+2024,R32,Houston,Texas A&M,1,9,Houston,Region_3,0.9459888609921308,Houston,1,ml_ensemble
+2024,R32,James Madison,Duke,12,4,Duke,Region_3,0.23634439468309335,Duke,1,ml_ensemble
+2024,R32,NC State,Oakland,11,14,NC State,Region_3,0.8976960471453864,NC State,1,ml_ensemble
+2024,R32,Colorado,Marquette,10,2,Marquette,Region_3,0.4977023263874936,Marquette,1,ml_ensemble
+2024,S16,Houston,Duke,1,4,Duke,Region_3,0.9017317777038888,Houston,0,ml_ensemble
+2024,S16,NC State,Marquette,11,2,NC State,Region_3,0.29171595174303194,Marquette,0,ml_ensemble
+2024,E8,Duke,NC State,4,11,NC State,Region_3,0.5504273205749802,Duke,0,ml_ensemble
+2024,R64,UNC,Wagner,1,16,UNC,Region_4,0.7236036984553391,UNC,1,ml_ensemble
+2024,R64,Mississippi State,Michigan State,8,9,Michigan State,Region_4,0.2609649666373332,Michigan State,1,ml_ensemble
+2024,R64,Alabama,College of Charleston,4,13,Alabama,Region_4,0.8937046609268989,Alabama,1,ml_ensemble
+2024,R64,Clemson,New Mexico,6,11,Clemson,Region_4,0.5836328190578489,Clemson,1,ml_ensemble
+2024,R64,Baylor,Colgate,3,14,Baylor,Region_4,0.9612049671030963,Baylor,1,ml_ensemble
+2024,R64,Dayton,Nevada,7,10,Dayton,Region_4,0.42349954933706463,Nevada,0,ml_ensemble
+2024,R64,Arizona,Long Beach State,2,15,Arizona,Region_4,0.9667576592436552,Arizona,1,ml_ensemble
+2024,R32,UNC,Michigan State,1,9,UNC,Region_4,0.742890051902183,UNC,1,ml_ensemble
+2024,R32,Grand Canyon,Alabama,12,4,Alabama,Region_4,0.2521735222945031,Alabama,1,ml_ensemble
+2024,R32,Clemson,Baylor,6,3,Clemson,Region_4,0.33791415005356,Baylor,0,ml_ensemble
+2024,R32,Dayton,Arizona,7,2,Arizona,Region_4,0.3719017536319588,Arizona,1,ml_ensemble
+2024,S16,UNC,Alabama,1,4,Alabama,Region_4,0.6473619934403262,UNC,0,ml_ensemble
+2024,S16,Clemson,Arizona,6,2,Clemson,Region_4,0.19743537094966382,Arizona,0,ml_ensemble
+2024,E8,Alabama,Clemson,4,6,Alabama,Region_4,0.5890119951476567,Alabama,1,ml_ensemble
+2024,F4,UConn,Alabama,1,4,UConn,Final Four,0.8860768842532153,UConn,1,ml_ensemble
+2024,F4,Purdue,NC State,1,11,Purdue,Final Four,0.8981101150123753,Purdue,1,ml_ensemble
+2024,Championship,UConn,Purdue,1,1,UConn,Final Four,0.2516184034003146,Purdue,0,ml_ensemble

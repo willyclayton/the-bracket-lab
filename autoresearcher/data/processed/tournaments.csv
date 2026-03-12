@@ -1,0 +1,883 @@
+year,round,region,seed_1,team_1,score_1,seed_2,team_2,score_2,winner
+2010,R64,Region_1,1,Kentucky,100.0,16,ETSU,71.0,Kentucky
+2010,R64,Region_1,8,Texas,80.0,9,Wake Forest,81.0,Wake Forest
+2010,R64,Region_1,5,Temple,65.0,12,Cornell,78.0,Cornell
+2010,R64,Region_1,4,Wisconsin,53.0,13,Wofford,49.0,Wisconsin
+2010,R64,Region_1,6,Marquette,78.0,11,Washington,80.0,Washington
+2010,R64,Region_1,3,New Mexico,62.0,14,Montana,57.0,New Mexico
+2010,R64,Region_1,7,Clemson,78.0,10,Missouri,86.0,Missouri
+2010,R64,Region_1,2,West Virginia,77.0,15,Morgan State,50.0,West Virginia
+2010,R32,Region_1,1,Kentucky,90.0,9,Wake Forest,60.0,Kentucky
+2010,R32,Region_1,12,Cornell,87.0,4,Wisconsin,69.0,Cornell
+2010,R32,Region_1,11,Washington,82.0,3,New Mexico,64.0,Washington
+2010,R32,Region_1,10,Missouri,59.0,2,West Virginia,68.0,West Virginia
+2010,S16,Region_1,1,Kentucky,62.0,12,Cornell,45.0,Kentucky
+2010,S16,Region_1,11,Washington,56.0,2,West Virginia,69.0,West Virginia
+2010,E8,Region_1,1,Kentucky,66.0,2,West Virginia,73.0,West Virginia
+2010,R64,Region_2,1,Kansas,90.0,16,Lehigh,74.0,Kansas
+2010,R64,Region_2,8,UNLV,66.0,9,Northern Iowa,69.0,Northern Iowa
+2010,R64,Region_2,5,Michigan State,70.0,12,New Mexico State,67.0,Michigan State
+2010,R64,Region_2,4,Maryland,89.0,13,Houston,77.0,Maryland
+2010,R64,Region_2,6,Tennessee,62.0,11,San Diego State,59.0,Tennessee
+2010,R64,Region_2,3,Georgetown,83.0,14,Ohio,97.0,Ohio
+2010,R64,Region_2,7,Oklahoma State,59.0,10,Georgia Tech,64.0,Georgia Tech
+2010,R64,Region_2,2,Ohio State,68.0,15,UCSB,51.0,Ohio State
+2010,R32,Region_2,1,Kansas,67.0,9,Northern Iowa,69.0,Northern Iowa
+2010,R32,Region_2,5,Michigan State,85.0,4,Maryland,83.0,Michigan State
+2010,R32,Region_2,6,Tennessee,83.0,14,Ohio,68.0,Tennessee
+2010,R32,Region_2,10,Georgia Tech,66.0,2,Ohio State,75.0,Ohio State
+2010,S16,Region_2,9,Northern Iowa,52.0,5,Michigan State,59.0,Michigan State
+2010,S16,Region_2,6,Tennessee,76.0,2,Ohio State,73.0,Tennessee
+2010,E8,Region_2,5,Michigan State,70.0,6,Tennessee,69.0,Michigan State
+2010,R64,Region_3,1,Duke,73.0,16,Arkansas-Pine Bluff,44.0,Duke
+2010,R64,Region_3,8,California,77.0,9,Louisville,62.0,California
+2010,R64,Region_3,5,Texas A&M,69.0,12,Utah State,53.0,Texas A&M
+2010,R64,Region_3,4,Purdue,72.0,13,Siena,64.0,Purdue
+2010,R64,Region_3,6,Notre Dame,50.0,11,Old Dominion,51.0,Old Dominion
+2010,R64,Region_3,3,Baylor,68.0,14,Sam Houston,59.0,Baylor
+2010,R64,Region_3,7,Richmond,71.0,10,Saint Mary's,80.0,Saint Mary's
+2010,R64,Region_3,2,Villanova,73.0,15,Robert Morris,70.0,Villanova
+2010,R32,Region_3,1,Duke,68.0,8,California,53.0,Duke
+2010,R32,Region_3,5,Texas A&M,61.0,4,Purdue,63.0,Purdue
+2010,R32,Region_3,11,Old Dominion,68.0,3,Baylor,76.0,Baylor
+2010,R32,Region_3,10,Saint Mary's,75.0,2,Villanova,68.0,Saint Mary's
+2010,S16,Region_3,1,Duke,70.0,4,Purdue,57.0,Duke
+2010,S16,Region_3,3,Baylor,72.0,10,Saint Mary's,49.0,Baylor
+2010,E8,Region_3,1,Duke,78.0,3,Baylor,71.0,Duke
+2010,R64,Region_4,1,Syracuse,79.0,16,Vermont,56.0,Syracuse
+2010,R64,Region_4,8,Gonzaga,67.0,9,Florida State,60.0,Gonzaga
+2010,R64,Region_4,5,Butler,77.0,12,UTEP,59.0,Butler
+2010,R64,Region_4,4,Vanderbilt,65.0,13,Murray State,66.0,Murray State
+2010,R64,Region_4,6,Xavier,65.0,11,Minnesota,54.0,Xavier
+2010,R64,Region_4,3,Pitt,89.0,14,Oakland,66.0,Pitt
+2010,R64,Region_4,7,BYU,99.0,10,Florida,92.0,BYU
+2010,R64,Region_4,2,Kansas State,82.0,15,North Texas,62.0,Kansas State
+2010,R32,Region_4,1,Syracuse,87.0,8,Gonzaga,65.0,Syracuse
+2010,R32,Region_4,5,Butler,54.0,13,Murray State,52.0,Butler
+2010,R32,Region_4,6,Xavier,71.0,3,Pitt,68.0,Xavier
+2010,R32,Region_4,7,BYU,72.0,2,Kansas State,84.0,Kansas State
+2010,S16,Region_4,1,Syracuse,59.0,5,Butler,63.0,Butler
+2010,S16,Region_4,6,Xavier,96.0,2,Kansas State,101.0,Kansas State
+2010,E8,Region_4,5,Butler,63.0,2,Kansas State,56.0,Butler
+2010,F4,Final Four,2,West Virginia,57.0,1,Duke,78.0,Duke
+2010,F4,Final Four,5,Michigan State,50.0,5,Butler,52.0,Butler
+2010,Championship,Final Four,1,Duke,61.0,5,Butler,59.0,Duke
+2011,R64,Region_1,1,Ohio State,75.0,16,UTSA,46.0,Ohio State
+2011,R64,Region_1,8,George Mason,61.0,9,Villanova,57.0,George Mason
+2011,R64,Region_1,5,West Virginia,84.0,12,Clemson,76.0,West Virginia
+2011,R64,Region_1,4,Kentucky,59.0,13,Princeton,57.0,Kentucky
+2011,R64,Region_1,6,Xavier,55.0,11,Marquette,66.0,Marquette
+2011,R64,Region_1,3,Syracuse,77.0,14,Indiana State,60.0,Syracuse
+2011,R64,Region_1,7,Washington,68.0,10,Georgia,65.0,Washington
+2011,R64,Region_1,2,UNC,102.0,15,LIU,87.0,UNC
+2011,R32,Region_1,1,Ohio State,98.0,8,George Mason,66.0,Ohio State
+2011,R32,Region_1,5,West Virginia,63.0,4,Kentucky,71.0,Kentucky
+2011,R32,Region_1,11,Marquette,66.0,3,Syracuse,62.0,Marquette
+2011,R32,Region_1,7,Washington,83.0,2,UNC,86.0,UNC
+2011,S16,Region_1,1,Ohio State,60.0,4,Kentucky,62.0,Kentucky
+2011,S16,Region_1,11,Marquette,63.0,2,UNC,81.0,UNC
+2011,E8,Region_1,4,Kentucky,76.0,2,UNC,69.0,Kentucky
+2011,R64,Region_2,1,Pitt,74.0,16,UNC Asheville,51.0,Pitt
+2011,R64,Region_2,8,Butler,60.0,9,Old Dominion,58.0,Butler
+2011,R64,Region_2,5,Kansas State,73.0,12,Utah State,68.0,Kansas State
+2011,R64,Region_2,4,Wisconsin,72.0,13,Belmont,58.0,Wisconsin
+2011,R64,Region_2,6,St. John's (NY),71.0,11,Gonzaga,86.0,Gonzaga
+2011,R64,Region_2,3,BYU,74.0,14,Wofford,66.0,BYU
+2011,R64,Region_2,7,UCLA,78.0,10,Michigan State,76.0,UCLA
+2011,R64,Region_2,2,Florida,79.0,15,UCSB,51.0,Florida
+2011,R32,Region_2,1,Pitt,70.0,8,Butler,71.0,Butler
+2011,R32,Region_2,5,Kansas State,65.0,4,Wisconsin,70.0,Wisconsin
+2011,R32,Region_2,11,Gonzaga,67.0,3,BYU,89.0,BYU
+2011,R32,Region_2,7,UCLA,65.0,2,Florida,73.0,Florida
+2011,S16,Region_2,8,Butler,61.0,4,Wisconsin,54.0,Butler
+2011,S16,Region_2,3,BYU,74.0,2,Florida,83.0,Florida
+2011,E8,Region_2,8,Butler,74.0,2,Florida,71.0,Butler
+2011,R64,Region_3,1,Kansas,72.0,16,Boston University,53.0,Kansas
+2011,R64,Region_3,8,UNLV,62.0,9,Illinois,73.0,Illinois
+2011,R64,Region_3,5,Vanderbilt,66.0,12,Richmond,69.0,Richmond
+2011,R64,Region_3,4,Louisville,61.0,13,Morehead State,62.0,Morehead State
+2011,R64,Region_3,6,Georgetown,56.0,11,VCU,74.0,VCU
+2011,R64,Region_3,3,Purdue,65.0,14,St. Peter's,43.0,Purdue
+2011,R64,Region_3,7,Texas A&M,50.0,10,Florida State,57.0,Florida State
+2011,R64,Region_3,2,Notre Dame,69.0,15,Akron,56.0,Notre Dame
+2011,R32,Region_3,1,Kansas,73.0,9,Illinois,59.0,Kansas
+2011,R32,Region_3,12,Richmond,65.0,13,Morehead State,48.0,Richmond
+2011,R32,Region_3,11,VCU,94.0,3,Purdue,76.0,VCU
+2011,R32,Region_3,10,Florida State,71.0,2,Notre Dame,57.0,Florida State
+2011,S16,Region_3,1,Kansas,77.0,12,Richmond,57.0,Kansas
+2011,S16,Region_3,11,VCU,72.0,10,Florida State,71.0,VCU
+2011,E8,Region_3,1,Kansas,61.0,11,VCU,71.0,VCU
+2011,R64,Region_4,1,Duke,87.0,16,Hampton,45.0,Duke
+2011,R64,Region_4,8,Michigan,75.0,9,Tennessee,45.0,Michigan
+2011,R64,Region_4,5,Arizona,77.0,12,Memphis,75.0,Arizona
+2011,R64,Region_4,4,Texas,85.0,13,Oakland,81.0,Texas
+2011,R64,Region_4,6,Cincinnati,78.0,11,Missouri,63.0,Cincinnati
+2011,R64,Region_4,3,UConn,81.0,14,Bucknell,52.0,UConn
+2011,R64,Region_4,7,Temple,66.0,10,Penn State,64.0,Temple
+2011,R64,Region_4,2,San Diego State,68.0,15,Northern Colorado,50.0,San Diego State
+2011,R32,Region_4,1,Duke,73.0,8,Michigan,71.0,Duke
+2011,R32,Region_4,5,Arizona,70.0,4,Texas,69.0,Arizona
+2011,R32,Region_4,6,Cincinnati,58.0,3,UConn,69.0,UConn
+2011,R32,Region_4,7,Temple,64.0,2,San Diego State,71.0,San Diego State
+2011,S16,Region_4,1,Duke,77.0,5,Arizona,93.0,Arizona
+2011,S16,Region_4,3,UConn,74.0,2,San Diego State,67.0,UConn
+2011,E8,Region_4,5,Arizona,63.0,3,UConn,65.0,UConn
+2011,F4,Final Four,4,Kentucky,55.0,3,UConn,56.0,UConn
+2011,F4,Final Four,8,Butler,70.0,11,VCU,62.0,Butler
+2011,Championship,Final Four,3,UConn,53.0,8,Butler,41.0,UConn
+2012,R64,Region_1,1,Syracuse,72.0,16,UNC Asheville,65.0,Syracuse
+2012,R64,Region_1,8,Kansas State,70.0,9,Southern Miss,64.0,Kansas State
+2012,R64,Region_1,5,Vanderbilt,79.0,12,Harvard,70.0,Vanderbilt
+2012,R64,Region_1,4,Wisconsin,73.0,13,Montana,49.0,Wisconsin
+2012,R64,Region_1,6,Cincinnati,65.0,11,Texas,59.0,Cincinnati
+2012,R64,Region_1,3,Florida State,66.0,14,St. Bonaventure,63.0,Florida State
+2012,R64,Region_1,7,Gonzaga,77.0,10,West Virginia,54.0,Gonzaga
+2012,R64,Region_1,2,Ohio State,78.0,15,Loyola (MD),59.0,Ohio State
+2012,R32,Region_1,1,Syracuse,75.0,8,Kansas State,59.0,Syracuse
+2012,R32,Region_1,5,Vanderbilt,57.0,4,Wisconsin,60.0,Wisconsin
+2012,R32,Region_1,6,Cincinnati,62.0,3,Florida State,56.0,Cincinnati
+2012,R32,Region_1,7,Gonzaga,66.0,2,Ohio State,73.0,Ohio State
+2012,S16,Region_1,1,Syracuse,64.0,4,Wisconsin,63.0,Syracuse
+2012,S16,Region_1,6,Cincinnati,66.0,2,Ohio State,81.0,Ohio State
+2012,E8,Region_1,1,Syracuse,70.0,2,Ohio State,77.0,Ohio State
+2012,R64,Region_2,1,UNC,77.0,16,Vermont,58.0,UNC
+2012,R64,Region_2,8,Creighton,58.0,9,Alabama,57.0,Creighton
+2012,R64,Region_2,5,Temple,44.0,12,South Florida,58.0,South Florida
+2012,R64,Region_2,4,Michigan,60.0,13,Ohio,65.0,Ohio
+2012,R64,Region_2,6,San Diego State,65.0,11,NC State,79.0,NC State
+2012,R64,Region_2,3,Georgetown,74.0,14,Belmont,59.0,Georgetown
+2012,R64,Region_2,7,Saint Mary's,69.0,10,Purdue,72.0,Purdue
+2012,R64,Region_2,2,Kansas,65.0,15,Detroit Mercy,50.0,Kansas
+2012,R32,Region_2,1,UNC,87.0,8,Creighton,73.0,UNC
+2012,R32,Region_2,12,South Florida,56.0,13,Ohio,62.0,Ohio
+2012,R32,Region_2,11,NC State,66.0,3,Georgetown,63.0,NC State
+2012,R32,Region_2,10,Purdue,60.0,2,Kansas,63.0,Kansas
+2012,S16,Region_2,1,UNC,73.0,13,Ohio,65.0,UNC
+2012,S16,Region_2,11,NC State,57.0,2,Kansas,60.0,Kansas
+2012,E8,Region_2,1,UNC,67.0,2,Kansas,80.0,Kansas
+2012,R64,Region_3,1,Kentucky,81.0,16,Western Kentucky,66.0,Kentucky
+2012,R64,Region_3,8,Iowa State,77.0,9,UConn,64.0,Iowa State
+2012,R64,Region_3,5,Wichita State,59.0,12,VCU,62.0,VCU
+2012,R64,Region_3,4,Indiana,79.0,13,New Mexico State,66.0,Indiana
+2012,R64,Region_3,6,UNLV,64.0,11,Colorado,68.0,Colorado
+2012,R64,Region_3,3,Baylor,68.0,14,South Dakota State,60.0,Baylor
+2012,R64,Region_3,7,Notre Dame,63.0,10,Xavier,67.0,Xavier
+2012,R64,Region_3,2,Duke,70.0,15,Lehigh,75.0,Lehigh
+2012,R32,Region_3,1,Kentucky,87.0,8,Iowa State,71.0,Kentucky
+2012,R32,Region_3,12,VCU,61.0,4,Indiana,63.0,Indiana
+2012,R32,Region_3,11,Colorado,63.0,3,Baylor,80.0,Baylor
+2012,R32,Region_3,10,Xavier,70.0,15,Lehigh,58.0,Xavier
+2012,S16,Region_3,1,Kentucky,102.0,4,Indiana,90.0,Kentucky
+2012,S16,Region_3,3,Baylor,75.0,10,Xavier,70.0,Baylor
+2012,E8,Region_3,1,Kentucky,82.0,3,Baylor,70.0,Kentucky
+2012,R64,Region_4,1,Michigan State,89.0,16,LIU,67.0,Michigan State
+2012,R64,Region_4,8,Memphis,54.0,9,Saint Louis,61.0,Saint Louis
+2012,R64,Region_4,5,New Mexico,75.0,12,Long Beach State,68.0,New Mexico
+2012,R64,Region_4,4,Louisville,69.0,13,Davidson,62.0,Louisville
+2012,R64,Region_4,6,Murray State,58.0,11,Colorado State,41.0,Murray State
+2012,R64,Region_4,3,Marquette,88.0,14,BYU,68.0,Marquette
+2012,R64,Region_4,7,Florida,71.0,10,Virginia,45.0,Florida
+2012,R64,Region_4,2,Missouri,84.0,15,Norfolk State,86.0,Norfolk State
+2012,R32,Region_4,1,Michigan State,65.0,9,Saint Louis,61.0,Michigan State
+2012,R32,Region_4,5,New Mexico,56.0,4,Louisville,59.0,Louisville
+2012,R32,Region_4,6,Murray State,53.0,3,Marquette,62.0,Marquette
+2012,R32,Region_4,7,Florida,84.0,15,Norfolk State,50.0,Florida
+2012,S16,Region_4,1,Michigan State,44.0,4,Louisville,57.0,Louisville
+2012,S16,Region_4,3,Marquette,58.0,7,Florida,68.0,Florida
+2012,E8,Region_4,4,Louisville,72.0,7,Florida,68.0,Louisville
+2012,F4,Final Four,2,Ohio State,62.0,2,Kansas,64.0,Kansas
+2012,F4,Final Four,1,Kentucky,69.0,4,Louisville,61.0,Kentucky
+2012,Championship,Final Four,2,Kansas,59.0,1,Kentucky,67.0,Kentucky
+2013,R64,Region_1,1,Indiana,83.0,16,James Madison,62.0,Indiana
+2013,R64,Region_1,8,NC State,72.0,9,Temple,76.0,Temple
+2013,R64,Region_1,5,UNLV,61.0,12,California,64.0,California
+2013,R64,Region_1,4,Syracuse,81.0,13,Montana,34.0,Syracuse
+2013,R64,Region_1,6,Butler,68.0,11,Bucknell,56.0,Butler
+2013,R64,Region_1,3,Marquette,59.0,14,Davidson,58.0,Marquette
+2013,R64,Region_1,7,Illinois,57.0,10,Colorado,49.0,Illinois
+2013,R64,Region_1,2,Miami (FL),78.0,15,Pacific,49.0,Miami (FL)
+2013,R32,Region_1,1,Indiana,58.0,9,Temple,52.0,Indiana
+2013,R32,Region_1,12,California,60.0,4,Syracuse,66.0,Syracuse
+2013,R32,Region_1,6,Butler,72.0,3,Marquette,74.0,Marquette
+2013,R32,Region_1,7,Illinois,59.0,2,Miami (FL),63.0,Miami (FL)
+2013,S16,Region_1,1,Indiana,50.0,4,Syracuse,61.0,Syracuse
+2013,S16,Region_1,3,Marquette,71.0,2,Miami (FL),61.0,Marquette
+2013,E8,Region_1,4,Syracuse,55.0,3,Marquette,39.0,Syracuse
+2013,R64,Region_2,1,Louisville,79.0,16,North Carolina A&T,48.0,Louisville
+2013,R64,Region_2,8,Colorado State,84.0,9,Missouri,72.0,Colorado State
+2013,R64,Region_2,5,Oklahoma State,55.0,12,Oregon,68.0,Oregon
+2013,R64,Region_2,4,Saint Louis,64.0,13,New Mexico State,44.0,Saint Louis
+2013,R64,Region_2,6,Memphis,54.0,11,Saint Mary's,52.0,Memphis
+2013,R64,Region_2,3,Michigan State,65.0,14,Valparaiso,54.0,Michigan State
+2013,R64,Region_2,7,Creighton,67.0,10,Cincinnati,63.0,Creighton
+2013,R64,Region_2,2,Duke,73.0,15,Albany (NY),61.0,Duke
+2013,R32,Region_2,1,Louisville,82.0,8,Colorado State,56.0,Louisville
+2013,R32,Region_2,12,Oregon,74.0,4,Saint Louis,57.0,Oregon
+2013,R32,Region_2,6,Memphis,48.0,3,Michigan State,70.0,Michigan State
+2013,R32,Region_2,7,Creighton,50.0,2,Duke,66.0,Duke
+2013,S16,Region_2,1,Louisville,77.0,12,Oregon,69.0,Louisville
+2013,S16,Region_2,3,Michigan State,61.0,2,Duke,71.0,Duke
+2013,E8,Region_2,1,Louisville,85.0,2,Duke,63.0,Louisville
+2013,R64,Region_3,1,Kansas,64.0,16,Western Kentucky,57.0,Kansas
+2013,R64,Region_3,8,UNC,78.0,9,Villanova,71.0,UNC
+2013,R64,Region_3,5,VCU,88.0,12,Akron,42.0,VCU
+2013,R64,Region_3,4,Michigan,71.0,13,South Dakota State,56.0,Michigan
+2013,R64,Region_3,6,UCLA,63.0,11,Minnesota,83.0,Minnesota
+2013,R64,Region_3,3,Florida,79.0,14,Northwestern State,47.0,Florida
+2013,R64,Region_3,7,San Diego State,70.0,10,Oklahoma,55.0,San Diego State
+2013,R64,Region_3,2,Georgetown,68.0,15,Florida Gulf Coast,78.0,Florida Gulf Coast
+2013,R32,Region_3,1,Kansas,70.0,8,UNC,58.0,Kansas
+2013,R32,Region_3,5,VCU,53.0,4,Michigan,78.0,Michigan
+2013,R32,Region_3,11,Minnesota,64.0,3,Florida,78.0,Florida
+2013,R32,Region_3,7,San Diego State,71.0,15,Florida Gulf Coast,81.0,Florida Gulf Coast
+2013,S16,Region_3,1,Kansas,85.0,4,Michigan,87.0,Michigan
+2013,S16,Region_3,3,Florida,62.0,15,Florida Gulf Coast,50.0,Florida
+2013,E8,Region_3,4,Michigan,79.0,3,Florida,59.0,Michigan
+2013,R64,Region_4,1,Gonzaga,64.0,16,Southern,58.0,Gonzaga
+2013,R64,Region_4,8,Pitt,55.0,9,Wichita State,73.0,Wichita State
+2013,R64,Region_4,5,Wisconsin,46.0,12,Ole Miss,57.0,Ole Miss
+2013,R64,Region_4,4,Kansas State,61.0,13,La Salle,63.0,La Salle
+2013,R64,Region_4,6,Arizona,81.0,11,Belmont,64.0,Arizona
+2013,R64,Region_4,3,New Mexico,62.0,14,Harvard,68.0,Harvard
+2013,R64,Region_4,7,Notre Dame,58.0,10,Iowa State,76.0,Iowa State
+2013,R64,Region_4,2,Ohio State,95.0,15,Iona,70.0,Ohio State
+2013,R32,Region_4,1,Gonzaga,70.0,9,Wichita State,76.0,Wichita State
+2013,R32,Region_4,12,Ole Miss,74.0,13,La Salle,76.0,La Salle
+2013,R32,Region_4,6,Arizona,74.0,14,Harvard,51.0,Arizona
+2013,R32,Region_4,10,Iowa State,75.0,2,Ohio State,78.0,Ohio State
+2013,S16,Region_4,9,Wichita State,72.0,13,La Salle,58.0,Wichita State
+2013,S16,Region_4,6,Arizona,70.0,2,Ohio State,73.0,Ohio State
+2013,E8,Region_4,9,Wichita State,70.0,2,Ohio State,66.0,Wichita State
+2013,F4,Final Four,4,Syracuse,56.0,4,Michigan,61.0,Michigan
+2013,F4,Final Four,1,Louisville,72.0,9,Wichita State,68.0,Louisville
+2013,Championship,Final Four,4,Michigan,76.0,1,Louisville,82.0,Louisville
+2014,R64,Region_1,1,Virginia,70.0,16,Coastal Carolina,59.0,Virginia
+2014,R64,Region_1,8,Memphis,71.0,9,George Washington,66.0,Memphis
+2014,R64,Region_1,5,Cincinnati,57.0,12,Harvard,61.0,Harvard
+2014,R64,Region_1,4,Michigan State,93.0,13,Delaware,78.0,Michigan State
+2014,R64,Region_1,6,UNC,79.0,11,Providence,77.0,UNC
+2014,R64,Region_1,3,Iowa State,93.0,14,North Carolina Central,75.0,Iowa State
+2014,R64,Region_1,7,UConn,89.0,10,St. Joseph's,81.0,UConn
+2014,R64,Region_1,2,Villanova,73.0,15,Milwaukee,53.0,Villanova
+2014,R32,Region_1,1,Virginia,78.0,8,Memphis,60.0,Virginia
+2014,R32,Region_1,12,Harvard,73.0,4,Michigan State,80.0,Michigan State
+2014,R32,Region_1,6,UNC,83.0,3,Iowa State,85.0,Iowa State
+2014,R32,Region_1,7,UConn,77.0,2,Villanova,65.0,UConn
+2014,S16,Region_1,1,Virginia,59.0,4,Michigan State,61.0,Michigan State
+2014,S16,Region_1,3,Iowa State,76.0,7,UConn,81.0,UConn
+2014,E8,Region_1,4,Michigan State,54.0,7,UConn,60.0,UConn
+2014,R64,Region_2,1,Wichita State,64.0,16,Cal Poly,37.0,Wichita State
+2014,R64,Region_2,8,Kentucky,56.0,9,Kansas State,49.0,Kentucky
+2014,R64,Region_2,5,Saint Louis,83.0,12,NC State,80.0,Saint Louis
+2014,R64,Region_2,4,Louisville,71.0,13,Manhattan,64.0,Louisville
+2014,R64,Region_2,6,UMass,67.0,11,Tennessee,86.0,Tennessee
+2014,R64,Region_2,3,Duke,71.0,14,Mercer,78.0,Mercer
+2014,R64,Region_2,7,Texas,87.0,10,Arizona State,85.0,Texas
+2014,R64,Region_2,2,Michigan,57.0,15,Wofford,40.0,Michigan
+2014,R32,Region_2,1,Wichita State,76.0,8,Kentucky,78.0,Kentucky
+2014,R32,Region_2,5,Saint Louis,51.0,4,Louisville,66.0,Louisville
+2014,R32,Region_2,11,Tennessee,83.0,14,Mercer,63.0,Tennessee
+2014,R32,Region_2,7,Texas,65.0,2,Michigan,79.0,Michigan
+2014,S16,Region_2,8,Kentucky,74.0,4,Louisville,69.0,Kentucky
+2014,S16,Region_2,11,Tennessee,71.0,2,Michigan,73.0,Michigan
+2014,E8,Region_2,8,Kentucky,75.0,2,Michigan,72.0,Kentucky
+2014,R64,Region_3,1,Florida,67.0,16,Albany (NY),55.0,Florida
+2014,R64,Region_3,8,Colorado,48.0,9,Pitt,77.0,Pitt
+2014,R64,Region_3,5,VCU,75.0,12,Stephen F. Austin,77.0,Stephen F. Austin
+2014,R64,Region_3,4,UCLA,76.0,13,Tulsa,59.0,UCLA
+2014,R64,Region_3,6,Ohio State,59.0,11,Dayton,60.0,Dayton
+2014,R64,Region_3,3,Syracuse,77.0,14,Western Michigan,53.0,Syracuse
+2014,R64,Region_3,7,New Mexico,53.0,10,Stanford,58.0,Stanford
+2014,R64,Region_3,2,Kansas,80.0,15,Eastern Kentucky,69.0,Kansas
+2014,R32,Region_3,1,Florida,61.0,9,Pitt,45.0,Florida
+2014,R32,Region_3,12,Stephen F. Austin,60.0,4,UCLA,77.0,UCLA
+2014,R32,Region_3,11,Dayton,55.0,3,Syracuse,53.0,Dayton
+2014,R32,Region_3,10,Stanford,60.0,2,Kansas,57.0,Stanford
+2014,S16,Region_3,1,Florida,79.0,4,UCLA,68.0,Florida
+2014,S16,Region_3,11,Dayton,82.0,10,Stanford,72.0,Dayton
+2014,E8,Region_3,1,Florida,62.0,11,Dayton,52.0,Florida
+2014,R64,Region_4,1,Arizona,68.0,16,Weber State,59.0,Arizona
+2014,R64,Region_4,8,Gonzaga,85.0,9,Oklahoma State,77.0,Gonzaga
+2014,R64,Region_4,5,Oklahoma,75.0,12,North Dakota State,80.0,North Dakota State
+2014,R64,Region_4,4,San Diego State,73.0,13,New Mexico State,69.0,San Diego State
+2014,R64,Region_4,6,Baylor,74.0,11,Nebraska,60.0,Baylor
+2014,R64,Region_4,3,Creighton,76.0,14,Louisiana,66.0,Creighton
+2014,R64,Region_4,7,Oregon,87.0,10,BYU,68.0,Oregon
+2014,R64,Region_4,2,Wisconsin,75.0,15,American,35.0,Wisconsin
+2014,R32,Region_4,1,Arizona,84.0,8,Gonzaga,61.0,Arizona
+2014,R32,Region_4,12,North Dakota State,44.0,4,San Diego State,63.0,San Diego State
+2014,R32,Region_4,6,Baylor,85.0,3,Creighton,55.0,Baylor
+2014,R32,Region_4,7,Oregon,77.0,2,Wisconsin,85.0,Wisconsin
+2014,S16,Region_4,1,Arizona,70.0,4,San Diego State,64.0,Arizona
+2014,S16,Region_4,6,Baylor,52.0,2,Wisconsin,69.0,Wisconsin
+2014,E8,Region_4,1,Arizona,63.0,2,Wisconsin,64.0,Wisconsin
+2014,F4,Final Four,7,UConn,63.0,1,Florida,53.0,UConn
+2014,F4,Final Four,8,Kentucky,74.0,2,Wisconsin,73.0,Kentucky
+2014,Championship,Final Four,7,UConn,60.0,8,Kentucky,54.0,UConn
+2015,R64,Region_1,1,Villanova,93.0,16,Lafayette,52.0,Villanova
+2015,R64,Region_1,8,NC State,66.0,9,LSU,65.0,NC State
+2015,R64,Region_1,5,Northern Iowa,71.0,12,Wyoming,54.0,Northern Iowa
+2015,R64,Region_1,4,Louisville,57.0,13,UC-Irvine,55.0,Louisville
+2015,R64,Region_1,6,Providence,53.0,11,Dayton,66.0,Dayton
+2015,R64,Region_1,3,Oklahoma,69.0,14,Albany (NY),60.0,Oklahoma
+2015,R64,Region_1,7,Michigan State,70.0,10,Georgia,63.0,Michigan State
+2015,R64,Region_1,2,Virginia,79.0,15,Belmont,67.0,Virginia
+2015,R32,Region_1,1,Villanova,68.0,8,NC State,71.0,NC State
+2015,R32,Region_1,5,Northern Iowa,53.0,4,Louisville,66.0,Louisville
+2015,R32,Region_1,11,Dayton,66.0,3,Oklahoma,72.0,Oklahoma
+2015,R32,Region_1,7,Michigan State,60.0,2,Virginia,54.0,Michigan State
+2015,S16,Region_1,8,NC State,65.0,4,Louisville,75.0,Louisville
+2015,S16,Region_1,3,Oklahoma,58.0,7,Michigan State,62.0,Michigan State
+2015,E8,Region_1,4,Louisville,70.0,7,Michigan State,76.0,Michigan State
+2015,R64,Region_2,1,Kentucky,79.0,16,Hampton,56.0,Kentucky
+2015,R64,Region_2,8,Cincinnati,66.0,9,Purdue,65.0,Cincinnati
+2015,R64,Region_2,5,West Virginia,68.0,12,Buffalo,62.0,West Virginia
+2015,R64,Region_2,4,Maryland,65.0,13,Valparaiso,62.0,Maryland
+2015,R64,Region_2,6,Butler,56.0,11,Texas,48.0,Butler
+2015,R64,Region_2,3,Notre Dame,69.0,14,Northeastern,65.0,Notre Dame
+2015,R64,Region_2,7,Wichita State,81.0,10,Indiana,76.0,Wichita State
+2015,R64,Region_2,2,Kansas,75.0,15,New Mexico State,56.0,Kansas
+2015,R32,Region_2,1,Kentucky,64.0,8,Cincinnati,51.0,Kentucky
+2015,R32,Region_2,5,West Virginia,69.0,4,Maryland,59.0,West Virginia
+2015,R32,Region_2,6,Butler,64.0,3,Notre Dame,67.0,Notre Dame
+2015,R32,Region_2,7,Wichita State,78.0,2,Kansas,65.0,Wichita State
+2015,S16,Region_2,1,Kentucky,78.0,5,West Virginia,39.0,Kentucky
+2015,S16,Region_2,3,Notre Dame,81.0,7,Wichita State,70.0,Notre Dame
+2015,E8,Region_2,1,Kentucky,68.0,3,Notre Dame,66.0,Kentucky
+2015,R64,Region_3,1,Duke,85.0,16,Robert Morris,56.0,Duke
+2015,R64,Region_3,8,San Diego State,76.0,9,St. John's (NY),64.0,San Diego State
+2015,R64,Region_3,5,Utah,57.0,12,Stephen F. Austin,50.0,Utah
+2015,R64,Region_3,4,Georgetown,84.0,13,Eastern Washington,74.0,Georgetown
+2015,R64,Region_3,6,SMU,59.0,11,UCLA,60.0,UCLA
+2015,R64,Region_3,3,Iowa State,59.0,14,UAB,60.0,UAB
+2015,R64,Region_3,7,Iowa,83.0,10,Davidson,52.0,Iowa
+2015,R64,Region_3,2,Gonzaga,86.0,15,North Dakota State,76.0,Gonzaga
+2015,R32,Region_3,1,Duke,68.0,8,San Diego State,49.0,Duke
+2015,R32,Region_3,5,Utah,75.0,4,Georgetown,64.0,Utah
+2015,R32,Region_3,11,UCLA,92.0,14,UAB,75.0,UCLA
+2015,R32,Region_3,7,Iowa,68.0,2,Gonzaga,87.0,Gonzaga
+2015,S16,Region_3,1,Duke,63.0,5,Utah,57.0,Duke
+2015,S16,Region_3,11,UCLA,62.0,2,Gonzaga,74.0,Gonzaga
+2015,E8,Region_3,1,Duke,66.0,2,Gonzaga,52.0,Duke
+2015,R64,Region_4,1,Wisconsin,86.0,16,Coastal Carolina,72.0,Wisconsin
+2015,R64,Region_4,8,Oregon,79.0,9,Oklahoma State,73.0,Oregon
+2015,R64,Region_4,5,Arkansas,56.0,12,Wofford,53.0,Arkansas
+2015,R64,Region_4,4,UNC,67.0,13,Harvard,65.0,UNC
+2015,R64,Region_4,6,Xavier,76.0,11,Ole Miss,57.0,Xavier
+2015,R64,Region_4,3,Baylor,56.0,14,Georgia State,57.0,Georgia State
+2015,R64,Region_4,7,VCU,72.0,10,Ohio State,75.0,Ohio State
+2015,R64,Region_4,2,Arizona,93.0,15,Texas Southern,72.0,Arizona
+2015,R32,Region_4,1,Wisconsin,72.0,8,Oregon,65.0,Wisconsin
+2015,R32,Region_4,5,Arkansas,78.0,4,UNC,87.0,UNC
+2015,R32,Region_4,6,Xavier,75.0,14,Georgia State,67.0,Xavier
+2015,R32,Region_4,10,Ohio State,58.0,2,Arizona,73.0,Arizona
+2015,S16,Region_4,1,Wisconsin,79.0,4,UNC,72.0,Wisconsin
+2015,S16,Region_4,6,Xavier,60.0,2,Arizona,68.0,Arizona
+2015,E8,Region_4,1,Wisconsin,85.0,2,Arizona,78.0,Wisconsin
+2015,F4,Final Four,7,Michigan State,61.0,1,Duke,81.0,Duke
+2015,F4,Final Four,1,Kentucky,64.0,1,Wisconsin,71.0,Wisconsin
+2015,Championship,Final Four,1,Duke,68.0,1,Wisconsin,63.0,Duke
+2016,R64,Region_1,1,UNC,83.0,16,Florida Gulf Coast,67.0,UNC
+2016,R64,Region_1,8,USC,69.0,9,Providence,70.0,Providence
+2016,R64,Region_1,5,Indiana,99.0,12,Chattanooga,74.0,Indiana
+2016,R64,Region_1,4,Kentucky,85.0,13,Stony Brook,57.0,Kentucky
+2016,R64,Region_1,6,Notre Dame,70.0,11,Michigan,63.0,Notre Dame
+2016,R64,Region_1,3,West Virginia,56.0,14,Stephen F. Austin,70.0,Stephen F. Austin
+2016,R64,Region_1,7,Wisconsin,47.0,10,Pitt,43.0,Wisconsin
+2016,R64,Region_1,2,Xavier,71.0,15,Weber State,53.0,Xavier
+2016,R32,Region_1,1,UNC,85.0,9,Providence,66.0,UNC
+2016,R32,Region_1,5,Indiana,73.0,4,Kentucky,67.0,Indiana
+2016,R32,Region_1,6,Notre Dame,76.0,14,Stephen F. Austin,75.0,Notre Dame
+2016,R32,Region_1,7,Wisconsin,66.0,2,Xavier,63.0,Wisconsin
+2016,S16,Region_1,1,UNC,101.0,5,Indiana,86.0,UNC
+2016,S16,Region_1,6,Notre Dame,61.0,7,Wisconsin,56.0,Notre Dame
+2016,E8,Region_1,1,UNC,88.0,6,Notre Dame,74.0,UNC
+2016,R64,Region_2,1,Virginia,81.0,16,Hampton,45.0,Virginia
+2016,R64,Region_2,8,Texas Tech,61.0,9,Butler,71.0,Butler
+2016,R64,Region_2,5,Purdue,83.0,12,Little Rock,85.0,Little Rock
+2016,R64,Region_2,4,Iowa State,94.0,13,Iona,81.0,Iowa State
+2016,R64,Region_2,6,Seton Hall,52.0,11,Gonzaga,68.0,Gonzaga
+2016,R64,Region_2,3,Utah,80.0,14,Fresno State,69.0,Utah
+2016,R64,Region_2,7,Dayton,51.0,10,Syracuse,70.0,Syracuse
+2016,R64,Region_2,2,Michigan State,81.0,15,Middle Tennessee,90.0,Middle Tennessee
+2016,R32,Region_2,1,Virginia,77.0,9,Butler,69.0,Virginia
+2016,R32,Region_2,12,Little Rock,61.0,4,Iowa State,78.0,Iowa State
+2016,R32,Region_2,11,Gonzaga,82.0,3,Utah,59.0,Gonzaga
+2016,R32,Region_2,10,Syracuse,75.0,15,Middle Tennessee,50.0,Syracuse
+2016,S16,Region_2,1,Virginia,84.0,4,Iowa State,71.0,Virginia
+2016,S16,Region_2,11,Gonzaga,60.0,10,Syracuse,63.0,Syracuse
+2016,E8,Region_2,1,Virginia,62.0,10,Syracuse,68.0,Syracuse
+2016,R64,Region_3,1,Kansas,105.0,16,Austin Peay,79.0,Kansas
+2016,R64,Region_3,8,Colorado,67.0,9,UConn,74.0,UConn
+2016,R64,Region_3,5,Maryland,79.0,12,South Dakota State,74.0,Maryland
+2016,R64,Region_3,4,California,66.0,13,Hawaii,77.0,Hawaii
+2016,R64,Region_3,6,Arizona,55.0,11,Wichita State,65.0,Wichita State
+2016,R64,Region_3,3,Miami (FL),79.0,14,Buffalo,72.0,Miami (FL)
+2016,R64,Region_3,7,Iowa,72.0,10,Temple,70.0,Iowa
+2016,R64,Region_3,2,Villanova,86.0,15,UNC Asheville,56.0,Villanova
+2016,R32,Region_3,1,Kansas,73.0,9,UConn,61.0,Kansas
+2016,R32,Region_3,5,Maryland,73.0,13,Hawaii,60.0,Maryland
+2016,R32,Region_3,11,Wichita State,57.0,3,Miami (FL),65.0,Miami (FL)
+2016,R32,Region_3,7,Iowa,68.0,2,Villanova,87.0,Villanova
+2016,S16,Region_3,1,Kansas,79.0,5,Maryland,63.0,Kansas
+2016,S16,Region_3,3,Miami (FL),69.0,2,Villanova,92.0,Villanova
+2016,E8,Region_3,1,Kansas,59.0,2,Villanova,64.0,Villanova
+2016,R64,Region_4,1,Oregon,91.0,16,Holy Cross,52.0,Oregon
+2016,R64,Region_4,8,St. Joseph's,78.0,9,Cincinnati,76.0,St. Joseph's
+2016,R64,Region_4,5,Baylor,75.0,12,Yale,79.0,Yale
+2016,R64,Region_4,4,Duke,93.0,13,UNC Wilmington,85.0,Duke
+2016,R64,Region_4,6,Texas,72.0,11,Northern Iowa,75.0,Northern Iowa
+2016,R64,Region_4,3,Texas A&M,92.0,14,Green Bay,65.0,Texas A&M
+2016,R64,Region_4,7,Oregon State,67.0,10,VCU,75.0,VCU
+2016,R64,Region_4,2,Oklahoma,82.0,15,Cal State Bakersfield,68.0,Oklahoma
+2016,R32,Region_4,1,Oregon,69.0,8,St. Joseph's,64.0,Oregon
+2016,R32,Region_4,12,Yale,64.0,4,Duke,71.0,Duke
+2016,R32,Region_4,11,Northern Iowa,88.0,3,Texas A&M,92.0,Texas A&M
+2016,R32,Region_4,10,VCU,81.0,2,Oklahoma,85.0,Oklahoma
+2016,S16,Region_4,1,Oregon,82.0,4,Duke,68.0,Oregon
+2016,S16,Region_4,3,Texas A&M,63.0,2,Oklahoma,77.0,Oklahoma
+2016,E8,Region_4,1,Oregon,68.0,2,Oklahoma,80.0,Oklahoma
+2016,F4,Final Four,1,UNC,83.0,10,Syracuse,66.0,UNC
+2016,F4,Final Four,2,Villanova,95.0,2,Oklahoma,51.0,Villanova
+2016,Championship,Final Four,1,UNC,74.0,2,Villanova,77.0,Villanova
+2017,R64,Region_1,1,Villanova,76.0,16,Mount St. Mary's,56.0,Villanova
+2017,R64,Region_1,8,Wisconsin,84.0,9,Virginia Tech,74.0,Wisconsin
+2017,R64,Region_1,5,Virginia,76.0,12,UNC Wilmington,71.0,Virginia
+2017,R64,Region_1,4,Florida,80.0,13,ETSU,65.0,Florida
+2017,R64,Region_1,6,SMU,65.0,11,USC,66.0,USC
+2017,R64,Region_1,3,Baylor,91.0,14,New Mexico State,73.0,Baylor
+2017,R64,Region_1,7,South Carolina,93.0,10,Marquette,73.0,South Carolina
+2017,R64,Region_1,2,Duke,87.0,15,Troy,65.0,Duke
+2017,R32,Region_1,1,Villanova,62.0,8,Wisconsin,65.0,Wisconsin
+2017,R32,Region_1,5,Virginia,39.0,4,Florida,65.0,Florida
+2017,R32,Region_1,11,USC,78.0,3,Baylor,82.0,Baylor
+2017,R32,Region_1,7,South Carolina,88.0,2,Duke,81.0,South Carolina
+2017,S16,Region_1,8,Wisconsin,83.0,4,Florida,84.0,Florida
+2017,S16,Region_1,3,Baylor,50.0,7,South Carolina,70.0,South Carolina
+2017,E8,Region_1,4,Florida,70.0,7,South Carolina,77.0,South Carolina
+2017,R64,Region_2,1,Kansas,100.0,16,UC-Davis,62.0,Kansas
+2017,R64,Region_2,8,Miami (FL),58.0,9,Michigan State,78.0,Michigan State
+2017,R64,Region_2,5,Iowa State,84.0,12,Nevada,73.0,Iowa State
+2017,R64,Region_2,4,Purdue,80.0,13,Vermont,70.0,Purdue
+2017,R64,Region_2,6,Creighton,72.0,11,Rhode Island,84.0,Rhode Island
+2017,R64,Region_2,3,Oregon,93.0,14,Iona,77.0,Oregon
+2017,R64,Region_2,7,Michigan,92.0,10,Oklahoma State,91.0,Michigan
+2017,R64,Region_2,2,Louisville,78.0,15,Jacksonville State,63.0,Louisville
+2017,R32,Region_2,1,Kansas,90.0,9,Michigan State,70.0,Kansas
+2017,R32,Region_2,5,Iowa State,76.0,4,Purdue,80.0,Purdue
+2017,R32,Region_2,11,Rhode Island,72.0,3,Oregon,75.0,Oregon
+2017,R32,Region_2,7,Michigan,73.0,2,Louisville,69.0,Michigan
+2017,S16,Region_2,1,Kansas,98.0,4,Purdue,66.0,Kansas
+2017,S16,Region_2,3,Oregon,69.0,7,Michigan,68.0,Oregon
+2017,E8,Region_2,1,Kansas,60.0,3,Oregon,74.0,Oregon
+2017,R64,Region_3,1,UNC,103.0,16,Texas Southern,64.0,UNC
+2017,R64,Region_3,8,Arkansas,77.0,9,Seton Hall,71.0,Arkansas
+2017,R64,Region_3,5,Minnesota,72.0,12,Middle Tennessee,81.0,Middle Tennessee
+2017,R64,Region_3,4,Butler,76.0,13,Winthrop,64.0,Butler
+2017,R64,Region_3,6,Cincinnati,75.0,11,Kansas State,61.0,Cincinnati
+2017,R64,Region_3,3,UCLA,97.0,14,Kent State,80.0,UCLA
+2017,R64,Region_3,7,Dayton,58.0,10,Wichita State,64.0,Wichita State
+2017,R64,Region_3,2,Kentucky,79.0,15,Northern Kentucky,70.0,Kentucky
+2017,R32,Region_3,1,UNC,72.0,8,Arkansas,65.0,UNC
+2017,R32,Region_3,12,Middle Tennessee,65.0,4,Butler,74.0,Butler
+2017,R32,Region_3,6,Cincinnati,67.0,3,UCLA,79.0,UCLA
+2017,R32,Region_3,10,Wichita State,62.0,2,Kentucky,65.0,Kentucky
+2017,S16,Region_3,1,UNC,92.0,4,Butler,80.0,UNC
+2017,S16,Region_3,3,UCLA,75.0,2,Kentucky,86.0,Kentucky
+2017,E8,Region_3,1,UNC,75.0,2,Kentucky,73.0,UNC
+2017,R64,Region_4,1,Gonzaga,66.0,16,South Dakota State,46.0,Gonzaga
+2017,R64,Region_4,8,Northwestern,68.0,9,Vanderbilt,66.0,Northwestern
+2017,R64,Region_4,5,Notre Dame,60.0,12,Princeton,58.0,Notre Dame
+2017,R64,Region_4,4,West Virginia,86.0,13,Bucknell,80.0,West Virginia
+2017,R64,Region_4,6,Maryland,65.0,11,Xavier,76.0,Xavier
+2017,R64,Region_4,3,Florida State,86.0,14,Florida Gulf Coast,80.0,Florida State
+2017,R64,Region_4,7,Saint Mary's,85.0,10,VCU,77.0,Saint Mary's
+2017,R64,Region_4,2,Arizona,100.0,15,North Dakota,82.0,Arizona
+2017,R32,Region_4,1,Gonzaga,79.0,8,Northwestern,73.0,Gonzaga
+2017,R32,Region_4,5,Notre Dame,71.0,4,West Virginia,83.0,West Virginia
+2017,R32,Region_4,11,Xavier,91.0,3,Florida State,66.0,Xavier
+2017,R32,Region_4,7,Saint Mary's,60.0,2,Arizona,69.0,Arizona
+2017,S16,Region_4,1,Gonzaga,61.0,4,West Virginia,58.0,Gonzaga
+2017,S16,Region_4,11,Xavier,73.0,2,Arizona,71.0,Xavier
+2017,E8,Region_4,1,Gonzaga,83.0,11,Xavier,59.0,Gonzaga
+2017,F4,Final Four,7,South Carolina,73.0,1,Gonzaga,77.0,Gonzaga
+2017,F4,Final Four,3,Oregon,76.0,1,UNC,77.0,UNC
+2017,Championship,Final Four,1,Gonzaga,65.0,1,UNC,71.0,UNC
+2018,R64,Region_1,1,Villanova,87.0,16,Radford,61.0,Villanova
+2018,R64,Region_1,8,Virginia Tech,83.0,9,Alabama,86.0,Alabama
+2018,R64,Region_1,5,West Virginia,85.0,12,Murray State,68.0,West Virginia
+2018,R64,Region_1,4,Wichita State,75.0,13,Marshall,81.0,Marshall
+2018,R64,Region_1,6,Florida,77.0,11,St. Bonaventure,62.0,Florida
+2018,R64,Region_1,3,Texas Tech,70.0,14,Stephen F. Austin,60.0,Texas Tech
+2018,R64,Region_1,7,Arkansas,62.0,10,Butler,79.0,Butler
+2018,R64,Region_1,2,Purdue,74.0,15,Cal State Fullerton,48.0,Purdue
+2018,R32,Region_1,1,Villanova,81.0,9,Alabama,58.0,Villanova
+2018,R32,Region_1,5,West Virginia,94.0,13,Marshall,71.0,West Virginia
+2018,R32,Region_1,6,Florida,66.0,3,Texas Tech,69.0,Texas Tech
+2018,R32,Region_1,10,Butler,73.0,2,Purdue,76.0,Purdue
+2018,S16,Region_1,1,Villanova,90.0,5,West Virginia,78.0,Villanova
+2018,S16,Region_1,3,Texas Tech,78.0,2,Purdue,65.0,Texas Tech
+2018,E8,Region_1,1,Villanova,71.0,3,Texas Tech,59.0,Villanova
+2018,R64,Region_2,1,Kansas,76.0,16,Penn,60.0,Kansas
+2018,R64,Region_2,8,Seton Hall,94.0,9,NC State,83.0,Seton Hall
+2018,R64,Region_2,5,Clemson,79.0,12,New Mexico State,68.0,Clemson
+2018,R64,Region_2,4,Auburn,62.0,13,College of Charleston,58.0,Auburn
+2018,R64,Region_2,6,TCU,52.0,11,Syracuse,57.0,Syracuse
+2018,R64,Region_2,3,Michigan State,82.0,14,Bucknell,78.0,Michigan State
+2018,R64,Region_2,7,Rhode Island,83.0,10,Oklahoma,78.0,Rhode Island
+2018,R64,Region_2,2,Duke,89.0,15,Iona,67.0,Duke
+2018,R32,Region_2,1,Kansas,83.0,8,Seton Hall,79.0,Kansas
+2018,R32,Region_2,5,Clemson,84.0,4,Auburn,53.0,Clemson
+2018,R32,Region_2,11,Syracuse,55.0,3,Michigan State,53.0,Syracuse
+2018,R32,Region_2,7,Rhode Island,62.0,2,Duke,87.0,Duke
+2018,S16,Region_2,1,Kansas,80.0,5,Clemson,76.0,Kansas
+2018,S16,Region_2,11,Syracuse,65.0,2,Duke,69.0,Duke
+2018,E8,Region_2,1,Kansas,85.0,2,Duke,81.0,Kansas
+2018,R64,Region_3,1,Virginia,54.0,16,UMBC,74.0,UMBC
+2018,R64,Region_3,8,Creighton,59.0,9,Kansas State,69.0,Kansas State
+2018,R64,Region_3,5,Kentucky,78.0,12,Davidson,73.0,Kentucky
+2018,R64,Region_3,4,Arizona,68.0,13,Buffalo,89.0,Buffalo
+2018,R64,Region_3,6,Miami (FL),62.0,11,Loyola (IL),64.0,Loyola (IL)
+2018,R64,Region_3,3,Tennessee,73.0,14,Wright State,47.0,Tennessee
+2018,R64,Region_3,7,Nevada,87.0,10,Texas,83.0,Nevada
+2018,R64,Region_3,2,Cincinnati,68.0,15,Georgia State,53.0,Cincinnati
+2018,R32,Region_3,16,UMBC,43.0,9,Kansas State,50.0,Kansas State
+2018,R32,Region_3,5,Kentucky,95.0,13,Buffalo,75.0,Kentucky
+2018,R32,Region_3,11,Loyola (IL),63.0,3,Tennessee,62.0,Loyola (IL)
+2018,R32,Region_3,7,Nevada,75.0,2,Cincinnati,73.0,Nevada
+2018,S16,Region_3,9,Kansas State,61.0,5,Kentucky,58.0,Kansas State
+2018,S16,Region_3,11,Loyola (IL),69.0,7,Nevada,68.0,Loyola (IL)
+2018,E8,Region_3,9,Kansas State,62.0,11,Loyola (IL),78.0,Loyola (IL)
+2018,R64,Region_4,1,Xavier,102.0,16,Texas Southern,83.0,Xavier
+2018,R64,Region_4,8,Missouri,54.0,9,Florida State,67.0,Florida State
+2018,R64,Region_4,5,Ohio State,81.0,12,South Dakota State,73.0,Ohio State
+2018,R64,Region_4,4,Gonzaga,68.0,13,UNC Greensboro,64.0,Gonzaga
+2018,R64,Region_4,6,Houston,67.0,11,San Diego State,65.0,Houston
+2018,R64,Region_4,3,Michigan,61.0,14,Montana,47.0,Michigan
+2018,R64,Region_4,7,Texas A&M,73.0,10,Providence,69.0,Texas A&M
+2018,R64,Region_4,2,UNC,84.0,15,Lipscomb,66.0,UNC
+2018,R32,Region_4,1,Xavier,70.0,9,Florida State,75.0,Florida State
+2018,R32,Region_4,5,Ohio State,84.0,4,Gonzaga,90.0,Gonzaga
+2018,R32,Region_4,6,Houston,63.0,3,Michigan,64.0,Michigan
+2018,R32,Region_4,7,Texas A&M,86.0,2,UNC,65.0,Texas A&M
+2018,S16,Region_4,9,Florida State,75.0,4,Gonzaga,60.0,Florida State
+2018,S16,Region_4,3,Michigan,99.0,7,Texas A&M,72.0,Michigan
+2018,E8,Region_4,9,Florida State,54.0,3,Michigan,58.0,Michigan
+2018,F4,Final Four,1,Villanova,95.0,1,Kansas,79.0,Villanova
+2018,F4,Final Four,11,Loyola (IL),57.0,3,Michigan,69.0,Michigan
+2018,Championship,Final Four,1,Villanova,79.0,3,Michigan,62.0,Villanova
+2019,R64,Region_1,1,Duke,85.0,16,North Dakota State,62.0,Duke
+2019,R64,Region_1,8,VCU,58.0,9,UCF,73.0,UCF
+2019,R64,Region_1,5,Mississippi State,76.0,12,Liberty,80.0,Liberty
+2019,R64,Region_1,4,Virginia Tech,66.0,13,Saint Louis,52.0,Virginia Tech
+2019,R64,Region_1,6,Maryland,79.0,11,Belmont,77.0,Maryland
+2019,R64,Region_1,3,LSU,79.0,14,Yale,74.0,LSU
+2019,R64,Region_1,7,Louisville,76.0,10,Minnesota,86.0,Minnesota
+2019,R64,Region_1,2,Michigan State,76.0,15,Bradley,65.0,Michigan State
+2019,R32,Region_1,1,Duke,77.0,9,UCF,76.0,Duke
+2019,R32,Region_1,12,Liberty,58.0,4,Virginia Tech,67.0,Virginia Tech
+2019,R32,Region_1,6,Maryland,67.0,3,LSU,69.0,LSU
+2019,R32,Region_1,10,Minnesota,50.0,2,Michigan State,70.0,Michigan State
+2019,S16,Region_1,1,Duke,75.0,4,Virginia Tech,73.0,Duke
+2019,S16,Region_1,3,LSU,63.0,2,Michigan State,80.0,Michigan State
+2019,E8,Region_1,1,Duke,67.0,2,Michigan State,68.0,Michigan State
+2019,R64,Region_2,1,UNC,88.0,16,Iona,73.0,UNC
+2019,R64,Region_2,8,Utah State,61.0,9,Washington,78.0,Washington
+2019,R64,Region_2,5,Auburn,78.0,12,New Mexico State,77.0,Auburn
+2019,R64,Region_2,4,Kansas,87.0,13,Northeastern,53.0,Kansas
+2019,R64,Region_2,6,Iowa State,59.0,11,Ohio State,62.0,Ohio State
+2019,R64,Region_2,3,Houston,84.0,14,Georgia State,55.0,Houston
+2019,R64,Region_2,7,Wofford,84.0,10,Seton Hall,68.0,Wofford
+2019,R64,Region_2,2,Kentucky,79.0,15,Abilene Christian,44.0,Kentucky
+2019,R32,Region_2,1,UNC,81.0,9,Washington,59.0,UNC
+2019,R32,Region_2,5,Auburn,89.0,4,Kansas,75.0,Auburn
+2019,R32,Region_2,11,Ohio State,59.0,3,Houston,74.0,Houston
+2019,R32,Region_2,7,Wofford,56.0,2,Kentucky,62.0,Kentucky
+2019,S16,Region_2,1,UNC,80.0,5,Auburn,97.0,Auburn
+2019,S16,Region_2,3,Houston,58.0,2,Kentucky,62.0,Kentucky
+2019,E8,Region_2,5,Auburn,77.0,2,Kentucky,71.0,Auburn
+2019,R64,Region_3,1,Virginia,71.0,16,Gardner-Webb,56.0,Virginia
+2019,R64,Region_3,8,Ole Miss,72.0,9,Oklahoma,95.0,Oklahoma
+2019,R64,Region_3,5,Wisconsin,54.0,12,Oregon,72.0,Oregon
+2019,R64,Region_3,4,Kansas State,64.0,13,UC-Irvine,70.0,UC-Irvine
+2019,R64,Region_3,6,Villanova,61.0,11,Saint Mary's,57.0,Villanova
+2019,R64,Region_3,3,Purdue,61.0,14,Old Dominion,48.0,Purdue
+2019,R64,Region_3,7,Cincinnati,72.0,10,Iowa,79.0,Iowa
+2019,R64,Region_3,2,Tennessee,77.0,15,Colgate,70.0,Tennessee
+2019,R32,Region_3,1,Virginia,63.0,9,Oklahoma,51.0,Virginia
+2019,R32,Region_3,12,Oregon,73.0,13,UC-Irvine,54.0,Oregon
+2019,R32,Region_3,6,Villanova,61.0,3,Purdue,87.0,Purdue
+2019,R32,Region_3,10,Iowa,77.0,2,Tennessee,83.0,Tennessee
+2019,S16,Region_3,1,Virginia,53.0,12,Oregon,49.0,Virginia
+2019,S16,Region_3,3,Purdue,99.0,2,Tennessee,94.0,Purdue
+2019,E8,Region_3,1,Virginia,80.0,3,Purdue,75.0,Virginia
+2019,R64,Region_4,1,Gonzaga,87.0,16,FDU,49.0,Gonzaga
+2019,R64,Region_4,8,Syracuse,69.0,9,Baylor,78.0,Baylor
+2019,R64,Region_4,5,Marquette,64.0,12,Murray State,83.0,Murray State
+2019,R64,Region_4,4,Florida State,76.0,13,Vermont,69.0,Florida State
+2019,R64,Region_4,6,Buffalo,91.0,11,Arizona State,74.0,Buffalo
+2019,R64,Region_4,3,Texas Tech,72.0,14,Northern Kentucky,57.0,Texas Tech
+2019,R64,Region_4,7,Nevada,61.0,10,Florida,70.0,Florida
+2019,R64,Region_4,2,Michigan,74.0,15,Montana,55.0,Michigan
+2019,R32,Region_4,1,Gonzaga,83.0,9,Baylor,71.0,Gonzaga
+2019,R32,Region_4,12,Murray State,62.0,4,Florida State,90.0,Florida State
+2019,R32,Region_4,6,Buffalo,58.0,3,Texas Tech,78.0,Texas Tech
+2019,R32,Region_4,10,Florida,49.0,2,Michigan,64.0,Michigan
+2019,S16,Region_4,1,Gonzaga,72.0,4,Florida State,58.0,Gonzaga
+2019,S16,Region_4,3,Texas Tech,63.0,2,Michigan,44.0,Texas Tech
+2019,E8,Region_4,1,Gonzaga,69.0,3,Texas Tech,75.0,Texas Tech
+2019,F4,Final Four,2,Michigan State,51.0,3,Texas Tech,61.0,Texas Tech
+2019,F4,Final Four,5,Auburn,62.0,1,Virginia,63.0,Virginia
+2019,Championship,Final Four,3,Texas Tech,77.0,1,Virginia,85.0,Virginia
+2021,R64,Region_1,1,Michigan,82.0,16,Texas Southern,66.0,Michigan
+2021,R64,Region_1,8,LSU,76.0,9,St. Bonaventure,61.0,LSU
+2021,R64,Region_1,5,Colorado,96.0,12,Georgetown,73.0,Colorado
+2021,R64,Region_1,4,Florida State,64.0,13,UNC Greensboro,54.0,Florida State
+2021,R64,Region_1,6,BYU,62.0,11,UCLA,73.0,UCLA
+2021,R64,Region_1,3,Texas,52.0,14,Abilene Christian,53.0,Abilene Christian
+2021,R64,Region_1,7,UConn,54.0,10,Maryland,63.0,Maryland
+2021,R64,Region_1,2,Alabama,68.0,15,Iona,55.0,Alabama
+2021,R32,Region_1,1,Michigan,86.0,8,LSU,78.0,Michigan
+2021,R32,Region_1,5,Colorado,53.0,4,Florida State,71.0,Florida State
+2021,R32,Region_1,11,UCLA,67.0,14,Abilene Christian,47.0,UCLA
+2021,R32,Region_1,10,Maryland,77.0,2,Alabama,96.0,Alabama
+2021,S16,Region_1,1,Michigan,76.0,4,Florida State,58.0,Michigan
+2021,S16,Region_1,11,UCLA,88.0,2,Alabama,78.0,UCLA
+2021,E8,Region_1,1,Michigan,49.0,11,UCLA,51.0,UCLA
+2021,R64,Region_2,1,Illinois,78.0,16,Drexel,49.0,Illinois
+2021,R64,Region_2,8,Loyola (IL),71.0,9,Georgia Tech,60.0,Loyola (IL)
+2021,R64,Region_2,5,Tennessee,56.0,12,Oregon State,70.0,Oregon State
+2021,R64,Region_2,4,Oklahoma State,69.0,13,Liberty,60.0,Oklahoma State
+2021,R64,Region_2,6,San Diego State,62.0,11,Syracuse,78.0,Syracuse
+2021,R64,Region_2,3,West Virginia,84.0,14,Morehead State,67.0,West Virginia
+2021,R64,Region_2,7,Clemson,56.0,10,Rutgers,60.0,Rutgers
+2021,R64,Region_2,2,Houston,87.0,15,Cleveland State,56.0,Houston
+2021,R32,Region_2,1,Illinois,58.0,8,Loyola (IL),71.0,Loyola (IL)
+2021,R32,Region_2,12,Oregon State,80.0,4,Oklahoma State,70.0,Oregon State
+2021,R32,Region_2,11,Syracuse,75.0,3,West Virginia,72.0,Syracuse
+2021,R32,Region_2,10,Rutgers,60.0,2,Houston,63.0,Houston
+2021,S16,Region_2,8,Loyola (IL),58.0,12,Oregon State,65.0,Oregon State
+2021,S16,Region_2,11,Syracuse,46.0,2,Houston,62.0,Houston
+2021,E8,Region_2,12,Oregon State,61.0,2,Houston,67.0,Houston
+2021,R64,Region_3,1,Baylor,79.0,16,Hartford,55.0,Baylor
+2021,R64,Region_3,8,UNC,62.0,9,Wisconsin,85.0,Wisconsin
+2021,R64,Region_3,5,Villanova,73.0,12,Winthrop,63.0,Villanova
+2021,R64,Region_3,4,Purdue,69.0,13,North Texas,78.0,North Texas
+2021,R64,Region_3,6,Texas Tech,65.0,11,Utah State,53.0,Texas Tech
+2021,R64,Region_3,3,Arkansas,85.0,14,Colgate,68.0,Arkansas
+2021,R64,Region_3,7,Florida,75.0,10,Virginia Tech,70.0,Florida
+2021,R64,Region_3,2,Ohio State,72.0,15,Oral Roberts,75.0,Oral Roberts
+2021,R32,Region_3,1,Baylor,76.0,9,Wisconsin,63.0,Baylor
+2021,R32,Region_3,5,Villanova,84.0,13,North Texas,61.0,Villanova
+2021,R32,Region_3,6,Texas Tech,66.0,3,Arkansas,68.0,Arkansas
+2021,R32,Region_3,7,Florida,78.0,15,Oral Roberts,81.0,Oral Roberts
+2021,S16,Region_3,1,Baylor,62.0,5,Villanova,51.0,Baylor
+2021,S16,Region_3,3,Arkansas,72.0,15,Oral Roberts,70.0,Arkansas
+2021,E8,Region_3,1,Baylor,81.0,3,Arkansas,72.0,Baylor
+2021,R64,Region_4,1,Gonzaga,98.0,16,Norfolk State,55.0,Gonzaga
+2021,R64,Region_4,8,Oklahoma,72.0,9,Missouri,68.0,Oklahoma
+2021,R64,Region_4,5,Creighton,63.0,12,UCSB,62.0,Creighton
+2021,R64,Region_4,4,Virginia,58.0,13,Ohio,62.0,Ohio
+2021,R64,Region_4,6,USC,72.0,11,Drake,56.0,USC
+2021,R64,Region_4,3,Kansas,93.0,14,Eastern Washington,84.0,Kansas
+2021,R64,Region_4,7,Oregon,0.0,10,VCU,0.0,Oregon
+2021,R64,Region_4,2,Iowa,86.0,15,Grand Canyon,74.0,Iowa
+2021,R32,Region_4,1,Gonzaga,87.0,8,Oklahoma,71.0,Gonzaga
+2021,R32,Region_4,5,Creighton,72.0,13,Ohio,58.0,Creighton
+2021,R32,Region_4,6,USC,85.0,3,Kansas,51.0,USC
+2021,R32,Region_4,7,Oregon,95.0,2,Iowa,80.0,Oregon
+2021,S16,Region_4,1,Gonzaga,83.0,5,Creighton,65.0,Gonzaga
+2021,S16,Region_4,6,USC,82.0,7,Oregon,68.0,USC
+2021,E8,Region_4,1,Gonzaga,85.0,6,USC,66.0,Gonzaga
+2021,F4,Final Four,11,UCLA,90.0,1,Gonzaga,93.0,Gonzaga
+2021,F4,Final Four,2,Houston,59.0,1,Baylor,78.0,Baylor
+2021,Championship,Final Four,1,Gonzaga,70.0,1,Baylor,86.0,Baylor
+2022,R64,Region_1,1,Baylor,85.0,16,Norfolk State,49.0,Baylor
+2022,R64,Region_1,8,UNC,95.0,9,Marquette,63.0,UNC
+2022,R64,Region_1,5,Saint Mary's,82.0,12,Indiana,53.0,Saint Mary's
+2022,R64,Region_1,4,UCLA,57.0,13,Akron,53.0,UCLA
+2022,R64,Region_1,6,Texas,81.0,11,Virginia Tech,73.0,Texas
+2022,R64,Region_1,3,Purdue,78.0,14,Yale,56.0,Purdue
+2022,R64,Region_1,7,Murray State,92.0,10,San Francisco,87.0,Murray State
+2022,R64,Region_1,2,Kentucky,79.0,15,St. Peter's,85.0,St. Peter's
+2022,R32,Region_1,1,Baylor,86.0,8,UNC,93.0,UNC
+2022,R32,Region_1,5,Saint Mary's,56.0,4,UCLA,72.0,UCLA
+2022,R32,Region_1,6,Texas,71.0,3,Purdue,81.0,Purdue
+2022,R32,Region_1,7,Murray State,60.0,15,St. Peter's,70.0,St. Peter's
+2022,S16,Region_1,8,UNC,73.0,4,UCLA,66.0,UNC
+2022,S16,Region_1,3,Purdue,64.0,15,St. Peter's,67.0,St. Peter's
+2022,E8,Region_1,8,UNC,69.0,15,St. Peter's,49.0,UNC
+2022,R64,Region_2,1,Kansas,83.0,16,Texas Southern,56.0,Kansas
+2022,R64,Region_2,8,San Diego State,69.0,9,Creighton,72.0,Creighton
+2022,R64,Region_2,5,Iowa,63.0,12,Richmond,67.0,Richmond
+2022,R64,Region_2,4,Providence,66.0,13,South Dakota State,57.0,Providence
+2022,R64,Region_2,6,LSU,54.0,11,Iowa State,59.0,Iowa State
+2022,R64,Region_2,3,Wisconsin,67.0,14,Colgate,60.0,Wisconsin
+2022,R64,Region_2,7,USC,66.0,10,Miami (FL),68.0,Miami (FL)
+2022,R64,Region_2,2,Auburn,80.0,15,Jacksonville State,61.0,Auburn
+2022,R32,Region_2,1,Kansas,79.0,9,Creighton,72.0,Kansas
+2022,R32,Region_2,12,Richmond,51.0,4,Providence,79.0,Providence
+2022,R32,Region_2,11,Iowa State,54.0,3,Wisconsin,49.0,Iowa State
+2022,R32,Region_2,10,Miami (FL),79.0,2,Auburn,61.0,Miami (FL)
+2022,S16,Region_2,1,Kansas,66.0,4,Providence,61.0,Kansas
+2022,S16,Region_2,11,Iowa State,56.0,10,Miami (FL),70.0,Miami (FL)
+2022,E8,Region_2,1,Kansas,76.0,10,Miami (FL),50.0,Kansas
+2022,R64,Region_3,1,Arizona,87.0,16,Wright State,70.0,Arizona
+2022,R64,Region_3,8,Seton Hall,42.0,9,TCU,69.0,TCU
+2022,R64,Region_3,5,Houston,82.0,12,UAB,68.0,Houston
+2022,R64,Region_3,4,Illinois,54.0,13,Chattanooga,53.0,Illinois
+2022,R64,Region_3,6,Colorado State,63.0,11,Michigan,75.0,Michigan
+2022,R64,Region_3,3,Tennessee,88.0,14,Longwood,56.0,Tennessee
+2022,R64,Region_3,7,Ohio State,54.0,10,Loyola (IL),41.0,Ohio State
+2022,R64,Region_3,2,Villanova,80.0,15,Delaware,60.0,Villanova
+2022,R32,Region_3,1,Arizona,85.0,9,TCU,80.0,Arizona
+2022,R32,Region_3,5,Houston,68.0,4,Illinois,53.0,Houston
+2022,R32,Region_3,11,Michigan,76.0,3,Tennessee,68.0,Michigan
+2022,R32,Region_3,7,Ohio State,61.0,2,Villanova,71.0,Villanova
+2022,S16,Region_3,1,Arizona,60.0,5,Houston,72.0,Houston
+2022,S16,Region_3,11,Michigan,55.0,2,Villanova,63.0,Villanova
+2022,E8,Region_3,5,Houston,44.0,2,Villanova,50.0,Villanova
+2022,R64,Region_4,1,Gonzaga,93.0,16,Georgia State,72.0,Gonzaga
+2022,R64,Region_4,8,Boise State,53.0,9,Memphis,64.0,Memphis
+2022,R64,Region_4,5,UConn,63.0,12,New Mexico State,70.0,New Mexico State
+2022,R64,Region_4,4,Arkansas,75.0,13,Vermont,71.0,Arkansas
+2022,R64,Region_4,6,Alabama,64.0,11,Notre Dame,78.0,Notre Dame
+2022,R64,Region_4,3,Texas Tech,97.0,14,Montana State,62.0,Texas Tech
+2022,R64,Region_4,7,Michigan State,74.0,10,Davidson,73.0,Michigan State
+2022,R64,Region_4,2,Duke,78.0,15,Cal State Fullerton,61.0,Duke
+2022,R32,Region_4,1,Gonzaga,82.0,9,Memphis,78.0,Gonzaga
+2022,R32,Region_4,12,New Mexico State,48.0,4,Arkansas,53.0,Arkansas
+2022,R32,Region_4,11,Notre Dame,53.0,3,Texas Tech,59.0,Texas Tech
+2022,R32,Region_4,7,Michigan State,76.0,2,Duke,85.0,Duke
+2022,S16,Region_4,1,Gonzaga,68.0,4,Arkansas,74.0,Arkansas
+2022,S16,Region_4,3,Texas Tech,73.0,2,Duke,78.0,Duke
+2022,E8,Region_4,4,Arkansas,69.0,2,Duke,78.0,Duke
+2022,F4,Final Four,8,UNC,81.0,2,Duke,77.0,UNC
+2022,F4,Final Four,1,Kansas,81.0,2,Villanova,65.0,Kansas
+2022,Championship,Final Four,8,UNC,69.0,1,Kansas,72.0,Kansas
+2023,R64,Region_1,1,Purdue,58.0,16,FDU,63.0,FDU
+2023,R64,Region_1,8,Memphis,65.0,9,Florida Atlantic,66.0,Florida Atlantic
+2023,R64,Region_1,5,Duke,74.0,12,Oral Roberts,51.0,Duke
+2023,R64,Region_1,4,Tennessee,58.0,13,Louisiana,55.0,Tennessee
+2023,R64,Region_1,6,Kentucky,61.0,11,Providence,53.0,Kentucky
+2023,R64,Region_1,3,Kansas State,77.0,14,Montana State,65.0,Kansas State
+2023,R64,Region_1,7,Michigan State,72.0,10,USC,62.0,Michigan State
+2023,R64,Region_1,2,Marquette,78.0,15,Vermont,61.0,Marquette
+2023,R32,Region_1,16,FDU,70.0,9,Florida Atlantic,78.0,Florida Atlantic
+2023,R32,Region_1,5,Duke,52.0,4,Tennessee,65.0,Tennessee
+2023,R32,Region_1,6,Kentucky,69.0,3,Kansas State,75.0,Kansas State
+2023,R32,Region_1,7,Michigan State,69.0,2,Marquette,60.0,Michigan State
+2023,S16,Region_1,9,Florida Atlantic,62.0,4,Tennessee,55.0,Florida Atlantic
+2023,S16,Region_1,3,Kansas State,98.0,7,Michigan State,93.0,Kansas State
+2023,E8,Region_1,9,Florida Atlantic,79.0,3,Kansas State,76.0,Florida Atlantic
+2023,R64,Region_2,1,Houston,63.0,16,Northern Kentucky,52.0,Houston
+2023,R64,Region_2,8,Iowa,75.0,9,Auburn,83.0,Auburn
+2023,R64,Region_2,5,Miami (FL),63.0,12,Drake,56.0,Miami (FL)
+2023,R64,Region_2,4,Indiana,71.0,13,Kent State,60.0,Indiana
+2023,R64,Region_2,6,Iowa State,41.0,11,Pitt,59.0,Pitt
+2023,R64,Region_2,3,Xavier,72.0,14,Kennesaw State,67.0,Xavier
+2023,R64,Region_2,7,Texas A&M,59.0,10,Penn State,76.0,Penn State
+2023,R64,Region_2,2,Texas,81.0,15,Colgate,61.0,Texas
+2023,R32,Region_2,1,Houston,81.0,9,Auburn,64.0,Houston
+2023,R32,Region_2,5,Miami (FL),85.0,4,Indiana,69.0,Miami (FL)
+2023,R32,Region_2,11,Pitt,73.0,3,Xavier,84.0,Xavier
+2023,R32,Region_2,10,Penn State,66.0,2,Texas,71.0,Texas
+2023,S16,Region_2,1,Houston,75.0,5,Miami (FL),89.0,Miami (FL)
+2023,S16,Region_2,3,Xavier,71.0,2,Texas,83.0,Texas
+2023,E8,Region_2,5,Miami (FL),88.0,2,Texas,81.0,Miami (FL)
+2023,R64,Region_3,1,Alabama,96.0,16,Texas A&M-Corpus Christi,75.0,Alabama
+2023,R64,Region_3,8,Maryland,67.0,9,West Virginia,65.0,Maryland
+2023,R64,Region_3,5,San Diego State,63.0,12,College of Charleston,57.0,San Diego State
+2023,R64,Region_3,4,Virginia,67.0,13,Furman,68.0,Furman
+2023,R64,Region_3,6,Creighton,72.0,11,NC State,63.0,Creighton
+2023,R64,Region_3,3,Baylor,74.0,14,UCSB,56.0,Baylor
+2023,R64,Region_3,7,Missouri,76.0,10,Utah State,65.0,Missouri
+2023,R64,Region_3,2,Arizona,55.0,15,Princeton,59.0,Princeton
+2023,R32,Region_3,1,Alabama,73.0,8,Maryland,51.0,Alabama
+2023,R32,Region_3,5,San Diego State,75.0,13,Furman,52.0,San Diego State
+2023,R32,Region_3,6,Creighton,85.0,3,Baylor,76.0,Creighton
+2023,R32,Region_3,7,Missouri,63.0,15,Princeton,78.0,Princeton
+2023,S16,Region_3,1,Alabama,64.0,5,San Diego State,71.0,San Diego State
+2023,S16,Region_3,6,Creighton,86.0,15,Princeton,75.0,Creighton
+2023,E8,Region_3,5,San Diego State,57.0,6,Creighton,56.0,San Diego State
+2023,R64,Region_4,1,Kansas,96.0,16,Howard,68.0,Kansas
+2023,R64,Region_4,8,Arkansas,73.0,9,Illinois,63.0,Arkansas
+2023,R64,Region_4,5,Saint Mary's,63.0,12,VCU,51.0,Saint Mary's
+2023,R64,Region_4,4,UConn,87.0,13,Iona,63.0,UConn
+2023,R64,Region_4,6,TCU,72.0,11,Arizona State,70.0,TCU
+2023,R64,Region_4,3,Gonzaga,82.0,14,Grand Canyon,70.0,Gonzaga
+2023,R64,Region_4,7,Northwestern,75.0,10,Boise State,67.0,Northwestern
+2023,R64,Region_4,2,UCLA,86.0,15,UNC Asheville,53.0,UCLA
+2023,R32,Region_4,1,Kansas,71.0,8,Arkansas,72.0,Arkansas
+2023,R32,Region_4,5,Saint Mary's,55.0,4,UConn,70.0,UConn
+2023,R32,Region_4,6,TCU,81.0,3,Gonzaga,84.0,Gonzaga
+2023,R32,Region_4,7,Northwestern,63.0,2,UCLA,68.0,UCLA
+2023,S16,Region_4,8,Arkansas,65.0,4,UConn,88.0,UConn
+2023,S16,Region_4,3,Gonzaga,79.0,2,UCLA,76.0,Gonzaga
+2023,E8,Region_4,4,UConn,82.0,3,Gonzaga,54.0,UConn
+2023,F4,Final Four,9,Florida Atlantic,71.0,5,San Diego State,72.0,San Diego State
+2023,F4,Final Four,5,Miami (FL),59.0,4,UConn,72.0,UConn
+2023,Championship,Final Four,5,San Diego State,59.0,4,UConn,76.0,UConn
+2024,R64,Region_1,1,UConn,91.0,16,Stetson,52.0,UConn
+2024,R64,Region_1,8,Florida Atlantic,65.0,9,Northwestern,77.0,Northwestern
+2024,R64,Region_1,5,San Diego State,69.0,12,UAB,65.0,San Diego State
+2024,R64,Region_1,4,Auburn,76.0,13,Yale,78.0,Yale
+2024,R64,Region_1,6,BYU,67.0,11,Duquesne,71.0,Duquesne
+2024,R64,Region_1,3,Illinois,85.0,14,Morehead State,69.0,Illinois
+2024,R64,Region_1,7,Washington State,66.0,10,Drake,61.0,Washington State
+2024,R64,Region_1,2,Iowa State,82.0,15,South Dakota State,65.0,Iowa State
+2024,R32,Region_1,1,UConn,75.0,9,Northwestern,58.0,UConn
+2024,R32,Region_1,5,San Diego State,85.0,13,Yale,57.0,San Diego State
+2024,R32,Region_1,11,Duquesne,63.0,3,Illinois,89.0,Illinois
+2024,R32,Region_1,7,Washington State,56.0,2,Iowa State,67.0,Iowa State
+2024,S16,Region_1,1,UConn,82.0,5,San Diego State,52.0,UConn
+2024,S16,Region_1,3,Illinois,72.0,2,Iowa State,69.0,Illinois
+2024,E8,Region_1,1,UConn,77.0,3,Illinois,52.0,UConn
+2024,R64,Region_2,1,Purdue,78.0,16,Grambling,50.0,Purdue
+2024,R64,Region_2,8,Utah State,88.0,9,TCU,72.0,Utah State
+2024,R64,Region_2,5,Gonzaga,86.0,12,McNeese State,65.0,Gonzaga
+2024,R64,Region_2,4,Kansas,93.0,13,Samford,89.0,Kansas
+2024,R64,Region_2,6,South Carolina,73.0,11,Oregon,87.0,Oregon
+2024,R64,Region_2,3,Creighton,77.0,14,Akron,60.0,Creighton
+2024,R64,Region_2,7,Texas,56.0,10,Colorado State,44.0,Texas
+2024,R64,Region_2,2,Tennessee,83.0,15,St. Peter's,49.0,Tennessee
+2024,R32,Region_2,1,Purdue,106.0,8,Utah State,67.0,Purdue
+2024,R32,Region_2,5,Gonzaga,89.0,4,Kansas,68.0,Gonzaga
+2024,R32,Region_2,11,Oregon,73.0,3,Creighton,86.0,Creighton
+2024,R32,Region_2,7,Texas,58.0,2,Tennessee,62.0,Tennessee
+2024,S16,Region_2,1,Purdue,80.0,5,Gonzaga,68.0,Purdue
+2024,S16,Region_2,3,Creighton,75.0,2,Tennessee,82.0,Tennessee
+2024,E8,Region_2,1,Purdue,72.0,2,Tennessee,66.0,Purdue
+2024,R64,Region_3,1,Houston,86.0,16,Longwood,46.0,Houston
+2024,R64,Region_3,8,Nebraska,83.0,9,Texas A&M,98.0,Texas A&M
+2024,R64,Region_3,5,Wisconsin,61.0,12,James Madison,72.0,James Madison
+2024,R64,Region_3,4,Duke,64.0,13,Vermont,47.0,Duke
+2024,R64,Region_3,6,Texas Tech,67.0,11,NC State,80.0,NC State
+2024,R64,Region_3,3,Kentucky,76.0,14,Oakland,80.0,Oakland
+2024,R64,Region_3,7,Florida,100.0,10,Colorado,102.0,Colorado
+2024,R64,Region_3,2,Marquette,87.0,15,Western Kentucky,69.0,Marquette
+2024,R32,Region_3,1,Houston,100.0,9,Texas A&M,95.0,Houston
+2024,R32,Region_3,12,James Madison,55.0,4,Duke,93.0,Duke
+2024,R32,Region_3,11,NC State,79.0,14,Oakland,73.0,NC State
+2024,R32,Region_3,10,Colorado,77.0,2,Marquette,81.0,Marquette
+2024,S16,Region_3,1,Houston,51.0,4,Duke,54.0,Duke
+2024,S16,Region_3,11,NC State,67.0,2,Marquette,58.0,NC State
+2024,E8,Region_3,4,Duke,64.0,11,NC State,76.0,NC State
+2024,R64,Region_4,1,UNC,90.0,16,Wagner,62.0,UNC
+2024,R64,Region_4,8,Mississippi State,51.0,9,Michigan State,69.0,Michigan State
+2024,R64,Region_4,5,Saint Mary's,66.0,12,Grand Canyon,75.0,Grand Canyon
+2024,R64,Region_4,4,Alabama,109.0,13,College of Charleston,96.0,Alabama
+2024,R64,Region_4,6,Clemson,77.0,11,New Mexico,56.0,Clemson
+2024,R64,Region_4,3,Baylor,92.0,14,Colgate,67.0,Baylor
+2024,R64,Region_4,7,Dayton,63.0,10,Nevada,60.0,Dayton
+2024,R64,Region_4,2,Arizona,85.0,15,Long Beach State,65.0,Arizona
+2024,R32,Region_4,1,UNC,85.0,9,Michigan State,69.0,UNC
+2024,R32,Region_4,12,Grand Canyon,61.0,4,Alabama,72.0,Alabama
+2024,R32,Region_4,6,Clemson,72.0,3,Baylor,64.0,Clemson
+2024,R32,Region_4,7,Dayton,68.0,2,Arizona,78.0,Arizona
+2024,S16,Region_4,1,UNC,87.0,4,Alabama,89.0,Alabama
+2024,S16,Region_4,6,Clemson,77.0,2,Arizona,72.0,Clemson
+2024,E8,Region_4,4,Alabama,89.0,6,Clemson,82.0,Alabama
+2024,F4,Final Four,1,UConn,86.0,4,Alabama,72.0,UConn
+2024,F4,Final Four,1,Purdue,63.0,11,NC State,50.0,Purdue
+2024,Championship,Final Four,1,UConn,75.0,1,Purdue,60.0,UConn

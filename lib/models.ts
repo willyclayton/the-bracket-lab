@@ -118,6 +118,19 @@ export const MODELS: Model[] = [
     icon: '🔬',
     description: 'The Scout saw 6 factors per matchup. Scout Prime sees 30. Same LLM analysis method, radically more data — efficiency ratings, shooting splits, rebounding, historical archetypes, coaching records, upset vulnerability scores. The question: does more intel mean better picks?',
   },
+  {
+    id: 'the-auto-researcher',
+    slug: 'the-auto-researcher',
+    name: 'The Auto Researcher',
+    subtitle: 'Autonomous Strategy Optimizer',
+    tagline: '21 strategies tested. 14 years backtested. One bracket.',
+    color: '#f97316',
+    colorClass: 'text-autoresearcher',
+    bgClass: 'model-autoresearcher-bg',
+    glowClass: 'glow-autoresearcher',
+    icon: '⚛️',
+    description: 'An autonomous research loop that tested 21 bracket strategies against 15 years of tournament data, trained an ML ensemble on 827 games, then used Monte Carlo optimization to find the single bracket that maximizes expected ESPN points. No human picks — just data, models, and math.',
+  },
 ];
 
 export const MODEL_MAP = Object.fromEntries(MODELS.map((m) => [m.id, m]));

@@ -1,0 +1,828 @@
+year,round,team_1,team_2,seed_1,seed_2,winner,region,prob_team1,pred_winner,correct,model
+2010,R64,Kentucky,ETSU,1,16,Kentucky,Region_1,0.9830853949239439,Kentucky,1,ml_logistic
+2010,R64,Texas,Wake Forest,8,9,Wake Forest,Region_1,0.6734335538735069,Texas,0,ml_logistic
+2010,R64,Temple,Cornell,5,12,Cornell,Region_1,0.4496882100821497,Cornell,1,ml_logistic
+2010,R64,Wisconsin,Wofford,4,13,Wisconsin,Region_1,0.8336063056803646,Wisconsin,1,ml_logistic
+2010,R64,Marquette,Washington,6,11,Washington,Region_1,0.11918776950628053,Washington,1,ml_logistic
+2010,R64,New Mexico,Montana,3,14,New Mexico,Region_1,0.8190713581399531,New Mexico,1,ml_logistic
+2010,R64,Clemson,Missouri,7,10,Missouri,Region_1,0.3742208401488127,Missouri,1,ml_logistic
+2010,R64,West Virginia,Morgan State,2,15,West Virginia,Region_1,0.9790303935908599,West Virginia,1,ml_logistic
+2010,R32,Kentucky,Wake Forest,1,9,Kentucky,Region_1,0.808390609750035,Kentucky,1,ml_logistic
+2010,R32,Cornell,Wisconsin,12,4,Cornell,Region_1,0.5877320322387886,Cornell,1,ml_logistic
+2010,R32,Washington,New Mexico,11,3,Washington,Region_1,0.8593318155137329,Washington,1,ml_logistic
+2010,R32,Missouri,West Virginia,10,2,West Virginia,Region_1,0.17989154497907162,West Virginia,1,ml_logistic
+2010,S16,Kentucky,Cornell,1,12,Kentucky,Region_1,0.7466708580026917,Kentucky,1,ml_logistic
+2010,S16,Washington,West Virginia,11,2,West Virginia,Region_1,0.3858006590721703,West Virginia,1,ml_logistic
+2010,E8,Kentucky,West Virginia,1,2,West Virginia,Region_1,0.5048997640354647,Kentucky,0,ml_logistic
+2010,R64,Kansas,Lehigh,1,16,Kansas,Region_2,0.9978678550000024,Kansas,1,ml_logistic
+2010,R64,Michigan State,New Mexico State,5,12,Michigan State,Region_2,0.929404533386101,Michigan State,1,ml_logistic
+2010,R64,Maryland,Houston,4,13,Maryland,Region_2,0.9081745814120555,Maryland,1,ml_logistic
+2010,R64,Tennessee,San Diego State,6,11,Tennessee,Region_2,0.6032613360554254,Tennessee,1,ml_logistic
+2010,R64,Georgetown,Ohio,3,14,Ohio,Region_2,0.8800838105932449,Georgetown,0,ml_logistic
+2010,R64,Oklahoma State,Georgia Tech,7,10,Georgia Tech,Region_2,0.2439932411181666,Georgia Tech,1,ml_logistic
+2010,R32,Kansas,Northern Iowa,1,9,Northern Iowa,Region_2,0.7610770694439389,Kansas,0,ml_logistic
+2010,R32,Michigan State,Maryland,5,4,Michigan State,Region_2,0.6245614497997667,Michigan State,1,ml_logistic
+2010,R32,Tennessee,Ohio,6,14,Tennessee,Region_2,0.9703331535988434,Tennessee,1,ml_logistic
+2010,R32,Georgia Tech,Ohio State,10,2,Ohio State,Region_2,0.5435106374554985,Georgia Tech,0,ml_logistic
+2010,S16,Northern Iowa,Michigan State,9,5,Michigan State,Region_2,0.7249881248641856,Northern Iowa,0,ml_logistic
+2010,S16,Tennessee,Ohio State,6,2,Tennessee,Region_2,0.568304820209737,Tennessee,1,ml_logistic
+2010,E8,Michigan State,Tennessee,5,6,Michigan State,Region_2,0.40070771746041406,Tennessee,0,ml_logistic
+2010,R64,Duke,Arkansas-Pine Bluff,1,16,Duke,Region_3,0.9994711714724527,Duke,1,ml_logistic
+2010,R64,California,Louisville,8,9,California,Region_3,0.8163287132452055,California,1,ml_logistic
+2010,R64,Texas A&M,Utah State,5,12,Texas A&M,Region_3,0.6016499921985492,Texas A&M,1,ml_logistic
+2010,R64,Purdue,Siena,4,13,Purdue,Region_3,0.8925763588061607,Purdue,1,ml_logistic
+2010,R64,Notre Dame,Old Dominion,6,11,Old Dominion,Region_3,0.2596811935311718,Old Dominion,1,ml_logistic
+2010,R64,Baylor,Sam Houston,3,14,Baylor,Region_3,0.8569685575182161,Baylor,1,ml_logistic
+2010,R64,Villanova,Robert Morris,2,15,Villanova,Region_3,0.9220884002262691,Villanova,1,ml_logistic
+2010,R32,Duke,California,1,8,Duke,Region_3,0.8889919508783738,Duke,1,ml_logistic
+2010,R32,Texas A&M,Purdue,5,4,Purdue,Region_3,0.20261464224597334,Purdue,1,ml_logistic
+2010,R32,Old Dominion,Baylor,11,3,Baylor,Region_3,0.29783348657327463,Baylor,1,ml_logistic
+2010,S16,Duke,Purdue,1,4,Duke,Region_3,0.7276358775337106,Duke,1,ml_logistic
+2010,E8,Duke,Baylor,1,3,Duke,Region_3,0.9024324464505288,Duke,1,ml_logistic
+2010,R64,Syracuse,Vermont,1,16,Syracuse,Region_4,0.9636497659902462,Syracuse,1,ml_logistic
+2010,R64,Gonzaga,Florida State,8,9,Gonzaga,Region_4,0.5594888545227291,Gonzaga,1,ml_logistic
+2010,R64,Butler,UTEP,5,12,Butler,Region_4,0.6287947155720652,Butler,1,ml_logistic
+2010,R64,Vanderbilt,Murray State,4,13,Murray State,Region_4,0.48313338717811183,Murray State,1,ml_logistic
+2010,R64,Xavier,Minnesota,6,11,Xavier,Region_4,0.555361944548734,Xavier,1,ml_logistic
+2010,R64,Pitt,Oakland,3,14,Pitt,Region_4,0.6229201113903287,Pitt,1,ml_logistic
+2010,R64,Kansas State,North Texas,2,15,Kansas State,Region_4,0.9439466078126442,Kansas State,1,ml_logistic
+2010,R32,Syracuse,Gonzaga,1,8,Syracuse,Region_4,0.6919973801293303,Syracuse,1,ml_logistic
+2010,R32,Butler,Murray State,5,13,Butler,Region_4,0.7686403873540656,Butler,1,ml_logistic
+2010,R32,Xavier,Pitt,6,3,Xavier,Region_4,0.6011520983187352,Xavier,1,ml_logistic
+2010,S16,Syracuse,Butler,1,5,Butler,Region_4,0.5166282140473123,Syracuse,0,ml_logistic
+2010,S16,Xavier,Kansas State,6,2,Kansas State,Region_4,0.1564889252481209,Kansas State,1,ml_logistic
+2010,E8,Butler,Kansas State,5,2,Butler,Region_4,0.3465917213303549,Kansas State,0,ml_logistic
+2010,F4,West Virginia,Duke,2,1,Duke,Final Four,0.17641929353451596,Duke,1,ml_logistic
+2010,F4,Michigan State,Butler,5,5,Butler,Final Four,0.32462940653534594,Butler,1,ml_logistic
+2010,Championship,Duke,Butler,1,5,Duke,Final Four,0.8134833291976351,Duke,1,ml_logistic
+2011,R64,Ohio State,UTSA,1,16,Ohio State,Region_1,0.9985987858961124,Ohio State,1,ml_logistic
+2011,R64,George Mason,Villanova,8,9,George Mason,Region_1,0.37038226663862506,Villanova,0,ml_logistic
+2011,R64,West Virginia,Clemson,5,12,West Virginia,Region_1,0.39489400790462065,Clemson,0,ml_logistic
+2011,R64,Kentucky,Princeton,4,13,Kentucky,Region_1,0.8911609548336376,Kentucky,1,ml_logistic
+2011,R64,Xavier,Marquette,6,11,Marquette,Region_1,0.30430370161755976,Marquette,1,ml_logistic
+2011,R64,Syracuse,Indiana State,3,14,Syracuse,Region_1,0.9174496536472048,Syracuse,1,ml_logistic
+2011,R64,Washington,Georgia,7,10,Washington,Region_1,0.7770677871722743,Washington,1,ml_logistic
+2011,R32,Ohio State,George Mason,1,8,Ohio State,Region_1,0.9842620418571811,Ohio State,1,ml_logistic
+2011,R32,West Virginia,Kentucky,5,4,Kentucky,Region_1,0.19924926333475013,Kentucky,1,ml_logistic
+2011,R32,Marquette,Syracuse,11,3,Marquette,Region_1,0.23249505220704864,Syracuse,0,ml_logistic
+2011,R32,Washington,UNC,7,2,UNC,Region_1,0.28431461323627744,UNC,1,ml_logistic
+2011,S16,Ohio State,Kentucky,1,4,Kentucky,Region_1,0.9009987695400311,Ohio State,0,ml_logistic
+2011,S16,Marquette,UNC,11,2,UNC,Region_1,0.15272854735568464,UNC,1,ml_logistic
+2011,E8,Kentucky,UNC,4,2,Kentucky,Region_1,0.4638946905476654,UNC,0,ml_logistic
+2011,R64,Pitt,UNC Asheville,1,16,Pitt,Region_2,0.9723473103821464,Pitt,1,ml_logistic
+2011,R64,Butler,Old Dominion,8,9,Butler,Region_2,0.5968724163774385,Butler,1,ml_logistic
+2011,R64,Kansas State,Utah State,5,12,Kansas State,Region_2,0.09976377992160196,Utah State,0,ml_logistic
+2011,R64,Wisconsin,Belmont,4,13,Wisconsin,Region_2,0.8007910432501187,Wisconsin,1,ml_logistic
+2011,R64,St. John's (NY),Gonzaga,6,11,Gonzaga,Region_2,0.41869627995115166,Gonzaga,1,ml_logistic
+2011,R64,UCLA,Michigan State,7,10,UCLA,Region_2,0.3556142258547589,Michigan State,0,ml_logistic
+2011,R32,Pitt,Butler,1,8,Butler,Region_2,0.7130299088135916,Pitt,0,ml_logistic
+2011,R32,Kansas State,Wisconsin,5,4,Wisconsin,Region_2,0.16465554052983764,Wisconsin,1,ml_logistic
+2011,R32,UCLA,Florida,7,2,Florida,Region_2,0.39382256701739626,Florida,1,ml_logistic
+2011,S16,Butler,Wisconsin,8,4,Butler,Region_2,0.19835090811192516,Wisconsin,0,ml_logistic
+2011,E8,Butler,Florida,8,2,Butler,Region_2,0.36189878414334126,Florida,0,ml_logistic
+2011,R64,Kansas,Boston University,1,16,Kansas,Region_3,0.9961445595096069,Kansas,1,ml_logistic
+2011,R64,Vanderbilt,Richmond,5,12,Richmond,Region_3,0.09318666326632849,Richmond,1,ml_logistic
+2011,R64,Louisville,Morehead State,4,13,Morehead State,Region_3,0.9154561838111127,Louisville,0,ml_logistic
+2011,R64,Georgetown,VCU,6,11,VCU,Region_3,0.690168205148316,Georgetown,0,ml_logistic
+2011,R64,Texas A&M,Florida State,7,10,Florida State,Region_3,0.43635325536992936,Florida State,1,ml_logistic
+2011,R64,Notre Dame,Akron,2,15,Notre Dame,Region_3,0.9206143548039688,Notre Dame,1,ml_logistic
+2011,R32,Kansas,Illinois,1,9,Kansas,Region_3,0.8924897023609181,Kansas,1,ml_logistic
+2011,R32,Richmond,Morehead State,12,13,Richmond,Region_3,0.9809046502425579,Richmond,1,ml_logistic
+2011,R32,VCU,Purdue,11,3,VCU,Region_3,0.16117730810979713,Purdue,0,ml_logistic
+2011,R32,Florida State,Notre Dame,10,2,Florida State,Region_3,0.301229004586871,Notre Dame,0,ml_logistic
+2011,S16,Kansas,Richmond,1,12,Kansas,Region_3,0.7994276551865555,Kansas,1,ml_logistic
+2011,S16,VCU,Florida State,11,10,VCU,Region_3,0.3525528189343393,Florida State,0,ml_logistic
+2011,E8,Kansas,VCU,1,11,VCU,Region_3,0.9440769928483574,Kansas,0,ml_logistic
+2011,R64,Duke,Hampton,1,16,Duke,Region_4,0.9917193348811756,Duke,1,ml_logistic
+2011,R64,Michigan,Tennessee,8,9,Michigan,Region_4,0.8053591528758055,Michigan,1,ml_logistic
+2011,R64,Arizona,Memphis,5,12,Arizona,Region_4,0.8073672525689545,Arizona,1,ml_logistic
+2011,R64,Texas,Oakland,4,13,Texas,Region_4,0.9198639755551774,Texas,1,ml_logistic
+2011,R64,Cincinnati,Missouri,6,11,Cincinnati,Region_4,0.39735604661299273,Missouri,0,ml_logistic
+2011,R64,UConn,Bucknell,3,14,UConn,Region_4,0.9720034594973486,UConn,1,ml_logistic
+2011,R64,Temple,Penn State,7,10,Temple,Region_4,0.37347323581421793,Penn State,0,ml_logistic
+2011,R64,San Diego State,Northern Colorado,2,15,San Diego State,Region_4,0.9778131524467852,San Diego State,1,ml_logistic
+2011,R32,Duke,Michigan,1,8,Duke,Region_4,0.8911811061034647,Duke,1,ml_logistic
+2011,R32,Arizona,Texas,5,4,Arizona,Region_4,0.45185083354388744,Texas,0,ml_logistic
+2011,R32,Cincinnati,UConn,6,3,UConn,Region_4,0.14227554038060605,UConn,1,ml_logistic
+2011,R32,Temple,San Diego State,7,2,San Diego State,Region_4,0.0797263559842856,San Diego State,1,ml_logistic
+2011,S16,Duke,Arizona,1,5,Arizona,Region_4,0.7615374906783188,Duke,0,ml_logistic
+2011,S16,UConn,San Diego State,3,2,UConn,Region_4,0.41110053538983504,San Diego State,0,ml_logistic
+2011,E8,Arizona,UConn,5,3,UConn,Region_4,0.30399901270537877,UConn,1,ml_logistic
+2011,F4,Kentucky,UConn,4,3,UConn,Final Four,0.32872813708643267,UConn,1,ml_logistic
+2011,F4,Butler,VCU,8,11,Butler,Final Four,0.5221802813732085,Butler,1,ml_logistic
+2011,Championship,UConn,Butler,3,8,UConn,Final Four,0.7482733983086187,UConn,1,ml_logistic
+2012,R64,Syracuse,UNC Asheville,1,16,Syracuse,Region_1,0.960053237119789,Syracuse,1,ml_logistic
+2012,R64,Vanderbilt,Harvard,5,12,Vanderbilt,Region_1,0.4363699050539434,Harvard,0,ml_logistic
+2012,R64,Wisconsin,Montana,4,13,Wisconsin,Region_1,0.8429134797868497,Wisconsin,1,ml_logistic
+2012,R64,Cincinnati,Texas,6,11,Cincinnati,Region_1,0.41608035454603304,Texas,0,ml_logistic
+2012,R64,Florida State,St. Bonaventure,3,14,Florida State,Region_1,0.46856190645550727,St. Bonaventure,0,ml_logistic
+2012,R64,Gonzaga,West Virginia,7,10,Gonzaga,Region_1,0.726855332079378,Gonzaga,1,ml_logistic
+2012,R64,Ohio State,Loyola (MD),2,15,Ohio State,Region_1,0.9287045075529545,Ohio State,1,ml_logistic
+2012,R32,Syracuse,Kansas State,1,8,Syracuse,Region_1,0.9203903586371653,Syracuse,1,ml_logistic
+2012,R32,Vanderbilt,Wisconsin,5,4,Wisconsin,Region_1,0.3199205057616798,Wisconsin,1,ml_logistic
+2012,R32,Cincinnati,Florida State,6,3,Cincinnati,Region_1,0.5154780754277501,Cincinnati,1,ml_logistic
+2012,R32,Gonzaga,Ohio State,7,2,Ohio State,Region_1,0.09268426319875103,Ohio State,1,ml_logistic
+2012,S16,Syracuse,Wisconsin,1,4,Syracuse,Region_1,0.8875983777083402,Syracuse,1,ml_logistic
+2012,S16,Cincinnati,Ohio State,6,2,Ohio State,Region_1,0.058396156708700055,Ohio State,1,ml_logistic
+2012,E8,Syracuse,Ohio State,1,2,Ohio State,Region_1,0.6593277041030591,Syracuse,0,ml_logistic
+2012,R64,UNC,Vermont,1,16,UNC,Region_2,0.9522127755738584,UNC,1,ml_logistic
+2012,R64,Creighton,Alabama,8,9,Creighton,Region_2,0.7675116060760472,Creighton,1,ml_logistic
+2012,R64,Temple,South Florida,5,12,South Florida,Region_2,0.2738029974418998,South Florida,1,ml_logistic
+2012,R64,Michigan,Ohio,4,13,Ohio,Region_2,0.3969193518481305,Ohio,1,ml_logistic
+2012,R64,San Diego State,NC State,6,11,NC State,Region_2,0.29541245961776674,NC State,1,ml_logistic
+2012,R64,Georgetown,Belmont,3,14,Georgetown,Region_2,0.43161499158999933,Belmont,0,ml_logistic
+2012,R64,Kansas,Detroit Mercy,2,15,Kansas,Region_2,0.9724836432712538,Kansas,1,ml_logistic
+2012,R32,UNC,Creighton,1,8,UNC,Region_2,0.5461519810002644,UNC,1,ml_logistic
+2012,R32,South Florida,Ohio,12,13,Ohio,Region_2,0.6717248007423324,South Florida,0,ml_logistic
+2012,R32,NC State,Georgetown,11,3,NC State,Region_2,0.5459350287307888,NC State,1,ml_logistic
+2012,R32,Purdue,Kansas,10,2,Kansas,Region_2,0.0814900489402736,Kansas,1,ml_logistic
+2012,S16,UNC,Ohio,1,13,UNC,Region_2,0.558369410967073,UNC,1,ml_logistic
+2012,S16,NC State,Kansas,11,2,Kansas,Region_2,0.0738722413810014,Kansas,1,ml_logistic
+2012,E8,UNC,Kansas,1,2,Kansas,Region_2,0.2221674128207095,Kansas,1,ml_logistic
+2012,R64,Kentucky,Western Kentucky,1,16,Kentucky,Region_3,0.9984298534839731,Kentucky,1,ml_logistic
+2012,R64,Iowa State,UConn,8,9,Iowa State,Region_3,0.7362374646028336,Iowa State,1,ml_logistic
+2012,R64,Wichita State,VCU,5,12,VCU,Region_3,0.4804775522240374,VCU,1,ml_logistic
+2012,R64,Indiana,New Mexico State,4,13,Indiana,Region_3,0.7871692044090013,Indiana,1,ml_logistic
+2012,R64,Baylor,South Dakota State,3,14,Baylor,Region_3,0.7355797055333673,Baylor,1,ml_logistic
+2012,R64,Notre Dame,Xavier,7,10,Xavier,Region_3,0.4270419948112558,Xavier,1,ml_logistic
+2012,R64,Duke,Lehigh,2,15,Lehigh,Region_3,0.8388713385105064,Duke,0,ml_logistic
+2012,R32,Kentucky,Iowa State,1,8,Kentucky,Region_3,0.9688474357435389,Kentucky,1,ml_logistic
+2012,R32,VCU,Indiana,12,4,Indiana,Region_3,0.4244349732225398,Indiana,1,ml_logistic
+2012,R32,Colorado,Baylor,11,3,Baylor,Region_3,0.27371997456641295,Baylor,1,ml_logistic
+2012,R32,Xavier,Lehigh,10,15,Xavier,Region_3,0.8245074607648952,Xavier,1,ml_logistic
+2012,S16,Kentucky,Indiana,1,4,Kentucky,Region_3,0.9510204793170993,Kentucky,1,ml_logistic
+2012,S16,Baylor,Xavier,3,10,Baylor,Region_3,0.7575613402698798,Baylor,1,ml_logistic
+2012,E8,Kentucky,Baylor,1,3,Kentucky,Region_3,0.9405413837697691,Kentucky,1,ml_logistic
+2012,R64,Memphis,Saint Louis,8,9,Saint Louis,Region_4,0.5521334461327799,Memphis,0,ml_logistic
+2012,R64,New Mexico,Long Beach State,5,12,New Mexico,Region_4,0.5917283820968342,New Mexico,1,ml_logistic
+2012,R64,Louisville,Davidson,4,13,Louisville,Region_4,0.8430432873004825,Louisville,1,ml_logistic
+2012,R64,Murray State,Colorado State,6,11,Murray State,Region_4,0.589811004482863,Murray State,1,ml_logistic
+2012,R64,Florida,Virginia,7,10,Florida,Region_4,0.7605525668480785,Florida,1,ml_logistic
+2012,R64,Missouri,Norfolk State,2,15,Norfolk State,Region_4,0.9188890139344602,Missouri,0,ml_logistic
+2012,R32,Michigan State,Saint Louis,1,9,Michigan State,Region_4,0.627316147905669,Michigan State,1,ml_logistic
+2012,R32,New Mexico,Louisville,5,4,Louisville,Region_4,0.23128851209700654,Louisville,1,ml_logistic
+2012,R32,Murray State,Marquette,6,3,Marquette,Region_4,0.27174413668282527,Marquette,1,ml_logistic
+2012,R32,Florida,Norfolk State,7,15,Florida,Region_4,0.9428395601723331,Florida,1,ml_logistic
+2012,S16,Michigan State,Louisville,1,4,Louisville,Region_4,0.6186381497228659,Michigan State,0,ml_logistic
+2012,S16,Marquette,Florida,3,7,Florida,Region_4,0.37481469532847717,Florida,1,ml_logistic
+2012,E8,Louisville,Florida,4,7,Louisville,Region_4,0.4993001291816645,Florida,0,ml_logistic
+2012,F4,Ohio State,Kansas,2,2,Kansas,Final Four,0.3670749360548381,Kansas,1,ml_logistic
+2012,F4,Kentucky,Louisville,1,4,Kentucky,Final Four,0.9257180132501847,Kentucky,1,ml_logistic
+2012,Championship,Kansas,Kentucky,2,1,Kentucky,Final Four,0.16862620256881897,Kentucky,1,ml_logistic
+2013,R64,Indiana,James Madison,1,16,Indiana,Region_1,0.9732151641543458,Indiana,1,ml_logistic
+2013,R64,NC State,Temple,8,9,Temple,Region_1,0.6620258824497532,NC State,0,ml_logistic
+2013,R64,Syracuse,Montana,4,13,Syracuse,Region_1,0.9170924451367,Syracuse,1,ml_logistic
+2013,R64,Butler,Bucknell,6,11,Butler,Region_1,0.705654198996701,Butler,1,ml_logistic
+2013,R64,Marquette,Davidson,3,14,Marquette,Region_1,0.7785977770663028,Marquette,1,ml_logistic
+2013,R64,Illinois,Colorado,7,10,Illinois,Region_1,0.5846308936871525,Illinois,1,ml_logistic
+2013,R64,Miami (FL),Pacific,2,15,Miami (FL),Region_1,0.8122229008935025,Miami (FL),1,ml_logistic
+2013,R32,Indiana,Temple,1,9,Indiana,Region_1,0.832199886780438,Indiana,1,ml_logistic
+2013,R32,California,Syracuse,12,4,Syracuse,Region_1,0.3602134971355327,Syracuse,1,ml_logistic
+2013,R32,Butler,Marquette,6,3,Marquette,Region_1,0.445941562637922,Marquette,1,ml_logistic
+2013,R32,Illinois,Miami (FL),7,2,Miami (FL),Region_1,0.3688254267849886,Miami (FL),1,ml_logistic
+2013,S16,Indiana,Syracuse,1,4,Syracuse,Region_1,0.5760369230876676,Indiana,0,ml_logistic
+2013,S16,Marquette,Miami (FL),3,2,Marquette,Region_1,0.3374572705113459,Miami (FL),0,ml_logistic
+2013,E8,Syracuse,Marquette,4,3,Syracuse,Region_1,0.6860878010672954,Syracuse,1,ml_logistic
+2013,R64,Louisville,North Carolina A&T,1,16,Louisville,Region_2,0.9985699230025019,Louisville,1,ml_logistic
+2013,R64,Colorado State,Missouri,8,9,Colorado State,Region_2,0.7268925583723184,Colorado State,1,ml_logistic
+2013,R64,Oklahoma State,Oregon,5,12,Oregon,Region_2,0.12466608386728885,Oregon,1,ml_logistic
+2013,R64,Saint Louis,New Mexico State,4,13,Saint Louis,Region_2,0.64828190158788,Saint Louis,1,ml_logistic
+2013,R64,Michigan State,Valparaiso,3,14,Michigan State,Region_2,0.8443343030124403,Michigan State,1,ml_logistic
+2013,R64,Creighton,Cincinnati,7,10,Creighton,Region_2,0.6824587832907675,Creighton,1,ml_logistic
+2013,R64,Duke,Albany (NY),2,15,Duke,Region_2,0.9826541965917217,Duke,1,ml_logistic
+2013,R32,Louisville,Colorado State,1,8,Louisville,Region_2,0.9029501512772824,Louisville,1,ml_logistic
+2013,R32,Oregon,Saint Louis,12,4,Oregon,Region_2,0.8929656070934356,Oregon,1,ml_logistic
+2013,R32,Memphis,Michigan State,6,3,Michigan State,Region_2,0.24559409715740482,Michigan State,1,ml_logistic
+2013,R32,Creighton,Duke,7,2,Duke,Region_2,0.1461325695355633,Duke,1,ml_logistic
+2013,S16,Louisville,Oregon,1,12,Louisville,Region_2,0.6495139515606921,Louisville,1,ml_logistic
+2013,S16,Michigan State,Duke,3,2,Duke,Region_2,0.28568284741918293,Duke,1,ml_logistic
+2013,E8,Louisville,Duke,1,2,Louisville,Region_2,0.6461084946521373,Louisville,1,ml_logistic
+2013,R64,Kansas,Western Kentucky,1,16,Kansas,Region_3,0.9626724212631589,Kansas,1,ml_logistic
+2013,R64,UNC,Villanova,8,9,UNC,Region_3,0.8113577412875916,UNC,1,ml_logistic
+2013,R64,VCU,Akron,5,12,VCU,Region_3,0.4009770547677424,Akron,0,ml_logistic
+2013,R64,Michigan,South Dakota State,4,13,Michigan,Region_3,0.9889020521799717,Michigan,1,ml_logistic
+2013,R64,UCLA,Minnesota,6,11,Minnesota,Region_3,0.2527664695043776,Minnesota,1,ml_logistic
+2013,R64,Florida,Northwestern State,3,14,Florida,Region_3,0.9547293562317305,Florida,1,ml_logistic
+2013,R64,San Diego State,Oklahoma,7,10,San Diego State,Region_3,0.5020991807150931,San Diego State,1,ml_logistic
+2013,R64,Georgetown,Florida Gulf Coast,2,15,Florida Gulf Coast,Region_3,0.7181553961571185,Georgetown,0,ml_logistic
+2013,R32,Kansas,UNC,1,8,Kansas,Region_3,0.6076506713963616,Kansas,1,ml_logistic
+2013,R32,VCU,Michigan,5,4,Michigan,Region_3,0.04267202956717852,Michigan,1,ml_logistic
+2013,R32,Minnesota,Florida,11,3,Florida,Region_3,0.5050672628533808,Minnesota,0,ml_logistic
+2013,R32,San Diego State,Florida Gulf Coast,7,15,Florida Gulf Coast,Region_3,0.6948374861482558,San Diego State,0,ml_logistic
+2013,S16,Kansas,Michigan,1,4,Michigan,Region_3,0.1948547750437936,Michigan,1,ml_logistic
+2013,S16,Florida,Florida Gulf Coast,3,15,Florida,Region_3,0.8801507989391287,Florida,1,ml_logistic
+2013,E8,Michigan,Florida,4,3,Michigan,Region_3,0.7158760373087737,Michigan,1,ml_logistic
+2013,R64,Gonzaga,Southern,1,16,Gonzaga,Region_4,0.9843623088598721,Gonzaga,1,ml_logistic
+2013,R64,Pitt,Wichita State,8,9,Wichita State,Region_4,0.4396327030423239,Wichita State,1,ml_logistic
+2013,R64,Wisconsin,Ole Miss,5,12,Ole Miss,Region_4,0.3541985836501952,Ole Miss,1,ml_logistic
+2013,R64,Kansas State,La Salle,4,13,La Salle,Region_4,0.36333092705175796,La Salle,1,ml_logistic
+2013,R64,Arizona,Belmont,6,11,Arizona,Region_4,0.8923266240307501,Arizona,1,ml_logistic
+2013,R64,New Mexico,Harvard,3,14,Harvard,Region_4,0.8369282682991014,New Mexico,0,ml_logistic
+2013,R64,Notre Dame,Iowa State,7,10,Iowa State,Region_4,0.6997272559900589,Notre Dame,0,ml_logistic
+2013,R64,Ohio State,Iona,2,15,Ohio State,Region_4,0.9653864970925159,Ohio State,1,ml_logistic
+2013,R32,Gonzaga,Wichita State,1,9,Wichita State,Region_4,0.36899607711776017,Wichita State,1,ml_logistic
+2013,R32,Ole Miss,La Salle,12,13,La Salle,Region_4,0.793326380355661,Ole Miss,0,ml_logistic
+2013,R32,Arizona,Harvard,6,14,Arizona,Region_4,0.9247268684437895,Arizona,1,ml_logistic
+2013,R32,Iowa State,Ohio State,10,2,Ohio State,Region_4,0.1393078443583654,Ohio State,1,ml_logistic
+2013,S16,Wichita State,La Salle,9,13,Wichita State,Region_4,0.7358034779334899,Wichita State,1,ml_logistic
+2013,S16,Arizona,Ohio State,6,2,Ohio State,Region_4,0.4016251831736583,Ohio State,1,ml_logistic
+2013,E8,Wichita State,Ohio State,9,2,Wichita State,Region_4,0.3736484657589961,Ohio State,0,ml_logistic
+2013,F4,Syracuse,Michigan,4,4,Michigan,Final Four,0.1588685624389461,Michigan,1,ml_logistic
+2013,F4,Louisville,Wichita State,1,9,Louisville,Final Four,0.7563746860964252,Louisville,1,ml_logistic
+2013,Championship,Michigan,Louisville,4,1,Louisville,Final Four,0.266660072402742,Louisville,1,ml_logistic
+2014,R64,Virginia,Coastal Carolina,1,16,Virginia,Region_1,0.9612270137972252,Virginia,1,ml_logistic
+2014,R64,Memphis,George Washington,8,9,Memphis,Region_1,0.6514238343643243,Memphis,1,ml_logistic
+2014,R64,Cincinnati,Harvard,5,12,Harvard,Region_1,0.44882328493639395,Harvard,1,ml_logistic
+2014,R64,Michigan State,Delaware,4,13,Michigan State,Region_1,0.9395615016381851,Michigan State,1,ml_logistic
+2014,R64,UNC,Providence,6,11,UNC,Region_1,0.48080398949996067,Providence,0,ml_logistic
+2014,R64,Iowa State,North Carolina Central,3,14,Iowa State,Region_1,0.9592296830912922,Iowa State,1,ml_logistic
+2014,R64,Villanova,Milwaukee,2,15,Villanova,Region_1,0.9408791343105948,Villanova,1,ml_logistic
+2014,R32,Virginia,Memphis,1,8,Virginia,Region_1,0.5663389091010778,Virginia,1,ml_logistic
+2014,R32,Harvard,Michigan State,12,4,Michigan State,Region_1,0.280542727693356,Michigan State,1,ml_logistic
+2014,R32,UNC,Iowa State,6,3,Iowa State,Region_1,0.26561564410631144,Iowa State,1,ml_logistic
+2014,R32,UConn,Villanova,7,2,UConn,Region_1,0.7141123980797497,UConn,1,ml_logistic
+2014,S16,Virginia,Michigan State,1,4,Michigan State,Region_1,0.3079740827328345,Michigan State,1,ml_logistic
+2014,S16,Iowa State,UConn,3,7,UConn,Region_1,0.21141706145467007,UConn,1,ml_logistic
+2014,E8,Michigan State,UConn,4,7,UConn,Region_1,0.20001053128210833,UConn,1,ml_logistic
+2014,R64,Wichita State,Cal Poly,1,16,Wichita State,Region_2,0.9652797148920826,Wichita State,1,ml_logistic
+2014,R64,Kentucky,Kansas State,8,9,Kentucky,Region_2,0.9395137947206651,Kentucky,1,ml_logistic
+2014,R64,Saint Louis,NC State,5,12,Saint Louis,Region_2,0.41343161930287164,NC State,0,ml_logistic
+2014,R64,Louisville,Manhattan,4,13,Louisville,Region_2,0.9217408563862254,Louisville,1,ml_logistic
+2014,R64,Duke,Mercer,3,14,Mercer,Region_2,0.8539342904364728,Duke,0,ml_logistic
+2014,R64,Texas,Arizona State,7,10,Texas,Region_2,0.6594597042679109,Texas,1,ml_logistic
+2014,R64,Michigan,Wofford,2,15,Michigan,Region_2,0.98123812838747,Michigan,1,ml_logistic
+2014,R32,Wichita State,Kentucky,1,8,Kentucky,Region_2,0.14268187313354125,Kentucky,1,ml_logistic
+2014,R32,Saint Louis,Louisville,5,4,Louisville,Region_2,0.11229268388390397,Louisville,1,ml_logistic
+2014,R32,Tennessee,Mercer,11,14,Tennessee,Region_2,0.9613562734724939,Tennessee,1,ml_logistic
+2014,R32,Texas,Michigan,7,2,Michigan,Region_2,0.3784016892875918,Michigan,1,ml_logistic
+2014,S16,Kentucky,Louisville,8,4,Kentucky,Region_2,0.5548796526915792,Kentucky,1,ml_logistic
+2014,S16,Tennessee,Michigan,11,2,Michigan,Region_2,0.47370587016435767,Michigan,1,ml_logistic
+2014,E8,Kentucky,Michigan,8,2,Kentucky,Region_2,0.7063725498170571,Kentucky,1,ml_logistic
+2014,R64,Florida,Albany (NY),1,16,Florida,Region_3,0.9974358214048746,Florida,1,ml_logistic
+2014,R64,Colorado,Pitt,8,9,Pitt,Region_3,0.25975663028440465,Pitt,1,ml_logistic
+2014,R64,VCU,Stephen F. Austin,5,12,Stephen F. Austin,Region_3,0.5634147007185795,VCU,0,ml_logistic
+2014,R64,UCLA,Tulsa,4,13,UCLA,Region_3,0.9285896792684736,UCLA,1,ml_logistic
+2014,R64,Ohio State,Dayton,6,11,Dayton,Region_3,0.6237557206828279,Ohio State,0,ml_logistic
+2014,R64,Syracuse,Western Michigan,3,14,Syracuse,Region_3,0.8863397387675354,Syracuse,1,ml_logistic
+2014,R64,New Mexico,Stanford,7,10,Stanford,Region_3,0.49629962353648593,Stanford,1,ml_logistic
+2014,R64,Kansas,Eastern Kentucky,2,15,Kansas,Region_3,0.918617304569758,Kansas,1,ml_logistic
+2014,R32,Florida,Pitt,1,9,Florida,Region_3,0.7370563977042909,Florida,1,ml_logistic
+2014,R32,Stephen F. Austin,UCLA,12,4,UCLA,Region_3,0.16923467581353677,UCLA,1,ml_logistic
+2014,R32,Dayton,Syracuse,11,3,Dayton,Region_3,0.32913082147562767,Syracuse,0,ml_logistic
+2014,R32,Stanford,Kansas,10,2,Stanford,Region_3,0.3595083137600546,Kansas,0,ml_logistic
+2014,S16,Florida,UCLA,1,4,Florida,Region_3,0.8893990163328034,Florida,1,ml_logistic
+2014,S16,Dayton,Stanford,11,10,Dayton,Region_3,0.509331446586097,Dayton,1,ml_logistic
+2014,E8,Florida,Dayton,1,11,Florida,Region_3,0.8383392396777832,Florida,1,ml_logistic
+2014,R64,Arizona,Weber State,1,16,Arizona,Region_4,0.9920903704007248,Arizona,1,ml_logistic
+2014,R64,Gonzaga,Oklahoma State,8,9,Gonzaga,Region_4,0.7868308993591596,Gonzaga,1,ml_logistic
+2014,R64,Oklahoma,North Dakota State,5,12,North Dakota State,Region_4,0.6274627697960287,Oklahoma,0,ml_logistic
+2014,R64,San Diego State,New Mexico State,4,13,San Diego State,Region_4,0.9403412820097492,San Diego State,1,ml_logistic
+2014,R64,Baylor,Nebraska,6,11,Baylor,Region_4,0.707608615571503,Baylor,1,ml_logistic
+2014,R64,Creighton,Louisiana,3,14,Creighton,Region_4,0.8518304826884232,Creighton,1,ml_logistic
+2014,R64,Wisconsin,American,2,15,Wisconsin,Region_4,0.9814393347948003,Wisconsin,1,ml_logistic
+2014,R32,Arizona,Gonzaga,1,8,Arizona,Region_4,0.7517791130032343,Arizona,1,ml_logistic
+2014,R32,North Dakota State,San Diego State,12,4,San Diego State,Region_4,0.21291293960298613,San Diego State,1,ml_logistic
+2014,R32,Baylor,Creighton,6,3,Baylor,Region_4,0.5943649141728468,Baylor,1,ml_logistic
+2014,R32,Oregon,Wisconsin,7,2,Wisconsin,Region_4,0.2425045643134896,Wisconsin,1,ml_logistic
+2014,S16,Arizona,San Diego State,1,4,Arizona,Region_4,0.8393946657671135,Arizona,1,ml_logistic
+2014,S16,Baylor,Wisconsin,6,2,Wisconsin,Region_4,0.26845900990975596,Wisconsin,1,ml_logistic
+2014,E8,Arizona,Wisconsin,1,2,Wisconsin,Region_4,0.7136223339028963,Arizona,0,ml_logistic
+2014,F4,UConn,Florida,7,1,UConn,Final Four,0.27941709704685563,Florida,0,ml_logistic
+2014,F4,Kentucky,Wisconsin,8,2,Kentucky,Final Four,0.48945719314525804,Wisconsin,0,ml_logistic
+2014,Championship,UConn,Kentucky,7,8,UConn,Final Four,0.43565384839941057,Kentucky,0,ml_logistic
+2015,R64,Villanova,Lafayette,1,16,Villanova,Region_1,0.9923164009023844,Villanova,1,ml_logistic
+2015,R64,NC State,LSU,8,9,NC State,Region_1,0.6483770762796068,NC State,1,ml_logistic
+2015,R64,Northern Iowa,Wyoming,5,12,Northern Iowa,Region_1,0.8190584325704894,Northern Iowa,1,ml_logistic
+2015,R64,Louisville,UC-Irvine,4,13,Louisville,Region_1,0.9614724613501827,Louisville,1,ml_logistic
+2015,R64,Providence,Dayton,6,11,Dayton,Region_1,0.2809704841389035,Dayton,1,ml_logistic
+2015,R64,Oklahoma,Albany (NY),3,14,Oklahoma,Region_1,0.9016859410388839,Oklahoma,1,ml_logistic
+2015,R64,Michigan State,Georgia,7,10,Michigan State,Region_1,0.7584864150125877,Michigan State,1,ml_logistic
+2015,R64,Virginia,Belmont,2,15,Virginia,Region_1,0.988957389884602,Virginia,1,ml_logistic
+2015,R32,Villanova,NC State,1,8,NC State,Region_1,0.9423825512792007,Villanova,0,ml_logistic
+2015,R32,Northern Iowa,Louisville,5,4,Louisville,Region_1,0.28324267080942017,Louisville,1,ml_logistic
+2015,R32,Dayton,Oklahoma,11,3,Oklahoma,Region_1,0.6041416343174956,Dayton,0,ml_logistic
+2015,R32,Michigan State,Virginia,7,2,Michigan State,Region_1,0.1873111951046743,Virginia,0,ml_logistic
+2015,S16,NC State,Louisville,8,4,Louisville,Region_1,0.19577930410434102,Louisville,1,ml_logistic
+2015,S16,Oklahoma,Michigan State,3,7,Michigan State,Region_1,0.19445937336803265,Michigan State,1,ml_logistic
+2015,E8,Louisville,Michigan State,4,7,Michigan State,Region_1,0.3645272467104993,Michigan State,1,ml_logistic
+2015,R64,Kentucky,Hampton,1,16,Kentucky,Region_2,0.9999414521560106,Kentucky,1,ml_logistic
+2015,R64,Cincinnati,Purdue,8,9,Cincinnati,Region_2,0.41636920496762564,Purdue,0,ml_logistic
+2015,R64,West Virginia,Buffalo,5,12,West Virginia,Region_2,0.8249120330954466,West Virginia,1,ml_logistic
+2015,R64,Maryland,Valparaiso,4,13,Maryland,Region_2,0.6679045547900835,Maryland,1,ml_logistic
+2015,R64,Butler,Texas,6,11,Butler,Region_2,0.46798339735799105,Texas,0,ml_logistic
+2015,R64,Notre Dame,Northeastern,3,14,Notre Dame,Region_2,0.9604714849114713,Notre Dame,1,ml_logistic
+2015,R64,Wichita State,Indiana,7,10,Wichita State,Region_2,0.9222893513535904,Wichita State,1,ml_logistic
+2015,R64,Kansas,New Mexico State,2,15,Kansas,Region_2,0.9784027133357112,Kansas,1,ml_logistic
+2015,R32,Kentucky,Cincinnati,1,8,Kentucky,Region_2,0.9976378422214071,Kentucky,1,ml_logistic
+2015,R32,West Virginia,Maryland,5,4,West Virginia,Region_2,0.41382161929906697,Maryland,0,ml_logistic
+2015,R32,Butler,Notre Dame,6,3,Notre Dame,Region_2,0.19278865051312913,Notre Dame,1,ml_logistic
+2015,R32,Wichita State,Kansas,7,2,Wichita State,Region_2,0.3531292803429203,Kansas,0,ml_logistic
+2015,S16,Kentucky,West Virginia,1,5,Kentucky,Region_2,0.9881807695802359,Kentucky,1,ml_logistic
+2015,S16,Notre Dame,Wichita State,3,7,Notre Dame,Region_2,0.494128701700938,Wichita State,0,ml_logistic
+2015,E8,Kentucky,Notre Dame,1,3,Kentucky,Region_2,0.9690689926881794,Kentucky,1,ml_logistic
+2015,R64,Duke,Robert Morris,1,16,Duke,Region_3,0.9983324071708007,Duke,1,ml_logistic
+2015,R64,San Diego State,St. John's (NY),8,9,San Diego State,Region_3,0.4856075953524942,St. John's (NY),0,ml_logistic
+2015,R64,Utah,Stephen F. Austin,5,12,Utah,Region_3,0.8767545418090085,Utah,1,ml_logistic
+2015,R64,Georgetown,Eastern Washington,4,13,Georgetown,Region_3,0.8320003546165928,Georgetown,1,ml_logistic
+2015,R64,SMU,UCLA,6,11,UCLA,Region_3,0.4213409771273194,UCLA,1,ml_logistic
+2015,R64,Iowa State,UAB,3,14,UAB,Region_3,0.9312008201180074,Iowa State,0,ml_logistic
+2015,R64,Iowa,Davidson,7,10,Iowa,Region_3,0.49773721512132924,Davidson,0,ml_logistic
+2015,R64,Gonzaga,North Dakota State,2,15,Gonzaga,Region_3,0.9666609413662096,Gonzaga,1,ml_logistic
+2015,R32,Duke,San Diego State,1,8,Duke,Region_3,0.9676581690753104,Duke,1,ml_logistic
+2015,R32,Utah,Georgetown,5,4,Utah,Region_3,0.7664526555778481,Utah,1,ml_logistic
+2015,R32,UCLA,UAB,11,14,UCLA,Region_3,0.9480972696195258,UCLA,1,ml_logistic
+2015,R32,Iowa,Gonzaga,7,2,Gonzaga,Region_3,0.08882773675651393,Gonzaga,1,ml_logistic
+2015,S16,Duke,Utah,1,5,Duke,Region_3,0.9164097396632448,Duke,1,ml_logistic
+2015,S16,UCLA,Gonzaga,11,2,Gonzaga,Region_3,0.10427437835721912,Gonzaga,1,ml_logistic
+2015,E8,Duke,Gonzaga,1,2,Duke,Region_3,0.813543733151577,Duke,1,ml_logistic
+2015,R64,Wisconsin,Coastal Carolina,1,16,Wisconsin,Region_4,0.99709204507535,Wisconsin,1,ml_logistic
+2015,R64,Oregon,Oklahoma State,8,9,Oregon,Region_4,0.822923047192867,Oregon,1,ml_logistic
+2015,R64,Arkansas,Wofford,5,12,Arkansas,Region_4,0.6766942166374377,Arkansas,1,ml_logistic
+2015,R64,UNC,Harvard,4,13,UNC,Region_4,0.8777113718706661,UNC,1,ml_logistic
+2015,R64,Xavier,Ole Miss,6,11,Xavier,Region_4,0.457854447017556,Ole Miss,0,ml_logistic
+2015,R64,Baylor,Georgia State,3,14,Georgia State,Region_4,0.8214478532548657,Baylor,0,ml_logistic
+2015,R64,VCU,Ohio State,7,10,Ohio State,Region_4,0.1987543061724783,Ohio State,1,ml_logistic
+2015,R64,Arizona,Texas Southern,2,15,Arizona,Region_4,0.9966172065308397,Arizona,1,ml_logistic
+2015,R32,Wisconsin,Oregon,1,8,Wisconsin,Region_4,0.9530302805015016,Wisconsin,1,ml_logistic
+2015,R32,Arkansas,UNC,5,4,UNC,Region_4,0.16943409826050246,UNC,1,ml_logistic
+2015,R32,Xavier,Georgia State,6,14,Xavier,Region_4,0.728740206322386,Xavier,1,ml_logistic
+2015,R32,Ohio State,Arizona,10,2,Arizona,Region_4,0.13759988537592108,Arizona,1,ml_logistic
+2015,S16,Wisconsin,UNC,1,4,Wisconsin,Region_4,0.9141863698922074,Wisconsin,1,ml_logistic
+2015,S16,Xavier,Arizona,6,2,Arizona,Region_4,0.023147228918818298,Arizona,1,ml_logistic
+2015,E8,Wisconsin,Arizona,1,2,Wisconsin,Region_4,0.6702891274600997,Wisconsin,1,ml_logistic
+2015,F4,Michigan State,Duke,7,1,Duke,Final Four,0.05894946420103375,Duke,1,ml_logistic
+2015,F4,Kentucky,Wisconsin,1,1,Wisconsin,Final Four,0.7168097051286036,Kentucky,0,ml_logistic
+2015,Championship,Duke,Wisconsin,1,1,Duke,Final Four,0.3453409619955827,Wisconsin,0,ml_logistic
+2016,R64,UNC,Florida Gulf Coast,1,16,UNC,Region_1,0.9927535776128016,UNC,1,ml_logistic
+2016,R64,Indiana,Chattanooga,5,12,Indiana,Region_1,0.8651145313230135,Indiana,1,ml_logistic
+2016,R64,Kentucky,Stony Brook,4,13,Kentucky,Region_1,0.9508582188872131,Kentucky,1,ml_logistic
+2016,R64,Notre Dame,Michigan,6,11,Notre Dame,Region_1,0.44681374759384473,Michigan,0,ml_logistic
+2016,R64,West Virginia,Stephen F. Austin,3,14,Stephen F. Austin,Region_1,0.9020103210125118,West Virginia,0,ml_logistic
+2016,R64,Wisconsin,Pitt,7,10,Wisconsin,Region_1,0.3617942682596152,Pitt,0,ml_logistic
+2016,R64,Xavier,Weber State,2,15,Xavier,Region_1,0.9363427039762537,Xavier,1,ml_logistic
+2016,R32,UNC,Providence,1,9,UNC,Region_1,0.7970329465836283,UNC,1,ml_logistic
+2016,R32,Indiana,Kentucky,5,4,Indiana,Region_1,0.42123955254867473,Kentucky,0,ml_logistic
+2016,R32,Notre Dame,Stephen F. Austin,6,14,Notre Dame,Region_1,0.8078009539759123,Notre Dame,1,ml_logistic
+2016,R32,Wisconsin,Xavier,7,2,Wisconsin,Region_1,0.17874024347544867,Xavier,0,ml_logistic
+2016,S16,UNC,Indiana,1,5,UNC,Region_1,0.8001169620052525,UNC,1,ml_logistic
+2016,S16,Notre Dame,Wisconsin,6,7,Notre Dame,Region_1,0.5526848127296227,Notre Dame,1,ml_logistic
+2016,E8,UNC,Notre Dame,1,6,UNC,Region_1,0.8797289768967528,UNC,1,ml_logistic
+2016,R64,Virginia,Hampton,1,16,Virginia,Region_2,0.9905166712071969,Virginia,1,ml_logistic
+2016,R64,Texas Tech,Butler,8,9,Butler,Region_2,0.4120633019451312,Butler,1,ml_logistic
+2016,R64,Purdue,Little Rock,5,12,Little Rock,Region_2,0.6261709156785673,Purdue,0,ml_logistic
+2016,R64,Iowa State,Iona,4,13,Iowa State,Region_2,0.9133939277425425,Iowa State,1,ml_logistic
+2016,R64,Seton Hall,Gonzaga,6,11,Gonzaga,Region_2,0.373297513763561,Gonzaga,1,ml_logistic
+2016,R64,Utah,Fresno State,3,14,Utah,Region_2,0.49944070439118793,Fresno State,0,ml_logistic
+2016,R64,Dayton,Syracuse,7,10,Syracuse,Region_2,0.33312604420564906,Syracuse,1,ml_logistic
+2016,R64,Michigan State,Middle Tennessee,2,15,Middle Tennessee,Region_2,0.8431304543639934,Michigan State,0,ml_logistic
+2016,R32,Virginia,Butler,1,9,Virginia,Region_2,0.7675334897636436,Virginia,1,ml_logistic
+2016,R32,Little Rock,Iowa State,12,4,Iowa State,Region_2,0.6310854786905367,Little Rock,0,ml_logistic
+2016,R32,Gonzaga,Utah,11,3,Gonzaga,Region_2,0.7398322702099852,Gonzaga,1,ml_logistic
+2016,R32,Syracuse,Middle Tennessee,10,15,Syracuse,Region_2,0.9099667378412564,Syracuse,1,ml_logistic
+2016,S16,Virginia,Iowa State,1,4,Virginia,Region_2,0.8648817523875766,Virginia,1,ml_logistic
+2016,S16,Gonzaga,Syracuse,11,10,Syracuse,Region_2,0.7524917997020281,Gonzaga,0,ml_logistic
+2016,E8,Virginia,Syracuse,1,10,Syracuse,Region_2,0.6471994660387865,Virginia,0,ml_logistic
+2016,R64,Kansas,Austin Peay,1,16,Kansas,Region_3,0.9985464638449295,Kansas,1,ml_logistic
+2016,R64,Colorado,UConn,8,9,UConn,Region_3,0.3905079467479487,UConn,1,ml_logistic
+2016,R64,Maryland,South Dakota State,5,12,Maryland,Region_3,0.8776545277734307,Maryland,1,ml_logistic
+2016,R64,California,Hawaii,4,13,Hawaii,Region_3,0.25076048977205,Hawaii,1,ml_logistic
+2016,R64,Arizona,Wichita State,6,11,Wichita State,Region_3,0.4598864638051232,Wichita State,1,ml_logistic
+2016,R64,Miami (FL),Buffalo,3,14,Miami (FL),Region_3,0.9813061249378018,Miami (FL),1,ml_logistic
+2016,R64,Iowa,Temple,7,10,Iowa,Region_3,0.7285046835393277,Iowa,1,ml_logistic
+2016,R64,Villanova,UNC Asheville,2,15,Villanova,Region_3,0.996055042661238,Villanova,1,ml_logistic
+2016,R32,Kansas,UConn,1,9,Kansas,Region_3,0.9437875137238741,Kansas,1,ml_logistic
+2016,R32,Maryland,Hawaii,5,13,Maryland,Region_3,0.6574644511920692,Maryland,1,ml_logistic
+2016,R32,Wichita State,Miami (FL),11,3,Miami (FL),Region_3,0.3191635800235353,Miami (FL),1,ml_logistic
+2016,R32,Iowa,Villanova,7,2,Villanova,Region_3,0.04148741542272104,Villanova,1,ml_logistic
+2016,S16,Kansas,Maryland,1,5,Kansas,Region_3,0.9108754410447976,Kansas,1,ml_logistic
+2016,S16,Miami (FL),Villanova,3,2,Villanova,Region_3,0.1365830136332081,Villanova,1,ml_logistic
+2016,E8,Kansas,Villanova,1,2,Villanova,Region_3,0.47849862994627507,Villanova,1,ml_logistic
+2016,R64,Oregon,Holy Cross,1,16,Oregon,Region_4,0.9973414073078992,Oregon,1,ml_logistic
+2016,R64,Baylor,Yale,5,12,Yale,Region_4,0.6828531828709778,Baylor,0,ml_logistic
+2016,R64,Duke,UNC Wilmington,4,13,Duke,Region_4,0.7333793365500667,Duke,1,ml_logistic
+2016,R64,Texas,Northern Iowa,6,11,Northern Iowa,Region_4,0.7690867015382743,Texas,0,ml_logistic
+2016,R64,Texas A&M,Green Bay,3,14,Texas A&M,Region_4,0.9249639495274735,Texas A&M,1,ml_logistic
+2016,R64,Oregon State,VCU,7,10,VCU,Region_4,0.41332057210771395,VCU,1,ml_logistic
+2016,R64,Oklahoma,Cal State Bakersfield,2,15,Oklahoma,Region_4,0.9741865559634265,Oklahoma,1,ml_logistic
+2016,R32,Yale,Duke,12,4,Duke,Region_4,0.17009744461317064,Duke,1,ml_logistic
+2016,R32,Northern Iowa,Texas A&M,11,3,Texas A&M,Region_4,0.17563701027969086,Texas A&M,1,ml_logistic
+2016,R32,VCU,Oklahoma,10,2,Oklahoma,Region_4,0.08977479299020483,Oklahoma,1,ml_logistic
+2016,S16,Oregon,Duke,1,4,Oregon,Region_4,0.47393408817370314,Duke,0,ml_logistic
+2016,S16,Texas A&M,Oklahoma,3,2,Oklahoma,Region_4,0.1920373261308012,Oklahoma,1,ml_logistic
+2016,E8,Oregon,Oklahoma,1,2,Oklahoma,Region_4,0.23892070017140207,Oklahoma,1,ml_logistic
+2016,F4,UNC,Syracuse,1,10,UNC,Final Four,0.7529899184434482,UNC,1,ml_logistic
+2016,F4,Villanova,Oklahoma,2,2,Villanova,Final Four,0.7568989302255724,Villanova,1,ml_logistic
+2016,Championship,UNC,Villanova,1,2,Villanova,Final Four,0.23103191711584076,Villanova,1,ml_logistic
+2017,R64,Villanova,Mount St. Mary's,1,16,Villanova,Region_1,0.9967042084666315,Villanova,1,ml_logistic
+2017,R64,Wisconsin,Virginia Tech,8,9,Wisconsin,Region_1,0.8736611289177925,Wisconsin,1,ml_logistic
+2017,R64,Virginia,UNC Wilmington,5,12,Virginia,Region_1,0.7894511567420898,Virginia,1,ml_logistic
+2017,R64,Florida,ETSU,4,13,Florida,Region_1,0.9662805956939038,Florida,1,ml_logistic
+2017,R64,Baylor,New Mexico State,3,14,Baylor,Region_1,0.948022720900124,Baylor,1,ml_logistic
+2017,R64,South Carolina,Marquette,7,10,South Carolina,Region_1,0.8820228834336364,South Carolina,1,ml_logistic
+2017,R64,Duke,Troy,2,15,Duke,Region_1,0.9895256721621811,Duke,1,ml_logistic
+2017,R32,Villanova,Wisconsin,1,8,Wisconsin,Region_1,0.6392730129322595,Villanova,0,ml_logistic
+2017,R32,Virginia,Florida,5,4,Florida,Region_1,0.2685166142653424,Florida,1,ml_logistic
+2017,R32,South Carolina,Duke,7,2,South Carolina,Region_1,0.48303768299884514,Duke,0,ml_logistic
+2017,S16,Wisconsin,Florida,8,4,Florida,Region_1,0.4479347572177733,Florida,1,ml_logistic
+2017,S16,Baylor,South Carolina,3,7,South Carolina,Region_1,0.6333198216340328,Baylor,0,ml_logistic
+2017,E8,Florida,South Carolina,4,7,South Carolina,Region_1,0.5918900558210384,Florida,0,ml_logistic
+2017,R64,Kansas,UC-Davis,1,16,Kansas,Region_2,0.9959801908612853,Kansas,1,ml_logistic
+2017,R64,Miami (FL),Michigan State,8,9,Michigan State,Region_2,0.6467992363167439,Miami (FL),0,ml_logistic
+2017,R64,Iowa State,Nevada,5,12,Iowa State,Region_2,0.715055596886699,Iowa State,1,ml_logistic
+2017,R64,Purdue,Vermont,4,13,Purdue,Region_2,0.8887193946081106,Purdue,1,ml_logistic
+2017,R64,Creighton,Rhode Island,6,11,Rhode Island,Region_2,0.671345675209418,Creighton,0,ml_logistic
+2017,R64,Oregon,Iona,3,14,Oregon,Region_2,0.9934237134912287,Oregon,1,ml_logistic
+2017,R64,Michigan,Oklahoma State,7,10,Michigan,Region_2,0.4521360872602381,Oklahoma State,0,ml_logistic
+2017,R64,Louisville,Jacksonville State,2,15,Louisville,Region_2,0.9887307828593359,Louisville,1,ml_logistic
+2017,R32,Kansas,Michigan State,1,9,Kansas,Region_2,0.9653803124434313,Kansas,1,ml_logistic
+2017,R32,Iowa State,Purdue,5,4,Purdue,Region_2,0.5459790332656724,Iowa State,0,ml_logistic
+2017,R32,Rhode Island,Oregon,11,3,Oregon,Region_2,0.12402130773900276,Oregon,1,ml_logistic
+2017,R32,Michigan,Louisville,7,2,Michigan,Region_2,0.45135007784174547,Louisville,0,ml_logistic
+2017,S16,Kansas,Purdue,1,4,Kansas,Region_2,0.8871515696127888,Kansas,1,ml_logistic
+2017,S16,Oregon,Michigan,3,7,Oregon,Region_2,0.6320437726879254,Oregon,1,ml_logistic
+2017,E8,Kansas,Oregon,1,3,Oregon,Region_2,0.7843974938129535,Kansas,0,ml_logistic
+2017,R64,UNC,Texas Southern,1,16,UNC,Region_3,0.99650673912572,UNC,1,ml_logistic
+2017,R64,Arkansas,Seton Hall,8,9,Arkansas,Region_3,0.7379008961217597,Arkansas,1,ml_logistic
+2017,R64,Minnesota,Middle Tennessee,5,12,Middle Tennessee,Region_3,0.36110627601124723,Middle Tennessee,1,ml_logistic
+2017,R64,Butler,Winthrop,4,13,Butler,Region_3,0.9718850414677903,Butler,1,ml_logistic
+2017,R64,Cincinnati,Kansas State,6,11,Cincinnati,Region_3,0.6778848876973085,Cincinnati,1,ml_logistic
+2017,R64,UCLA,Kent State,3,14,UCLA,Region_3,0.9854965400047386,UCLA,1,ml_logistic
+2017,R64,Dayton,Wichita State,7,10,Wichita State,Region_3,0.0728148721550522,Wichita State,1,ml_logistic
+2017,R64,Kentucky,Northern Kentucky,2,15,Kentucky,Region_3,0.9879557771212973,Kentucky,1,ml_logistic
+2017,R32,UNC,Arkansas,1,8,UNC,Region_3,0.8385487137020498,UNC,1,ml_logistic
+2017,R32,Middle Tennessee,Butler,12,4,Butler,Region_3,0.3773591033474708,Butler,1,ml_logistic
+2017,R32,Cincinnati,UCLA,6,3,UCLA,Region_3,0.49667299075197907,UCLA,1,ml_logistic
+2017,R32,Wichita State,Kentucky,10,2,Kentucky,Region_3,0.30708615658985666,Kentucky,1,ml_logistic
+2017,S16,UNC,Butler,1,4,UNC,Region_3,0.8425146553246071,UNC,1,ml_logistic
+2017,S16,UCLA,Kentucky,3,2,Kentucky,Region_3,0.1745256797365509,Kentucky,1,ml_logistic
+2017,E8,UNC,Kentucky,1,2,UNC,Region_3,0.4943649776765036,Kentucky,0,ml_logistic
+2017,R64,Gonzaga,South Dakota State,1,16,Gonzaga,Region_4,0.9899397634699544,Gonzaga,1,ml_logistic
+2017,R64,Northwestern,Vanderbilt,8,9,Northwestern,Region_4,0.7224428369852962,Northwestern,1,ml_logistic
+2017,R64,Notre Dame,Princeton,5,12,Notre Dame,Region_4,0.9280765541734247,Notre Dame,1,ml_logistic
+2017,R64,West Virginia,Bucknell,4,13,West Virginia,Region_4,0.9749532505648686,West Virginia,1,ml_logistic
+2017,R64,Maryland,Xavier,6,11,Xavier,Region_4,0.24818779814146555,Xavier,1,ml_logistic
+2017,R64,Florida State,Florida Gulf Coast,3,14,Florida State,Region_4,0.8549689076356183,Florida State,1,ml_logistic
+2017,R64,Arizona,North Dakota,2,15,Arizona,Region_4,0.9815714122310096,Arizona,1,ml_logistic
+2017,R32,Gonzaga,Northwestern,1,8,Gonzaga,Region_4,0.8078734654023265,Gonzaga,1,ml_logistic
+2017,R32,Notre Dame,West Virginia,5,4,West Virginia,Region_4,0.2764080231878575,West Virginia,1,ml_logistic
+2017,R32,Xavier,Florida State,11,3,Xavier,Region_4,0.7481810085856645,Xavier,1,ml_logistic
+2017,S16,Gonzaga,West Virginia,1,4,Gonzaga,Region_4,0.4637281421313021,West Virginia,0,ml_logistic
+2017,S16,Xavier,Arizona,11,2,Xavier,Region_4,0.45548849872593433,Arizona,0,ml_logistic
+2017,E8,Gonzaga,Xavier,1,11,Gonzaga,Region_4,0.41798494463700053,Xavier,0,ml_logistic
+2017,F4,South Carolina,Gonzaga,7,1,Gonzaga,Final Four,0.3066979928353915,Gonzaga,1,ml_logistic
+2017,F4,Oregon,UNC,3,1,UNC,Final Four,0.24673738532782738,UNC,1,ml_logistic
+2017,Championship,Gonzaga,UNC,1,1,UNC,Final Four,0.22480051826200892,UNC,1,ml_logistic
+2018,R64,Villanova,Radford,1,16,Villanova,Region_1,0.9967983926767433,Villanova,1,ml_logistic
+2018,R64,Virginia Tech,Alabama,8,9,Alabama,Region_1,0.4196326571826248,Alabama,1,ml_logistic
+2018,R64,West Virginia,Murray State,5,12,West Virginia,Region_1,0.8669852169169858,West Virginia,1,ml_logistic
+2018,R64,Wichita State,Marshall,4,13,Marshall,Region_1,0.6388337638472671,Wichita State,0,ml_logistic
+2018,R64,Florida,St. Bonaventure,6,11,Florida,Region_1,0.41288292969813944,St. Bonaventure,0,ml_logistic
+2018,R64,Texas Tech,Stephen F. Austin,3,14,Texas Tech,Region_1,0.9110219608880716,Texas Tech,1,ml_logistic
+2018,R64,Arkansas,Butler,7,10,Butler,Region_1,0.4346999352794723,Butler,1,ml_logistic
+2018,R64,Purdue,Cal State Fullerton,2,15,Purdue,Region_1,0.9649847200811901,Purdue,1,ml_logistic
+2018,R32,Villanova,Alabama,1,9,Villanova,Region_1,0.9798510185339818,Villanova,1,ml_logistic
+2018,R32,West Virginia,Marshall,5,13,West Virginia,Region_1,0.8740290351006869,West Virginia,1,ml_logistic
+2018,R32,Florida,Texas Tech,6,3,Texas Tech,Region_1,0.2453265545021307,Texas Tech,1,ml_logistic
+2018,R32,Butler,Purdue,10,2,Purdue,Region_1,0.2105701039140809,Purdue,1,ml_logistic
+2018,S16,Villanova,West Virginia,1,5,Villanova,Region_1,0.9438270455013854,Villanova,1,ml_logistic
+2018,S16,Texas Tech,Purdue,3,2,Texas Tech,Region_1,0.19534315206168493,Purdue,0,ml_logistic
+2018,E8,Villanova,Texas Tech,1,3,Villanova,Region_1,0.949322530587903,Villanova,1,ml_logistic
+2018,R64,Seton Hall,NC State,8,9,Seton Hall,Region_2,0.8257456582603387,Seton Hall,1,ml_logistic
+2018,R64,Clemson,New Mexico State,5,12,Clemson,Region_2,0.6527677264267767,Clemson,1,ml_logistic
+2018,R64,Auburn,College of Charleston,4,13,Auburn,Region_2,0.8349901533232987,Auburn,1,ml_logistic
+2018,R64,TCU,Syracuse,6,11,Syracuse,Region_2,0.257122812308893,Syracuse,1,ml_logistic
+2018,R64,Michigan State,Bucknell,3,14,Michigan State,Region_2,0.9797071194543425,Michigan State,1,ml_logistic
+2018,R64,Rhode Island,Oklahoma,7,10,Rhode Island,Region_2,0.5221341596008957,Rhode Island,1,ml_logistic
+2018,R64,Duke,Iona,2,15,Duke,Region_2,0.9904374846865284,Duke,1,ml_logistic
+2018,R32,Kansas,Seton Hall,1,8,Kansas,Region_2,0.7590926005289882,Kansas,1,ml_logistic
+2018,R32,Clemson,Auburn,5,4,Clemson,Region_2,0.5579338979052122,Clemson,1,ml_logistic
+2018,R32,Syracuse,Michigan State,11,3,Syracuse,Region_2,0.22923719378853452,Michigan State,0,ml_logistic
+2018,R32,Rhode Island,Duke,7,2,Duke,Region_2,0.09536070160199756,Duke,1,ml_logistic
+2018,S16,Kansas,Clemson,1,5,Kansas,Region_2,0.7726629888207531,Kansas,1,ml_logistic
+2018,S16,Syracuse,Duke,11,2,Duke,Region_2,0.2151726043575603,Duke,1,ml_logistic
+2018,E8,Kansas,Duke,1,2,Kansas,Region_2,0.4729306361766287,Duke,0,ml_logistic
+2018,R64,Creighton,Kansas State,8,9,Kansas State,Region_3,0.32761812747973434,Kansas State,1,ml_logistic
+2018,R64,Kentucky,Davidson,5,12,Kentucky,Region_3,0.9101882847869054,Kentucky,1,ml_logistic
+2018,R64,Arizona,Buffalo,4,13,Buffalo,Region_3,0.6165988239921579,Arizona,0,ml_logistic
+2018,R64,Miami (FL),Loyola (IL),6,11,Loyola (IL),Region_3,0.17208355630957725,Loyola (IL),1,ml_logistic
+2018,R64,Tennessee,Wright State,3,14,Tennessee,Region_3,0.9298074472897702,Tennessee,1,ml_logistic
+2018,R64,Nevada,Texas,7,10,Nevada,Region_3,0.6072209466434993,Nevada,1,ml_logistic
+2018,R64,Cincinnati,Georgia State,2,15,Cincinnati,Region_3,0.84793128667527,Cincinnati,1,ml_logistic
+2018,R32,Kentucky,Buffalo,5,13,Kentucky,Region_3,0.7868038420056122,Kentucky,1,ml_logistic
+2018,R32,Loyola (IL),Tennessee,11,3,Loyola (IL),Region_3,0.5099160518242359,Loyola (IL),1,ml_logistic
+2018,R32,Nevada,Cincinnati,7,2,Nevada,Region_3,0.482775593199888,Cincinnati,0,ml_logistic
+2018,S16,Kansas State,Kentucky,9,5,Kansas State,Region_3,0.41788235248919936,Kentucky,0,ml_logistic
+2018,S16,Loyola (IL),Nevada,11,7,Loyola (IL),Region_3,0.7061361121316146,Loyola (IL),1,ml_logistic
+2018,E8,Kansas State,Loyola (IL),9,11,Loyola (IL),Region_3,0.4479447767997592,Loyola (IL),1,ml_logistic
+2018,R64,Xavier,Texas Southern,1,16,Xavier,Region_4,0.9979952092796817,Xavier,1,ml_logistic
+2018,R64,Missouri,Florida State,8,9,Florida State,Region_4,0.3404031920027834,Florida State,1,ml_logistic
+2018,R64,Ohio State,South Dakota State,5,12,Ohio State,Region_4,0.7202853601435153,Ohio State,1,ml_logistic
+2018,R64,Gonzaga,UNC Greensboro,4,13,Gonzaga,Region_4,0.838029258056106,Gonzaga,1,ml_logistic
+2018,R64,Houston,San Diego State,6,11,Houston,Region_4,0.6103200101268764,Houston,1,ml_logistic
+2018,R64,Michigan,Montana,3,14,Michigan,Region_4,0.9089128455211943,Michigan,1,ml_logistic
+2018,R64,Texas A&M,Providence,7,10,Texas A&M,Region_4,0.5263001932372402,Texas A&M,1,ml_logistic
+2018,R64,UNC,Lipscomb,2,15,UNC,Region_4,0.903195829414338,UNC,1,ml_logistic
+2018,R32,Xavier,Florida State,1,9,Florida State,Region_4,0.6277858360470626,Xavier,0,ml_logistic
+2018,R32,Ohio State,Gonzaga,5,4,Gonzaga,Region_4,0.6272340586187592,Ohio State,0,ml_logistic
+2018,R32,Houston,Michigan,6,3,Michigan,Region_4,0.10677198522974808,Michigan,1,ml_logistic
+2018,R32,Texas A&M,UNC,7,2,Texas A&M,Region_4,0.3229404189987115,UNC,0,ml_logistic
+2018,S16,Florida State,Gonzaga,9,4,Florida State,Region_4,0.5351991439267233,Florida State,1,ml_logistic
+2018,S16,Michigan,Texas A&M,3,7,Michigan,Region_4,0.7513597985877561,Michigan,1,ml_logistic
+2018,E8,Florida State,Michigan,9,3,Michigan,Region_4,0.1822412507657676,Michigan,1,ml_logistic
+2018,F4,Villanova,Kansas,1,1,Villanova,Final Four,0.809151636171169,Villanova,1,ml_logistic
+2018,F4,Loyola (IL),Michigan,11,3,Michigan,Final Four,0.27790980338216753,Michigan,1,ml_logistic
+2018,Championship,Villanova,Michigan,1,3,Villanova,Final Four,0.853900014807225,Villanova,1,ml_logistic
+2019,R64,Duke,North Dakota State,1,16,Duke,Region_1,0.997728546320922,Duke,1,ml_logistic
+2019,R64,VCU,UCF,8,9,UCF,Region_1,0.34759097811100276,UCF,1,ml_logistic
+2019,R64,Mississippi State,Liberty,5,12,Liberty,Region_1,0.786203575374285,Mississippi State,0,ml_logistic
+2019,R64,Virginia Tech,Saint Louis,4,13,Virginia Tech,Region_1,0.832968125407189,Virginia Tech,1,ml_logistic
+2019,R64,Maryland,Belmont,6,11,Maryland,Region_1,0.8767285876831562,Maryland,1,ml_logistic
+2019,R64,LSU,Yale,3,14,LSU,Region_1,0.8745739832401248,LSU,1,ml_logistic
+2019,R64,Louisville,Minnesota,7,10,Minnesota,Region_1,0.3141035176533212,Minnesota,1,ml_logistic
+2019,R64,Michigan State,Bradley,2,15,Michigan State,Region_1,0.9972809244119356,Michigan State,1,ml_logistic
+2019,R32,Duke,UCF,1,9,Duke,Region_1,0.9550723183241314,Duke,1,ml_logistic
+2019,R32,Liberty,Virginia Tech,12,4,Virginia Tech,Region_1,0.1416565785954078,Virginia Tech,1,ml_logistic
+2019,R32,Maryland,LSU,6,3,LSU,Region_1,0.3366758612453557,LSU,1,ml_logistic
+2019,R32,Minnesota,Michigan State,10,2,Michigan State,Region_1,0.06257231342902225,Michigan State,1,ml_logistic
+2019,S16,Duke,Virginia Tech,1,4,Duke,Region_1,0.9578183719166922,Duke,1,ml_logistic
+2019,S16,LSU,Michigan State,3,2,Michigan State,Region_1,0.07304119241417047,Michigan State,1,ml_logistic
+2019,E8,Duke,Michigan State,1,2,Michigan State,Region_1,0.4973190921489537,Michigan State,1,ml_logistic
+2019,R64,UNC,Iona,1,16,UNC,Region_2,0.9985930880965839,UNC,1,ml_logistic
+2019,R64,Utah State,Washington,8,9,Washington,Region_2,0.16614301978309076,Washington,1,ml_logistic
+2019,R64,Auburn,New Mexico State,5,12,Auburn,Region_2,0.9287788002265225,Auburn,1,ml_logistic
+2019,R64,Kansas,Northeastern,4,13,Kansas,Region_2,0.9761901714832212,Kansas,1,ml_logistic
+2019,R64,Iowa State,Ohio State,6,11,Ohio State,Region_2,0.4132253701309151,Ohio State,1,ml_logistic
+2019,R64,Houston,Georgia State,3,14,Houston,Region_2,0.8118123548904592,Houston,1,ml_logistic
+2019,R64,Wofford,Seton Hall,7,10,Wofford,Region_2,0.6771502353531506,Wofford,1,ml_logistic
+2019,R64,Kentucky,Abilene Christian,2,15,Kentucky,Region_2,0.9736897279694657,Kentucky,1,ml_logistic
+2019,R32,UNC,Washington,1,9,UNC,Region_2,0.7325593739110134,UNC,1,ml_logistic
+2019,R32,Auburn,Kansas,5,4,Auburn,Region_2,0.568102162471264,Auburn,1,ml_logistic
+2019,R32,Ohio State,Houston,11,3,Houston,Region_2,0.3667429767282758,Houston,1,ml_logistic
+2019,R32,Wofford,Kentucky,7,2,Kentucky,Region_2,0.07926293470198491,Kentucky,1,ml_logistic
+2019,S16,UNC,Auburn,1,5,Auburn,Region_2,0.5053144241391133,UNC,0,ml_logistic
+2019,S16,Houston,Kentucky,3,2,Kentucky,Region_2,0.24196893886186033,Kentucky,1,ml_logistic
+2019,E8,Auburn,Kentucky,5,2,Auburn,Region_2,0.4568186281207487,Kentucky,0,ml_logistic
+2019,R64,Virginia,Gardner-Webb,1,16,Virginia,Region_3,0.9973272080427114,Virginia,1,ml_logistic
+2019,R64,Ole Miss,Oklahoma,8,9,Oklahoma,Region_3,0.19261484679990962,Oklahoma,1,ml_logistic
+2019,R64,Wisconsin,Oregon,5,12,Oregon,Region_3,0.652161358250331,Wisconsin,0,ml_logistic
+2019,R64,Kansas State,UC-Irvine,4,13,UC-Irvine,Region_3,0.6258170621201009,Kansas State,0,ml_logistic
+2019,R64,Purdue,Old Dominion,3,14,Purdue,Region_3,0.9014432598038769,Purdue,1,ml_logistic
+2019,R64,Cincinnati,Iowa,7,10,Iowa,Region_3,0.49099868493241494,Iowa,1,ml_logistic
+2019,R64,Tennessee,Colgate,2,15,Tennessee,Region_3,0.9870416176930524,Tennessee,1,ml_logistic
+2019,R32,Virginia,Oklahoma,1,9,Virginia,Region_3,0.9492086469657329,Virginia,1,ml_logistic
+2019,R32,Oregon,UC-Irvine,12,13,Oregon,Region_3,0.7721270792145988,Oregon,1,ml_logistic
+2019,R32,Villanova,Purdue,6,3,Purdue,Region_3,0.18238379141173158,Purdue,1,ml_logistic
+2019,R32,Iowa,Tennessee,10,2,Tennessee,Region_3,0.1891574880782672,Tennessee,1,ml_logistic
+2019,S16,Virginia,Oregon,1,12,Virginia,Region_3,0.9611918477343394,Virginia,1,ml_logistic
+2019,S16,Purdue,Tennessee,3,2,Purdue,Region_3,0.30820287122736106,Tennessee,0,ml_logistic
+2019,E8,Virginia,Purdue,1,3,Virginia,Region_3,0.8918499329836124,Virginia,1,ml_logistic
+2019,R64,Gonzaga,FDU,1,16,Gonzaga,Region_4,0.9950217108117261,Gonzaga,1,ml_logistic
+2019,R64,Syracuse,Baylor,8,9,Baylor,Region_4,0.5980619213989283,Syracuse,0,ml_logistic
+2019,R64,Marquette,Murray State,5,12,Murray State,Region_4,0.5397828879790829,Marquette,0,ml_logistic
+2019,R64,Florida State,Vermont,4,13,Florida State,Region_4,0.9612326581877325,Florida State,1,ml_logistic
+2019,R64,Buffalo,Arizona State,6,11,Buffalo,Region_4,0.7169101971964431,Buffalo,1,ml_logistic
+2019,R64,Texas Tech,Northern Kentucky,3,14,Texas Tech,Region_4,0.9692595139289176,Texas Tech,1,ml_logistic
+2019,R64,Nevada,Florida,7,10,Florida,Region_4,0.633666314370081,Nevada,0,ml_logistic
+2019,R64,Michigan,Montana,2,15,Michigan,Region_4,0.9793541396769163,Michigan,1,ml_logistic
+2019,R32,Gonzaga,Baylor,1,9,Gonzaga,Region_4,0.8722746457486681,Gonzaga,1,ml_logistic
+2019,R32,Murray State,Florida State,12,4,Florida State,Region_4,0.0763376244101879,Florida State,1,ml_logistic
+2019,R32,Buffalo,Texas Tech,6,3,Texas Tech,Region_4,0.14844609688391816,Texas Tech,1,ml_logistic
+2019,R32,Florida,Michigan,10,2,Michigan,Region_4,0.09920668749632701,Michigan,1,ml_logistic
+2019,S16,Gonzaga,Florida State,1,4,Gonzaga,Region_4,0.4710910054626161,Florida State,0,ml_logistic
+2019,S16,Texas Tech,Michigan,3,2,Texas Tech,Region_4,0.49270192465503176,Michigan,0,ml_logistic
+2019,E8,Gonzaga,Texas Tech,1,3,Texas Tech,Region_4,0.32471589376383214,Texas Tech,1,ml_logistic
+2019,F4,Michigan State,Texas Tech,2,3,Texas Tech,Final Four,0.6972425752345935,Michigan State,0,ml_logistic
+2019,F4,Auburn,Virginia,5,1,Virginia,Final Four,0.09857304099345249,Virginia,1,ml_logistic
+2019,Championship,Texas Tech,Virginia,3,1,Virginia,Final Four,0.11356477306264484,Virginia,1,ml_logistic
+2021,R64,Michigan,Texas Southern,1,16,Michigan,Region_1,0.9978807337488701,Michigan,1,ml_logistic
+2021,R64,LSU,St. Bonaventure,8,9,LSU,Region_1,0.4781612202856488,St. Bonaventure,0,ml_logistic
+2021,R64,Colorado,Georgetown,5,12,Colorado,Region_1,0.8227361119287264,Colorado,1,ml_logistic
+2021,R64,Florida State,UNC Greensboro,4,13,Florida State,Region_1,0.9151856809338756,Florida State,1,ml_logistic
+2021,R64,Texas,Abilene Christian,3,14,Abilene Christian,Region_1,0.7770395612055176,Texas,0,ml_logistic
+2021,R64,UConn,Maryland,7,10,Maryland,Region_1,0.4025702495592934,Maryland,1,ml_logistic
+2021,R64,Alabama,Iona,2,15,Alabama,Region_1,0.9906695346016011,Alabama,1,ml_logistic
+2021,R32,Michigan,LSU,1,8,Michigan,Region_1,0.8797302381730342,Michigan,1,ml_logistic
+2021,R32,Colorado,Florida State,5,4,Florida State,Region_1,0.6514334102960622,Colorado,0,ml_logistic
+2021,R32,UCLA,Abilene Christian,11,14,UCLA,Region_1,0.9934541520157163,UCLA,1,ml_logistic
+2021,R32,Maryland,Alabama,10,2,Alabama,Region_1,0.2467128718861329,Alabama,1,ml_logistic
+2021,S16,Michigan,Florida State,1,4,Michigan,Region_1,0.8856061434700898,Michigan,1,ml_logistic
+2021,S16,UCLA,Alabama,11,2,UCLA,Region_1,0.7414889430272944,UCLA,1,ml_logistic
+2021,E8,Michigan,UCLA,1,11,UCLA,Region_1,0.3531412500180071,UCLA,1,ml_logistic
+2021,R64,Illinois,Drexel,1,16,Illinois,Region_2,0.9922266182084378,Illinois,1,ml_logistic
+2021,R64,Loyola (IL),Georgia Tech,8,9,Loyola (IL),Region_2,0.5845645616539534,Loyola (IL),1,ml_logistic
+2021,R64,Tennessee,Oregon State,5,12,Oregon State,Region_2,0.14647661003760892,Oregon State,1,ml_logistic
+2021,R64,Oklahoma State,Liberty,4,13,Oklahoma State,Region_2,0.9139624176386826,Oklahoma State,1,ml_logistic
+2021,R64,San Diego State,Syracuse,6,11,Syracuse,Region_2,0.3125157925849612,Syracuse,1,ml_logistic
+2021,R64,West Virginia,Morehead State,3,14,West Virginia,Region_2,0.7339384499201356,West Virginia,1,ml_logistic
+2021,R64,Clemson,Rutgers,7,10,Rutgers,Region_2,0.41523412517671515,Rutgers,1,ml_logistic
+2021,R64,Houston,Cleveland State,2,15,Houston,Region_2,0.9573909422197476,Houston,1,ml_logistic
+2021,R32,Illinois,Loyola (IL),1,8,Loyola (IL),Region_2,0.8097672168718414,Illinois,0,ml_logistic
+2021,R32,Oregon State,Oklahoma State,12,4,Oregon State,Region_2,0.7726214206492301,Oregon State,1,ml_logistic
+2021,R32,Syracuse,West Virginia,11,3,Syracuse,Region_2,0.8133268291508712,Syracuse,1,ml_logistic
+2021,R32,Rutgers,Houston,10,2,Houston,Region_2,0.4053555806585152,Houston,1,ml_logistic
+2021,S16,Loyola (IL),Oregon State,8,12,Oregon State,Region_2,0.29359302229801626,Oregon State,1,ml_logistic
+2021,S16,Syracuse,Houston,11,2,Houston,Region_2,0.34427401732711177,Houston,1,ml_logistic
+2021,E8,Oregon State,Houston,12,2,Houston,Region_2,0.45477571217424434,Houston,1,ml_logistic
+2021,R64,Baylor,Hartford,1,16,Baylor,Region_3,0.9969191086998836,Baylor,1,ml_logistic
+2021,R64,UNC,Wisconsin,8,9,Wisconsin,Region_3,0.3592397231216512,Wisconsin,1,ml_logistic
+2021,R64,Villanova,Winthrop,5,12,Villanova,Region_3,0.8446051076106781,Villanova,1,ml_logistic
+2021,R64,Purdue,North Texas,4,13,North Texas,Region_3,0.8239420171763019,Purdue,0,ml_logistic
+2021,R64,Texas Tech,Utah State,6,11,Texas Tech,Region_3,0.525064559269529,Texas Tech,1,ml_logistic
+2021,R64,Arkansas,Colgate,3,14,Arkansas,Region_3,0.2768092363344975,Colgate,0,ml_logistic
+2021,R64,Florida,Virginia Tech,7,10,Florida,Region_3,0.33106921484941326,Virginia Tech,0,ml_logistic
+2021,R64,Ohio State,Oral Roberts,2,15,Oral Roberts,Region_3,0.8895800971217629,Ohio State,0,ml_logistic
+2021,R32,Baylor,Wisconsin,1,9,Baylor,Region_3,0.8802728013199189,Baylor,1,ml_logistic
+2021,R32,Villanova,North Texas,5,13,Villanova,Region_3,0.9133434630524334,Villanova,1,ml_logistic
+2021,R32,Texas Tech,Arkansas,6,3,Arkansas,Region_3,0.16211243305450904,Arkansas,1,ml_logistic
+2021,R32,Florida,Oral Roberts,7,15,Oral Roberts,Region_3,0.8525242829257433,Florida,0,ml_logistic
+2021,S16,Baylor,Villanova,1,5,Baylor,Region_3,0.9019377055833915,Baylor,1,ml_logistic
+2021,S16,Arkansas,Oral Roberts,3,15,Arkansas,Region_3,0.8714510512825618,Arkansas,1,ml_logistic
+2021,E8,Baylor,Arkansas,1,3,Baylor,Region_3,0.9387332983923508,Baylor,1,ml_logistic
+2021,R64,Gonzaga,Norfolk State,1,16,Gonzaga,Region_4,0.9982151283476076,Gonzaga,1,ml_logistic
+2021,R64,Oklahoma,Missouri,8,9,Oklahoma,Region_4,0.22908838124500758,Missouri,0,ml_logistic
+2021,R64,Virginia,Ohio,4,13,Ohio,Region_4,0.8281835086716135,Virginia,0,ml_logistic
+2021,R64,Kansas,Eastern Washington,3,14,Kansas,Region_4,0.9374805830642379,Kansas,1,ml_logistic
+2021,R64,Oregon,VCU,7,10,Oregon,Region_4,0.8391693608626898,Oregon,1,ml_logistic
+2021,R64,Iowa,Grand Canyon,2,15,Iowa,Region_4,0.9014597790823574,Iowa,1,ml_logistic
+2021,R32,Gonzaga,Oklahoma,1,8,Gonzaga,Region_4,0.9775472170586702,Gonzaga,1,ml_logistic
+2021,R32,Creighton,Ohio,5,13,Creighton,Region_4,0.8834173775569956,Creighton,1,ml_logistic
+2021,R32,Oregon,Iowa,7,2,Oregon,Region_4,0.7528819319279574,Oregon,1,ml_logistic
+2021,S16,Gonzaga,Creighton,1,5,Gonzaga,Region_4,0.9517035700548001,Gonzaga,1,ml_logistic
+2021,F4,UCLA,Gonzaga,11,1,Gonzaga,Final Four,0.25830858134245965,Gonzaga,1,ml_logistic
+2021,F4,Houston,Baylor,2,1,Baylor,Final Four,0.11726840266956365,Baylor,1,ml_logistic
+2021,Championship,Gonzaga,Baylor,1,1,Baylor,Final Four,0.507991231828005,Gonzaga,0,ml_logistic
+2022,R64,Baylor,Norfolk State,1,16,Baylor,Region_1,0.9106493908250666,Baylor,1,ml_logistic
+2022,R64,UNC,Marquette,8,9,UNC,Region_1,0.9101253265233246,UNC,1,ml_logistic
+2022,R64,UCLA,Akron,4,13,UCLA,Region_1,0.968944223954677,UCLA,1,ml_logistic
+2022,R64,Texas,Virginia Tech,6,11,Texas,Region_1,0.522570528923305,Texas,1,ml_logistic
+2022,R64,Purdue,Yale,3,14,Purdue,Region_1,0.9632538726358127,Purdue,1,ml_logistic
+2022,R64,Murray State,San Francisco,7,10,Murray State,Region_1,0.3556595873486405,San Francisco,0,ml_logistic
+2022,R32,Baylor,UNC,1,8,UNC,Region_1,0.347239448701466,UNC,1,ml_logistic
+2022,R32,Texas,Purdue,6,3,Purdue,Region_1,0.23573521379554474,Purdue,1,ml_logistic
+2022,S16,UNC,UCLA,8,4,UNC,Region_1,0.5388005415432093,UNC,1,ml_logistic
+2022,R64,Kansas,Texas Southern,1,16,Kansas,Region_2,0.9973668622969157,Kansas,1,ml_logistic
+2022,R64,San Diego State,Creighton,8,9,Creighton,Region_2,0.5078713392031705,San Diego State,0,ml_logistic
+2022,R64,Iowa,Richmond,5,12,Richmond,Region_2,0.650955738683923,Iowa,0,ml_logistic
+2022,R64,Providence,South Dakota State,4,13,Providence,Region_2,0.7635491356134378,Providence,1,ml_logistic
+2022,R64,LSU,Iowa State,6,11,Iowa State,Region_2,0.26287936202993173,Iowa State,1,ml_logistic
+2022,R64,Wisconsin,Colgate,3,14,Wisconsin,Region_2,0.9795913842839751,Wisconsin,1,ml_logistic
+2022,R64,Auburn,Jacksonville State,2,15,Auburn,Region_2,0.9624613652888452,Auburn,1,ml_logistic
+2022,R32,Kansas,Creighton,1,9,Kansas,Region_2,0.905565326993762,Kansas,1,ml_logistic
+2022,R32,Richmond,Providence,12,4,Providence,Region_2,0.18235491490872938,Providence,1,ml_logistic
+2022,R32,Iowa State,Wisconsin,11,3,Iowa State,Region_2,0.6078016652181585,Iowa State,1,ml_logistic
+2022,R32,Miami (FL),Auburn,10,2,Miami (FL),Region_2,0.3574586718079106,Auburn,0,ml_logistic
+2022,S16,Kansas,Providence,1,4,Kansas,Region_2,0.8588851848339045,Kansas,1,ml_logistic
+2022,S16,Iowa State,Miami (FL),11,10,Miami (FL),Region_2,0.6058461361671714,Iowa State,0,ml_logistic
+2022,E8,Kansas,Miami (FL),1,10,Kansas,Region_2,0.812993516133131,Kansas,1,ml_logistic
+2022,R64,Arizona,Wright State,1,16,Arizona,Region_3,0.9877718169455189,Arizona,1,ml_logistic
+2022,R64,Seton Hall,TCU,8,9,TCU,Region_3,0.4991440476007001,TCU,1,ml_logistic
+2022,R64,Houston,UAB,5,12,Houston,Region_3,0.9377442812483713,Houston,1,ml_logistic
+2022,R64,Illinois,Chattanooga,4,13,Illinois,Region_3,0.5626015802595101,Illinois,1,ml_logistic
+2022,R64,Colorado State,Michigan,6,11,Michigan,Region_3,0.5176809378261488,Colorado State,0,ml_logistic
+2022,R64,Tennessee,Longwood,3,14,Tennessee,Region_3,0.9509984861082744,Tennessee,1,ml_logistic
+2022,R64,Ohio State,Loyola (IL),7,10,Ohio State,Region_3,0.42008431980097477,Loyola (IL),0,ml_logistic
+2022,R64,Villanova,Delaware,2,15,Villanova,Region_3,0.9687775132351922,Villanova,1,ml_logistic
+2022,R32,Arizona,TCU,1,9,Arizona,Region_3,0.7690422174350918,Arizona,1,ml_logistic
+2022,R32,Houston,Illinois,5,4,Houston,Region_3,0.8992387066244723,Houston,1,ml_logistic
+2022,R32,Michigan,Tennessee,11,3,Michigan,Region_3,0.19206805857608242,Tennessee,0,ml_logistic
+2022,R32,Ohio State,Villanova,7,2,Villanova,Region_3,0.0954763228857257,Villanova,1,ml_logistic
+2022,S16,Arizona,Houston,1,5,Houston,Region_3,0.3459193864154173,Houston,1,ml_logistic
+2022,S16,Michigan,Villanova,11,2,Villanova,Region_3,0.17087856094256207,Villanova,1,ml_logistic
+2022,E8,Houston,Villanova,5,2,Villanova,Region_3,0.6201698994978244,Houston,0,ml_logistic
+2022,R64,Gonzaga,Georgia State,1,16,Gonzaga,Region_4,0.8995924978920234,Gonzaga,1,ml_logistic
+2022,R64,Boise State,Memphis,8,9,Memphis,Region_4,0.6581424900832269,Boise State,0,ml_logistic
+2022,R64,UConn,New Mexico State,5,12,New Mexico State,Region_4,0.257201772772042,New Mexico State,1,ml_logistic
+2022,R64,Arkansas,Vermont,4,13,Arkansas,Region_4,0.8622818278683265,Arkansas,1,ml_logistic
+2022,R64,Alabama,Notre Dame,6,11,Notre Dame,Region_4,0.2096856635434425,Notre Dame,1,ml_logistic
+2022,R64,Texas Tech,Montana State,3,14,Texas Tech,Region_4,0.8852170358932667,Texas Tech,1,ml_logistic
+2022,R64,Michigan State,Davidson,7,10,Michigan State,Region_4,0.5179288769249514,Michigan State,1,ml_logistic
+2022,R64,Duke,Cal State Fullerton,2,15,Duke,Region_4,0.9137477791795175,Duke,1,ml_logistic
+2022,R32,Gonzaga,Memphis,1,9,Gonzaga,Region_4,0.6855028217941488,Gonzaga,1,ml_logistic
+2022,R32,New Mexico State,Arkansas,12,4,Arkansas,Region_4,0.47599161154725506,Arkansas,1,ml_logistic
+2022,R32,Notre Dame,Texas Tech,11,3,Texas Tech,Region_4,0.5228856947908019,Notre Dame,0,ml_logistic
+2022,R32,Michigan State,Duke,7,2,Duke,Region_4,0.2655148531040345,Duke,1,ml_logistic
+2022,S16,Gonzaga,Arkansas,1,4,Arkansas,Region_4,0.6400532853380384,Gonzaga,0,ml_logistic
+2022,S16,Texas Tech,Duke,3,2,Duke,Region_4,0.39795445225568354,Duke,1,ml_logistic
+2022,E8,Arkansas,Duke,4,2,Duke,Region_4,0.38030334290315454,Duke,1,ml_logistic
+2022,F4,UNC,Duke,8,2,UNC,Final Four,0.5468514339142077,UNC,1,ml_logistic
+2022,F4,Kansas,Villanova,1,2,Kansas,Final Four,0.751225975647587,Kansas,1,ml_logistic
+2022,Championship,UNC,Kansas,8,1,Kansas,Final Four,0.11602196232720795,Kansas,1,ml_logistic
+2023,R64,Purdue,FDU,1,16,FDU,Region_1,0.9972103978826221,Purdue,0,ml_logistic
+2023,R64,Memphis,Florida Atlantic,8,9,Florida Atlantic,Region_1,0.2934165728100703,Florida Atlantic,1,ml_logistic
+2023,R64,Duke,Oral Roberts,5,12,Duke,Region_1,0.6358493832907853,Duke,1,ml_logistic
+2023,R64,Tennessee,Louisiana,4,13,Tennessee,Region_1,0.5983408751960942,Tennessee,1,ml_logistic
+2023,R64,Kentucky,Providence,6,11,Kentucky,Region_1,0.3415231303574058,Providence,0,ml_logistic
+2023,R64,Kansas State,Montana State,3,14,Kansas State,Region_1,0.7694917913794858,Kansas State,1,ml_logistic
+2023,R64,Marquette,Vermont,2,15,Marquette,Region_1,0.9201356489144553,Marquette,1,ml_logistic
+2023,R32,FDU,Florida Atlantic,16,9,Florida Atlantic,Region_1,0.001267818401976774,Florida Atlantic,1,ml_logistic
+2023,R32,Duke,Tennessee,5,4,Tennessee,Region_1,0.5518444135981948,Duke,0,ml_logistic
+2023,R32,Kentucky,Kansas State,6,3,Kansas State,Region_1,0.25979905989700475,Kansas State,1,ml_logistic
+2023,R32,Michigan State,Marquette,7,2,Michigan State,Region_1,0.38988914888360915,Marquette,0,ml_logistic
+2023,S16,Florida Atlantic,Tennessee,9,4,Florida Atlantic,Region_1,0.8366075322306209,Florida Atlantic,1,ml_logistic
+2023,S16,Kansas State,Michigan State,3,7,Kansas State,Region_1,0.3780489456188278,Michigan State,0,ml_logistic
+2023,E8,Florida Atlantic,Kansas State,9,3,Florida Atlantic,Region_1,0.8137282706882882,Florida Atlantic,1,ml_logistic
+2023,R64,Houston,Northern Kentucky,1,16,Houston,Region_2,0.9487990355376905,Houston,1,ml_logistic
+2023,R64,Iowa,Auburn,8,9,Auburn,Region_2,0.2356098044709348,Auburn,1,ml_logistic
+2023,R64,Miami (FL),Drake,5,12,Miami (FL),Region_2,0.7867873164571252,Miami (FL),1,ml_logistic
+2023,R64,Indiana,Kent State,4,13,Indiana,Region_2,0.2652779171569297,Kent State,0,ml_logistic
+2023,R64,Iowa State,Pitt,6,11,Pitt,Region_2,0.33060943907348395,Pitt,1,ml_logistic
+2023,R64,Xavier,Kennesaw State,3,14,Xavier,Region_2,0.6587198497594733,Xavier,1,ml_logistic
+2023,R64,Texas A&M,Penn State,7,10,Penn State,Region_2,0.526789208323007,Texas A&M,0,ml_logistic
+2023,R64,Texas,Colgate,2,15,Texas,Region_2,0.9706685168167164,Texas,1,ml_logistic
+2023,R32,Houston,Auburn,1,9,Houston,Region_2,0.6735562097058204,Houston,1,ml_logistic
+2023,R32,Miami (FL),Indiana,5,4,Miami (FL),Region_2,0.8002747289801765,Miami (FL),1,ml_logistic
+2023,R32,Pitt,Xavier,11,3,Xavier,Region_2,0.43780322821673967,Xavier,1,ml_logistic
+2023,R32,Penn State,Texas,10,2,Texas,Region_2,0.22827520551981248,Texas,1,ml_logistic
+2023,S16,Houston,Miami (FL),1,5,Miami (FL),Region_2,0.6023469109179564,Houston,0,ml_logistic
+2023,S16,Xavier,Texas,3,2,Texas,Region_2,0.16796166547162056,Texas,1,ml_logistic
+2023,E8,Miami (FL),Texas,5,2,Miami (FL),Region_2,0.24339666556952616,Texas,0,ml_logistic
+2023,R64,Alabama,Texas A&M-Corpus Christi,1,16,Alabama,Region_3,0.9915771750672042,Alabama,1,ml_logistic
+2023,R64,Maryland,West Virginia,8,9,Maryland,Region_3,0.4968580419852548,West Virginia,0,ml_logistic
+2023,R64,San Diego State,College of Charleston,5,12,San Diego State,Region_3,0.9089220651496657,San Diego State,1,ml_logistic
+2023,R64,Virginia,Furman,4,13,Furman,Region_3,0.6777098439547858,Virginia,0,ml_logistic
+2023,R64,Creighton,NC State,6,11,Creighton,Region_3,0.5130472310061571,Creighton,1,ml_logistic
+2023,R64,Missouri,Utah State,7,10,Missouri,Region_3,0.1977540345093238,Utah State,0,ml_logistic
+2023,R64,Arizona,Princeton,2,15,Princeton,Region_3,0.7748651839043821,Arizona,0,ml_logistic
+2023,R32,Alabama,Maryland,1,8,Alabama,Region_3,0.9123724357506365,Alabama,1,ml_logistic
+2023,R32,San Diego State,Furman,5,13,San Diego State,Region_3,0.9662050077902293,San Diego State,1,ml_logistic
+2023,R32,Creighton,Baylor,6,3,Creighton,Region_3,0.5300585039508054,Creighton,1,ml_logistic
+2023,R32,Missouri,Princeton,7,15,Princeton,Region_3,0.701826045000101,Missouri,0,ml_logistic
+2023,S16,Alabama,San Diego State,1,5,San Diego State,Region_3,0.4703144285520091,San Diego State,1,ml_logistic
+2023,S16,Creighton,Princeton,6,15,Creighton,Region_3,0.7064458565676198,Creighton,1,ml_logistic
+2023,E8,San Diego State,Creighton,5,6,San Diego State,Region_3,0.8539826511235437,San Diego State,1,ml_logistic
+2023,R64,Kansas,Howard,1,16,Kansas,Region_4,0.9831929922654434,Kansas,1,ml_logistic
+2023,R64,Arkansas,Illinois,8,9,Arkansas,Region_4,0.708412576234553,Arkansas,1,ml_logistic
+2023,R64,UConn,Iona,4,13,UConn,Region_4,0.960043041932607,UConn,1,ml_logistic
+2023,R64,TCU,Arizona State,6,11,TCU,Region_4,0.2107310671420456,Arizona State,0,ml_logistic
+2023,R64,Gonzaga,Grand Canyon,3,14,Gonzaga,Region_4,0.914379779016445,Gonzaga,1,ml_logistic
+2023,R64,Northwestern,Boise State,7,10,Northwestern,Region_4,0.33468858814140656,Boise State,0,ml_logistic
+2023,R64,UCLA,UNC Asheville,2,15,UCLA,Region_4,0.9379221006254376,UCLA,1,ml_logistic
+2023,R32,Kansas,Arkansas,1,8,Arkansas,Region_4,0.804223797676569,Kansas,0,ml_logistic
+2023,R32,TCU,Gonzaga,6,3,Gonzaga,Region_4,0.07142005041249568,Gonzaga,1,ml_logistic
+2023,R32,Northwestern,UCLA,7,2,UCLA,Region_4,0.0765244625968648,UCLA,1,ml_logistic
+2023,S16,Arkansas,UConn,8,4,UConn,Region_4,0.09130926508747479,UConn,1,ml_logistic
+2023,S16,Gonzaga,UCLA,3,2,Gonzaga,Region_4,0.32862962460185785,UCLA,0,ml_logistic
+2023,E8,UConn,Gonzaga,4,3,UConn,Region_4,0.5468162286285274,UConn,1,ml_logistic
+2023,F4,Florida Atlantic,San Diego State,9,5,San Diego State,Final Four,0.3591635204696779,San Diego State,1,ml_logistic
+2023,F4,Miami (FL),UConn,5,4,UConn,Final Four,0.12880087117558464,UConn,1,ml_logistic
+2023,Championship,San Diego State,UConn,5,4,UConn,Final Four,0.41334570770121876,UConn,1,ml_logistic
+2024,R64,UConn,Stetson,1,16,UConn,Region_1,0.9955184558661391,UConn,1,ml_logistic
+2024,R64,Florida Atlantic,Northwestern,8,9,Northwestern,Region_1,0.43414192342266866,Northwestern,1,ml_logistic
+2024,R64,San Diego State,UAB,5,12,San Diego State,Region_1,0.6971533618073056,San Diego State,1,ml_logistic
+2024,R64,Auburn,Yale,4,13,Yale,Region_1,0.9035843117569486,Auburn,0,ml_logistic
+2024,R64,Illinois,Morehead State,3,14,Illinois,Region_1,0.9591182456047509,Illinois,1,ml_logistic
+2024,R64,Washington State,Drake,7,10,Washington State,Region_1,0.5632546343672505,Washington State,1,ml_logistic
+2024,R64,Iowa State,South Dakota State,2,15,Iowa State,Region_1,0.9768159351394899,Iowa State,1,ml_logistic
+2024,R32,UConn,Northwestern,1,9,UConn,Region_1,0.9629245297053844,UConn,1,ml_logistic
+2024,R32,San Diego State,Yale,5,13,San Diego State,Region_1,0.725975365467349,San Diego State,1,ml_logistic
+2024,R32,Duquesne,Illinois,11,3,Illinois,Region_1,0.20370976508040206,Illinois,1,ml_logistic
+2024,R32,Washington State,Iowa State,7,2,Iowa State,Region_1,0.2500046684070807,Iowa State,1,ml_logistic
+2024,S16,UConn,San Diego State,1,5,UConn,Region_1,0.9745469341281192,UConn,1,ml_logistic
+2024,S16,Illinois,Iowa State,3,2,Illinois,Region_1,0.41007925070976853,Iowa State,0,ml_logistic
+2024,E8,UConn,Illinois,1,3,UConn,Region_1,0.9230098205761272,UConn,1,ml_logistic
+2024,R64,Purdue,Grambling,1,16,Purdue,Region_2,0.9978725901312285,Purdue,1,ml_logistic
+2024,R64,Utah State,TCU,8,9,Utah State,Region_2,0.8826682671932132,Utah State,1,ml_logistic
+2024,R64,Gonzaga,McNeese State,5,12,Gonzaga,Region_2,0.6745969179780936,Gonzaga,1,ml_logistic
+2024,R64,Kansas,Samford,4,13,Kansas,Region_2,0.6981255630347243,Kansas,1,ml_logistic
+2024,R64,South Carolina,Oregon,6,11,Oregon,Region_2,0.31986502407734896,Oregon,1,ml_logistic
+2024,R64,Creighton,Akron,3,14,Creighton,Region_2,0.89745810318843,Creighton,1,ml_logistic
+2024,R64,Texas,Colorado State,7,10,Texas,Region_2,0.2665191044091213,Colorado State,0,ml_logistic
+2024,R32,Purdue,Utah State,1,8,Purdue,Region_2,0.9215510537181488,Purdue,1,ml_logistic
+2024,R32,Gonzaga,Kansas,5,4,Gonzaga,Region_2,0.2737696385880448,Kansas,0,ml_logistic
+2024,R32,Oregon,Creighton,11,3,Creighton,Region_2,0.6925015931742692,Oregon,0,ml_logistic
+2024,R32,Texas,Tennessee,7,2,Tennessee,Region_2,0.1431772359911541,Tennessee,1,ml_logistic
+2024,S16,Purdue,Gonzaga,1,5,Purdue,Region_2,0.9831372829455544,Purdue,1,ml_logistic
+2024,S16,Creighton,Tennessee,3,2,Tennessee,Region_2,0.25369772525208323,Tennessee,1,ml_logistic
+2024,E8,Purdue,Tennessee,1,2,Purdue,Region_2,0.9033136102594664,Purdue,1,ml_logistic
+2024,R64,Houston,Longwood,1,16,Houston,Region_3,0.9977088876406478,Houston,1,ml_logistic
+2024,R64,Nebraska,Texas A&M,8,9,Texas A&M,Region_3,0.6811615172361032,Nebraska,0,ml_logistic
+2024,R64,Wisconsin,James Madison,5,12,James Madison,Region_3,0.4410942548747345,James Madison,1,ml_logistic
+2024,R64,Duke,Vermont,4,13,Duke,Region_3,0.8604122320598359,Duke,1,ml_logistic
+2024,R64,Texas Tech,NC State,6,11,NC State,Region_3,0.3714751245590391,NC State,1,ml_logistic
+2024,R64,Kentucky,Oakland,3,14,Oakland,Region_3,0.6505654647726167,Kentucky,0,ml_logistic
+2024,R64,Florida,Colorado,7,10,Colorado,Region_3,0.2198796843705181,Colorado,1,ml_logistic
+2024,R64,Marquette,Western Kentucky,2,15,Marquette,Region_3,0.9634362438255368,Marquette,1,ml_logistic
+2024,R32,Houston,Texas A&M,1,9,Houston,Region_3,0.9682608483809158,Houston,1,ml_logistic
+2024,R32,James Madison,Duke,12,4,Duke,Region_3,0.27596614930788244,Duke,1,ml_logistic
+2024,R32,NC State,Oakland,11,14,NC State,Region_3,0.97316611539541,NC State,1,ml_logistic
+2024,R32,Colorado,Marquette,10,2,Marquette,Region_3,0.5857795431767246,Colorado,0,ml_logistic
+2024,S16,Houston,Duke,1,4,Duke,Region_3,0.8900477088763837,Houston,0,ml_logistic
+2024,S16,NC State,Marquette,11,2,NC State,Region_3,0.4150437608568051,Marquette,0,ml_logistic
+2024,E8,Duke,NC State,4,11,NC State,Region_3,0.44743309454705527,NC State,1,ml_logistic
+2024,R64,UNC,Wagner,1,16,UNC,Region_4,0.9966699021291718,UNC,1,ml_logistic
+2024,R64,Mississippi State,Michigan State,8,9,Michigan State,Region_4,0.37656912934006254,Michigan State,1,ml_logistic
+2024,R64,Alabama,College of Charleston,4,13,Alabama,Region_4,0.8865099546684677,Alabama,1,ml_logistic
+2024,R64,Clemson,New Mexico,6,11,Clemson,Region_4,0.4298305207965151,New Mexico,0,ml_logistic
+2024,R64,Baylor,Colgate,3,14,Baylor,Region_4,0.9465899173900465,Baylor,1,ml_logistic
+2024,R64,Dayton,Nevada,7,10,Dayton,Region_4,0.40722121167782027,Nevada,0,ml_logistic
+2024,R64,Arizona,Long Beach State,2,15,Arizona,Region_4,0.9765098360500545,Arizona,1,ml_logistic
+2024,R32,UNC,Michigan State,1,9,UNC,Region_4,0.6424003841926698,UNC,1,ml_logistic
+2024,R32,Grand Canyon,Alabama,12,4,Alabama,Region_4,0.47742794760328605,Alabama,1,ml_logistic
+2024,R32,Clemson,Baylor,6,3,Clemson,Region_4,0.4571377571312518,Baylor,0,ml_logistic
+2024,R32,Dayton,Arizona,7,2,Arizona,Region_4,0.24571939982966196,Arizona,1,ml_logistic
+2024,S16,UNC,Alabama,1,4,Alabama,Region_4,0.5085648797696425,UNC,0,ml_logistic
+2024,S16,Clemson,Arizona,6,2,Clemson,Region_4,0.22890164372097418,Arizona,0,ml_logistic
+2024,E8,Alabama,Clemson,4,6,Alabama,Region_4,0.5729890639256434,Alabama,1,ml_logistic
+2024,F4,UConn,Alabama,1,4,UConn,Final Four,0.922104776164041,UConn,1,ml_logistic
+2024,F4,Purdue,NC State,1,11,Purdue,Final Four,0.9069210890638619,Purdue,1,ml_logistic
+2024,Championship,UConn,Purdue,1,1,UConn,Final Four,0.3906614852722339,Purdue,0,ml_logistic
