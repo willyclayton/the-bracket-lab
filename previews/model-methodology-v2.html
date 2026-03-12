@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option 2 — Two-Column Overview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .mono { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; }
+  .container { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+  .label { position: fixed; top: 0; left: 0; right: 0; background: #1e1e1e; border-bottom: 1px solid #333; padding: 10px 24px; z-index: 10; }
+  .label span { font-family: 'SF Mono', monospace; font-size: 11px; color: #888; letter-spacing: 1px; text-transform: uppercase; }
+  .label strong { color: #22c55e; }
+
+  /* Two-column layout */
+  .two-col { display: grid; grid-template-columns: 1fr 340px; gap: 32px; margin-bottom: 36px; }
+
+  /* Left column */
+  .philosophy { font-size: 16px; line-height: 1.75; color: #ccc; margin-bottom: 28px; }
+  .steps-header { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #888; margin-bottom: 16px; }
+  .step { display: flex; gap: 14px; margin-bottom: 14px; }
+  .step-num { font-family: 'SF Mono', monospace; font-size: 13px; color: #22c55e; flex-shrink: 0; margin-top: 1px; }
+  .step-title { font-size: 14px; font-weight: 600; color: #efefef; }
+  .step-desc { font-size: 13px; color: #888; margin-top: 2px; line-height: 1.5; }
+
+  /* Right column */
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+  /* Champion callout */
+  .champion { border-left: 3px solid #22c55e; background: rgba(34,197,94,0.05); border-radius: 4px; padding: 14px; }
+  .champion .ch-label { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #22c55e; margin-bottom: 6px; }
+  .champion .ch-value { font-size: 16px; font-weight: 600; color: #f9fafb; }
+  .champion .ch-sub { font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* Factor bars */
+  .factors { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 6px; padding: 14px; }
+  .factors-label { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #666; margin-bottom: 12px; }
+  .bar-row { margin-bottom: 10px; }
+  .bar-row:last-child { margin-bottom: 0; }
+  .bar-meta { display: flex; justify-content: space-between; margin-bottom: 3px; }
+  .bar-name { font-size: 11px; color: #aaa; }
+  .bar-pct { font-family: 'SF Mono', monospace; font-size: 10px; color: #666; }
+  .bar-track { height: 5px; background: #222; border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; background: #22c55e; }
+
+  /* Inputs mini-list */
+  .inputs { background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 6px; padding: 14px; }
+  .inputs-label { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #666; margin-bottom: 10px; }
+  .inputs ul { list-style: none; padding: 0; }
+  .inputs li { font-size: 12px; color: #999; line-height: 1.5; padding-left: 12px; position: relative; margin-bottom: 4px; }
+  .inputs li::before { content: '\2014'; position: absolute; left: 0; color: #444; }
+
+  /* Below fold */
+  .below { border-top: 1px solid #333; padding-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .below-group .bl-label { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #555; margin-bottom: 10px; }
+  .below-group ul { list-style: none; padding: 0; }
+  .below-group li { font-size: 13px; color: #888; line-height: 1.6; padding-left: 12px; position: relative; }
+  .below-group li::before { content: '\2014'; position: absolute; left: 0; color: #444; }
+
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .below { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="label"><span>Option 2 — <strong>Two-Column Overview</strong></span></div>
+<div class="container" style="margin-top: 40px;">
+
+  <div class="two-col">
+    <!-- Left column: Philosophy + Steps -->
+    <div>
+      <p class="philosophy">The Quant runs the tournament 10,000 times. The bracket is the most probable path through all those simulations. No narratives, no gut calls — just calibrated win probabilities derived from efficiency data, iterated at scale.</p>
+
+      <p class="steps-header">Process</p>
+      <div class="step">
+        <span class="step-num">01</span>
+        <div>
+          <p class="step-title">Pull KenPom data</p>
+          <p class="step-desc">AdjOE, AdjDE, and Tempo for all 68 tournament teams.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <div>
+          <p class="step-title">Compute win probabilities</p>
+          <p class="step-desc">Logistic regression (0.18 coefficient) on efficiency margin differential.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <div>
+          <p class="step-title">Run 10,000 simulations</p>
+          <p class="step-desc">Full 63-game bracket simulated independently.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <div>
+          <p class="step-title">Aggregate most-frequent outcomes</p>
+          <p class="step-desc">Team that advanced most often is selected per slot.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">05</span>
+        <div>
+          <p class="step-title">Lock March 19</p>
+          <p class="step-desc">ESPN bracket filled out as timestamp proof.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column: Champion + Factors + Inputs -->
+    <div class="sidebar">
+      <div class="champion">
+        <p class="ch-label">2026 Predicted Champion</p>
+        <p class="ch-value">TBD — Locks March 19</p>
+        <p class="ch-sub">All picks finalized after First Four play-in games.</p>
+      </div>
+
+      <div class="factors">
+        <p class="factors-label">Factor Weights</p>
+        <div class="bar-row">
+          <div class="bar-meta"><span class="bar-name">Adj. Defensive Eff.</span><span class="bar-pct">90%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-meta"><span class="bar-name">Adj. Offensive Eff.</span><span class="bar-pct">85%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-meta"><span class="bar-name">Efficiency Margin</span><span class="bar-pct">75%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+
+      <div class="inputs">
+        <p class="inputs-label">Key Inputs</p>
+        <ul>
+          <li>AdjOE (adjusted offensive efficiency)</li>
+          <li>AdjDE (adjusted defensive efficiency)</li>
+          <li>Tempo (possessions per 40 min)</li>
+          <li>Efficiency margin (primary signal)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Below fold -->
+  <div class="below">
+    <div class="below-group">
+      <p class="bl-label">Data Sources</p>
+      <ul>
+        <li>KenPom (AdjOE, AdjDE, Tempo)</li>
+        <li>15-year calibration dataset (2010-2025)</li>
+      </ul>
+    </div>
+    <div class="below-group">
+      <p class="bl-label">Limitations</p>
+      <ul>
+        <li>No style-of-play mismatch modeling</li>
+        <li>Completely blind to injuries</li>
+        <li>Conference tournament noise in late ratings</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

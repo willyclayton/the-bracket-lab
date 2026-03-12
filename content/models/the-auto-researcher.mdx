@@ -1,114 +1,102 @@
-<div className="mb-14">
-  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
-    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#f97316'}}>Overview</span>
-    <span className="text-[20px] font-semibold text-[#f9fafb]">Quick Mental Model</span>
+{/* ---- TL;DR ---- */}
+<div className="rounded-md p-5 mb-7" style={{border: '1px solid rgba(249,115,22,0.3)', borderLeft: '3px solid #f97316', backgroundColor: 'rgba(249,115,22,0.04)'}}>
+  <div className="flex gap-3 mb-2.5 items-baseline">
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#f97316'}}>What it does</span>
+    <span className="text-[15px] text-[#ccc] leading-[1.5]">Tests 21 bracket strategies against 14 years of data, trains an ML ensemble on 827 games, then uses Monte Carlo optimization to find the highest-EV bracket.</span>
   </div>
-
-  <div className="mb-7">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Core Philosophy</p>
-    <p className="text-[15px] text-[#ccc] leading-[1.75]">Turn the entire bracket-building process into an autonomous research loop. Instead of one methodology, test 21 different strategies against 14 years of real tournament data, identify what actually works, train an ML ensemble on 827 historical games, then use Monte Carlo optimization to construct the single bracket that maximizes expected ESPN points. No human intuition required — the system discovers the strategy itself.</p>
+  <div className="flex gap-3 mb-2.5 items-baseline">
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#f97316'}}>Why different</span>
+    <span className="text-[15px] text-[#ccc] leading-[1.5]">Fully autonomous research loop. The system discovers the strategy itself — no human intuition or methodology imposed.</span>
   </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Inputs</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— 882 tournament games across 14 seasons (2010-2024)</li>
-      <li>— Team-level SRS, SOS, and margin of victory from Sports Reference</li>
-      <li>— Seed matchup history and round-by-round upset rates</li>
-      <li>— 21 bracket strategy variants (seed-based, stat-based, hybrid, contrarian)</li>
-    </ul>
-  </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Strengths</p>
-    <p className="text-[15px] text-[#ccc] leading-[1.75]">Averages 1,065 ESPN points across backtested tournaments — 28% above a chalk baseline. Correctly identifies the champion 43% of the time vs. 25% for seed-based picking. The system explores the strategy space autonomously and picks the approach with the best expected value, not the one that feels right.</p>
-  </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
-    <div className="rounded-md p-4" style={{borderLeft: '3px solid #f97316', backgroundColor: 'rgba(249,115,22,0.05)'}}>
-      <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2" style={{color:'#f97316'}}>2026 Predicted Champion</p>
-      <p className="text-[16px] font-semibold text-[#f9fafb]">TBD — Locks March 19</p>
-      <p className="text-[13px] text-[#888] mt-1">All picks finalized after First Four play-in games.</p>
-    </div>
-  </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e]">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Backtest Results</p>
-    <div className="rounded p-4 bg-[#1a1a1a] border border-[#2a2a2a]">
-      <p className="text-[13px] text-[#777] leading-[1.65]">Tested against 14 years of real tournament outcomes. The optimized bracket averages 1,065 ESPN points — equivalent to roughly the 85th percentile of ESPN Tournament Challenge entries. Champion prediction accuracy of 43% (6 of 14 tournaments).</p>
-      <p className="text-[12px] font-mono mt-3" style={{color:'#f97316'}}>See: autoresearcher/</p>
-    </div>
+  <div className="flex gap-3 items-baseline">
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#f97316'}}>2024 result</span>
+    <span className="text-[15px] text-[#ccc] leading-[1.5]">1,065 avg ESPN points — 85th percentile. Champion accuracy: 43% (vs. 25% chalk).</span>
   </div>
 </div>
 
-<div>
-  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
-    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#f97316'}}>Methodology</span>
-    <span className="text-[20px] font-semibold text-[#f9fafb]">The Autonomous Research Loop</span>
+{/* ---- Champion ---- */}
+<div className="rounded-md p-4 mb-7" style={{borderLeft: '3px solid #f97316', backgroundColor: 'rgba(249,115,22,0.05)'}}>
+  <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2" style={{color:'#f97316'}}>2026 Predicted Champion</p>
+  <p className="text-[16px] font-semibold text-[#f9fafb]">TBD — Locks March 19</p>
+  <p className="text-[13px] text-[#888] mt-1">All picks finalized after First Four play-in games.</p>
+</div>
+
+{/* ---- Compact Steps ---- */}
+<div className="mb-2">
+  <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Process</p>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#f97316'}}>01</span><span className="text-[14px] font-medium text-[#ccc]">Data collection</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#f97316'}}>02</span><span className="text-[14px] font-medium text-[#ccc]">Feature engineering</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#f97316'}}>03</span><span className="text-[14px] font-medium text-[#ccc]">Model training</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#f97316'}}>04</span><span className="text-[14px] font-medium text-[#ccc]">Bracket optimization</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#f97316'}}>05</span><span className="text-[14px] font-medium text-[#ccc]">Strategy tournament</span></div>
+</div>
+
+{/* ---- Deep Dive Divider ---- */}
+<div className="flex items-center gap-3 my-9">
+  <div className="flex-1 h-px bg-[#333]" />
+  <span className="font-mono text-[10px] uppercase tracking-[2px] text-[#555] shrink-0">Deep Dive</span>
+  <div className="flex-1 h-px bg-[#333]" />
+</div>
+
+{/* ---- Full Methodology ---- */}
+<div className="rounded-lg p-6 bg-[#1a1a1a] border border-[#2a2a2a]">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Key Inputs</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">882 tournament games across 14 seasons</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Team-level SRS, SOS, margin of victory</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Seed matchup history and upset rates</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">21 bracket strategy variants</li>
+      </ul>
+    </div>
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Data Sources</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Sports Reference (SRS, SOS, W-L, MOV)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">NCAA tournament results 2010-2024</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">ESPN scoring system (point weights by round)</li>
+      </ul>
+    </div>
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Assumptions</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Historical outcomes predictive at population level</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">SRS and MOV capture strength better than seed</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">ESPN point optimization beats raw accuracy</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">14 years sufficient to train a stable model</li>
+      </ul>
+    </div>
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Limitations</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">No injuries, suspensions, or roster changes</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">SRS/SOS miss matchup-specific advantages</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Monte Carlo finds best expected, not best possible</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Backtesting can reward lucky strategies</li>
+      </ul>
+    </div>
   </div>
 
-  <div className="mb-10">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-5">Process</p>
-    <div className="space-y-5">
+  {/* Expanded steps */}
+  <div className="border-t border-[#2a2a2a] pt-5">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-4">Full Process Detail</p>
+    <div className="space-y-4">
       {[
         {n:'01', title:'Data collection', desc:'Scrape 14 years of NCAA tournament results and team statistics from Sports Reference. Build a structured dataset of 882 games with seeds, scores, SRS, SOS, and margin of victory for every team.'},
         {n:'02', title:'Feature engineering', desc:'Generate game-level features from team stats: seed differential, SRS gap, SOS difference, margin-of-victory delta. Each feature captures a different dimension of team strength that seeding alone might miss.'},
         {n:'03', title:'Model training', desc:'Train a gradient-boosted ensemble (XGBoost) on the feature set. Cross-validate across tournament years to avoid overfitting. Output: calibrated win probabilities for any possible matchup.'},
-        {n:'04', title:'Bracket optimization', desc:'Run Monte Carlo simulations using the trained win probabilities. For each simulation, propagate winners through the bracket and score using ESPN points (10/20/40/80/160/320). Select the bracket that maximizes expected total points — not just correct picks, but weighted correct picks.'},
+        {n:'04', title:'Bracket optimization', desc:'Run Monte Carlo simulations using the trained win probabilities. For each simulation, propagate winners through the bracket and score using ESPN points (10/20/40/80/160/320). Select the bracket that maximizes expected total points.'},
         {n:'05', title:'Strategy tournament', desc:'Repeat the entire pipeline with 21 different strategy variants (pure chalk, upset-heavy, stat-weighted, hybrid). Backtest each against all 14 years. The winning strategy is the one with the highest average ESPN score across all backtested tournaments.'},
       ].map(s => (
-        <div key={s.n} className="flex gap-4">
+        <div key={s.n} className="flex gap-3.5">
           <span className="font-mono text-[13px] shrink-0 mt-0.5" style={{color:'#f97316'}}>{s.n}</span>
           <div>
-            <p className="text-[14px] font-semibold text-[#efefef] mb-1">{s.title}</p>
-            <p className="text-[14px] text-[#888] leading-[1.65]">{s.desc}</p>
+            <p className="text-[14px] font-semibold text-[#ddd] mb-1">{s.title}</p>
+            <p className="text-[13px] text-[#777] leading-[1.55]">{s.desc}</p>
           </div>
         </div>
       ))}
-    </div>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Data Sources</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— Sports Reference: team season stats (SRS, SOS, W-L, margin of victory)</li>
-      <li>— NCAA tournament results 2010-2024 (seeds, scores, round reached)</li>
-      <li>— ESPN Tournament Challenge scoring system (bracket point weights by round)</li>
-    </ul>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Assumptions</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— Historical game outcomes are predictive of future tournament behavior at the population level</li>
-      <li>— SRS and margin of victory capture team strength better than seed alone</li>
-      <li>— Optimizing for ESPN points (not raw accuracy) produces better bracket pool results</li>
-      <li>— 14 years of data is sufficient to train a stable model without overfitting</li>
-    </ul>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Limitations</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— Does not account for injuries, suspensions, or other late-breaking roster changes</li>
-      <li>— SRS/SOS are aggregate metrics that may miss matchup-specific advantages (e.g., size vs. speed)</li>
-      <li>— Monte Carlo optimization finds the best expected bracket, not the best possible bracket — variance is real</li>
-      <li>— The strategy tournament uses backtesting, which can reward strategies that got lucky in specific years</li>
-    </ul>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e]">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Deliverable</p>
-    <div className="rounded-md p-5 bg-[#1a1a1a] border border-[#2a2a2a]">
-      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-3">Backtest Leaderboard</p>
-      <p className="text-[14px] text-[#aaa] mb-2">Performance across 14 backtested tournament years:</p>
-      <ul className="text-[14px] text-[#888] leading-[1.65] space-y-1">
-        <li>— Avg ESPN Points: <span style={{color:'#f97316'}}>1,065</span> (vs. 832 chalk baseline)</li>
-        <li>— Above Baseline: <span style={{color:'#f97316'}}>+28%</span></li>
-        <li>— Champion Accuracy: <span style={{color:'#f97316'}}>43%</span> (vs. 25% chalk)</li>
-        <li>— Strategies Tested: <span style={{color:'#f97316'}}>21</span></li>
-      </ul>
-      <p className="text-[12px] font-mono mt-3" style={{color:'#f97316'}}>Full research log: autoresearcher/</p>
     </div>
   </div>
 </div>

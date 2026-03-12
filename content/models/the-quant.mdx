@@ -1,69 +1,84 @@
-<div className="mb-14">
-  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
-    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#22c55e'}}>Overview</span>
-    <span className="text-[20px] font-semibold text-[#f9fafb]">Quick Mental Model</span>
+{/* ---- TL;DR ---- */}
+<div className="rounded-md p-5 mb-7" style={{border: '1px solid rgba(34,197,94,0.3)', borderLeft: '3px solid #22c55e', backgroundColor: 'rgba(34,197,94,0.04)'}}>
+  <div className="flex gap-3 mb-2.5 items-baseline">
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#22c55e'}}>What it does</span>
+    <span className="text-[15px] text-[#ccc] leading-[1.5]">Simulates the tournament 10,000 times using KenPom efficiency data and picks the most probable path.</span>
   </div>
-
-  <div className="mb-7">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Core Philosophy</p>
-    <p className="text-[15px] text-[#ccc] leading-[1.75]">The Quant runs the tournament 10,000 times. The bracket is the most probable path through all those simulations. No narratives, no gut calls — just calibrated win probabilities derived from efficiency data, iterated at scale.</p>
+  <div className="flex gap-3 mb-2.5 items-baseline">
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#22c55e'}}>Why different</span>
+    <span className="text-[15px] text-[#ccc] leading-[1.5]">Zero subjectivity. A logistic regression formula with a 0.18 coefficient calibrated across 15 years of outcomes.</span>
   </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Inputs</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— AdjOE (adjusted offensive efficiency, KenPom)</li>
-      <li>— AdjDE (adjusted defensive efficiency, KenPom)</li>
-      <li>— Tempo (possessions per 40 minutes, KenPom)</li>
-      <li>— Efficiency margin (AdjOE minus AdjDE, primary signal)</li>
-    </ul>
-  </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Strengths</p>
-    <p className="text-[15px] text-[#ccc] leading-[1.75]">Zero subjectivity. The 0.18 logit coefficient was calibrated against 15 years of tournament outcomes — 2010 through 2025. The model surfaces hidden misseeds: teams the committee placed too high or low relative to their actual efficiency data.</p>
-  </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
-    <div className="rounded-md p-4" style={{borderLeft: '3px solid #22c55e', backgroundColor: 'rgba(34,197,94,0.05)'}}>
-      <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2" style={{color:'#22c55e'}}>2026 Predicted Champion</p>
-      <p className="text-[16px] font-semibold text-[#f9fafb]">TBD — Locks March 19</p>
-      <p className="text-[13px] text-[#888] mt-1">All picks finalized after First Four play-in games.</p>
-    </div>
-  </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e]">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Factor Weights</p>
-    <div className="space-y-3">
-      {[
-        {label: 'Adjusted Defensive Efficiency', pct: 90},
-        {label: 'Adjusted Offensive Efficiency', pct: 85},
-        {label: 'Efficiency Margin', pct: 75},
-        {label: 'Tempo', pct: 50},
-      ].map(f => (
-        <div key={f.label}>
-          <div className="flex justify-between mb-1">
-            <span className="text-[12px] text-[#aaa]">{f.label}</span>
-            <span className="font-mono text-[11px] text-[#666]">{f.pct}%</span>
-          </div>
-          <div className="h-1.5 bg-[#222] rounded-full overflow-hidden">
-            <div className="h-full rounded-full" style={{width: `${f.pct}%`, backgroundColor: '#22c55e'}} />
-          </div>
-        </div>
-      ))}
-    </div>
+  <div className="flex gap-3 items-baseline">
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#22c55e'}}>2024 result</span>
+    <span className="text-[15px] text-[#ccc] leading-[1.5]">1,230 points — 93rd percentile on ESPN Tournament Challenge.</span>
   </div>
 </div>
 
-<div>
-  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
-    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#22c55e'}}>Methodology</span>
-    <span className="text-[20px] font-semibold text-[#f9fafb]">The Actual Build</span>
+{/* ---- Champion ---- */}
+<div className="rounded-md p-4 mb-7" style={{borderLeft: '3px solid #22c55e', backgroundColor: 'rgba(34,197,94,0.05)'}}>
+  <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2" style={{color:'#22c55e'}}>2026 Predicted Champion</p>
+  <p className="text-[16px] font-semibold text-[#f9fafb]">TBD — Locks March 19</p>
+  <p className="text-[13px] text-[#888] mt-1">All picks finalized after First Four play-in games.</p>
+</div>
+
+{/* ---- Compact Steps ---- */}
+<div className="mb-2">
+  <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Process</p>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#22c55e'}}>01</span><span className="text-[14px] font-medium text-[#ccc]">Pull KenPom data</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#22c55e'}}>02</span><span className="text-[14px] font-medium text-[#ccc]">Compute win probabilities</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#22c55e'}}>03</span><span className="text-[14px] font-medium text-[#ccc]">Run 10,000 simulations</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#22c55e'}}>04</span><span className="text-[14px] font-medium text-[#ccc]">Aggregate most-frequent outcomes</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#22c55e'}}>05</span><span className="text-[14px] font-medium text-[#ccc]">Lock March 19</span></div>
+</div>
+
+{/* ---- Deep Dive Divider ---- */}
+<div className="flex items-center gap-3 my-9">
+  <div className="flex-1 h-px bg-[#333]" />
+  <span className="font-mono text-[10px] uppercase tracking-[2px] text-[#555] shrink-0">Deep Dive</span>
+  <div className="flex-1 h-px bg-[#333]" />
+</div>
+
+{/* ---- Full Methodology ---- */}
+<div className="rounded-lg p-6 bg-[#1a1a1a] border border-[#2a2a2a]">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Key Inputs</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">AdjOE (adjusted offensive efficiency)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">AdjDE (adjusted defensive efficiency)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Tempo (possessions per 40 min)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Efficiency margin (AdjOE - AdjDE)</li>
+      </ul>
+    </div>
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Data Sources</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">KenPom (AdjOE, AdjDE, Tempo)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">15-year calibration dataset (2010-2025)</li>
+      </ul>
+    </div>
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Assumptions</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Efficiency margin is the best predictor</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">0.18 logit coeff. stable across eras</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Season averages represent tournament quality</li>
+      </ul>
+    </div>
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Limitations</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">No style-of-play mismatch modeling</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Completely blind to injuries</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Conference tournament noise in ratings</li>
+      </ul>
+    </div>
   </div>
 
-  <div className="mb-10">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-5">Process</p>
-    <div className="space-y-5">
+  {/* Expanded steps */}
+  <div className="border-t border-[#2a2a2a] pt-5">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-4">Full Process Detail</p>
+    <div className="space-y-4">
       {[
         {n:'01', title:'Pull KenPom data', desc:'AdjOE, AdjDE, and Tempo pulled for all 68 tournament teams. Pre-play-in values used for simulation; updated post-play-in for final bracket.'},
         {n:'02', title:'Compute win probabilities', desc:'For each possible matchup, a logistic regression formula with a 0.18 coefficient converts the efficiency margin differential into a win probability.'},
@@ -71,50 +86,14 @@
         {n:'04', title:'Aggregate most-frequent outcomes', desc:'For each game slot, the team that advanced most often across simulations is selected. The champion is the team that won the most simulated tournaments.'},
         {n:'05', title:'Lock March 19', desc:'All 63 picks finalized after the First Four. ESPN Tournament Challenge bracket filled out as timestamp proof.'},
       ].map(s => (
-        <div key={s.n} className="flex gap-4">
+        <div key={s.n} className="flex gap-3.5">
           <span className="font-mono text-[13px] shrink-0 mt-0.5" style={{color:'#22c55e'}}>{s.n}</span>
           <div>
-            <p className="text-[14px] font-semibold text-[#efefef] mb-1">{s.title}</p>
-            <p className="text-[14px] text-[#888] leading-[1.65]">{s.desc}</p>
+            <p className="text-[14px] font-semibold text-[#ddd] mb-1">{s.title}</p>
+            <p className="text-[13px] text-[#777] leading-[1.55]">{s.desc}</p>
           </div>
         </div>
       ))}
-    </div>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Data Sources</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— KenPom (AdjOE, AdjDE, Tempo — all pre-tournament season averages)</li>
-      <li>— 15-year calibration dataset (2010–2025 tournament outcomes for coefficient tuning)</li>
-    </ul>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Assumptions</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— Efficiency margin is the single best predictor of tournament outcomes across eras</li>
-      <li>— The 0.18 logit coefficient is stable enough across the 2010–2025 sample to apply to 2026</li>
-      <li>— Season-long efficiency averages adequately represent team quality at tournament time</li>
-    </ul>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Limitations</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— No style-of-play mismatch modeling. A slow team vs. a fast team plays out as pure efficiency math.</li>
-      <li>— Completely blind to injuries. A star player's absence is not in the KenPom number.</li>
-      <li>— Conference tournament results create small-sample noise in late-season efficiency ratings.</li>
-    </ul>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e]">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Example</p>
-    <div className="rounded-md p-5 bg-[#1a1a1a] border border-[#2a2a2a]">
-      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-3">East Region — Round of 64</p>
-      <p className="text-[14px] text-[#aaa] mb-2">#8 seed (top-30 AdjDE) vs #9 seed (lower efficiency margin)</p>
-      <p className="text-[16px] font-semibold mb-3" style={{color:'#22c55e'}}>Pick: #8 seed — 58% win probability</p>
-      <p className="text-[13px] text-[#777] leading-[1.65]">The 8-9 game is the closest matchup on the board by seed. But the Quant sees a genuine efficiency gap — the 8 seed's defensive rating outperforms what a typical 8 seed looks like. Despite the near-even seeding, 10,000 simulations push the 8 to 58% across the field.</p>
     </div>
   </div>
 </div>

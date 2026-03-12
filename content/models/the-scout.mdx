@@ -1,73 +1,88 @@
-<div className="mb-14">
-  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
-    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#3b82f6'}}>Overview</span>
-    <span className="text-[20px] font-semibold text-[#f9fafb]">Quick Mental Model</span>
+{/* ---- TL;DR ---- */}
+<div className="rounded-md p-5 mb-7" style={{border: '1px solid rgba(59,130,246,0.3)', borderLeft: '3px solid #3b82f6', backgroundColor: 'rgba(59,130,246,0.04)'}}>
+  <div className="flex gap-3 mb-2.5 items-baseline">
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#3b82f6'}}>What it does</span>
+    <span className="text-[15px] text-[#ccc] leading-[1.5]">Injects verified matchup data into an LLM and asks it to evaluate each game like a head scout — coaching, injuries, clutch stats, momentum, travel.</span>
   </div>
-
-  <div className="mb-7">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Core Philosophy</p>
-    <p className="text-[15px] text-[#ccc] leading-[1.75]">The Scout treats every matchup the way a real analyst would. Structured data in, contextual judgment out. Rather than asking an LLM to recall facts, it injects verified data directly into the prompt and asks the model to synthesize.</p>
+  <div className="flex gap-3 mb-2.5 items-baseline">
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#3b82f6'}}>Why different</span>
+    <span className="text-[15px] text-[#ccc] leading-[1.5]">Captures intangibles that pure efficiency models miss. Data injection eliminates hallucination — the model synthesizes, not recalls.</span>
   </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Inputs</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— Coaching experience (tournament wins, Final Four appearances, tenure)</li>
-      <li>— Roster age (senior-heavy vs. freshman-heavy composition)</li>
-      <li>— Injury and availability (beat reporter coverage, official designations)</li>
-      <li>— Clutch performance (record in games decided by 5 or fewer points)</li>
-      <li>— Momentum (last 10 games, conference tournament trajectory)</li>
-      <li>— Travel and rest (distance to site, days since last game)</li>
-    </ul>
-  </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Strengths</p>
-    <p className="text-[15px] text-[#ccc] leading-[1.75]">Captures intangibles that efficiency models miss entirely. Contextual synthesis across six factors produces picks that reflect the actual game environment, not just season-long averages. No normalization required — the LLM handles dimensional weight internally.</p>
-  </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
-    <div className="rounded-md p-4" style={{borderLeft: '3px solid #3b82f6', backgroundColor: 'rgba(59,130,246,0.05)'}}>
-      <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2" style={{color:'#3b82f6'}}>2026 Predicted Champion</p>
-      <p className="text-[16px] font-semibold text-[#f9fafb]">TBD — Locks March 19</p>
-      <p className="text-[13px] text-[#888] mt-1">All picks finalized after First Four play-in games.</p>
-    </div>
-  </div>
-
-  <div className="pt-5 border-t border-[#1e1e1e]">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Factor Weights</p>
-    <div className="space-y-3">
-      {[
-        {label: 'Injury / Availability', pct: 90},
-        {label: 'Coaching Experience', pct: 85},
-        {label: 'Roster Age', pct: 70},
-        {label: 'Clutch Performance', pct: 65},
-        {label: 'Momentum', pct: 55},
-        {label: 'Travel / Rest', pct: 40},
-      ].map(f => (
-        <div key={f.label}>
-          <div className="flex justify-between mb-1">
-            <span className="text-[12px] text-[#aaa]">{f.label}</span>
-            <span className="font-mono text-[11px] text-[#666]">{f.pct}%</span>
-          </div>
-          <div className="h-1.5 bg-[#222] rounded-full overflow-hidden">
-            <div className="h-full rounded-full" style={{width: `${f.pct}%`, backgroundColor: '#3b82f6'}} />
-          </div>
-        </div>
-      ))}
-    </div>
+  <div className="flex gap-3 items-baseline">
+    <span className="font-mono text-[10px] uppercase tracking-[1.5px] shrink-0 w-[110px]" style={{color:'#3b82f6'}}>2024 result</span>
+    <span className="text-[15px] text-[#ccc] leading-[1.5]">Backtested only. First live tournament entry in 2026.</span>
   </div>
 </div>
 
-<div>
-  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
-    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#3b82f6'}}>Methodology</span>
-    <span className="text-[20px] font-semibold text-[#f9fafb]">The Actual Build</span>
+{/* ---- Champion ---- */}
+<div className="rounded-md p-4 mb-7" style={{borderLeft: '3px solid #3b82f6', backgroundColor: 'rgba(59,130,246,0.05)'}}>
+  <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2" style={{color:'#3b82f6'}}>2026 Predicted Champion</p>
+  <p className="text-[16px] font-semibold text-[#f9fafb]">TBD — Locks March 19</p>
+  <p className="text-[13px] text-[#888] mt-1">All picks finalized after First Four play-in games.</p>
+</div>
+
+{/* ---- Compact Steps ---- */}
+<div className="mb-2">
+  <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Process</p>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#3b82f6'}}>01</span><span className="text-[14px] font-medium text-[#ccc]">Pull team data</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#3b82f6'}}>02</span><span className="text-[14px] font-medium text-[#ccc]">Build matchup context</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#3b82f6'}}>03</span><span className="text-[14px] font-medium text-[#ccc]">Run analyst prompt</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#3b82f6'}}>04</span><span className="text-[14px] font-medium text-[#ccc]">Advance round by round</span></div>
+  <div className="flex gap-3 mb-2 items-baseline"><span className="font-mono text-[12px] shrink-0" style={{color:'#3b82f6'}}>05</span><span className="text-[14px] font-medium text-[#ccc]">Lock March 19</span></div>
+</div>
+
+{/* ---- Deep Dive Divider ---- */}
+<div className="flex items-center gap-3 my-9">
+  <div className="flex-1 h-px bg-[#333]" />
+  <span className="font-mono text-[10px] uppercase tracking-[2px] text-[#555] shrink-0">Deep Dive</span>
+  <div className="flex-1 h-px bg-[#333]" />
+</div>
+
+{/* ---- Full Methodology ---- */}
+<div className="rounded-lg p-6 bg-[#1a1a1a] border border-[#2a2a2a]">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Key Inputs</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Coaching experience (wins, F4s, tenure)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Roster age (senior vs. freshman ratio)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Injury and availability reports</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Clutch performance (games decided by 5 or fewer)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Momentum (last 10, conf. tourney trajectory)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Travel and rest (distance, days since last game)</li>
+      </ul>
+    </div>
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Data Sources</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">KenPom (efficiency ratings, tempo)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Sports Reference (coaching records)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Beat reporter coverage (injuries)</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Official team injury designations</li>
+      </ul>
+    </div>
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Assumptions</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">LLM synthesis outperforms regression on intangibles</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Coaching experience is predictive independent of roster</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">48-hour pre-lock injury data is sufficient</li>
+      </ul>
+    </div>
+    <div>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-2.5">Limitations</p>
+      <ul className="space-y-1">
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">Hallucination risk mitigated, not eliminated</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">LLM may favor brand-name programs</li>
+        <li className="text-[13px] text-[#888] leading-[1.65] pl-3 relative before:content-['\2014'] before:absolute before:left-0 before:text-[#444]">No updates after March 19 lock</li>
+      </ul>
+    </div>
   </div>
 
-  <div className="mb-10">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-5">Process</p>
-    <div className="space-y-5">
+  {/* Expanded steps */}
+  <div className="border-t border-[#2a2a2a] pt-5">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-4">Full Process Detail</p>
+    <div className="space-y-4">
       {[
         {n:'01', title:'Pull team data', desc:'Coaching records, roster age distribution, injury reports, clutch stats, and travel logistics gathered from KenPom, Sports Reference, and beat reporter coverage.'},
         {n:'02', title:'Build matchup context', desc:'Each head-to-head matchup is assembled into a structured JSON object. Data is injected directly — the model is never asked to recall facts.'},
@@ -75,52 +90,14 @@
         {n:'04', title:'Advance round by round', desc:'Winners advance, new matchup contexts are built. Each round uses fresh data, including any post-game injury updates for real teams before March 19.'},
         {n:'05', title:'Lock March 19', desc:'All 63 picks finalized after the First Four. ESPN Tournament Challenge bracket filled out as timestamp proof.'},
       ].map(s => (
-        <div key={s.n} className="flex gap-4">
+        <div key={s.n} className="flex gap-3.5">
           <span className="font-mono text-[13px] shrink-0 mt-0.5" style={{color:'#3b82f6'}}>{s.n}</span>
           <div>
-            <p className="text-[14px] font-semibold text-[#efefef] mb-1">{s.title}</p>
-            <p className="text-[14px] text-[#888] leading-[1.65]">{s.desc}</p>
+            <p className="text-[14px] font-semibold text-[#ddd] mb-1">{s.title}</p>
+            <p className="text-[13px] text-[#777] leading-[1.55]">{s.desc}</p>
           </div>
         </div>
       ))}
-    </div>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Data Sources</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— KenPom (efficiency ratings, tempo, adjusted stats)</li>
-      <li>— Sports Reference (coaching records, historical tournament performance)</li>
-      <li>— Beat reporter coverage (injury reports, availability)</li>
-      <li>— Official team designations (official injury designations pre-lock)</li>
-    </ul>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Assumptions</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— LLM contextual synthesis outperforms regression on the same inputs for intangible factors</li>
-      <li>— Coaching tournament experience is a consistent predictor independent of roster quality</li>
-      <li>— Injury data available 48 hours pre-lock is sufficient to capture meaningful availability gaps</li>
-    </ul>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Limitations</p>
-    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
-      <li>— Hallucination risk mitigated by data injection, not eliminated. All confidence scores treated as relative, not absolute.</li>
-      <li>— LLM tendencies can favor brand-name programs. The prompt explicitly instructs against this, but residual bias is possible.</li>
-      <li>— No updates after March 19. An injury on March 20 affects the game, not the bracket.</li>
-    </ul>
-  </div>
-
-  <div className="pt-6 border-t border-[#1e1e1e]">
-    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Example</p>
-    <div className="rounded-md p-5 bg-[#1a1a1a] border border-[#2a2a2a]">
-      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-3">South Region — Round of 64</p>
-      <p className="text-[14px] text-[#aaa] mb-2">#5 Duke vs #12 Oregon</p>
-      <p className="text-[16px] font-semibold mb-3" style={{color:'#3b82f6'}}>Pick: Oregon — 61% confidence</p>
-      <p className="text-[13px] text-[#777] leading-[1.65]">Oregon's head coach has a 4-2 record in first-round games as a double-digit seed. Duke's leading scorer is listed questionable with a knee issue. Oregon is playing 180 miles from campus. The Scout flags this as a structural upset, not a coin flip.</p>
     </div>
   </div>
 </div>

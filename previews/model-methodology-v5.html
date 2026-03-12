@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option 5 — TL;DR Box + Collapsible Detail</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .container { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+  .label { position: fixed; top: 0; left: 0; right: 0; background: #1e1e1e; border-bottom: 1px solid #333; padding: 10px 24px; z-index: 10; }
+  .label span { font-family: 'SF Mono', monospace; font-size: 11px; color: #888; letter-spacing: 1px; text-transform: uppercase; }
+  .label strong { color: #22c55e; }
+
+  /* TL;DR box */
+  .tldr { border: 1px solid rgba(34,197,94,0.3); border-left: 3px solid #22c55e; background: rgba(34,197,94,0.04); border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+  .tldr-row { display: flex; gap: 12px; margin-bottom: 10px; align-items: baseline; }
+  .tldr-row:last-child { margin-bottom: 0; }
+  .tldr-label { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #22c55e; flex-shrink: 0; width: 110px; }
+  .tldr-value { font-size: 15px; color: #ccc; line-height: 1.5; }
+
+  /* Champion callout */
+  .champion { border-left: 3px solid #22c55e; background: rgba(34,197,94,0.05); border-radius: 4px; padding: 14px; margin-bottom: 28px; }
+  .champion .ch-label { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #22c55e; margin-bottom: 6px; }
+  .champion .ch-value { font-size: 16px; font-weight: 600; color: #f9fafb; }
+  .champion .ch-sub { font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* Ultra-compact steps */
+  .steps-header { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #888; margin-bottom: 14px; }
+  .step-compact { display: flex; gap: 12px; margin-bottom: 8px; align-items: baseline; }
+  .step-num { font-family: 'SF Mono', monospace; font-size: 12px; color: #22c55e; flex-shrink: 0; }
+  .step-title { font-size: 14px; font-weight: 500; color: #ccc; }
+
+  /* Deep Dive section */
+  .divider { display: flex; align-items: center; gap: 12px; margin: 36px 0 24px 0; }
+  .divider-line { flex: 1; height: 1px; background: #333; }
+  .divider-label { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #555; flex-shrink: 0; }
+
+  .deep-dive { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 24px; }
+  .dd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .dd-group .dd-label { font-family: 'SF Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #555; margin-bottom: 10px; }
+  .dd-group ul { list-style: none; padding: 0; }
+  .dd-group li { font-size: 13px; color: #888; line-height: 1.65; padding-left: 12px; position: relative; margin-bottom: 4px; }
+  .dd-group li::before { content: '\2014'; position: absolute; left: 0; color: #444; }
+
+  /* Steps inside deep dive */
+  .dd-steps { grid-column: 1 / -1; border-top: 1px solid #2a2a2a; padding-top: 20px; margin-top: 4px; }
+  .dd-steps .steps-header { margin-bottom: 12px; }
+  .dd-step { display: flex; gap: 14px; margin-bottom: 12px; }
+  .dd-step-num { font-family: 'SF Mono', monospace; font-size: 13px; color: #22c55e; flex-shrink: 0; margin-top: 1px; }
+  .dd-step-title { font-size: 14px; font-weight: 600; color: #ddd; }
+  .dd-step-desc { font-size: 13px; color: #777; margin-top: 2px; line-height: 1.55; }
+
+  @media (max-width: 640px) {
+    .dd-grid { grid-template-columns: 1fr; }
+    .tldr-row { flex-direction: column; gap: 4px; }
+    .tldr-label { width: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="label"><span>Option 5 — <strong>TL;DR + Deep Dive</strong></span></div>
+<div class="container" style="margin-top: 40px;">
+
+  <!-- TL;DR box -->
+  <div class="tldr">
+    <div class="tldr-row">
+      <span class="tldr-label">What it does</span>
+      <span class="tldr-value">Simulates the tournament 10,000 times using KenPom efficiency data and picks the most probable path.</span>
+    </div>
+    <div class="tldr-row">
+      <span class="tldr-label">Why different</span>
+      <span class="tldr-value">Zero subjectivity. A logistic regression formula with a 0.18 coefficient calibrated across 15 years of outcomes.</span>
+    </div>
+    <div class="tldr-row">
+      <span class="tldr-label">2024 result</span>
+      <span class="tldr-value">1,230 points — 93rd percentile on ESPN Tournament Challenge.</span>
+    </div>
+  </div>
+
+  <!-- Champion callout -->
+  <div class="champion">
+    <p class="ch-label">2026 Predicted Champion</p>
+    <p class="ch-value">TBD — Locks March 19</p>
+    <p class="ch-sub">All picks finalized after First Four play-in games.</p>
+  </div>
+
+  <!-- Ultra-compact steps -->
+  <p class="steps-header">Process</p>
+  <div class="step-compact"><span class="step-num">01</span><span class="step-title">Pull KenPom data</span></div>
+  <div class="step-compact"><span class="step-num">02</span><span class="step-title">Compute win probabilities</span></div>
+  <div class="step-compact"><span class="step-num">03</span><span class="step-title">Run 10,000 simulations</span></div>
+  <div class="step-compact"><span class="step-num">04</span><span class="step-title">Aggregate most-frequent outcomes</span></div>
+  <div class="step-compact"><span class="step-num">05</span><span class="step-title">Lock March 19</span></div>
+
+  <!-- Deep Dive divider -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-label">Deep Dive</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- Full methodology -->
+  <div class="deep-dive">
+    <div class="dd-grid">
+      <div class="dd-group">
+        <p class="dd-label">Key Inputs</p>
+        <ul>
+          <li>AdjOE (adjusted offensive efficiency)</li>
+          <li>AdjDE (adjusted defensive efficiency)</li>
+          <li>Tempo (possessions per 40 min)</li>
+          <li>Efficiency margin (AdjOE - AdjDE)</li>
+        </ul>
+      </div>
+      <div class="dd-group">
+        <p class="dd-label">Data Sources</p>
+        <ul>
+          <li>KenPom (AdjOE, AdjDE, Tempo)</li>
+          <li>15-year calibration dataset (2010-2025)</li>
+        </ul>
+      </div>
+      <div class="dd-group">
+        <p class="dd-label">Assumptions</p>
+        <ul>
+          <li>Efficiency margin is the best predictor</li>
+          <li>0.18 logit coeff. stable across eras</li>
+          <li>Season averages = tournament quality</li>
+        </ul>
+      </div>
+      <div class="dd-group">
+        <p class="dd-label">Limitations</p>
+        <ul>
+          <li>No style-of-play mismatch modeling</li>
+          <li>Completely blind to injuries</li>
+          <li>Conference tournament noise in ratings</li>
+        </ul>
+      </div>
+
+      <!-- Expanded steps -->
+      <div class="dd-steps">
+        <p class="steps-header">Full Process Detail</p>
+        <div class="dd-step">
+          <span class="dd-step-num">01</span>
+          <div>
+            <p class="dd-step-title">Pull KenPom data</p>
+            <p class="dd-step-desc">AdjOE, AdjDE, and Tempo pulled for all 68 tournament teams. Pre-play-in values used for simulation; updated post-play-in for final bracket.</p>
+          </div>
+        </div>
+        <div class="dd-step">
+          <span class="dd-step-num">02</span>
+          <div>
+            <p class="dd-step-title">Compute win probabilities</p>
+            <p class="dd-step-desc">For each possible matchup, a logistic regression formula with a 0.18 coefficient converts the efficiency margin differential into a win probability.</p>
+          </div>
+        </div>
+        <div class="dd-step">
+          <span class="dd-step-num">03</span>
+          <div>
+            <p class="dd-step-title">Run 10,000 simulations</p>
+            <p class="dd-step-desc">The full 63-game bracket is simulated 10,000 times. Each simulation is independent. Win probabilities remain fixed across all simulations.</p>
+          </div>
+        </div>
+        <div class="dd-step">
+          <span class="dd-step-num">04</span>
+          <div>
+            <p class="dd-step-title">Aggregate most-frequent outcomes</p>
+            <p class="dd-step-desc">For each game slot, the team that advanced most often across simulations is selected. The champion is the team that won the most simulated tournaments.</p>
+          </div>
+        </div>
+        <div class="dd-step">
+          <span class="dd-step-num">05</span>
+          <div>
+            <p class="dd-step-title">Lock March 19</p>
+            <p class="dd-step-desc">All 63 picks finalized after the First Four. ESPN Tournament Challenge bracket filled out as timestamp proof.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
