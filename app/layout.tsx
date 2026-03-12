@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import NavLinks from '@/components/NavLinks';
 import GameTicker from '@/components/GameTicker';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </nav>
         <main>{children}</main>
+        <Analytics />
         <footer className="border-t border-lab-border mt-24">
           <div className="mx-auto max-w-6xl px-6 py-8">
             <div className="flex flex-col items-center gap-3 text-center">

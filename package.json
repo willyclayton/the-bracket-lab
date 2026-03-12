@@ -13,6 +13,7 @@
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.2.0",
     "@upstash/redis": "^1.37.0",
+    "@vercel/analytics": "^2.0.1",
     "gray-matter": "^4.0.3",
     "next": "^14.2.0",
     "next-mdx-remote": "^6.0.0",
