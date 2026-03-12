@@ -1,0 +1,50 @@
+[
+  {
+    "gameId": "e8-south",
+    "round": "elite_8",
+    "region": "South",
+    "seed1": 1,
+    "team1": "Auburn",
+    "seed2": 2,
+    "team2": "Michigan State",
+    "pick": "Auburn",
+    "confidence": 68,
+    "reasoning": "Auburn's AdjEM (34.7) is 9.8 points above Michigan State's (24.9). Both have champion-level archetypes — Auburn (2024 Purdue, Runner-Up) and MSU (2010 Duke, Champion). But Auburn's offensive firepower (AdjO 127.7 vs 117.3) and the efficiency gap are too much even for Izzo's tournament magic. Auburn's path: Alabama State, Creighton, Texas A&M — progressively tougher opponents handled with ease."
+  },
+  {
+    "gameId": "e8-east",
+    "round": "elite_8",
+    "region": "East",
+    "seed1": 1,
+    "team1": "Duke",
+    "seed2": 2,
+    "team2": "Alabama",
+    "pick": "Duke",
+    "confidence": 65,
+    "reasoning": "Duke (AdjEM 38.5) holds a 7.4-point edge over Alabama (31.1). Both are offensive powerhouses (AdjO 130.6 vs 127.7), but Duke's defense (AdjD 92.0 vs 96.6) is the differentiator. Duke's archetype (2024 Purdue, Runner-Up) suggests a championship-game ceiling. Alabama's archetype (2012 UNC, Elite Eight) suggests this is their wall. Duke's balanced excellence wins."
+  },
+  {
+    "gameId": "e8-midwest",
+    "round": "elite_8",
+    "region": "Midwest",
+    "seed1": 1,
+    "team1": "Houston",
+    "seed2": 2,
+    "team2": "Tennessee",
+    "pick": "Houston",
+    "confidence": 63,
+    "reasoning": "Houston (AdjEM 37.3) vs Tennessee (28.3) — both elite defensive teams (AdjD 87.3 vs 91.9). Houston's champion archetype (2019 Virginia) won a title with this exact defensive suffocation. Tennessee's near-perfect twin (2015 Wisconsin, Runner-Up) lost in the championship. Houston's 9-point AdjEM edge and the nation's best defense make the difference in a low-scoring grinder."
+  },
+  {
+    "gameId": "e8-west",
+    "round": "elite_8",
+    "region": "West",
+    "seed1": 1,
+    "team1": "Florida",
+    "seed2": 3,
+    "team2": "Texas Tech",
+    "pick": "Florida",
+    "confidence": 67,
+    "reasoning": "Florida's AdjEM (33.6) is 5.1 points above Texas Tech (28.5). Florida's archetype (2017 Gonzaga, Runner-Up) reached the title game with a similar offensive juggernaut profile. Texas Tech's archetype (2024 Purdue, Runner-Up) also reached the title game, but Florida's offensive edge (AdjO 127.8 vs 126.1) and superior defense (AdjD 94.2 vs 97.6) combine for the win."
+  }
+]

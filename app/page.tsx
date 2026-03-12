@@ -11,6 +11,7 @@ const CHAMPION_PICKS: Record<string, string> = {
   'the-historian':   'Duke',
   'the-chaos-agent': 'UC San Diego',
   'the-agent':       'Auburn',
+  'the-optimizer':   'TBD',
 };
 
 export default function Home() {

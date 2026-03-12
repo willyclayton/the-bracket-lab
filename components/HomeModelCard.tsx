@@ -9,6 +9,8 @@ const GLOW_CLASS: Record<string, string> = {
   'the-historian': 'card-glow-historian',
   'the-chaos-agent': 'card-glow-chaos',
   'the-agent': 'card-glow-agent',
+  'the-super-agent': 'card-glow-superagent',
+  'the-optimizer': 'card-glow-optimizer',
 };
 
 interface HomeModelCardProps {

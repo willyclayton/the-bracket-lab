@@ -24,6 +24,8 @@ module.exports = {
         chaos: '#ef4444',       // red
         agent: '#00ff88',       // neon green
         superagent: '#a855f7', // purple
+        optimizer: '#06b6d4', // cyan
+        scoutprime: '#64748b', // slate
       },
       fontFamily: {
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],

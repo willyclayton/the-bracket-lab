@@ -228,6 +228,7 @@ Every other model has a human-defined methodology. This one doesn't. The story i
 **Icon:** 🧠
 **Slug:** `/models/the-super-agent`
 **CSS classes:** `text-superagent`, `model-superagent-bg`, `glow-superagent`, `model-superagent`
+**Pipeline:** `super_agent/src/` — fully built with actual run results in `super_agent/run_log.md`
 
 ### Why it's sixth
 The logical evolution of The Agent. Where Model 5 improvised from scratch, Model 6 actually trains — building measurable ML predictions through iterative research. It's the most methodologically rigorous model in the lineup, and it earns its position by proving its approach works on historical data before touching 2026.
@@ -244,30 +245,79 @@ Iterative ML pipeline with three disciplined research cycles:
 ### Data isolation
 All ML code and data lives in `super_agent/` at the project root. No imports from `data/research/` or other model directories. This prevents any accidental cherrypicking from other models' research.
 
-### Integrity framework
-- Pre-run checks: verify no future data leakage, no outcome-encoding features
-- Post-run checks: independently verify accuracy, flag >10% accuracy jumps
-- All checks logged in `super_agent/integrity/`
-
-### How to build it
-- Python scripts in `super_agent/src/`
-- Training data: 2010-2020 tournament results + team stats
-- Test data: 2021 tournament (holdout year)
-- 3 iterations, each logged in `super_agent/run_log.md`
-- Final deliverable: `super_agent/checkpoint_report.md`
-
 ### What makes it distinct
 The only model that proves its methodology works before applying it. Every other model has a methodology that sounds good — this one has accuracy numbers on holdout data. The constraint of exactly 3 iterations prevents overfitting and forces honest assessment of what signals actually matter.
 
 ---
 
+## Model 7: The Optimizer — ESPN Points Maximizer
+
+**Tagline:** "Optimized for what actually matters: your bracket pool."
+**Color:** Cyan `#06b6d4`
+**Icon:** 📈
+**Slug:** `/models/the-optimizer`
+**Pipeline:** `optimizer_agent/src/` — logistic regression + expected value optimization, backtested on 2024-2025
+
+### Why it exists
+Every other model optimizes for per-game accuracy. The Optimizer exploits ESPN's exponentially back-loaded scoring (a correct champion = 32 first-round picks) by maximizing *expected points*, not prediction accuracy. It asks: "Which bracket earns the most ESPN points in expectation?"
+
+### Methodology
+1. Train logistic regression on 2010-2021 tournament games (693 games, excluding 2020/COVID)
+2. For each team, compute path probability through the bracket (product of per-game win probabilities)
+3. Expected points = path probability * round points for each possible pick
+4. Optimize the complete bracket for maximum total expected ESPN points
+5. Champion-first strategy: lock the highest-EV champion, then optimize the path backward
+
+### Key results
+- Backtested on unseen 2024 and 2025 tournaments
+- Baseline (seed-only): ~920 ESPN pts on 2024
+- Expected value optimization consistently beats naive game-level accuracy models
+
+### What makes it distinct
+It's the only model that explicitly optimizes for the scoring system you're actually competing in. A 12-seed Cinderella that makes the Sweet 16 is worth more expected points to pick than a 4-seed that gets bounced in the Round of 32 — The Optimizer understands this.
+
+---
+
+## Model 8: The Scout Prime — Data-Saturated LLM Analyst
+
+**Tagline:** "Everything The Scout sees — times five."
+**Color:** Slate `#64748b`
+**Icon:** 🔬
+**Slug:** `/models/the-scout-prime`
+**Pipeline:** `scout_prime_agent/src/` — multi-step enrichment + Claude Code round-by-round analysis
+
+### Why it exists
+The Scout proved LLM contextual synthesis works with 6 curated factors. Scout Prime tests whether *saturating* the LLM with ~30 data points per team produces better brackets than curating a few dimensions.
+
+### Methodology
+1. **Enrich teams:** Compile mega-profiles with efficiency ratings, shooting splits, rebounding, turnovers, close-game resilience, momentum, coaching records, and field intelligence (intangibles)
+2. **Build archetypes:** Find top 3 historical twins per team using normalized similarity vectors
+3. **Generate round-by-round:** For each round, export rich matchup context packets. Claude Code reads each packet, analyzes the matchup, and writes a pick with reasoning.
+4. **Compile bracket:** Assemble all round picks into a single bracket JSON
+
+### Data per matchup
+- ~30 statistical dimensions per team (vs. Scout's 6 factors)
+- Historical twins with tournament outcomes
+- Seed matchup history with upset rates
+- Pre-computed upset vulnerability scores
+- Field intelligence: injury updates, momentum, chemistry, logistics
+
+### Export/import workflow
+Scripts prepare all data and export structured context files. Claude Code (the CLI) does all LLM analysis directly in conversation — no API calls. This lets the model leverage Claude's full reasoning capabilities without token-limit constraints.
+
+### What makes it distinct
+The maximum-context experiment. If The Scout is a film room, Scout Prime is the entire scouting department's database. The hypothesis: more structured data → better LLM picks. Backtestable on 2024 and 2025 to compare against The Optimizer's scores.
+
+---
+
 ## Model Comparison Matrix
 
-| Attribute | The Scout | The Quant | The Historian | The Chaos Agent | The Agent | The Super Agent |
-|-----------|-----------|-----------|---------------|-----------------|-----------|----------------|
-| Approach | Qualitative | Quantitative | Historical | Contrarian | Autonomous | Iterative ML |
-| Built with | LLM prompts | Python script | Python + data | Python + data | Claude Code | Python ML pipeline |
-| Upset tendency | Moderate | Low | Varies | Very High | Unknown | Data-driven |
-| Key strength | Matchup nuance | Statistical rigor | Narrative depth | Contrarian edge | Unpredictability | Proven accuracy |
-| Content value | Scouting reports | Probability charts | Historical parallels | Spicy picks | Process story | Research log |
-| Prep possible now? | Prompt design | Script + backtest | Historical DB | Score formula | Just the prompt | Full pipeline |
+| Attribute | The Scout | The Quant | The Historian | The Chaos Agent | The Agent | The Super Agent | The Optimizer | The Scout Prime |
+|-----------|-----------|-----------|---------------|-----------------|-----------|----------------|---------------|-----------------|
+| Approach | Qualitative | Quantitative | Historical | Contrarian | Autonomous | Iterative ML | ESPN EV optimization | Data-saturated LLM |
+| Built with | Claude Code | Python script | Python script | Python script | Claude Code | Python ML pipeline | Python ML pipeline | Python + Claude Code |
+| Pipeline | `scripts/scout_export_context.py` | `scripts/quant.py` | `scripts/historian.py` | `scripts/chaos.py` | `scripts/agent_prompt.md` | `super_agent/src/` | `optimizer_agent/src/` | `scout_prime_agent/src/` |
+| Upset tendency | Moderate | Low | Varies | Very High | Unknown | Data-driven | Low (EV-driven) | Moderate |
+| Key strength | Matchup nuance | Statistical rigor | Narrative depth | Contrarian edge | Unpredictability | Proven accuracy | Points optimization | Maximum context |
+| Content value | Scouting reports | Probability charts | Historical parallels | Spicy picks | Process story | Research log | Strategy analysis | Data density test |
+| Status | Script done | Script done | Script done | Script done | Prompt done | Pipeline done | Pipeline done | Pipeline done |

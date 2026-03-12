@@ -92,6 +92,32 @@ export const MODELS: Model[] = [
     icon: '🧠',
     description: 'Trains on a decade of tournament data, tests against a holdout year, and iterates across 3 research cycles. No cherrypicking — the model earns its bracket through measurable improvement.',
   },
+  {
+    id: 'the-optimizer',
+    slug: 'the-optimizer',
+    name: 'The Optimizer',
+    subtitle: 'ESPN Points Maximizer',
+    tagline: 'Every other model predicts games. This one plays the scoring system.',
+    color: '#06b6d4',
+    colorClass: 'text-optimizer',
+    bgClass: 'model-optimizer-bg',
+    glowClass: 'glow-optimizer',
+    icon: '🎯',
+    description: 'Doesn\'t optimize for correct picks — optimizes for ESPN bracket points. A correct champion is worth 32 first-round picks. This model exploits the scoring system by maximizing expected value across the full bracket path.',
+  },
+  {
+    id: 'the-scout-prime',
+    slug: 'the-scout-prime',
+    name: 'The Scout Prime',
+    subtitle: 'Data-Saturated LLM Analyst',
+    tagline: 'Same instincts. Ten times the intel.',
+    color: '#64748b',
+    colorClass: 'text-scoutprime',
+    bgClass: 'model-scoutprime-bg',
+    glowClass: 'glow-scoutprime',
+    icon: '🔬',
+    description: 'The Scout saw 6 factors per matchup. Scout Prime sees 30. Same LLM analysis method, radically more data — efficiency ratings, shooting splits, rebounding, historical archetypes, coaching records, upset vulnerability scores. The question: does more intel mean better picks?',
+  },
 ];
 
 export const MODEL_MAP = Object.fromEntries(MODELS.map((m) => [m.id, m]));

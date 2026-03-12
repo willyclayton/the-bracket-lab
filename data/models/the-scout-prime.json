@@ -1,0 +1,20 @@
+{
+  "model": "the-scout-prime",
+  "displayName": "The Scout Prime",
+  "tagline": "Same instincts. Ten times the intel.",
+  "color": "#64748b",
+  "generated": null,
+  "locked": false,
+  "espnBracketUrl": null,
+  "champion": null,
+  "championEliminated": false,
+  "finalFour": [],
+  "rounds": {
+    "round_of_64": [],
+    "round_of_32": [],
+    "sweet_16": [],
+    "elite_8": [],
+    "final_four": [],
+    "championship": []
+  }
+}

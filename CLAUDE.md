@@ -17,9 +17,10 @@
 - **Final Four: April 4-6** — Championship game April 6.
 - Build capacity: A few hours per day. Scope ruthlessly. Ship MVP, iterate.
 
-## The 5 Models (Presentation Order)
+## The Models (8 Total)
 
-The models are presented in this specific order on the site. This is intentional — the arc is **familiar → technical → creative → chaotic → unhinged**. Each one escalates in concept to keep the reader engaged. Do not reorder.
+### Core 5 (Presentation Order on Site)
+The original 5 are presented in this specific order on the site. This is intentional — the arc is **familiar → technical → creative → chaotic → unhinged**. Each one escalates in concept to keep the reader engaged. Do not reorder.
 
 1. **The Scout** (🎬 Navy `#3b82f6`) — LLM Matchup Analyst. "Film room intelligence at machine speed."
 2. **The Quant** (📊 Green `#22c55e`) — Monte Carlo Simulation. "10,000 simulations. Zero feelings."
@@ -27,7 +28,14 @@ The models are presented in this specific order on the site. This is intentional
 4. **The Chaos Agent** (🔥 Red `#ef4444`) — Upset Detector. "Your bracket is too safe. This one isn't."
 5. **The Agent** (🤖 Neon Green `#00ff88`) — Autonomous AI Researcher. "No rules. No prompts. Just: build me a bracket."
 
-See `docs/MODELS.md` for full specifications on each model.
+### Supplemental Models
+These compete alongside the core 5 but aren't featured in the site's narrative arc. They serve as backtesting baselines and methodology experiments.
+
+6. **The Super Agent** (🧠 Purple `#a855f7`) — Iterative ML Predictor. Logistic regression trained on 2010-2020, 3-iteration discipline. Pipeline: `super_agent/src/`
+7. **The Optimizer** (📈 Cyan `#06b6d4`) — ESPN Points Maximizer. Expected-value optimization for bracket pool scoring. Pipeline: `optimizer_agent/src/`
+8. **The Scout Prime** (🔬 Slate `#64748b`) — Data-Saturated LLM Analyst. ~30 data points per team vs. The Scout's 6. Pipeline: `scout_prime_agent/src/`
+
+See `docs/MODELS.md` for full specifications on all models.
 
 ## Design Direction
 
@@ -106,11 +114,13 @@ ESPN-style bracket scoring (defined in `lib/models.ts`):
 
 ## Current Status & TODO
 
-See `docs/TODO.md` for the full prioritized task list.
+See `docs/TODO.md` for the full prioritized task list. See `docs/BRACKET_DAY_RUNBOOK.md` for the March 15-19 operations guide.
 
 **Built and deployed:** Landing page (redesigned), brackets page with BracketTree, model pages (redesigned), blog with MDX rendering, about page, voting widget, leaderboard, scoring engine, 2025 archive with verified data, year toggle.
 
-**Still needs:** Model Python scripts (Quant, Historian, Chaos), 2026 bracket data (after Selection Sunday March 15), methodology blog posts, OG social card, consensus/divergence views.
+**Model pipelines (all complete):** The Quant (`scripts/quant.py`), The Historian (`scripts/historian.py`), The Chaos Agent (`scripts/chaos.py`), The Scout (`scripts/scout_export_context.py`), The Agent (`scripts/agent_prompt.md`), The Super Agent (`super_agent/src/`), The Optimizer (`optimizer_agent/src/`), The Scout Prime (`scout_prime_agent/src/`).
+
+**Still needs:** 2026 bracket data (after Selection Sunday March 15), methodology blog posts, OG social card, consensus/divergence views.
 
 ## Update Workflow During Tournament
 
@@ -138,4 +148,12 @@ Optional automation: GitHub Actions cron job every 15 min during game windows to
 | `data/README.md` | Data integrity and verification policy |
 | `app/brackets/BracketsClient.tsx` | Client-side bracket page with model tabs + year toggle |
 | `components/VoteWidget.tsx` | Voting widget (localStorage + seeded counts) |
+| `scripts/quant.py` | Monte Carlo bracket generator |
+| `scripts/historian.py` | Archetype matching bracket generator |
+| `scripts/chaos.py` | Upset detector bracket generator |
+| `scripts/scout_export_context.py` | Scout context exporter for Claude Code |
+| `scout_prime_agent/` | Data-saturated LLM analyst pipeline |
+| `optimizer_agent/` | ESPN points maximizer pipeline |
+| `super_agent/` | Iterative ML predictor pipeline |
+| `docs/BRACKET_DAY_RUNBOOK.md` | Step-by-step guide for March 15-19 operations |
 | `docs/` | All project documentation |

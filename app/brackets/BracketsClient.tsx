@@ -9,6 +9,7 @@ import { calculateScore } from '@/lib/scoring';
 import BracketCardsPanel, { REGIONS, type Region, type GamesByRegion } from '@/components/BracketCardsPanel';
 import BracketGridPanel from '@/components/BracketGridPanel';
 import MatchupPopover from '@/components/MatchupPopover';
+import { getEspnPercentile } from '@/lib/espn-percentile';
 
 // 2026 (current)
 import scoutData     from '@/data/models/the-scout.json';
@@ -17,6 +18,8 @@ import historianData from '@/data/models/the-historian.json';
 import chaosData     from '@/data/models/the-chaos-agent.json';
 import agentData     from '@/data/models/the-agent.json';
 import superAgentData from '@/data/models/the-super-agent.json';
+import optimizerData from '@/data/models/the-optimizer.json';
+import scoutPrimeData from '@/data/models/the-scout-prime.json';
 import results2026   from '@/data/results/actual-results.json';
 
 // 2025 (archive)
@@ -26,6 +29,7 @@ import historianData2025 from '@/data/archive/2025/models/the-historian.json';
 import chaosData2025     from '@/data/archive/2025/models/the-chaos-agent.json';
 import agentData2025     from '@/data/archive/2025/models/the-agent.json';
 import superAgentData2025 from '@/data/archive/2025/models/the-super-agent.json';
+import optimizerData2025 from '@/data/archive/2025/models/the-optimizer.json';
 import results2025       from '@/data/archive/2025/results/actual-results.json';
 
 // 2024 (archive)
@@ -35,6 +39,7 @@ import historianData2024 from '@/data/archive/2024/models/the-historian.json';
 import chaosData2024     from '@/data/archive/2024/models/the-chaos-agent.json';
 import agentData2024     from '@/data/archive/2024/models/the-agent.json';
 import superAgentData2024 from '@/data/archive/2024/models/the-super-agent.json';
+import optimizerData2024 from '@/data/archive/2024/models/the-optimizer.json';
 import results2024       from '@/data/archive/2024/results/actual-results.json';
 
 const VALID_YEARS = ['2026', '2025', '2024'] as const;
@@ -48,6 +53,8 @@ const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
     'the-chaos-agent': chaosData     as unknown as BracketData,
     'the-agent':       agentData     as unknown as BracketData,
     'the-super-agent': superAgentData as unknown as BracketData,
+    'the-optimizer':   optimizerData as unknown as BracketData,
+    'the-scout-prime': scoutPrimeData as unknown as BracketData,
   },
   '2025': {
     'the-scout':       scoutData2025     as unknown as BracketData,
@@ -56,6 +63,7 @@ const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
     'the-chaos-agent': chaosData2025     as unknown as BracketData,
     'the-agent':       agentData2025     as unknown as BracketData,
     'the-super-agent': superAgentData2025 as unknown as BracketData,
+    'the-optimizer':   optimizerData2025 as unknown as BracketData,
   },
   '2024': {
     'the-scout':       scoutData2024     as unknown as BracketData,
@@ -64,6 +72,7 @@ const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
     'the-chaos-agent': chaosData2024     as unknown as BracketData,
     'the-agent':       agentData2024     as unknown as BracketData,
     'the-super-agent': superAgentData2024 as unknown as BracketData,
+    'the-optimizer':   optimizerData2024 as unknown as BracketData,
   },
 };
 
@@ -163,6 +172,8 @@ export default function BracketsClient() {
   const modelScore = results && results.games.length > 0
     ? calculateScore(bracket, results)
     : null;
+
+  const espnPct = modelScore ? getEspnPercentile(modelScore.total, activeYear) : null;
 
   // Check if bracket is empty
   const isEmpty = ROUND_ORDER.every(
@@ -270,6 +281,12 @@ export default function BracketsClient() {
           <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">Score</p>
           <p className="font-mono text-[13px] font-semibold" style={{ color: activeModel.color }}>
             {modelScore ? modelScore.total : '\u2014'}
+          </p>
+        </div>
+        <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
+          <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">ESPN %</p>
+          <p className="font-mono text-[13px] font-semibold" style={{ color: activeModel.color }}>
+            {espnPct != null ? `${espnPct.toFixed(1)}%` : '\u2014'}
           </p>
         </div>
         <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">

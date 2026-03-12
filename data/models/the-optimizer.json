@@ -1,0 +1,20 @@
+{
+  "model": "the-optimizer",
+  "displayName": "The Optimizer",
+  "tagline": "Every other model predicts games. This one plays the scoring system.",
+  "color": "#06b6d4",
+  "generated": null,
+  "locked": false,
+  "espnBracketUrl": null,
+  "champion": null,
+  "championEliminated": false,
+  "finalFour": [],
+  "rounds": {
+    "round_of_64": [],
+    "round_of_32": [],
+    "sweet_16": [],
+    "elite_8": [],
+    "final_four": [],
+    "championship": []
+  }
+}

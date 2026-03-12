@@ -1,0 +1,26 @@
+[
+  {
+    "gameId": "f4-south-west",
+    "round": "final_four",
+    "region": "National",
+    "seed1": 1,
+    "team1": "Auburn",
+    "seed2": 1,
+    "team2": "Florida",
+    "pick": "Florida",
+    "confidence": 54,
+    "reasoning": "Auburn (AdjEM 34.7) vs Florida (33.6) — only 1.1-point gap. Florida's archetype (2017 Gonzaga, Runner-Up) reached the championship game. Auburn's twin (2024 Purdue, Runner-Up) also reached the final. Both are 1-seeds with elite offense. The difference: Florida's path (Norfolk State, UConn, Maryland, Texas Tech) was tougher in later rounds, and Florida's offense (AdjO 127.8 vs 127.7) matches Auburn's. Florida's slightly faster tempo (69.9 vs 68.3) generates more opportunities in a high-stakes game."
+  },
+  {
+    "gameId": "f4-east-midwest",
+    "round": "final_four",
+    "region": "National",
+    "seed1": 1,
+    "team1": "Duke",
+    "seed2": 1,
+    "team2": "Houston",
+    "pick": "Houston",
+    "confidence": 56,
+    "reasoning": "Houston (AdjEM 37.3) vs Duke (38.5) — Duke has the slight edge. But Houston's champion archetype (2019 Virginia) won the title with defensive dominance. Duke's twin (2024 Purdue, Runner-Up) lost in the final. Houston's defense (AdjD 87.3) is historically elite and 4.7 points better than Duke's (92.0). In a Final Four where Duke must crack the nation's best defense, Houston's wall holds. The x-factor: Houston holds opponents to season lows at this stage."
+  }
+]

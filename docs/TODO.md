@@ -49,23 +49,26 @@
 ## Phase 2: Pre-Tournament Prep (Ship by March 19, 2026)
 
 ### Model Scripts
-- [ ] 🔴 **The Quant:** Python Monte Carlo simulation script
-- [ ] 🔴 **The Historian:** Historical team database (2010-2026), similarity matching script
-- [ ] 🔴 **The Chaos Agent:** Upset vulnerability scoring formula
-- [ ] 🟡 **The Scout:** Structured LLM prompt template for matchup evaluation
-- [ ] 🟡 **The Agent:** Mega-prompt for Claude Code autonomous session
-- [ ] 🟡 Source data: BartTorvik/KenPom team ratings for current season
+- [x] 🔴 **The Quant:** Python Monte Carlo simulation script (`scripts/quant.py`)
+- [x] 🔴 **The Historian:** Historical team database + similarity matching script (`scripts/historian.py`)
+- [x] 🔴 **The Chaos Agent:** Upset vulnerability scoring formula (`scripts/chaos.py`)
+- [x] 🟡 **The Scout:** Context export script (`scripts/scout_export_context.py`) + Claude Code analysis
+- [x] 🟡 **The Agent:** Mega-prompt for Claude Code autonomous session (`scripts/agent_prompt.md`)
+- [x] 🟡 **The Super Agent:** Iterative ML pipeline (`super_agent/src/`)
+- [x] 🟡 **The Optimizer:** ESPN-maximizing logistic regression (`optimizer_agent/src/`)
+- [x] 🟡 **The Scout Prime:** Data-saturated LLM pipeline (`scout_prime_agent/src/`)
+- [ ] 🟡 Source data: BartTorvik/KenPom team ratings for current season (download after Selection Sunday)
 
 ### Run Models (after First Four, March 17-18)
 - [ ] 🔴 Populate `data/meta/teams.json` with all 64 teams, seeds, regions
-- [ ] 🔴 Run all 5 model scripts → output to `data/models/*.json`
+- [ ] 🔴 Run all 8 model scripts → output to `data/models/*.json` (see `docs/BRACKET_DAY_RUNBOOK.md`)
 - [ ] 🔴 Screen-record The Agent's Claude Code session
-- [ ] 🔴 Fill out 5 ESPN Tournament Challenge brackets
+- [ ] 🔴 Fill out 8 ESPN Tournament Challenge brackets
 - [ ] 🔴 Add ESPN bracket URLs to each model's JSON (`espnBracketUrl` field)
 - [ ] 🔴 Push all bracket data to site
 
 ### Content
-- [ ] 🔴 Write methodology blog post for each model (5 posts)
+- [ ] 🔴 Write methodology blog post for each model (8 posts)
 - [ ] 🔴 Write The Agent process narrative blog post
 - [ ] 🟡 Model comparison / consensus analysis for `/models` page
 
@@ -124,12 +127,15 @@
 
 ---
 
-## Model Scripts to Build
+## Model Scripts & Pipelines
 
-| Script | Language | Input | Output | Status |
-|--------|----------|-------|--------|--------|
-| `scripts/quant.py` | Python | BartTorvik/KenPom data | `the-quant.json` | Not started |
-| `scripts/historian.py` | Python | Historical DB + team profiles | `the-historian.json` | Not started |
-| `scripts/chaos.py` | Python | Team stats + upset factors | `the-chaos-agent.json` | Not started |
-| `scripts/scout_prompt.md` | Prompt | Matchup profiles | `the-scout.json` | Not started |
-| `scripts/agent_prompt.md` | Prompt | Minimal instruction | `the-agent.json` | Not started |
+| Script / Pipeline | Language | Input | Output | Status |
+|-------------------|----------|-------|--------|--------|
+| `scripts/quant.py` | Python | BartTorvik data | `the-quant.json` | Done |
+| `scripts/historian.py` | Python | Historical DB + BartTorvik | `the-historian.json` | Done |
+| `scripts/chaos.py` | Python | BartTorvik + upset factors + seed history | `the-chaos-agent.json` | Done |
+| `scripts/scout_export_context.py` | Python | BartTorvik + teams.json | Scout contexts for Claude Code | Done |
+| `scripts/agent_prompt.md` | Prompt | Minimal instruction | `the-agent.json` | Done |
+| `optimizer_agent/src/` | Python ML | BartTorvik + tournament history | `the-optimizer.json` | Done |
+| `super_agent/src/` | Python ML | BartTorvik + tournament history | `the-super-agent.json` | Done |
+| `scout_prime_agent/src/` | Python + Claude Code | BartTorvik + enriched profiles | `the-scout-prime.json` | Done |

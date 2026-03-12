@@ -1,0 +1,135 @@
+<div className="mb-14">
+  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
+    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#64748b'}}>Overview</span>
+    <span className="text-[20px] font-semibold text-[#f9fafb]">Quick Mental Model</span>
+  </div>
+
+  <div className="mb-7">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Core Philosophy</p>
+    <p className="text-[15px] text-[#ccc] leading-[1.75]">The Scout saw 6 factors per matchup. Scout Prime sees 30. Same underlying method — feed data to Claude, ask it to pick — but radically more context. Efficiency ratings, shooting splits, rebounding, turnovers, historical archetypes, coaching records, seed history, and pre-computed upset vulnerability scores. The hypothesis: if LLM synthesis works with limited data, it should work even better with saturated data.</p>
+  </div>
+
+  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Inputs</p>
+    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
+      <li>— Efficiency ratings (AdjO, AdjD, AdjEM, Barthag, WAB, SOS)</li>
+      <li>— Shooting profile (3pt%, 3pt rate, FT%, eFG%)</li>
+      <li>— Rebounding (offensive and defensive rebounding rates)</li>
+      <li>— Ball control (turnover rate, forced turnover rate)</li>
+      <li>— Close-game resilience (record in games decided by 5 or fewer)</li>
+      <li>— Momentum (last 10 record, conference tournament result)</li>
+      <li>— Coaching pedigree (tournament record, Final Fours, first-tournament flag)</li>
+      <li>— Historical archetypes (top 3 statistical twins from past tournaments)</li>
+      <li>— Seed matchup history (win rates by seed pairing, decade trends)</li>
+      <li>— Pre-computed upset vulnerability score per matchup</li>
+    </ul>
+  </div>
+
+  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Strengths</p>
+    <p className="text-[15px] text-[#ccc] leading-[1.75]">Maximum context per decision. While other models use subsets of available data, Scout Prime compiles everything into structured per-game packets and lets the LLM weigh all dimensions simultaneously. Historical archetype matching adds base rates — when a team's statistical twin went home in the first round three years in a row, that's signal.</p>
+  </div>
+
+  <div className="pt-5 border-t border-[#1e1e1e] mb-7">
+    <div className="rounded-md p-4" style={{borderLeft: '3px solid #64748b', backgroundColor: 'rgba(100,116,139,0.05)'}}>
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] mb-2" style={{color:'#64748b'}}>2026 Predicted Champion</p>
+      <p className="text-[16px] font-semibold text-[#f9fafb]">TBD — Locks March 19</p>
+      <p className="text-[13px] text-[#888] mt-1">All picks finalized after First Four play-in games.</p>
+    </div>
+  </div>
+
+  <div className="pt-5 border-t border-[#1e1e1e]">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Data Density Comparison</p>
+    <div className="space-y-3">
+      {[
+        {label: 'Efficiency Ratings', pct: 95},
+        {label: 'Shooting / Rebounding', pct: 85},
+        {label: 'Historical Archetypes', pct: 80},
+        {label: 'Coaching Pedigree', pct: 75},
+        {label: 'Upset Vulnerability', pct: 70},
+        {label: 'Momentum / Close Games', pct: 65},
+        {label: 'Seed History', pct: 60},
+        {label: 'Ball Control', pct: 55},
+      ].map(f => (
+        <div key={f.label}>
+          <div className="flex justify-between mb-1">
+            <span className="text-[12px] text-[#aaa]">{f.label}</span>
+            <span className="font-mono text-[11px] text-[#666]">{f.pct}%</span>
+          </div>
+          <div className="h-1.5 bg-[#222] rounded-full overflow-hidden">
+            <div className="h-full rounded-full" style={{width: `${f.pct}%`, backgroundColor: '#64748b'}} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<div>
+  <div className="flex items-center gap-3 mb-8 pb-3 border-b border-[#222]">
+    <span className="font-mono text-[10px] uppercase tracking-[2px]" style={{color:'#64748b'}}>Methodology</span>
+    <span className="text-[20px] font-semibold text-[#f9fafb]">The Actual Build</span>
+  </div>
+
+  <div className="mb-10">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-5">Process</p>
+    <div className="space-y-5">
+      {[
+        {n:'01', title:'Enrich team profiles', desc:'Every tournament team gets a mega-profile: BartTorvik efficiency data merged with coaching records, roster experience, shooting splits, rebounding rates, and conference tournament results. ~30 data points per team.'},
+        {n:'02', title:'Find historical twins', desc:'Each team is matched against every past tournament team (2010-present) using cosine similarity on normalized efficiency vectors. The top 3 statistical twins — and their actual tournament outcomes — are attached to the profile.'},
+        {n:'03', title:'Compute matchup dynamics', desc:'For each game, pre-compute efficiency gap, tempo mismatch analysis, rebounding edges, turnover margins, and an upset vulnerability score. These are injected alongside the raw stats so the LLM gets both data and interpretation.'},
+        {n:'04', title:'Run Claude per matchup', desc:'System prompt sets the analytical framework. Round context sets the stakes. Each matchup gets the full data dump: both team profiles + matchup dynamics + historical context. Claude returns a structured JSON pick with confidence and reasoning.'},
+        {n:'05', title:'Advance round by round', desc:'Winners advance. New matchup contexts are built for each subsequent round, including "how they got here" summaries. Each round prompt includes round-specific guidance (e.g., "Cinderellas die in the Sweet 16").'},
+      ].map(s => (
+        <div key={s.n} className="flex gap-4">
+          <span className="font-mono text-[13px] shrink-0 mt-0.5" style={{color:'#64748b'}}>{s.n}</span>
+          <div>
+            <p className="text-[14px] font-semibold text-[#efefef] mb-1">{s.title}</p>
+            <p className="text-[14px] text-[#888] leading-[1.65]">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Data Sources</p>
+    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
+      <li>— BartTorvik / T-Rank (efficiency ratings, shooting, rebounding, tempo)</li>
+      <li>— Historical tournament database (2010-2025 team profiles and results)</li>
+      <li>— Seed matchup history (win rates by seed pairing across 15 years)</li>
+      <li>— KenPom (cross-reference for efficiency rankings)</li>
+      <li>— Sports Reference (coaching records, tournament history)</li>
+    </ul>
+  </div>
+
+  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Key Assumptions</p>
+    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
+      <li>— More structured context improves LLM prediction quality over curated subsets</li>
+      <li>— Historical archetype matching provides useful base rates for tournament outcomes</li>
+      <li>— Pre-computed matchup dynamics help the LLM focus on the right factors per game</li>
+      <li>— Temperature 0.3 produces consistent, reasoned picks without excessive randomness</li>
+    </ul>
+  </div>
+
+  <div className="pt-6 border-t border-[#1e1e1e] mb-8">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-3">Limitations</p>
+    <ul className="text-[15px] text-[#ccc] leading-[1.75] space-y-1">
+      <li>— Data saturation may introduce noise. More data isn't always better — the LLM might overweight less predictive factors.</li>
+      <li>— Archetype matching assumes history repeats. Novel team profiles with no close historical twin may get misleading comparisons.</li>
+      <li>— One API call per game means 63 independent decisions. No global bracket optimization (unlike The Optimizer's EV approach).</li>
+      <li>— LLM name recognition bias is possible despite prompting against it.</li>
+    </ul>
+  </div>
+
+  <div className="pt-6 border-t border-[#1e1e1e]">
+    <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#888] mb-4">Example</p>
+    <div className="rounded-md p-5 bg-[#1a1a1a] border border-[#2a2a2a]">
+      <p className="font-mono text-[10px] uppercase tracking-[1.5px] text-[#555] mb-3">East Region — Round of 64</p>
+      <p className="text-[14px] text-[#aaa] mb-2">#4 Arizona vs #13 Yale</p>
+      <p className="text-[16px] font-semibold mb-3" style={{color:'#64748b'}}>Pick: Arizona — 72% confidence</p>
+      <p className="text-[13px] text-[#777] leading-[1.65]">Arizona's AdjEM advantage (+12.3) is decisive. Yale's archetype twins (2018 Loyola-Chicago, 2016 Hawaii) both had lower efficiency gaps at this stage. Yale's 3pt-dependent offense (38% of shots from 3) introduces variance, but Arizona's defensive rebounding rate (top 15 nationally) limits second chances. Upset vulnerability: 0.42 (low).</p>
+    </div>
+  </div>
+</div>
