@@ -5,18 +5,18 @@ import GameTicker from '@/components/GameTicker';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'The Bracket Lab — 5 AI Models. 1 Tournament.',
-  description: '5 AI models compete to predict March Madness 2026. Monte Carlo simulations, LLM scouting, historical archetypes, upset detection, and an autonomous AI agent. Track accuracy in real time.',
+  title: 'The Bracket Lab — 6 AI Models. 1 Tournament.',
+  description: '6 AI models compete to predict March Madness 2026. Monte Carlo simulations, LLM scouting, historical archetypes, upset detection, points optimization, and autonomous research. Track accuracy in real time.',
   openGraph: {
     title: 'The Bracket Lab',
-    description: '5 AI models. 1 tournament. Real-time tracking.',
+    description: '6 AI models. 1 tournament. Real-time tracking.',
     type: 'website',
     // TODO: Add OG image
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The Bracket Lab',
-    description: '5 AI models compete to predict March Madness 2026.',
+    description: '6 AI models compete to predict March Madness 2026.',
   },
 };
 

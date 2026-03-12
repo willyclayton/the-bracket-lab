@@ -1,5 +1,5 @@
 import ModelCard from '@/components/ModelCard';
-import { MODELS } from '@/lib/models';
+import { VISIBLE_MODELS } from '@/lib/models';
 
 export const metadata = {
   title: 'The Models — The Bracket Lab',
@@ -14,7 +14,7 @@ export default function ModelsPage() {
           Meet the Models
         </h1>
         <p className="text-lab-muted max-w-2xl">
-          Five fundamentally different approaches to predicting March Madness.
+          Six fundamentally different approaches to predicting March Madness.
           Each model sees the tournament through a completely different lens —
           where they agree, pay attention. Where they diverge, that&apos;s where it gets interesting.
         </p>
@@ -22,7 +22,7 @@ export default function ModelsPage() {
 
       {/* Model cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
-        {MODELS.map((model, i) => (
+        {VISIBLE_MODELS.map((model, i) => (
           <ModelCard key={model.id} model={model} index={i} />
         ))}
       </div>

@@ -58,7 +58,7 @@ export default function BlogClient({ posts }: { posts: BlogPostMeta[] }) {
       <div className="pt-10 pb-0">
         <h1 className="text-[32px] font-bold text-lab-white mb-1.5">The Lab Notes</h1>
         <p className="text-sm text-lab-muted">
-          Recaps, analysis, and the occasional eulogy from 5 AI models competing in March Madness 2026.
+          Recaps, analysis, and the occasional eulogy from 6 AI models competing in March Madness 2026.
         </p>
       </div>
 

@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Brackets — The Bracket Lab',
-  description: 'View and compare the March Madness 2026 brackets from all 5 AI models. Click any game to see the reasoning.',
+  description: 'View and compare the March Madness 2026 brackets from all 6 AI models. Click any game to see the reasoning.',
 };
 
 export default function BracketsPage() {

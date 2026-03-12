@@ -1,4 +1,4 @@
-import { MODELS } from '@/lib/models';
+import { VISIBLE_MODELS } from '@/lib/models';
 
 export const metadata = {
   title: 'About — The Bracket Lab',
@@ -15,7 +15,7 @@ export default function AboutPage() {
 
       <div className="prose space-y-6 mb-16">
         <p>
-          The Bracket Lab is an experiment: what happens when you pit five fundamentally
+          The Bracket Lab is an experiment: what happens when you pit six fundamentally
           different AI-powered prediction approaches against each other in the NCAA
           Tournament, then track their accuracy in real time?
         </p>
@@ -23,12 +23,13 @@ export default function AboutPage() {
           Each model sees the tournament through a completely different lens. One runs
           10,000 statistical simulations. Another evaluates matchups like a basketball
           scout. A third finds historical twins for every team. The fourth is
-          specifically engineered to find upsets. And the fifth? An autonomous AI agent
-          with zero instructions — it decided its own methodology.
+          specifically engineered to find upsets. The fifth optimizes for ESPN bracket
+          points. And the sixth? An autonomous research loop that tested 21 strategies
+          across 15 years of data.
         </p>
         <p>
           Every pick is locked before the tournament starts and verified via ESPN
-          Tournament Challenge. No retroactive edits. No cherry-picking. Just five
+          Tournament Challenge. No retroactive edits. No cherry-picking. Just six
           brackets, published in advance, tracked against reality.
         </p>
       </div>
@@ -77,7 +78,7 @@ export default function AboutPage() {
             All picks verified and locked via ESPN Tournament Challenge before the Round of 64.
           </p>
           <div className="space-y-2">
-            {MODELS.map((model) => (
+            {VISIBLE_MODELS.map((model) => (
               <div key={model.id} className="flex items-center justify-between py-2 border-b border-lab-border last:border-0">
                 <span className="text-sm font-medium" style={{ color: model.color }}>
                   {model.icon} {model.name}

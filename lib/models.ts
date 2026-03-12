@@ -11,6 +11,7 @@ export interface Model {
   icon: string; // emoji for now, swap for custom icons later
   description: string;
   espnBracketUrl?: string;
+  hidden?: boolean;
 }
 
 export const MODELS: Model[] = [
@@ -78,6 +79,7 @@ export const MODELS: Model[] = [
     glowClass: 'glow-agent',
     icon: '🤖',
     description: 'Claude Code pointed at the tournament with one instruction: figure it out. No methodology defined. The agent decides what matters. The story is the process.',
+    hidden: true,
   },
   {
     id: 'the-super-agent',
@@ -91,6 +93,7 @@ export const MODELS: Model[] = [
     glowClass: 'glow-superagent',
     icon: '🧠',
     description: 'Trains on a decade of tournament data, tests against a holdout year, and iterates across 3 research cycles. No cherrypicking — the model earns its bracket through measurable improvement.',
+    hidden: true,
   },
   {
     id: 'the-optimizer',
@@ -117,6 +120,7 @@ export const MODELS: Model[] = [
     glowClass: 'glow-scoutprime',
     icon: '🔬',
     description: 'The Scout saw 6 factors per matchup. Scout Prime sees 30. Same LLM analysis method, radically more data — efficiency ratings, shooting splits, rebounding, historical archetypes, coaching records, upset vulnerability scores. The question: does more intel mean better picks?',
+    hidden: true,
   },
   {
     id: 'the-auto-researcher',
@@ -132,6 +136,8 @@ export const MODELS: Model[] = [
     description: 'An autonomous research loop that tested 21 bracket strategies against 15 years of tournament data, trained an ML ensemble on 827 games, then used Monte Carlo optimization to find the single bracket that maximizes expected ESPN points. No human picks — just data, models, and math.',
   },
 ];
+
+export const VISIBLE_MODELS = MODELS.filter((m) => !m.hidden);
 
 export const MODEL_MAP = Object.fromEntries(MODELS.map((m) => [m.id, m]));
 

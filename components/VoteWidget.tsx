@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { MODELS } from '@/lib/models';
+import { VISIBLE_MODELS } from '@/lib/models';
 
 const STORAGE_KEY = 'bracket-lab-vote-2026';
 
@@ -24,7 +24,7 @@ export default function VoteWidget() {
     } else {
       // seed some initial counts so bar chart isn't empty
       const seed: Record<string, number> = {};
-      MODELS.forEach((m, i) => { seed[m.id] = [34, 28, 19, 12, 7][i] ?? 10; });
+      VISIBLE_MODELS.forEach((m, i) => { seed[m.id] = [34, 28, 19, 15, 12, 7][i] ?? 10; });
       setVotes(seed);
     }
   }, []);
@@ -58,7 +58,7 @@ export default function VoteWidget() {
       </div>
 
       <div className="space-y-3">
-        {MODELS.map((model) => {
+        {VISIBLE_MODELS.map((model) => {
           const count = votes[model.id] ?? 0;
           const pct = total > 0 ? Math.round((count / total) * 100) : 0;
           const isVoted = vote === model.id;

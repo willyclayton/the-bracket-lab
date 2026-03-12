@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { MODELS } from '@/lib/models';
+import { VISIBLE_MODELS } from '@/lib/models';
 
 interface Props {
   currentSlug: string;
@@ -17,9 +17,9 @@ export default function ModelNavStrip({ currentSlug }: Props) {
     }
   }, []);
 
-  const index = MODELS.findIndex((m) => m.slug === currentSlug);
-  const prevModel = index > 0 ? MODELS[index - 1] : null;
-  const nextModel = index < MODELS.length - 1 ? MODELS[index + 1] : null;
+  const index = VISIBLE_MODELS.findIndex((m) => m.slug === currentSlug);
+  const prevModel = index > 0 ? VISIBLE_MODELS[index - 1] : null;
+  const nextModel = index < VISIBLE_MODELS.length - 1 ? VISIBLE_MODELS[index + 1] : null;
 
   return (
     <div className="flex items-center gap-1 mb-6 overflow-x-auto pb-1">
@@ -39,7 +39,7 @@ export default function ModelNavStrip({ currentSlug }: Props) {
       )}
 
       {/* Model buttons */}
-      {MODELS.map((m) => {
+      {VISIBLE_MODELS.map((m) => {
         const isCurrent = m.slug === currentSlug;
         return (
           <Link

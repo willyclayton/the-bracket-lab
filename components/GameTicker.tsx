@@ -1,13 +1,14 @@
 'use client';
 
-import { MODELS } from '@/lib/models';
+import { VISIBLE_MODELS } from '@/lib/models';
 import { BracketData, Results } from '@/lib/types';
 
 import scoutData from '@/data/models/the-scout.json';
 import quantData from '@/data/models/the-quant.json';
 import historianData from '@/data/models/the-historian.json';
 import chaosData from '@/data/models/the-chaos-agent.json';
-import agentData from '@/data/models/the-agent.json';
+import optimizerData from '@/data/models/the-optimizer.json';
+import autoResearcherData from '@/data/models/the-auto-researcher.json';
 import results from '@/data/results/actual-results.json';
 
 const BRACKETS: Record<string, BracketData> = {
@@ -15,7 +16,8 @@ const BRACKETS: Record<string, BracketData> = {
   'the-quant': quantData as unknown as BracketData,
   'the-historian': historianData as unknown as BracketData,
   'the-chaos-agent': chaosData as unknown as BracketData,
-  'the-agent': agentData as unknown as BracketData,
+  'the-optimizer': optimizerData as unknown as BracketData,
+  'the-auto-researcher': autoResearcherData as unknown as BracketData,
 };
 
 const RESULTS = results as unknown as Results;
@@ -25,7 +27,8 @@ const MODEL_LETTERS: { id: string; letter: string; color: string }[] = [
   { id: 'the-quant', letter: 'Q', color: '#22c55e' },
   { id: 'the-historian', letter: 'H', color: '#f59e0b' },
   { id: 'the-chaos-agent', letter: 'C', color: '#ef4444' },
-  { id: 'the-agent', letter: 'A', color: '#00ff88' },
+  { id: 'the-optimizer', letter: 'O', color: '#06b6d4' },
+  { id: 'the-auto-researcher', letter: 'R', color: '#f97316' },
 ];
 
 const ROUND_ORDER = ['round_of_64', 'round_of_32', 'sweet_16', 'elite_8', 'final_four', 'championship'] as const;
@@ -51,7 +54,7 @@ function buildTickerItems(): TickerItem[] {
     const modelCorrect: Record<string, boolean> = {};
     let correctCount = 0;
 
-    for (const model of MODELS) {
+    for (const model of VISIBLE_MODELS) {
       let found = false;
       for (const roundKey of ROUND_ORDER) {
         const games = BRACKETS[model.id]?.rounds[roundKey as keyof BracketData['rounds']] ?? [];
@@ -83,7 +86,7 @@ function buildTickerItems(): TickerItem[] {
 }
 
 function hasAnyPicks(): boolean {
-  return MODELS.some((model) => {
+  return VISIBLE_MODELS.some((model) => {
     const bracket = BRACKETS[model.id];
     return ROUND_ORDER.some(
       (r) => (bracket?.rounds[r as keyof BracketData['rounds']] ?? []).length > 0
@@ -93,7 +96,7 @@ function hasAnyPicks(): boolean {
 
 function getMatchupPreviews(): { team1: string; seed1: number; team2: string; seed2: number }[] {
   // Pull R64 matchups from first model that has them
-  for (const model of MODELS) {
+  for (const model of VISIBLE_MODELS) {
     const r64 = BRACKETS[model.id]?.rounds.round_of_64 ?? [];
     if (r64.length > 0) {
       return r64.map((g) => ({ team1: g.team1, seed1: g.seed1, team2: g.team2, seed2: g.seed2 }));
@@ -163,7 +166,7 @@ export default function GameTicker() {
                       );
                     })}
                     <span className="font-mono text-[9px] text-[#666] ml-0.5">
-                      {item.correctCount}/5
+                      {item.correctCount}/6
                     </span>
                   </div>
 
@@ -219,7 +222,7 @@ export default function GameTicker() {
                 key={`${copy}-${i}`}
                 className="font-mono text-[11px] text-[#666] whitespace-nowrap flex-shrink-0"
               >
-                PICKS LOCK MARCH 19 &mdash; 5 AI models. 63 games. 1,920 possible points.
+                PICKS LOCK MARCH 19 &mdash; 6 AI models. 63 games. 1,920 possible points.
               </span>
             ))}
           </div>

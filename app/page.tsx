@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MODELS } from '@/lib/models';
+import { VISIBLE_MODELS } from '@/lib/models';
 import VoteWidget from '@/components/VoteWidget';
 import StatsBar from '@/components/StatsBar';
 import HomeModelCard from '@/components/HomeModelCard';
@@ -10,7 +10,6 @@ const CHAMPION_PICKS: Record<string, string> = {
   'the-quant':       'Houston',
   'the-historian':   'Duke',
   'the-chaos-agent': 'UC San Diego',
-  'the-agent':       'Auburn',
   'the-optimizer':   'TBD',
   'the-auto-researcher': 'TBD',
 };
@@ -21,7 +20,7 @@ export default function Home() {
   const isLive = today >= tournamentStart;
 
   // Pre-tournament: no scores yet
-  const leaderboardEntries = MODELS.map((model, i) => ({
+  const leaderboardEntries = VISIBLE_MODELS.map((model, i) => ({
     model,
     champion: CHAMPION_PICKS[model.id] ?? 'TBD',
     rank: i + 1,
@@ -50,7 +49,7 @@ export default function Home() {
         </h1>
 
         <p className="hero-fade-3 text-base text-lab-muted max-w-xl mx-auto mb-8 leading-relaxed px-6">
-          Five AI models built brackets five completely different ways.{' '}
+          Six AI models built brackets six completely different ways.{' '}
           <span className="text-lab-white font-semibold">
             Now we wait to see which one survived contact with reality.
           </span>
@@ -87,7 +86,7 @@ export default function Home() {
       {/* ---- Card grid ---- */}
       <section className="mx-auto max-w-[1200px] px-6 sm:px-10 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {MODELS.map((model) => (
+          {VISIBLE_MODELS.map((model) => (
             <HomeModelCard
               key={model.id}
               model={model}

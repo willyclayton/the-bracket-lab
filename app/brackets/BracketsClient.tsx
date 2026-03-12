@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { MODELS, ROUND_LABELS } from '@/lib/models';
+import { MODELS, VISIBLE_MODELS, ROUND_LABELS } from '@/lib/models';
 import { BracketData, Game, ResultGame, Results } from '@/lib/types';
 import { calculateScore } from '@/lib/scoring';
 import BracketCardsPanel, { REGIONS, type Region, type GamesByRegion } from '@/components/BracketCardsPanel';
@@ -122,7 +122,7 @@ export default function BracketsClient() {
   const activeYear: Year = VALID_YEARS.includes(yearParam as Year) ? (yearParam as Year) : '2026';
 
   const modelParam = searchParams.get('model');
-  const defaultModel = MODELS[0].id;
+  const defaultModel = VISIBLE_MODELS[0].id;
   const activeModelId = MODELS.find((m) => m.id === modelParam)?.id ?? defaultModel;
   const activeModel = MODELS.find((m) => m.id === activeModelId)!;
 
@@ -253,7 +253,7 @@ export default function BracketsClient() {
 
       {/* Model tabs */}
       <div className="flex border-b border-lab-border mb-0 overflow-x-auto">
-        {MODELS.map((model) => {
+        {VISIBLE_MODELS.map((model) => {
           const isActive = model.id === activeModelId;
           return (
             <button

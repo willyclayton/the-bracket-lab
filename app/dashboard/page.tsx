@@ -1,4 +1,4 @@
-import { MODELS } from '@/lib/models';
+import { VISIBLE_MODELS } from '@/lib/models';
 
 export const metadata = {
   title: 'Live Dashboard — The Bracket Lab',
@@ -19,7 +19,7 @@ export default function DashboardPage() {
           Tournament Dashboard
         </h1>
         <p className="text-lab-muted">
-          Real-time accuracy tracking across all 5 models.
+          Real-time accuracy tracking across all 6 models.
         </p>
       </div>
 
@@ -52,7 +52,7 @@ export default function DashboardPage() {
               </tr>
             </thead>
             <tbody>
-              {MODELS.map((model, i) => (
+              {VISIBLE_MODELS.map((model, i) => (
                 <tr key={model.id} className="border-b border-lab-border last:border-0">
                   <td className="px-4 py-3 font-mono text-lab-muted">{i + 1}</td>
                   <td className="px-4 py-3">
