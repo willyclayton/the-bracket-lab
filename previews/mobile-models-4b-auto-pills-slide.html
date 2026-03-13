@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option 4B: Color Pill Selector + Slide</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 20px; max-width: 420px; margin: 0 auto; }
+  h2 { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; text-align: center; }
+  .desc { text-align: center; color: #666; font-size: 12px; margin-bottom: 24px; }
+
+  /* Color pill selector */
+  .pill-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
+  .pill {
+    width: 36px; height: 36px; border-radius: 50%; border: 2px solid transparent;
+    cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; background: rgba(255,255,255,0.05);
+  }
+  .pill:hover { transform: scale(1.1); }
+  .pill.active { border-color: var(--mc); box-shadow: 0 0 12px var(--mc-glow); transform: scale(1.15); }
+
+  /* Slide container */
+  .slide-container { position: relative; overflow: hidden; border-radius: 16px; }
+  .slide-track {
+    display: flex; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .slide {
+    flex-shrink: 0; width: 100%;
+    border: 1px solid #333; border-radius: 16px; background: #1e1e1e; padding: 24px;
+  }
+
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .model-icon { font-size: 26px; }
+  .model-name { font-size: 20px; font-weight: 700; color: var(--mc); }
+  .subtitle { font-family: monospace; font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .tagline { font-style: italic; font-size: 14px; color: #888; margin-bottom: 16px; font-family: Georgia, serif; }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; background: rgba(30,30,30,0.6); padding: 16px;
+  }
+  .stat-label { font-family: monospace; font-size: 9px; text-transform: uppercase; color: #666; margin-bottom: 2px; }
+  .stat-value { font-family: monospace; font-size: 18px; font-weight: 600; }
+  .stat-value.colored { color: var(--mc); }
+  .progress-wrap { margin-bottom: 18px; }
+  .progress-meta { display: flex; justify-content: space-between; font-family: monospace; font-size: 9px; color: #666; margin-bottom: 4px; }
+  .progress-bar { width: 100%; height: 5px; background: #333; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 3px; background: var(--mc); }
+  .links { display: flex; gap: 20px; }
+  .links a { font-family: monospace; font-size: 12px; text-decoration: none; }
+  .link-primary { color: var(--mc); }
+  .link-secondary { color: #888; }
+
+  /* Swipe hint */
+  .swipe-hint { text-align: center; font-size: 11px; color: #555; margin-top: 12px; font-family: monospace; }
+
+  /* Counter */
+  .counter { text-align: center; font-family: monospace; font-size: 11px; color: #666; margin-top: 8px; }
+</style>
+</head>
+<body>
+  <h2>Option 4B: Color Pills + Slide</h2>
+  <p class="desc">Circular color-coded pills as selector. Cards slide horizontally. Auto-cycles every 5s, resets on interaction.</p>
+
+  <div class="pill-row" id="pills"></div>
+  <div class="slide-container">
+    <div class="slide-track" id="track"></div>
+  </div>
+  <div class="counter" id="counter">1 / 6</div>
+  <div class="swipe-hint">swipe or tap pills</div>
+
+  <script>
+    const models = [
+      { icon: '\u{1F3AC}', name: 'The Scout', sub: 'LLM Matchup Analyst', tag: 'Film room intelligence at machine speed.', color: '#3b82f6', champ: 'Florida' },
+      { icon: '\u{1F4CA}', name: 'The Quant', sub: 'Monte Carlo Simulation', tag: '10,000 simulations. Zero feelings.', color: '#22c55e', champ: 'Houston' },
+      { icon: '\u{1F4DC}', name: 'The Historian', sub: 'Archetype Matching', tag: 'Every team has a twin. History already played this game.', color: '#f59e0b', champ: 'Duke' },
+      { icon: '\u{1F525}', name: 'The Chaos Agent', sub: 'Upset Detector', tag: 'Your bracket is too safe. This one isn\'t.', color: '#ef4444', champ: 'UC San Diego' },
+      { icon: '\u{1F3AF}', name: 'The Optimizer', sub: 'ESPN Points Maximizer', tag: 'Every other model predicts games. This one plays the scoring system.', color: '#06b6d4', champ: 'TBD' },
+      { icon: '\u269B', name: 'The Auto Researcher', sub: 'Autonomous Strategy Optimizer', tag: '21 strategies tested. 14 years backtested. One bracket.', color: '#f97316', champ: 'TBD' },
+    ];
+
+    const pillsEl = document.getElementById('pills');
+    const track = document.getElementById('track');
+    const counter = document.getElementById('counter');
+
+    models.forEach((m, i) => {
+      // Pill
+      const pill = document.createElement('div');
+      pill.className = `pill${i === 0 ? ' active' : ''}`;
+      pill.style.setProperty('--mc', m.color);
+      pill.style.setProperty('--mc-glow', m.color + '66');
+      pill.innerHTML = m.icon;
+      pill.onclick = () => goTo(i);
+      pillsEl.appendChild(pill);
+
+      // Slide
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      slide.style.setProperty('--mc', m.color);
+      slide.innerHTML = `
+        <div class="card-header"><span class="model-icon">${m.icon}</span><span class="model-name">${m.name}</span></div>
+        <p class="subtitle">${m.sub}</p>
+        <p class="tagline">\u201C${m.tag}\u201D</p>
+        <div class="stats-grid">
+          <div><p class="stat-label">Score</p><p class="stat-value colored">\u2014</p></div>
+          <div><p class="stat-label">Accuracy</p><p class="stat-value">\u2014</p></div>
+          <div><p class="stat-label">Rank</p><p class="stat-value">\u2014</p></div>
+          <div><p class="stat-label">Champion</p><p class="stat-value">${m.champ}</p></div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-meta"><span>Progress</span><span>0 / 1920</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+        </div>
+        <div class="links">
+          <a href="#" class="link-primary">View bracket \u2192</a>
+          <a href="#" class="link-secondary">How it works \u2192</a>
+        </div>`;
+      track.appendChild(slide);
+    });
+
+    let current = 0, timer;
+
+    function goTo(idx) {
+      current = idx;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      document.querySelectorAll('.pill').forEach((p, i) => p.classList.toggle('active', i === idx));
+      counter.textContent = `${idx + 1} / ${models.length}`;
+      resetTimer();
+    }
+
+    function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo((current + 1) % models.length), 5000); }
+
+    // Touch swipe
+    let startX;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) goTo(Math.max(0, Math.min(models.length - 1, current + (diff > 0 ? 1 : -1))));
+    });
+
+    resetTimer();
+  </script>
+</body>
+</html>

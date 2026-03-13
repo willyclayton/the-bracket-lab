@@ -3,6 +3,7 @@ import { VISIBLE_MODELS } from '@/lib/models';
 import VoteWidget from '@/components/VoteWidget';
 import StatsBar from '@/components/StatsBar';
 import HomeModelCard from '@/components/HomeModelCard';
+import HomeModelStrip from '@/components/HomeModelStrip';
 import HomeLeaderboard from '@/components/HomeLeaderboard';
 
 const CHAMPION_PICKS: Record<string, string> = {
@@ -83,9 +84,19 @@ export default function Home() {
         <StatsBar isLive={isLive} />
       </section>
 
-      {/* ---- Card grid ---- */}
-      <section className="mx-auto max-w-[1200px] px-6 sm:px-10 mb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* ---- Model strip (mobile) ---- */}
+      <section className="md:hidden mx-auto max-w-[1200px] px-6 mb-12">
+        <HomeModelStrip
+          entries={VISIBLE_MODELS.map((model) => ({
+            model,
+            champion: CHAMPION_PICKS[model.id] ?? 'TBD',
+          }))}
+        />
+      </section>
+
+      {/* ---- Card grid (tablet+) ---- */}
+      <section className="hidden md:block mx-auto max-w-[1200px] px-6 sm:px-10 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
           {VISIBLE_MODELS.map((model) => (
             <HomeModelCard
               key={model.id}

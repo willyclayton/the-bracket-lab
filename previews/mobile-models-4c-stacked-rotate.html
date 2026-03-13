@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option 4C: Stacked Cards with Rotation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 20px; max-width: 420px; margin: 0 auto; }
+  h2 { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; text-align: center; }
+  .desc { text-align: center; color: #666; font-size: 12px; margin-bottom: 24px; }
+
+  .stack-container { position: relative; height: 380px; margin-bottom: 20px; }
+
+  .stack-card {
+    position: absolute; top: 0; left: 0; right: 0;
+    border: 1px solid #333; border-radius: 16px; background: #1e1e1e; padding: 24px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .model-icon { font-size: 26px; }
+  .model-name { font-size: 20px; font-weight: 700; color: var(--mc); }
+  .subtitle { font-family: monospace; font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .tagline { font-style: italic; font-size: 14px; color: #888; margin-bottom: 16px; font-family: Georgia, serif; }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; background: rgba(30,30,30,0.6); padding: 16px;
+  }
+  .stat-label { font-family: monospace; font-size: 9px; text-transform: uppercase; color: #666; margin-bottom: 2px; }
+  .stat-value { font-family: monospace; font-size: 18px; font-weight: 600; }
+  .stat-value.colored { color: var(--mc); }
+  .links { display: flex; gap: 20px; }
+  .links a { font-family: monospace; font-size: 12px; text-decoration: none; }
+  .link-primary { color: var(--mc); }
+  .link-secondary { color: #888; }
+
+  .nav-row { display: flex; justify-content: center; align-items: center; gap: 20px; }
+  .nav-btn {
+    background: none; border: 1px solid #444; color: #888; border-radius: 50%;
+    width: 36px; height: 36px; font-size: 16px; cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-btn:hover { border-color: #efefef; color: #efefef; }
+  .counter { font-family: monospace; font-size: 13px; color: #888; min-width: 40px; text-align: center; }
+</style>
+</head>
+<body>
+  <h2>Option 4C: Stacked Cards</h2>
+  <p class="desc">Cards stacked with depth effect. Top card visible, others peek from behind. Auto-rotates every 5s. Tap arrows or swipe to navigate.</p>
+
+  <div class="stack-container" id="stack"></div>
+  <div class="nav-row">
+    <button class="nav-btn" onclick="prev()">&larr;</button>
+    <span class="counter" id="counter">1 / 6</span>
+    <button class="nav-btn" onclick="next()">&rarr;</button>
+  </div>
+
+  <script>
+    const models = [
+      { icon: '\u{1F3AC}', name: 'The Scout', sub: 'LLM Matchup Analyst', tag: 'Film room intelligence at machine speed.', color: '#3b82f6', champ: 'Florida' },
+      { icon: '\u{1F4CA}', name: 'The Quant', sub: 'Monte Carlo Simulation', tag: '10,000 simulations. Zero feelings.', color: '#22c55e', champ: 'Houston' },
+      { icon: '\u{1F4DC}', name: 'The Historian', sub: 'Archetype Matching', tag: 'Every team has a twin. History already played this game.', color: '#f59e0b', champ: 'Duke' },
+      { icon: '\u{1F525}', name: 'The Chaos Agent', sub: 'Upset Detector', tag: 'Your bracket is too safe. This one isn\'t.', color: '#ef4444', champ: 'UC San Diego' },
+      { icon: '\u{1F3AF}', name: 'The Optimizer', sub: 'ESPN Points Maximizer', tag: 'Every other model predicts games. This one plays the scoring system.', color: '#06b6d4', champ: 'TBD' },
+      { icon: '\u269B', name: 'The Auto Researcher', sub: 'Autonomous Strategy Optimizer', tag: '21 strategies tested. 14 years backtested. One bracket.', color: '#f97316', champ: 'TBD' },
+    ];
+
+    const stack = document.getElementById('stack');
+    const counter = document.getElementById('counter');
+    const cards = [];
+
+    models.forEach((m, i) => {
+      const card = document.createElement('div');
+      card.className = 'stack-card';
+      card.style.setProperty('--mc', m.color);
+      card.innerHTML = `
+        <div class="card-header"><span class="model-icon">${m.icon}</span><span class="model-name">${m.name}</span></div>
+        <p class="subtitle">${m.sub}</p>
+        <p class="tagline">\u201C${m.tag}\u201D</p>
+        <div class="stats-grid">
+          <div><p class="stat-label">Score</p><p class="stat-value colored">\u2014</p></div>
+          <div><p class="stat-label">Accuracy</p><p class="stat-value">\u2014</p></div>
+          <div><p class="stat-label">Rank</p><p class="stat-value">\u2014</p></div>
+          <div><p class="stat-label">Champion</p><p class="stat-value">${m.champ}</p></div>
+        </div>
+        <div class="links">
+          <a href="#" class="link-primary">View bracket \u2192</a>
+          <a href="#" class="link-secondary">How it works \u2192</a>
+        </div>`;
+      stack.appendChild(card);
+      cards.push(card);
+    });
+
+    let current = 0, timer;
+
+    function layout() {
+      cards.forEach((card, i) => {
+        const offset = ((i - current) + models.length) % models.length;
+        if (offset === 0) {
+          card.style.transform = 'translateY(0) scale(1)';
+          card.style.opacity = '1';
+          card.style.zIndex = models.length;
+          card.style.borderColor = models[i].color;
+        } else if (offset === 1 || offset === models.length - 1) {
+          const dir = offset === 1 ? 1 : -1;
+          card.style.transform = `translateY(${8}px) scale(0.96)`;
+          card.style.opacity = '0.5';
+          card.style.zIndex = models.length - 1;
+          card.style.borderColor = '#333';
+        } else if (offset === 2 || offset === models.length - 2) {
+          card.style.transform = `translateY(${16}px) scale(0.92)`;
+          card.style.opacity = '0.25';
+          card.style.zIndex = models.length - 2;
+          card.style.borderColor = '#333';
+        } else {
+          card.style.transform = 'translateY(20px) scale(0.88)';
+          card.style.opacity = '0';
+          card.style.zIndex = 0;
+          card.style.borderColor = '#333';
+        }
+      });
+      counter.textContent = `${current + 1} / ${models.length}`;
+    }
+
+    function goTo(idx) { current = idx; layout(); resetTimer(); }
+    function next() { goTo((current + 1) % models.length); }
+    function prev() { goTo((current - 1 + models.length) % models.length); }
+    function resetTimer() { clearInterval(timer); timer = setInterval(next, 5000); }
+
+    // Swipe
+    let startX;
+    stack.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+    stack.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+    });
+
+    layout();
+    resetTimer();
+  </script>
+</body>
+</html>

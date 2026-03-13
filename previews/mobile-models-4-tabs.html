@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option 4: Tab Switcher</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 20px; max-width: 420px; margin: 0 auto; }
+  h2 { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; text-align: center; }
+  .desc { text-align: center; color: #666; font-size: 12px; margin-bottom: 24px; }
+
+  /* Scrollable tab bar */
+  .tab-bar {
+    display: flex; gap: 0; overflow-x: auto; border-bottom: 1px solid #333;
+    margin-bottom: 20px; -webkit-overflow-scrolling: touch;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+
+  .tab {
+    flex-shrink: 0; padding: 10px 14px; cursor: pointer; border: none; background: none;
+    font-family: inherit; font-size: 13px; font-weight: 600; color: #666;
+    border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap;
+  }
+  .tab:hover { color: #aaa; }
+  .tab.active { color: var(--mc); border-bottom-color: var(--mc); }
+
+  /* Tab panels */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .panel-card {
+    border: 1px solid #333; border-radius: 16px; background: #1e1e1e;
+    padding: 24px; overflow: hidden;
+  }
+
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .model-icon { font-size: 26px; }
+  .model-name { font-size: 20px; font-weight: 700; color: var(--mc); }
+  .subtitle { font-family: monospace; font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
+  .tagline { font-style: italic; font-size: 14px; color: #888; margin-bottom: 16px; font-family: Georgia, serif; line-height: 1.4; }
+
+  .description { font-size: 13px; color: #aaa; line-height: 1.5; margin-bottom: 18px; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; background: rgba(30,30,30,0.6);
+    backdrop-filter: blur(20px); padding: 16px;
+  }
+  .stat-label { font-family: monospace; font-size: 9px; text-transform: uppercase; color: #666; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .stat-value { font-family: monospace; font-size: 18px; font-weight: 600; }
+  .stat-value.colored { color: var(--mc); }
+
+  .progress-wrap { margin-bottom: 18px; }
+  .progress-meta { display: flex; justify-content: space-between; font-family: monospace; font-size: 9px; color: #666; margin-bottom: 4px; }
+  .progress-bar { width: 100%; height: 5px; background: #333; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 3px; background: var(--mc); }
+
+  .links { display: flex; gap: 20px; }
+  .links a { font-family: monospace; font-size: 12px; text-decoration: none; }
+  .link-primary { color: var(--mc); }
+  .link-secondary { color: #888; }
+</style>
+</head>
+<body>
+  <h2>Option 4: Tab Switcher</h2>
+  <p class="desc">Scrollable tab bar at top. One full model card visible at a time. Same card content, zero scroll bloat.</p>
+
+  <div class="tab-bar">
+    <button class="tab active" style="--mc: #3b82f6" onclick="showTab(0, this)">&#127916; Scout</button>
+    <button class="tab" style="--mc: #22c55e" onclick="showTab(1, this)">&#128202; Quant</button>
+    <button class="tab" style="--mc: #f59e0b" onclick="showTab(2, this)">&#128220; Historian</button>
+    <button class="tab" style="--mc: #ef4444" onclick="showTab(3, this)">&#128293; Chaos</button>
+    <button class="tab" style="--mc: #06b6d4" onclick="showTab(4, this)">&#127919; Optimizer</button>
+    <button class="tab" style="--mc: #f97316" onclick="showTab(5, this)">&#9883; Auto</button>
+  </div>
+
+  <div class="panel active" style="--mc: #3b82f6;">
+    <div class="panel-card">
+      <div class="card-header">
+        <span class="model-icon">&#127916;</span>
+        <span class="model-name">The Scout</span>
+      </div>
+      <p class="subtitle">LLM Matchup Analyst</p>
+      <p class="tagline">"Film room intelligence at machine speed."</p>
+      <p class="description">Uses Claude to break down every matchup like a film-room session. Evaluates tempo, defensive style, guard play, coaching, and intangibles to make game-by-game picks through the bracket.</p>
+      <div class="stats-grid">
+        <div><p class="stat-label">Score</p><p class="stat-value colored">&mdash;</p></div>
+        <div><p class="stat-label">Accuracy</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Rank</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Champion</p><p class="stat-value">Florida</p></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Progress</span><span>0 / 1920</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+      </div>
+      <div class="links">
+        <a href="#" class="link-primary">View bracket &rarr;</a>
+        <a href="#" class="link-secondary">How it works &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="--mc: #22c55e;">
+    <div class="panel-card">
+      <div class="card-header">
+        <span class="model-icon">&#128202;</span>
+        <span class="model-name">The Quant</span>
+      </div>
+      <p class="subtitle">Monte Carlo Simulation</p>
+      <p class="tagline">"10,000 simulations. Zero feelings."</p>
+      <p class="description">Runs 10,000 Monte Carlo tournament simulations using team efficiency metrics, then picks the most likely winner of each game across the full bracket.</p>
+      <div class="stats-grid">
+        <div><p class="stat-label">Score</p><p class="stat-value colored">&mdash;</p></div>
+        <div><p class="stat-label">Accuracy</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Rank</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Champion</p><p class="stat-value">Houston</p></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Progress</span><span>0 / 1920</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+      </div>
+      <div class="links">
+        <a href="#" class="link-primary">View bracket &rarr;</a>
+        <a href="#" class="link-secondary">How it works &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="--mc: #f59e0b;">
+    <div class="panel-card">
+      <div class="card-header">
+        <span class="model-icon">&#128220;</span>
+        <span class="model-name">The Historian</span>
+      </div>
+      <p class="subtitle">Archetype Matching</p>
+      <p class="tagline">"Every team has a twin. History already played this game."</p>
+      <p class="description">Matches each 2026 team to historical tournament teams using cosine similarity on statistical profiles, then predicts outcomes based on how those historical twins actually performed.</p>
+      <div class="stats-grid">
+        <div><p class="stat-label">Score</p><p class="stat-value colored">&mdash;</p></div>
+        <div><p class="stat-label">Accuracy</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Rank</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Champion</p><p class="stat-value">Duke</p></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Progress</span><span>0 / 1920</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+      </div>
+      <div class="links">
+        <a href="#" class="link-primary">View bracket &rarr;</a>
+        <a href="#" class="link-secondary">How it works &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="--mc: #ef4444;">
+    <div class="panel-card">
+      <div class="card-header">
+        <span class="model-icon">&#128293;</span>
+        <span class="model-name">The Chaos Agent</span>
+      </div>
+      <p class="subtitle">Upset Detector</p>
+      <p class="tagline">"Your bracket is too safe. This one isn't."</p>
+      <p class="description">Combines historical upset frequency by seed matchup with team-specific &ldquo;upset factors&rdquo; &mdash; tempo variance, defensive inconsistency, and experience gaps &mdash; to identify the most likely bracket-busters.</p>
+      <div class="stats-grid">
+        <div><p class="stat-label">Score</p><p class="stat-value colored">&mdash;</p></div>
+        <div><p class="stat-label">Accuracy</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Rank</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Champion</p><p class="stat-value">UC San Diego</p></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Progress</span><span>0 / 1920</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+      </div>
+      <div class="links">
+        <a href="#" class="link-primary">View bracket &rarr;</a>
+        <a href="#" class="link-secondary">How it works &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="--mc: #06b6d4;">
+    <div class="panel-card">
+      <div class="card-header">
+        <span class="model-icon">&#127919;</span>
+        <span class="model-name">The Optimizer</span>
+      </div>
+      <p class="subtitle">ESPN Points Maximizer</p>
+      <p class="tagline">"Every other model predicts games. This one plays the scoring system."</p>
+      <p class="description">Optimizes specifically for ESPN Tournament Challenge scoring, weighting later-round picks more heavily and targeting the bracket that maximizes expected total points.</p>
+      <div class="stats-grid">
+        <div><p class="stat-label">Score</p><p class="stat-value colored">&mdash;</p></div>
+        <div><p class="stat-label">Accuracy</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Rank</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Champion</p><p class="stat-value">TBD</p></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Progress</span><span>0 / 1920</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+      </div>
+      <div class="links">
+        <a href="#" class="link-primary">View bracket &rarr;</a>
+        <a href="#" class="link-secondary">How it works &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="--mc: #f97316;">
+    <div class="panel-card">
+      <div class="card-header">
+        <span class="model-icon">&#9883;</span>
+        <span class="model-name">The Auto Researcher</span>
+      </div>
+      <p class="subtitle">Autonomous Strategy Optimizer</p>
+      <p class="tagline">"21 strategies tested. 14 years backtested. One bracket."</p>
+      <p class="description">A fully autonomous ML pipeline that tests multiple feature engineering strategies, backtests against 14 years of tournament data, and picks the best-performing ensemble for the final bracket.</p>
+      <div class="stats-grid">
+        <div><p class="stat-label">Score</p><p class="stat-value colored">&mdash;</p></div>
+        <div><p class="stat-label">Accuracy</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Rank</p><p class="stat-value">&mdash;</p></div>
+        <div><p class="stat-label">Champion</p><p class="stat-value">TBD</p></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-meta"><span>Progress</span><span>0 / 1920</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+      </div>
+      <div class="links">
+        <a href="#" class="link-primary">View bracket &rarr;</a>
+        <a href="#" class="link-secondary">How it works &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(idx, btn) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.panel')[idx].classList.add('active');
+    }
+  </script>
+</body>
+</html>

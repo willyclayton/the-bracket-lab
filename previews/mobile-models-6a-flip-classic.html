@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option 6A: Classic 3D Flip Cards</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 20px; max-width: 420px; margin: 0 auto; }
+  h2 { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; text-align: center; }
+  .desc { text-align: center; color: #666; font-size: 12px; margin-bottom: 24px; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  .flip-container { perspective: 800px; height: 200px; cursor: pointer; }
+  .flipper {
+    position: relative; width: 100%; height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  .flip-container.flipped .flipper { transform: rotateY(180deg); }
+
+  .front, .back {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border: 1px solid #333; border-radius: 14px; background: #1e1e1e;
+    padding: 16px; overflow: hidden;
+  }
+  .back { transform: rotateY(180deg); }
+
+  /* Front: Identity */
+  .front-icon { font-size: 32px; margin-bottom: 8px; }
+  .front-name { font-size: 15px; font-weight: 700; color: var(--mc); margin-bottom: 4px; }
+  .front-sub { font-family: monospace; font-size: 9px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .front-tagline { font-style: italic; font-size: 11px; color: #888; font-family: Georgia, serif; line-height: 1.3; margin-bottom: 12px; }
+  .flip-hint { font-family: monospace; font-size: 9px; color: #555; position: absolute; bottom: 12px; right: 14px; }
+
+  /* Back: Stats */
+  .back-header { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+  .back-icon { font-size: 18px; }
+  .back-name { font-size: 13px; font-weight: 700; color: var(--mc); }
+
+  .back-stat { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #2a2a2a; }
+  .back-stat:last-of-type { border-bottom: none; }
+  .back-stat-label { font-family: monospace; font-size: 9px; text-transform: uppercase; color: #666; }
+  .back-stat-value { font-family: monospace; font-size: 15px; font-weight: 600; }
+  .back-stat-value.colored { color: var(--mc); }
+
+  .back-progress { width: 100%; height: 4px; background: #2a2a2a; border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .back-progress-fill { height: 100%; border-radius: 2px; background: var(--mc); }
+
+  .back-link { display: block; font-family: monospace; font-size: 10px; color: var(--mc); text-decoration: none; margin-top: 8px; text-align: center; }
+</style>
+</head>
+<body>
+  <h2>Option 6A: Classic 3D Flip</h2>
+  <p class="desc">2-col grid. Front: icon, name, tagline. Back: stats + champion + progress bar. Tap to flip. Full 3D rotation.</p>
+
+  <div class="grid" id="grid"></div>
+
+  <script>
+    const models = [
+      { icon: '\u{1F3AC}', name: 'The Scout', sub: 'LLM Matchup Analyst', tag: 'Film room intelligence at machine speed.', color: '#3b82f6', champ: 'Florida' },
+      { icon: '\u{1F4CA}', name: 'The Quant', sub: 'Monte Carlo Simulation', tag: '10,000 simulations. Zero feelings.', color: '#22c55e', champ: 'Houston' },
+      { icon: '\u{1F4DC}', name: 'The Historian', sub: 'Archetype Matching', tag: 'Every team has a twin. History already played this game.', color: '#f59e0b', champ: 'Duke' },
+      { icon: '\u{1F525}', name: 'The Chaos Agent', sub: 'Upset Detector', tag: 'Your bracket is too safe. This one isn\'t.', color: '#ef4444', champ: 'UC San Diego' },
+      { icon: '\u{1F3AF}', name: 'The Optimizer', sub: 'ESPN Points Maximizer', tag: 'Plays the scoring system, not the games.', color: '#06b6d4', champ: 'TBD' },
+      { icon: '\u269B', name: 'Auto Researcher', sub: 'Strategy Optimizer', tag: '21 strategies. 14 years backtested. One bracket.', color: '#f97316', champ: 'TBD' },
+    ];
+
+    const grid = document.getElementById('grid');
+    models.forEach(m => {
+      const container = document.createElement('div');
+      container.className = 'flip-container';
+      container.style.setProperty('--mc', m.color);
+      container.onclick = () => container.classList.toggle('flipped');
+      container.innerHTML = `
+        <div class="flipper">
+          <div class="front">
+            <div class="front-icon">${m.icon}</div>
+            <div class="front-name">${m.name}</div>
+            <div class="front-sub">${m.sub}</div>
+            <div class="front-tagline">\u201C${m.tag}\u201D</div>
+            <div class="flip-hint">tap to flip \u21BB</div>
+          </div>
+          <div class="back">
+            <div class="back-header">
+              <span class="back-icon">${m.icon}</span>
+              <span class="back-name">${m.name}</span>
+            </div>
+            <div class="back-stat"><span class="back-stat-label">Score</span><span class="back-stat-value colored">\u2014</span></div>
+            <div class="back-stat"><span class="back-stat-label">Accuracy</span><span class="back-stat-value">\u2014</span></div>
+            <div class="back-stat"><span class="back-stat-label">Rank</span><span class="back-stat-value">\u2014</span></div>
+            <div class="back-stat"><span class="back-stat-label">Champion</span><span class="back-stat-value">${m.champ}</span></div>
+            <div class="back-progress"><div class="back-progress-fill" style="width:0%"></div></div>
+            <a href="#" class="back-link">View bracket \u2192</a>
+          </div>
+        </div>`;
+      grid.appendChild(container);
+    });
+  </script>
+</body>
+</html>
