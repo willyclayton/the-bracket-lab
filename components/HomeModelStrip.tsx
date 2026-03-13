@@ -30,6 +30,7 @@ export default function HomeModelStrip({ entries }: { entries: ModelEntry[] }) {
   const [active, setActive] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const miniRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const stripRef = useRef<HTMLDivElement | null>(null);
 
   const resetTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
@@ -45,13 +46,15 @@ export default function HomeModelStrip({ entries }: { entries: ModelEntry[] }) {
     };
   }, [resetTimer]);
 
-  // Scroll active mini into view
+  // Scroll strip horizontally to keep active mini centered (without moving the page)
   useEffect(() => {
-    miniRefs.current[active]?.scrollIntoView({
-      behavior: 'smooth',
-      inline: 'center',
-      block: 'nearest',
-    });
+    const strip = stripRef.current;
+    const mini = miniRefs.current[active];
+    if (!strip || !mini) return;
+    const stripRect = strip.getBoundingClientRect();
+    const miniRect = mini.getBoundingClientRect();
+    const offset = miniRect.left - stripRect.left - (stripRect.width / 2) + (miniRect.width / 2);
+    strip.scrollBy({ left: offset, behavior: 'smooth' });
   }, [active]);
 
   const goTo = (idx: number) => {
@@ -68,6 +71,7 @@ export default function HomeModelStrip({ entries }: { entries: ModelEntry[] }) {
     <div>
       {/* Mini-card strip */}
       <div
+        ref={stripRef}
         className="flex gap-2 overflow-x-auto pb-3 mb-4 scrollbar-hide"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
