@@ -235,10 +235,9 @@ export default function BracketGridPanel({
   const championship = ffGames['championship'] ?? [];
 
   // Split FF games: south-west feeds left, east-midwest feeds right
-  const leftFF = finalFour.find((g) => g.gameId.includes('south') || g.gameId.includes('west')) ?? finalFour[0] ?? null;
-  const rightFF = finalFour.find((g) => g.gameId.includes('east') || g.gameId.includes('midwest')) ?? finalFour[1] ?? null;
-  // Avoid duplicates if IDs don't match expected pattern
-  const resolvedRightFF = rightFF && rightFF.gameId === leftFF?.gameId ? (finalFour[1] ?? null) : rightFF;
+  // Use exact substring 'south-west' / 'east-midwest' to avoid 'west' matching 'midwest'
+  const leftFF = finalFour.find((g) => g.gameId.includes('south-west')) ?? finalFour[0] ?? null;
+  const rightFF = finalFour.find((g) => g.gameId.includes('east-midwest')) ?? (finalFour.find((g) => g.gameId !== leftFF?.gameId) ?? finalFour[1] ?? null);
 
   // Determine champion correctness
   const champGame = championship[0];
@@ -333,12 +332,12 @@ export default function BracketGridPanel({
             <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] text-center mb-1">
               F4
             </div>
-            {resolvedRightFF && (
+            {rightFF && (
               <MatchupSlot
-                game={resolvedRightFF}
+                game={rightFF}
                 modelColor={modelColor}
-                isHighlighted={highlightedMatchId === resolvedRightFF.gameId}
-                onClick={() => onMatchClick(resolvedRightFF.gameId, resolvedRightFF, 'Final Four')}
+                isHighlighted={highlightedMatchId === rightFF.gameId}
+                onClick={() => onMatchClick(rightFF.gameId, rightFF, 'Final Four')}
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
                 bustedModelPicks={bustedModelPicks}
