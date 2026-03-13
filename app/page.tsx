@@ -77,6 +77,15 @@ export default function Home() {
             Blog &amp; Recaps
           </Link>
         </div>
+
+        <div className="hero-fade-4 mt-5">
+          <Link
+            href="/blog/why-i-built-this"
+            className="text-sm text-lab-muted hover:text-lab-white transition-colors"
+          >
+            Read why I built this &rarr;
+          </Link>
+        </div>
       </section>
 
       {/* ---- Stats bar ---- */}
