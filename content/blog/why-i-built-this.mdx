@@ -2,50 +2,45 @@
 title: "Why I Built This"
 date: "2026-03-10"
 type: "analysis"
-excerpt: "Six AI models. One bracket. Let's see who wins. The honest story behind The Bracket Lab."
+excerpt: "A conversation with a friend, a week of building, and one question: can AI actually fill out a bracket?"
 ---
 
-In late February I had a free weekend and a question I couldn't stop thinking about: do different AI modeling approaches actually produce meaningfully different outcomes when applied to the same prediction problem?
+This started with a phone call.
 
-March Madness is a good test case. The problem is well-defined (63 games, one winner each), the data is public (efficiency ratings, seeds, historical results), the outcomes are verified and timestamped, and there's a clear scoring system (ESPN Tournament Challenge). You can run six different approaches, lock the picks before tip-off, and see what happens.
+My buddy Jack Gorman floated an idea: what if you ran a bunch of AI models against a March Madness bracket and tracked how they did? Not as a gimmick -- as a real experiment. Different approaches, locked picks, verified results.
 
-So I built this.
+I couldn't stop thinking about it.
 
-## Six Models, One Tournament
+---
 
-Each model represents a different approach to the same prediction problem:
+## The Question
 
-- **The Scout** uses an LLM as a contextual analyst, synthesizing qualitative factors that don't fit in a regression
-- **The Quant** runs 10,000 Monte Carlo simulations on efficiency data
-- **The Historian** matches 2026 teams to their closest historical archetypes
-- **The Chaos Agent** scores upset vulnerability and picks the contrarian bracket
-- **The Optimizer** doesn't predict the most correct bracket — it maximizes expected ESPN bracket points
-- **The Auto Researcher** is autonomous — given a directive and tools, it decided its own methodology
+I work in AI consulting. I spend my days helping companies figure out what these tools can and can't do. But I'd never stress-tested them against something this clean -- 63 games, public data, binary outcomes, a universal scoring system. March Madness is a near-perfect AI benchmark hiding in plain sight.
 
-None of these are novel ideas in isolation. People have built efficiency-based models and LLM scouts before. The interesting part is putting them head-to-head on the same bracket, with verified picks locked before games start, and tracking the results in real time.
+So I wanted to know: **do different AI approaches actually produce meaningfully different predictions?** And if so, which ones hold up when the games start?
 
-## What I'm Actually Trying to Learn
+## One Week
 
-A few things:
+I built the entire site in under a week. Five models (now eight), a scoring engine, bracket visualizations, a blog, a leaderboard -- all running on Next.js and Vercel. Every model pipeline, from Monte Carlo simulations to autonomous research agents, was written and tested against historical data.
 
-**Do different approaches produce meaningfully different brackets?** If six models all pick the same Final Four, the methodology differences don't matter that much at the outcome level. If they diverge significantly, that tells you something about how much the choice of approach matters.
+That's not a brag about speed. It's a statement about what's possible right now with AI-assisted development. Claude Code wrote a significant chunk of this codebase. The models that generate the brackets are powered by LLMs. The tool I used to build the thing *is* the thing I'm testing.
 
-**Does the autonomous agent perform differently than the designed algorithms?** The Auto Researcher chose its own methodology. Whether that produces better or worse results than the hand-crafted approaches is the core experimental question.
+## What I'm Trying to Learn
 
-**Where do models agree vs. disagree?** Consensus picks are interesting — if all six models pick the same team, that's a signal. Divergence is equally interesting. The site shows both.
+A few things, honestly:
 
-## The Integrity Layer
+**How far can I push AI as a prediction tool?** Not toy demos -- real predictions, locked in advance, scored against reality. No take-backs.
 
-The whole concept falls apart if picks aren't verifiably locked before games start. Every model has an ESPN Tournament Challenge entry submitted before March 20 tip-off, with timestamps. That's the proof layer.
+**Where do models agree and disagree?** When eight different approaches all pick the same team, that's a signal. When they diverge, the *why* is usually more interesting than the *who*.
 
-Results data is sourced from ESPN and NCAA.com only — never AI-generated. The models predict. The results are real.
+**Can this actually help someone win their pool?** I built this hoping my friends can use it to fill out better brackets. Not mine, though -- I'll fill mine out the old-fashioned way and probably lose to someone who picked based on mascot vibes.
 
-## The Portfolio Layer
+## The Rules
 
-I'll be honest: I also built this because I wanted a live project that demonstrates end-to-end AI system design. Six different modeling approaches, a scoring engine, real-time tracking, content infrastructure. It took about two weeks of evening/weekend work in Next.js, and it runs on Vercel with zero ongoing infrastructure cost.
+Every model has an ESPN Tournament Challenge entry locked before tip-off. That's the timestamp proof. No retroactive edits. Results are sourced from ESPN -- never generated, never fabricated.
 
-If you're a potential client or collaborator reading this: the [about page](/about) has the full tech stack and methodology documentation.
+The models predict. The results are real. That's the whole integrity layer.
 
-But mostly I built it because March Madness is a good problem, and I wanted to see what would happen.
+---
 
-Let's find out.
+Thanks to Jack for the idea. Let's see what happens.

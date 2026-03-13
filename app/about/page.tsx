@@ -15,34 +15,54 @@ export default function AboutPage() {
 
       <div className="prose space-y-6 mb-16">
         <p>
-          The Bracket Lab is an experiment: what happens when you pit six fundamentally
-          different AI-powered prediction approaches against each other in the NCAA
-          Tournament, then track their accuracy in real time?
+          This started with a conversation. My friend Jack Gorman had an idea: what
+          if you ran a bunch of different AI models against a March Madness bracket
+          and actually tracked how they did?
         </p>
         <p>
-          Each model sees the tournament through a completely different lens. One runs
-          10,000 statistical simulations. Another evaluates matchups like a basketball
-          scout. A third finds historical twins for every team. The fourth is
-          specifically engineered to find upsets. The fifth optimizes for ESPN bracket
-          points. And the sixth? An autonomous research loop that tested 21 strategies
-          across 15 years of data.
+          I couldn&apos;t stop thinking about it. I work in AI consulting, and I&apos;d never
+          stress-tested these tools against something this clean — 63 games, public
+          data, binary outcomes, a universal scoring system. March Madness is a
+          near-perfect AI benchmark hiding in plain sight.
         </p>
         <p>
-          Every pick is locked before the tournament starts and verified via ESPN
-          Tournament Challenge. No retroactive edits. No cherry-picking. Just six
-          brackets, published in advance, tracked against reality.
+          So I built this in under a week. Eight models, each using a fundamentally
+          different approach — from Monte Carlo simulations to autonomous research
+          agents to LLM-powered scouting reports. Every pick locked before tip-off.
+          Every result verified from ESPN. No take-backs.
+        </p>
+        <p>
+          My co-pilot was Claude Code, Anthropic&apos;s AI coding assistant. It wrote a
+          significant chunk of this codebase — the site, the scoring engine, the
+          bracket visualizations, the model pipelines. The tool I used to build the
+          thing is the same technology I&apos;m testing. That felt right.
+        </p>
+        <p>
+          Mostly I built this because I wanted to see how far I could push AI as a
+          prediction tool, and I&apos;m hoping it helps my friends win their bracket
+          pools. Not mine though — I&apos;ll fill mine out the old-fashioned way.
         </p>
       </div>
 
       <section className="mb-16">
         <h2 className="text-xl font-bold text-lab-white mb-6">Built By</h2>
-        <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
-          <p className="text-lab-text font-semibold mb-1">Will Clayton</p>
-          <p className="text-sm text-lab-muted mb-3">Data & AI Consultant · Chicago, IL</p>
-          <div className="flex gap-4 text-sm">
-            <a href="https://willyclayton.com" className="text-scout hover:underline">willyclayton.com</a>
-            <a href="https://linkedin.com/in/willclayton" className="text-scout hover:underline">LinkedIn</a>
-            <a href="https://github.com/willclayton" className="text-scout hover:underline">GitHub</a>
+        <div className="rounded-xl border border-lab-border bg-lab-surface p-6 space-y-4">
+          <div>
+            <p className="text-lab-text font-semibold mb-1">Will Clayton</p>
+            <p className="text-sm text-lab-muted mb-3">Data & AI Consultant · Chicago, IL</p>
+            <div className="flex gap-4 text-sm">
+              <a href="https://willyclayton.com" className="text-scout hover:underline">willyclayton.com</a>
+              <a href="https://linkedin.com/in/willclayton" className="text-scout hover:underline">LinkedIn</a>
+              <a href="https://github.com/willclayton" className="text-scout hover:underline">GitHub</a>
+            </div>
+          </div>
+          <div className="border-t border-lab-border pt-4">
+            <p className="text-sm text-lab-muted">
+              Idea credit: <span className="text-lab-text">Jack Gorman</span>
+            </p>
+            <p className="text-sm text-lab-muted">
+              Development assistant: <span className="text-lab-text">Claude Code</span> by Anthropic
+            </p>
           </div>
         </div>
       </section>
@@ -60,7 +80,7 @@ export default function AboutPage() {
               <p className="text-lab-text">Vercel · GitHub</p>
             </div>
             <div>
-              <p className="text-lab-muted font-mono text-xs mb-1">MODEL SCRIPTS</p>
+              <p className="text-lab-muted font-mono text-xs mb-1">MODEL PIPELINES</p>
               <p className="text-lab-text">Python · Claude API · Claude Code</p>
             </div>
             <div>

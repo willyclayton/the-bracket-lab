@@ -1,72 +1,41 @@
 ---
-title: "Meet The Quant: 10,000 Simulations, Zero Feelings"
+title: "Meet The Quant"
 date: "2026-03-15"
 model: "the-quant"
 type: "methodology"
-excerpt: "Inside the Monte Carlo simulation that runs the tournament 10,000 times to find the most probable bracket. Pure math. No narratives."
+excerpt: "Run the tournament 10,000 times. Pick the most probable path. No narratives, no feelings -- just efficiency data and a logistic function."
 ---
 
-The Quant doesn't care who you went to school for. It doesn't care about cinderella stories, heartwarming press conference quotes, or the fact that your dad played for that team in 1987. It cares about one thing: which outcome is most probable.
+The Quant doesn't care about your alma mater. It cares about which outcome is most probable.
 
-## Monte Carlo Simulation, Explained
+---
 
-Monte Carlo simulation is a technique for modeling probability when a system is too complex to solve analytically. For a 64-team bracket with 63 games, you can't enumerate every possible outcome (2^63 ≈ 9.2 quintillion brackets). But you can simulate it 10,000 times and see what happens.
+## How It Works
 
-Here's the loop:
+Monte Carlo simulation: run the entire 63-game tournament 10,000 times, each time drawing outcomes from probability distributions. You can't enumerate every possible bracket (2^63 is about 9.2 quintillion). But you can simulate enough to see what keeps happening.
 
-```python
-for simulation in range(10_000):
-    bracket = reset_bracket()
-    for round in ROUNDS:
-        for game in round.games:
-            winner = simulate_game(game.team_a, game.team_b)
-            bracket.advance(winner)
-    results.record(bracket)
+Each game's win probability comes from three inputs per team:
 
-final_bracket = results.most_frequent_outcome()
-```
+- **Adjusted Offensive Efficiency** -- points per 100 possessions, opponent-adjusted
+- **Adjusted Defensive Efficiency** -- points allowed per 100 possessions, opponent-adjusted
+- **Adjusted Tempo** -- possessions per 40 minutes
 
-Each `simulate_game()` call draws from a probability distribution built from team efficiency ratings.
+These come from KenPom data through conference tournaments. The efficiency gap between two teams gets converted to a win probability via a logistic function calibrated against 15 years of tournament results (2010-2025).
 
-## The Input Data
+## What "Most Probable" Means
 
-The Quant ingests three efficiency metrics per team:
+After 10,000 runs, the model picks the team that won each individual game most often -- not the single most common complete bracket. The result is the **highest-probability path through the tournament**, game by game.
 
-1. **Adjusted Offensive Efficiency (AdjOE)** — points scored per 100 possessions, adjusted for opponent strength
-2. **Adjusted Defensive Efficiency (AdjDE)** — points allowed per 100 possessions, adjusted for opponent strength
-3. **Adjusted Tempo** — possessions per 40 minutes, adjusted for opponent pace
+In practice, the champion typically appears in 20-35% of simulations. That's the reality of March Madness -- even the best team rarely has better than 1-in-3 odds.
 
-These come from KenPom (2026 season data through conference tournaments).
+## Why This Beats Seeds
 
-Win probability for a given game:
+Seeds are a committee's subjective ranking. Efficiency ratings are performance data. An 8-seed can be statistically better than a 5-seed, and The Quant picks the upset accordingly. Over 15 years of backtesting, efficiency-based models outperform seed-based picking by roughly 8%.
 
-```python
-def win_probability(team_a: Team, team_b: Team) -> float:
-    efficiency_diff = (team_a.adj_oe - team_a.adj_de) - (team_b.adj_oe - team_b.adj_de)
-    # Convert efficiency margin to win probability using logistic function
-    return 1 / (1 + exp(-0.18 * efficiency_diff))
-```
+## Honest Limitations
 
-The 0.18 coefficient is calibrated against historical tournament results (2010–2025).
+No style-of-play mismatches (a slow team disrupting a fast team's rhythm). No injury data. No conference tournament momentum. Pure numbers, for better or worse.
 
-## What "Most Frequent Outcome" Means
+---
 
-After 10,000 simulations, The Quant picks the team that won each round most often across all simulations — not the single most common complete bracket (which would almost never repeat exactly).
-
-This means the bracket represents the **highest-probability path through the tournament**, game by game. In practice, the champion appears in 20–35% of simulations. The Final Four teams typically each appear in 40–60%.
-
-## Why This Beats Seeding Alone
-
-Seeds are a committee's subjective ranking. Efficiency ratings are objective performance data. A #8 seed can be statistically better than a #5 seed — and The Quant will pick the upset accordingly.
-
-Over 15 years of back-testing, efficiency-based models outperform seed-based picking by ~8% in terms of bracket accuracy.
-
-## Limitations
-
-- Doesn't account for style-of-play mismatches (a slow team can disrupt a fast team's rhythm)
-- Efficiency ratings don't capture momentum from conference tournaments (small sample adjustment applied)
-- No injury data — if a star player goes down, the model is blind to it
-
-## Results
-
-Picks locked March 19. Every simulation, every probability, every path to the championship — distilled into one bracket. See how it performs on the [dashboard](/dashboard).
+Picks locked March 19. See how it holds up on the [dashboard](/dashboard).

@@ -1,54 +1,41 @@
 ---
-title: "Meet The Historian: Every Team Has a Twin"
+title: "Meet The Historian"
 date: "2026-03-15"
 model: "the-historian"
 type: "methodology"
-excerpt: "How archetype matching turns 15 years of tournament data into a prediction engine. History already played this game."
+excerpt: "Every 2026 team has a historical twin. Find the twin, check what happened. History already played this game."
 ---
 
 The Historian doesn't predict the future. It looks up the past.
 
-Fifteen years of tournament data — every seed, every efficiency rating, every upset — contains a library of archetypes. High-seed, slow-tempo, defense-first programs from power conferences behave the same way in March regardless of roster names or graduation years. The transfer portal changes faces. It doesn't change the archetype.
+---
 
-## Finding the Twin
+## The Idea
 
-For every team in the 2026 bracket, The Historian runs a similarity search against its historical database. Each team is represented as a normalized vector across six dimensions:
+Fifteen years of tournament data contains a library of archetypes. High-seed, slow-tempo, defense-first power conference teams behave the same way in March regardless of roster names. The transfer portal changes faces. It doesn't change the archetype.
 
-- Seed
-- Adjusted offensive efficiency (AdjOE)
-- Adjusted defensive efficiency (AdjDE)
-- Tempo (possessions per 40 min)
-- Strength of schedule
-- Coaching tenure
+For every team in the 2026 bracket, The Historian runs a similarity search against a database of tournament teams from 2010-2025. Each team is a vector across six dimensions: seed, offensive efficiency, defensive efficiency, tempo, strength of schedule, and coaching tenure. The closest historical match becomes that team's base prediction.
 
-Euclidean distance across that vector finds the closest historical twin from 2010-2025. A 2026 team that looks like the 2019 version of a certain program gets that team's tournament outcome as its base prediction.
+## The Archetypes
 
-## The Archetype Library
+Four patterns repeat reliably across the dataset:
 
-Across 15 years, four archetypes repeat reliably:
+**The Chalk Giant** -- 1 or 2 seed, dominant efficiency margins. Reaches Final Fours but doesn't always close it out. Championship rate: roughly 40%.
 
-**The Chalk Giant** — #1 or #2 seed, dominant efficiency margins, tends to reach Final Fours but doesn't always win it all. Championship rate: ~40%.
+**The Reliable 4** -- 3 and 4 seeds with balanced efficiency and experienced coaches. Consistently outperform their seed early, disappear in the Elite 8. Pool-killers.
 
-**The Reliable 4** — #3/#4 seeds with balanced efficiency and experienced coaches. Consistently outperform their seed in the first two rounds, disappear in the Elite 8. Pool-killers.
+**The Mid-Major Disruptor** -- Non-power conference, elite defense, slow tempo. Dangerous in Round 1, especially against offensive teams that can't adjust pace. The 12-over-5 upset rate is 37% when this archetype is present.
 
-**The Mid-Major Disruptor** — Non-power conference team, elite defense, slow tempo. Dangerous in Round 1, especially against offensive teams that don't adapt well to pace changes. Historical 12-5 upset rate: 37%.
-
-**The Glass Cannon** — Explosive offense, weak defense. High ceiling, fragile floor. The most common Sweet 16 exit type in the dataset.
+**The Glass Cannon** -- Explosive offense, weak defense. High ceiling, fragile floor. The most common Sweet 16 exit type in the dataset.
 
 ## Making the Pick
 
-For each matchup, The Historian compares both teams' historical twin outcomes and resolves conflicts using win rate by matchup type. A mid-major disruptor vs. a glass cannon has resolved in favor of the disruptor 6 out of 10 times historically. The Historian picks accordingly.
+For each matchup, the model compares both teams' historical twin outcomes. A mid-major disruptor vs. a glass cannon has resolved in favor of the disruptor 6 out of 10 times historically. The Historian picks accordingly -- not for narrative reasons, but because the pattern says so.
 
-It doesn't call upsets for narrative reasons. It calls them when history says that specific matchup pattern favors the lower seed.
+## Honest Limitations
 
-## Where It Gets Interesting
+The dataset starts at 2010. Rare matchup combinations have thin samples. The transfer portal era (post-2021) has meaningfully changed team construction in ways older data can't fully capture. A recency weight helps, but it's imperfect.
 
-The Historian's champion pick comes from identifying which archetype combination has the strongest historical path through the bracket as seeded. Some archetypes win from the 1-line. Others have historically overachieved from the 3 or 4 line when the bracket broke right.
+---
 
-The 2026 draw matters as much as the teams.
-
-## Limitations
-
-The dataset only goes back to 2010. Rare matchup combinations have thin samples. The transfer portal era (post-2021) has meaningfully changed team construction in ways that older data can't fully account for — the model applies a recency weight but it's an imperfect adjustment.
-
-The picks lock March 19. See how the archetypes play out on the [dashboard](/dashboard).
+See how the archetypes play out on the [dashboard](/dashboard).

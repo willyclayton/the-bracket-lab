@@ -1,55 +1,36 @@
 ---
-title: "Meet The Scout: Film Room Intelligence at Machine Speed"
+title: "Meet The Scout"
 date: "2026-03-15"
 model: "the-scout"
 type: "methodology"
-excerpt: "How we built an LLM-powered scouting system that evaluates every March Madness matchup across coaching experience, roster age, injuries, and clutch performance."
+excerpt: "An LLM that evaluates matchups the way a basketball scout would -- coaching, injuries, momentum, and the stuff box scores miss."
 ---
 
-Every year, millions of people fill out brackets based on vibes, mascots, and which school a coworker went to. The Scout is built to do better — systematically, at scale, without the bias.
+Most bracket models look at numbers. The Scout watches the film.
 
-## The Core Idea
+---
 
-The Scout treats every first-round matchup the way a real scout would: watch the film, look at the context, weigh the intangibles. The difference is it can do this for all 32 first-round games simultaneously, in about 90 seconds.
+## The Approach
 
-It's powered by a large language model (Claude) fed a structured prompt for each matchup that includes:
+The Scout is a large language model (Claude) given a structured scouting brief for every matchup. For each game, it gets six data points that don't fit neatly into a regression:
 
-- **Coaching tenure & tournament experience** — first-year coaches historically underperform seeds
-- **Roster age distribution** — senior-heavy teams close out games; freshman-heavy teams crack under pressure
-- **Injury & availability reports** — scraped from beat reporters and official injury designations
-- **Recent momentum** — last 10 games, conference tournament results
-- **Travel distance & rest days** — a #12 seed flying cross-country on 2 days rest is a different team
-- **Clutch performance** — how teams perform in games decided by 5 points or fewer
+- **Coaching tenure and tournament experience** -- first-year tournament coaches historically underperform their seed
+- **Roster age** -- senior-heavy teams close out tight games; freshman-heavy teams crack
+- **Injury reports** -- pulled from beat reporters and official designations
+- **Last 10 games and conference tournament results** -- recent form matters more than November wins
+- **Travel distance and rest days** -- a 12-seed flying cross-country on two days rest is a different team
+- **Clutch performance** -- record in games decided by five points or fewer
 
-## How the Prompt Works
+The model gets a structured analyst role, not an open-ended prediction prompt. It returns a scouting report, key factors for each side, an X-factor, and a confidence-weighted pick -- all as structured JSON that feeds directly into the bracket.
 
-Rather than asking the model to "predict a winner," we give it a structured analyst role:
+## Why an LLM?
 
-```
-You are a senior tournament scout. Analyze this matchup and provide:
-1. A 3-sentence scouting report on each team
-2. Three specific factors that favor each team
-3. One X-factor that could decide the game
-4. A confidence-weighted pick with reasoning
+Efficiency ratings exist. Seed-based models exist. The Scout's bet is on **contextual synthesis** -- the ability to weigh that a 5-seed's All-American just returned from injury, their coach is 7-2 in close tournament games, and they're playing 40 miles from campus. No regression captures all of that at once.
 
-Teams: [TEAM_A] vs [TEAM_B]
-Context: [structured data dump]
-```
+## Honest Limitations
 
-The model returns structured JSON that feeds directly into the bracket.
+LLMs can hallucinate player stats (mitigated by injecting structured data, not asking the model to recall it). They can also show bias toward brand-name programs -- the prompt explicitly corrects for this. And once picks lock March 19, there's no updating. The Scout's read on the field is frozen in time.
 
-## Why LLMs for This?
+---
 
-Efficiency ratings and seed-based models already exist. The Scout's edge is **contextual synthesis** — the ability to understand that a #5 seed is actually playing like a #2 seed when their All-American point guard returned from injury last week, their coach has a 7-2 record in close tournament games, and they're playing 40 miles from campus.
-
-No regression captures that. The Scout does.
-
-## Limitations
-
-- Hallucination risk on specific player stats (mitigated by structured data injection)
-- LLM "preferences" can bias toward brand-name programs — we prompt against this
-- No live updating during the tournament (picks locked March 19)
-
-## Results
-
-All picks were locked March 19 before tournament tip-off. Track the Scout's live performance on the [dashboard](/dashboard).
+Track how it plays out on the [dashboard](/dashboard).
