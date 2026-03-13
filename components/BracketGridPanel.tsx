@@ -234,13 +234,24 @@ export default function BracketGridPanel({
   const finalFour = ffGames['final_four'] ?? [];
   const championship = ffGames['championship'] ?? [];
 
+  // Split FF games: south-west feeds left, east-midwest feeds right
+  const leftFF = finalFour.find((g) => g.gameId.includes('south') || g.gameId.includes('west')) ?? finalFour[0] ?? null;
+  const rightFF = finalFour.find((g) => g.gameId.includes('east') || g.gameId.includes('midwest')) ?? finalFour[1] ?? null;
+  // Avoid duplicates if IDs don't match expected pattern
+  const resolvedRightFF = rightFF && rightFF.gameId === leftFF?.gameId ? (finalFour[1] ?? null) : rightFF;
+
+  // Determine champion correctness
+  const champGame = championship[0];
+  const champResult = champGame ? winnerMap[champGame.gameId] : undefined;
+  const champCorrect = champResult && champion ? champion === champResult : undefined;
+
   return (
     <div className="border border-[#2a2a2a] rounded-lg bg-[#1a1a1a] overflow-hidden flex flex-col max-h-[calc(100vh-220px)]">
       <div className="px-3.5 py-2.5 border-b border-[#2a2a2a] font-mono text-[10px] text-[#555] uppercase tracking-wider">
         Full Bracket
       </div>
       <div className="flex-1 overflow-auto p-3 bracket-panel-scroll">
-        <div className="flex items-start min-w-[850px]">
+        <div className="flex items-start min-w-[950px]">
           {/* Left side: South + West (L-to-R, funnel right) */}
           <div className="flex flex-col gap-5">
             <RegionBracket
@@ -265,35 +276,39 @@ export default function BracketGridPanel({
             />
           </div>
 
-          {/* Center: Final Four + Championship */}
-          <div className="text-center px-2 min-w-[120px] self-center">
-            <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] mb-1.5">
-              Final Four
+          {/* Left FF game (south-west semifinal) */}
+          <div className="self-center px-1">
+            <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] text-center mb-1">
+              F4
             </div>
-            {finalFour.map((game) => (
+            {leftFF && (
               <MatchupSlot
-                key={game.gameId}
-                game={game}
+                game={leftFF}
                 modelColor={modelColor}
-                isHighlighted={highlightedMatchId === game.gameId}
-                onClick={() => onMatchClick(game.gameId, game, 'F4')}
+                isHighlighted={highlightedMatchId === leftFF.gameId}
+                onClick={() => onMatchClick(leftFF.gameId, leftFF, 'Final Four')}
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
                 bustedModelPicks={bustedModelPicks}
-                marginTop={6}
               />
-            ))}
+            )}
+          </div>
+
+          {/* Center: Championship + Champion */}
+          <div className="text-center px-1 min-w-[120px] self-center">
+            <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] mb-1">
+              Championship
+            </div>
             {championship.map((game) => (
               <MatchupSlot
                 key={game.gameId}
                 game={game}
                 modelColor={modelColor}
                 isHighlighted={highlightedMatchId === game.gameId}
-                onClick={() => onMatchClick(game.gameId, game, 'Final')}
+                onClick={() => onMatchClick(game.gameId, game, 'Championship')}
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
                 bustedModelPicks={bustedModelPicks}
-                marginTop={8}
               />
             ))}
             {/* Champion */}
@@ -302,12 +317,33 @@ export default function BracketGridPanel({
                 Champion
               </div>
               <div
-                className="text-base"
-                style={{ fontFamily: 'var(--font-serif)', color: modelColor }}
+                className={`text-base ${champCorrect === false ? 'line-through opacity-80' : ''}`}
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  color: champCorrect === true ? '#22c55e' : champCorrect === false ? '#ef4444' : modelColor,
+                }}
               >
                 {champion ?? '\u2014'}
               </div>
             </div>
+          </div>
+
+          {/* Right FF game (east-midwest semifinal) */}
+          <div className="self-center px-1">
+            <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] text-center mb-1">
+              F4
+            </div>
+            {resolvedRightFF && (
+              <MatchupSlot
+                game={resolvedRightFF}
+                modelColor={modelColor}
+                isHighlighted={highlightedMatchId === resolvedRightFF.gameId}
+                onClick={() => onMatchClick(resolvedRightFF.gameId, resolvedRightFF, 'Final Four')}
+                winnerMap={winnerMap}
+                eliminatedTeams={eliminatedTeams}
+                bustedModelPicks={bustedModelPicks}
+              />
+            )}
           </div>
 
           {/* Right side: East + Midwest (R-to-L, funnel left) */}

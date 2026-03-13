@@ -92,7 +92,7 @@ function getGamesByRegion(bracket: BracketData): GamesByRegion {
     const games = bracket.rounds[roundKey as keyof typeof bracket.rounds] ?? [];
     for (const game of games) {
       let region = (game.region || 'ff').toLowerCase();
-      if (region === 'national') region = 'ff';
+      if (region === 'national' || region === 'final four' || region === 'championship') region = 'ff';
       if (!result[region]) result[region] = {};
       if (!result[region][roundKey]) result[region][roundKey] = [];
       result[region][roundKey].push(game);
@@ -169,6 +169,11 @@ export default function BracketsClient() {
   }
 
   const upsetCount = bracket ? countUpsets(bracket) : 0;
+
+  // Champion correctness check
+  const champGameId = 'championship';
+  const champResult = winnerMap[champGameId];
+  const champCorrect = champResult && bracket?.champion ? bracket.champion === champResult : undefined;
 
   // Compute score if results exist
   const modelScore = bracket && results && results.games.length > 0
@@ -299,7 +304,10 @@ export default function BracketsClient() {
         </div>
         <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
           <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">Champion</p>
-          <p className="font-mono text-[13px] font-semibold" style={{ color: activeModel.color }}>
+          <p
+            className={`font-mono text-[13px] font-semibold ${champCorrect === false ? 'line-through opacity-80' : ''}`}
+            style={{ color: champCorrect === true ? '#22c55e' : champCorrect === false ? '#ef4444' : activeModel.color }}
+          >
             {bracket?.champion || '\u2014'}
           </p>
         </div>
@@ -354,7 +362,7 @@ export default function BracketsClient() {
           {/* Mobile: Toggle */}
           <div className="lg:hidden">
             {/* Controls */}
-            <div className="flex items-center gap-3 mb-4 flex-wrap">
+            <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
               <div className="flex items-center bg-lab-surface border border-lab-border rounded-md overflow-hidden flex-shrink-0">
                 <button
                   className={`px-3.5 py-1.5 text-[11px] font-mono uppercase transition-all ${
@@ -396,6 +404,7 @@ export default function BracketsClient() {
             {/* Mobile cards view */}
             {mobileView === 'cards' && (
               <BracketCardsPanel
+
                 gamesByRegion={gamesByRegion}
                 modelColor={activeModel.color}
                 currentRegion={currentRegion}
