@@ -107,6 +107,12 @@ body {
 .prose a { color: #3b82f6; text-decoration: underline; }
 .prose code { font-family: var(--font-mono); background: #1e1e1e; padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em; }
 .prose blockquote { border-left: 3px solid #3b82f6; padding-left: 1rem; color: #9ca3af; font-style: italic; }
+.prose hr { border-color: #333333; margin: 2.5rem 0; }
+.prose h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
+.prose h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+.prose p { margin-bottom: 1.25rem; }
+.prose ul, .prose ol { margin-top: 0.75rem; margin-bottom: 1.25rem; }
+.prose li { margin-bottom: 0.5rem; }
 
 /* ---- Hero entrance animations ---- */
 @keyframes heroFadeUp {

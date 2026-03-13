@@ -8,8 +8,6 @@ excerpt: "An LLM that evaluates matchups the way a basketball scout would -- coa
 
 Most bracket models look at numbers. The Scout watches the film.
 
----
-
 ## The Approach
 
 The Scout is a large language model (Claude) given a structured scouting brief for every matchup. For each game, it gets six data points that don't fit neatly into a regression:
@@ -30,7 +28,5 @@ Efficiency ratings exist. Seed-based models exist. The Scout's bet is on **conte
 ## Honest Limitations
 
 LLMs can hallucinate player stats (mitigated by injecting structured data, not asking the model to recall it). They can also show bias toward brand-name programs -- the prompt explicitly corrects for this. And once picks lock March 19, there's no updating. The Scout's read on the field is frozen in time.
-
----
 
 Track how it plays out on the [dashboard](/dashboard).
