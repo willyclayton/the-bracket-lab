@@ -31,6 +31,7 @@ import chaosData2025     from '@/data/archive/2025/models/the-chaos-agent.json';
 import agentData2025     from '@/data/archive/2025/models/the-agent.json';
 import superAgentData2025 from '@/data/archive/2025/models/the-super-agent.json';
 import optimizerData2025 from '@/data/archive/2025/models/the-optimizer.json';
+import autoResearcherData2025 from '@/data/archive/2025/models/the-auto-researcher.json';
 import results2025       from '@/data/archive/2025/results/actual-results.json';
 
 // 2024 (archive)
@@ -66,6 +67,7 @@ const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
     'the-agent':       agentData2025     as unknown as BracketData,
     'the-super-agent': superAgentData2025 as unknown as BracketData,
     'the-optimizer':   optimizerData2025 as unknown as BracketData,
+    'the-auto-researcher': autoResearcherData2025 as unknown as BracketData,
   },
   '2024': {
     'the-scout':       scoutData2024     as unknown as BracketData,

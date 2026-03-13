@@ -19,7 +19,7 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 }
 
-YEARS = [y for y in range(2010, 2025) if y != 2020]
+YEARS = [y for y in range(2010, 2026) if y != 2020]
 
 
 def fetch_with_cache(url, cache_path, delay=3):

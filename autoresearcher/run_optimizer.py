@@ -26,18 +26,23 @@ BASE_DIR = Path(__file__).resolve().parent
 EXPERIMENTS_DIR = BASE_DIR / "experiments"
 
 
-def run_optimized_strategy(strategy_name, n_sims=20000):
-    """Train predictor, optimize brackets, backtest."""
+def run_optimized_strategy(strategy_name, n_sims=20000, target_year=None):
+    """Train predictor, optimize brackets, backtest.
+
+    If target_year is set, only process that single year (trains on all other years).
+    """
     print("=" * 60)
     print(f"OPTIMIZED STRATEGY: {strategy_name}")
     print(f"Monte Carlo sims per year: {n_sims}")
+    if target_year:
+        print(f"Target year: {target_year}")
     print("=" * 60)
 
     # Load data
     X, y, meta, feature_cols = build_training_data()
     df_games = load_tournament_data()
     df_teams = load_team_stats()
-    years = sorted(meta["year"].unique())
+    years = [target_year] if target_year else sorted(meta["year"].unique())
 
     # Build predictor
     print("\nTraining ensemble predictor...")
@@ -148,4 +153,9 @@ def run_optimized_strategy(strategy_name, n_sims=20000):
 
 
 if __name__ == "__main__":
-    run_optimized_strategy("ml_optimized", n_sims=5000)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--year", type=int, default=None, help="Target a single year")
+    parser.add_argument("--sims", type=int, default=5000, help="Monte Carlo simulations")
+    args = parser.parse_args()
+    run_optimized_strategy("ml_optimized", n_sims=args.sims, target_year=args.year)
