@@ -26,16 +26,19 @@ export default function AboutPage() {
           near-perfect AI benchmark hiding in plain sight.
         </p>
         <p>
-          So I built this in under a week. Eight models, each using a fundamentally
-          different approach — from Monte Carlo simulations to autonomous research
-          agents to LLM-powered scouting reports. Every pick locked before tip-off.
-          Every result verified from ESPN. No take-backs.
+          Standing up the site was the easy part. Claude Code and I got a working
+          version live in under a week — eight models, a scoring engine, bracket
+          visualizations, a leaderboard. The tool I used to build the thing is the
+          same technology I&apos;m testing. That felt right.
         </p>
         <p>
-          My co-pilot was Claude Code, Anthropic&apos;s AI coding assistant. It wrote a
-          significant chunk of this codebase — the site, the scoring engine, the
-          bracket visualizations, the model pipelines. The tool I used to build the
-          thing is the same technology I&apos;m testing. That felt right.
+          But &quot;working&quot; and &quot;good&quot; are different things. The real time went
+          into the grind after that. Iterations on iterations — reformatting how
+          brackets render, reworking data structures until they were clean enough to
+          trust, documenting every decision so I could retrace my steps. This
+          wasn&apos;t &quot;make me a cool March Madness site.&quot; This was build, look at
+          it, realize something&apos;s off, adjust, plan the next piece, sometimes take
+          a step back, then iterate again until it felt right.
         </p>
         <p>
           Mostly I built this because I wanted to see how far I could push AI as a
@@ -57,9 +60,14 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="border-t border-lab-border pt-4">
-            <p className="text-sm text-lab-muted">
-              Idea credit: <span className="text-lab-text">Jack Gorman</span>
-            </p>
+            <p className="text-lab-text font-semibold mb-1">Jack Gorman</p>
+            <p className="text-sm text-lab-muted mb-2">The idea guy</p>
+            <div className="flex gap-4 text-sm">
+              <a href="https://www.linkedin.com/in/jack-gorman-043bb3122" className="text-scout hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://x.com/jphackworth42" className="text-scout hover:underline" target="_blank" rel="noopener noreferrer">X</a>
+            </div>
+          </div>
+          <div className="border-t border-lab-border pt-4">
             <p className="text-sm text-lab-muted">
               Development assistant: <span className="text-lab-text">Claude Code</span> by Anthropic
             </p>
