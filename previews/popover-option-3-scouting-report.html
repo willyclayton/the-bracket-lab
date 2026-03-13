@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Option 3 — The Scouting Report</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; gap: 40px; padding: 40px; flex-wrap: wrap; justify-content: center; }
+  .label { color: #666; font-size: 11px; font-family: 'SF Mono', 'Fira Code', monospace; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; text-align: center; width: 100%; }
+  .sublabel { color: #555; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; text-align: center; width: 100%; margin-top: -24px; margin-bottom: 32px; }
+
+  .popover {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 14px;
+    width: 400px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  /* Branded header — model identity is the hero */
+  .branded-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #2a2a2a;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .branded-left {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .model-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+  }
+  .model-name-tag {
+    font-family: 'SF Mono', monospace; font-size: 12px;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .round-chip {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #666; padding: 3px 10px; border-radius: 10px;
+    background: #252525;
+  }
+  .close-btn {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #2a2a2a; border: none; color: #888;
+    font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Team comparison — side by side stats */
+  .comparison {
+    padding: 16px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .comp-row {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center; gap: 0;
+    padding: 6px 0;
+  }
+  .comp-row + .comp-row { border-top: 1px solid #222; }
+  .comp-team {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .comp-team.right { justify-content: flex-end; text-align: right; }
+  .comp-seed {
+    width: 24px; height: 24px; border-radius: 5px;
+    background: #2a2a2a; display: flex; align-items: center; justify-content: center;
+    font-family: 'SF Mono', monospace; font-size: 10px; color: #888; flex-shrink: 0;
+  }
+  .comp-name { font-size: 15px; font-weight: 500; }
+  .comp-name.faded { color: #666; }
+  .comp-name.picked { color: #efefef; font-weight: 700; }
+  .comp-vs {
+    font-family: 'SF Mono', monospace; font-size: 9px;
+    color: #444; padding: 0 12px;
+  }
+  .comp-pick-indicator {
+    display: flex; align-items: center; gap: 4px;
+    margin-top: 2px;
+  }
+  .pick-arrow { font-size: 12px; }
+
+  /* Key metrics grid */
+  .metrics {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .metric {
+    padding: 10px 12px;
+    text-align: center;
+    border-right: 1px solid #2a2a2a;
+  }
+  .metric:last-child { border-right: none; }
+  .metric-label {
+    font-family: 'SF Mono', monospace; font-size: 9px;
+    color: #555; text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .metric-value {
+    font-family: 'SF Mono', monospace; font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* Report text — the scouting report itself */
+  .report {
+    padding: 16px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .report-label {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #666; text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .report-text {
+    font-size: 13px; color: #999; line-height: 1.65;
+    border-left: 2px solid; padding-left: 14px;
+  }
+  .report-text strong { color: #ccc; font-weight: 600; }
+
+  /* Confidence bar */
+  .confidence { padding: 14px 20px; }
+  .conf-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+  .conf-label { font-family: 'SF Mono', monospace; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.08em; }
+  .conf-value { font-family: 'SF Mono', monospace; font-size: 13px; font-weight: 700; }
+  .conf-bar-bg { height: 5px; background: #2a2a2a; border-radius: 3px; }
+  .conf-bar { height: 5px; border-radius: 3px; }
+
+  /* Colors */
+  .scout .model-dot { background: #3b82f6; }
+  .scout .model-name-tag { color: #3b82f6; }
+  .scout .metric-value { color: #3b82f6; }
+  .scout .report-text { border-color: #3b82f6; }
+  .scout .pick-arrow { color: #3b82f6; }
+  .scout .conf-value { color: #3b82f6; }
+  .scout .conf-bar { background: #3b82f6; }
+
+  .quant .model-dot { background: #22c55e; }
+  .quant .model-name-tag { color: #22c55e; }
+  .quant .metric-value { color: #22c55e; }
+  .quant .report-text { border-color: #22c55e; }
+  .quant .pick-arrow { color: #22c55e; }
+  .quant .conf-value { color: #22c55e; }
+  .quant .conf-bar { background: #22c55e; }
+
+  .chaos .model-dot { background: #ef4444; }
+  .chaos .model-name-tag { color: #ef4444; }
+  .chaos .metric-value { color: #ef4444; }
+  .chaos .report-text { border-color: #ef4444; }
+  .chaos .pick-arrow { color: #ef4444; }
+  .chaos .conf-value { color: #ef4444; }
+  .chaos .conf-bar { background: #ef4444; }
+</style>
+</head>
+<body>
+
+<p class="label">Option 3 — "The Scouting Report"</p>
+<p class="sublabel">Model-branded card. Key metrics grid. Reasoning as a left-bordered quote block. Clean and authoritative.</p>
+
+<!-- SCOUT -->
+<div class="popover scout">
+  <div class="branded-header">
+    <div class="branded-left">
+      <span class="model-dot"></span>
+      <span class="model-name-tag">The Scout</span>
+      <span class="round-chip">R64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="comparison">
+    <div class="comp-row">
+      <div class="comp-team">
+        <span class="comp-seed">1</span>
+        <span class="comp-name picked">Auburn <span class="pick-arrow">&larr;</span></span>
+      </div>
+      <span class="comp-vs">vs</span>
+      <div class="comp-team right">
+        <span class="comp-name faded">Alabama State</span>
+        <span class="comp-seed">16</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-label">Confidence</div>
+      <div class="metric-value">97%</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">AdjEM Gap</div>
+      <div class="metric-value">+43.1</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Pts Value</div>
+      <div class="metric-value">10</div>
+    </div>
+  </div>
+
+  <div class="report">
+    <div class="report-label">Analysis</div>
+    <p class="report-text">
+      Auburn's AdjEM of <strong>34.7</strong> dwarfs Alabama State's <strong>-8.4</strong>. A 43-point efficiency gap is insurmountable — Auburn's interior presence and elite defense smother any 16-seed.
+    </p>
+  </div>
+</div>
+
+<!-- QUANT -->
+<div class="popover quant">
+  <div class="branded-header">
+    <div class="branded-left">
+      <span class="model-dot"></span>
+      <span class="model-name-tag">The Quant</span>
+      <span class="round-chip">R64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="comparison">
+    <div class="comp-row">
+      <div class="comp-team">
+        <span class="comp-seed">8</span>
+        <span class="comp-name picked">Louisville <span class="pick-arrow">&larr;</span></span>
+      </div>
+      <span class="comp-vs">vs</span>
+      <div class="comp-team right">
+        <span class="comp-name faded">Creighton</span>
+        <span class="comp-seed">9</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-label">Confidence</div>
+      <div class="metric-value">54%</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Win Rate</div>
+      <div class="metric-value">53.7%</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Eff. Diff</div>
+      <div class="metric-value">+1.2</div>
+    </div>
+  </div>
+
+  <div class="report">
+    <div class="report-label">Analysis</div>
+    <p class="report-text">
+      Louisville wins <strong>53.7%</strong> of iterations. 8-9 games converge to near-coin-flip; Louisville's slight AdjEM edge is the tiebreaker.
+    </p>
+  </div>
+</div>
+
+<!-- CHAOS -->
+<div class="popover chaos">
+  <div class="branded-header">
+    <div class="branded-left">
+      <span class="model-dot"></span>
+      <span class="model-name-tag">The Chaos Agent</span>
+      <span class="round-chip">R64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="comparison">
+    <div class="comp-row">
+      <div class="comp-team">
+        <span class="comp-seed">5</span>
+        <span class="comp-name faded">Michigan</span>
+      </div>
+      <span class="comp-vs">vs</span>
+      <div class="comp-team right">
+        <span class="comp-name picked"><span class="pick-arrow">&rarr;</span> UC San Diego</span>
+        <span class="comp-seed">12</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-label">Confidence</div>
+      <div class="metric-value">61%</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Seed Diff</div>
+      <div class="metric-value">+7</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Upset</div>
+      <div class="metric-value">Yes</div>
+    </div>
+  </div>
+
+  <div class="report">
+    <div class="report-label">Analysis</div>
+    <p class="report-text">
+      Michigan's defense has given up 12-seed-caliber offenses all season and never fixed it. UC San Diego is <strong>24-11 ATS</strong> in single-elimination formats. Nobody is watching film on them.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

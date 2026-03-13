@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Option 1 — The Breakdown</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; gap: 40px; padding: 40px; flex-wrap: wrap; justify-content: center; }
+  .label { color: #666; font-size: 11px; font-family: 'SF Mono', 'Fira Code', monospace; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; text-align: center; width: 100%; }
+  .sublabel { color: #555; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; text-align: center; width: 100%; margin-top: -24px; margin-bottom: 32px; }
+
+  /* Popover shell */
+  .popover {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 14px;
+    width: 400px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .round-label {
+    font-family: 'SF Mono', monospace;
+    font-size: 11px; color: #888;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .close-btn {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #2a2a2a; border: none; color: #888;
+    font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Teams section */
+  .teams { padding: 16px 20px; border-bottom: 1px solid #2a2a2a; }
+  .team-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 4px; border-radius: 8px;
+  }
+  .team-row.picked { background: rgba(59,130,246,0.06); }
+  .team-row + .team-row { border-top: 1px solid #222; }
+  .seed-badge {
+    width: 28px; height: 28px; border-radius: 6px;
+    background: #2a2a2a; display: flex; align-items: center; justify-content: center;
+    font-family: 'SF Mono', monospace; font-size: 11px; color: #888; flex-shrink: 0;
+  }
+  .team-name { flex: 1; font-size: 15px; color: #bbb; font-weight: 500; }
+  .team-name.picked-name { color: #efefef; font-weight: 700; }
+  .pick-tag {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    padding: 2px 8px; border-radius: 4px;
+    background: rgba(255,255,255,0.06); font-weight: 600;
+  }
+  .pick-dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* KEY DIFFERENTIATOR: Structured reasoning with stat chips */
+  .reasoning-section {
+    padding: 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .reasoning-header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  }
+  .reasoning-label {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #666; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .model-badge {
+    font-family: 'SF Mono', monospace; font-size: 9px;
+    padding: 2px 8px; border-radius: 10px;
+    background: rgba(59,130,246,0.12); font-weight: 600;
+  }
+
+  /* Stat chips — key numbers extracted and highlighted */
+  .stat-chips {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 12px;
+  }
+  .stat-chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 10px; border-radius: 6px;
+    background: #252525; border: 1px solid #333;
+    font-family: 'SF Mono', monospace; font-size: 11px;
+  }
+  .stat-chip .stat-label { color: #666; font-size: 9px; text-transform: uppercase; }
+  .stat-chip .stat-value { font-weight: 700; }
+
+  /* Reasoning text */
+  .reasoning-text {
+    font-size: 13px; color: #999; line-height: 1.65;
+  }
+  .reasoning-text strong {
+    color: #ccc; font-weight: 600;
+  }
+
+  /* Confidence */
+  .confidence-section { padding: 14px 20px; }
+  .confidence-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 8px;
+  }
+  .confidence-label {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #666; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .confidence-value {
+    font-family: 'SF Mono', monospace; font-size: 14px; font-weight: 700;
+  }
+  .confidence-bar-bg {
+    height: 5px; background: #2a2a2a; border-radius: 3px; overflow: hidden;
+  }
+  .confidence-bar {
+    height: 5px; border-radius: 3px;
+    transition: width 0.6s ease;
+  }
+
+  /* Color variants */
+  .scout .pick-tag { color: #3b82f6; }
+  .scout .pick-dot { background: #3b82f6; }
+  .scout .model-badge { color: #3b82f6; background: rgba(59,130,246,0.12); }
+  .scout .stat-chip .stat-value { color: #3b82f6; }
+  .scout .confidence-value { color: #3b82f6; }
+  .scout .confidence-bar { background: #3b82f6; }
+
+  .quant .pick-tag { color: #22c55e; }
+  .quant .pick-dot { background: #22c55e; }
+  .quant .model-badge { color: #22c55e; background: rgba(34,197,94,0.12); }
+  .quant .stat-chip .stat-value { color: #22c55e; }
+  .quant .confidence-value { color: #22c55e; }
+  .quant .confidence-bar { background: #22c55e; }
+
+  .chaos .pick-tag { color: #ef4444; }
+  .chaos .pick-dot { background: #ef4444; }
+  .chaos .model-badge { color: #ef4444; background: rgba(239,68,68,0.12); }
+  .chaos .stat-chip .stat-value { color: #ef4444; }
+  .chaos .confidence-value { color: #ef4444; }
+  .chaos .confidence-bar { background: #ef4444; }
+</style>
+</head>
+<body>
+
+<p class="label">Option 1 — "The Breakdown"</p>
+<p class="sublabel">Key stats extracted as chips above reasoning. Model-branded. Skimmable at a glance.</p>
+
+<!-- SCOUT VERSION -->
+<div class="popover scout">
+  <div class="header">
+    <span class="round-label">Round of 64 &middot; South</span>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="teams">
+    <div class="team-row picked">
+      <span class="seed-badge">1</span>
+      <span class="team-name picked-name">Auburn</span>
+      <span class="pick-dot"></span>
+      <span class="pick-tag">Pick</span>
+    </div>
+    <div class="team-row">
+      <span class="seed-badge">16</span>
+      <span class="team-name">Alabama State</span>
+    </div>
+  </div>
+
+  <div class="reasoning-section">
+    <div class="reasoning-header">
+      <span class="reasoning-label">Model Reasoning</span>
+      <span class="model-badge">The Scout</span>
+    </div>
+    <div class="stat-chips">
+      <div class="stat-chip">
+        <span class="stat-label">AdjEM Gap</span>
+        <span class="stat-value">+43.1</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-label">AdjD</span>
+        <span class="stat-value">93.0</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-label">Upset Risk</span>
+        <span class="stat-value">None</span>
+      </div>
+    </div>
+    <p class="reasoning-text">
+      Auburn's AdjEM of <strong>34.7</strong> dwarfs Alabama State's <strong>-8.4</strong>. A 43-point efficiency gap is insurmountable — Auburn's interior presence and elite defense smother any 16-seed. Coaching and roster depth aren't even factors here.
+    </p>
+  </div>
+
+  <div class="confidence-section">
+    <div class="confidence-header">
+      <span class="confidence-label">Confidence</span>
+      <span class="confidence-value">97%</span>
+    </div>
+    <div class="confidence-bar-bg">
+      <div class="confidence-bar" style="width: 97%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUANT VERSION -->
+<div class="popover quant">
+  <div class="header">
+    <span class="round-label">Round of 64 &middot; South</span>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="teams">
+    <div class="team-row picked">
+      <span class="seed-badge">8</span>
+      <span class="team-name picked-name">Louisville</span>
+      <span class="pick-dot"></span>
+      <span class="pick-tag">Pick</span>
+    </div>
+    <div class="team-row">
+      <span class="seed-badge">9</span>
+      <span class="team-name">Creighton</span>
+    </div>
+  </div>
+
+  <div class="reasoning-section">
+    <div class="reasoning-header">
+      <span class="reasoning-label">Model Reasoning</span>
+      <span class="model-badge">The Quant</span>
+    </div>
+    <div class="stat-chips">
+      <div class="stat-chip">
+        <span class="stat-label">Win Rate</span>
+        <span class="stat-value">53.7%</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-label">Eff. Diff</span>
+        <span class="stat-value">+1.2</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-label">Sims</span>
+        <span class="stat-value">10K</span>
+      </div>
+    </div>
+    <p class="reasoning-text">
+      Simulation: Louisville wins <strong>53.7%</strong> of iterations. Adjusted efficiency differential: <strong>+1.2</strong>. 8-9 games converge to near-coin-flip; Louisville's slight AdjEM edge is the tiebreaker.
+    </p>
+  </div>
+
+  <div class="confidence-section">
+    <div class="confidence-header">
+      <span class="confidence-label">Confidence</span>
+      <span class="confidence-value">54%</span>
+    </div>
+    <div class="confidence-bar-bg">
+      <div class="confidence-bar" style="width: 54%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAOS VERSION -->
+<div class="popover chaos">
+  <div class="header">
+    <span class="round-label">Round of 64 &middot; South</span>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="teams">
+    <div class="team-row">
+      <span class="seed-badge">5</span>
+      <span class="team-name">Michigan</span>
+    </div>
+    <div class="team-row picked">
+      <span class="seed-badge">12</span>
+      <span class="team-name picked-name">UC San Diego</span>
+      <span class="pick-dot"></span>
+      <span class="pick-tag">Pick</span>
+    </div>
+  </div>
+
+  <div class="reasoning-section">
+    <div class="reasoning-header">
+      <span class="reasoning-label">Model Reasoning</span>
+      <span class="model-badge">The Chaos Agent</span>
+    </div>
+    <div class="stat-chips">
+      <div class="stat-chip">
+        <span class="stat-label">Upset</span>
+        <span class="stat-value">5 &gt; 12</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-label">ATS Record</span>
+        <span class="stat-value">24-11</span>
+      </div>
+    </div>
+    <p class="reasoning-text">
+      Michigan's defense has given up 12-seed-caliber offenses all season and never fixed it. UC San Diego is <strong>24-11</strong> against the spread in single-elimination formats. Nobody is watching film on them.
+    </p>
+  </div>
+
+  <div class="confidence-section">
+    <div class="confidence-header">
+      <span class="confidence-label">Confidence</span>
+      <span class="confidence-value">61%</span>
+    </div>
+    <div class="confidence-bar-bg">
+      <div class="confidence-bar" style="width: 61%"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

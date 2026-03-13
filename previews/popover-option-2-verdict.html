@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Option 2 — The Verdict</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; gap: 40px; padding: 40px; flex-wrap: wrap; justify-content: center; }
+  .label { color: #666; font-size: 11px; font-family: 'SF Mono', 'Fira Code', monospace; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; text-align: center; width: 100%; }
+  .sublabel { color: #555; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; text-align: center; width: 100%; margin-top: -24px; margin-bottom: 32px; }
+
+  .popover {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 14px;
+    width: 400px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  /* Header with round + model identity */
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .header-left { display: flex; align-items: center; gap: 10px; }
+  .model-icon { font-size: 16px; }
+  .round-label {
+    font-family: 'SF Mono', monospace;
+    font-size: 11px; color: #888;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .close-btn {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #2a2a2a; border: none; color: #888;
+    font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* BIG PICK VERDICT — the hero moment */
+  .verdict {
+    padding: 20px 20px 16px;
+    text-align: center;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .verdict-vs {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #555; text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .verdict-matchup {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    margin-bottom: 12px;
+  }
+  .verdict-team {
+    font-size: 18px; font-weight: 600;
+  }
+  .verdict-team.loser { color: #555; }
+  .verdict-team.winner { color: #efefef; }
+  .verdict-seed {
+    font-family: 'SF Mono', monospace; font-size: 11px;
+    color: #555; vertical-align: super; margin-left: 2px;
+  }
+  .verdict-arrow {
+    font-size: 20px; color: #333;
+  }
+  .verdict-pick-line {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 14px; border-radius: 20px;
+    font-family: 'SF Mono', monospace; font-size: 11px;
+    font-weight: 700;
+  }
+  .verdict-conf {
+    font-family: 'SF Mono', monospace; font-size: 20px;
+    font-weight: 800; margin-top: 4px;
+  }
+  .conf-suffix {
+    font-size: 12px; font-weight: 500; color: #666; margin-left: 1px;
+  }
+
+  /* Evidence bullets — structured reasoning */
+  .evidence {
+    padding: 16px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .evidence-label {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #666; text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .evidence-list {
+    list-style: none; display: flex; flex-direction: column; gap: 8px;
+  }
+  .evidence-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; color: #999; line-height: 1.5;
+  }
+  .evidence-bullet {
+    width: 4px; height: 4px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 7px;
+  }
+  .evidence-item strong { color: #ccc; font-weight: 600; }
+
+  /* Lean meter — visual confidence */
+  .lean-section { padding: 16px 20px; }
+  .lean-label {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #666; text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .lean-bar-container {
+    position: relative; height: 24px;
+    background: #252525; border-radius: 12px;
+    overflow: hidden;
+  }
+  .lean-fill {
+    position: absolute; top: 0; left: 0; height: 100%;
+    border-radius: 12px;
+    opacity: 0.25;
+  }
+  .lean-labels {
+    position: absolute; top: 0; left: 0; right: 0; height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 12px;
+    font-family: 'SF Mono', monospace; font-size: 10px; font-weight: 600;
+  }
+
+  /* Colors */
+  .scout .verdict-pick-line { background: rgba(59,130,246,0.12); color: #3b82f6; }
+  .scout .verdict-conf { color: #3b82f6; }
+  .scout .evidence-bullet { background: #3b82f6; }
+  .scout .lean-fill { background: #3b82f6; }
+  .scout .lean-labels .team-a { color: #3b82f6; }
+  .scout .lean-labels .team-b { color: #555; }
+
+  .quant .verdict-pick-line { background: rgba(34,197,94,0.12); color: #22c55e; }
+  .quant .verdict-conf { color: #22c55e; }
+  .quant .evidence-bullet { background: #22c55e; }
+  .quant .lean-fill { background: #22c55e; }
+  .quant .lean-labels .team-a { color: #22c55e; }
+  .quant .lean-labels .team-b { color: #555; }
+
+  .chaos .verdict-pick-line { background: rgba(239,68,68,0.12); color: #ef4444; }
+  .chaos .verdict-conf { color: #ef4444; }
+  .chaos .evidence-bullet { background: #ef4444; }
+  .chaos .lean-fill { background: #ef4444; }
+  .chaos .lean-labels .team-a { color: #555; }
+  .chaos .lean-labels .team-b { color: #ef4444; }
+</style>
+</head>
+<body>
+
+<p class="label">Option 2 — "The Verdict"</p>
+<p class="sublabel">Big pick moment up top. Reasoning as evidence bullets. Lean meter shows how close the call was.</p>
+
+<!-- SCOUT -->
+<div class="popover scout">
+  <div class="header">
+    <div class="header-left">
+      <span class="round-label">Round of 64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-matchup">
+      <span class="verdict-team winner">Auburn<span class="verdict-seed">1</span></span>
+      <span class="verdict-arrow">vs</span>
+      <span class="verdict-team loser">Alabama St.<span class="verdict-seed">16</span></span>
+    </div>
+    <div class="verdict-pick-line">The Scout picks Auburn</div>
+    <div class="verdict-conf">97<span class="conf-suffix">% confidence</span></div>
+  </div>
+
+  <div class="evidence">
+    <div class="evidence-label">Why</div>
+    <ul class="evidence-list">
+      <li class="evidence-item">
+        <span class="evidence-bullet"></span>
+        <span><strong>+43.1 AdjEM gap</strong> — Auburn 34.7 vs Alabama State -8.4</span>
+      </li>
+      <li class="evidence-item">
+        <span class="evidence-bullet"></span>
+        <span>Auburn's interior presence and <strong>elite defense</strong> smother any 16-seed</span>
+      </li>
+      <li class="evidence-item">
+        <span class="evidence-bullet"></span>
+        <span>Coaching and roster depth aren't even factors at this gap</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="lean-section">
+    <div class="lean-bar-container">
+      <div class="lean-fill" style="width: 97%"></div>
+      <div class="lean-labels">
+        <span class="team-a">Auburn</span>
+        <span class="team-b">Ala. St.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUANT — 8v9 coin flip -->
+<div class="popover quant">
+  <div class="header">
+    <div class="header-left">
+      <span class="round-label">Round of 64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-matchup">
+      <span class="verdict-team winner">Louisville<span class="verdict-seed">8</span></span>
+      <span class="verdict-arrow">vs</span>
+      <span class="verdict-team loser">Creighton<span class="verdict-seed">9</span></span>
+    </div>
+    <div class="verdict-pick-line">The Quant picks Louisville</div>
+    <div class="verdict-conf">54<span class="conf-suffix">% confidence</span></div>
+  </div>
+
+  <div class="evidence">
+    <div class="evidence-label">Why</div>
+    <ul class="evidence-list">
+      <li class="evidence-item">
+        <span class="evidence-bullet"></span>
+        <span>Wins <strong>53.7%</strong> of 10,000 simulated iterations</span>
+      </li>
+      <li class="evidence-item">
+        <span class="evidence-bullet"></span>
+        <span>Adjusted efficiency differential: <strong>+1.2</strong></span>
+      </li>
+      <li class="evidence-item">
+        <span class="evidence-bullet"></span>
+        <span>8-9 games converge to near-coin-flip; Louisville's slight AdjEM edge is the tiebreaker</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="lean-section">
+    <div class="lean-bar-container">
+      <div class="lean-fill" style="width: 54%"></div>
+      <div class="lean-labels">
+        <span class="team-a">Louisville</span>
+        <span class="team-b">Creighton</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAOS — upset pick -->
+<div class="popover chaos">
+  <div class="header">
+    <div class="header-left">
+      <span class="round-label">Round of 64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-matchup">
+      <span class="verdict-team loser">Michigan<span class="verdict-seed">5</span></span>
+      <span class="verdict-arrow">vs</span>
+      <span class="verdict-team winner">UC San Diego<span class="verdict-seed">12</span></span>
+    </div>
+    <div class="verdict-pick-line">The Chaos Agent picks UC San Diego</div>
+    <div class="verdict-conf">61<span class="conf-suffix">% confidence</span></div>
+  </div>
+
+  <div class="evidence">
+    <div class="evidence-label">Why</div>
+    <ul class="evidence-list">
+      <li class="evidence-item">
+        <span class="evidence-bullet"></span>
+        <span>Michigan's defense has given up 12-seed-caliber offenses <strong>all season</strong></span>
+      </li>
+      <li class="evidence-item">
+        <span class="evidence-bullet"></span>
+        <span>UC San Diego is <strong>24-11 ATS</strong> in single-elimination formats</span>
+      </li>
+      <li class="evidence-item">
+        <span class="evidence-bullet"></span>
+        <span>Nobody is watching film on them</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="lean-section">
+    <div class="lean-bar-container">
+      <div class="lean-fill" style="width: 61%; left: 39%;"></div>
+      <div class="lean-labels">
+        <span class="team-a">Michigan</span>
+        <span class="team-b">UC San Diego</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

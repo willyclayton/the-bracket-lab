@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Option 10 — Editorial</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; gap: 40px; padding: 40px; flex-wrap: wrap; justify-content: center; }
+  .label { color: #666; font-size: 11px; font-family: 'SF Mono', 'Fira Code', monospace; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; text-align: center; width: 100%; }
+  .sublabel { color: #555; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; text-align: center; width: 100%; margin-top: -24px; margin-bottom: 32px; }
+
+  .popover {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 14px;
+    width: 400px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  /* Colored top edge — thin stripe */
+  .top-stripe { height: 3px; }
+
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .header-left { display: flex; align-items: center; gap: 8px; }
+  .model-icon { font-size: 14px; }
+  .model-name { font-family: 'SF Mono', monospace; font-size: 11px; font-weight: 700; }
+  .round-label { font-family: 'SF Mono', monospace; font-size: 10px; color: #666; }
+  .close-btn {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #2a2a2a; border: none; color: #888;
+    font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Teams — clean rows */
+  .teams { padding: 14px 20px; border-bottom: 1px solid #2a2a2a; }
+  .team-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 4px; border-radius: 6px;
+  }
+  .team-row.picked { background: rgba(255,255,255,0.025); }
+  .team-row + .team-row { border-top: 1px solid #222; }
+  .seed {
+    width: 26px; height: 26px; border-radius: 5px;
+    background: #2a2a2a; display: flex; align-items: center; justify-content: center;
+    font-family: 'SF Mono', monospace; font-size: 11px; color: #888; flex-shrink: 0;
+  }
+  .name { flex: 1; font-size: 15px; color: #bbb; font-weight: 500; }
+  .name.bright { color: #efefef; font-weight: 700; }
+  .pick-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .pick-tag {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    padding: 2px 8px; border-radius: 4px;
+    background: rgba(255,255,255,0.06); font-weight: 600;
+  }
+
+  /* THE TAKE — editorial-style reasoning section */
+  .the-take {
+    padding: 18px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .take-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .take-label {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #555; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .take-conf {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .conf-bar-mini {
+    width: 40px; height: 4px; background: #2a2a2a; border-radius: 2px; overflow: hidden;
+  }
+  .conf-bar-fill { height: 4px; border-radius: 2px; }
+  .conf-pct {
+    font-family: 'SF Mono', monospace; font-size: 12px; font-weight: 700;
+  }
+
+  /* Bullet reasoning with bolded lead-in */
+  .take-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .take-bullet {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; line-height: 1.55;
+  }
+  .take-bullet .num {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #444; flex-shrink: 0; margin-top: 3px;
+    width: 16px; text-align: right;
+  }
+  .take-bullet .content { color: #999; }
+  .take-bullet .content .lead { color: #ddd; font-weight: 600; }
+
+  /* Bottom strip — round points + key factor */
+  .bottom-strip {
+    display: flex; border-top: 0;
+  }
+  .strip-item {
+    flex: 1; padding: 10px 14px; text-align: center;
+    border-right: 1px solid #2a2a2a;
+  }
+  .strip-item:last-child { border-right: none; }
+  .strip-label {
+    font-family: 'SF Mono', monospace; font-size: 8px;
+    color: #444; text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+  .strip-value {
+    font-family: 'SF Mono', monospace; font-size: 12px;
+    font-weight: 700;
+  }
+  .strip-value.muted { color: #666; }
+
+  /* Colors */
+  .scout .top-stripe { background: #3b82f6; }
+  .scout .model-name { color: #3b82f6; }
+  .scout .pick-dot { background: #3b82f6; }
+  .scout .pick-tag { color: #3b82f6; }
+  .scout .conf-bar-fill { background: #3b82f6; }
+  .scout .conf-pct { color: #3b82f6; }
+  .scout .strip-value:not(.muted) { color: #3b82f6; }
+
+  .quant .top-stripe { background: #22c55e; }
+  .quant .model-name { color: #22c55e; }
+  .quant .pick-dot { background: #22c55e; }
+  .quant .pick-tag { color: #22c55e; }
+  .quant .conf-bar-fill { background: #22c55e; }
+  .quant .conf-pct { color: #22c55e; }
+  .quant .strip-value:not(.muted) { color: #22c55e; }
+
+  .chaos .top-stripe { background: #ef4444; }
+  .chaos .model-name { color: #ef4444; }
+  .chaos .pick-dot { background: #ef4444; }
+  .chaos .pick-tag { color: #ef4444; }
+  .chaos .conf-bar-fill { background: #ef4444; }
+  .chaos .conf-pct { color: #ef4444; }
+  .chaos .strip-value:not(.muted) { color: #ef4444; }
+</style>
+</head>
+<body>
+
+<p class="label">Option 10 — "Editorial"</p>
+<p class="sublabel">Numbered reasoning points with bold lead-ins. Top color stripe. Mini confidence bar inline. Bottom stat strip. Magazine feel.</p>
+
+<!-- SCOUT -->
+<div class="popover scout">
+  <div class="top-stripe"></div>
+  <div class="header">
+    <div class="header-left">
+      <span class="model-name">The Scout</span>
+      <span class="round-label">R64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+  <div class="teams">
+    <div class="team-row picked">
+      <span class="seed">1</span>
+      <span class="name bright">Auburn</span>
+      <span class="pick-dot"></span>
+      <span class="pick-tag">Pick</span>
+    </div>
+    <div class="team-row">
+      <span class="seed">16</span>
+      <span class="name">Alabama State</span>
+    </div>
+  </div>
+  <div class="the-take">
+    <div class="take-header">
+      <span class="take-label">The Take</span>
+      <div class="take-conf">
+        <div class="conf-bar-mini"><div class="conf-bar-fill" style="width: 97%"></div></div>
+        <span class="conf-pct">97%</span>
+      </div>
+    </div>
+    <ol class="take-bullets">
+      <li class="take-bullet">
+        <span class="num">01</span>
+        <span class="content"><span class="lead">+43.1 AdjEM gap.</span> Auburn 34.7 vs Alabama State -8.4 — the largest mismatch in the South.</span>
+      </li>
+      <li class="take-bullet">
+        <span class="num">02</span>
+        <span class="content"><span class="lead">Elite interior defense.</span> Auburn's AdjD of 93.0 smothers any 16-seed offense.</span>
+      </li>
+      <li class="take-bullet">
+        <span class="num">03</span>
+        <span class="content"><span class="lead">Non-competitive.</span> Coaching and roster depth aren't even factors at this margin.</span>
+      </li>
+    </ol>
+  </div>
+  <div class="bottom-strip">
+    <div class="strip-item">
+      <div class="strip-label">Points</div>
+      <div class="strip-value muted">10</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-label">Key Stat</div>
+      <div class="strip-value">+43.1</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-label">Upset</div>
+      <div class="strip-value muted">No</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUANT -->
+<div class="popover quant">
+  <div class="top-stripe"></div>
+  <div class="header">
+    <div class="header-left">
+      <span class="model-name">The Quant</span>
+      <span class="round-label">R64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+  <div class="teams">
+    <div class="team-row picked">
+      <span class="seed">8</span>
+      <span class="name bright">Louisville</span>
+      <span class="pick-dot"></span>
+      <span class="pick-tag">Pick</span>
+    </div>
+    <div class="team-row">
+      <span class="seed">9</span>
+      <span class="name">Creighton</span>
+    </div>
+  </div>
+  <div class="the-take">
+    <div class="take-header">
+      <span class="take-label">The Take</span>
+      <div class="take-conf">
+        <div class="conf-bar-mini"><div class="conf-bar-fill" style="width: 54%"></div></div>
+        <span class="conf-pct">54%</span>
+      </div>
+    </div>
+    <ol class="take-bullets">
+      <li class="take-bullet">
+        <span class="num">01</span>
+        <span class="content"><span class="lead">53.7% win rate.</span> Louisville edges across 10,000 simulated iterations.</span>
+      </li>
+      <li class="take-bullet">
+        <span class="num">02</span>
+        <span class="content"><span class="lead">+1.2 efficiency edge.</span> The slimmest meaningful differential in the field.</span>
+      </li>
+      <li class="take-bullet">
+        <span class="num">03</span>
+        <span class="content"><span class="lead">Coin-flip territory.</span> 8-9 games historically converge to 50/50 — AdjEM is the tiebreaker.</span>
+      </li>
+    </ol>
+  </div>
+  <div class="bottom-strip">
+    <div class="strip-item">
+      <div class="strip-label">Points</div>
+      <div class="strip-value muted">10</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-label">Win Rate</div>
+      <div class="strip-value">53.7%</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-label">Sims</div>
+      <div class="strip-value muted">10K</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAOS -->
+<div class="popover chaos">
+  <div class="top-stripe"></div>
+  <div class="header">
+    <div class="header-left">
+      <span class="model-name">The Chaos Agent</span>
+      <span class="round-label">R64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+  <div class="teams">
+    <div class="team-row">
+      <span class="seed">5</span>
+      <span class="name">Michigan</span>
+    </div>
+    <div class="team-row picked">
+      <span class="seed">12</span>
+      <span class="name bright">UC San Diego</span>
+      <span class="pick-dot"></span>
+      <span class="pick-tag">Pick</span>
+    </div>
+  </div>
+  <div class="the-take">
+    <div class="take-header">
+      <span class="take-label">The Take</span>
+      <div class="take-conf">
+        <div class="conf-bar-mini"><div class="conf-bar-fill" style="width: 61%"></div></div>
+        <span class="conf-pct">61%</span>
+      </div>
+    </div>
+    <ol class="take-bullets">
+      <li class="take-bullet">
+        <span class="num">01</span>
+        <span class="content"><span class="lead">Defensive exposure.</span> Michigan gave up 12-seed-caliber offenses all season and never fixed it.</span>
+      </li>
+      <li class="take-bullet">
+        <span class="num">02</span>
+        <span class="content"><span class="lead">24-11 ATS.</span> UC San Diego covers in single-elimination formats at a 69% clip.</span>
+      </li>
+      <li class="take-bullet">
+        <span class="num">03</span>
+        <span class="content"><span class="lead">Film blind spot.</span> Nobody is watching film on them. That's the edge.</span>
+      </li>
+    </ol>
+  </div>
+  <div class="bottom-strip">
+    <div class="strip-item">
+      <div class="strip-label">Points</div>
+      <div class="strip-value muted">10</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-label">Upset</div>
+      <div class="strip-value">5 &gt; 12</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-label">ATS</div>
+      <div class="strip-value">24-11</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

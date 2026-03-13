@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Option 5 — The Quick Hit</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; gap: 40px; padding: 40px; flex-wrap: wrap; justify-content: center; }
+  .label { color: #666; font-size: 11px; font-family: 'SF Mono', 'Fira Code', monospace; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; text-align: center; width: 100%; }
+  .sublabel { color: #555; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; text-align: center; width: 100%; margin-top: -24px; margin-bottom: 32px; }
+
+  .popover {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 14px;
+    width: 400px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  /* Compact header — everything in one dense row */
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .header-left { display: flex; align-items: center; gap: 8px; }
+  .model-pip { width: 6px; height: 6px; border-radius: 50%; }
+  .model-slug {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    font-weight: 600; text-transform: uppercase;
+  }
+  .round-label {
+    font-family: 'SF Mono', monospace; font-size: 10px; color: #555;
+  }
+  .close-btn {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #2a2a2a; border: none; color: #888;
+    font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* MATCHUP BAR — ultra compact team display */
+  .matchup-bar {
+    display: flex; align-items: stretch;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .matchup-team {
+    flex: 1; padding: 14px 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .matchup-team:first-child { border-right: 1px solid #2a2a2a; }
+  .matchup-team.picked-team { background: rgba(255,255,255,0.02); }
+  .team-seed {
+    font-family: 'SF Mono', monospace; font-size: 11px;
+    color: #555; width: 22px; text-align: center;
+  }
+  .team-name { font-size: 14px; font-weight: 500; }
+  .team-name.dim { color: #666; }
+  .team-name.bright { color: #efefef; font-weight: 700; }
+  .pick-badge {
+    margin-left: auto;
+    width: 6px; height: 6px; border-radius: 50; flex-shrink: 0;
+  }
+
+  /* TL;DR — one bold line, the punchline */
+  .tldr {
+    padding: 14px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .tldr-text {
+    font-size: 14px; font-weight: 600; color: #ddd;
+    line-height: 1.45;
+  }
+
+  /* KEY FACTORS — horizontal stat ribbon */
+  .factors {
+    display: flex;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .factor {
+    flex: 1; padding: 10px 14px;
+    text-align: center;
+    border-right: 1px solid #2a2a2a;
+  }
+  .factor:last-child { border-right: none; }
+  .factor-label {
+    font-family: 'SF Mono', monospace; font-size: 8px;
+    color: #555; text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+  .factor-value {
+    font-family: 'SF Mono', monospace; font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* EXPANDABLE FULL REASONING */
+  .full-reasoning {
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .reasoning-toggle {
+    width: 100%; padding: 10px 20px;
+    background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #555; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .reasoning-toggle:hover { color: #888; }
+  .reasoning-toggle .arrow { font-size: 10px; transition: transform 0.2s; }
+  .reasoning-body {
+    padding: 0 20px 14px;
+    display: block; /* In real implementation, hidden by default */
+  }
+  .reasoning-text {
+    font-size: 12.5px; color: #888; line-height: 1.6;
+  }
+  .reasoning-text strong { color: #bbb; font-weight: 600; }
+
+  /* Confidence — inline with everything else */
+  .conf-strip {
+    padding: 12px 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .conf-label {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #555; text-transform: uppercase; flex-shrink: 0;
+  }
+  .conf-bar-bg {
+    flex: 1; height: 5px; background: #2a2a2a; border-radius: 3px; overflow: hidden;
+  }
+  .conf-bar { height: 5px; border-radius: 3px; }
+  .conf-value {
+    font-family: 'SF Mono', monospace; font-size: 13px;
+    font-weight: 700; flex-shrink: 0;
+  }
+
+  /* Colors */
+  .scout .model-pip { background: #3b82f6; }
+  .scout .model-slug { color: #3b82f6; }
+  .scout .pick-badge { background: #3b82f6; border-radius: 50%; }
+  .scout .factor-value { color: #3b82f6; }
+  .scout .conf-bar { background: #3b82f6; }
+  .scout .conf-value { color: #3b82f6; }
+
+  .quant .model-pip { background: #22c55e; }
+  .quant .model-slug { color: #22c55e; }
+  .quant .pick-badge { background: #22c55e; border-radius: 50%; }
+  .quant .factor-value { color: #22c55e; }
+  .quant .conf-bar { background: #22c55e; }
+  .quant .conf-value { color: #22c55e; }
+
+  .chaos .model-pip { background: #ef4444; }
+  .chaos .model-slug { color: #ef4444; }
+  .chaos .pick-badge { background: #ef4444; border-radius: 50%; }
+  .chaos .factor-value { color: #ef4444; }
+  .chaos .conf-bar { background: #ef4444; }
+  .chaos .conf-value { color: #ef4444; }
+</style>
+</head>
+<body>
+
+<p class="label">Option 5 — "The Quick Hit"</p>
+<p class="sublabel">Maximum density. Bold TL;DR punchline. Stat ribbon. Expandable full reasoning. Fastest to scan.</p>
+
+<!-- SCOUT -->
+<div class="popover scout">
+  <div class="header">
+    <div class="header-left">
+      <span class="model-pip"></span>
+      <span class="model-slug">The Scout</span>
+      <span class="round-label">R64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="matchup-bar">
+    <div class="matchup-team picked-team">
+      <span class="team-seed">1</span>
+      <span class="team-name bright">Auburn</span>
+      <span class="pick-badge"></span>
+    </div>
+    <div class="matchup-team">
+      <span class="team-seed">16</span>
+      <span class="team-name dim">Alabama State</span>
+    </div>
+  </div>
+
+  <div class="tldr">
+    <p class="tldr-text">43-point efficiency gap. Interior presence and elite defense make this a non-game.</p>
+  </div>
+
+  <div class="factors">
+    <div class="factor">
+      <div class="factor-label">Confidence</div>
+      <div class="factor-value">97%</div>
+    </div>
+    <div class="factor">
+      <div class="factor-label">AdjEM Gap</div>
+      <div class="factor-value">+43.1</div>
+    </div>
+    <div class="factor">
+      <div class="factor-label">Points</div>
+      <div class="factor-value">10</div>
+    </div>
+    <div class="factor">
+      <div class="factor-label">Upset</div>
+      <div class="factor-value">No</div>
+    </div>
+  </div>
+
+  <div class="full-reasoning">
+    <button class="reasoning-toggle">
+      <span>Full Reasoning</span>
+      <span class="arrow">&#9660;</span>
+    </button>
+    <div class="reasoning-body">
+      <p class="reasoning-text">
+        Auburn's AdjEM of <strong>34.7</strong> dwarfs Alabama State's <strong>-8.4</strong>. A 43-point efficiency gap is insurmountable — Auburn's interior presence and elite defense smother any 16-seed. Coaching and roster depth aren't even factors here.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- QUANT -->
+<div class="popover quant">
+  <div class="header">
+    <div class="header-left">
+      <span class="model-pip"></span>
+      <span class="model-slug">The Quant</span>
+      <span class="round-label">R64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="matchup-bar">
+    <div class="matchup-team picked-team">
+      <span class="team-seed">8</span>
+      <span class="team-name bright">Louisville</span>
+      <span class="pick-badge"></span>
+    </div>
+    <div class="matchup-team">
+      <span class="team-seed">9</span>
+      <span class="team-name dim">Creighton</span>
+    </div>
+  </div>
+
+  <div class="tldr">
+    <p class="tldr-text">Wins 53.7% of 10K simulations. Near-coin-flip decided by +1.2 efficiency edge.</p>
+  </div>
+
+  <div class="factors">
+    <div class="factor">
+      <div class="factor-label">Confidence</div>
+      <div class="factor-value">54%</div>
+    </div>
+    <div class="factor">
+      <div class="factor-label">Win Rate</div>
+      <div class="factor-value">53.7%</div>
+    </div>
+    <div class="factor">
+      <div class="factor-label">Eff. Diff</div>
+      <div class="factor-value">+1.2</div>
+    </div>
+    <div class="factor">
+      <div class="factor-label">Points</div>
+      <div class="factor-value">10</div>
+    </div>
+  </div>
+
+  <div class="full-reasoning">
+    <button class="reasoning-toggle">
+      <span>Full Reasoning</span>
+      <span class="arrow">&#9660;</span>
+    </button>
+    <div class="reasoning-body">
+      <p class="reasoning-text">
+        Simulation: Louisville wins <strong>53.7%</strong> of iterations. Adjusted efficiency differential: <strong>+1.2</strong>. 8-9 games converge to near-coin-flip; Louisville's slight AdjEM edge is the tiebreaker.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- CHAOS -->
+<div class="popover chaos">
+  <div class="header">
+    <div class="header-left">
+      <span class="model-pip"></span>
+      <span class="model-slug">The Chaos Agent</span>
+      <span class="round-label">R64 &middot; South</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="matchup-bar">
+    <div class="matchup-team">
+      <span class="team-seed">5</span>
+      <span class="team-name dim">Michigan</span>
+    </div>
+    <div class="matchup-team picked-team">
+      <span class="team-seed">12</span>
+      <span class="team-name bright">UC San Diego</span>
+      <span class="pick-badge"></span>
+    </div>
+  </div>
+
+  <div class="tldr">
+    <p class="tldr-text">Michigan can't guard 12-seed offenses. UCSD is 24-11 ATS and invisible on film.</p>
+  </div>
+
+  <div class="factors">
+    <div class="factor">
+      <div class="factor-label">Confidence</div>
+      <div class="factor-value">61%</div>
+    </div>
+    <div class="factor">
+      <div class="factor-label">Upset</div>
+      <div class="factor-value">5 &gt; 12</div>
+    </div>
+    <div class="factor">
+      <div class="factor-label">ATS</div>
+      <div class="factor-value">24-11</div>
+    </div>
+    <div class="factor">
+      <div class="factor-label">Points</div>
+      <div class="factor-value">10</div>
+    </div>
+  </div>
+
+  <div class="full-reasoning">
+    <button class="reasoning-toggle">
+      <span>Full Reasoning</span>
+      <span class="arrow">&#9660;</span>
+    </button>
+    <div class="reasoning-body">
+      <p class="reasoning-text">
+        Michigan's defense has given up 12-seed-caliber offenses all season and never fixed it. UC San Diego is <strong>24-11</strong> against the spread in single-elimination formats. Nobody is watching film on them.
+      </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

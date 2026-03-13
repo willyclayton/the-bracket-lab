@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Option 4 — The Split Screen</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; gap: 40px; padding: 40px; flex-wrap: wrap; justify-content: center; }
+  .label { color: #666; font-size: 11px; font-family: 'SF Mono', 'Fira Code', monospace; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 32px; text-align: center; width: 100%; }
+  .sublabel { color: #555; font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; text-align: center; width: 100%; margin-top: -24px; margin-bottom: 32px; }
+
+  .popover {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 14px;
+    width: 420px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .header-meta {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .round-label {
+    font-family: 'SF Mono', monospace; font-size: 11px; color: #888;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .points-chip {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    padding: 2px 8px; border-radius: 8px;
+    background: #252525; color: #666;
+  }
+  .close-btn {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #2a2a2a; border: none; color: #888;
+    font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* SPLIT COMPARISON — teams side by side with mini stat blocks */
+  .split {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .split-team {
+    padding: 16px 20px;
+    position: relative;
+  }
+  .split-team:first-child { border-right: 1px solid #2a2a2a; }
+  .split-team.picked-side { background: rgba(255,255,255,0.02); }
+  .split-top {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 10px;
+  }
+  .split-seed {
+    width: 26px; height: 26px; border-radius: 6px;
+    background: #2a2a2a; display: flex; align-items: center; justify-content: center;
+    font-family: 'SF Mono', monospace; font-size: 11px; color: #888; flex-shrink: 0;
+  }
+  .split-name { font-size: 15px; font-weight: 600; }
+  .split-name.dim { color: #666; }
+  .split-name.bright { color: #efefef; }
+  .split-stats {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .split-stat {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .split-stat-label {
+    font-family: 'SF Mono', monospace; font-size: 9px;
+    color: #555; text-transform: uppercase;
+  }
+  .split-stat-value {
+    font-family: 'SF Mono', monospace; font-size: 12px;
+    font-weight: 600;
+  }
+  .stat-better { color: #efefef; }
+  .stat-worse { color: #555; }
+  .pick-ribbon {
+    position: absolute; top: 12px; right: 12px;
+    font-family: 'SF Mono', monospace; font-size: 9px;
+    padding: 2px 8px; border-radius: 4px;
+    font-weight: 700;
+  }
+
+  /* CALLOUT QUOTE — the punchline extracted from reasoning */
+  .callout {
+    padding: 16px 20px;
+    border-bottom: 1px solid #2a2a2a;
+    text-align: center;
+  }
+  .callout-text {
+    font-size: 15px; font-weight: 600; color: #ddd;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .callout-text::before { content: '\201C'; opacity: 0.3; }
+  .callout-text::after { content: '\201D'; opacity: 0.3; }
+
+  /* FULL REASONING — expandable */
+  .full-reasoning {
+    padding: 14px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .reasoning-label {
+    font-family: 'SF Mono', monospace; font-size: 10px;
+    color: #666; text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .model-tag {
+    font-family: 'SF Mono', monospace; font-size: 9px;
+    padding: 1px 6px; border-radius: 8px;
+    font-weight: 600;
+  }
+  .reasoning-text {
+    font-size: 12.5px; color: #888; line-height: 1.6;
+  }
+
+  /* Confidence */
+  .confidence { padding: 12px 20px; }
+  .conf-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+  .conf-label { font-family: 'SF Mono', monospace; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.08em; }
+  .conf-value { font-family: 'SF Mono', monospace; font-size: 13px; font-weight: 700; }
+  .conf-bar-bg { height: 5px; background: #2a2a2a; border-radius: 3px; }
+  .conf-bar { height: 5px; border-radius: 3px; }
+
+  /* Colors */
+  .scout .pick-ribbon { background: rgba(59,130,246,0.15); color: #3b82f6; }
+  .scout .model-tag { background: rgba(59,130,246,0.12); color: #3b82f6; }
+  .scout .conf-value { color: #3b82f6; }
+  .scout .conf-bar { background: #3b82f6; }
+
+  .quant .pick-ribbon { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .quant .model-tag { background: rgba(34,197,94,0.12); color: #22c55e; }
+  .quant .conf-value { color: #22c55e; }
+  .quant .conf-bar { background: #22c55e; }
+
+  .chaos .pick-ribbon { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .chaos .model-tag { background: rgba(239,68,68,0.12); color: #ef4444; }
+  .chaos .conf-value { color: #ef4444; }
+  .chaos .conf-bar { background: #ef4444; }
+</style>
+</head>
+<body>
+
+<p class="label">Option 4 — "The Split Screen"</p>
+<p class="sublabel">Side-by-side team stats. Bold callout quote. Full reasoning below. Data-dense but scannable.</p>
+
+<!-- SCOUT -->
+<div class="popover scout">
+  <div class="header">
+    <div class="header-meta">
+      <span class="round-label">Round of 64 &middot; South</span>
+      <span class="points-chip">10 pts</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="split">
+    <div class="split-team picked-side">
+      <span class="pick-ribbon">Pick</span>
+      <div class="split-top">
+        <span class="split-seed">1</span>
+        <span class="split-name bright">Auburn</span>
+      </div>
+      <div class="split-stats">
+        <div class="split-stat">
+          <span class="split-stat-label">AdjEM</span>
+          <span class="split-stat-value stat-better">34.7</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">AdjD</span>
+          <span class="split-stat-value stat-better">93.0</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">AdjO</span>
+          <span class="split-stat-value stat-better">127.7</span>
+        </div>
+      </div>
+    </div>
+    <div class="split-team">
+      <div class="split-top">
+        <span class="split-seed">16</span>
+        <span class="split-name dim">Alabama St.</span>
+      </div>
+      <div class="split-stats">
+        <div class="split-stat">
+          <span class="split-stat-label">AdjEM</span>
+          <span class="split-stat-value stat-worse">-8.4</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">AdjD</span>
+          <span class="split-stat-value stat-worse">108.4</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">AdjO</span>
+          <span class="split-stat-value stat-worse">100.0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p class="callout-text">A 43-point efficiency gap is insurmountable</p>
+  </div>
+
+  <div class="full-reasoning">
+    <div class="reasoning-label">
+      Full Analysis
+      <span class="model-tag">The Scout</span>
+    </div>
+    <p class="reasoning-text">
+      Auburn's AdjEM of 34.7 dwarfs Alabama State's -8.4. Auburn's interior presence and elite defense smother any 16-seed. Coaching and roster depth aren't even factors here.
+    </p>
+  </div>
+
+  <div class="confidence">
+    <div class="conf-row">
+      <span class="conf-label">Confidence</span>
+      <span class="conf-value">97%</span>
+    </div>
+    <div class="conf-bar-bg">
+      <div class="conf-bar" style="width: 97%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUANT -->
+<div class="popover quant">
+  <div class="header">
+    <div class="header-meta">
+      <span class="round-label">Round of 64 &middot; South</span>
+      <span class="points-chip">10 pts</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="split">
+    <div class="split-team picked-side">
+      <span class="pick-ribbon">Pick</span>
+      <div class="split-top">
+        <span class="split-seed">8</span>
+        <span class="split-name bright">Louisville</span>
+      </div>
+      <div class="split-stats">
+        <div class="split-stat">
+          <span class="split-stat-label">Win %</span>
+          <span class="split-stat-value stat-better">53.7%</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">AdjEM</span>
+          <span class="split-stat-value stat-better">22.0</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">Sims</span>
+          <span class="split-stat-value stat-better">10K</span>
+        </div>
+      </div>
+    </div>
+    <div class="split-team">
+      <div class="split-top">
+        <span class="split-seed">9</span>
+        <span class="split-name dim">Creighton</span>
+      </div>
+      <div class="split-stats">
+        <div class="split-stat">
+          <span class="split-stat-label">Win %</span>
+          <span class="split-stat-value stat-worse">46.3%</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">AdjEM</span>
+          <span class="split-stat-value stat-worse">19.7</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">Sims</span>
+          <span class="split-stat-value stat-worse">10K</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p class="callout-text">8-9 games converge to near-coin-flip</p>
+  </div>
+
+  <div class="full-reasoning">
+    <div class="reasoning-label">
+      Full Analysis
+      <span class="model-tag">The Quant</span>
+    </div>
+    <p class="reasoning-text">
+      Louisville wins 53.7% of iterations. Adjusted efficiency differential: +1.2. Louisville's slight AdjEM edge is the tiebreaker.
+    </p>
+  </div>
+
+  <div class="confidence">
+    <div class="conf-row">
+      <span class="conf-label">Confidence</span>
+      <span class="conf-value">54%</span>
+    </div>
+    <div class="conf-bar-bg">
+      <div class="conf-bar" style="width: 54%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAOS -->
+<div class="popover chaos">
+  <div class="header">
+    <div class="header-meta">
+      <span class="round-label">Round of 64 &middot; South</span>
+      <span class="points-chip">10 pts</span>
+    </div>
+    <button class="close-btn">&times;</button>
+  </div>
+
+  <div class="split">
+    <div class="split-team">
+      <div class="split-top">
+        <span class="split-seed">5</span>
+        <span class="split-name dim">Michigan</span>
+      </div>
+      <div class="split-stats">
+        <div class="split-stat">
+          <span class="split-stat-label">AdjEM</span>
+          <span class="split-stat-value stat-worse">21.8</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">AdjD</span>
+          <span class="split-stat-value stat-worse">105.4</span>
+        </div>
+      </div>
+    </div>
+    <div class="split-team picked-side">
+      <span class="pick-ribbon">Pick</span>
+      <div class="split-top">
+        <span class="split-seed">12</span>
+        <span class="split-name bright">UC San Diego</span>
+      </div>
+      <div class="split-stats">
+        <div class="split-stat">
+          <span class="split-stat-label">ATS</span>
+          <span class="split-stat-value stat-better">24-11</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-stat-label">Upset</span>
+          <span class="split-stat-value stat-better">Yes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p class="callout-text">Nobody is watching film on them</p>
+  </div>
+
+  <div class="full-reasoning">
+    <div class="reasoning-label">
+      Full Analysis
+      <span class="model-tag">The Chaos Agent</span>
+    </div>
+    <p class="reasoning-text">
+      Michigan's defense has given up 12-seed-caliber offenses all season and never fixed it. UC San Diego is 24-11 against the spread in single-elimination formats.
+    </p>
+  </div>
+
+  <div class="confidence">
+    <div class="conf-row">
+      <span class="conf-label">Confidence</span>
+      <span class="conf-value">61%</span>
+    </div>
+    <div class="conf-bar-bg">
+      <div class="conf-bar" style="width: 61%"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

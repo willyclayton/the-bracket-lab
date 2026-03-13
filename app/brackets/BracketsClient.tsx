@@ -440,6 +440,8 @@ export default function BracketsClient() {
       <MatchupPopover
         data={popoverData}
         modelColor={activeModel.color}
+        modelName={activeModel.name}
+        modelId={activeModel.id}
         winnerMap={winnerMap}
         eliminatedTeams={eliminatedTeams}
         bustedModelPicks={bustedModelPicks}

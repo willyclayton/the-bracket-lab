@@ -11,6 +11,8 @@ interface PopoverData {
 interface MatchupPopoverProps {
   data: PopoverData | null;
   modelColor: string;
+  modelName: string;
+  modelId: string;
   winnerMap: Record<string, string>;
   eliminatedTeams: Set<string>;
   bustedModelPicks: Set<string>;
@@ -18,7 +20,49 @@ interface MatchupPopoverProps {
   onClose: () => void;
 }
 
-export default function MatchupPopover({ data, modelColor, winnerMap, eliminatedTeams, bustedModelPicks, result, onClose }: MatchupPopoverProps) {
+function getVerdictLine(reasoning: string): string {
+  if (!reasoning) return '';
+  const sentences = reasoning.split(/\.\s+/).filter((s) => s.length > 10);
+  if (sentences.length === 0) return reasoning;
+  // Skip generic openers like "Simulation: X wins Y%"
+  const first = sentences[0];
+  if (/^(simulation|monte carlo|model|analysis):/i.test(first) && sentences.length > 1) {
+    return sentences[sentences.length - 1].replace(/\.$/, '') + '.';
+  }
+  return first.replace(/\.$/, '') + '.';
+}
+
+function parseEvidenceBullets(reasoning: string): string[] {
+  if (!reasoning) return [];
+  // Split on sentence boundaries or em dashes
+  const fragments = reasoning.split(/\.\s+|\s+—\s+/).filter((s) => s.length >= 15);
+  // Skip the first fragment (used as verdict) and cap at 3
+  const bullets = fragments.slice(1, 4);
+  return bullets.map((b) => b.replace(/\.$/, ''));
+}
+
+function getBoldLead(bullet: string): { bold: string; rest: string } {
+  // Try to find a stat pattern
+  const statMatch = bullet.match(/^(.{0,60}?\d+[\d.]*%?)/);
+  if (statMatch && statMatch[1].length < bullet.length * 0.8) {
+    const bold = statMatch[1];
+    const rest = bullet.slice(bold.length);
+    return { bold, rest };
+  }
+  // Fall back to first clause before comma or dash
+  const clauseMatch = bullet.match(/^([^,—]+[,—])/);
+  if (clauseMatch && clauseMatch[1].length < bullet.length * 0.8) {
+    return { bold: clauseMatch[1], rest: bullet.slice(clauseMatch[1].length) };
+  }
+  // Default: bold first ~40 chars at a word boundary
+  const cutoff = bullet.indexOf(' ', 30);
+  if (cutoff > 0 && cutoff < bullet.length * 0.7) {
+    return { bold: bullet.slice(0, cutoff), rest: bullet.slice(cutoff) };
+  }
+  return { bold: bullet, rest: '' };
+}
+
+export default function MatchupPopover({ data, modelColor, modelName, modelId, winnerMap, eliminatedTeams, bustedModelPicks, result, onClose }: MatchupPopoverProps) {
   if (!data) return null;
 
   const { game, roundLabel } = data;
@@ -126,18 +170,15 @@ export default function MatchupPopover({ data, modelColor, winnerMap, eliminated
                 <span className={`flex-1 text-[15px] ${textCls[state]}`}>
                   {team}
                 </span>
-                {isPick && state === 'correct' && (
-                  <span className="w-[7px] h-[7px] rounded-full bg-green-500 flex-shrink-0" />
-                )}
-                {isPick && state === 'pending' && (
-                  <span className="w-[7px] h-[7px] rounded-full flex-shrink-0" style={{ background: modelColor }} />
-                )}
-                {isPick && (
+                {isPick && game.confidence != null && (
                   <span
-                    className="font-mono text-[10px] px-2 py-0.5 rounded bg-white/[0.08] font-medium"
-                    style={{ color: state === 'wrong' || state === 'busted-pick' ? '#ef4444' : modelColor }}
+                    className="font-mono text-[11px] px-2.5 py-1 rounded-md font-bold flex-shrink-0"
+                    style={{
+                      background: (state === 'wrong' || state === 'busted-pick' ? '#ef4444' : state === 'correct' ? '#22c55e' : modelColor) + '1f',
+                      color: state === 'wrong' || state === 'busted-pick' ? '#ef4444' : state === 'correct' ? '#22c55e' : modelColor,
+                    }}
                   >
-                    Pick
+                    {game.confidence}%
                   </span>
                 )}
                 {score !== null && (
@@ -150,15 +191,48 @@ export default function MatchupPopover({ data, modelColor, winnerMap, eliminated
           })}
         </div>
 
-        {/* Reasoning */}
-        <div className="px-5 py-4 border-b border-[#2a2a2a]">
-          <p className="font-mono text-[10px] text-[#666] uppercase tracking-wider mb-2">
-            Model Reasoning
-          </p>
-          <p className="text-[13px] text-[#aaa] leading-relaxed">
-            {game.reasoning}
-          </p>
-        </div>
+        {/* Verdict line */}
+        {game.reasoning && (
+          <div className="px-5 py-3.5 border-b border-[#2a2a2a]">
+            <p className="text-[15px] font-semibold text-[#ddd] leading-[1.45]">
+              {getVerdictLine(game.reasoning)}
+            </p>
+          </div>
+        )}
+
+        {/* The Case — evidence bullets */}
+        {game.reasoning && (
+          <div className="px-5 py-4 border-b border-[#2a2a2a]">
+            <div className="flex items-center gap-2 mb-3">
+              <p className="font-mono text-[10px] text-[#666] uppercase tracking-wider">
+                The Case
+              </p>
+              <span
+                className="font-mono text-[9px] px-2 py-0.5 rounded-[10px] font-semibold"
+                style={{ background: modelColor + '1f', color: modelColor }}
+              >
+                {modelName}
+              </span>
+            </div>
+            <ul className="space-y-2">
+              {parseEvidenceBullets(game.reasoning).map((bullet, i) => {
+                const { bold, rest } = getBoldLead(bullet);
+                return (
+                  <li key={i} className="flex items-start gap-2.5 text-[13px] text-[#999] leading-relaxed">
+                    <span
+                      className="w-1 h-1 rounded-full mt-[8px] flex-shrink-0"
+                      style={{ background: modelColor }}
+                    />
+                    <span>
+                      <span className="text-[#ccc] font-semibold">{bold}</span>
+                      {rest}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
 
         {/* Confidence */}
         <div className="px-5 py-3.5">
