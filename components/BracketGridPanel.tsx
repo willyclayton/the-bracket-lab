@@ -31,6 +31,7 @@ interface BracketGridPanelProps {
   winnerMap: Record<string, string>;
   eliminatedTeams: Set<string>;
   bustedModelPicks: Set<string>;
+  blurredRounds?: string[];
 }
 
 function MatchupSlot({
@@ -168,6 +169,7 @@ function RegionBracket({
   eliminatedTeams,
   bustedModelPicks,
   reverse,
+  blurredRounds,
 }: {
   region: string;
   gamesByRegion: GamesByRegion;
@@ -178,6 +180,7 @@ function RegionBracket({
   eliminatedTeams: Set<string>;
   bustedModelPicks: Set<string>;
   reverse?: boolean;
+  blurredRounds?: string[];
 }) {
   const regionData = gamesByRegion[region] ?? {};
 
@@ -188,12 +191,16 @@ function RegionBracket({
       </div>
       <div className={`flex items-start ${reverse ? 'flex-row-reverse' : ''}`}>
         {ROUND_KEYS.map((roundKey) => {
-          const games = regionData[roundKey] ?? [];
+          const rawGames = regionData[roundKey] ?? [];
           const layout = ROUND_LAYOUT[roundKey] ?? { offset: 0, gap: BASE_GAP };
           const label = ROUND_LABELS[roundKey] ?? roundKey;
+          const isBlurred = blurredRounds?.includes(roundKey) ?? false;
+          const games = isBlurred
+            ? rawGames.map(g => ({ ...g, team1: '???', team2: '???', pick: '???', reasoning: '', confidence: 0 }))
+            : rawGames;
 
           return (
-            <div key={roundKey} className="flex flex-col">
+            <div key={roundKey} className="flex flex-col" style={isBlurred ? { filter: 'blur(8px)', pointerEvents: 'none', userSelect: 'none' } : undefined}>
               <div className="font-mono text-[8px] text-[#444] uppercase tracking-wider text-center mb-1">
                 {label}
               </div>
@@ -229,6 +236,7 @@ export default function BracketGridPanel({
   winnerMap,
   eliminatedTeams,
   bustedModelPicks,
+  blurredRounds,
 }: BracketGridPanelProps) {
   const ffGames = gamesByRegion['ff'] ?? {};
   const finalFour = ffGames['final_four'] ?? [];
@@ -262,6 +270,7 @@ export default function BracketGridPanel({
               winnerMap={winnerMap}
               eliminatedTeams={eliminatedTeams}
               bustedModelPicks={bustedModelPicks}
+              blurredRounds={blurredRounds}
             />
             <RegionBracket
               region="west"
@@ -272,17 +281,18 @@ export default function BracketGridPanel({
               winnerMap={winnerMap}
               eliminatedTeams={eliminatedTeams}
               bustedModelPicks={bustedModelPicks}
+              blurredRounds={blurredRounds}
             />
           </div>
 
           {/* Left FF game (south-west semifinal) */}
-          <div className="self-center px-1">
+          <div className="self-center px-1" style={blurredRounds?.includes('final_four') ? { filter: 'blur(8px)', pointerEvents: 'none', userSelect: 'none' } : undefined}>
             <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] text-center mb-1">
               F4
             </div>
             {leftFF && (
               <MatchupSlot
-                game={leftFF}
+                game={blurredRounds?.includes('final_four') ? { ...leftFF, team1: '???', team2: '???', pick: '???', reasoning: '', confidence: 0 } : leftFF}
                 modelColor={modelColor}
                 isHighlighted={highlightedMatchId === leftFF.gameId}
                 onClick={() => onMatchClick(leftFF.gameId, leftFF, 'Final Four')}
@@ -294,14 +304,14 @@ export default function BracketGridPanel({
           </div>
 
           {/* Center: Championship + Champion */}
-          <div className="text-center px-1 min-w-[120px] self-center">
+          <div className="text-center px-1 min-w-[120px] self-center" style={blurredRounds?.includes('championship') ? { filter: 'blur(8px)', pointerEvents: 'none', userSelect: 'none' } : undefined}>
             <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] mb-1">
               Championship
             </div>
             {championship.map((game) => (
               <MatchupSlot
                 key={game.gameId}
-                game={game}
+                game={blurredRounds?.includes('championship') ? { ...game, team1: '???', team2: '???', pick: '???', reasoning: '', confidence: 0 } : game}
                 modelColor={modelColor}
                 isHighlighted={highlightedMatchId === game.gameId}
                 onClick={() => onMatchClick(game.gameId, game, 'Championship')}
@@ -322,19 +332,19 @@ export default function BracketGridPanel({
                   color: champCorrect === true ? '#22c55e' : champCorrect === false ? '#ef4444' : modelColor,
                 }}
               >
-                {champion ?? '\u2014'}
+                {blurredRounds?.includes('championship') ? '???' : (champion ?? '\u2014')}
               </div>
             </div>
           </div>
 
           {/* Right FF game (east-midwest semifinal) */}
-          <div className="self-center px-1">
+          <div className="self-center px-1" style={blurredRounds?.includes('final_four') ? { filter: 'blur(8px)', pointerEvents: 'none', userSelect: 'none' } : undefined}>
             <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] text-center mb-1">
               F4
             </div>
             {rightFF && (
               <MatchupSlot
-                game={rightFF}
+                game={blurredRounds?.includes('final_four') ? { ...rightFF, team1: '???', team2: '???', pick: '???', reasoning: '', confidence: 0 } : rightFF}
                 modelColor={modelColor}
                 isHighlighted={highlightedMatchId === rightFF.gameId}
                 onClick={() => onMatchClick(rightFF.gameId, rightFF, 'Final Four')}
@@ -356,6 +366,7 @@ export default function BracketGridPanel({
               winnerMap={winnerMap}
               eliminatedTeams={eliminatedTeams}
               bustedModelPicks={bustedModelPicks}
+              blurredRounds={blurredRounds}
               reverse
             />
             <RegionBracket
@@ -367,6 +378,7 @@ export default function BracketGridPanel({
               winnerMap={winnerMap}
               eliminatedTeams={eliminatedTeams}
               bustedModelPicks={bustedModelPicks}
+              blurredRounds={blurredRounds}
               reverse
             />
           </div>

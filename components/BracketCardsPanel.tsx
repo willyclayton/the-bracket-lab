@@ -32,6 +32,7 @@ interface BracketCardsPanelProps {
   winnerMap: Record<string, string>;
   eliminatedTeams: Set<string>;
   bustedModelPicks: Set<string>;
+  blurredRounds?: string[];
 }
 
 export default function BracketCardsPanel({
@@ -44,6 +45,7 @@ export default function BracketCardsPanel({
   winnerMap,
   eliminatedTeams,
   bustedModelPicks,
+  blurredRounds,
 }: BracketCardsPanelProps) {
   const regionData = gamesByRegion[currentRegion] ?? {};
 
@@ -55,6 +57,7 @@ export default function BracketCardsPanel({
           const games = regionData[round];
           if (!games || games.length === 0) return null;
           const label = ROUND_LABELS[round] ?? round;
+          const isBlurred = blurredRounds?.includes(round) ?? false;
 
           return (
             <div key={round}>
@@ -68,7 +71,8 @@ export default function BracketCardsPanel({
               </div>
 
               {/* Matchup cards */}
-              {games.map((game) => {
+              <div style={isBlurred ? { filter: 'blur(8px)', pointerEvents: 'none', userSelect: 'none' } : undefined}>
+              {(isBlurred ? games.map(g => ({ ...g, team1: '???', team2: '???', pick: '???', reasoning: '', confidence: 0 })) : games).map((game) => {
                 const matchId = game.gameId;
                 const isPick1 = game.pick === game.team1;
                 const isPick2 = game.pick === game.team2;
@@ -176,6 +180,7 @@ export default function BracketCardsPanel({
                   </div>
                 );
               })}
+              </div>
             </div>
           );
         })}

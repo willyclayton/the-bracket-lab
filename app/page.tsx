@@ -71,10 +71,10 @@ export default function Home() {
             Meet the Models
           </Link>
           <Link
-            href="/blog"
-            className="border border-lab-border text-lab-muted font-medium text-sm px-6 py-2.5 rounded-lg hover:border-lab-muted hover:text-lab-text transition-all"
+            href="/cheat-sheet"
+            className="border border-green-500/30 text-green-400 font-medium text-sm px-6 py-2.5 rounded-lg hover:border-green-500/50 hover:text-green-300 transition-all"
           >
-            Blog &amp; Recaps
+            AI Cheat Sheet &mdash; $2.99
           </Link>
         </div>
 

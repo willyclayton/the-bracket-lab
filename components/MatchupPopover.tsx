@@ -18,6 +18,7 @@ interface MatchupPopoverProps {
   bustedModelPicks: Set<string>;
   result?: ResultGame | null;
   onClose: () => void;
+  blurredRounds?: string[];
 }
 
 function getVerdictLine(reasoning: string): string {
@@ -62,8 +63,13 @@ function getBoldLead(bullet: string): { bold: string; rest: string } {
   return { bold: bullet, rest: '' };
 }
 
-export default function MatchupPopover({ data, modelColor, modelName, modelId, winnerMap, eliminatedTeams, bustedModelPicks, result, onClose }: MatchupPopoverProps) {
+export default function MatchupPopover({ data, modelColor, modelName, modelId, winnerMap, eliminatedTeams, bustedModelPicks, result, onClose, blurredRounds }: MatchupPopoverProps) {
   if (!data) return null;
+
+  // Block popover for paywalled rounds
+  if (blurredRounds?.includes(data.game.round)) {
+    return null;
+  }
 
   const { game, roundLabel } = data;
   const isPick1 = game.pick === game.team1;

@@ -142,6 +142,9 @@ export default function BracketsClient() {
   const [highlightedMatchId, setHighlightedMatchId] = useState<string | null>(null);
   const [popoverData, setPopoverData] = useState<{ game: Game; roundLabel: string } | null>(null);
 
+  const isPaywalled = false;
+  const blurredRounds: string[] | undefined = undefined;
+
   // Build winner map + eliminated teams set
   const winnerMap: Record<string, string> = {};
   const eliminatedTeams = new Set<string>();
@@ -333,7 +336,7 @@ export default function BracketsClient() {
       ) : (
         <>
           {/* Desktop: Side-by-side */}
-          <div className="hidden lg:flex gap-4">
+          <div className="hidden lg:flex gap-4 relative">
             <div className="w-[40%] flex-shrink-0">
               <BracketCardsPanel
                 gamesByRegion={gamesByRegion}
@@ -345,6 +348,7 @@ export default function BracketsClient() {
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
                 bustedModelPicks={bustedModelPicks}
+                blurredRounds={blurredRounds}
               />
             </div>
             <div className="flex-1">
@@ -357,12 +361,13 @@ export default function BracketsClient() {
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
                 bustedModelPicks={bustedModelPicks}
+                blurredRounds={blurredRounds}
               />
             </div>
           </div>
 
           {/* Mobile: Toggle */}
-          <div className="lg:hidden">
+          <div className="lg:hidden relative">
             {/* Controls */}
             <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
               <div className="flex items-center bg-lab-surface border border-lab-border rounded-md overflow-hidden flex-shrink-0">
@@ -406,7 +411,6 @@ export default function BracketsClient() {
             {/* Mobile cards view */}
             {mobileView === 'cards' && (
               <BracketCardsPanel
-
                 gamesByRegion={gamesByRegion}
                 modelColor={activeModel.color}
                 currentRegion={currentRegion}
@@ -416,6 +420,7 @@ export default function BracketsClient() {
                 winnerMap={winnerMap}
                 eliminatedTeams={eliminatedTeams}
                 bustedModelPicks={bustedModelPicks}
+                blurredRounds={blurredRounds}
               />
             )}
 
@@ -431,6 +436,7 @@ export default function BracketsClient() {
                   winnerMap={winnerMap}
                   eliminatedTeams={eliminatedTeams}
                   bustedModelPicks={bustedModelPicks}
+                  blurredRounds={blurredRounds}
                 />
               </div>
             )}
@@ -448,6 +454,7 @@ export default function BracketsClient() {
         eliminatedTeams={eliminatedTeams}
         bustedModelPicks={bustedModelPicks}
         result={popoverData ? (resultsMap[popoverData.game.gameId] ?? null) : null}
+        blurredRounds={blurredRounds}
         onClose={() => {
           setPopoverData(null);
           setHighlightedMatchId(null);
