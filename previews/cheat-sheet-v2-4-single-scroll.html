@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2-4: Single Scroll</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .page { max-width: 640px; margin: 0 auto; padding: 40px 24px; }
+
+  .hero { margin-bottom: 32px; }
+  .hero-label { font-family: monospace; font-size: 11px; color: #22c55e; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px; }
+  .hero h1 { font-family: Georgia, serif; font-size: 32px; line-height: 1.15; margin-bottom: 10px; }
+  .hero h1 em { font-style: italic; color: #22c55e; }
+  .hero-sub { font-size: 14px; color: #888; line-height: 1.6; }
+
+  /* Stats bar */
+  .stats { display: flex; gap: 16px; padding: 16px 0; margin-bottom: 28px; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; overflow-x: auto; }
+  .stat { text-align: center; min-width: 60px; }
+  .stat-n { font-family: monospace; font-size: 22px; font-weight: 700; }
+  .stat-l { font-size: 10px; color: #888; margin-top: 2px; }
+
+  /* Unified list */
+  .list { margin-bottom: 0; }
+  .list-label { font-family: monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; padding: 10px 14px; border-bottom: 1px solid #2a2a2a; display: flex; align-items: center; gap: 6px; }
+  .list-container { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+
+  .row { display: grid; grid-template-columns: 8px 1fr auto; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid #1e1e1e; }
+  .row:last-child { border-bottom: none; }
+  .row-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .row-text { font-size: 13px; }
+  .row-w { font-weight: 600; }
+  .row-sep { color: #444; font-size: 10px; margin: 0 4px; }
+  .row-l { color: #555; }
+  .row-right { display: flex; align-items: center; gap: 8px; }
+  .row-region { font-family: monospace; font-size: 9px; color: #444; }
+  .row-pill { font-family: monospace; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
+
+  .blurred { filter: blur(5px); pointer-events: none; user-select: none; }
+
+  /* Champion strip */
+  .champ-strip { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #1a1a1a; border: 1px solid #22c55e22; border-radius: 10px; margin-bottom: 12px; }
+  .cs-trophy { font-size: 22px; }
+  .cs-team { font-size: 17px; font-weight: 700; color: #22c55e; }
+  .cs-meta { font-size: 11px; color: #888; }
+  .cs-right { margin-left: auto; font-family: monospace; font-size: 20px; font-weight: 700; color: #22c55e; }
+
+  .ff-strip { display: flex; gap: 6px; margin-bottom: 24px; }
+  .ffs { flex: 1; text-align: center; padding: 8px; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; font-size: 12px; font-weight: 600; }
+  .ffs span { display: block; font-family: monospace; font-size: 10px; color: #3b82f6; font-weight: 400; margin-top: 2px; }
+
+  /* CTA */
+  .cta-box { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 28px 24px; text-align: center; margin: 24px 0; }
+  .cta-box h3 { font-family: Georgia, serif; font-size: 20px; margin-bottom: 6px; }
+  .cta-box p { font-size: 13px; color: #888; margin-bottom: 16px; }
+  .cta-btn { display: inline-block; font-family: monospace; font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: 10px; background: #22c55e; color: #141414; text-decoration: none; }
+  .cta-fine { font-size: 11px; color: #555; margin-top: 10px; }
+  .cta-fine a { color: #f59e0b; text-decoration: underline; text-underline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-label">AI Cheat Sheet &middot; 2026</div>
+    <h1>Your bracket pool<br>has a <em>blindspot</em>.</h1>
+    <p class="hero-sub">9 AI models. 567 predictions. Distilled into the consensus picks that give you an edge.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n" style="color:#22c55e">14</div><div class="stat-l">Locks</div></div>
+    <div class="stat"><div class="stat-n" style="color:#f59e0b">5</div><div class="stat-l">Upsets</div></div>
+    <div class="stat"><div class="stat-n" style="color:#ef4444">3</div><div class="stat-l">Traps</div></div>
+    <div class="stat"><div class="stat-n" style="color:#3b82f6">4</div><div class="stat-l">Final Four</div></div>
+    <div class="stat"><div class="stat-n" style="color:#a855f7">1</div><div class="stat-l">Sleeper</div></div>
+  </div>
+
+  <!-- Champion + FF (free) -->
+  <div class="champ-strip">
+    <span class="cs-trophy">&#127942;</span>
+    <div><div class="cs-team">Duke</div><div class="cs-meta">Consensus champion &middot; 74% avg conf</div></div>
+    <span class="cs-right">4/9</span>
+  </div>
+  <div class="ff-strip">
+    <div class="ffs">Duke <span>7/9</span></div>
+    <div class="ffs">Florida <span>6/9</span></div>
+    <div class="ffs">Auburn <span>5/9</span></div>
+    <div class="ffs">Houston <span>5/9</span></div>
+  </div>
+
+  <!-- ALL PICKS in one unified list -->
+  <div class="list-container">
+    <div class="list-label" style="color:#22c55e">&#10003; Lock Picks <span style="color:#555;margin-left:auto">2 of 14 free</span></div>
+    <div class="row">
+      <span class="row-dot" style="background:#22c55e"></span>
+      <div class="row-text"><span class="row-w" style="color:#22c55e">(1) Duke</span><span class="row-sep">over</span><span class="row-l">(16) American</span></div>
+      <div class="row-right"><span class="row-region">East</span><span class="row-pill" style="background:#22c55e22;color:#22c55e">9/9</span></div>
+    </div>
+    <div class="row">
+      <span class="row-dot" style="background:#22c55e"></span>
+      <div class="row-text"><span class="row-w" style="color:#22c55e">(1) Florida</span><span class="row-sep">over</span><span class="row-l">(16) Norfolk St</span></div>
+      <div class="row-right"><span class="row-region">South</span><span class="row-pill" style="background:#22c55e22;color:#22c55e">9/9</span></div>
+    </div>
+    <div class="row blurred">
+      <span class="row-dot" style="background:#22c55e"></span>
+      <div class="row-text"><span class="row-w">(2) Auburn</span><span class="row-sep">over</span><span class="row-l">(15) Omaha</span></div>
+      <div class="row-right"><span class="row-region">MW</span><span class="row-pill" style="background:#22c55e22;color:#22c55e">8/9</span></div>
+    </div>
+
+    <div class="list-label blurred" style="color:#f59e0b">&#9889; Smart Upsets <span style="color:#555;margin-left:auto">5 picks</span></div>
+    <div class="row blurred">
+      <span class="row-dot" style="background:#f59e0b"></span>
+      <div class="row-text"><span class="row-w">(10) Arkansas</span><span class="row-sep">upset</span><span class="row-l">(7) Marquette</span></div>
+      <div class="row-right"><span class="row-region">West</span><span class="row-pill" style="background:#f59e0b22;color:#f59e0b">6/9</span></div>
+    </div>
+
+    <div class="list-label blurred" style="color:#ef4444">&#9888; Trap Games <span style="color:#555;margin-left:auto">3 games</span></div>
+    <div class="row blurred">
+      <span class="row-dot" style="background:#ef4444"></span>
+      <div class="row-text"><span class="row-w">(5) Michigan</span><span class="row-sep">trap</span><span class="row-l">(12) UC San Diego</span></div>
+      <div class="row-right"><span class="row-region">East</span><span class="row-pill" style="background:#ef444422;color:#ef4444">5/9</span></div>
+    </div>
+
+    <div class="list-label blurred" style="color:#a855f7">&#128301; Sleeper <span style="color:#555;margin-left:auto">1 pick</span></div>
+    <div class="row blurred">
+      <span class="row-dot" style="background:#a855f7"></span>
+      <div class="row-text"><span class="row-w">(7) Oregon</span><span class="row-sep">to</span><span class="row-l">Sweet 16</span></div>
+      <div class="row-right"><span class="row-region">South</span><span class="row-pill" style="background:#a855f722;color:#a855f7">2/9</span></div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Less than a coffee. More than a hunch.</h3>
+    <p>Your pool entry is $25. This is $2.99.</p>
+    <a href="#" class="cta-btn">Unlock All 23 Picks &mdash; $2.99</a>
+    <div class="cta-fine">One-time payment. Powered by Stripe.<br><a href="#">Preview 2025 cheat sheet free &rarr;</a></div>
+  </div>
+
+</div>
+</body>
+</html>

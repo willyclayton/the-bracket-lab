@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheat Sheet Redesign 2: Executive Summary</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .page { max-width: 680px; margin: 0 auto; padding: 40px 24px; }
+
+  /* ── Header ── */
+  .header { margin-bottom: 32px; }
+  .header-label { font-family: monospace; font-size: 11px; color: #22c55e; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; }
+  .header h1 { font-family: Georgia, serif; font-size: 32px; margin-bottom: 8px; }
+  .header-sub { font-size: 14px; color: #888; }
+
+  /* ── Top-Line Summary Card ── */
+  .summary-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 24px; margin-bottom: 32px; }
+  .summary-title { font-family: monospace; font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; text-align: center; }
+  .sg-item { padding: 12px 4px; background: #222; border-radius: 8px; }
+  .sg-num { font-family: monospace; font-size: 24px; font-weight: 700; }
+  .sg-label { font-family: monospace; font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* ── Champion Callout ── */
+  .champion-row { display: flex; align-items: center; gap: 16px; padding: 20px; background: linear-gradient(135deg, #1a1a1a 0%, #1a2a1a 100%); border: 1px solid #22c55e33; border-radius: 12px; margin-bottom: 32px; }
+  .champ-trophy { font-size: 32px; }
+  .champ-info h3 { font-size: 18px; font-weight: 700; color: #22c55e; }
+  .champ-info p { font-size: 13px; color: #888; margin-top: 2px; }
+  .champ-badge { margin-left: auto; text-align: center; }
+  .champ-badge .cb-num { font-family: monospace; font-size: 28px; font-weight: 700; color: #22c55e; }
+  .champ-badge .cb-label { font-family: monospace; font-size: 9px; color: #555; text-transform: uppercase; }
+
+  /* ── Section Rows ── */
+  .section { margin-bottom: 24px; }
+  .section-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .section-icon { font-size: 14px; }
+  .section-title { font-size: 15px; font-weight: 600; }
+  .section-count { font-family: monospace; font-size: 11px; color: #555; margin-left: auto; }
+
+  /* ── Compact Pick Rows ── */
+  .pick-row { display: flex; align-items: center; padding: 10px 12px; border-bottom: 1px solid #1e1e1e; transition: background 0.15s; }
+  .pick-row:hover { background: #1e1e1e; }
+  .pick-row:last-child { border-bottom: none; }
+  .pr-seed { font-family: monospace; font-size: 11px; color: #555; width: 28px; text-align: center; flex-shrink: 0; }
+  .pr-team { font-size: 14px; font-weight: 600; flex: 1; }
+  .pr-vs { font-size: 11px; color: #555; margin: 0 8px; }
+  .pr-opp { font-size: 13px; color: #666; }
+  .pr-region { font-family: monospace; font-size: 10px; color: #444; width: 60px; text-align: center; }
+  .pr-conf { font-family: monospace; font-size: 12px; color: #555; width: 40px; text-align: right; }
+  .pr-bar { width: 54px; height: 6px; background: #2a2a2a; border-radius: 3px; overflow: hidden; margin-left: 8px; flex-shrink: 0; }
+  .pr-bar-fill { height: 100%; border-radius: 3px; }
+
+  .picks-container { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; overflow: hidden; }
+
+  /* ── Blurred ── */
+  .blurred { filter: blur(5px); pointer-events: none; user-select: none; }
+
+  /* ── CTA ── */
+  .cta-inline { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: #1a1a1a; border: 1px solid #333; border-radius: 10px; margin: 16px 0; }
+  .cta-inline p { font-size: 13px; color: #888; }
+  .cta-inline p strong { color: #efefef; }
+  .cta-btn { display: inline-block; font-family: monospace; font-size: 13px; font-weight: 700; padding: 10px 24px; border-radius: 8px; background: #22c55e; color: #141414; text-decoration: none; white-space: nowrap; }
+
+  /* ── Divider ── */
+  .divider { border: none; border-top: 1px solid #2a2a2a; margin: 32px 0; }
+
+  /* ── Bottom CTA ── */
+  .bottom-cta { text-align: center; padding: 32px 0; }
+  .bottom-cta h3 { font-family: Georgia, serif; font-size: 20px; margin-bottom: 8px; }
+  .bottom-cta p { font-size: 13px; color: #888; margin-bottom: 16px; }
+  .cta-fine { font-size: 11px; color: #555; margin-top: 8px; }
+  .preview-link { font-size: 12px; color: #f59e0b; text-decoration: underline; text-underline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-label">AI Cheat Sheet</div>
+    <h1>The Executive Summary</h1>
+    <p class="header-sub">9 models. 567 predictions. Distilled into what matters.</p>
+  </div>
+
+  <!-- TOP-LINE SUMMARY -->
+  <div class="summary-card">
+    <div class="summary-title">At a Glance</div>
+    <div class="summary-grid">
+      <div class="sg-item">
+        <div class="sg-num" style="color:#22c55e">14</div>
+        <div class="sg-label">Locks</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-num" style="color:#f59e0b">5</div>
+        <div class="sg-label">Upsets</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-num" style="color:#ef4444">3</div>
+        <div class="sg-label">Traps</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-num" style="color:#3b82f6">4</div>
+        <div class="sg-label">Final Four</div>
+      </div>
+      <div class="sg-item">
+        <div class="sg-num" style="color:#a855f7">1</div>
+        <div class="sg-label">Sleeper</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAMPION CALLOUT -->
+  <div class="champion-row">
+    <div class="champ-trophy">&#127942;</div>
+    <div class="champ-info">
+      <h3>Duke</h3>
+      <p>Consensus champion pick &middot; 74% avg confidence</p>
+    </div>
+    <div class="champ-badge">
+      <div class="cb-num">4/9</div>
+      <div class="cb-label">Models</div>
+    </div>
+  </div>
+
+  <!-- LOCK PICKS (2 free, rest blurred) -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon" style="color:#22c55e">&#10003;</span>
+      <span class="section-title" style="color:#efefef">Lock Picks</span>
+      <span class="section-count">14 games</span>
+    </div>
+    <div class="picks-container">
+      <div class="pick-row">
+        <span class="pr-seed">(1)</span>
+        <span class="pr-team" style="color:#22c55e">Duke</span>
+        <span class="pr-vs">over</span>
+        <span class="pr-opp">(16) American</span>
+        <span class="pr-region">East</span>
+        <span class="pr-conf">89%</span>
+        <div class="pr-bar"><div class="pr-bar-fill" style="width:100%;background:#22c55e"></div></div>
+      </div>
+      <div class="pick-row">
+        <span class="pr-seed">(1)</span>
+        <span class="pr-team" style="color:#22c55e">Florida</span>
+        <span class="pr-vs">over</span>
+        <span class="pr-opp">(16) Norfolk St</span>
+        <span class="pr-region">South</span>
+        <span class="pr-conf">91%</span>
+        <div class="pr-bar"><div class="pr-bar-fill" style="width:100%;background:#22c55e"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INLINE CTA -->
+  <div class="cta-inline">
+    <p><strong>12 more lock picks</strong> + upsets, traps & sleeper</p>
+    <a href="#" class="cta-btn">Unlock &mdash; $2.99</a>
+  </div>
+
+  <!-- SMART UPSETS (blurred) -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon" style="color:#f59e0b">&#9889;</span>
+      <span class="section-title" style="color:#efefef">Smart Upsets</span>
+      <span class="section-count">5 games</span>
+    </div>
+    <div class="picks-container blurred">
+      <div class="pick-row">
+        <span class="pr-seed">(10)</span>
+        <span class="pr-team" style="color:#f59e0b">Arkansas</span>
+        <span class="pr-vs">upset over</span>
+        <span class="pr-opp">(7) Marquette</span>
+        <span class="pr-region">West</span>
+        <span class="pr-conf">72%</span>
+        <div class="pr-bar"><div class="pr-bar-fill" style="width:66%;background:#f59e0b"></div></div>
+      </div>
+      <div class="pick-row">
+        <span class="pr-seed">(11)</span>
+        <span class="pr-team" style="color:#f59e0b">Drake</span>
+        <span class="pr-vs">upset over</span>
+        <span class="pr-opp">(6) BYU</span>
+        <span class="pr-region">Midwest</span>
+        <span class="pr-conf">65%</span>
+        <div class="pr-bar"><div class="pr-bar-fill" style="width:55%;background:#f59e0b"></div></div>
+      </div>
+      <div class="pick-row">
+        <span class="pr-seed">(12)</span>
+        <span class="pr-team" style="color:#f59e0b">VCU</span>
+        <span class="pr-vs">upset over</span>
+        <span class="pr-opp">(5) Michigan</span>
+        <span class="pr-region">East</span>
+        <span class="pr-conf">58%</span>
+        <div class="pr-bar"><div class="pr-bar-fill" style="width:44%;background:#f59e0b"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRAP GAMES (blurred) -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon" style="color:#ef4444">&#9888;</span>
+      <span class="section-title" style="color:#efefef">Trap Games</span>
+      <span class="section-count">3 games</span>
+    </div>
+    <div class="picks-container blurred">
+      <div class="pick-row">
+        <span class="pr-seed">(5)</span>
+        <span class="pr-team" style="color:#ef4444">Michigan</span>
+        <span class="pr-vs">vs</span>
+        <span class="pr-opp">(12) UC San Diego</span>
+        <span class="pr-region">East</span>
+        <span class="pr-conf">52%</span>
+        <div class="pr-bar"><div class="pr-bar-fill" style="width:55%;background:#ef4444"></div></div>
+      </div>
+      <div class="pick-row">
+        <span class="pr-seed">(6)</span>
+        <span class="pr-team" style="color:#ef4444">Illinois</span>
+        <span class="pr-vs">vs</span>
+        <span class="pr-opp">(11) Xavier</span>
+        <span class="pr-region">Midwest</span>
+        <span class="pr-conf">54%</span>
+        <div class="pr-bar"><div class="pr-bar-fill" style="width:55%;background:#ef4444"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <h3>Less than the cost of a coffee.</h3>
+    <p>Your bracket pool entry is $25. This is $2.99.</p>
+    <a href="#" class="cta-btn">Unlock Full Cheat Sheet &mdash; $2.99</a>
+    <div class="cta-fine">One-time payment. Powered by Stripe.</div>
+    <div style="margin-top: 12px;">
+      <a href="#" class="preview-link">Preview 2025 cheat sheet free &rarr;</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheat Sheet Redesign 3: The Bracket Edge</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .page { max-width: 680px; margin: 0 auto; padding: 40px 24px; }
+
+  /* ── Hero ── */
+  .hero { text-align: center; margin-bottom: 40px; }
+  .hero h1 { font-family: Georgia, serif; font-size: 34px; line-height: 1.2; margin-bottom: 12px; }
+  .hero h1 span { color: #22c55e; }
+  .hero-sub { font-size: 15px; color: #888; line-height: 1.6; max-width: 440px; margin: 0 auto; }
+
+  /* ── "Your Edge" Breakdown ── */
+  .edge-section { margin-bottom: 40px; }
+  .edge-card { display: flex; gap: 16px; padding: 20px; border: 1px solid #2a2a2a; border-radius: 12px; margin-bottom: 12px; background: #1a1a1a; transition: border-color 0.15s; }
+  .edge-card:hover { border-color: #444; }
+  .edge-num { font-family: monospace; font-size: 32px; font-weight: 700; flex-shrink: 0; width: 48px; text-align: center; line-height: 1; }
+  .edge-content h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .edge-content p { font-size: 13px; color: #888; line-height: 1.5; }
+  .edge-content .edge-action { font-size: 12px; color: #555; margin-top: 6px; font-style: italic; }
+
+  /* ── Pool ROI Callout ── */
+  .roi-card { background: linear-gradient(135deg, #1a2a1a 0%, #1a1a1a 100%); border: 1px solid #22c55e33; border-radius: 12px; padding: 24px; margin-bottom: 40px; text-align: center; }
+  .roi-compare { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 12px; }
+  .roi-item { text-align: center; }
+  .roi-price { font-family: monospace; font-size: 28px; font-weight: 700; }
+  .roi-label { font-size: 11px; color: #888; margin-top: 2px; }
+  .roi-arrow { font-size: 20px; color: #555; }
+  .roi-text { font-size: 14px; color: #22c55e; font-weight: 600; }
+
+  /* ── Free Sample ── */
+  .sample { margin-bottom: 32px; }
+  .sample-label { font-family: monospace; font-size: 10px; color: #22c55e; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .sample-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; overflow: hidden; }
+  .sample-pick { padding: 14px 16px; border-bottom: 1px solid #222; }
+  .sample-pick:last-child { border-bottom: none; }
+  .sp-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .sp-matchup { font-size: 14px; font-weight: 600; }
+  .sp-matchup .winner { color: #22c55e; }
+  .sp-matchup .loser { color: #666; }
+  .sp-matchup .vs { color: #444; font-size: 11px; margin: 0 6px; }
+  .sp-badge { font-family: monospace; font-size: 11px; padding: 2px 8px; border-radius: 4px; }
+  .sp-reasoning { font-size: 12px; color: #999; line-height: 1.5; margin-top: 6px; }
+  .sp-reasoning cite { color: #555; font-style: normal; }
+
+  /* ── Locked Content ── */
+  .locked-preview { position: relative; margin-bottom: 16px; }
+  .locked-items { filter: blur(5px); user-select: none; pointer-events: none; }
+  .lock-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .lock-badge { display: flex; align-items: center; gap: 8px; background: #1a1a1a; border: 1px solid #333; padding: 10px 20px; border-radius: 99px; font-size: 13px; color: #888; }
+
+  /* ── CTA ── */
+  .cta { text-align: center; padding: 24px 0; }
+  .cta-btn { display: inline-block; font-family: monospace; font-size: 14px; font-weight: 700; padding: 14px 36px; border-radius: 10px; background: #22c55e; color: #141414; text-decoration: none; }
+  .cta-btn:hover { filter: brightness(1.1); }
+  .cta-sub { font-size: 11px; color: #555; margin-top: 10px; }
+  .cta-sub a { color: #f59e0b; text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ── Social Proof ── */
+  .social-proof { text-align: center; margin-top: 32px; padding: 20px 0; border-top: 1px solid #2a2a2a; }
+  .sp-logos { font-family: monospace; font-size: 11px; color: #555; letter-spacing: 1px; }
+  .sp-note { font-size: 12px; color: #888; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Don't just fill out a bracket.<br><span>Win your pool.</span></h1>
+    <p class="hero-sub">
+      9 AI models built 9 independent brackets. We found where they agree &mdash;
+      and where everyone else in your pool is about to get it wrong.
+    </p>
+  </div>
+
+  <!-- YOUR EDGE BREAKDOWN -->
+  <div class="edge-section">
+    <div class="edge-card">
+      <div class="edge-num" style="color:#22c55e">14</div>
+      <div class="edge-content">
+        <h3>Lock Picks</h3>
+        <p>7+ models picked the same winner. These are near-unanimous. Start here.</p>
+        <div class="edge-action">Copy these into your bracket first</div>
+      </div>
+    </div>
+    <div class="edge-card">
+      <div class="edge-num" style="color:#f59e0b">5</div>
+      <div class="edge-content">
+        <h3>Smart Upsets</h3>
+        <p>Multiple models independently flagged these underdogs. Not random chaos &mdash; calculated.</p>
+        <div class="edge-action">The upsets that separate you from the pack</div>
+      </div>
+    </div>
+    <div class="edge-card">
+      <div class="edge-num" style="color:#ef4444">3</div>
+      <div class="edge-content">
+        <h3>Trap Games</h3>
+        <p>The favorite barely wins the consensus. 4 of 9 models are picking the upset here.</p>
+        <div class="edge-action">Everyone in your pool will get these wrong</div>
+      </div>
+    </div>
+    <div class="edge-card">
+      <div class="edge-num" style="color:#a855f7">1</div>
+      <div class="edge-content">
+        <h3>Sleeper Pick</h3>
+        <p>A deep run that only 1-2 models see. High confidence, low ownership in your pool.</p>
+        <div class="edge-action">Your differentiator pick</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROI CALLOUT -->
+  <div class="roi-card">
+    <div class="roi-compare">
+      <div class="roi-item">
+        <div class="roi-price" style="color:#22c55e">$2.99</div>
+        <div class="roi-label">Cheat sheet</div>
+      </div>
+      <div class="roi-arrow">&rarr;</div>
+      <div class="roi-item">
+        <div class="roi-price" style="color:#888">$25+</div>
+        <div class="roi-label">Avg pool entry</div>
+      </div>
+    </div>
+    <div class="roi-text">The cheapest edge you'll find.</div>
+  </div>
+
+  <!-- FREE SAMPLE -->
+  <div class="sample">
+    <div class="sample-label">Free Preview</div>
+    <div class="sample-card">
+      <div class="sample-pick">
+        <div class="sp-top">
+          <div class="sp-matchup">
+            <span class="winner">(1) Duke</span><span class="vs">over</span><span class="loser">(16) American</span>
+          </div>
+          <span class="sp-badge" style="background:#22c55e22;color:#22c55e">9/9 agree</span>
+        </div>
+        <p class="sp-reasoning">
+          "Duke's defensive efficiency makes this the most lopsided matchup in the region."
+          <cite>&mdash; The Quant</cite>
+        </p>
+      </div>
+      <div class="sample-pick">
+        <div class="sp-top">
+          <div class="sp-matchup">
+            <span class="winner">(1) Florida</span><span class="vs">over</span><span class="loser">(16) Norfolk St</span>
+          </div>
+          <span class="sp-badge" style="background:#22c55e22;color:#22c55e">9/9 agree</span>
+        </div>
+        <p class="sp-reasoning">
+          "Florida's tempo advantage is insurmountable at this seed differential."
+          <cite>&mdash; The Historian</cite>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCKED PREVIEW -->
+  <div class="locked-preview">
+    <div class="locked-items">
+      <div class="sample-card" style="margin-bottom:8px">
+        <div class="sample-pick">
+          <div class="sp-top">
+            <div class="sp-matchup"><span class="winner">(10) Arkansas</span><span class="vs">upset</span><span class="loser">(7) Marquette</span></div>
+            <span class="sp-badge" style="background:#f59e0b22;color:#f59e0b">6/9 agree</span>
+          </div>
+        </div>
+      </div>
+      <div class="sample-card">
+        <div class="sample-pick">
+          <div class="sp-top">
+            <div class="sp-matchup"><span class="winner">(5) Michigan</span><span class="vs">trap</span><span class="loser">(12) UC San Diego</span></div>
+            <span class="sp-badge" style="background:#ef444422;color:#ef4444">5/9 agree</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lock-overlay">
+      <div class="lock-badge">&#128274; 21 more insights locked</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <a href="#" class="cta-btn">Unlock Cheat Sheet &mdash; $2.99</a>
+    <div class="cta-sub">
+      One-time payment. No subscription. Powered by Stripe.<br>
+      <a href="#">Preview the 2025 cheat sheet free &rarr;</a>
+    </div>
+  </div>
+
+  <!-- SOCIAL PROOF / CREDIBILITY -->
+  <div class="social-proof">
+    <div class="sp-logos">MONTE CARLO &middot; LLM ANALYSIS &middot; ARCHETYPE MATCHING &middot; LOGISTIC REGRESSION &middot; ESPN OPTIMIZATION</div>
+    <p class="sp-note">9 models, 5 different methodologies. Each built its bracket independently.</p>
+  </div>
+
+</div>
+</body>
+</html>

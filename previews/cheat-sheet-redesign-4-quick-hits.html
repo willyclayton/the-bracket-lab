@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheat Sheet Redesign 4: Quick Hits</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .page { max-width: 680px; margin: 0 auto; padding: 40px 24px; }
+
+  /* ── Header ── */
+  .header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #2a2a2a; }
+  .header h1 { font-family: Georgia, serif; font-size: 28px; }
+  .header-meta { font-family: monospace; font-size: 11px; color: #555; text-align: right; }
+  .header-meta span { display: block; }
+
+  /* ── Category Tag ── */
+  .cat-tag { display: inline-flex; align-items: center; gap: 6px; font-family: monospace; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ── Quick Hit Rows ── */
+  .qh-table { width: 100%; margin-bottom: 32px; }
+  .qh-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; padding: 12px 0; border-bottom: 1px solid #1e1e1e; }
+  .qh-row:last-child { border-bottom: none; }
+  .qh-matchup { display: flex; align-items: center; gap: 4px; }
+  .qh-pick { font-size: 14px; font-weight: 600; }
+  .qh-arrow { color: #444; font-size: 10px; margin: 0 4px; }
+  .qh-opp { font-size: 13px; color: #555; }
+  .qh-seed { font-family: monospace; font-size: 10px; color: #555; }
+  .qh-region { font-family: monospace; font-size: 10px; color: #444; text-align: center; width: 70px; }
+  .qh-conf-pill { font-family: monospace; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; text-align: center; min-width: 55px; }
+
+  /* ── Section Divider ── */
+  .section-gap { height: 8px; }
+
+  /* ── Blurred ── */
+  .blurred { filter: blur(5px); pointer-events: none; user-select: none; }
+
+  /* ── Inline CTA Bar ── */
+  .cta-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; margin-bottom: 32px; }
+  .cta-bar-text { font-size: 14px; color: #efefef; }
+  .cta-bar-text small { font-size: 12px; color: #888; display: block; margin-top: 2px; }
+  .cta-btn { display: inline-block; font-family: monospace; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 8px; background: #22c55e; color: #141414; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+
+  /* ── Champion Row ── */
+  .champ-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #1a1a1a; border: 1px solid #22c55e33; border-radius: 10px; margin-bottom: 12px; }
+  .champ-icon { font-size: 24px; }
+  .champ-text { flex: 1; }
+  .champ-text h3 { font-size: 16px; font-weight: 700; }
+  .champ-text p { font-size: 12px; color: #888; }
+  .champ-count { font-family: monospace; font-size: 22px; font-weight: 700; color: #22c55e; }
+
+  /* ── Sleeper Row ── */
+  .sleeper-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #1a1a1a; border: 1px solid #a855f733; border-radius: 10px; margin-bottom: 32px; }
+  .sleeper-icon { font-size: 24px; }
+  .sleeper-text { flex: 1; }
+  .sleeper-text h3 { font-size: 16px; font-weight: 700; color: #a855f7; }
+  .sleeper-text p { font-size: 12px; color: #888; }
+  .sleeper-round { font-family: monospace; font-size: 11px; color: #a855f7; padding: 3px 8px; border: 1px solid #a855f733; border-radius: 4px; }
+
+  /* ── Footer ── */
+  .footer { text-align: center; padding-top: 24px; border-top: 1px solid #2a2a2a; }
+  .footer p { font-size: 11px; color: #555; }
+  .footer a { color: #888; text-decoration: underline; text-underline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>AI Cheat Sheet</h1>
+    <div class="header-meta">
+      <span>9 models</span>
+      <span>567 predictions</span>
+      <span style="color:#22c55e">2026</span>
+    </div>
+  </div>
+
+  <!-- LOCK PICKS -->
+  <div class="cat-tag" style="background:#22c55e15;color:#22c55e">&#10003; Locks &mdash; 14 picks</div>
+  <div class="qh-table">
+    <div class="qh-row">
+      <div class="qh-matchup">
+        <span class="qh-seed">(1)</span>
+        <span class="qh-pick" style="color:#22c55e">Duke</span>
+        <span class="qh-arrow">&gt;</span>
+        <span class="qh-seed">(16)</span>
+        <span class="qh-opp">American</span>
+      </div>
+      <span class="qh-region">East</span>
+      <span class="qh-conf-pill" style="background:#22c55e22;color:#22c55e">9/9</span>
+    </div>
+    <div class="qh-row">
+      <div class="qh-matchup">
+        <span class="qh-seed">(1)</span>
+        <span class="qh-pick" style="color:#22c55e">Florida</span>
+        <span class="qh-arrow">&gt;</span>
+        <span class="qh-seed">(16)</span>
+        <span class="qh-opp">Norfolk St</span>
+      </div>
+      <span class="qh-region">South</span>
+      <span class="qh-conf-pill" style="background:#22c55e22;color:#22c55e">9/9</span>
+    </div>
+    <div class="qh-row blurred">
+      <div class="qh-matchup">
+        <span class="qh-seed">(2)</span>
+        <span class="qh-pick">Auburn</span>
+        <span class="qh-arrow">&gt;</span>
+        <span class="qh-seed">(15)</span>
+        <span class="qh-opp">Omaha</span>
+      </div>
+      <span class="qh-region">Midwest</span>
+      <span class="qh-conf-pill" style="background:#22c55e22;color:#22c55e">8/9</span>
+    </div>
+    <div class="qh-row blurred">
+      <div class="qh-matchup">
+        <span class="qh-seed">(1)</span>
+        <span class="qh-pick">Houston</span>
+        <span class="qh-arrow">&gt;</span>
+        <span class="qh-seed">(16)</span>
+        <span class="qh-opp">SIU Edwardsville</span>
+      </div>
+      <span class="qh-region">Midwest</span>
+      <span class="qh-conf-pill" style="background:#22c55e22;color:#22c55e">8/9</span>
+    </div>
+  </div>
+
+  <!-- UPSETS -->
+  <div class="cat-tag" style="background:#f59e0b15;color:#f59e0b">&#9889; Smart Upsets &mdash; 5 picks</div>
+  <div class="qh-table blurred">
+    <div class="qh-row">
+      <div class="qh-matchup">
+        <span class="qh-seed">(10)</span>
+        <span class="qh-pick" style="color:#f59e0b">Arkansas</span>
+        <span class="qh-arrow">&gt;</span>
+        <span class="qh-seed">(7)</span>
+        <span class="qh-opp">Marquette</span>
+      </div>
+      <span class="qh-region">West</span>
+      <span class="qh-conf-pill" style="background:#f59e0b22;color:#f59e0b">6/9</span>
+    </div>
+    <div class="qh-row">
+      <div class="qh-matchup">
+        <span class="qh-seed">(11)</span>
+        <span class="qh-pick" style="color:#f59e0b">Drake</span>
+        <span class="qh-arrow">&gt;</span>
+        <span class="qh-seed">(6)</span>
+        <span class="qh-opp">BYU</span>
+      </div>
+      <span class="qh-region">Midwest</span>
+      <span class="qh-conf-pill" style="background:#f59e0b22;color:#f59e0b">5/9</span>
+    </div>
+  </div>
+
+  <div class="section-gap"></div>
+
+  <!-- TRAPS -->
+  <div class="cat-tag" style="background:#ef444415;color:#ef4444">&#9888; Traps &mdash; 3 games</div>
+  <div class="qh-table blurred">
+    <div class="qh-row">
+      <div class="qh-matchup">
+        <span class="qh-seed">(5)</span>
+        <span class="qh-pick" style="color:#ef4444">Michigan</span>
+        <span class="qh-arrow">vs</span>
+        <span class="qh-seed">(12)</span>
+        <span class="qh-opp">UC San Diego</span>
+      </div>
+      <span class="qh-region">East</span>
+      <span class="qh-conf-pill" style="background:#ef444422;color:#ef4444">5/9</span>
+    </div>
+  </div>
+
+  <!-- CTA BAR -->
+  <div class="cta-bar">
+    <div class="cta-bar-text">
+      Unlock all 23 picks
+      <small>Locks + upsets + traps + Final Four + sleeper</small>
+    </div>
+    <a href="#" class="cta-btn">$2.99</a>
+  </div>
+
+  <!-- CHAMPION + SLEEPER (blurred) -->
+  <div class="blurred">
+    <div class="champ-row">
+      <span class="champ-icon">&#127942;</span>
+      <div class="champ-text">
+        <h3>Duke</h3>
+        <p>Consensus champion &middot; 74% avg confidence</p>
+      </div>
+      <span class="champ-count">4/9</span>
+    </div>
+    <div class="sleeper-row">
+      <span class="sleeper-icon">&#128301;</span>
+      <div class="sleeper-text">
+        <h3>Oregon</h3>
+        <p>Deep run pick &middot; Only 2 models see it coming</p>
+      </div>
+      <span class="sleeper-round">Sweet 16</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>
+      One-time payment. No subscription. Powered by Stripe.<br>
+      <a href="#">Preview 2025 cheat sheet free &rarr;</a> &middot;
+      <a href="#">How each model works &rarr;</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

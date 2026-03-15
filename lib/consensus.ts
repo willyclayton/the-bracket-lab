@@ -237,6 +237,43 @@ export function getFinalFourConsensus(
   return { finalFour, champions };
 }
 
+// ── R64 by Region: group round_of_64 games by region ─────────────────────
+
+const REGION_ORDER = ['East', 'South', 'Midwest', 'West'] as const;
+
+export function getR64ByRegion(
+  agreementMap: Record<string, GameAgreement>
+): { region: string; games: GameAgreement[] }[] {
+  const byRegion: Record<string, GameAgreement[]> = {};
+
+  for (const game of Object.values(agreementMap)) {
+    if (game.round !== 'round_of_64') continue;
+    const region = game.region;
+    if (!byRegion[region]) byRegion[region] = [];
+    byRegion[region].push(game);
+  }
+
+  // Sort games within each region by seed matchup (1v16 first)
+  for (const games of Object.values(byRegion)) {
+    games.sort((a, b) => Math.min(a.seed1, a.seed2) - Math.min(b.seed1, b.seed2));
+  }
+
+  // Return in standard region order, then any extras
+  const result: { region: string; games: GameAgreement[] }[] = [];
+  for (const r of REGION_ORDER) {
+    if (byRegion[r]) {
+      result.push({ region: r, games: byRegion[r] });
+      delete byRegion[r];
+    }
+  }
+  // Any remaining regions
+  for (const [region, games] of Object.entries(byRegion)) {
+    result.push({ region, games });
+  }
+
+  return result;
+}
+
 // ── Sleeper Pick: team in S16+ picked by only 1-2 models with high confidence ──
 
 export function getSleeperPick(

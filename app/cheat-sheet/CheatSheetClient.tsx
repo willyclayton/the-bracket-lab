@@ -10,6 +10,7 @@ import {
   getTrapGames,
   getFinalFourConsensus,
   getSleeperPick,
+  getR64ByRegion,
   GameAgreement,
 } from '@/lib/consensus';
 
@@ -82,51 +83,26 @@ function getUpsetRate(higherSeed: number, lowerSeed: number): number | null {
 
 function truncateReasoning(text: string, maxLen = 80): string {
   if (!text) return '';
-  // Take the first sentence or clause
   const firstSentence = text.split(/\.\s+/)[0] || text;
   if (firstSentence.length <= maxLen) return firstSentence.replace(/\.$/, '');
-  // Cut at word boundary
   const cut = firstSentence.lastIndexOf(' ', maxLen);
   return firstSentence.slice(0, cut > 20 ? cut : maxLen) + '\u2026';
 }
 
 // ── Shared Components ───────────────────────────────────────────────────
 
-function AgreementBar({ count, total, color }: { count: number; total: number; color: string }) {
+function AgreementPill({ count, total, color }: { count: number; total: number; color: string }) {
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex gap-0.5">
-        {Array.from({ length: total }).map((_, i) => (
-          <div
-            key={i}
-            className="w-2.5 h-2.5 rounded-full"
-            style={{ background: i < count ? color : '#333' }}
-          />
-        ))}
-      </div>
-      <span className="font-mono text-xs text-lab-muted">{count}/{total}</span>
-    </div>
+    <span
+      className="inline-flex items-center font-mono text-xs font-semibold px-2 py-0.5 rounded-full flex-shrink-0"
+      style={{ background: `${color}18`, color }}
+    >
+      {count}/{total}
+    </span>
   );
 }
 
-function ModelDots({ models }: { models: { modelName: string; color: string }[] }) {
-  return (
-    <div className="flex flex-wrap gap-1.5 mt-1">
-      {models.map((m, i) => (
-        <span
-          key={i}
-          className="inline-flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded border border-[#333]"
-          style={{ color: m.color }}
-        >
-          <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: m.color }} />
-          {m.modelName}
-        </span>
-      ))}
-    </div>
-  );
-}
-
-// ── Inline Expand Detail ────────────────────────────────────────────────
+// ── Game Detail (expanded view) ─────────────────────────────────────────
 
 function GameDetail({ game }: { game: GameAgreement }) {
   const forPicks = game.modelPicks.filter((p) => p.pick === game.consensusPick).sort((a, b) => b.confidence - a.confidence);
@@ -224,152 +200,81 @@ function GameDetail({ game }: { game: GameAgreement }) {
   );
 }
 
-// ── Card Components ─────────────────────────────────────────────────────
+// ── Pick Row (used for all pick types) ──────────────────────────────────
 
-function LockPickCard({ game, blurred, expanded, onToggle }: {
-  game: GameAgreement; blurred: boolean; expanded: boolean; onToggle: () => void;
+function PickRow({ game, icon, iconColor, pillColor, expanded, onToggle }: {
+  game: GameAgreement;
+  icon: string;
+  iconColor: string;
+  pillColor: string;
+  expanded: boolean;
+  onToggle: () => void;
 }) {
-  const topReasoning = game.modelPicks
-    .filter((p) => p.pick === game.consensusPick)
-    .sort((a, b) => b.confidence - a.confidence)[0];
-
   return (
-    <div className={`border rounded-lg overflow-hidden transition-all duration-200 ${expanded ? 'border-[#444]' : 'border-[#2a2a2a]'} ${blurred ? 'blur-sm select-none' : ''}`}>
+    <div className={`border rounded-lg overflow-hidden transition-all duration-200 ${expanded ? 'border-[#444]' : 'border-[#2a2a2a]'}`}>
       <div
-        className={`p-4 cursor-pointer transition-colors ${!blurred ? 'hover:bg-[#222]' : ''}`}
-        onClick={!blurred ? onToggle : undefined}
+        className="flex items-center justify-between p-4 cursor-pointer hover:bg-[#222] transition-colors min-h-[44px]"
+        onClick={onToggle}
       >
-        <div className="flex items-start justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <span className="text-green-400 text-sm">&#10003;</span>
-            <span className="font-semibold text-lab-white text-sm">
-              ({game.consensusSeed}) {game.consensusPick}
-            </span>
-            <span className="text-lab-muted text-xs">over</span>
-            <span className="text-lab-muted text-sm">
-              ({game.otherSeed}) {game.otherTeam}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <AgreementBar count={game.agreementCount} total={game.totalModels} color="#22c55e" />
-            {!blurred && (
-              <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
-            )}
-          </div>
+        <div className="flex items-center gap-2 min-w-0">
+          <span style={{ color: iconColor }} className="text-sm flex-shrink-0">{icon}</span>
+          <span className="font-semibold text-lab-white text-sm">
+            ({game.consensusSeed}) {game.consensusPick}
+          </span>
+          <span className="text-lab-muted text-xs hidden sm:inline">over</span>
+          <span className="text-lab-muted text-sm hidden sm:inline">
+            ({game.otherSeed}) {game.otherTeam}
+          </span>
         </div>
-        <div className="flex items-center gap-3 text-[11px] font-mono text-lab-muted mb-2">
-          <span>{game.region}</span>
-          <span>{game.round.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}</span>
-          <span>Avg confidence: {game.avgConfidence}%</span>
+        <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+          <AgreementPill count={game.agreementCount} total={game.totalModels} color={pillColor} />
+          <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
         </div>
-        {!expanded && topReasoning && (
-          <p className="text-xs text-[#aaa] leading-relaxed line-clamp-2">
-            &ldquo;{topReasoning.reasoning}&rdquo;
-            <span className="text-[#666] ml-1">&mdash; {topReasoning.modelName}</span>
-          </p>
-        )}
       </div>
-      {expanded && !blurred && <GameDetail game={game} />}
+      {/* Mobile: show opponent below */}
+      <div className="sm:hidden px-4 -mt-2 pb-3">
+        <span className="text-lab-muted text-xs">
+          over ({game.otherSeed}) {game.otherTeam}
+        </span>
+      </div>
+      {expanded && <GameDetail game={game} />}
     </div>
   );
 }
 
-function UpsetCard({ game, blurred, expanded, onToggle }: {
-  game: GameAgreement; blurred: boolean; expanded: boolean; onToggle: () => void;
+// ── R64 Game Row (compact) ──────────────────────────────────────────────
+
+function R64Row({ game, expanded, onToggle }: {
+  game: GameAgreement;
+  expanded: boolean;
+  onToggle: () => void;
 }) {
-  const upsetRate = getUpsetRate(game.otherSeed, game.consensusSeed);
-  const topReasoning = game.modelPicks
-    .filter((p) => p.pick === game.consensusPick)
-    .sort((a, b) => b.confidence - a.confidence)[0];
+  const isUpset = game.consensusSeed > game.otherSeed;
+  const pillColor = isUpset ? '#f59e0b' : '#22c55e';
 
   return (
-    <div className={`border rounded-lg overflow-hidden transition-all duration-200 ${expanded ? 'border-[#444]' : 'border-[#2a2a2a]'} ${blurred ? 'blur-sm select-none' : ''}`}>
+    <div className={`border rounded-lg overflow-hidden transition-all duration-200 ${expanded ? 'border-[#444]' : 'border-[#2a2a2a]'}`}>
       <div
-        className={`p-4 cursor-pointer transition-colors ${!blurred ? 'hover:bg-[#222]' : ''}`}
-        onClick={!blurred ? onToggle : undefined}
+        className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-[#222] transition-colors min-h-[44px]"
+        onClick={onToggle}
       >
-        <div className="flex items-start justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <span className="text-amber-400 text-sm">&#9889;</span>
-            <span className="font-semibold text-lab-white text-sm">
-              ({game.consensusSeed}) {game.consensusPick}
-            </span>
-            <span className="text-lab-muted text-xs">upset over</span>
-            <span className="text-lab-muted text-sm">
-              ({game.otherSeed}) {game.otherTeam}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <AgreementBar count={game.agreementCount} total={game.totalModels} color="#f59e0b" />
-            {!blurred && (
-              <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
-            )}
-          </div>
+        <div className="flex items-center gap-1.5 min-w-0 text-sm">
+          <span className="font-mono text-[#555] text-xs w-4 text-right flex-shrink-0">{Math.min(game.seed1, game.seed2)}</span>
+          <span className={game.consensusSeed === Math.min(game.seed1, game.seed2) ? 'text-lab-white font-semibold' : 'text-lab-muted'}>
+            {game.seed1 < game.seed2 ? game.team1 : game.team2}
+          </span>
+          <span className="text-[#444] text-xs">vs</span>
+          <span className="font-mono text-[#555] text-xs w-4 text-right flex-shrink-0">{Math.max(game.seed1, game.seed2)}</span>
+          <span className={game.consensusSeed === Math.max(game.seed1, game.seed2) ? 'text-lab-white font-semibold' : 'text-lab-muted'}>
+            {game.seed1 > game.seed2 ? game.team1 : game.team2}
+          </span>
         </div>
-        <div className="flex items-center gap-3 text-[11px] font-mono text-lab-muted mb-2">
-          <span>{game.region}</span>
-          {upsetRate != null && (
-            <span>Historical upset rate: {(upsetRate * 100).toFixed(1)}%</span>
-          )}
-          <span>Avg confidence: {game.avgConfidence}%</span>
+        <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+          <AgreementPill count={game.agreementCount} total={game.totalModels} color={pillColor} />
+          <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
         </div>
-        {!expanded && topReasoning && (
-          <p className="text-xs text-[#aaa] leading-relaxed line-clamp-2">
-            &ldquo;{topReasoning.reasoning}&rdquo;
-            <span className="text-[#666] ml-1">&mdash; {topReasoning.modelName}</span>
-          </p>
-        )}
       </div>
-      {expanded && !blurred && <GameDetail game={game} />}
-    </div>
-  );
-}
-
-function TrapGameCard({ game, blurred, expanded, onToggle }: {
-  game: GameAgreement; blurred: boolean; expanded: boolean; onToggle: () => void;
-}) {
-  const dissenters = game.modelPicks.filter((p) => p.pick !== game.consensusPick);
-  const topDissenter = [...dissenters].sort((a, b) => b.confidence - a.confidence)[0];
-
-  return (
-    <div className={`border rounded-lg overflow-hidden transition-all duration-200 ${expanded ? 'border-[#444]' : 'border-[#2a2a2a]'} ${blurred ? 'blur-sm select-none' : ''}`}>
-      <div
-        className={`p-4 cursor-pointer transition-colors ${!blurred ? 'hover:bg-[#222]' : ''}`}
-        onClick={!blurred ? onToggle : undefined}
-      >
-        <div className="flex items-start justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <span className="text-red-400 text-sm">&#9888;</span>
-            <span className="font-semibold text-lab-white text-sm">
-              ({game.consensusSeed}) {game.consensusPick}
-            </span>
-            <span className="text-lab-muted text-xs">vs</span>
-            <span className="text-lab-muted text-sm">
-              ({game.otherSeed}) {game.otherTeam}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <AgreementBar count={game.agreementCount} total={game.totalModels} color="#ef4444" />
-            {!blurred && (
-              <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center gap-3 text-[11px] font-mono text-lab-muted mb-2">
-          <span>{game.region}</span>
-          <span>{dissenters.length} model{dissenters.length !== 1 ? 's' : ''} picking the upset</span>
-        </div>
-        {!expanded && topDissenter && (
-          <div>
-            <p className="text-xs text-[#aaa] leading-relaxed line-clamp-2">
-              Why {topDissenter.pick} wins: &ldquo;{topDissenter.reasoning}&rdquo;
-              <span className="text-[#666] ml-1">&mdash; {topDissenter.modelName}</span>
-            </p>
-            <ModelDots models={dissenters.map((d) => ({ modelName: d.modelName, color: d.color }))} />
-          </div>
-        )}
-      </div>
-      {expanded && !blurred && <GameDetail game={game} />}
+      {expanded && <GameDetail game={game} />}
     </div>
   );
 }
@@ -400,23 +305,13 @@ export default function CheatSheetClient() {
   const trapGames = useMemo(() => getTrapGames(agreementMap), [agreementMap]);
   const { finalFour, champions } = useMemo(() => getFinalFourConsensus(brackets), [brackets]);
   const sleeper = useMemo(() => getSleeperPick(brackets), [brackets]);
+  const r64ByRegion = useMemo(() => getR64ByRegion(agreementMap), [agreementMap]);
+
+  const totalPredictions = modelCount * 63;
+  const totalConsensus = lockPicks.length + smartUpsets.length + trapGames.length + (sleeper ? 1 : 0);
 
   const FREE_LOCK_PICKS = 2;
-
-  type Filter = 'all' | 'locks' | 'upsets' | 'traps' | 'final-four' | 'sleeper';
-  const [activeFilter, setActiveFilter] = useState<Filter>('all');
   const [expandedGameId, setExpandedGameId] = useState<string | null>(null);
-
-  const FILTERS: { id: Filter; label: string; icon: string; color: string; count: number }[] = [
-    { id: 'all',        label: 'All',         icon: '',     color: '#888',    count: lockPicks.length + smartUpsets.length + trapGames.length + (sleeper ? 1 : 0) + (champions.length > 0 ? 1 : 0) },
-    { id: 'locks',      label: 'Locks',       icon: '\u2713', color: '#22c55e', count: lockPicks.length },
-    { id: 'upsets',     label: 'Upsets',       icon: '\u26A1', color: '#f59e0b', count: smartUpsets.length },
-    { id: 'traps',      label: 'Traps',       icon: '\u26A0', color: '#ef4444', count: trapGames.length },
-    { id: 'final-four', label: 'Final Four',  icon: '\uD83C\uDFC6', color: '#3b82f6', count: champions.length },
-    { id: 'sleeper',    label: 'Sleeper',     icon: '\uD83D\uDD2D', color: '#a855f7', count: sleeper ? 1 : 0 },
-  ];
-
-  const show = (section: Filter) => activeFilter === 'all' || activeFilter === section;
 
   function toggleGame(gameId: string) {
     setExpandedGameId((prev) => (prev === gameId ? null : gameId));
@@ -430,20 +325,21 @@ export default function CheatSheetClient() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-12">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-start justify-between">
-          <div>
-            <p className="font-mono text-xs text-[#22c55e] uppercase tracking-widest mb-2">
-              AI Consensus Report
-            </p>
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-12">
+
+      {/* ─── 1. Hero ─────────────────────────────────────────────────── */}
+      <div className="mb-10">
+        <div className="flex items-start justify-between mb-4">
+          <div className="max-w-lg">
             <h1
-              className="text-[32px] sm:text-[40px] text-lab-white mb-3 leading-tight"
+              className="text-[28px] sm:text-[40px] text-lab-white leading-tight mb-3"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              The Cheat Sheet
+              Your bracket pool has a <em className="text-[#22c55e] not-italic">blindspot</em>.
             </h1>
+            <p className="text-lab-muted text-sm sm:text-base">
+              {modelCount} AI models. {totalPredictions} predictions. Distilled into the consensus picks that give you an edge.
+            </p>
           </div>
           <div className="flex gap-1 flex-shrink-0 mt-2">
             {(['2026', '2025'] as Year[]).map((year) => (
@@ -462,14 +358,10 @@ export default function CheatSheetClient() {
             ))}
           </div>
         </div>
-        <p className="text-lab-muted text-sm sm:text-base max-w-xl">
-          {modelCount} AI models. 63 games each. {modelCount * 63} predictions distilled into the
-          picks that actually matter for your bracket pool.
-        </p>
       </div>
 
       {isPreview && (
-        <div className="mb-6 border border-amber-500/30 rounded-lg px-5 py-4 bg-amber-500/5">
+        <div className="mb-8 border border-amber-500/30 rounded-lg px-5 py-4 bg-amber-500/5">
           <p className="text-sm text-amber-300 font-semibold mb-1">2025 Preview</p>
           <p className="text-xs text-lab-muted">
             This is last year&apos;s cheat sheet with real 2025 tournament data &mdash; fully unlocked
@@ -484,249 +376,318 @@ export default function CheatSheetClient() {
         </div>
       )}
 
-      {/* Model count + filter pills */}
-      <div className="mb-8 pb-6 border-b border-[#2a2a2a]">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="font-mono text-[11px] text-[#555] uppercase tracking-wider">Models analyzed:</span>
-          <span className="font-mono text-sm text-lab-white">{modelCount}</span>
+      {/* ─── 2. Big Stat ─────────────────────────────────────────────── */}
+      <div className="text-center mb-10">
+        <div className="font-mono text-[56px] sm:text-[72px] font-bold text-lab-white leading-none mb-1">
+          {totalConsensus}
         </div>
-        <div className="flex gap-2 overflow-x-auto pb-1">
-          {FILTERS.map((f) => {
-            const isActive = activeFilter === f.id;
-            return (
-              <button
-                key={f.id}
-                onClick={() => { setActiveFilter(f.id); setExpandedGameId(null); }}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-semibold whitespace-nowrap transition-all duration-150"
-                style={{
-                  borderColor: isActive ? f.color : '#333',
-                  color: isActive ? f.color : '#666',
-                  background: isActive ? `${f.color}15` : 'transparent',
-                }}
-              >
-                {f.icon && <span>{f.icon}</span>}
-                {f.label}
-                <span className="font-mono text-[10px] opacity-60">{f.count}</span>
-              </button>
-            );
-          })}
+        <p className="text-lab-muted text-sm mb-4">
+          consensus picks from {totalPredictions} AI predictions
+        </p>
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
+          <span className="flex items-center gap-1.5 text-sm">
+            <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
+            <span className="font-mono text-lab-white font-semibold">{lockPicks.length}</span>
+            <span className="text-lab-muted">Locks</span>
+          </span>
+          <span className="flex items-center gap-1.5 text-sm">
+            <span className="w-2 h-2 rounded-full bg-[#f59e0b]" />
+            <span className="font-mono text-lab-white font-semibold">{smartUpsets.length}</span>
+            <span className="text-lab-muted">Upsets</span>
+          </span>
+          <span className="flex items-center gap-1.5 text-sm">
+            <span className="w-2 h-2 rounded-full bg-[#ef4444]" />
+            <span className="font-mono text-lab-white font-semibold">{trapGames.length}</span>
+            <span className="text-lab-muted">Traps</span>
+          </span>
+          {sleeper && (
+            <span className="flex items-center gap-1.5 text-sm">
+              <span className="w-2 h-2 rounded-full bg-[#a855f7]" />
+              <span className="font-mono text-lab-white font-semibold">1</span>
+              <span className="text-lab-muted">Sleeper</span>
+            </span>
+          )}
         </div>
       </div>
 
-      {/* Section 1: Lock Picks */}
-      {show('locks') && (
-        <section className="mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-green-400">&#10003;</span>
-            <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-              Lock Picks
-            </h2>
-            <span className="font-mono text-xs text-[#555] ml-auto">{lockPicks.length} games</span>
+      {/* ─── 3. Free Preview: Champion + FF + 2 Lock Picks ───────────── */}
+      <section className="mb-10">
+        {/* Champion + Final Four */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          {/* Champion */}
+          <div className="border border-[#2a2a2a] rounded-lg p-5">
+            <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Consensus Champion</p>
+            {champions.length > 0 && (
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-lab-white font-semibold text-lg">{champions[0].team}</span>
+                  <span className="font-mono text-sm font-bold" style={{ color: champions[0].count >= 3 ? '#22c55e' : '#888' }}>
+                    {champions[0].count}/{modelCount}
+                  </span>
+                </div>
+                <p className="text-xs text-lab-muted">
+                  {champions[0].count} model{champions[0].count !== 1 ? 's' : ''} picking this champion
+                </p>
+                {champions.length > 1 && (
+                  <div className="mt-3 pt-3 border-t border-[#2a2a2a]">
+                    {champions.slice(1).map((c) => (
+                      <div key={c.team} className="flex items-center justify-between text-sm py-0.5">
+                        <span className="text-lab-muted">{c.team}</span>
+                        <span className="font-mono text-xs text-[#555]">{c.count}/{modelCount}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
-          <p className="text-sm text-lab-muted mb-4">
-            Games where 7+ of {modelCount} models agree. Put these in ink.
-          </p>
-          <div className="space-y-3">
-            {lockPicks.map((game, i) => (
-              <LockPickCard
-                key={game.gameId}
-                game={game}
-                blurred={!showContent && i >= FREE_LOCK_PICKS}
-                expanded={expandedGameId === game.gameId}
-                onToggle={() => toggleGame(game.gameId)}
-              />
-            ))}
-          </div>
-        </section>
-      )}
 
-      {/* CTA if locked (2026 only) */}
+          {/* Final Four */}
+          <div className="border border-[#2a2a2a] rounded-lg p-5">
+            <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Final Four Consensus</p>
+            <div className="space-y-2">
+              {finalFour.slice(0, 6).map((f) => (
+                <div key={f.team} className="flex items-center justify-between">
+                  <span className="text-lab-white text-sm">{f.team}</span>
+                  <AgreementPill count={f.count} total={modelCount} color="#3b82f6" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 2 free lock picks */}
+        <div className="space-y-3">
+          {lockPicks.slice(0, FREE_LOCK_PICKS).map((game) => (
+            <PickRow
+              key={game.gameId}
+              game={game}
+              icon="&#10003;"
+              iconColor="#22c55e"
+              pillColor="#22c55e"
+              expanded={expandedGameId === game.gameId}
+              onToggle={() => toggleGame(game.gameId)}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* ─── 4. Locked Content Tease (when not unlocked) ─────────────── */}
       {!showContent && (
-        <div className="relative mb-10">
-          <div className="border border-[#333] rounded-xl px-8 py-8 text-center bg-[#1a1a1a]">
-            <div className="text-3xl mb-3">&#128274;</div>
-            <h3
-              className="text-lg text-lab-white mb-2"
-              style={{ fontFamily: 'var(--font-serif)' }}
-            >
-              Unlock the full Cheat Sheet
-            </h3>
-            <p className="text-sm text-lab-muted mb-2 max-w-md mx-auto">
-              You&apos;re seeing {FREE_LOCK_PICKS} of {lockPicks.length} lock picks.
-              Get all {lockPicks.length + smartUpsets.length + trapGames.length + (sleeper ? 1 : 0)} insights
-              including smart upsets, trap games, Final Four analysis, and the sleeper pick.
-            </p>
-            <p className="text-xs text-lab-muted mb-5 max-w-md mx-auto">
-              <button
-                onClick={() => selectYear('2025')}
-                className="text-amber-400 hover:text-amber-300 underline underline-offset-2 transition-colors"
-              >
-                Preview the 2025 cheat sheet free
-              </button>{' '}
-              to see exactly what you get.
+        <>
+          <section className="mb-8">
+            <div className="space-y-3">
+              {[
+                { icon: '&#10003;', color: '#22c55e', label: `${lockPicks.length - FREE_LOCK_PICKS} more Lock Picks`, desc: lockPicks.length > FREE_LOCK_PICKS ? `${Math.min(...lockPicks.slice(FREE_LOCK_PICKS).map(g => g.agreementCount))}/${modelCount} to ${Math.max(...lockPicks.map(g => g.agreementCount))}/${modelCount} agreement` : '7+ model agreement' },
+                { icon: '&#9889;', color: '#f59e0b', label: `${smartUpsets.length} Smart Upsets`, desc: '4+ models on the underdog' },
+                { icon: '&#9888;', color: '#ef4444', label: `${trapGames.length} Trap Games`, desc: 'Favorites to avoid' },
+                ...(sleeper ? [{ icon: '&#128301;', color: '#a855f7', label: '1 Sleeper Pick', desc: 'Deep run, high confidence' }] : []),
+                { icon: '&#127942;', color: '#3b82f6', label: '32 Opening Round Matchups', desc: 'Every R64 game, model-by-model breakdown' },
+              ].map((row) => (
+                <div
+                  key={row.label}
+                  className="flex items-center justify-between border border-[#2a2a2a] rounded-lg px-4 py-3.5 min-h-[44px]"
+                >
+                  <div className="flex items-center gap-3">
+                    <span dangerouslySetInnerHTML={{ __html: row.icon }} style={{ color: row.color }} className="text-sm" />
+                    <div>
+                      <span className="text-lab-white text-sm font-semibold">{row.label}</span>
+                      <span className="text-lab-muted text-xs ml-2 hidden sm:inline">&mdash; {row.desc}</span>
+                      <p className="text-lab-muted text-xs sm:hidden mt-0.5">{row.desc}</p>
+                    </div>
+                  </div>
+                  <span className="text-[#444] text-sm flex-shrink-0">&#128274;</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ─── 5. CTA ────────────────────────────────────────────────── */}
+          <div className="mb-10 border border-[#333] rounded-xl px-6 sm:px-8 py-8 text-center bg-[#1a1a1a]">
+            <div className="font-mono text-[40px] sm:text-[48px] font-bold text-lab-white leading-none mb-2">
+              $2.99
+            </div>
+            <p className="text-lab-muted text-sm mb-1">One-time. No subscription.</p>
+            <p className="text-sm text-[#aaa] mb-6 max-w-md mx-auto">
+              Your bracket pool entry is $25. This is a rounding error.
             </p>
             <a
               href={STRIPE_LINK}
-              className="inline-block font-mono text-sm font-semibold px-6 py-3 rounded-lg transition-all hover:brightness-110"
+              className="inline-block font-mono text-sm font-semibold px-8 py-3.5 rounded-lg transition-all hover:brightness-110 w-full sm:w-auto"
               style={{ background: '#22c55e', color: '#141414' }}
             >
-              Unlock Cheat Sheet &mdash; $2.99
+              Unlock the Cheat Sheet
             </a>
-            <p className="text-[11px] text-[#555] mt-3">
-              Powered by Stripe. One-time payment, no subscription.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Section 2: Smart Upsets */}
-      {show('upsets') && (
-        <section className="mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-amber-400">&#9889;</span>
-            <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-              Smart Upsets
-            </h2>
-            <span className="font-mono text-xs text-[#555] ml-auto">{smartUpsets.length} games</span>
-          </div>
-          <p className="text-sm text-lab-muted mb-4">
-            Lower seeds that 4+ models agree on. The upsets worth taking.
-          </p>
-          <div className="space-y-3">
-            {smartUpsets.map((game) => (
-              <UpsetCard
-                key={game.gameId}
-                game={game}
-                blurred={!showContent}
-                expanded={expandedGameId === game.gameId}
-                onToggle={() => toggleGame(game.gameId)}
-              />
-            ))}
-            {smartUpsets.length === 0 && (
-              <p className={`text-sm text-[#555] italic ${!showContent ? 'blur-sm' : ''}`}>
-                No smart upsets found with current model data.
+            <div className="mt-4 space-y-1">
+              <p className="text-xs text-lab-muted">
+                <button
+                  onClick={() => selectYear('2025')}
+                  className="text-amber-400 hover:text-amber-300 underline underline-offset-2 transition-colors"
+                >
+                  Preview the full 2025 cheat sheet free
+                </button>
               </p>
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* Section 3: Trap Games */}
-      {show('traps') && (
-        <section className="mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-red-400">&#9888;</span>
-            <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-              Trap Games
-            </h2>
-            <span className="font-mono text-xs text-[#555] ml-auto">{trapGames.length} games</span>
-          </div>
-          <p className="text-sm text-lab-muted mb-4">
-            Everyone in your pool will pick these favorites &mdash; here&apos;s why you shouldn&apos;t.
-            Games where the favorite wins the consensus but nearly half the models disagree.
-          </p>
-          <div className="space-y-3">
-            {trapGames.map((game) => (
-              <TrapGameCard
-                key={game.gameId}
-                game={game}
-                blurred={!showContent}
-                expanded={expandedGameId === game.gameId}
-                onToggle={() => toggleGame(game.gameId)}
-              />
-            ))}
-            {trapGames.length === 0 && (
-              <p className={`text-sm text-[#555] italic ${!showContent ? 'blur-sm' : ''}`}>
-                No trap games found with current model data.
+              <p className="text-[11px] text-[#555]">
+                Powered by Stripe &middot; Instant access
               </p>
-            )}
+            </div>
           </div>
-        </section>
+        </>
       )}
 
-      {/* Section 4: Final Four & Champion */}
-      {show('final-four') && (
-        <section className="mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-lab-white">&#127942;</span>
-            <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-              Final Four &amp; Champion
-            </h2>
-          </div>
+      {/* ─── 6. Paid Content ─────────────────────────────────────────── */}
+      {showContent && (
+        <>
+          {/* Lock Picks (remaining) */}
+          {lockPicks.length > FREE_LOCK_PICKS && (
+            <section className="mb-10">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-green-400">&#10003;</span>
+                <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
+                  Lock Picks
+                </h2>
+                <span className="font-mono text-xs text-[#555] ml-auto">{lockPicks.length} total</span>
+              </div>
+              <p className="text-sm text-lab-muted mb-4">
+                Games where 7+ of {modelCount} models agree. Put these in ink.
+              </p>
+              <div className="space-y-3">
+                {lockPicks.slice(FREE_LOCK_PICKS).map((game) => (
+                  <PickRow
+                    key={game.gameId}
+                    game={game}
+                    icon="&#10003;"
+                    iconColor="#22c55e"
+                    pillColor="#22c55e"
+                    expanded={expandedGameId === game.gameId}
+                    onToggle={() => toggleGame(game.gameId)}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
 
-          <div className={`border border-[#2a2a2a] rounded-lg p-5 mb-4 ${!showContent ? 'blur-sm select-none' : ''}`}>
-            <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Champion Picks</p>
-            <div className="space-y-3">
-              {champions.map((c) => (
-                <div key={c.team} className="flex items-center justify-between">
-                  <div>
-                    <span className="text-lab-white font-semibold">{c.team}</span>
-                    <span className="text-lab-muted text-xs ml-2">
-                      {c.count} model{c.count !== 1 ? 's' : ''} &middot; avg conf {c.avgConfidence}%
-                    </span>
-                    <ModelDots models={c.models} />
-                  </div>
-                  <span className="font-mono text-lg font-bold" style={{ color: c.count >= 3 ? '#22c55e' : '#888' }}>
-                    {c.count}/{modelCount}
+          {/* Smart Upsets */}
+          {smartUpsets.length > 0 && (
+            <section className="mb-10">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-amber-400">&#9889;</span>
+                <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
+                  Smart Upsets
+                </h2>
+                <span className="font-mono text-xs text-[#555] ml-auto">{smartUpsets.length} games</span>
+              </div>
+              <p className="text-sm text-lab-muted mb-4">
+                Lower seeds that 4+ models agree on. The upsets worth taking.
+              </p>
+              <div className="space-y-3">
+                {smartUpsets.map((game) => (
+                  <PickRow
+                    key={game.gameId}
+                    game={game}
+                    icon="&#9889;"
+                    iconColor="#f59e0b"
+                    pillColor="#f59e0b"
+                    expanded={expandedGameId === game.gameId}
+                    onToggle={() => toggleGame(game.gameId)}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Trap Games */}
+          {trapGames.length > 0 && (
+            <section className="mb-10">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-red-400">&#9888;</span>
+                <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
+                  Trap Games
+                </h2>
+                <span className="font-mono text-xs text-[#555] ml-auto">{trapGames.length} games</span>
+              </div>
+              <p className="text-sm text-lab-muted mb-4">
+                Everyone in your pool will pick these favorites &mdash; here&apos;s why you shouldn&apos;t.
+              </p>
+              <div className="space-y-3">
+                {trapGames.map((game) => (
+                  <PickRow
+                    key={game.gameId}
+                    game={game}
+                    icon="&#9888;"
+                    iconColor="#ef4444"
+                    pillColor="#ef4444"
+                    expanded={expandedGameId === game.gameId}
+                    onToggle={() => toggleGame(game.gameId)}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Sleeper Pick */}
+          {sleeper && (
+            <section className="mb-10">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-purple-400">&#128301;</span>
+                <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
+                  Sleeper Pick
+                </h2>
+              </div>
+              <div className="border border-purple-500/30 rounded-lg p-5 bg-purple-500/5">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-lab-white font-semibold text-lg">{sleeper.team}</span>
+                  <span className="font-mono text-xs text-purple-300 px-2 py-0.5 rounded border border-purple-500/30">
+                    {sleeper.deepestRoundLabel}
                   </span>
                 </div>
-              ))}
-            </div>
-          </div>
+                <p className="text-sm text-lab-muted">
+                  Picked by {sleeper.modelPicks.length} model{sleeper.modelPicks.length !== 1 ? 's' : ''} &middot;
+                  Avg confidence: {sleeper.avgConfidence}%
+                </p>
+              </div>
+            </section>
+          )}
 
-          <div className={`border border-[#2a2a2a] rounded-lg p-5 ${!showContent ? 'blur-sm select-none' : ''}`}>
-            <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Final Four Appearances</p>
-            <div className="grid grid-cols-2 gap-3">
-              {finalFour.slice(0, 8).map((f) => (
-                <div key={f.team} className="flex items-center justify-between py-1">
-                  <span className="text-lab-white text-sm">{f.team}</span>
-                  <div className="flex items-center gap-1.5">
-                    <AgreementBar count={f.count} total={modelCount} color="#3b82f6" />
-                  </div>
-                </div>
-              ))}
+          {/* ─── Full R64 Breakdown ──────────────────────────────────── */}
+          <section className="mb-10">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-lab-white">&#127942;</span>
+              <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
+                Full R64 Breakdown
+              </h2>
+              <span className="font-mono text-xs text-[#555] ml-auto">32 games</span>
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* Section 5: Sleeper Pick */}
-      {show('sleeper') && sleeper && (
-        <section className="mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-purple-400">&#128301;</span>
-            <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-              Sleeper Pick
-            </h2>
-          </div>
-          <p className="text-sm text-lab-muted mb-4">
-            The deepest run that only 1-2 models see. Your differentiator pick.
-          </p>
-          <div className={`border border-purple-500/30 rounded-lg p-5 bg-purple-500/5 ${!showContent ? 'blur-sm select-none' : ''}`}>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-lab-white font-semibold text-lg">{sleeper.team}</span>
-              <span className="font-mono text-xs text-purple-300 px-2 py-0.5 rounded border border-purple-500/30">
-                {sleeper.deepestRoundLabel}
-              </span>
-            </div>
-            <p className="text-sm text-lab-muted mb-3">
-              Picked by {sleeper.modelPicks.length} model{sleeper.modelPicks.length !== 1 ? 's' : ''} &middot;
-              Avg confidence: {sleeper.avgConfidence}%
+            <p className="text-sm text-lab-muted mb-6">
+              Every opening round matchup with model-by-model analysis. Click any game to expand.
             </p>
-            <ModelDots models={sleeper.modelPicks.map((p) => ({ modelName: p.modelName, color: p.color }))} />
-            {sleeper.modelPicks[0] && (
-              <p className="text-xs text-[#aaa] leading-relaxed mt-3 line-clamp-3">
-                &ldquo;{sleeper.modelPicks[0].reasoning}&rdquo;
-                <span className="text-[#666] ml-1">&mdash; {sleeper.modelPicks[0].modelName}</span>
-              </p>
-            )}
-          </div>
-        </section>
+
+            {r64ByRegion.map(({ region, games }) => (
+              <div key={region} className="mb-8">
+                <div className="sticky top-0 z-10 bg-[#141414] py-2 mb-3">
+                  <h3 className="font-mono text-xs text-[#555] uppercase tracking-wider border-b border-[#2a2a2a] pb-2">
+                    {region} Region &middot; {games.length} games
+                  </h3>
+                </div>
+                <div className="space-y-2">
+                  {games.map((game) => (
+                    <R64Row
+                      key={game.gameId}
+                      game={game}
+                      expanded={expandedGameId === game.gameId}
+                      onToggle={() => toggleGame(game.gameId)}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </section>
+        </>
       )}
 
       {/* Bottom CTA for 2025 preview viewers */}
       {isPreview && (
-        <div className="mb-10 border border-green-500/30 rounded-xl px-8 py-7 text-center bg-green-500/5">
+        <div className="mb-10 border border-green-500/30 rounded-xl px-6 sm:px-8 py-7 text-center bg-green-500/5">
           <h3
             className="text-lg text-lab-white mb-2"
             style={{ fontFamily: 'var(--font-serif)' }}
