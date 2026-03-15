@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option 2: Split Panel (For / Against)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; }
+  .panel { background: #1e1e1e; border: 1px solid #444; border-radius: 14px; width: 520px; max-width: 94vw; max-height: 90vh; overflow-y: auto; box-shadow: 0 24px 64px rgba(0,0,0,0.6); }
+  .mono { font-family: 'SF Mono', 'Fira Code', monospace; }
+
+  .header { padding: 20px 24px; border-bottom: 1px solid #2a2a2a; }
+  .round-tag { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+
+  /* VS block */
+  .vs-block { display: flex; align-items: center; gap: 0; margin-bottom: 14px; }
+  .vs-team { flex: 1; padding: 12px 16px; border-radius: 8px; }
+  .vs-team.winner { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.2); }
+  .vs-team.loser { background: #1a1a1a; border: 1px solid #2a2a2a; }
+  .vs-team .seed { font-size: 10px; color: #666; margin-bottom: 2px; }
+  .vs-team .name { font-size: 18px; font-weight: 700; }
+  .vs-team.loser .name { color: #666; }
+  .vs-sep { width: 40px; text-align: center; font-size: 11px; color: #444; flex-shrink: 0; }
+
+  /* Verdict bar */
+  .verdict { padding: 0 24px 16px; }
+  .verdict-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 6px; }
+  .verdict-bar .for { background: #22c55e; }
+  .verdict-bar .against { background: #ef4444; }
+  .verdict-labels { display: flex; justify-content: space-between; font-size: 11px; }
+  .verdict-labels .for { color: #22c55e; }
+  .verdict-labels .against { color: #ef4444; }
+
+  /* Split columns */
+  .split { display: flex; border-top: 1px solid #2a2a2a; }
+  .col { flex: 1; padding: 16px 20px; }
+  .col:first-child { border-right: 1px solid #2a2a2a; }
+  .col-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .col-title.for { color: #22c55e; }
+  .col-title.against { color: #ef4444; }
+
+  .take { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #222; }
+  .take:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .take-header { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+  .take-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .take-name { font-size: 11px; font-weight: 600; }
+  .take-conf { font-size: 10px; color: #666; margin-left: auto; }
+  .take-text { font-size: 12px; color: #999; line-height: 1.5; }
+
+  /* Bottom summary */
+  .bottom { padding: 14px 24px; border-top: 1px solid #2a2a2a; }
+  .bottom-text { font-size: 13px; color: #bbb; line-height: 1.5; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="overlay">
+  <div class="panel">
+    <div class="header">
+      <div class="round-tag mono">Round of 64 &middot; South Region</div>
+      <div class="vs-block">
+        <div class="vs-team winner">
+          <div class="seed mono">#6 SEED</div>
+          <div class="name">Ole Miss</div>
+        </div>
+        <div class="vs-sep mono">VS</div>
+        <div class="vs-team loser">
+          <div class="seed mono">#11 SEED</div>
+          <div class="name">North Carolina</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verdict bar -->
+    <div class="verdict">
+      <div class="verdict-bar">
+        <div class="for" style="width:66.7%"></div>
+        <div class="against" style="width:33.3%"></div>
+      </div>
+      <div class="verdict-labels mono">
+        <span class="for">6 models pick Ole Miss</span>
+        <span class="against">3 pick UNC</span>
+      </div>
+    </div>
+
+    <!-- Split columns -->
+    <div class="split">
+      <div class="col">
+        <div class="col-title for">The Case FOR Ole Miss</div>
+
+        <div class="take">
+          <div class="take-header">
+            <span class="take-dot" style="background:#3b82f6"></span>
+            <span class="take-name" style="color:#3b82f6">The Scout</span>
+            <span class="take-conf mono">58%</span>
+          </div>
+          <p class="take-text">Defensive edge (97.0 vs 99.8). Better defensive team wins at controlled tempo.</p>
+        </div>
+
+        <div class="take">
+          <div class="take-header">
+            <span class="take-dot" style="background:#22c55e"></span>
+            <span class="take-name" style="color:#22c55e">The Quant</span>
+            <span class="take-conf mono">61%</span>
+          </div>
+          <p class="take-text">Wins 60.8% of simulations. First-Four teams show -3.2% win rate penalty.</p>
+        </div>
+
+        <div class="take">
+          <div class="take-header">
+            <span class="take-dot" style="background:#f59e0b"></span>
+            <span class="take-name" style="color:#f59e0b">The Historian</span>
+            <span class="take-conf mono">57%</span>
+          </div>
+          <p class="take-text">UNC mirrors 2021 Syracuse (energized but thin). Ole Miss matches 2019 Iowa State profile.</p>
+        </div>
+
+        <div class="take">
+          <div class="take-header">
+            <span class="take-dot" style="background:#f97316"></span>
+            <span class="take-name" style="color:#f97316">Auto Researcher</span>
+            <span class="take-conf mono">62%</span>
+          </div>
+          <p class="take-text">ML ensemble: SRS + margin of victory favors Ole Miss at 62%.</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-title against">The Case FOR UNC</div>
+
+        <div class="take">
+          <div class="take-header">
+            <span class="take-dot" style="background:#ef4444"></span>
+            <span class="take-name" style="color:#ef4444">Chaos Agent</span>
+            <span class="take-conf mono">57%</span>
+          </div>
+          <p class="take-text">Ole Miss hasn&rsquo;t won a tournament game in years. UNC has deeper talent + momentum.</p>
+        </div>
+
+        <div class="take">
+          <div class="take-header">
+            <span class="take-dot" style="background:#a855f7"></span>
+            <span class="take-name" style="color:#a855f7">Super Agent</span>
+            <span class="take-conf mono">61%</span>
+          </div>
+          <p class="take-text">ML model favors UNC&rsquo;s tempo advantage despite lower seed.</p>
+        </div>
+
+        <div class="take">
+          <div class="take-header">
+            <span class="take-dot" style="background:#06b6d4"></span>
+            <span class="take-name" style="color:#06b6d4">The Optimizer</span>
+            <span class="take-conf mono">63%</span>
+          </div>
+          <p class="take-text">ESPN points maximization favors UNC&rsquo;s path through later rounds.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom line -->
+    <div class="bottom">
+      <p class="bottom-text">&ldquo;Defense-first models favor Ole Miss. Path-optimization models see more value in UNC&rsquo;s upside.&rdquo;</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

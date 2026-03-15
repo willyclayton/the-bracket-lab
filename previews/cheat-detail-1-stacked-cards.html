@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option 1: Stacked Model Cards</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; }
+  .panel { background: #1e1e1e; border: 1px solid #444; border-radius: 14px; width: 420px; max-width: 92vw; max-height: 90vh; overflow-y: auto; box-shadow: 0 24px 64px rgba(0,0,0,0.6); }
+  .mono { font-family: 'SF Mono', 'Fira Code', monospace; }
+
+  /* Header */
+  .header { padding: 20px 24px; border-bottom: 1px solid #2a2a2a; }
+  .round-tag { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .matchup { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .seed { font-size: 11px; color: #888; background: #2a2a2a; width: 24px; height: 24px; border-radius: 5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .team-name { font-size: 17px; font-weight: 700; }
+  .vs { font-size: 12px; color: #555; margin: 0 4px; }
+  .consensus-bar { display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 8px; background: rgba(34,197,94,0.08); }
+  .consensus-bar .count { font-size: 20px; font-weight: 800; color: #22c55e; }
+  .consensus-bar .label { font-size: 11px; color: #888; }
+
+  /* Summary */
+  .summary { padding: 16px 24px; border-bottom: 1px solid #2a2a2a; }
+  .summary-text { font-size: 14px; color: #ccc; line-height: 1.5; font-weight: 500; }
+  .summary-text em { color: #fff; font-style: normal; font-weight: 700; }
+
+  /* Model cards */
+  .model-card { padding: 14px 24px; border-bottom: 1px solid #222; }
+  .model-card:last-child { border-bottom: none; }
+  .model-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .model-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .model-name { font-size: 12px; font-weight: 600; }
+  .model-pick { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+  .model-conf { font-size: 11px; color: #888; margin-left: auto; }
+  .model-reasoning { font-size: 12px; color: #999; line-height: 1.55; margin-top: 4px; }
+
+  /* Confidence strip at bottom */
+  .conf-strip { padding: 14px 24px; display: flex; gap: 3px; align-items: center; }
+  .conf-strip .bar { height: 6px; border-radius: 3px; flex: 1; }
+  .conf-avg { font-size: 11px; color: #888; margin-left: 8px; }
+</style>
+</head>
+<body>
+<div class="overlay">
+  <div class="panel">
+    <!-- Header -->
+    <div class="header">
+      <div class="round-tag mono">Round of 64 &middot; South Region</div>
+      <div class="matchup">
+        <span class="seed mono">6</span>
+        <span class="team-name">Ole Miss</span>
+        <span class="vs">vs</span>
+        <span class="seed mono">11</span>
+        <span class="team-name" style="color:#999">North Carolina</span>
+      </div>
+      <div class="consensus-bar">
+        <span class="count mono">6/9</span>
+        <span class="label">models pick Ole Miss &middot; avg confidence 59%</span>
+      </div>
+    </div>
+
+    <!-- AI Summary -->
+    <div class="summary">
+      <p class="summary-text">
+        The models largely agree on Ole Miss thanks to a <em>defensive efficiency edge</em> and slightly stronger AdjEM.
+        The 3 dissenters see UNC&rsquo;s momentum as a First Four survivor and better path optimization for ESPN points.
+      </p>
+    </div>
+
+    <!-- Each model's take -->
+    <div class="model-card">
+      <div class="model-header">
+        <span class="model-dot" style="background:#3b82f6"></span>
+        <span class="model-name" style="color:#3b82f6">The Scout</span>
+        <span class="model-pick" style="background:rgba(34,197,94,0.12);color:#22c55e">Ole Miss</span>
+        <span class="model-conf mono">58%</span>
+      </div>
+      <p class="model-reasoning">Ole Miss has the defensive edge (97.0 vs 99.8). In a 6-11 SEC matchup, the better defensive team at a controlled tempo wins.</p>
+    </div>
+
+    <div class="model-card">
+      <div class="model-header">
+        <span class="model-dot" style="background:#22c55e"></span>
+        <span class="model-name" style="color:#22c55e">The Quant</span>
+        <span class="model-pick" style="background:rgba(34,197,94,0.12);color:#22c55e">Ole Miss</span>
+        <span class="model-conf mono">61%</span>
+      </div>
+      <p class="model-reasoning">Ole Miss wins 60.8% of 10,000 simulations. First-Four teams show a -3.2% win rate penalty historically.</p>
+    </div>
+
+    <div class="model-card">
+      <div class="model-header">
+        <span class="model-dot" style="background:#f59e0b"></span>
+        <span class="model-name" style="color:#f59e0b">The Historian</span>
+        <span class="model-pick" style="background:rgba(34,197,94,0.12);color:#22c55e">Ole Miss</span>
+        <span class="model-conf mono">57%</span>
+      </div>
+      <p class="model-reasoning">UNC mirrors 2021 Syracuse &mdash; energized but thin. Ole Miss matches 2019 Iowa State&rsquo;s profile as a defensive 6-seed.</p>
+    </div>
+
+    <div class="model-card">
+      <div class="model-header">
+        <span class="model-dot" style="background:#ef4444"></span>
+        <span class="model-name" style="color:#ef4444">The Chaos Agent</span>
+        <span class="model-pick" style="background:rgba(239,68,68,0.12);color:#ef4444">North Carolina</span>
+        <span class="model-conf mono">57%</span>
+      </div>
+      <p class="model-reasoning">Ole Miss hasn&rsquo;t won a tournament game in years. UNC is a First-Four survivor with momentum and deeper talent.</p>
+    </div>
+
+    <div class="model-card">
+      <div class="model-header">
+        <span class="model-dot" style="background:#a855f7"></span>
+        <span class="model-name" style="color:#a855f7">The Super Agent</span>
+        <span class="model-pick" style="background:rgba(239,68,68,0.12);color:#ef4444">North Carolina</span>
+        <span class="model-conf mono">61%</span>
+      </div>
+      <p class="model-reasoning">UNC advances with tempo advantage. ML model picks the upset despite Ole Miss&rsquo;s higher seed.</p>
+    </div>
+
+    <div class="model-card">
+      <div class="model-header">
+        <span class="model-dot" style="background:#06b6d4"></span>
+        <span class="model-name" style="color:#06b6d4">The Optimizer</span>
+        <span class="model-pick" style="background:rgba(239,68,68,0.12);color:#ef4444">North Carolina</span>
+        <span class="model-conf mono">63%</span>
+      </div>
+      <p class="model-reasoning">ESPN points maximization favors UNC&rsquo;s path probability through later rounds.</p>
+    </div>
+
+    <!-- Confidence strip -->
+    <div class="conf-strip">
+      <div class="bar" style="background:#3b82f6; opacity:0.58"></div>
+      <div class="bar" style="background:#22c55e; opacity:0.61"></div>
+      <div class="bar" style="background:#f59e0b; opacity:0.57"></div>
+      <div class="bar" style="background:#ef4444; opacity:0.57"></div>
+      <div class="bar" style="background:#00ff88; opacity:0.57"></div>
+      <div class="bar" style="background:#a855f7; opacity:0.61"></div>
+      <div class="bar" style="background:#06b6d4; opacity:0.63"></div>
+      <div class="bar" style="background:#64748b; opacity:0.58"></div>
+      <div class="bar" style="background:#f97316; opacity:0.62"></div>
+      <span class="conf-avg mono">avg 59%</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

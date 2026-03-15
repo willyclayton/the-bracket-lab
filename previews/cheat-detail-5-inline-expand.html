@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option 5: Inline Expand (No Modal)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 40px 20px; }
+  .mono { font-family: 'SF Mono', 'Fira Code', monospace; }
+
+  .section-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+
+  /* Collapsed card (what user already sees) */
+  .card { border: 1px solid #2a2a2a; border-radius: 10px; margin-bottom: 12px; overflow: hidden; transition: all 0.2s; }
+  .card.expanded { border-color: #444; }
+
+  .card-top { padding: 14px 18px; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+  .card-top:hover { background: #222; }
+  .card-top .icon { font-size: 14px; }
+  .card-top .pick-info { flex: 1; }
+  .card-top .teams { font-size: 14px; font-weight: 600; }
+  .card-top .teams .seed { font-size: 11px; color: #888; }
+  .card-top .teams .muted { color: #888; font-weight: 400; }
+  .card-top .meta { font-size: 11px; color: #666; margin-top: 2px; }
+  .card-top .agreement { display: flex; gap: 2px; align-items: center; flex-shrink: 0; }
+  .card-top .agreement .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .card-top .agreement .count { font-size: 11px; color: #888; margin-left: 4px; }
+  .card-top .expand-icon { color: #444; font-size: 12px; flex-shrink: 0; transition: transform 0.2s; }
+  .card.expanded .expand-icon { transform: rotate(180deg); }
+
+  /* Expanded detail — slides open */
+  .card-detail { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .card.expanded .card-detail { max-height: 1200px; }
+
+  .detail-inner { padding: 0 18px 18px; }
+
+  /* Consensus bar */
+  .consensus { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #1a1a1a; border-radius: 8px; margin-bottom: 14px; }
+  .consensus .bar { flex: 1; height: 8px; border-radius: 4px; background: #2a2a2a; overflow: hidden; display: flex; }
+  .consensus .bar .seg { height: 100%; }
+  .consensus .label { font-size: 12px; color: #888; white-space: nowrap; }
+
+  /* Synthesis */
+  .synthesis { margin-bottom: 16px; }
+  .synth-label { font-size: 9px; color: #22c55e; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; font-weight: 700; }
+  .synth-text { font-size: 13px; color: #ccc; line-height: 1.55; }
+
+  /* Model takes — compact table */
+  .takes-table { width: 100%; border-collapse: collapse; }
+  .takes-table th { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 1px; text-align: left; padding: 6px 0; border-bottom: 1px solid #2a2a2a; }
+  .takes-table th:last-child { text-align: right; }
+  .takes-table td { padding: 8px 0; border-bottom: 1px solid #1a1a1a; vertical-align: top; }
+  .takes-table td:last-child { text-align: right; }
+  .takes-table .model-cell { display: flex; align-items: center; gap: 6px; }
+  .takes-table .model-cell .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .takes-table .model-cell .name { font-size: 12px; font-weight: 600; }
+  .takes-table .pick-cell { font-size: 11px; font-weight: 600; }
+  .takes-table .pick-cell.agree { color: #22c55e; }
+  .takes-table .pick-cell.dissent { color: #ef4444; }
+  .takes-table .reason-cell { font-size: 11px; color: #999; line-height: 1.45; max-width: 200px; }
+  .takes-table .conf-cell { font-size: 11px; color: #666; }
+
+  /* Key stat callouts */
+  .stats-row { display: flex; gap: 8px; margin-top: 14px; }
+  .stat-box { flex: 1; background: #1a1a1a; border-radius: 6px; padding: 10px; text-align: center; }
+  .stat-box .val { font-size: 18px; font-weight: 800; color: #efefef; }
+  .stat-box .lbl { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="section-title" style="color:#22c55e; font-family: Georgia, serif;">Lock Picks</div>
+
+<!-- Card 1: Collapsed -->
+<div class="card">
+  <div class="card-top">
+    <span class="icon" style="color:#22c55e">&#10003;</span>
+    <div class="pick-info">
+      <div class="teams"><span class="seed">(1)</span> Auburn <span class="muted">over</span> <span class="seed">(16)</span> Alabama State</div>
+      <div class="meta mono">South &middot; R64 &middot; 97% avg conf</div>
+    </div>
+    <div class="agreement">
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="count mono">9/9</span>
+    </div>
+    <span class="expand-icon">&#9660;</span>
+  </div>
+</div>
+
+<!-- Card 2: Expanded (what detail looks like) -->
+<div class="card expanded">
+  <div class="card-top">
+    <span class="icon" style="color:#22c55e">&#10003;</span>
+    <div class="pick-info">
+      <div class="teams"><span class="seed">(6)</span> Ole Miss <span class="muted">over</span> <span class="seed">(11)</span> North Carolina</div>
+      <div class="meta mono">South &middot; R64 &middot; 59% avg conf</div>
+    </div>
+    <div class="agreement">
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#ef4444"></span>
+      <span class="dot" style="background:#ef4444"></span>
+      <span class="dot" style="background:#ef4444"></span>
+      <span class="count mono">6/9</span>
+    </div>
+    <span class="expand-icon">&#9660;</span>
+  </div>
+
+  <div class="card-detail">
+    <div class="detail-inner">
+      <!-- Consensus bar -->
+      <div class="consensus">
+        <span class="label mono" style="color:#22c55e">Ole Miss</span>
+        <div class="bar">
+          <div class="seg" style="width:66.7%;background:#22c55e"></div>
+          <div class="seg" style="width:33.3%;background:#ef4444"></div>
+        </div>
+        <span class="label mono" style="color:#ef4444">UNC</span>
+      </div>
+
+      <!-- Synthesis -->
+      <div class="synthesis">
+        <div class="synth-label mono">AI Synthesis</div>
+        <p class="synth-text">
+          The majority sees Ole Miss&rsquo;s <strong style="color:#fff">defensive edge</strong> (AdjD 97.0 vs 99.8) as decisive at a controlled tempo.
+          The Quant adds a <strong style="color:#fff">First Four penalty</strong> &mdash; play-in survivors win 3.2% less often.
+          Dissenters (Chaos, Super Agent, Optimizer) value UNC&rsquo;s <strong style="color:#fff">momentum and path upside</strong> for ESPN scoring.
+        </p>
+      </div>
+
+      <!-- Compact model table -->
+      <table class="takes-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Pick</th>
+            <th>Key Reasoning</th>
+            <th>Conf</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="model-cell"><span class="dot" style="background:#3b82f6"></span><span class="name" style="color:#3b82f6">Scout</span></div></td>
+            <td><span class="pick-cell agree">Ole Miss</span></td>
+            <td class="reason-cell">Defensive edge at controlled tempo</td>
+            <td class="conf-cell mono">58%</td>
+          </tr>
+          <tr>
+            <td><div class="model-cell"><span class="dot" style="background:#22c55e"></span><span class="name" style="color:#22c55e">Quant</span></div></td>
+            <td><span class="pick-cell agree">Ole Miss</span></td>
+            <td class="reason-cell">60.8% sim win rate; First Four -3.2% penalty</td>
+            <td class="conf-cell mono">61%</td>
+          </tr>
+          <tr>
+            <td><div class="model-cell"><span class="dot" style="background:#f59e0b"></span><span class="name" style="color:#f59e0b">Historian</span></div></td>
+            <td><span class="pick-cell agree">Ole Miss</span></td>
+            <td class="reason-cell">UNC = 2021 Syracuse (energized, thin)</td>
+            <td class="conf-cell mono">57%</td>
+          </tr>
+          <tr>
+            <td><div class="model-cell"><span class="dot" style="background:#ef4444"></span><span class="name" style="color:#ef4444">Chaos</span></div></td>
+            <td><span class="pick-cell dissent">UNC</span></td>
+            <td class="reason-cell">Ole Miss no recent tourney wins; UNC deeper</td>
+            <td class="conf-cell mono">57%</td>
+          </tr>
+          <tr>
+            <td><div class="model-cell"><span class="dot" style="background:#a855f7"></span><span class="name" style="color:#a855f7">Super</span></div></td>
+            <td><span class="pick-cell dissent">UNC</span></td>
+            <td class="reason-cell">Tempo advantage favors UNC</td>
+            <td class="conf-cell mono">61%</td>
+          </tr>
+          <tr>
+            <td><div class="model-cell"><span class="dot" style="background:#06b6d4"></span><span class="name" style="color:#06b6d4">Optimizer</span></div></td>
+            <td><span class="pick-cell dissent">UNC</span></td>
+            <td class="reason-cell">Higher ESPN path value through later rounds</td>
+            <td class="conf-cell mono">63%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Key stats -->
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="val" style="color:#22c55e">6/9</div>
+          <div class="lbl mono">Agreement</div>
+        </div>
+        <div class="stat-box">
+          <div class="val">59%</div>
+          <div class="lbl mono">Avg Conf</div>
+        </div>
+        <div class="stat-box">
+          <div class="val">36.4%</div>
+          <div class="lbl mono">Hist. Upset Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Card 3: Collapsed -->
+<div class="card">
+  <div class="card-top">
+    <span class="icon" style="color:#22c55e">&#10003;</span>
+    <div class="pick-info">
+      <div class="teams"><span class="seed">(1)</span> Duke <span class="muted">over</span> <span class="seed">(16)</span> Mount St. Mary&rsquo;s</div>
+      <div class="meta mono">East &middot; R64 &middot; 98% avg conf</div>
+    </div>
+    <div class="agreement">
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="dot" style="background:#22c55e"></span>
+      <span class="count mono">9/9</span>
+    </div>
+    <span class="expand-icon">&#9660;</span>
+  </div>
+</div>
+
+</body>
+</html>
