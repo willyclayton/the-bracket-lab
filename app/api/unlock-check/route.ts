@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Redis } from '@upstash/redis';
 
-const redis = new Redis({
-  url: process.env.KV_REST_API_URL!,
-  token: process.env.KV_REST_API_TOKEN!,
-});
+function getRedis() {
+  return new Redis({
+    url: process.env.KV_REST_API_URL!,
+    token: process.env.KV_REST_API_TOKEN!,
+  });
+}
 
 export async function POST(request: NextRequest) {
   const { email } = await request.json();
@@ -14,7 +16,7 @@ export async function POST(request: NextRequest) {
   }
 
   const normalizedEmail = email.toLowerCase().trim();
-  const purchased = await redis.get(`cs:email:${normalizedEmail}`);
+  const purchased = await getRedis().get(`cs:email:${normalizedEmail}`);
 
   if (!purchased) {
     return NextResponse.json({ error: 'No purchase found for this email' }, { status: 404 });

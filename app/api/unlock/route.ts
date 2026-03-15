@@ -8,10 +8,12 @@ function getStripe() {
   });
 }
 
-const redis = new Redis({
-  url: process.env.KV_REST_API_URL!,
-  token: process.env.KV_REST_API_TOKEN!,
-});
+function getRedis() {
+  return new Redis({
+    url: process.env.KV_REST_API_URL!,
+    token: process.env.KV_REST_API_TOKEN!,
+  });
+}
 
 const PRODUCTS: Record<string, { cookie: string; redirect: string }> = {
   'cheat-sheet': {
@@ -37,7 +39,7 @@ export async function GET(request: NextRequest) {
       const email = session.customer_details?.email;
       if (email) {
         const normalizedEmail = email.toLowerCase().trim();
-        await redis.set(`cs:email:${normalizedEmail}`, '1');
+        await getRedis().set(`cs:email:${normalizedEmail}`, '1');
       }
 
       const response = NextResponse.redirect(new URL(config.redirect, request.url));
