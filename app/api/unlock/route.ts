@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { Redis } from '@upstash/redis';
 
 function getStripe() {
   return new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: '2026-02-25.clover',
   });
 }
+
+const redis = new Redis({
+  url: process.env.KV_REST_API_URL!,
+  token: process.env.KV_REST_API_TOKEN!,
+});
 
 const PRODUCTS: Record<string, { cookie: string; redirect: string }> = {
   'cheat-sheet': {
@@ -27,6 +33,13 @@ export async function GET(request: NextRequest) {
     const session = await getStripe().checkout.sessions.retrieve(sessionId);
 
     if (session.payment_status === 'paid') {
+      // Store purchase by email in Redis for cross-device access
+      const email = session.customer_details?.email;
+      if (email) {
+        const normalizedEmail = email.toLowerCase().trim();
+        await redis.set(`cs:email:${normalizedEmail}`, '1');
+      }
+
       const response = NextResponse.redirect(new URL(config.redirect, request.url));
       response.cookies.set(config.cookie, '1', {
         path: '/',

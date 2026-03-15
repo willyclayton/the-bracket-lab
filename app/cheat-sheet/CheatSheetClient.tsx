@@ -66,7 +66,7 @@ const BRACKETS_BY_YEAR: Record<Year, Record<string, BracketData>> = {
   },
 };
 
-const STRIPE_LINK = process.env.NEXT_PUBLIC_STRIPE_CHEATSHEET_LINK_URL || '#';
+// Stripe checkout is now server-side via /api/create-checkout
 
 function getUpsetRate(higherSeed: number, lowerSeed: number): number | null {
   const matchups = (seedHistory as Record<string, unknown>).round_of_64_matchups as Array<{
@@ -294,6 +294,53 @@ export default function CheatSheetClient() {
     setUnlocked(document.cookie.split(';').some((c) => c.trim().startsWith('cs_unlocked=')));
   }, []);
 
+  // Checkout state
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+
+  // Email unlock state
+  const [showEmailForm, setShowEmailForm] = useState(false);
+  const [email, setEmail] = useState('');
+  const [emailStatus, setEmailStatus] = useState<'idle' | 'loading' | 'error'>('idle');
+  const [emailError, setEmailError] = useState('');
+
+  async function handleCheckout() {
+    setCheckoutLoading(true);
+    try {
+      const res = await fetch('/api/create-checkout', { method: 'POST' });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        setCheckoutLoading(false);
+      }
+    } catch {
+      setCheckoutLoading(false);
+    }
+  }
+
+  async function handleEmailUnlock(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setEmailStatus('loading');
+    setEmailError('');
+    try {
+      const res = await fetch('/api/unlock-check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+      if (res.ok) {
+        window.location.reload();
+      } else {
+        setEmailStatus('error');
+        setEmailError('No purchase found for this email.');
+      }
+    } catch {
+      setEmailStatus('error');
+      setEmailError('Something went wrong. Try again.');
+    }
+  }
+
   const showContent = unlocked || isPreview;
 
   const brackets = BRACKETS_BY_YEAR[activeYear];
@@ -312,6 +359,36 @@ export default function CheatSheetClient() {
 
   const FREE_LOCK_PICKS = 2;
   const [expandedGameId, setExpandedGameId] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+
+  function matchesSearch(game: GameAgreement): boolean {
+    if (!normalizedQuery) return true;
+    return (
+      game.team1.toLowerCase().includes(normalizedQuery) ||
+      game.team2.toLowerCase().includes(normalizedQuery)
+    );
+  }
+
+  const filteredLockPicks = useMemo(() => lockPicks.filter(matchesSearch), [lockPicks, normalizedQuery]);
+  const filteredSmartUpsets = useMemo(() => smartUpsets.filter(matchesSearch), [smartUpsets, normalizedQuery]);
+  const filteredTrapGames = useMemo(() => trapGames.filter(matchesSearch), [trapGames, normalizedQuery]);
+  const filteredSleeper = sleeper && normalizedQuery ? (sleeper.team.toLowerCase().includes(normalizedQuery) ? sleeper : null) : sleeper;
+  const filteredR64ByRegion = useMemo(() => {
+    if (!normalizedQuery) return r64ByRegion;
+    return r64ByRegion
+      .map(({ region, games }) => ({ region, games: games.filter(matchesSearch) }))
+      .filter(({ games }) => games.length > 0);
+  }, [r64ByRegion, normalizedQuery]);
+  const filteredFinalFour = useMemo(() => {
+    if (!normalizedQuery) return finalFour;
+    return finalFour.filter((f) => f.team.toLowerCase().includes(normalizedQuery));
+  }, [finalFour, normalizedQuery]);
+  const filteredChampions = useMemo(() => {
+    if (!normalizedQuery) return champions;
+    return champions.filter((c) => c.team.toLowerCase().includes(normalizedQuery));
+  }, [champions, normalizedQuery]);
 
   function toggleGame(gameId: string) {
     setExpandedGameId((prev) => (prev === gameId ? null : gameId));
@@ -357,6 +434,30 @@ export default function CheatSheetClient() {
               </button>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* ─── Search ─────────────────────────────────────────────────── */}
+      <div className="mb-8">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search by team name..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-4 py-3 pl-10 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-sm text-lab-white placeholder-[#555] focus:outline-none focus:border-[#444] transition-colors"
+          />
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#555]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#555] hover:text-lab-white transition-colors text-sm"
+            >
+              &#10005;
+            </button>
+          )}
         </div>
       </div>
 
@@ -417,20 +518,20 @@ export default function CheatSheetClient() {
           {/* Champion */}
           <div className="border border-[#2a2a2a] rounded-lg p-5">
             <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Consensus Champion</p>
-            {champions.length > 0 && (
+            {filteredChampions.length > 0 && (
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-lab-white font-semibold text-lg">{champions[0].team}</span>
-                  <span className="font-mono text-sm font-bold" style={{ color: champions[0].count >= 3 ? '#22c55e' : '#888' }}>
-                    {champions[0].count}/{modelCount}
+                  <span className="text-lab-white font-semibold text-lg">{filteredChampions[0].team}</span>
+                  <span className="font-mono text-sm font-bold" style={{ color: filteredChampions[0].count >= 3 ? '#22c55e' : '#888' }}>
+                    {filteredChampions[0].count}/{modelCount}
                   </span>
                 </div>
                 <p className="text-xs text-lab-muted">
-                  {champions[0].count} model{champions[0].count !== 1 ? 's' : ''} picking this champion
+                  {filteredChampions[0].count} model{filteredChampions[0].count !== 1 ? 's' : ''} picking this champion
                 </p>
-                {champions.length > 1 && (
+                {filteredChampions.length > 1 && (
                   <div className="mt-3 pt-3 border-t border-[#2a2a2a]">
-                    {champions.slice(1).map((c) => (
+                    {filteredChampions.slice(1).map((c) => (
                       <div key={c.team} className="flex items-center justify-between text-sm py-0.5">
                         <span className="text-lab-muted">{c.team}</span>
                         <span className="font-mono text-xs text-[#555]">{c.count}/{modelCount}</span>
@@ -446,7 +547,7 @@ export default function CheatSheetClient() {
           <div className="border border-[#2a2a2a] rounded-lg p-5">
             <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Final Four Consensus</p>
             <div className="space-y-2">
-              {finalFour.slice(0, 6).map((f) => (
+              {filteredFinalFour.slice(0, 6).map((f) => (
                 <div key={f.team} className="flex items-center justify-between">
                   <span className="text-lab-white text-sm">{f.team}</span>
                   <AgreementPill count={f.count} total={modelCount} color="#3b82f6" />
@@ -458,7 +559,7 @@ export default function CheatSheetClient() {
 
         {/* 2 free lock picks */}
         <div className="space-y-3">
-          {lockPicks.slice(0, FREE_LOCK_PICKS).map((game) => (
+          {filteredLockPicks.slice(0, FREE_LOCK_PICKS).map((game) => (
             <PickRow
               key={game.gameId}
               game={game}
@@ -511,13 +612,14 @@ export default function CheatSheetClient() {
             <p className="text-sm text-[#aaa] mb-6 max-w-md mx-auto">
               Your bracket pool entry is $25. This is a rounding error.
             </p>
-            <a
-              href={STRIPE_LINK}
-              className="inline-block font-mono text-sm font-semibold px-8 py-3.5 rounded-lg transition-all hover:brightness-110 w-full sm:w-auto"
+            <button
+              onClick={handleCheckout}
+              disabled={checkoutLoading}
+              className="inline-block font-mono text-sm font-semibold px-8 py-3.5 rounded-lg transition-all hover:brightness-110 w-full sm:w-auto disabled:opacity-70"
               style={{ background: '#22c55e', color: '#141414' }}
             >
-              Unlock the Cheat Sheet
-            </a>
+              {checkoutLoading ? 'Redirecting...' : 'Unlock the Cheat Sheet'}
+            </button>
             <div className="mt-4 space-y-1">
               <p className="text-xs text-lab-muted">
                 <button
@@ -531,6 +633,44 @@ export default function CheatSheetClient() {
                 Powered by Stripe &middot; Instant access
               </p>
             </div>
+
+            {/* Already purchased? */}
+            {!showEmailForm ? (
+              <p className="mt-4">
+                <button
+                  onClick={() => setShowEmailForm(true)}
+                  className="text-[11px] text-lab-muted hover:text-lab-white underline underline-offset-2 transition-colors"
+                >
+                  Already purchased? Unlock with your email
+                </button>
+              </p>
+            ) : (
+              <form onSubmit={handleEmailUnlock} className="mt-4 max-w-xs mx-auto space-y-2">
+                <input
+                  type="email"
+                  placeholder="Email used at checkout"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-3 py-2 bg-[#222] border border-[#444] rounded-lg text-sm text-lab-white placeholder-[#555] focus:outline-none focus:border-[#666]"
+                  required
+                />
+                <button
+                  type="submit"
+                  disabled={emailStatus === 'loading'}
+                  className="w-full font-mono text-xs font-semibold px-4 py-2 rounded-lg border border-[#444] text-lab-white hover:bg-[#2a2a2a] transition-colors disabled:opacity-50"
+                >
+                  {emailStatus === 'loading' ? 'Checking...' : 'Unlock'}
+                </button>
+                {emailStatus === 'error' && (
+                  <p className="text-[11px] text-red-400">{emailError}</p>
+                )}
+              </form>
+            )}
+
+            {/* Disclaimer */}
+            <p className="text-[10px] text-[#444] mt-4 leading-relaxed max-w-sm mx-auto">
+              AI-generated predictions for entertainment purposes only. Not financial or gambling advice. No guaranteed results. All sales final.
+            </p>
           </div>
         </>
       )}
@@ -539,20 +679,20 @@ export default function CheatSheetClient() {
       {showContent && (
         <>
           {/* Lock Picks (remaining) */}
-          {lockPicks.length > FREE_LOCK_PICKS && (
+          {filteredLockPicks.length > FREE_LOCK_PICKS && (
             <section className="mb-10">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-green-400">&#10003;</span>
                 <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
                   Lock Picks
                 </h2>
-                <span className="font-mono text-xs text-[#555] ml-auto">{lockPicks.length} total</span>
+                <span className="font-mono text-xs text-[#555] ml-auto">{filteredLockPicks.length} total</span>
               </div>
               <p className="text-sm text-lab-muted mb-4">
                 Games where 7+ of {modelCount} models agree. Put these in ink.
               </p>
               <div className="space-y-3">
-                {lockPicks.slice(FREE_LOCK_PICKS).map((game) => (
+                {filteredLockPicks.slice(FREE_LOCK_PICKS).map((game) => (
                   <PickRow
                     key={game.gameId}
                     game={game}
@@ -568,20 +708,20 @@ export default function CheatSheetClient() {
           )}
 
           {/* Smart Upsets */}
-          {smartUpsets.length > 0 && (
+          {filteredSmartUpsets.length > 0 && (
             <section className="mb-10">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-amber-400">&#9889;</span>
                 <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
                   Smart Upsets
                 </h2>
-                <span className="font-mono text-xs text-[#555] ml-auto">{smartUpsets.length} games</span>
+                <span className="font-mono text-xs text-[#555] ml-auto">{filteredSmartUpsets.length} games</span>
               </div>
               <p className="text-sm text-lab-muted mb-4">
                 Lower seeds that 4+ models agree on. The upsets worth taking.
               </p>
               <div className="space-y-3">
-                {smartUpsets.map((game) => (
+                {filteredSmartUpsets.map((game) => (
                   <PickRow
                     key={game.gameId}
                     game={game}
@@ -597,20 +737,20 @@ export default function CheatSheetClient() {
           )}
 
           {/* Trap Games */}
-          {trapGames.length > 0 && (
+          {filteredTrapGames.length > 0 && (
             <section className="mb-10">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-red-400">&#9888;</span>
                 <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
                   Trap Games
                 </h2>
-                <span className="font-mono text-xs text-[#555] ml-auto">{trapGames.length} games</span>
+                <span className="font-mono text-xs text-[#555] ml-auto">{filteredTrapGames.length} games</span>
               </div>
               <p className="text-sm text-lab-muted mb-4">
                 Everyone in your pool will pick these favorites &mdash; here&apos;s why you shouldn&apos;t.
               </p>
               <div className="space-y-3">
-                {trapGames.map((game) => (
+                {filteredTrapGames.map((game) => (
                   <PickRow
                     key={game.gameId}
                     game={game}
@@ -626,7 +766,7 @@ export default function CheatSheetClient() {
           )}
 
           {/* Sleeper Pick */}
-          {sleeper && (
+          {filteredSleeper && (
             <section className="mb-10">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-purple-400">&#128301;</span>
@@ -636,14 +776,14 @@ export default function CheatSheetClient() {
               </div>
               <div className="border border-purple-500/30 rounded-lg p-5 bg-purple-500/5">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-lab-white font-semibold text-lg">{sleeper.team}</span>
+                  <span className="text-lab-white font-semibold text-lg">{filteredSleeper.team}</span>
                   <span className="font-mono text-xs text-purple-300 px-2 py-0.5 rounded border border-purple-500/30">
-                    {sleeper.deepestRoundLabel}
+                    {filteredSleeper.deepestRoundLabel}
                   </span>
                 </div>
                 <p className="text-sm text-lab-muted">
-                  Picked by {sleeper.modelPicks.length} model{sleeper.modelPicks.length !== 1 ? 's' : ''} &middot;
-                  Avg confidence: {sleeper.avgConfidence}%
+                  Picked by {filteredSleeper.modelPicks.length} model{filteredSleeper.modelPicks.length !== 1 ? 's' : ''} &middot;
+                  Avg confidence: {filteredSleeper.avgConfidence}%
                 </p>
               </div>
             </section>
@@ -662,7 +802,7 @@ export default function CheatSheetClient() {
               Every opening round matchup with model-by-model analysis. Click any game to expand.
             </p>
 
-            {r64ByRegion.map(({ region, games }) => (
+            {filteredR64ByRegion.map(({ region, games }) => (
               <div key={region} className="mb-8">
                 <div className="sticky top-0 z-10 bg-[#141414] py-2 mb-3">
                   <h3 className="font-mono text-xs text-[#555] uppercase tracking-wider border-b border-[#2a2a2a] pb-2">
@@ -697,13 +837,14 @@ export default function CheatSheetClient() {
           <p className="text-sm text-lab-muted mb-5 max-w-md mx-auto">
             Same format, fresh data. All {modelCount} models re-run on the 2026 bracket.
           </p>
-          <a
-            href={STRIPE_LINK}
-            className="inline-block font-mono text-sm font-semibold px-6 py-3 rounded-lg transition-all hover:brightness-110"
+          <button
+            onClick={handleCheckout}
+            disabled={checkoutLoading}
+            className="inline-block font-mono text-sm font-semibold px-6 py-3 rounded-lg transition-all hover:brightness-110 disabled:opacity-70"
             style={{ background: '#22c55e', color: '#141414' }}
           >
-            Unlock 2026 Cheat Sheet &mdash; $2.99
-          </a>
+            {checkoutLoading ? 'Redirecting...' : 'Unlock 2026 Cheat Sheet \u2014 $2.99'}
+          </button>
         </div>
       )}
 
@@ -716,6 +857,9 @@ export default function CheatSheetClient() {
           <a href="/models" className="text-lab-muted hover:text-lab-white transition-colors">
             Learn how each model works &rarr;
           </a>
+        </p>
+        <p className="text-[10px] text-[#444] text-center mt-3 leading-relaxed">
+          AI-generated predictions for entertainment purposes only. Not financial or gambling advice. No guaranteed results. All sales final.
         </p>
       </div>
     </div>
