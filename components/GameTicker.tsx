@@ -130,28 +130,28 @@ export default function GameTicker() {
                   className="flex items-center gap-2 flex-shrink-0 px-3"
                 >
                   {/* Team 1 */}
-                  <span className="font-mono text-[10px] text-[#555]">({item.seed1})</span>
+                  <span className="font-mono text-[10px] text-[#999]">({item.seed1})</span>
                   <span
                     className={`font-mono text-[11px] ${
-                      item.winner === item.team1 ? 'text-lab-white font-bold' : 'text-[#666]'
+                      item.winner === item.team1 ? 'text-white font-bold' : 'text-[#777]'
                     }`}
                   >
                     {item.team1}
                   </span>
-                  <span className="font-mono text-[11px] text-[#555]">{item.score1}</span>
+                  <span className="font-mono text-[11px] text-[#999]">{item.score1}</span>
 
-                  <span className="text-[#333] text-[10px] mx-0.5">-</span>
+                  <span className="text-[#555] text-[10px] mx-0.5">-</span>
 
                   {/* Team 2 */}
-                  <span className="font-mono text-[11px] text-[#555]">{item.score2}</span>
+                  <span className="font-mono text-[11px] text-[#999]">{item.score2}</span>
                   <span
                     className={`font-mono text-[11px] ${
-                      item.winner === item.team2 ? 'text-lab-white font-bold' : 'text-[#666]'
+                      item.winner === item.team2 ? 'text-white font-bold' : 'text-[#777]'
                     }`}
                   >
                     {item.team2}
                   </span>
-                  <span className="font-mono text-[10px] text-[#555]">({item.seed2})</span>
+                  <span className="font-mono text-[10px] text-[#999]">({item.seed2})</span>
 
                   {/* Model icons */}
                   <div className="flex items-center gap-[3px] ml-1">
@@ -173,13 +173,13 @@ export default function GameTicker() {
                         </span>
                       );
                     })}
-                    <span className="font-mono text-[9px] text-[#666] ml-0.5">
+                    <span className="font-mono text-[9px] text-[#999] ml-0.5">
                       {item.correctCount}/6
                     </span>
                   </div>
 
                   {/* Separator */}
-                  <span className="text-[#222] ml-2">|</span>
+                  <span className="text-[#444] ml-2">|</span>
                 </div>
               ))}
             </div>
@@ -203,12 +203,12 @@ export default function GameTicker() {
                     key={`${copy}-${i}`}
                     className="flex items-center gap-1.5 flex-shrink-0 px-3"
                   >
-                    <span className="font-mono text-[10px] text-[#555]">({item.seed1})</span>
-                    <span className="font-mono text-[11px] text-lab-muted">{item.team1}</span>
-                    <span className="text-[#333] text-[10px] mx-0.5">vs</span>
-                    <span className="font-mono text-[11px] text-lab-muted">{item.team2}</span>
-                    <span className="font-mono text-[10px] text-[#555]">({item.seed2})</span>
-                    <span className="text-[#222] ml-2">|</span>
+                    <span className="font-mono text-[10px] text-[#999]">({item.seed1})</span>
+                    <span className="font-mono text-[11px] text-[#ccc]">{item.team1}</span>
+                    <span className="text-[#555] text-[10px] mx-0.5">vs</span>
+                    <span className="font-mono text-[11px] text-[#ccc]">{item.team2}</span>
+                    <span className="font-mono text-[10px] text-[#999]">({item.seed2})</span>
+                    <span className="text-[#333] ml-2">|</span>
                   </div>
                 ))}
               </div>
@@ -228,7 +228,7 @@ export default function GameTicker() {
             {Array.from({ length: 6 }).map((_, i) => (
               <span
                 key={`${copy}-${i}`}
-                className="font-mono text-[11px] text-[#666] whitespace-nowrap flex-shrink-0"
+                className="font-mono text-[11px] text-[#999] whitespace-nowrap flex-shrink-0"
               >
                 PICKS LOCK MARCH 19 &mdash; 6 AI models. 63 games. 1,920 possible points.
               </span>
