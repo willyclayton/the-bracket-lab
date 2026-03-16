@@ -745,7 +745,7 @@
     ],
     "final_four": [
       {
-        "gameId": "f4-east-south",
+        "gameId": "f4-south-west",
         "round": "final_four",
         "region": "National",
         "seed1": 1,
@@ -757,7 +757,7 @@
         "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). Florida profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up)."
       },
       {
-        "gameId": "f4-west-midwest",
+        "gameId": "f4-east-midwest",
         "round": "final_four",
         "region": "National",
         "seed1": 1,
