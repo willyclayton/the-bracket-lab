@@ -62,10 +62,6 @@ export default function AboutPage() {
           <div className="border-t border-lab-border pt-4">
             <p className="text-lab-text font-semibold mb-1">Jack Gorman</p>
             <p className="text-sm text-lab-muted mb-2">The idea guy</p>
-            <div className="flex gap-4 text-sm">
-              <a href="https://www.linkedin.com/in/jack-gorman-043bb3122" className="text-scout hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="https://x.com/jphackworth42" className="text-scout hover:underline" target="_blank" rel="noopener noreferrer">X</a>
-            </div>
           </div>
           <div className="border-t border-lab-border pt-4">
             <p className="text-sm text-lab-muted">

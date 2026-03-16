@@ -74,14 +74,14 @@ export default function PaywallOverlay() {
 
         {/* Already purchased? */}
         {!showEmailForm ? (
-          <p className="mt-3">
+          <div className="mt-5 border border-[#333] rounded-lg px-4 py-3 bg-[#1a1a1a]">
             <button
               onClick={() => setShowEmailForm(true)}
-              className="text-[11px] text-lab-muted hover:text-lab-white underline underline-offset-2 transition-colors"
+              className="text-xs text-lab-muted hover:text-lab-white transition-colors"
             >
-              Already purchased? Unlock with your email
+              Already purchased? <span className="text-lab-white underline underline-offset-2">Plug your email in here</span>
             </button>
-          </p>
+          </div>
         ) : (
           <form onSubmit={handleEmailUnlock} className="mt-4 space-y-2">
             <input
