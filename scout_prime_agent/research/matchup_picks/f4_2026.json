@@ -1,0 +1,14 @@
+[
+  {
+    "gameId": "f4-south-west",
+    "pick": "Arizona",
+    "confidence": 58,
+    "reasoning": "Arizona's 1.7 AdjEM edge is marginal but their WAB of 13.7 vs Florida's 8.5 is the decisive factor — Arizona has been dramatically better against quality opponents all season. Both teams map to champion archetypes (Arizona: 2025 Florida, 2012 Kentucky; Florida: 2025 Florida itself). Arizona's AdjO of 128.7 creates an offensive ceiling Florida's defense may struggle to contain."
+  },
+  {
+    "gameId": "f4-east-midwest",
+    "pick": "Duke",
+    "confidence": 53,
+    "reasoning": "0.7 AdjEM gap is functionally zero between these two juggernauts. Duke's 37.3 AdjEM is the single best in the field, but Michigan's 36.6 is right behind with a marginally higher WAB (14.0 vs 13.7). Duke's AdjO of 128.1 gives them the slightest offensive edge. Both map to champion archetypes. In the most evenly matched Final Four game imaginable, Duke's top-line efficiency rating is the only differentiator."
+  }
+]

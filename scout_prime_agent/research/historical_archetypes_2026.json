@@ -1,0 +1,1474 @@
+{
+  "Duke": [
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9037
+    },
+    {
+      "year": 2025,
+      "team": "Florida",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8671
+    },
+    {
+      "year": 2015,
+      "team": "Kentucky",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8614
+    }
+  ],
+  "Siena": [
+    {
+      "year": 2013,
+      "team": "Harvard",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.773
+    },
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7729
+    },
+    {
+      "year": 2025,
+      "team": "Yale",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.7558
+    }
+  ],
+  "Ohio State": [
+    {
+      "year": 2013,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8496
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8459
+    },
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8396
+    }
+  ],
+  "TCU": [
+    {
+      "year": 2021,
+      "team": "UCLA",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9406
+    },
+    {
+      "year": 2010,
+      "team": "Tennessee",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.9335
+    },
+    {
+      "year": 2022,
+      "team": "Michigan",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.9272
+    }
+  ],
+  "St. John's": [
+    {
+      "year": 2013,
+      "team": "Duke",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.9753
+    },
+    {
+      "year": 2018,
+      "team": "Duke",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.9745
+    },
+    {
+      "year": 2023,
+      "team": "Connecticut",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9712
+    }
+  ],
+  "Northern Iowa": [
+    {
+      "year": 2011,
+      "team": "Butler",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9166
+    },
+    {
+      "year": 2010,
+      "team": "Butler",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.904
+    },
+    {
+      "year": 2018,
+      "team": "Loyola-Chicago",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8943
+    }
+  ],
+  "Kansas": [
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9538
+    },
+    {
+      "year": 2012,
+      "team": "Syracuse",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.9456
+    },
+    {
+      "year": 2010,
+      "team": "Duke",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9372
+    }
+  ],
+  "Cal Baptist": [
+    {
+      "year": 2022,
+      "team": "Saint Peter's",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.8908
+    },
+    {
+      "year": 2010,
+      "team": "Cornell",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8709
+    },
+    {
+      "year": 2023,
+      "team": "Princeton",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8687
+    }
+  ],
+  "Louisville": [
+    {
+      "year": 2016,
+      "team": "Villanova",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9189
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.91
+    },
+    {
+      "year": 2023,
+      "team": "Gonzaga",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.905
+    }
+  ],
+  "South Florida": [
+    {
+      "year": 2022,
+      "team": "Iowa State",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.9287
+    },
+    {
+      "year": 2024,
+      "team": "Colorado",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.9279
+    },
+    {
+      "year": 2018,
+      "team": "Nevada",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.9165
+    }
+  ],
+  "Michigan State": [
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9175
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9047
+    },
+    {
+      "year": 2012,
+      "team": "Syracuse",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.8999
+    }
+  ],
+  "North Dakota State": [
+    {
+      "year": 2013,
+      "team": "Harvard",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.8681
+    },
+    {
+      "year": 2023,
+      "team": "Princeton",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8517
+    },
+    {
+      "year": 2023,
+      "team": "Furman",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8517
+    }
+  ],
+  "UCLA": [
+    {
+      "year": 2013,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8551
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8305
+    },
+    {
+      "year": 2012,
+      "team": "Syracuse",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.8304
+    }
+  ],
+  "UCF": [
+    {
+      "year": 2022,
+      "team": "Michigan",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8616
+    },
+    {
+      "year": 2024,
+      "team": "Colorado",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8613
+    },
+    {
+      "year": 2014,
+      "team": "Stanford",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8601
+    }
+  ],
+  "UConn": [
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9206
+    },
+    {
+      "year": 2015,
+      "team": "Wisconsin",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.912
+    },
+    {
+      "year": 2014,
+      "team": "Wisconsin",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9024
+    }
+  ],
+  "Furman": [
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7819
+    },
+    {
+      "year": 2013,
+      "team": "Harvard",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.7675
+    },
+    {
+      "year": 2023,
+      "team": "FDU",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7561
+    }
+  ],
+  "Florida": [
+    {
+      "year": 2025,
+      "team": "Florida",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9532
+    },
+    {
+      "year": 2024,
+      "team": "Connecticut",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9521
+    },
+    {
+      "year": 2015,
+      "team": "Kentucky",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9505
+    }
+  ],
+  "Prairie View A&M": [
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7147
+    },
+    {
+      "year": 2023,
+      "team": "FDU",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.69
+    },
+    {
+      "year": 2018,
+      "team": "UMBC",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.6732
+    }
+  ],
+  "Clemson": [
+    {
+      "year": 2013,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9608
+    },
+    {
+      "year": 2012,
+      "team": "Syracuse",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.921
+    },
+    {
+      "year": 2021,
+      "team": "UCLA",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8794
+    }
+  ],
+  "Iowa": [
+    {
+      "year": 2013,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8793
+    },
+    {
+      "year": 2012,
+      "team": "Syracuse",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.8517
+    },
+    {
+      "year": 2014,
+      "team": "Wisconsin",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8304
+    }
+  ],
+  "Vanderbilt": [
+    {
+      "year": 2016,
+      "team": "Oklahoma",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8821
+    },
+    {
+      "year": 2016,
+      "team": "Villanova",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8791
+    },
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8752
+    }
+  ],
+  "McNeese": [
+    {
+      "year": 2016,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9053
+    },
+    {
+      "year": 2022,
+      "team": "Michigan",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8988
+    },
+    {
+      "year": 2021,
+      "team": "Oregon State",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.8918
+    }
+  ],
+  "Nebraska": [
+    {
+      "year": 2012,
+      "team": "Syracuse",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.9611
+    },
+    {
+      "year": 2010,
+      "team": "Duke",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9428
+    },
+    {
+      "year": 2021,
+      "team": "Houston",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9381
+    }
+  ],
+  "Troy": [
+    {
+      "year": 2013,
+      "team": "Harvard",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.8149
+    },
+    {
+      "year": 2024,
+      "team": "Yale",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7952
+    },
+    {
+      "year": 2025,
+      "team": "Yale",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.7947
+    }
+  ],
+  "North Carolina": [
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8946
+    },
+    {
+      "year": 2014,
+      "team": "Connecticut",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8937
+    },
+    {
+      "year": 2021,
+      "team": "UCLA",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8866
+    }
+  ],
+  "VCU": [
+    {
+      "year": 2022,
+      "team": "Michigan",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8886
+    },
+    {
+      "year": 2024,
+      "team": "Colorado",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.886
+    },
+    {
+      "year": 2022,
+      "team": "Iowa State",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8819
+    }
+  ],
+  "Illinois": [
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.891
+    },
+    {
+      "year": 2015,
+      "team": "Duke",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8129
+    },
+    {
+      "year": 2016,
+      "team": "Villanova",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8114
+    }
+  ],
+  "Penn": [
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8398
+    },
+    {
+      "year": 2023,
+      "team": "FDU",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8318
+    },
+    {
+      "year": 2011,
+      "team": "Morehead State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8218
+    }
+  ],
+  "Saint Mary's": [
+    {
+      "year": 2013,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9485
+    },
+    {
+      "year": 2012,
+      "team": "Syracuse",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.9224
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8934
+    }
+  ],
+  "Texas A&M": [
+    {
+      "year": 2022,
+      "team": "Iowa State",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.9073
+    },
+    {
+      "year": 2018,
+      "team": "Kentucky",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.8956
+    },
+    {
+      "year": 2016,
+      "team": "Indiana",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8955
+    }
+  ],
+  "Houston": [
+    {
+      "year": 2015,
+      "team": "Wisconsin",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9163
+    },
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9055
+    },
+    {
+      "year": 2014,
+      "team": "Wisconsin",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8841
+    }
+  ],
+  "Idaho": [
+    {
+      "year": 2013,
+      "team": "Harvard",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.8382
+    },
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8265
+    },
+    {
+      "year": 2023,
+      "team": "Furman",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8245
+    }
+  ],
+  "Arizona": [
+    {
+      "year": 2025,
+      "team": "Florida",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9534
+    },
+    {
+      "year": 2012,
+      "team": "Kentucky",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9436
+    },
+    {
+      "year": 2015,
+      "team": "Kentucky",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9374
+    }
+  ],
+  "LIU": [
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7548
+    },
+    {
+      "year": 2023,
+      "team": "FDU",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7274
+    },
+    {
+      "year": 2011,
+      "team": "Morehead State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7131
+    }
+  ],
+  "Villanova": [
+    {
+      "year": 2013,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9066
+    },
+    {
+      "year": 2021,
+      "team": "UCLA",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8755
+    },
+    {
+      "year": 2014,
+      "team": "Connecticut",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8673
+    }
+  ],
+  "Utah State": [
+    {
+      "year": 2021,
+      "team": "UCLA",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8588
+    },
+    {
+      "year": 2014,
+      "team": "Connecticut",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8582
+    },
+    {
+      "year": 2013,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8556
+    }
+  ],
+  "Wisconsin": [
+    {
+      "year": 2016,
+      "team": "Oklahoma",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8824
+    },
+    {
+      "year": 2016,
+      "team": "Villanova",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8458
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8458
+    }
+  ],
+  "High Point": [
+    {
+      "year": 2012,
+      "team": "Ohio",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8491
+    },
+    {
+      "year": 2023,
+      "team": "Furman",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8457
+    },
+    {
+      "year": 2014,
+      "team": "Stanford",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8445
+    }
+  ],
+  "Arkansas": [
+    {
+      "year": 2016,
+      "team": "Oklahoma",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9217
+    },
+    {
+      "year": 2012,
+      "team": "North Carolina",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.8571
+    },
+    {
+      "year": 2023,
+      "team": "Gonzaga",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8558
+    }
+  ],
+  "Hawaii": [
+    {
+      "year": 2014,
+      "team": "Mercer",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8767
+    },
+    {
+      "year": 2018,
+      "team": "UMBC",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.864
+    },
+    {
+      "year": 2011,
+      "team": "Morehead State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8626
+    }
+  ],
+  "BYU": [
+    {
+      "year": 2016,
+      "team": "Oklahoma",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8786
+    },
+    {
+      "year": 2024,
+      "team": "Alabama",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8337
+    },
+    {
+      "year": 2022,
+      "team": "Iowa State",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8324
+    }
+  ],
+  "Texas": [
+    {
+      "year": 2022,
+      "team": "Michigan",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8176
+    },
+    {
+      "year": 2024,
+      "team": "Colorado",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8107
+    },
+    {
+      "year": 2021,
+      "team": "UCLA",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8091
+    }
+  ],
+  "Gonzaga": [
+    {
+      "year": 2025,
+      "team": "Tennessee",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.9591
+    },
+    {
+      "year": 2013,
+      "team": "Duke",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.9589
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9582
+    }
+  ],
+  "Kennesaw State": [
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8124
+    },
+    {
+      "year": 2023,
+      "team": "FDU",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8013
+    },
+    {
+      "year": 2018,
+      "team": "UMBC",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7965
+    }
+  ],
+  "Miami": [
+    {
+      "year": 2021,
+      "team": "UCLA",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8862
+    },
+    {
+      "year": 2014,
+      "team": "Connecticut",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8828
+    },
+    {
+      "year": 2022,
+      "team": "Iowa State",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8707
+    }
+  ],
+  "Missouri": [
+    {
+      "year": 2022,
+      "team": "Michigan",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.871
+    },
+    {
+      "year": 2021,
+      "team": "UCLA",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8695
+    },
+    {
+      "year": 2013,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8578
+    }
+  ],
+  "Purdue": [
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8498
+    },
+    {
+      "year": 2015,
+      "team": "Wisconsin",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.7804
+    },
+    {
+      "year": 2016,
+      "team": "Villanova",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.7784
+    }
+  ],
+  "Queens": [
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7225
+    },
+    {
+      "year": 2023,
+      "team": "FDU",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7
+    },
+    {
+      "year": 2013,
+      "team": "Harvard",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.6983
+    }
+  ],
+  "Michigan": [
+    {
+      "year": 2012,
+      "team": "Kentucky",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9433
+    },
+    {
+      "year": 2025,
+      "team": "Florida",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9402
+    },
+    {
+      "year": 2022,
+      "team": "Gonzaga",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.9246
+    }
+  ],
+  "UMBC": [
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7847
+    },
+    {
+      "year": 2013,
+      "team": "Harvard",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.7723
+    },
+    {
+      "year": 2023,
+      "team": "FDU",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7593
+    }
+  ],
+  "Georgia": [
+    {
+      "year": 2016,
+      "team": "Oklahoma",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8913
+    },
+    {
+      "year": 2024,
+      "team": "Alabama",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8601
+    },
+    {
+      "year": 2022,
+      "team": "North Carolina",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8531
+    }
+  ],
+  "Saint Louis": [
+    {
+      "year": 2022,
+      "team": "Iowa State",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.9037
+    },
+    {
+      "year": 2024,
+      "team": "Colorado",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8982
+    },
+    {
+      "year": 2018,
+      "team": "Nevada",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8863
+    }
+  ],
+  "Texas Tech": [
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9001
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8683
+    },
+    {
+      "year": 2016,
+      "team": "Villanova",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.8556
+    }
+  ],
+  "Akron": [
+    {
+      "year": 2014,
+      "team": "Stanford",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8825
+    },
+    {
+      "year": 2019,
+      "team": "Oregon",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8803
+    },
+    {
+      "year": 2024,
+      "team": "Colorado",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8743
+    }
+  ],
+  "Alabama": [
+    {
+      "year": 2016,
+      "team": "Oklahoma",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9107
+    },
+    {
+      "year": 2012,
+      "team": "North Carolina",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.8679
+    },
+    {
+      "year": 2022,
+      "team": "North Carolina",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8592
+    }
+  ],
+  "Hofstra": [
+    {
+      "year": 2010,
+      "team": "Cornell",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8799
+    },
+    {
+      "year": 2023,
+      "team": "Princeton",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8796
+    },
+    {
+      "year": 2024,
+      "team": "Yale",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8767
+    }
+  ],
+  "Tennessee": [
+    {
+      "year": 2012,
+      "team": "Syracuse",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.9199
+    },
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9014
+    },
+    {
+      "year": 2013,
+      "team": "Syracuse",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9009
+    }
+  ],
+  "SMU": [
+    {
+      "year": 2016,
+      "team": "Oklahoma",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8429
+    },
+    {
+      "year": 2024,
+      "team": "Colorado",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8401
+    },
+    {
+      "year": 2022,
+      "team": "Michigan",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8371
+    }
+  ],
+  "Virginia": [
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.911
+    },
+    {
+      "year": 2012,
+      "team": "Syracuse",
+      "result": "Elite Eight",
+      "result_depth": 3,
+      "similarity": 0.9097
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9015
+    }
+  ],
+  "Wright State": [
+    {
+      "year": 2013,
+      "team": "Harvard",
+      "result": "Round of 64",
+      "result_depth": 0,
+      "similarity": 0.8259
+    },
+    {
+      "year": 2023,
+      "team": "Furman",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8123
+    },
+    {
+      "year": 2023,
+      "team": "Princeton",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.8043
+    }
+  ],
+  "Kentucky": [
+    {
+      "year": 2014,
+      "team": "Connecticut",
+      "result": "Champion",
+      "result_depth": 6,
+      "similarity": 0.9123
+    },
+    {
+      "year": 2021,
+      "team": "UCLA",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.9093
+    },
+    {
+      "year": 2018,
+      "team": "Michigan",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.8933
+    }
+  ],
+  "Santa Clara": [
+    {
+      "year": 2016,
+      "team": "Oklahoma",
+      "result": "Final Four",
+      "result_depth": 4,
+      "similarity": 0.8797
+    },
+    {
+      "year": 2016,
+      "team": "Gonzaga",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.8311
+    },
+    {
+      "year": 2022,
+      "team": "Iowa State",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.831
+    }
+  ],
+  "Iowa State": [
+    {
+      "year": 2024,
+      "team": "Purdue",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.9442
+    },
+    {
+      "year": 2025,
+      "team": "Houston",
+      "result": "Runner-Up",
+      "result_depth": 5,
+      "similarity": 0.919
+    },
+    {
+      "year": 2024,
+      "team": "Tennessee",
+      "result": "Sweet 16",
+      "result_depth": 2,
+      "similarity": 0.9154
+    }
+  ],
+  "Tennessee State": [
+    {
+      "year": 2012,
+      "team": "Norfolk State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7667
+    },
+    {
+      "year": 2023,
+      "team": "FDU",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7409
+    },
+    {
+      "year": 2011,
+      "team": "Morehead State",
+      "result": "Round of 32",
+      "result_depth": 1,
+      "similarity": 0.7282
+    }
+  ]
+}
