@@ -39,7 +39,11 @@ export async function GET(request: NextRequest) {
       const email = session.customer_details?.email;
       if (email) {
         const normalizedEmail = email.toLowerCase().trim();
-        await getRedis().set(`cs:email:${normalizedEmail}`, '1');
+        try {
+          await getRedis().set(`cs:email:${normalizedEmail}`, '1');
+        } catch (redisErr) {
+          console.warn('[unlock] Redis set failed — cookie unlock still applied:', redisErr);
+        }
       }
 
       const response = NextResponse.redirect(new URL(config.redirect, request.url));
