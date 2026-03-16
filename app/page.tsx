@@ -65,7 +65,7 @@ export default function Home() {
           </Link>
           <Link
             href="/cheat-sheet"
-            className="border border-green-500/30 text-green-400 font-medium text-sm px-6 py-2.5 rounded-lg hover:border-green-500/50 hover:text-green-300 transition-all"
+            className="cheat-pulse border border-green-500/50 text-green-400 font-medium text-sm px-6 py-2.5 rounded-lg bg-green-500/[0.08] hover:border-green-500/70 hover:text-green-300 transition-all"
           >
             AI Cheat Sheet &mdash; $2.99
           </Link>

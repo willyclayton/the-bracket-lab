@@ -390,6 +390,14 @@ body {
 .bracket-panel-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
 
 /* ---- Game ticker ---- */
+@keyframes cheatPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(34,197,94,0.3); }
+  50% { box-shadow: 0 0 20px rgba(34,197,94,0.6), 0 0 40px rgba(34,197,94,0.2); }
+}
+.cheat-pulse {
+  animation: cheatPulse 2s ease-in-out infinite;
+}
+
 @keyframes ticker-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
