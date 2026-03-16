@@ -1,13 +1,17 @@
 """
-Generate 2025 Bracket Predictions for The Super Agent.
+Generate Bracket Predictions for The Super Agent.
 
 Trains the Run 5 logistic regression model on 2010-2019 data,
-then predicts all 63 games of the 2025 NCAA tournament bracket.
+then predicts all 63 games of the NCAA tournament bracket.
 
 Uses:
 - super_agent/research/tournament_games.csv + team_stats.csv for training
-- data/archive/2025/results/actual-results.json for bracket structure (R64 matchups)
-- super_agent/research/barttorvik_2025.csv for 2025 team stats
+- data/results/actual-results.json (or archive) for bracket structure (R64 matchups)
+- super_agent/research/barttorvik_YYYY.csv for team stats
+
+Usage:
+  python super_agent/src/generate_bracket.py --year 2026
+  python super_agent/src/generate_bracket.py --year 2025
 
 Outputs: data/models/the-super-agent.json (BracketData format)
 """
@@ -16,7 +20,9 @@ import os
 import sys
 import json
 import csv
+import argparse
 import numpy as np
+from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from utils import load_tournament_games, merge_team_stats, RESEARCH_DIR
@@ -25,9 +31,9 @@ from model_runner import build_features, build_model
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-def load_barttorvik_2025():
-    """Load 2025 BartTorvik stats keyed by team name."""
-    filepath = os.path.join(RESEARCH_DIR, "barttorvik_2025.csv")
+def load_barttorvik_year(year):
+    """Load BartTorvik stats for a given year, keyed by team name."""
+    filepath = os.path.join(RESEARCH_DIR, f"barttorvik_{year}.csv")
     teams = {}
     with open(filepath, "r", encoding="utf-8") as f:
         reader = csv.reader(f)
@@ -83,6 +89,24 @@ TOURNAMENT_TO_BARTTORVIK = {
     "New Mexico State": "New Mexico St.",
     "NC State": "N.C. State",
     "North Carolina": "North Carolina",
+    # Added for 2026
+    "UCF": "Central Florida",
+    "South Florida": "South Florida",
+    "SMU": "Southern Methodist",
+    "Miami": "Miami FL",
+    "Miami (OH)": "Miami OH",
+    "LIU": "Long Island University",
+    "Cal Baptist": "Cal Baptist",
+    "Northern Iowa": "Northern Iowa",
+    "North Dakota State": "North Dakota St.",
+    "Tennessee State": "Tennessee St.",
+    "Kennesaw State": "Kennesaw St.",
+    "Wright State": "Wright St.",
+    "Saint Louis": "Saint Louis",
+    "Ohio State": "Ohio St.",
+    "Prairie View A&M": "Prairie View A&M",
+    "UMBC": "UMBC",
+    "High Point": "High Point",
 }
 
 
@@ -175,9 +199,12 @@ def generate_reasoning(team1, team2, seed1, seed2, diffs, pick, confidence):
     return f"{pick_name} advances with {driver_text} ({conf_pct}% model confidence).{seed_note}"
 
 
-def get_r64_matchups():
+def get_r64_matchups(year):
     """Extract R64 matchups from actual-results.json (post-play-in bracket structure)."""
-    results_path = os.path.join(PROJECT_ROOT, "data/archive/2025/results/actual-results.json")
+    if year >= 2026:
+        results_path = os.path.join(PROJECT_ROOT, "data/results/actual-results.json")
+    else:
+        results_path = os.path.join(PROJECT_ROOT, f"data/archive/{year}/results/actual-results.json")
     with open(results_path) as f:
         results = json.load(f)
 
@@ -198,8 +225,13 @@ def get_r64_matchups():
 def main():
     from sklearn.preprocessing import StandardScaler
 
+    parser = argparse.ArgumentParser(description="The Super Agent — ML Bracket Generator")
+    parser.add_argument("--year", type=int, default=2026, help="Tournament year")
+    args = parser.parse_args()
+    year = args.year
+
     print("=" * 60)
-    print("  GENERATING BRACKET PREDICTIONS")
+    print(f"  GENERATING BRACKET PREDICTIONS ({year})")
     print("=" * 60)
 
     # Step 1: Train the Run 5 model on 2010-2019
@@ -219,14 +251,14 @@ def main():
     print(f"   Trained on {len(train)} games")
     print(f"   Features: seed_diff + {', '.join(features)}")
 
-    # Step 2: Load 2025 BartTorvik stats
-    print("\n2. Loading 2025 team stats from BartTorvik...")
-    bt_data = load_barttorvik_2025()
+    # Step 2: Load BartTorvik stats
+    print(f"\n2. Loading {year} team stats from BartTorvik...")
+    bt_data = load_barttorvik_year(year)
     print(f"   Loaded stats for {len(bt_data)} teams")
 
     # Step 3: Get R64 bracket structure
     print("\n3. Loading bracket structure...")
-    r64_matchups = get_r64_matchups()
+    r64_matchups = get_r64_matchups(year)
     print(f"   {len(r64_matchups)} R64 matchups loaded")
 
     # Verify all teams have stats
@@ -251,8 +283,12 @@ def main():
         "championship": [],
     }
 
-    # Track winners per region for advancing
-    region_order = ["South", "East", "Midwest", "West"]
+    # Track winners per region for advancing — derive from actual matchups
+    region_order = []
+    for m in r64_matchups:
+        if m["region"] not in region_order:
+            region_order.append(m["region"])
+    print(f"   Region order: {region_order}")
 
     # ---- ROUND OF 64 ----
     r64_winners = {}  # gameId -> winner info
@@ -505,7 +541,7 @@ def main():
         "displayName": "The Super Agent",
         "tagline": "The Agent improvised. This one trained.",
         "color": "#a855f7",
-        "generated": "2025-03-19",
+        "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "locked": True,
         "espnBracketUrl": None,
         "champion": champion,
@@ -515,7 +551,10 @@ def main():
     }
 
     # Write output
-    output_path = os.path.join(PROJECT_ROOT, "data/models/the-super-agent.json")
+    if year >= 2026:
+        output_path = os.path.join(PROJECT_ROOT, "data/models/the-super-agent.json")
+    else:
+        output_path = os.path.join(PROJECT_ROOT, f"data/archive/{year}/models/the-super-agent.json")
     with open(output_path, "w") as f:
         json.dump(bracket_data, f, indent=2)
 

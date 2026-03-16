@@ -85,6 +85,24 @@ TOURNAMENT_TO_BARTTORVIK = {
     "New Mexico State": "New Mexico St.",
     "NC State": "N.C. State",
     "North Carolina": "North Carolina",
+    # Added for 2026
+    "UCF": "Central Florida",
+    "South Florida": "South Florida",
+    "SMU": "Southern Methodist",
+    "Miami": "Miami FL",
+    "Miami (OH)": "Miami OH",
+    "LIU": "Long Island University",
+    "Cal Baptist": "Cal Baptist",
+    "Northern Iowa": "Northern Iowa",
+    "North Dakota State": "North Dakota St.",
+    "Tennessee State": "Tennessee St.",
+    "Kennesaw State": "Kennesaw St.",
+    "Wright State": "Wright St.",
+    "Saint Louis": "Saint Louis",
+    "Ohio State": "Ohio St.",
+    "Prairie View A&M": "Prairie View A&M",
+    "UMBC": "UMBC",
+    "High Point": "High Point",
 }
 
 
@@ -134,7 +152,10 @@ def generate_reasoning(team1, team2, seed1, seed2, p_team1, pick, confidence, st
 
 def get_r64_matchups(year):
     """Extract R64 matchups from actual-results.json."""
-    results_path = os.path.join(PROJECT_ROOT, f"data/archive/{year}/results/actual-results.json")
+    if year >= 2026:
+        results_path = os.path.join(PROJECT_ROOT, "data/results/actual-results.json")
+    else:
+        results_path = os.path.join(PROJECT_ROOT, f"data/archive/{year}/results/actual-results.json")
     with open(results_path) as f:
         results = json.load(f)
 
@@ -157,12 +178,12 @@ def main():
     from sklearn.preprocessing import StandardScaler
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--year", type=int, required=True, choices=[2024, 2025],
+    parser.add_argument("--year", type=int, required=True,
                         help="Year to generate bracket for")
     args = parser.parse_args()
 
     year = args.year
-    run_num = 9 if year == 2024 else 10
+    run_num = {2024: 9, 2025: 10}.get(year, 11)
 
     print("=" * 60)
     print(f"  GENERATING OPTIMIZER BRACKET — {year} (Run {run_num})")
@@ -197,7 +218,12 @@ def main():
     print(f"\n4. Generating EV-optimized bracket...")
 
     rounds = {rnd: [] for rnd in ROUND_ORDER}
-    region_order = ["South", "East", "Midwest", "West"]
+    # Derive region order from actual matchups
+    region_order = []
+    for m in r64_matchups:
+        if m["region"] not in region_order:
+            region_order.append(m["region"])
+    print(f"   Region order: {region_order}")
 
     # Compute all R64 probabilities and build bracket with EV optimization
     r64_winners = {}
@@ -480,7 +506,7 @@ def main():
         "displayName": "The Optimizer",
         "tagline": "Every other model predicts games. This one plays the scoring system.",
         "color": "#06b6d4",
-        "generated": f"{year}-03-19",
+        "generated": f"{year}-03-{'16' if year >= 2026 else '19'}",
         "locked": True,
         "espnBracketUrl": None,
         "champion": champion,
@@ -489,7 +515,10 @@ def main():
         "rounds": rounds,
     }
 
-    output_path = os.path.join(PROJECT_ROOT, f"data/archive/{year}/models/the-optimizer.json")
+    if year >= 2026:
+        output_path = os.path.join(PROJECT_ROOT, "data/models/the-optimizer.json")
+    else:
+        output_path = os.path.join(PROJECT_ROOT, f"data/archive/{year}/models/the-optimizer.json")
     with open(output_path, "w") as f:
         json.dump(bracket_data, f, indent=2)
 
@@ -500,31 +529,38 @@ def main():
     print(f"  Total games: {total_games}")
     print(f"{'=' * 60}")
 
-    # Score against actual results
-    actual_results_path = os.path.join(PROJECT_ROOT, f"data/archive/{year}/results/actual-results.json")
+    # Score against actual results (skip for pre-tournament years)
+    if year >= 2026:
+        actual_results_path = os.path.join(PROJECT_ROOT, "data/results/actual-results.json")
+    else:
+        actual_results_path = os.path.join(PROJECT_ROOT, f"data/archive/{year}/results/actual-results.json")
+
     with open(actual_results_path) as f:
         actual_data = json.load(f)
-
-    bracket_picks = {}
-    for rnd_games in rounds.values():
-        for g in rnd_games:
-            bracket_picks[g["gameId"]] = g["pick"]
 
     actual_list = [
         {"game_id": g["gameId"], "round": g["round"], "winner": g.get("winner")}
         for g in actual_data["games"] if g.get("winner")
     ]
 
-    espn_result = simulate_bracket_espn(bracket_picks, actual_list)
-    espn_pct = get_espn_percentile(espn_result["total_points"], year)
+    if actual_list:
+        bracket_picks = {}
+        for rnd_games in rounds.values():
+            for g in rnd_games:
+                bracket_picks[g["gameId"]] = g["pick"]
 
-    results_by_year = {year: (espn_result, espn_pct)}
-    print_espn_results(f"Run {run_num}: {year} Holdout Bracket", results_by_year)
-    append_espn_to_run_log(
-        f"Run {run_num}: {year} Holdout Bracket", results_by_year,
-        notes=f"Clean holdout — model never saw {year} results during development. "
-              f"Train: {min(TRAIN_YEARS)}-{max(TRAIN_YEARS)}. EV-optimized bracket.",
-    )
+        espn_result = simulate_bracket_espn(bracket_picks, actual_list)
+        espn_pct = get_espn_percentile(espn_result["total_points"], year)
+
+        results_by_year = {year: (espn_result, espn_pct)}
+        print_espn_results(f"Run {run_num}: {year} Holdout Bracket", results_by_year)
+        append_espn_to_run_log(
+            f"Run {run_num}: {year} Holdout Bracket", results_by_year,
+            notes=f"Clean holdout — model never saw {year} results during development. "
+                  f"Train: {min(TRAIN_YEARS)}-{max(TRAIN_YEARS)}. EV-optimized bracket.",
+        )
+    else:
+        print(f"\n  No actual results available for {year} — skipping scoring.")
 
 
 if __name__ == "__main__":

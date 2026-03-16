@@ -135,6 +135,7 @@ def load_barttorvik(year):
 
 # Name mapping: tournament names -> BartTorvik names
 TOURNAMENT_TO_BARTTORVIK = {
+    # Carried over from 2025
     "UConn": "Connecticut",
     "Ole Miss": "Mississippi",
     "BYU": "Brigham Young",
@@ -157,6 +158,24 @@ TOURNAMENT_TO_BARTTORVIK = {
     "New Mexico State": "New Mexico St.",
     "NC State": "N.C. State",
     "North Carolina": "North Carolina",
+    # Added for 2026
+    "UCF": "Central Florida",
+    "South Florida": "South Florida",
+    "SMU": "Southern Methodist",
+    "Miami": "Miami FL",
+    "Miami (OH)": "Miami OH",
+    "LIU": "Long Island University",
+    "Cal Baptist": "Cal Baptist",
+    "Northern Iowa": "Northern Iowa",
+    "North Dakota State": "North Dakota St.",
+    "Tennessee State": "Tennessee St.",
+    "Kennesaw State": "Kennesaw St.",
+    "Wright State": "Wright St.",
+    "Saint Louis": "Saint Louis",
+    "Ohio State": "Ohio St.",
+    "Prairie View A&M": "Prairie View A&M",
+    "UMBC": "UMBC",
+    "High Point": "High Point",
 }
 
 
