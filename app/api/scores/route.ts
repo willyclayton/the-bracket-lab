@@ -147,11 +147,18 @@ export async function POST(req: NextRequest) {
  * Flush the Redis cache. Protected by CRON_SECRET.
  * Usage: curl -X DELETE https://the-bracket-lab.vercel.app/api/scores -H "Authorization: Bearer $CRON_SECRET"
  */
-export async function DELETE() {
+export async function DELETE(req: NextRequest) {
   const redis = getRedis();
 
   if (!redis) {
     return NextResponse.json({ error: 'Redis not configured' }, { status: 503 });
+  }
+
+  const authHeader = req.headers.get('authorization');
+  const cronSecret = process.env.CRON_SECRET;
+
+  if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
