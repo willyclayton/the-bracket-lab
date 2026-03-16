@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option E — Consensus Summary + Model Grid</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 375px; margin: 0 auto; padding: 16px; }
+  .label { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.08em; font-family: monospace; margin-bottom: 12px; }
+  h2 { font-size: 14px; color: #888; margin-bottom: 16px; text-align: center; font-weight: 400; }
+  .consensus-bar { display: flex; align-items: center; gap: 10px; background: #1a1a1a; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+  .consensus-bar .team { font-family: monospace; font-size: 12px; white-space: nowrap; }
+  .bar-track { flex: 1; height: 8px; background: #2a2a2a; border-radius: 999px; overflow: hidden; display: flex; }
+  .bar-for { height: 100%; background: #22c55e; border-radius: 999px 0 0 999px; }
+  .bar-against { height: 100%; background: #ef4444; border-radius: 0 999px 999px 0; }
+  .stats-row { display: flex; gap: 8px; margin-bottom: 12px; }
+  .stat-box { flex: 1; background: #1a1a1a; border-radius: 6px; padding: 10px; text-align: center; }
+  .stat-value { font-family: monospace; font-size: 16px; font-weight: 700; color: #efefef; }
+  .stat-label { font-family: monospace; font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px; }
+  .chip { background: #1a1a1a; border-radius: 8px; padding: 10px 8px; text-align: center; cursor: pointer; border: 1px solid transparent; transition: border-color 0.15s; }
+  .chip:active, .chip.selected { border-color: #444; }
+  .chip-dot { width: 8px; height: 8px; border-radius: 50%; margin: 0 auto 4px; }
+  .chip-name { font-size: 10px; font-weight: 600; margin-bottom: 2px; }
+  .chip-conf { font-family: monospace; font-size: 11px; color: #666; }
+  .chip-pick { font-size: 9px; margin-top: 2px; }
+  .chip-for { color: #22c55e; }
+  .chip-against { color: #ef4444; }
+  .detail-panel { background: #1a1a1a; border-radius: 8px; padding: 12px; margin-bottom: 12px; border: 1px solid #333; }
+  .detail-header { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+  .detail-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .detail-name { font-size: 12px; font-weight: 600; }
+  .detail-conf { font-family: monospace; font-size: 11px; color: #555; margin-left: auto; }
+  .detail-pick { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 999px; margin-left: 6px; }
+  .detail-reasoning { font-size: 11px; color: #999; line-height: 1.4; }
+  .note { text-align: center; font-size: 10px; color: #555; margin-bottom: 8px; font-style: italic; }
+</style>
+</head>
+<body>
+<h2>Option E — Consensus Summary + Model Grid</h2>
+<div class="label">Expanded Game Detail</div>
+
+<div class="consensus-bar">
+  <span class="team" style="color:#22c55e">Houston</span>
+  <div class="bar-track">
+    <div class="bar-for" style="width:78%"></div>
+    <div class="bar-against" style="width:22%"></div>
+  </div>
+  <span class="team" style="color:#ef4444">SIU Edwardsville</span>
+</div>
+
+<div class="stats-row">
+  <div class="stat-box">
+    <div class="stat-value">7/9</div>
+    <div class="stat-label">Agreement</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-value">81%</div>
+    <div class="stat-label">Avg Conf</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-value">3.6%</div>
+    <div class="stat-label">Hist. Upset</div>
+  </div>
+</div>
+
+<p class="note">Tap a model to see reasoning</p>
+
+<div class="grid">
+  <div class="chip selected" onclick="selectChip(this, 'scout')">
+    <div class="chip-dot" style="background:#3b82f6"></div>
+    <div class="chip-name" style="color:#3b82f6">Scout</div>
+    <div class="chip-conf">92%</div>
+    <div class="chip-pick chip-for">HOU</div>
+  </div>
+  <div class="chip" onclick="selectChip(this, 'quant')">
+    <div class="chip-dot" style="background:#22c55e"></div>
+    <div class="chip-name" style="color:#22c55e">Quant</div>
+    <div class="chip-conf">95%</div>
+    <div class="chip-pick chip-for">HOU</div>
+  </div>
+  <div class="chip" onclick="selectChip(this, 'historian')">
+    <div class="chip-dot" style="background:#f59e0b"></div>
+    <div class="chip-name" style="color:#f59e0b">Historian</div>
+    <div class="chip-conf">88%</div>
+    <div class="chip-pick chip-for">HOU</div>
+  </div>
+  <div class="chip" onclick="selectChip(this, 'chaos')">
+    <div class="chip-dot" style="background:#ef4444"></div>
+    <div class="chip-name" style="color:#ef4444">Chaos</div>
+    <div class="chip-conf">70%</div>
+    <div class="chip-pick chip-for">HOU</div>
+  </div>
+  <div class="chip" onclick="selectChip(this, 'agent')">
+    <div class="chip-dot" style="background:#00ff88"></div>
+    <div class="chip-name" style="color:#00ff88">Agent</div>
+    <div class="chip-conf">91%</div>
+    <div class="chip-pick chip-for">HOU</div>
+  </div>
+  <div class="chip" onclick="selectChip(this, 'super')">
+    <div class="chip-dot" style="background:#a855f7"></div>
+    <div class="chip-name" style="color:#a855f7">Super</div>
+    <div class="chip-conf">89%</div>
+    <div class="chip-pick chip-for">HOU</div>
+  </div>
+  <div class="chip" onclick="selectChip(this, 'optimizer')">
+    <div class="chip-dot" style="background:#06b6d4"></div>
+    <div class="chip-name" style="color:#06b6d4">Optim.</div>
+    <div class="chip-conf">94%</div>
+    <div class="chip-pick chip-for">HOU</div>
+  </div>
+  <div class="chip" onclick="selectChip(this, 'scoutprime')">
+    <div class="chip-dot" style="background:#64748b"></div>
+    <div class="chip-name" style="color:#64748b">Sc. Prime</div>
+    <div class="chip-conf">55%</div>
+    <div class="chip-pick chip-against">SIU-E</div>
+  </div>
+  <div class="chip" onclick="selectChip(this, 'autores')">
+    <div class="chip-dot" style="background:#f97316"></div>
+    <div class="chip-name" style="color:#f97316">Auto Res.</div>
+    <div class="chip-conf">52%</div>
+    <div class="chip-pick chip-against">SIU-E</div>
+  </div>
+</div>
+
+<!-- Detail panel (shows selected model reasoning) -->
+<div class="detail-panel" id="detail-panel">
+  <div class="detail-header">
+    <span class="detail-dot" style="background:#3b82f6"></span>
+    <span class="detail-name" style="color:#3b82f6">The Scout</span>
+    <span class="detail-pick" style="background:rgba(34,197,94,0.12);color:#22c55e">Houston</span>
+    <span class="detail-conf">92%</span>
+  </div>
+  <p class="detail-reasoning">Houston's defense is elite — top 5 nationally in adjusted efficiency and forces turnovers at a high rate. This is a mismatch on both ends of the floor.</p>
+</div>
+
+<script>
+const data = {
+  scout: { name: 'The Scout', color: '#3b82f6', pick: 'Houston', isFor: true, conf: '92%', reasoning: "Houston's defense is elite — top 5 nationally in adjusted efficiency and forces turnovers at a high rate. This is a mismatch on both ends of the floor." },
+  quant: { name: 'The Quant', color: '#22c55e', pick: 'Houston', isFor: true, conf: '95%', reasoning: 'Monte Carlo gives Houston a 95.2% win probability. One of the most lopsided R64 matchups in the entire bracket.' },
+  historian: { name: 'The Historian', color: '#f59e0b', pick: 'Houston', isFor: true, conf: '88%', reasoning: 'Matches the 2019 Virginia archetype — elite defense, methodical offense, tournament pedigree.' },
+  chaos: { name: 'The Chaos Agent', color: '#ef4444', pick: 'Houston', isFor: true, conf: '70%', reasoning: "Even the upset model can't find a path here. Seed differential is too large for any historical upset pattern to apply." },
+  agent: { name: 'The Agent', color: '#00ff88', pick: 'Houston', isFor: true, conf: '91%', reasoning: "Autonomous research confirms Houston's dominance across all key metrics. No weaknesses found." },
+  super: { name: 'The Super Agent', color: '#a855f7', pick: 'Houston', isFor: true, conf: '89%', reasoning: 'Logistic regression model gives Houston a strong edge on experience and efficiency metrics.' },
+  optimizer: { name: 'The Optimizer', color: '#06b6d4', pick: 'Houston', isFor: true, conf: '94%', reasoning: 'Expected value optimization strongly favors Houston — high ceiling, high floor.' },
+  scoutprime: { name: 'Scout Prime', color: '#64748b', pick: 'SIU Edwardsville', isFor: false, conf: '55%', reasoning: "Data-saturated analysis finds SIU-E's 3pt shooting could exploit Houston's perimeter weakness in a low-possession game." },
+  autores: { name: 'Auto Researcher', color: '#f97316', pick: 'SIU Edwardsville', isFor: false, conf: '52%', reasoning: 'Ensemble model detects a marginal edge for the underdog based on recent form and matchup-specific factors.' },
+};
+
+function selectChip(el, key) {
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  const d = data[key];
+  const panel = document.getElementById('detail-panel');
+  const pickColor = d.isFor ? '#22c55e' : '#ef4444';
+  const pickBg = d.isFor ? 'rgba(34,197,94,0.12)' : 'rgba(239,68,68,0.12)';
+  panel.innerHTML = `
+    <div class="detail-header">
+      <span class="detail-dot" style="background:${d.color}"></span>
+      <span class="detail-name" style="color:${d.color}">${d.name}</span>
+      <span class="detail-pick" style="background:${pickBg};color:${pickColor}">${d.pick}</span>
+      <span class="detail-conf">${d.conf}</span>
+    </div>
+    <p class="detail-reasoning">${d.reasoning}</p>
+  `;
+}
+</script>
+
+</body>
+</html>

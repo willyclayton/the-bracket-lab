@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B4 — Quick Scouting Report (3v14 Chalk)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 375px; margin: 0 auto; padding: 16px; }
+  .label { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.08em; font-family: monospace; margin-bottom: 12px; }
+  h2 { font-size: 14px; color: #888; margin-bottom: 4px; text-align: center; font-weight: 400; }
+  .subtitle { font-size: 11px; color: #555; text-align: center; margin-bottom: 16px; font-family: monospace; }
+  .consensus-bar { display: flex; align-items: center; gap: 10px; background: #1a1a1a; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+  .consensus-bar .team { font-family: monospace; font-size: 12px; white-space: nowrap; }
+  .bar-track { flex: 1; height: 8px; background: #2a2a2a; border-radius: 999px; overflow: hidden; display: flex; }
+  .bar-for { height: 100%; background: #22c55e; border-radius: 999px 0 0 999px; }
+  .bar-against { height: 100%; background: #ef4444; border-radius: 0 999px 999px 0; }
+
+  /* Quick-hit overview: Quick Scouting Report */
+  .scouting { background: #1a1a1a; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+  .scout-item { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; }
+  .scout-item + .scout-item { border-top: 1px solid #222; }
+  .scout-icon { font-size: 10px; font-weight: 800; font-family: monospace; letter-spacing: 0.05em; flex-shrink: 0; margin-top: 2px; width: 14px; text-align: center; }
+  .icon-strength { color: #22c55e; }
+  .icon-angle { color: #ef4444; }
+  .icon-xfactor { color: #f59e0b; }
+  .scout-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-family: monospace; margin-bottom: 2px; }
+  .label-strength { color: #22c55e; }
+  .label-angle { color: #ef4444; }
+  .label-xfactor { color: #f59e0b; }
+  .scout-text { font-size: 12px; color: #ccc; line-height: 1.4; }
+
+  .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+  .col { border-radius: 8px; overflow: hidden; }
+  .col-header { padding: 8px 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
+  .col-for .col-header { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .col-against .col-header { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .col-body { background: #1a1a1a; padding: 8px; }
+  .model-row { padding: 6px 4px; border-bottom: 1px solid #222; }
+  .model-row:last-child { border-bottom: none; }
+  .model-top { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .model-name { font-size: 11px; font-weight: 600; flex: 1; }
+  .conf { font-family: monospace; font-size: 10px; color: #666; }
+  .reasoning { font-size: 10px; color: #777; line-height: 1.3; }
+  .stats { display: flex; gap: 8px; }
+  .stat-box { flex: 1; background: #1a1a1a; border-radius: 6px; padding: 10px; text-align: center; }
+  .stat-value { font-family: monospace; font-size: 16px; font-weight: 700; color: #efefef; }
+  .stat-label { font-family: monospace; font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+</style>
+</head>
+<body>
+<h2>B4 — Quick Scouting Report</h2>
+<div class="subtitle">3v14 Chalk &middot; Iowa State vs Troy</div>
+<div class="label">Expanded Game Detail</div>
+
+<div class="consensus-bar">
+  <span class="team" style="color:#22c55e">(3) Iowa State</span>
+  <div class="bar-track">
+    <div class="bar-for" style="width:89%"></div>
+    <div class="bar-against" style="width:11%"></div>
+  </div>
+  <span class="team" style="color:#ef4444">Troy (14)</span>
+</div>
+
+<!-- Quick-hit overview -->
+<div class="scouting">
+  <div class="scout-item">
+    <span class="scout-icon icon-strength">+</span>
+    <div>
+      <div class="scout-label label-strength">Favorite's Edge</div>
+      <p class="scout-text">Iowa State's defensive rebounding (top 10 nationally) limits second chances and controls tempo.</p>
+    </div>
+  </div>
+  <div class="scout-item">
+    <span class="scout-icon icon-angle">!</span>
+    <div>
+      <div class="scout-label label-angle">Underdog's Angle</div>
+      <p class="scout-text">Troy plays fast (top 30 tempo) and could push Iowa State out of their comfort zone.</p>
+    </div>
+  </div>
+  <div class="scout-item">
+    <span class="scout-icon icon-xfactor">*</span>
+    <div>
+      <div class="scout-label label-xfactor">X-Factor</div>
+      <p class="scout-text">Free throw shooting in a tight game — Iowa State hits 78% vs Troy's 68% from the line.</p>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <!-- FOR column -->
+  <div class="col col-for">
+    <div class="col-header">Iowa State (8)</div>
+    <div class="col-body">
+      <div class="model-row">
+        <div class="model-top">
+          <span class="dot" style="background:#3b82f6"></span>
+          <span class="model-name" style="color:#3b82f6">Scout</span>
+          <span class="conf">88%</span>
+        </div>
+        <p class="reasoning">Big 12 grind prepared them. Defensive identity wins.</p>
+      </div>
+      <div class="model-row">
+        <div class="model-top">
+          <span class="dot" style="background:#22c55e"></span>
+          <span class="model-name" style="color:#22c55e">Quant</span>
+          <span class="conf">85%</span>
+        </div>
+        <p class="reasoning">85% win probability. Rebounding edge decisive.</p>
+      </div>
+      <div class="model-row">
+        <div class="model-top">
+          <span class="dot" style="background:#f59e0b"></span>
+          <span class="model-name" style="color:#f59e0b">Historian</span>
+          <span class="conf">82%</span>
+        </div>
+        <p class="reasoning">Matches 2014 Virginia profile — suffocating defense.</p>
+      </div>
+      <div class="model-row">
+        <div class="model-top">
+          <span class="dot" style="background:#00ff88"></span>
+          <span class="model-name" style="color:#00ff88">Agent</span>
+          <span class="conf">80%</span>
+        </div>
+        <p class="reasoning">ISU's defensive metrics dominate across all research.</p>
+      </div>
+      <div class="model-row">
+        <div class="model-top">
+          <span class="dot" style="background:#a855f7"></span>
+          <span class="model-name" style="color:#a855f7">Super</span>
+          <span class="conf">79%</span>
+        </div>
+        <p class="reasoning">Strong SOS and rebounding metrics drive prediction.</p>
+      </div>
+      <div class="model-row">
+        <div class="model-top">
+          <span class="dot" style="background:#06b6d4"></span>
+          <span class="model-name" style="color:#06b6d4">Optimizer</span>
+          <span class="conf">83%</span>
+        </div>
+        <p class="reasoning">High EV for deep bracket run — need them in R32.</p>
+      </div>
+      <div class="model-row">
+        <div class="model-top">
+          <span class="dot" style="background:#64748b"></span>
+          <span class="model-name" style="color:#64748b">Scout Prime</span>
+          <span class="conf">77%</span>
+        </div>
+        <p class="reasoning">30-point dataset confirms defensive dominance.</p>
+      </div>
+      <div class="model-row">
+        <div class="model-top">
+          <span class="dot" style="background:#f97316"></span>
+          <span class="model-name" style="color:#f97316">Auto Res.</span>
+          <span class="conf">75%</span>
+        </div>
+        <p class="reasoning">Ensemble model gives ISU comfortable edge.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGAINST column -->
+  <div class="col col-against">
+    <div class="col-header">Troy (1)</div>
+    <div class="col-body">
+      <div class="model-row">
+        <div class="model-top">
+          <span class="dot" style="background:#ef4444"></span>
+          <span class="model-name" style="color:#ef4444">Chaos</span>
+          <span class="conf">55%</span>
+        </div>
+        <p class="reasoning">Troy's pace could cause chaos, but upset probability still low for 3v14.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat-box">
+    <div class="stat-value">8/9</div>
+    <div class="stat-label">Agreement</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-value">78%</div>
+    <div class="stat-label">Avg Conf</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-value">15.1%</div>
+    <div class="stat-label">Hist. Upset</div>
+  </div>
+</div>
+
+</body>
+</html>

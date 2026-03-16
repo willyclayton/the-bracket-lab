@@ -89,6 +89,30 @@ function truncateReasoning(text: string, maxLen = 80): string {
   return firstSentence.slice(0, cut > 20 ? cut : maxLen) + '\u2026';
 }
 
+/** Build a bold verdict + counter from model reasonings */
+function buildVerdict(game: GameAgreement): { thesis: string; counter: string | null } {
+  const forPicks = game.modelPicks
+    .filter((p) => p.pick === game.consensusPick)
+    .sort((a, b) => b.confidence - a.confidence);
+  const againstPicks = game.modelPicks
+    .filter((p) => p.pick !== game.consensusPick)
+    .sort((a, b) => b.confidence - a.confidence);
+
+  // Thesis: highest-confidence FOR model's reasoning, trimmed to one strong sentence
+  const topFor = forPicks[0];
+  const thesis = topFor?.reasoning
+    ? truncateReasoning(topFor.reasoning, 140)
+    : `${game.agreementCount} of ${game.totalModels} models agree on ${game.consensusPick}.`;
+
+  // Counter: highest-confidence AGAINST model's reasoning
+  const topAgainst = againstPicks[0];
+  const counter = topAgainst?.reasoning
+    ? truncateReasoning(topAgainst.reasoning, 120)
+    : null;
+
+  return { thesis, counter };
+}
+
 // ── Shared Components ───────────────────────────────────────────────────
 
 function AgreementPill({ count, total, color }: { count: number; total: number; color: string }) {
@@ -102,7 +126,7 @@ function AgreementPill({ count, total, color }: { count: number; total: number; 
   );
 }
 
-// ── Game Detail (expanded view) ─────────────────────────────────────────
+// ── Game Detail (expanded view — B1: Bold Verdict + Split Columns) ──────
 
 function GameDetail({ game }: { game: GameAgreement }) {
   const forPicks = game.modelPicks.filter((p) => p.pick === game.consensusPick).sort((a, b) => b.confidence - a.confidence);
@@ -112,11 +136,12 @@ function GameDetail({ game }: { game: GameAgreement }) {
     Math.min(game.seed1, game.seed2),
     Math.max(game.seed1, game.seed2)
   ) : null;
+  const { thesis, counter } = buildVerdict(game);
 
   return (
     <div className="px-4 pb-4 pt-1">
       {/* Consensus bar */}
-      <div className="flex items-center gap-3 px-3 py-2.5 bg-[#1a1a1a] rounded-lg mb-4">
+      <div className="flex items-center gap-3 px-3 py-2.5 bg-[#1a1a1a] rounded-lg mb-3">
         <span className="font-mono text-xs text-[#22c55e] whitespace-nowrap">{game.consensusPick}</span>
         <div className="flex-1 h-2 bg-[#2a2a2a] rounded-full overflow-hidden flex">
           <div className="h-full bg-[#22c55e] rounded-l-full" style={{ width: `${forPct}%` }} />
@@ -125,44 +150,58 @@ function GameDetail({ game }: { game: GameAgreement }) {
         <span className="font-mono text-xs text-[#ef4444] whitespace-nowrap">{game.otherTeam}</span>
       </div>
 
-      {/* Model list */}
-      <div className="space-y-2 mb-4">
-        {[...forPicks, ...againstPicks].map((p) => {
-          const isFor = p.pick === game.consensusPick;
-          return (
-            <div key={p.modelId} className="flex items-start gap-3 px-3 py-2.5 bg-[#1a1a1a] rounded-lg">
-              <div className="flex items-center gap-1.5 flex-shrink-0 w-[120px] sm:w-[140px] pt-0.5">
-                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: p.color }} />
-                <span className="text-xs font-semibold whitespace-nowrap" style={{ color: p.color }}>{p.modelName}</span>
-              </div>
-              <div className="flex-shrink-0 pt-0.5">
-                <span
-                  className="text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap"
-                  style={{
-                    background: isFor ? 'rgba(34,197,94,0.12)' : 'rgba(239,68,68,0.12)',
-                    color: isFor ? '#22c55e' : '#ef4444',
-                  }}
-                >
-                  {p.pick}
-                </span>
-              </div>
-              <p className="flex-1 text-[11px] text-[#999] leading-snug min-w-0 hidden sm:block pt-0.5">
-                {truncateReasoning(p.reasoning, 120)}
-              </p>
-              <span className="font-mono text-[11px] text-[#666] flex-shrink-0 pt-0.5">{p.confidence}%</span>
-            </div>
-          );
-        })}
+      {/* Bold Verdict */}
+      <div className="bg-[#1a1a1a] border-l-[3px] border-[#22c55e] rounded-r-lg px-3 py-2.5 mb-3">
+        <p className="text-[13px] font-bold text-lab-white leading-snug mb-1">{thesis}</p>
+        {counter && (
+          <p className="text-[11px] text-[#666] leading-snug italic">
+            <span className="not-italic font-semibold text-[#ef4444] text-[10px] uppercase tracking-wide">Counter: </span>
+            {counter}
+          </p>
+        )}
       </div>
 
-      {/* Mobile: reasoning below each row */}
-      <div className="sm:hidden space-y-2 mb-4 -mt-2">
-        {[...forPicks, ...againstPicks].map((p) => (
-          <div key={p.modelId + '-mobile'} className="text-[11px] text-[#999] leading-snug px-3">
-            <span className="font-semibold" style={{ color: p.color }}>{p.modelName}:</span>{' '}
-            {truncateReasoning(p.reasoning, 120)}
+      {/* Split Columns */}
+      <div className="grid grid-cols-2 gap-2 mb-3">
+        {/* FOR column */}
+        <div className="rounded-lg overflow-hidden">
+          <div className="px-2.5 py-1.5 text-center text-[11px] font-bold uppercase tracking-wide" style={{ background: 'rgba(34,197,94,0.15)', color: '#22c55e' }}>
+            {game.consensusPick} ({forPicks.length})
           </div>
-        ))}
+          <div className="bg-[#1a1a1a] px-2 py-1">
+            {forPicks.map((p) => (
+              <div key={p.modelId} className="py-1.5 border-b border-[#222] last:border-b-0">
+                <div className="flex items-center gap-1.5 mb-1">
+                  <span className="w-[5px] h-[5px] rounded-full flex-shrink-0" style={{ background: p.color }} />
+                  <span className="text-[11px] font-semibold flex-1 min-w-0 truncate" style={{ color: p.color }}>{p.modelName}</span>
+                  <span className="font-mono text-[10px] text-[#666] flex-shrink-0">{p.confidence}%</span>
+                </div>
+                <p className="text-[10px] text-[#777] leading-snug">{truncateReasoning(p.reasoning, 80)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* AGAINST column */}
+        <div className="rounded-lg overflow-hidden">
+          <div className="px-2.5 py-1.5 text-center text-[11px] font-bold uppercase tracking-wide" style={{ background: 'rgba(239,68,68,0.15)', color: '#ef4444' }}>
+            {game.otherTeam} ({againstPicks.length})
+          </div>
+          <div className="bg-[#1a1a1a] px-2 py-1">
+            {againstPicks.length > 0 ? againstPicks.map((p) => (
+              <div key={p.modelId} className="py-1.5 border-b border-[#222] last:border-b-0">
+                <div className="flex items-center gap-1.5 mb-1">
+                  <span className="w-[5px] h-[5px] rounded-full flex-shrink-0" style={{ background: p.color }} />
+                  <span className="text-[11px] font-semibold flex-1 min-w-0 truncate" style={{ color: p.color }}>{p.modelName}</span>
+                  <span className="font-mono text-[10px] text-[#666] flex-shrink-0">{p.confidence}%</span>
+                </div>
+                <p className="text-[10px] text-[#777] leading-snug">{truncateReasoning(p.reasoning, 80)}</p>
+              </div>
+            )) : (
+              <div className="py-3 text-center text-[10px] text-[#444] italic">No dissenters</div>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Stat boxes */}
@@ -428,15 +467,20 @@ export default function CheatSheetClient() {
         <div className="relative">
           <input
             type="text"
-            placeholder="Search by team name..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 pl-10 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-sm text-lab-white placeholder-[#555] focus:outline-none focus:border-[#444] transition-colors"
+            placeholder={showContent ? 'Search by team name...' : 'Search available after purchase'}
+            value={showContent ? searchQuery : ''}
+            onChange={(e) => showContent && setSearchQuery(e.target.value)}
+            disabled={!showContent}
+            className={`w-full px-4 py-3 pl-10 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-sm placeholder-[#555] focus:outline-none transition-colors ${
+              showContent
+                ? 'text-lab-white focus:border-[#444] cursor-text'
+                : 'text-[#444] cursor-not-allowed opacity-50'
+            }`}
           />
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#555]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 ${showContent ? 'text-[#555]' : 'text-[#444]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          {searchQuery && (
+          {searchQuery && showContent && (
             <button
               onClick={() => setSearchQuery('')}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-[#555] hover:text-lab-white transition-colors text-sm"
