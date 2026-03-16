@@ -21,9 +21,12 @@ interface MatchupPopoverProps {
   blurredRounds?: string[];
 }
 
+// Split on sentence boundaries but preserve abbreviations like "St. John's"
+const SENTENCE_SPLIT = /(?<!\b(?:St|vs|Dr|Jr|Sr|Mt|Univ))\.\s+/;
+
 function getVerdictLine(reasoning: string): string {
   if (!reasoning) return '';
-  const sentences = reasoning.split(/\.\s+/).filter((s) => s.length > 10);
+  const sentences = reasoning.split(SENTENCE_SPLIT).filter((s) => s.length > 10);
   if (sentences.length === 0) return reasoning;
   // Skip generic openers like "Simulation: X wins Y%"
   const first = sentences[0];
@@ -36,7 +39,7 @@ function getVerdictLine(reasoning: string): string {
 function parseEvidenceBullets(reasoning: string): string[] {
   if (!reasoning) return [];
   // Split on sentence boundaries or em dashes
-  const fragments = reasoning.split(/\.\s+|\s+—\s+/).filter((s) => s.length >= 15);
+  const fragments = reasoning.split(/(?<!\b(?:St|vs|Dr|Jr|Sr|Mt|Univ))\.\s+|\s+—\s+/).filter((s) => s.length >= 15);
   // Skip the first fragment (used as verdict) and cap at 3
   const bullets = fragments.slice(1, 4);
   return bullets.map((b) => b.replace(/\.$/, ''));

@@ -83,7 +83,7 @@ function getUpsetRate(higherSeed: number, lowerSeed: number): number | null {
 
 function truncateReasoning(text: string, maxLen = 80): string {
   if (!text) return '';
-  const firstSentence = text.split(/\.\s+/)[0] || text;
+  const firstSentence = text.split(/(?<!\b(?:St|vs|Dr|Jr|Sr|Mt|Univ))\.\s+/)[0] || text;
   if (firstSentence.length <= maxLen) return firstSentence.replace(/\.$/, '');
   const cut = firstSentence.lastIndexOf(' ', maxLen);
   return firstSentence.slice(0, cut > 20 ? cut : maxLen) + '\u2026';
