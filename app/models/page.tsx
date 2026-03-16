@@ -27,18 +27,134 @@ export default function ModelsPage() {
         ))}
       </div>
 
-      {/* Consensus & Divergence (placeholder) */}
+      {/* Consensus */}
       <section className="mb-16">
         <h2 className="text-xl font-bold text-lab-white mb-6">Where They Agree</h2>
-        <div className="rounded-xl border border-lab-border bg-lab-surface p-8 text-center text-lab-muted text-sm">
-          Consensus picks will appear here after picks lock on March 19.
+        <div className="space-y-4">
+          {/* Champion */}
+          <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
+            <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Champion Pick</span>
+            <p className="text-lab-white font-semibold text-lg mt-2">
+              Duke <span className="text-lab-muted font-normal text-sm">(3 of 6 models)</span>
+            </p>
+            <p className="text-lab-muted text-sm mt-1">
+              The Scout, The Quant, and The Historian all pick Duke to cut the nets. The other three models each pick a different champion.
+            </p>
+          </div>
+
+          {/* Final Four */}
+          <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
+            <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Final Four Consensus</span>
+            <div className="mt-3 space-y-2">
+              {[
+                { team: 'Duke', count: 5, note: 'Everyone but The Optimizer' },
+                { team: 'Florida', count: 4, note: 'Scout, Quant, Historian, Auto Researcher' },
+                { team: 'Arizona', count: 4, note: 'Scout, Quant, Historian, Auto Researcher' },
+                { team: 'Michigan', count: 3, note: 'Scout, Quant, Historian' },
+              ].map((pick) => (
+                <div key={pick.team} className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-20 bg-lab-border/50 rounded-full h-2 overflow-hidden">
+                    <div
+                      className="h-full bg-lab-white/60 rounded-full"
+                      style={{ width: `${(pick.count / 6) * 100}%` }}
+                    />
+                  </div>
+                  <span className="text-lab-white text-sm font-medium w-24">{pick.team}</span>
+                  <span className="text-lab-muted text-xs">{pick.count}/6 &mdash; {pick.note}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-lab-muted text-sm mt-4">
+              Three models &mdash; The Scout, The Quant, and The Historian &mdash; have the <em>identical</em> Final Four: all four 1-seeds. Remarkable given their completely different methodologies.
+            </p>
+          </div>
+
+          {/* Upset consensus */}
+          <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
+            <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Consensus Upsets</span>
+            <div className="mt-3 space-y-2 text-sm">
+              <div className="flex items-baseline gap-2">
+                <span className="text-lab-white font-medium">(9) Iowa over (8) Clemson</span>
+                <span className="text-lab-muted">&mdash; 6/6 models. Unanimous.</span>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-lab-white font-medium">(9) Utah St. over (8) Villanova</span>
+                <span className="text-lab-muted">&mdash; 5/6 models</span>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-lab-white font-medium">(10) Santa Clara over (7) Kentucky</span>
+                <span className="text-lab-muted">&mdash; 4/6 models</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Divergence */}
       <section>
         <h2 className="text-xl font-bold text-lab-white mb-6">Where They Disagree</h2>
-        <div className="rounded-xl border border-lab-border bg-lab-surface p-8 text-center text-lab-muted text-sm">
-          Model divergence breakdown will appear here after picks lock on March 19.
+        <div className="space-y-4">
+          {/* Championship game */}
+          <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
+            <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Championship Game</span>
+            <p className="text-lab-muted text-sm mt-2 mb-3">
+              No two models outside the chalk bloc agree on who plays for the title.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+              {[
+                { model: 'The Scout', game: 'Arizona vs Duke', color: '#3b82f6' },
+                { model: 'The Quant', game: 'Arizona vs Duke', color: '#22c55e' },
+                { model: 'The Historian', game: 'Duke vs Michigan', color: '#f59e0b' },
+                { model: 'The Chaos Agent', game: 'Illinois vs Gonzaga', color: '#ef4444' },
+                { model: 'The Optimizer', game: 'Illinois vs Texas Tech', color: '#06b6d4' },
+                { model: 'Auto Researcher', game: 'Arizona vs Iowa State', color: '#f97316' },
+              ].map((row) => (
+                <div key={row.model} className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: row.color }} />
+                  <span className="text-lab-muted">{row.model}:</span>
+                  <span className="text-lab-white">{row.game}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Midwest chaos */}
+          <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
+            <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Midwest Region: Maximum Chaos</span>
+            <p className="text-lab-muted text-sm mt-2">
+              Three completely different teams winning the region. Michigan (3 models), Iowa State (2), Texas Tech (1). The path diverges as early as the Round of 32.
+            </p>
+          </div>
+
+          {/* The two blocs */}
+          <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
+            <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">The Two Blocs</span>
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div>
+                <p className="text-lab-white font-medium mb-1">Chalk Bloc</p>
+                <p className="text-lab-muted">
+                  The Scout, The Quant, and The Historian trust the 1-seeds. All four make the Final Four. Duke wins.
+                </p>
+              </div>
+              <div>
+                <p className="text-lab-white font-medium mb-1">Contrarian Bloc</p>
+                <p className="text-lab-muted">
+                  The Chaos Agent and The Optimizer bet on mid-seeds. Zero 1-seeds in The Optimizer&apos;s Final Four. Gonzaga and Illinois as champions.
+                </p>
+              </div>
+            </div>
+            <p className="text-lab-muted text-sm mt-3">
+              The Auto Researcher splits the difference &mdash; three 1-seeds plus Iowa State as a dark horse.
+            </p>
+          </div>
+
+          {/* Louisville polarization */}
+          <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
+            <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Most Polarizing Team: Louisville</span>
+            <p className="text-lab-muted text-sm mt-2">
+              Four models have Louisville out in the Round of 32. The Optimizer has them in the Final Four. Same team, wildly different reads.
+            </p>
+          </div>
         </div>
       </section>
     </div>

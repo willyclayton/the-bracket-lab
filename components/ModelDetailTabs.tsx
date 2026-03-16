@@ -191,9 +191,18 @@ export default function ModelDetailTabs({ model, bracket, methodologyContent }: 
       {/* Bracket tab */}
       {activeTab === 'bracket' && (
         <div>
-          <p className="font-mono text-[11px] text-lab-muted uppercase tracking-[1.5px] mb-3.5 pb-2 border-b border-[#222]">
-            {model.name}&apos;s Championship Path
-          </p>
+          <div className="flex items-center justify-between mb-3.5 pb-2 border-b border-[#222]">
+            <p className="font-mono text-[11px] text-lab-muted uppercase tracking-[1.5px]">
+              {model.name}&apos;s Championship Path
+            </p>
+            <a
+              href={`/brackets?model=${model.slug}`}
+              className="text-xs font-medium hover:opacity-80 transition-opacity"
+              style={{ color: model.color }}
+            >
+              See full bracket &#8599;
+            </a>
+          </div>
           <div className="flex flex-col gap-2.5">
             {champPath.length > 0 ? (
               champPath.map((pick, i) => {
