@@ -231,11 +231,93 @@ body {
   border-radius: 16px;
 }
 
-/* ---- Blog category gradients ---- */
-.bg-cat-analysis { background: linear-gradient(135deg, #0f3460, #16213e, #1a1a2e); }
-.bg-cat-recap    { background: linear-gradient(135deg, #0a2010, #0f2a15, #101e10); }
-.bg-cat-obituary { background: linear-gradient(135deg, #280808, #1a0404, #120000); }
-.bg-cat-preview  { background: linear-gradient(135deg, #1f1500, #2a1d00, #1a1200); }
+/* ---- Blog timeline layout ---- */
+.blog-timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.blog-timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 0;
+  width: 1px;
+  background: #333;
+}
+
+.blog-date-group {
+  margin-bottom: 8px;
+}
+
+.blog-date-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-top: 4px;
+}
+.blog-date-header::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 9px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #333;
+  border: 2px solid var(--lab-bg, #141414);
+}
+.blog-date-header-text {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #555;
+}
+
+.blog-entry {
+  position: relative;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  background: #1e1e1e;
+  padding: 22px 24px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.blog-entry:hover {
+  border-color: #555;
+  transform: translateX(4px);
+}
+.blog-entry::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 28px;
+  width: 14px;
+  height: 1px;
+  background: #333;
+}
+
+.blog-entry-accent {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+}
+
+@media (max-width: 640px) {
+  .blog-timeline { padding-left: 22px; }
+  .blog-timeline::before { left: 5px; }
+  .blog-date-header::before { left: -19px; width: 7px; height: 7px; }
+  .blog-entry::before { left: -17px; width: 10px; }
+  .blog-entry { padding: 18px 16px; }
+  .blog-entry h3 { font-size: 18px; }
+  .blog-entry p { font-size: 13px; }
+}
 
 /* ---- Blog category pills ---- */
 .cat-pill-analysis { background: rgba(59,130,246,0.18); color: #3b82f6; }

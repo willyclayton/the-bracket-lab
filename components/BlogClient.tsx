@@ -3,17 +3,10 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import type { BlogPostMeta } from '@/lib/blog';
+import { MODELS } from '@/lib/models';
 
 const FILTERS = ['all', 'recap', 'obituary', 'analysis', 'preview', 'methodology'] as const;
 type Filter = typeof FILTERS[number];
-
-const GRADIENT_MAP: Record<string, string> = {
-  analysis: 'bg-cat-analysis',
-  recap: 'bg-cat-recap',
-  obituary: 'bg-cat-obituary',
-  preview: 'bg-cat-preview',
-  methodology: 'bg-cat-analysis',
-};
 
 const PILL_MAP: Record<string, string> = {
   analysis: 'cat-pill-analysis',
@@ -23,12 +16,27 @@ const PILL_MAP: Record<string, string> = {
   methodology: 'cat-pill-methodology',
 };
 
-function formatDateBadge(dateStr: string): { month: string; day: string } {
-  if (!dateStr) return { month: '', day: '' };
+const MODEL_COLOR_MAP: Record<string, string> = Object.fromEntries(
+  MODELS.map((m) => [m.slug, m.color])
+);
+
+function formatGroupDate(dateStr: string): string {
+  if (!dateStr) return '';
   const d = new Date(dateStr + 'T00:00:00');
-  const month = d.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
-  const day = String(d.getDate());
-  return { month, day };
+  const month = d.toLocaleDateString('en-US', { month: 'long' }).toUpperCase();
+  const day = d.getDate();
+  const year = d.getFullYear();
+  return `${month} ${day}, ${year}`;
+}
+
+function groupByDate(posts: BlogPostMeta[]): [string, BlogPostMeta[]][] {
+  const groups = new Map<string, BlogPostMeta[]>();
+  for (const post of posts) {
+    const key = post.date || 'undated';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key)!.push(post);
+  }
+  return Array.from(groups.entries());
 }
 
 export default function BlogClient({ posts }: { posts: BlogPostMeta[] }) {
@@ -49,8 +57,7 @@ export default function BlogClient({ posts }: { posts: BlogPostMeta[] }) {
     ? posts
     : posts.filter((p) => p.type === activeFilter);
 
-  const heroCards = filtered.slice(0, 2);
-  const smallCards = filtered.slice(2);
+  const dateGroups = groupByDate(filtered);
 
   return (
     <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
@@ -63,12 +70,12 @@ export default function BlogClient({ posts }: { posts: BlogPostMeta[] }) {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-lab-border mt-6 mb-0">
+      <div className="flex gap-1 border-b border-lab-border mt-6 mb-0 overflow-x-auto">
         {FILTERS.map((f) => (
           <button
             key={f}
             onClick={() => handleFilter(f)}
-            className={`px-4 py-2.5 text-[13px] font-medium border-b-2 -mb-px transition-colors capitalize ${
+            className={`px-4 py-2.5 text-[13px] font-medium border-b-2 -mb-px transition-colors capitalize whitespace-nowrap ${
               activeFilter === f
                 ? 'text-lab-white border-lab-white'
                 : 'text-lab-muted border-transparent hover:text-lab-white'
@@ -89,119 +96,56 @@ export default function BlogClient({ posts }: { posts: BlogPostMeta[] }) {
             No posts in this category yet.
           </p>
         ) : (
-          <>
-            {/* Top row: hero cards */}
-            {heroCards.length > 0 && (
-              <div
-                className={`grid gap-5 mb-6 ${
-                  heroCards.length >= 2
-                    ? 'grid-cols-1 md:grid-cols-[3fr_2fr]'
-                    : 'grid-cols-1'
-                }`}
-              >
-                {heroCards.map((post, i) => {
-                  const { month, day } = formatDateBadge(post.date);
-                  const gradient = GRADIENT_MAP[post.type ?? 'analysis'] ?? 'bg-cat-analysis';
-                  const pill = PILL_MAP[post.type ?? 'analysis'] ?? 'cat-pill-analysis';
-                  return (
-                    <Link key={post.slug} href={`/blog/${post.slug}`}>
-                      <div className="rounded-xl overflow-hidden cursor-pointer hover:-translate-y-0.5 transition-transform">
-                        <div
-                          className={`${gradient} relative flex flex-col justify-end min-h-[320px] p-6`}
-                        >
-                          {/* Date badge */}
-                          {month && (
-                            <div className="absolute top-5 left-5 font-mono text-center leading-tight">
-                              <span className="text-[11px] uppercase text-lab-muted tracking-wider block">
-                                {month}
-                              </span>
-                              <span className={`text-lab-white font-medium block ${i === 0 ? 'text-[28px]' : 'text-[22px]'}`}>
-                                {day}
-                              </span>
-                            </div>
-                          )}
-                          {/* Overlay */}
-                          <div
-                            className="absolute bottom-0 left-0 right-0 p-6"
-                            style={{
-                              background:
-                                'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
-                            }}
-                          >
-                            <span
-                              className={`${pill} inline-block px-2.5 py-0.5 rounded-full text-[11px] font-medium uppercase tracking-wide mb-2`}
-                            >
-                              {post.type ?? 'post'}
-                            </span>
-                            <h2
-                              className={`text-lab-white mb-2 leading-tight ${
-                                i === 0 ? 'text-[28px]' : 'text-xl'
-                              }`}
-                              style={{ fontFamily: 'var(--font-serif)' }}
-                            >
-                              {post.title}
-                            </h2>
-                            {post.excerpt && (
-                              <p className="text-[13px] text-white/70 leading-snug">
-                                {post.excerpt}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
+          <div className="blog-timeline">
+            {dateGroups.map(([dateStr, groupPosts]) => (
+              <div key={dateStr} className="blog-date-group">
+                <div className="blog-date-header">
+                  <span className="blog-date-header-text font-mono">
+                    {formatGroupDate(dateStr)}
+                  </span>
+                </div>
 
-            {/* Small grid */}
-            {smallCards.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {smallCards.map((post) => {
-                  const { month, day } = formatDateBadge(post.date);
-                  const gradient = GRADIENT_MAP[post.type ?? 'analysis'] ?? 'bg-cat-analysis';
+                {groupPosts.map((post) => {
                   const pill = PILL_MAP[post.type ?? 'analysis'] ?? 'cat-pill-analysis';
+                  const accentColor = post.model ? MODEL_COLOR_MAP[post.model] : undefined;
+
                   return (
-                    <Link key={post.slug} href={`/blog/${post.slug}`}>
-                      <div className="rounded-[10px] border border-lab-border bg-lab-surface overflow-hidden cursor-pointer hover:border-[#555] hover:-translate-y-0.5 transition-all">
-                        <div className={`${gradient} h-[100px] relative`}>
-                          {month && (
-                            <div className="absolute top-3 left-3 font-mono text-center leading-tight">
-                              <span className="text-[11px] uppercase text-lab-muted tracking-wider block">
-                                {month}
-                              </span>
-                              <span className="text-[22px] text-lab-white font-medium block">
-                                {day}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                        <div className="p-4">
+                    <Link key={post.slug} href={`/blog/${post.slug}`} className="block">
+                      <div className="blog-entry group">
+                        {accentColor && (
+                          <div
+                            className="blog-entry-accent"
+                            style={{ background: accentColor }}
+                          />
+                        )}
+                        <div className="flex items-center justify-between mb-2.5">
                           <span
-                            className={`${pill} inline-block px-2.5 py-0.5 rounded-full text-[11px] font-medium uppercase tracking-wide mb-2`}
+                            className={`${pill} inline-block px-2.5 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wide font-mono`}
                           >
                             {post.type ?? 'post'}
                           </span>
-                          <h3
-                            className="text-base text-lab-white mb-1.5 leading-snug"
-                            style={{ fontFamily: 'var(--font-serif)' }}
-                          >
-                            {post.title}
-                          </h3>
-                          {post.excerpt && (
-                            <p className="text-xs text-lab-muted leading-snug">
-                              {post.excerpt}
-                            </p>
-                          )}
                         </div>
+                        <h3
+                          className="text-xl text-lab-white mb-1.5 leading-snug"
+                          style={{ fontFamily: 'var(--font-serif)' }}
+                        >
+                          {post.title}
+                        </h3>
+                        {post.excerpt && (
+                          <p className="text-sm text-lab-muted leading-relaxed">
+                            {post.excerpt}
+                          </p>
+                        )}
+                        <span className="blog-entry-link font-mono text-xs text-[#555] mt-2.5 inline-block transition-colors group-hover:text-lab-white">
+                          Read &rarr;
+                        </span>
                       </div>
                     </Link>
                   );
                 })}
               </div>
-            )}
-          </>
+            ))}
+          </div>
         )}
       </div>
     </div>
