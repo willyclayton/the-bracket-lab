@@ -125,54 +125,40 @@ function GameDetail({ game }: { game: GameAgreement }) {
         <span className="font-mono text-xs text-[#ef4444] whitespace-nowrap">{game.otherTeam}</span>
       </div>
 
-      {/* Model table */}
-      <table className="w-full border-collapse mb-4">
-        <thead>
-          <tr className="border-b border-[#2a2a2a]">
-            <th className="font-mono text-[9px] text-[#555] uppercase tracking-wider text-left py-1.5 pr-2">Model</th>
-            <th className="font-mono text-[9px] text-[#555] uppercase tracking-wider text-left py-1.5 pr-2">Pick</th>
-            <th className="font-mono text-[9px] text-[#555] uppercase tracking-wider text-left py-1.5 pr-2 hidden sm:table-cell">Key Reasoning</th>
-            <th className="font-mono text-[9px] text-[#555] uppercase tracking-wider text-right py-1.5">Conf</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[...forPicks, ...againstPicks].map((p) => {
-            const isFor = p.pick === game.consensusPick;
-            return (
-              <tr key={p.modelId} className="border-b border-[#1a1a1a]">
-                <td className="py-2 pr-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: p.color }} />
-                    <span className="text-xs font-semibold" style={{ color: p.color }}>{p.modelName}</span>
-                  </div>
-                </td>
-                <td className="py-2 pr-2">
-                  <span
-                    className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
-                    style={{
-                      background: isFor ? 'rgba(34,197,94,0.12)' : 'rgba(239,68,68,0.12)',
-                      color: isFor ? '#22c55e' : '#ef4444',
-                    }}
-                  >
-                    {p.pick}
-                  </span>
-                </td>
-                <td className="py-2 pr-2 hidden sm:table-cell">
-                  <span className="text-[11px] text-[#999] leading-snug">{truncateReasoning(p.reasoning)}</span>
-                </td>
-                <td className="py-2 text-right">
-                  <span className="font-mono text-[11px] text-[#666]">{p.confidence}%</span>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      {/* Model list */}
+      <div className="space-y-2 mb-4">
+        {[...forPicks, ...againstPicks].map((p) => {
+          const isFor = p.pick === game.consensusPick;
+          return (
+            <div key={p.modelId} className="flex items-start gap-3 px-3 py-2.5 bg-[#1a1a1a] rounded-lg">
+              <div className="flex items-center gap-1.5 flex-shrink-0 w-[120px] sm:w-[140px] pt-0.5">
+                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: p.color }} />
+                <span className="text-xs font-semibold whitespace-nowrap" style={{ color: p.color }}>{p.modelName}</span>
+              </div>
+              <div className="flex-shrink-0 pt-0.5">
+                <span
+                  className="text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap"
+                  style={{
+                    background: isFor ? 'rgba(34,197,94,0.12)' : 'rgba(239,68,68,0.12)',
+                    color: isFor ? '#22c55e' : '#ef4444',
+                  }}
+                >
+                  {p.pick}
+                </span>
+              </div>
+              <p className="flex-1 text-[11px] text-[#999] leading-snug min-w-0 hidden sm:block pt-0.5">
+                {truncateReasoning(p.reasoning, 120)}
+              </p>
+              <span className="font-mono text-[11px] text-[#666] flex-shrink-0 pt-0.5">{p.confidence}%</span>
+            </div>
+          );
+        })}
+      </div>
 
-      {/* Mobile: reasoning list (hidden on sm+) */}
-      <div className="sm:hidden space-y-2 mb-4">
+      {/* Mobile: reasoning below each row */}
+      <div className="sm:hidden space-y-2 mb-4 -mt-2">
         {[...forPicks, ...againstPicks].map((p) => (
-          <div key={p.modelId + '-mobile'} className="text-[11px] text-[#999] leading-snug">
+          <div key={p.modelId + '-mobile'} className="text-[11px] text-[#999] leading-snug px-3">
             <span className="font-semibold" style={{ color: p.color }}>{p.modelName}:</span>{' '}
             {truncateReasoning(p.reasoning, 120)}
           </div>
