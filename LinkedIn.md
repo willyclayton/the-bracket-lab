@@ -17,3 +17,4 @@
 - be casual. this is how I usually talk. I don't like to talk formally - mainly just getting my point across
 - I am not an expert. be clear about that. I'm someone with ideas that I'm looking to share.
 - I do not like to brag. This is purely to show off my work and show people that I am building and learning.
+ 
