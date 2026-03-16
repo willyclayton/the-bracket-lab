@@ -7,12 +7,12 @@ import HomeModelStrip from '@/components/HomeModelStrip';
 import HomeLeaderboard from '@/components/HomeLeaderboard';
 
 const CHAMPION_PICKS: Record<string, string> = {
-  'the-scout':       'Florida',
-  'the-quant':       'Houston',
-  'the-historian':   'Duke',
-  'the-chaos-agent': 'UC San Diego',
-  'the-optimizer':   'TBD',
-  'the-auto-researcher': 'TBD',
+  'the-scout':           'Duke',
+  'the-quant':           'Duke',
+  'the-historian':       'Duke',
+  'the-chaos-agent':     'Gonzaga',
+  'the-optimizer':       'Illinois',
+  'the-auto-researcher': 'Arizona',
 };
 
 export default function Home() {
