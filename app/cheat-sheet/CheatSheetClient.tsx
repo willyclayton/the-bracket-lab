@@ -678,6 +678,14 @@ export default function CheatSheetClient() {
       {/* ─── 6. Paid Content ─────────────────────────────────────────── */}
       {showContent && (
         <>
+          {unlocked && !isPreview && (
+            <div className="mb-8 border border-green-500/30 rounded-lg px-5 py-4 bg-green-500/5">
+              <p className="text-sm text-green-300 font-semibold mb-0.5">Thanks for your purchase.</p>
+              <p className="text-xs text-lab-muted">
+                Your full cheat sheet is unlocked below. Good luck in your pool.
+              </p>
+            </div>
+          )}
           {/* Lock Picks (remaining) */}
           {filteredLockPicks.length > FREE_LOCK_PICKS && (
             <section className="mb-10">
