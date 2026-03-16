@@ -10,6 +10,7 @@ import BracketCardsPanel, { REGIONS, type Region, type GamesByRegion } from '@/c
 import BracketGridPanel from '@/components/BracketGridPanel';
 import MatchupPopover from '@/components/MatchupPopover';
 import { getEspnPercentile } from '@/lib/espn-percentile';
+import { useLiveResults } from '@/lib/use-live-results';
 
 // 2026 (current)
 import scoutData     from '@/data/models/the-scout.json';
@@ -21,7 +22,6 @@ import superAgentData from '@/data/models/the-super-agent.json';
 import optimizerData from '@/data/models/the-optimizer.json';
 import scoutPrimeData from '@/data/models/the-scout-prime.json';
 import autoResearcherData from '@/data/models/the-auto-researcher.json';
-import results2026   from '@/data/results/actual-results.json';
 
 // 2025 (archive)
 import scoutData2025     from '@/data/archive/2025/models/the-scout.json';
@@ -80,8 +80,8 @@ const BRACKET_DATA: Record<Year, Record<string, BracketData>> = {
   },
 };
 
-const ALL_RESULTS: Record<Year, Results> = {
-  '2026': results2026 as unknown as Results,
+// 2026 results are fetched live; archive years use static imports
+const ARCHIVE_RESULTS: Partial<Record<Year, Results>> = {
   '2025': results2025 as unknown as Results,
   '2024': results2024 as unknown as Results,
 };
@@ -119,6 +119,7 @@ function countUpsets(bracket: BracketData): number {
 export default function BracketsClient() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { results: liveResults } = useLiveResults();
 
   const yearParam = searchParams.get('year');
   const activeYear: Year = VALID_YEARS.includes(yearParam as Year) ? (yearParam as Year) : '2026';
@@ -129,7 +130,7 @@ export default function BracketsClient() {
   const activeModel = MODELS.find((m) => m.id === activeModelId)!;
 
   const bracket = BRACKET_DATA[activeYear][activeModelId] ?? null;
-  const results = ALL_RESULTS[activeYear];
+  const results = activeYear === '2026' ? liveResults : (ARCHIVE_RESULTS[activeYear] as Results);
 
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   useEffect(() => {

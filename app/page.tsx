@@ -4,7 +4,7 @@ import VoteWidget from '@/components/VoteWidget';
 import StatsBar from '@/components/StatsBar';
 import HomeModelCard from '@/components/HomeModelCard';
 import HomeModelStrip from '@/components/HomeModelStrip';
-import HomeLeaderboard from '@/components/HomeLeaderboard';
+import LiveHomeLeaderboard from '@/components/LiveHomeLeaderboard';
 
 const CHAMPION_PICKS: Record<string, string> = {
   'the-scout':           'Duke',
@@ -19,13 +19,6 @@ export default function Home() {
   const tournamentStart = new Date('2026-03-20');
   const today = new Date();
   const isLive = today >= tournamentStart;
-
-  // Pre-tournament: no scores yet
-  const leaderboardEntries = VISIBLE_MODELS.map((model, i) => ({
-    model,
-    champion: CHAMPION_PICKS[model.id] ?? 'TBD',
-    rank: i + 1,
-  }));
 
   return (
     <div>
@@ -118,7 +111,7 @@ export default function Home() {
 
       {/* ---- Leaderboard ---- */}
       <section className="mx-auto max-w-[900px] px-6 sm:px-10">
-        <HomeLeaderboard entries={leaderboardEntries} />
+        <LiveHomeLeaderboard />
       </section>
 
       {/* ---- Vote widget ---- */}

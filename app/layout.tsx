@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import NavLinks from '@/components/NavLinks';
 import GameTicker from '@/components/GameTicker';
+import LiveResultsProvider from '@/components/LiveResultsProvider';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <body className="noise min-h-screen bg-lab-bg text-lab-text antialiased">
+        <LiveResultsProvider>
         <GameTicker />
         <nav className="sticky top-0 z-40 border-b border-lab-border bg-lab-bg/80 backdrop-blur-md">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -48,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </nav>
         <main>{children}</main>
+        </LiveResultsProvider>
         <Analytics />
         <footer className="border-t border-lab-border mt-24">
           <div className="mx-auto max-w-6xl px-6 py-8">

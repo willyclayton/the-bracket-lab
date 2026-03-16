@@ -2,6 +2,7 @@
 
 import { VISIBLE_MODELS } from '@/lib/models';
 import { BracketData, Results } from '@/lib/types';
+import { useLiveResults } from '@/lib/use-live-results';
 
 import scoutData from '@/data/models/the-scout.json';
 import quantData from '@/data/models/the-quant.json';
@@ -9,7 +10,6 @@ import historianData from '@/data/models/the-historian.json';
 import chaosData from '@/data/models/the-chaos-agent.json';
 import optimizerData from '@/data/models/the-optimizer.json';
 import autoResearcherData from '@/data/models/the-auto-researcher.json';
-import results from '@/data/results/actual-results.json';
 
 const BRACKETS: Record<string, BracketData> = {
   'the-scout': scoutData as unknown as BracketData,
@@ -19,8 +19,6 @@ const BRACKETS: Record<string, BracketData> = {
   'the-optimizer': optimizerData as unknown as BracketData,
   'the-auto-researcher': autoResearcherData as unknown as BracketData,
 };
-
-const RESULTS = results as unknown as Results;
 
 const MODEL_LETTERS: { id: string; letter: string; color: string }[] = [
   { id: 'the-scout', letter: 'S', color: '#3b82f6' },
@@ -46,7 +44,7 @@ interface TickerItem {
   correctCount: number;
 }
 
-function buildTickerItems(): TickerItem[] {
+function buildTickerItems(RESULTS: Results): TickerItem[] {
   const completedGames = RESULTS.games.filter((g) => g.completed && g.winner);
   if (completedGames.length === 0) return [];
 
@@ -106,13 +104,23 @@ function getMatchupPreviews(): { team1: string; seed1: number; team2: string; se
 }
 
 export default function GameTicker() {
-  const tickerItems = buildTickerItems();
+  const { results, isLive } = useLiveResults();
+  const tickerItems = buildTickerItems(results);
   const picksExist = hasAnyPicks();
 
   // State 1: Games completed — show results + model scorecard
   if (tickerItems.length > 0) {
     return (
       <div className="ticker-bar">
+        {isLive && (
+          <div className="flex items-center gap-1.5 px-3 flex-shrink-0 border-r border-[#2a2a2a]">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+            </span>
+            <span className="font-mono text-[9px] text-green-400 uppercase tracking-wider">Live</span>
+          </div>
+        )}
         <div className="ticker-track">
           {[0, 1].map((copy) => (
             <div key={copy} className="flex items-center gap-6 pr-6">

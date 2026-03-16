@@ -3,16 +3,24 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createHash } from 'crypto';
 import { VISIBLE_MODELS } from '@/lib/models';
 
-const redis = new Redis({
-  url: process.env.KV_REST_API_URL!,
-  token: process.env.KV_REST_API_TOKEN!,
-});
+function getRedis(): Redis | null {
+  const url = process.env.KV_REST_API_URL;
+  const token = process.env.KV_REST_API_TOKEN;
+  if (!url || !token) return null;
+  return new Redis({ url, token });
+}
 
 function hashIp(ip: string): string {
   return createHash('sha256').update(ip).digest('hex').slice(0, 16);
 }
 
 export async function GET(req: NextRequest) {
+  const redis = getRedis();
+
+  if (!redis) {
+    return NextResponse.json({ counts: {}, userVote: null });
+  }
+
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
   const ipHash = hashIp(ip);
 
@@ -28,6 +36,12 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  const redis = getRedis();
+
+  if (!redis) {
+    return NextResponse.json({ error: 'Redis not configured (missing KV_REST_API_URL or KV_REST_API_TOKEN)' }, { status: 503 });
+  }
+
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
   const ipHash = hashIp(ip);
   const { modelId } = await req.json();
