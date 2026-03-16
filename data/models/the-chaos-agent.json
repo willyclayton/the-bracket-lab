@@ -747,7 +747,7 @@
       {
         "gameId": "f4-south-west",
         "round": "final_four",
-        "region": "East / South",
+        "region": "Final Four",
         "seed1": 1,
         "team1": "Duke",
         "seed2": 3,
@@ -759,7 +759,7 @@
       {
         "gameId": "f4-east-midwest",
         "round": "final_four",
-        "region": "West / Midwest",
+        "region": "Final Four",
         "seed1": 3,
         "team1": "Gonzaga",
         "seed2": 2,

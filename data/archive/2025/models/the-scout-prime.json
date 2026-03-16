@@ -26,7 +26,7 @@
         "team2": "Alabama State",
         "pick": "Auburn",
         "confidence": 98,
-        "reasoning": "43.1 AdjEM gap is insurmountable. Auburn's archetype (2024 Purdue, Runner-Up) confirms elite ceiling. Alabama State's best twin (2012 Norfolk State) pulled a 15-over-2 upset — wrong seed line to project here."
+        "reasoning": "43.1 AdjEM gap is insurmountable. Auburn's archetype (2024 Purdue, Runner-Up) confirms elite ceiling. Alabama State's best twin (2012 Norfolk State) pulled a 15-over-2 upset \u2014 wrong seed line to project here."
       },
       {
         "gameId": "r64-south-2",
@@ -38,7 +38,7 @@
         "team2": "Creighton",
         "pick": "Creighton",
         "confidence": 56,
-        "reasoning": "Only 2.3 AdjEM gap favoring Louisville. Creighton's top archetype is 2014 Connecticut (Champion, 0.932 similarity) — that UConn team was similarly underseeded and went on a title run. Louisville's twin (2018 Michigan, Runner-Up) is strong, but Creighton's offensive efficiency (AdjO 118.4) at a controlled tempo gives them the edge in this coin-flip."
+        "reasoning": "Only 2.3 AdjEM gap favoring Louisville. Creighton's top archetype is 2014 Connecticut (Champion, 0.932 similarity) \u2014 that UConn team was similarly underseeded and went on a title run. Louisville's twin (2018 Michigan, Runner-Up) is strong, but Creighton's offensive efficiency (AdjO 118.4) at a controlled tempo gives them the edge in this coin-flip."
       },
       {
         "gameId": "r64-south-3",
@@ -74,7 +74,7 @@
         "team2": "North Carolina",
         "pick": "Ole Miss",
         "confidence": 58,
-        "reasoning": "Narrow 2.7 AdjEM edge for Ole Miss. Both archetypes are strong — Ole Miss matches 2018 Michigan (Runner-Up) and UNC matches 2011 Connecticut (Champion in some twins). Ole Miss's defensive edge (AdjD 97.0 vs 99.8) decides a close 6-11."
+        "reasoning": "Narrow 2.7 AdjEM edge for Ole Miss. Both archetypes are strong \u2014 Ole Miss matches 2018 Michigan (Runner-Up) and UNC matches 2011 Connecticut (Champion in some twins). Ole Miss's defensive edge (AdjD 97.0 vs 99.8) decides a close 6-11."
       },
       {
         "gameId": "r64-south-6",
@@ -110,7 +110,7 @@
         "team2": "Bryant",
         "pick": "Michigan State",
         "confidence": 96,
-        "reasoning": "24.5 AdjEM gap. Michigan State's archetype (2010 Duke, Champion) reflects elite tournament DNA. Bryant's twin (2012 Norfolk State) pulled an upset, but that was a 15-over-2 — the stats don't support a repeat here against MSU's superior defense."
+        "reasoning": "24.5 AdjEM gap. Michigan State's archetype (2010 Duke, Champion) reflects elite tournament DNA. Bryant's twin (2012 Norfolk State) pulled an upset, but that was a 15-over-2 \u2014 the stats don't support a repeat here against MSU's superior defense."
       },
       {
         "gameId": "r64-east-1",
@@ -122,7 +122,7 @@
         "team2": "Mount St. Mary's",
         "pick": "Duke",
         "confidence": 99,
-        "reasoning": "46.0 AdjEM gap — the largest in the tournament. Duke's archetype (2024 Purdue, Runner-Up) and AdjO of 130.6 suggest historically elite offense. Mount St. Mary's has no path."
+        "reasoning": "46.0 AdjEM gap \u2014 the largest in the tournament. Duke's archetype (2024 Purdue, Runner-Up) and AdjO of 130.6 suggest historically elite offense. Mount St. Mary's has no path."
       },
       {
         "gameId": "r64-east-2",
@@ -194,7 +194,7 @@
         "team2": "Vanderbilt",
         "pick": "Saint Mary's",
         "confidence": 63,
-        "reasoning": "3.7 AdjEM edge with elite defense (AdjD 93.0 — 8 points better than Vanderbilt's 101.1). Saint Mary's archetype (2014 Wisconsin, Final Four) was similarly defense-first and slow-tempo. Vanderbilt's twin (2022 Iowa State, Sweet 16) is good but defense wins here."
+        "reasoning": "3.7 AdjEM edge with elite defense (AdjD 93.0 \u2014 8 points better than Vanderbilt's 101.1). Saint Mary's archetype (2014 Wisconsin, Final Four) was similarly defense-first and slow-tempo. Vanderbilt's twin (2022 Iowa State, Sweet 16) is good but defense wins here."
       },
       {
         "gameId": "r64-east-8",
@@ -230,7 +230,7 @@
         "team2": "Georgia",
         "pick": "Gonzaga",
         "confidence": 70,
-        "reasoning": "9.3 AdjEM gap is enormous for an 8-9 matchup — Gonzaga is massively underseeded. Gonzaga's archetype (2016 Villanova, Champion, 0.946) is a title-winner profile. Georgia's twin (2013 Syracuse, Final Four) is solid but Gonzaga's offensive arsenal (AdjO 124.8) is too much."
+        "reasoning": "9.3 AdjEM gap is enormous for an 8-9 matchup \u2014 Gonzaga is massively underseeded. Gonzaga's archetype (2016 Villanova, Champion, 0.946) is a title-winner profile. Georgia's twin (2013 Syracuse, Final Four) is solid but Gonzaga's offensive arsenal (AdjO 124.8) is too much."
       },
       {
         "gameId": "r64-midwest-3",
@@ -278,7 +278,7 @@
         "team2": "Troy",
         "pick": "Kentucky",
         "confidence": 91,
-        "reasoning": "18.7 AdjEM gap. Kentucky's archetype (2016 Oklahoma, Final Four, 0.931) and Troy's twin (2022 Saint Peter's, Elite Eight) create an interesting dynamic — Troy's archetype was a massive upset specialist. But the efficiency gap is too wide for a 14-seed."
+        "reasoning": "18.7 AdjEM gap. Kentucky's archetype (2016 Oklahoma, Final Four, 0.931) and Troy's twin (2022 Saint Peter's, Elite Eight) create an interesting dynamic \u2014 Troy's archetype was a massive upset specialist. But the efficiency gap is too wide for a 14-seed."
       },
       {
         "gameId": "r64-midwest-7",
@@ -302,7 +302,7 @@
         "team2": "Wofford",
         "pick": "Tennessee",
         "confidence": 97,
-        "reasoning": "26.2 AdjEM gap with elite defense (AdjD 91.9). Tennessee's archetype (2015 Wisconsin, Runner-Up, 0.979 — near perfect similarity) reached the championship game with the same defensive identity. Wofford has no path against this wall."
+        "reasoning": "26.2 AdjEM gap with elite defense (AdjD 91.9). Tennessee's archetype (2015 Wisconsin, Runner-Up, 0.979 \u2014 near perfect similarity) reached the championship game with the same defensive identity. Wofford has no path against this wall."
       },
       {
         "gameId": "r64-west-1",
@@ -338,7 +338,7 @@
         "team2": "Colorado State",
         "pick": "Colorado State",
         "confidence": 60,
-        "reasoning": "Colorado State has a 5.6 AdjEM ADVANTAGE over the 5-seed Memphis (18.4 vs 12.8) — one of the biggest misseeds in the bracket. CSU's archetype (2013 Syracuse, Final Four, 0.937) matches a team that went deep. Memphis's twin (2017 South Carolina, Final Four) had a magic run but worse numbers. The data says upset."
+        "reasoning": "Colorado State has a 5.6 AdjEM ADVANTAGE over the 5-seed Memphis (18.4 vs 12.8) \u2014 one of the biggest misseeds in the bracket. CSU's archetype (2013 Syracuse, Final Four, 0.937) matches a team that went deep. Memphis's twin (2017 South Carolina, Final Four) had a magic run but worse numbers. The data says upset."
       },
       {
         "gameId": "r64-west-4",
@@ -350,7 +350,7 @@
         "team2": "Grand Canyon",
         "pick": "Maryland",
         "confidence": 85,
-        "reasoning": "18.8 AdjEM gap. Maryland's archetype (2011 Duke, Sweet 16, 0.986 — near-perfect) is a methodical 4-seed profile. Grand Canyon's twin (2014 Mercer, R32) had upset potential from the 14-line, not the 13. Maryland's defense (AdjD 92.1) is elite."
+        "reasoning": "18.8 AdjEM gap. Maryland's archetype (2011 Duke, Sweet 16, 0.986 \u2014 near-perfect) is a methodical 4-seed profile. Grand Canyon's twin (2014 Mercer, R32) had upset potential from the 14-line, not the 13. Maryland's defense (AdjD 92.1) is elite."
       },
       {
         "gameId": "r64-west-5",
@@ -362,7 +362,7 @@
         "team2": "Drake",
         "pick": "Missouri",
         "confidence": 67,
-        "reasoning": "9.3 AdjEM edge. Missouri's archetype (2016 Oklahoma, Final Four) reflects a high-powered offensive team with deep run capability. Drake's twin (2010 Butler, Runner-Up) had incredible tournament magic, but Drake plays at 59.1 tempo — too slow to generate comeback possessions."
+        "reasoning": "9.3 AdjEM edge. Missouri's archetype (2016 Oklahoma, Final Four) reflects a high-powered offensive team with deep run capability. Drake's twin (2010 Butler, Runner-Up) had incredible tournament magic, but Drake plays at 59.1 tempo \u2014 too slow to generate comeback possessions."
       },
       {
         "gameId": "r64-west-6",
@@ -496,7 +496,7 @@
         "team2": "Alabama",
         "pick": "Alabama",
         "confidence": 72,
-        "reasoning": "Alabama's AdjEM (31.1) is 9.9 points above Saint Mary's (21.2). Alabama's pace (75.1 tempo) forces Saint Mary's (61.9 tempo) into an uncomfortable speed. Saint Mary's archetype (2014 Wisconsin, Final Four) thrived at slow pace — Alabama ensures they never get it."
+        "reasoning": "Alabama's AdjEM (31.1) is 9.9 points above Saint Mary's (21.2). Alabama's pace (75.1 tempo) forces Saint Mary's (61.9 tempo) into an uncomfortable speed. Saint Mary's archetype (2014 Wisconsin, Final Four) thrived at slow pace \u2014 Alabama ensures they never get it."
       },
       {
         "gameId": "r32-midwest-1",
@@ -508,7 +508,7 @@
         "team2": "Gonzaga",
         "pick": "Houston",
         "confidence": 64,
-        "reasoning": "Houston's AdjEM (37.3) vs Gonzaga's (28.1) — a 9.2-point edge. Houston's champion archetype (2019 Virginia) won a title with the same defensive suffocation (AdjD 87.3). Gonzaga's champion twin (2016 Villanova) had elite offense, but Houston's defense is historically elite. Defense wins in March."
+        "reasoning": "Houston's AdjEM (37.3) vs Gonzaga's (28.1) \u2014 a 9.2-point edge. Houston's champion archetype (2019 Virginia) won a title with the same defensive suffocation (AdjD 87.3). Gonzaga's champion twin (2016 Villanova) had elite offense, but Houston's defense is historically elite. Defense wins in March."
       },
       {
         "gameId": "r32-midwest-2",
@@ -520,7 +520,7 @@
         "team2": "Purdue",
         "pick": "Purdue",
         "confidence": 63,
-        "reasoning": "Purdue's AdjEM (26.2) edges Clemson's (21.8) by 4.4 points. Purdue's archetype (2024 Purdue, Runner-Up — literally themselves from last year) shows they know how to navigate the tournament. Purdue's offense (AdjO 125.6 vs 117.3) creates a decisive scoring gap."
+        "reasoning": "Purdue's AdjEM (26.2) edges Clemson's (21.8) by 4.4 points. Purdue's archetype (2024 Purdue, Runner-Up \u2014 literally themselves from last year) shows they know how to navigate the tournament. Purdue's offense (AdjO 125.6 vs 117.3) creates a decisive scoring gap."
       },
       {
         "gameId": "r32-midwest-3",
@@ -532,7 +532,7 @@
         "team2": "Kentucky",
         "pick": "Kentucky",
         "confidence": 58,
-        "reasoning": "Close match (AdjEM 24.9 vs 24.0). Kentucky's archetype (2016 Oklahoma, Final Four) and Illinois's twin (2016 Oklahoma, Final Four — same team!) show remarkably similar profiles. Kentucky's higher offensive output (AdjO 123.4 vs 122.5) and roster pedigree tip a coin-flip."
+        "reasoning": "Close match (AdjEM 24.9 vs 24.0). Kentucky's archetype (2016 Oklahoma, Final Four) and Illinois's twin (2016 Oklahoma, Final Four \u2014 same team!) show remarkably similar profiles. Kentucky's higher offensive output (AdjO 123.4 vs 122.5) and roster pedigree tip a coin-flip."
       },
       {
         "gameId": "r32-midwest-4",
@@ -544,7 +544,7 @@
         "team2": "Tennessee",
         "pick": "Tennessee",
         "confidence": 73,
-        "reasoning": "Tennessee's AdjEM (28.3) beats UCLA's (23.6) by 4.7 points. Tennessee's archetype (2015 Wisconsin, Runner-Up, 0.979 — near-perfect match) reached the championship game with this exact defensive profile (AdjD 91.9). UCLA's twin (2012 Syracuse, Elite Eight) can't match Tennessee's defensive intensity."
+        "reasoning": "Tennessee's AdjEM (28.3) beats UCLA's (23.6) by 4.7 points. Tennessee's archetype (2015 Wisconsin, Runner-Up, 0.979 \u2014 near-perfect match) reached the championship game with this exact defensive profile (AdjD 91.9). UCLA's twin (2012 Syracuse, Elite Eight) can't match Tennessee's defensive intensity."
       },
       {
         "gameId": "r32-west-1",
@@ -580,7 +580,7 @@
         "team2": "Texas Tech",
         "pick": "Texas Tech",
         "confidence": 64,
-        "reasoning": "Texas Tech's AdjEM (28.5) holds a 3.8-point edge over Missouri (24.7). Both have strong archetypes — Texas Tech (2024 Purdue, Runner-Up) and Missouri (2016 Oklahoma, Final Four). Texas Tech's balanced profile (AdjO 126.1, AdjD 97.6) wins this clash of high-powered offenses."
+        "reasoning": "Texas Tech's AdjEM (28.5) holds a 3.8-point edge over Missouri (24.7). Both have strong archetypes \u2014 Texas Tech (2024 Purdue, Runner-Up) and Missouri (2016 Oklahoma, Final Four). Texas Tech's balanced profile (AdjO 126.1, AdjD 97.6) wins this clash of high-powered offenses."
       },
       {
         "gameId": "r32-west-4",
@@ -592,7 +592,7 @@
         "team2": "St. John's",
         "pick": "St. John's",
         "confidence": 60,
-        "reasoning": "St. John's defensive wall (AdjD 90.0 — best in bracket) is the difference despite only a 0.6 AdjEM edge (22.9 vs 22.3). Both archetypes are strong (Final Four twins), but St. John's defense creates the kind of grind that eliminates Kansas's offensive rhythm."
+        "reasoning": "St. John's defensive wall (AdjD 90.0 \u2014 best in bracket) is the difference despite only a 0.6 AdjEM edge (22.9 vs 22.3). Both archetypes are strong (Final Four twins), but St. John's defense creates the kind of grind that eliminates Kansas's offensive rhythm."
       }
     ],
     "sweet_16": [
@@ -618,7 +618,7 @@
         "team2": "Michigan State",
         "pick": "Michigan State",
         "confidence": 55,
-        "reasoning": "Razor-thin AdjEM edge for Iowa State (26.0 vs 24.9). Michigan State's archetype (2010 Duke, Champion) edges Iowa State's twin (2013 Duke, R64 exit). Izzo's tournament pedigree and MSU's superior defense (AdjD 92.3 vs 93.3) tip this coin-flip. MSU has been through Iowa State and Marquette to get here — battle-tested."
+        "reasoning": "Razor-thin AdjEM edge for Iowa State (26.0 vs 24.9). Michigan State's archetype (2010 Duke, Champion) edges Iowa State's twin (2013 Duke, R64 exit). Izzo's tournament pedigree and MSU's superior defense (AdjD 92.3 vs 93.3) tip this coin-flip. MSU has been through Iowa State and Marquette to get here \u2014 battle-tested."
       },
       {
         "gameId": "s16-east-1",
@@ -666,7 +666,7 @@
         "team2": "Tennessee",
         "pick": "Tennessee",
         "confidence": 57,
-        "reasoning": "Tennessee's AdjEM (28.3) edges Kentucky's (24.9) by 3.4 points. Tennessee's archetype (2015 Wisconsin, Runner-Up, 0.979 near-perfect match) reached the championship with this exact defensive identity. In an SEC rivalry, Tennessee's defense (AdjD 91.9 vs 98.5 — a 6.6-point gap) is the decisive factor."
+        "reasoning": "Tennessee's AdjEM (28.3) edges Kentucky's (24.9) by 3.4 points. Tennessee's archetype (2015 Wisconsin, Runner-Up, 0.979 near-perfect match) reached the championship with this exact defensive identity. In an SEC rivalry, Tennessee's defense (AdjD 91.9 vs 98.5 \u2014 a 6.6-point gap) is the decisive factor."
       },
       {
         "gameId": "s16-west-1",
@@ -704,7 +704,7 @@
         "team2": "Michigan State",
         "pick": "Auburn",
         "confidence": 68,
-        "reasoning": "Auburn's AdjEM (34.7) is 9.8 points above Michigan State's (24.9). Both have champion-level archetypes — Auburn (2024 Purdue, Runner-Up) and MSU (2010 Duke, Champion). But Auburn's offensive firepower (AdjO 127.7 vs 117.3) and the efficiency gap are too much even for Izzo's tournament magic. Auburn's path: Alabama State, Creighton, Texas A&M — progressively tougher opponents handled with ease."
+        "reasoning": "Auburn's AdjEM (34.7) is 9.8 points above Michigan State's (24.9). Both have champion-level archetypes \u2014 Auburn (2024 Purdue, Runner-Up) and MSU (2010 Duke, Champion). But Auburn's offensive firepower (AdjO 127.7 vs 117.3) and the efficiency gap are too much even for Izzo's tournament magic. Auburn's path: Alabama State, Creighton, Texas A&M \u2014 progressively tougher opponents handled with ease."
       },
       {
         "gameId": "e8-east",
@@ -728,7 +728,7 @@
         "team2": "Tennessee",
         "pick": "Houston",
         "confidence": 63,
-        "reasoning": "Houston (AdjEM 37.3) vs Tennessee (28.3) — both elite defensive teams (AdjD 87.3 vs 91.9). Houston's champion archetype (2019 Virginia) won a title with this exact defensive suffocation. Tennessee's near-perfect twin (2015 Wisconsin, Runner-Up) lost in the championship. Houston's 9-point AdjEM edge and the nation's best defense make the difference in a low-scoring grinder."
+        "reasoning": "Houston (AdjEM 37.3) vs Tennessee (28.3) \u2014 both elite defensive teams (AdjD 87.3 vs 91.9). Houston's champion archetype (2019 Virginia) won a title with this exact defensive suffocation. Tennessee's near-perfect twin (2015 Wisconsin, Runner-Up) lost in the championship. Houston's 9-point AdjEM edge and the nation's best defense make the difference in a low-scoring grinder."
       },
       {
         "gameId": "e8-west",
@@ -747,26 +747,26 @@
       {
         "gameId": "f4-south-west",
         "round": "final_four",
-        "region": "National",
+        "region": "Final Four",
         "seed1": 1,
         "team1": "Auburn",
         "seed2": 1,
         "team2": "Florida",
         "pick": "Florida",
         "confidence": 54,
-        "reasoning": "Auburn (AdjEM 34.7) vs Florida (33.6) — only 1.1-point gap. Florida's archetype (2017 Gonzaga, Runner-Up) reached the championship game. Auburn's twin (2024 Purdue, Runner-Up) also reached the final. Both are 1-seeds with elite offense. The difference: Florida's path (Norfolk State, UConn, Maryland, Texas Tech) was tougher in later rounds, and Florida's offense (AdjO 127.8 vs 127.7) matches Auburn's. Florida's slightly faster tempo (69.9 vs 68.3) generates more opportunities in a high-stakes game."
+        "reasoning": "Auburn (AdjEM 34.7) vs Florida (33.6) \u2014 only 1.1-point gap. Florida's archetype (2017 Gonzaga, Runner-Up) reached the championship game. Auburn's twin (2024 Purdue, Runner-Up) also reached the final. Both are 1-seeds with elite offense. The difference: Florida's path (Norfolk State, UConn, Maryland, Texas Tech) was tougher in later rounds, and Florida's offense (AdjO 127.8 vs 127.7) matches Auburn's. Florida's slightly faster tempo (69.9 vs 68.3) generates more opportunities in a high-stakes game."
       },
       {
         "gameId": "f4-east-midwest",
         "round": "final_four",
-        "region": "National",
+        "region": "Final Four",
         "seed1": 1,
         "team1": "Duke",
         "seed2": 1,
         "team2": "Houston",
         "pick": "Houston",
         "confidence": 56,
-        "reasoning": "Houston (AdjEM 37.3) vs Duke (38.5) — Duke has the slight edge. But Houston's champion archetype (2019 Virginia) won the title with defensive dominance. Duke's twin (2024 Purdue, Runner-Up) lost in the final. Houston's defense (AdjD 87.3) is historically elite and 4.7 points better than Duke's (92.0). In a Final Four where Duke must crack the nation's best defense, Houston's wall holds. The x-factor: Houston holds opponents to season lows at this stage."
+        "reasoning": "Houston (AdjEM 37.3) vs Duke (38.5) \u2014 Duke has the slight edge. But Houston's champion archetype (2019 Virginia) won the title with defensive dominance. Duke's twin (2024 Purdue, Runner-Up) lost in the final. Houston's defense (AdjD 87.3) is historically elite and 4.7 points better than Duke's (92.0). In a Final Four where Duke must crack the nation's best defense, Houston's wall holds. The x-factor: Houston holds opponents to season lows at this stage."
       }
     ],
     "championship": [
@@ -780,7 +780,7 @@
         "team2": "Florida",
         "pick": "Florida",
         "confidence": 54,
-        "reasoning": "Florida (AdjEM 33.6) vs Houston (37.3) — Houston has the statistical edge, but Florida's archetype (2017 Gonzaga, Runner-Up) and offensive firepower (AdjO 127.8) create enough volume to crack Houston's historic defense. Houston's champion twin (2019 Virginia) won by surviving close games — but Florida's faster tempo (69.9 vs 61.8) generates more possessions, limiting Houston's ability to control pace. Florida's path through tougher matchups (UConn, Maryland, Texas Tech, Auburn) has battle-tested this team. In a championship game, Florida's offensive depth finds enough cracks in Houston's wall to pull the upset."
+        "reasoning": "Florida (AdjEM 33.6) vs Houston (37.3) \u2014 Houston has the statistical edge, but Florida's archetype (2017 Gonzaga, Runner-Up) and offensive firepower (AdjO 127.8) create enough volume to crack Houston's historic defense. Houston's champion twin (2019 Virginia) won by surviving close games \u2014 but Florida's faster tempo (69.9 vs 61.8) generates more possessions, limiting Houston's ability to control pace. Florida's path through tougher matchups (UConn, Maryland, Texas Tech, Auburn) has battle-tested this team. In a championship game, Florida's offensive depth finds enough cracks in Houston's wall to pull the upset."
       }
     ]
   }

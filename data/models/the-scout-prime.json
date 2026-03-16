@@ -26,7 +26,7 @@
         "team2": "Siena",
         "pick": "Duke",
         "confidence": 98,
-        "reasoning": "AdjEM gap of 39.0 is the largest in the East region. Duke's AdjO of 128.1 ranks 1st nationally and their Barthag of 0.981 is near-perfect. Historical twins include 2024 Purdue (Runner-Up) and 2025 Florida (Champion) — elite company. No pathway for a 16-seed with AdjEM of -1.7."
+        "reasoning": "AdjEM gap of 39.0 is the largest in the East region. Duke's AdjO of 128.1 ranks 1st nationally and their Barthag of 0.981 is near-perfect. Historical twins include 2024 Purdue (Runner-Up) and 2025 Florida (Champion) \u2014 elite company. No pathway for a 16-seed with AdjEM of -1.7."
       },
       {
         "gameId": "r64-east-2",
@@ -62,7 +62,7 @@
         "team2": "Cal Baptist",
         "pick": "Kansas",
         "confidence": 85,
-        "reasoning": "16.3 AdjEM gap and Kansas's WAB of 6.3 vs Cal Baptist's -2.3 make this decisive. Kansas's archetype twins (2018 Michigan Runner-Up, 2010 Duke Champion) confirm this is an elite-caliber team. Cal Baptist's twin 2022 Saint Peter's went to E8, but Saint Peter's had a uniquely favorable bracket path — Cal Baptist faces a 4-seed, not a weakened 2."
+        "reasoning": "16.3 AdjEM gap and Kansas's WAB of 6.3 vs Cal Baptist's -2.3 make this decisive. Kansas's archetype twins (2018 Michigan Runner-Up, 2010 Duke Champion) confirm this is an elite-caliber team. Cal Baptist's twin 2022 Saint Peter's went to E8, but Saint Peter's had a uniquely favorable bracket path \u2014 Cal Baptist faces a 4-seed, not a weakened 2."
       },
       {
         "gameId": "r64-east-5",
@@ -74,7 +74,7 @@
         "team2": "South Florida",
         "pick": "Louisville",
         "confidence": 73,
-        "reasoning": "10.5 AdjEM gap favors Louisville but South Florida's archetypes (2022 Iowa State, 2024 Colorado — both Sweet 16) suggest a team capable of a run. Louisville's AdjO of 124.0 and top archetype twin (2016 Villanova Champion) are compelling. The gap is just large enough at 10.5 to take the favorite, but South Florida's tempo (71.4) and offensive efficiency could keep this close."
+        "reasoning": "10.5 AdjEM gap favors Louisville but South Florida's archetypes (2022 Iowa State, 2024 Colorado \u2014 both Sweet 16) suggest a team capable of a run. Louisville's AdjO of 124.0 and top archetype twin (2016 Villanova Champion) are compelling. The gap is just large enough at 10.5 to take the favorite, but South Florida's tempo (71.4) and offensive efficiency could keep this close."
       },
       {
         "gameId": "r64-east-6",
@@ -110,7 +110,7 @@
         "team2": "Furman",
         "pick": "UConn",
         "confidence": 96,
-        "reasoning": "30.2 AdjEM gap is insurmountable. UConn's AdjO of 127.3 is 2nd nationally and their Barthag of 0.961 ranks in the top 5. Furman's AdjEM of -2.9 puts them among the weakest 15-seeds in the field. Historical 2-15 upset rate requires a gap under 12.0 — this gap is nearly triple that threshold."
+        "reasoning": "30.2 AdjEM gap is insurmountable. UConn's AdjO of 127.3 is 2nd nationally and their Barthag of 0.961 ranks in the top 5. Furman's AdjEM of -2.9 puts them among the weakest 15-seeds in the field. Historical 2-15 upset rate requires a gap under 12.0 \u2014 this gap is nearly triple that threshold."
       },
       {
         "gameId": "r64-south-1",
@@ -122,7 +122,7 @@
         "team2": "Prairie View A&M",
         "pick": "Florida",
         "confidence": 99,
-        "reasoning": "43.8 AdjEM gap is the largest in the entire tournament. Florida's archetype twin is 2025 Florida (Champion, 0.953 similarity) — essentially the same team returning. Prairie View A&M's AdjEM of -10.3 makes this the most lopsided matchup in the bracket. No statistical basis for any other pick."
+        "reasoning": "43.8 AdjEM gap is the largest in the entire tournament. Florida's archetype twin is 2025 Florida (Champion, 0.953 similarity) \u2014 essentially the same team returning. Prairie View A&M's AdjEM of -10.3 makes this the most lopsided matchup in the bracket. No statistical basis for any other pick."
       },
       {
         "gameId": "r64-south-2",
@@ -170,7 +170,7 @@
         "team2": "VCU",
         "pick": "North Carolina",
         "confidence": 62,
-        "reasoning": "5.2 AdjEM gap is narrow for a 6-11 matchup but UNC's WAB of 4.9 vs VCU's 1.7 reveals stronger quality wins. UNC's AdjO of 121.5 and archetype twins (2018 Michigan Runner-Up, 2014 UConn Champion) suggest a team with deep-run potential. VCU's archetypes are consistently Sweet 16 exits — good but capped. UNC's overall talent profile and brand of efficiency narrowly carry this."
+        "reasoning": "5.2 AdjEM gap is narrow for a 6-11 matchup but UNC's WAB of 4.9 vs VCU's 1.7 reveals stronger quality wins. UNC's AdjO of 121.5 and archetype twins (2018 Michigan Runner-Up, 2014 UConn Champion) suggest a team with deep-run potential. VCU's archetypes are consistently Sweet 16 exits \u2014 good but capped. UNC's overall talent profile and brand of efficiency narrowly carry this."
       },
       {
         "gameId": "r64-south-6",
@@ -194,7 +194,7 @@
         "team2": "Texas A&M",
         "pick": "Texas A&M",
         "confidence": 55,
-        "reasoning": "Despite Saint Mary's 3.3 AdjEM edge, Texas A&M's AdjO of 119.9 matches Saint Mary's 119.4 and TAMU played in the SEC (SOS 0.728 vs SMC's 0.387). A&M's archetype twin 2018 Kentucky (E8) shows tournament resilience in high-major talent. Saint Mary's WCC schedule inflates their efficiency metrics — SOS-adjusted, this gap narrows to near zero. Texas A&M's conference-calibrated quality gives them the slight edge."
+        "reasoning": "Despite Saint Mary's 3.3 AdjEM edge, Texas A&M's AdjO of 119.9 matches Saint Mary's 119.4 and TAMU played in the SEC (SOS 0.728 vs SMC's 0.387). A&M's archetype twin 2018 Kentucky (E8) shows tournament resilience in high-major talent. Saint Mary's WCC schedule inflates their efficiency metrics \u2014 SOS-adjusted, this gap narrows to near zero. Texas A&M's conference-calibrated quality gives them the slight edge."
       },
       {
         "gameId": "r64-south-8",
@@ -314,7 +314,7 @@
         "team2": "UMBC",
         "pick": "Michigan",
         "confidence": 98,
-        "reasoning": "38.3 AdjEM gap is the 4th-largest in the tournament. Michigan's AdjEM of 30.0 and Barthag of 0.967 rank in the top 5 nationally. Archetype twin 2012 Kentucky (Champion, 0.943 similarity) is the strongest possible signal. UMBC's AdjEM of -8.3 — even their famous 2018 upset came against a Virginia team that ranked 1st but had a 16-seed with AdjEM of +5, not -8."
+        "reasoning": "38.3 AdjEM gap is the 4th-largest in the tournament. Michigan's AdjEM of 30.0 and Barthag of 0.967 rank in the top 5 nationally. Archetype twin 2012 Kentucky (Champion, 0.943 similarity) is the strongest possible signal. UMBC's AdjEM of -8.3 \u2014 even their famous 2018 upset came against a Virginia team that ranked 1st but had a 16-seed with AdjEM of +5, not -8."
       },
       {
         "gameId": "r64-midwest-2",
@@ -386,7 +386,7 @@
         "team2": "Santa Clara",
         "pick": "Santa Clara",
         "confidence": 53,
-        "reasoning": "Santa Clara's AdjEM of 21.3 actually exceeds Kentucky's 19.9 despite being the 10-seed. Santa Clara's AdjO of 125.0 tops Kentucky's 119.9 by a significant margin, and their Barthag of 0.895 edges Kentucky's 0.890. Santa Clara's archetype twin (2016 Oklahoma F4) has deep-run pedigree. The data says Santa Clara is genuinely the better team — picking them is following the numbers, not chasing an upset."
+        "reasoning": "Santa Clara's AdjEM of 21.3 actually exceeds Kentucky's 19.9 despite being the 10-seed. Santa Clara's AdjO of 125.0 tops Kentucky's 119.9 by a significant margin, and their Barthag of 0.895 edges Kentucky's 0.890. Santa Clara's archetype twin (2016 Oklahoma F4) has deep-run pedigree. The data says Santa Clara is genuinely the better team \u2014 picking them is following the numbers, not chasing an upset."
       },
       {
         "gameId": "r64-midwest-8",
@@ -448,7 +448,7 @@
         "team2": "UConn",
         "pick": "UConn",
         "confidence": 66,
-        "reasoning": "5.4 AdjEM gap in UConn's favor with their AdjO of 127.3 creating matchup problems UCLA's AdjD of 101.8 cannot solve. UConn's Barthag of 0.961 dwarfs UCLA's 0.911 — a quality gap larger than the AdjEM alone suggests. UCLA's archetypes went deep but UConn's raw efficiency is a tier above."
+        "reasoning": "5.4 AdjEM gap in UConn's favor with their AdjO of 127.3 creating matchup problems UCLA's AdjD of 101.8 cannot solve. UConn's Barthag of 0.961 dwarfs UCLA's 0.911 \u2014 a quality gap larger than the AdjEM alone suggests. UCLA's archetypes went deep but UConn's raw efficiency is a tier above."
       },
       {
         "gameId": "r32-south-1",
@@ -460,7 +460,7 @@
         "team2": "Iowa",
         "pick": "Florida",
         "confidence": 82,
-        "reasoning": "11.9 AdjEM gap favors Florida substantially. Florida's archetype twin is literally 2025 Florida (Champion) at 0.953 similarity — this team knows how to win in March. Iowa's offensive firepower (AdjO 122.1) could keep it interesting but Florida's AdjD of 91.8 is elite enough to contain Iowa's scoring. Florida's Barthag of 0.970 is among the highest in the field."
+        "reasoning": "11.9 AdjEM gap favors Florida substantially. Florida's archetype twin is literally 2025 Florida (Champion) at 0.953 similarity \u2014 this team knows how to win in March. Iowa's offensive firepower (AdjO 122.1) could keep it interesting but Florida's AdjD of 91.8 is elite enough to contain Iowa's scoring. Florida's Barthag of 0.970 is among the highest in the field."
       },
       {
         "gameId": "r32-south-2",
@@ -472,7 +472,7 @@
         "team2": "Nebraska",
         "pick": "Vanderbilt",
         "confidence": 60,
-        "reasoning": "4.3 AdjEM gap in Vanderbilt's favor with significantly higher Barthag (0.946 vs 0.931). Vanderbilt's archetype twins (2016 Oklahoma F4, 2016 Villanova Champion) suggest deep-run potential. Nebraska's archetypes are also strong (2010 Duke Champion) but Vanderbilt's efficiency profile is clearly superior. WAB is nearly tied (7.3 vs 7.5), confirming both teams beat quality opponents — but Vandy does it more efficiently."
+        "reasoning": "4.3 AdjEM gap in Vanderbilt's favor with significantly higher Barthag (0.946 vs 0.931). Vanderbilt's archetype twins (2016 Oklahoma F4, 2016 Villanova Champion) suggest deep-run potential. Nebraska's archetypes are also strong (2010 Duke Champion) but Vanderbilt's efficiency profile is clearly superior. WAB is nearly tied (7.3 vs 7.5), confirming both teams beat quality opponents \u2014 but Vandy does it more efficiently."
       },
       {
         "gameId": "r32-south-3",
@@ -496,7 +496,7 @@
         "team2": "Houston",
         "pick": "Houston",
         "confidence": 85,
-        "reasoning": "14.5 AdjEM gap driven by Houston's AdjD of 89.5, the 2nd-best defense in the country. Texas A&M's AdjO of 119.9 will be severely tested against this defense. Houston's WAB of 8.2 dwarfs TAMU's 1.6, confirming dominance against quality opponents. TAMU got here as a 10-seed upset — their run ends against a genuine elite team."
+        "reasoning": "14.5 AdjEM gap driven by Houston's AdjD of 89.5, the 2nd-best defense in the country. Texas A&M's AdjO of 119.9 will be severely tested against this defense. Houston's WAB of 8.2 dwarfs TAMU's 1.6, confirming dominance against quality opponents. TAMU got here as a 10-seed upset \u2014 their run ends against a genuine elite team."
       },
       {
         "gameId": "r32-west-1",
@@ -544,7 +544,7 @@
         "team2": "Purdue",
         "pick": "Purdue",
         "confidence": 84,
-        "reasoning": "13.4 AdjEM gap is decisive. Purdue's AdjEM of 27.6 with Barthag of 0.951 ranks in the top 8 nationally. Miami's AdjEM of 19.6 is respectable but the gap is too large. Purdue's archetype twin 2024 Purdue (Runner-Up) is literally themselves — known tournament performers. Miami's archetypes (2021 UCLA F4) don't close this efficiency gap."
+        "reasoning": "13.4 AdjEM gap is decisive. Purdue's AdjEM of 27.6 with Barthag of 0.951 ranks in the top 8 nationally. Miami's AdjEM of 19.6 is respectable but the gap is too large. Purdue's archetype twin 2024 Purdue (Runner-Up) is literally themselves \u2014 known tournament performers. Miami's archetypes (2021 UCLA F4) don't close this efficiency gap."
       },
       {
         "gameId": "r32-midwest-1",
@@ -556,7 +556,7 @@
         "team2": "Georgia",
         "pick": "Michigan",
         "confidence": 89,
-        "reasoning": "17.0 AdjEM gap is the largest remaining in R32. Michigan's AdjEM of 30.0 and archetype twin 2012 Kentucky (Champion, 0.943 similarity) confirm they are a genuine title contender. Georgia's AdjEM of 19.6 and WAB of 2.6 suggest a solid-but-limited 8-seed. Michigan's Barthag of 0.967 is elite — Georgia has no path to an upset against this quality."
+        "reasoning": "17.0 AdjEM gap is the largest remaining in R32. Michigan's AdjEM of 30.0 and archetype twin 2012 Kentucky (Champion, 0.943 similarity) confirm they are a genuine title contender. Georgia's AdjEM of 19.6 and WAB of 2.6 suggest a solid-but-limited 8-seed. Michigan's Barthag of 0.967 is elite \u2014 Georgia has no path to an upset against this quality."
       },
       {
         "gameId": "r32-midwest-2",
@@ -568,7 +568,7 @@
         "team2": "Alabama",
         "pick": "Texas Tech",
         "confidence": 53,
-        "reasoning": "0.8 AdjEM gap with Texas Tech's Barthag of 0.944 edging Alabama's 0.934. TTU's elite AdjD of 93.6 is the differentiator — it will challenge Alabama's offense in a way few teams can. Alabama's higher WAB (6.5 vs 5.0) shows better quality wins, but TTU's defensive profile and archetype twin (2024 Purdue Runner-Up) suggest better tournament suitability. Razor-thin edge to Tech."
+        "reasoning": "0.8 AdjEM gap with Texas Tech's Barthag of 0.944 edging Alabama's 0.934. TTU's elite AdjD of 93.6 is the differentiator \u2014 it will challenge Alabama's offense in a way few teams can. Alabama's higher WAB (6.5 vs 5.0) shows better quality wins, but TTU's defensive profile and archetype twin (2024 Purdue Runner-Up) suggest better tournament suitability. Razor-thin edge to Tech."
       },
       {
         "gameId": "r32-midwest-3",
@@ -580,7 +580,7 @@
         "team2": "Virginia",
         "pick": "Virginia",
         "confidence": 53,
-        "reasoning": "0.5 AdjEM gap is functionally zero, but Virginia's WAB of 7.8 vs Tennessee's 4.1 is the decisive tiebreaker — Virginia has proven dramatically more against quality opponents. Barthag is nearly identical (0.943 vs 0.941). Both have strong E8/F4 archetypes. Virginia's quality-of-schedule validation and marginally higher seed give them the slimmest possible edge."
+        "reasoning": "0.5 AdjEM gap is functionally zero, but Virginia's WAB of 7.8 vs Tennessee's 4.1 is the decisive tiebreaker \u2014 Virginia has proven dramatically more against quality opponents. Barthag is nearly identical (0.943 vs 0.941). Both have strong E8/F4 archetypes. Virginia's quality-of-schedule validation and marginally higher seed give them the slimmest possible edge."
       },
       {
         "gameId": "r32-midwest-4",
@@ -630,7 +630,7 @@
         "team2": "Vanderbilt",
         "pick": "Florida",
         "confidence": 72,
-        "reasoning": "5.7 AdjEM gap favors Florida with Barthag of 0.973 vs Vanderbilt's 0.946. Florida's archetype twin is 2025 Florida (Champion, 0.953 similarity) — a repeat of last year's champion profile. Vanderbilt's archetypes (2016 Villanova Champion) suggest they could spring an upset, but Florida's WAB of 8.5 and overall efficiency profile are a tier above this SEC rival."
+        "reasoning": "5.7 AdjEM gap favors Florida with Barthag of 0.973 vs Vanderbilt's 0.946. Florida's archetype twin is 2025 Florida (Champion, 0.953 similarity) \u2014 a repeat of last year's champion profile. Vanderbilt's archetypes (2016 Villanova Champion) suggest they could spring an upset, but Florida's WAB of 8.5 and overall efficiency profile are a tier above this SEC rival."
       },
       {
         "gameId": "s16-south-2",
@@ -642,7 +642,7 @@
         "team2": "Houston",
         "pick": "Houston",
         "confidence": 54,
-        "reasoning": "0.8 AdjEM gap technically favors Illinois, but Houston's WAB of 9.0 vs Illinois's 6.6 is the decisive metric — Houston has been dramatically better against quality opponents. Houston's Barthag of 0.971 edges Illinois's 0.968. Houston's AdjD of 89.5 (2nd nationally) will turn this into a defensive slugfest that favors their style. Houston's archetypes (2015 Wisconsin Runner-Up) have deeper tournament pedigree."
+        "reasoning": "0.8 AdjEM gap technically favors Illinois, but Houston's WAB of 9.0 vs Illinois's 6.6 is the decisive metric \u2014 Houston has been dramatically better against quality opponents. Houston's Barthag of 0.971 edges Illinois's 0.968. Houston's AdjD of 89.5 (2nd nationally) will turn this into a defensive slugfest that favors their style. Houston's archetypes (2015 Wisconsin Runner-Up) have deeper tournament pedigree."
       },
       {
         "gameId": "s16-west-1",
@@ -666,7 +666,7 @@
         "team2": "Purdue",
         "pick": "Purdue",
         "confidence": 68,
-        "reasoning": "6.8 AdjEM gap with Purdue's 33.0 AdjEM substantially above Gonzaga's 26.3. Purdue's WAB of 9.2 vs Gonzaga's 7.4 and Barthag of 0.964 vs 0.944 confirm a clear quality tier difference. Gonzaga's archetypes (2025 Tennessee E8, 2018 Michigan Runner-Up) are strong but Purdue's archetype twin 2024 Purdue (Runner-Up) is literally themselves — a known tournament performer."
+        "reasoning": "6.8 AdjEM gap with Purdue's 33.0 AdjEM substantially above Gonzaga's 26.3. Purdue's WAB of 9.2 vs Gonzaga's 7.4 and Barthag of 0.964 vs 0.944 confirm a clear quality tier difference. Gonzaga's archetypes (2025 Tennessee E8, 2018 Michigan Runner-Up) are strong but Purdue's archetype twin 2024 Purdue (Runner-Up) is literally themselves \u2014 a known tournament performer."
       },
       {
         "gameId": "s16-midwest-1",
@@ -716,7 +716,7 @@
         "team2": "Houston",
         "pick": "Florida",
         "confidence": 54,
-        "reasoning": "0.9 AdjEM gap is functionally zero, making this the closest Elite 8 matchup. Houston's WAB of 9.0 edges Florida's 8.5 and their AdjD of 89.5 is the best in the country. However, Florida's archetype twin is literally 2025 Florida (Champion, 0.953 similarity) — the same program that won it all last year with a nearly identical statistical profile. Houston's archetypes cap at Runner-Up. In a coin flip, the champion archetype and Florida's AdjO of 125.6 are the tiebreakers."
+        "reasoning": "0.9 AdjEM gap is functionally zero, making this the closest Elite 8 matchup. Houston's WAB of 9.0 edges Florida's 8.5 and their AdjD of 89.5 is the best in the country. However, Florida's archetype twin is literally 2025 Florida (Champion, 0.953 similarity) \u2014 the same program that won it all last year with a nearly identical statistical profile. Houston's archetypes cap at Runner-Up. In a coin flip, the champion archetype and Florida's AdjO of 125.6 are the tiebreakers."
       },
       {
         "gameId": "e8-west",
@@ -728,7 +728,7 @@
         "team2": "Purdue",
         "pick": "Arizona",
         "confidence": 60,
-        "reasoning": "2.5 AdjEM gap with Arizona's WAB of 13.7 vs Purdue's 9.2 — a massive quality-wins differential. Arizona's archetype twins are 2025 Florida (Champion) and 2012 Kentucky (Champion) — both won it all. Purdue's archetype twin is 2024 Purdue (Runner-Up) — a team that fell short in the final. Arizona's offensive ceiling (AdjO 128.7) gives them the edge in a high-stakes shootout."
+        "reasoning": "2.5 AdjEM gap with Arizona's WAB of 13.7 vs Purdue's 9.2 \u2014 a massive quality-wins differential. Arizona's archetype twins are 2025 Florida (Champion) and 2012 Kentucky (Champion) \u2014 both won it all. Purdue's archetype twin is 2024 Purdue (Runner-Up) \u2014 a team that fell short in the final. Arizona's offensive ceiling (AdjO 128.7) gives them the edge in a high-stakes shootout."
       },
       {
         "gameId": "e8-midwest",
@@ -740,26 +740,26 @@
         "team2": "Iowa State",
         "pick": "Michigan",
         "confidence": 70,
-        "reasoning": "5.5 AdjEM gap with Michigan's 36.6 AdjEM ranking 2nd in the field. Michigan's WAB of 14.0 is the highest in the entire tournament — no team has proven more against quality opponents. Archetype twin 2012 Kentucky (Champion, 0.943 similarity) is the ultimate validation. Iowa State's archetypes cap at Runner-Up (2024 Purdue). Michigan's Barthag of 0.980 projects dominance."
+        "reasoning": "5.5 AdjEM gap with Michigan's 36.6 AdjEM ranking 2nd in the field. Michigan's WAB of 14.0 is the highest in the entire tournament \u2014 no team has proven more against quality opponents. Archetype twin 2012 Kentucky (Champion, 0.943 similarity) is the ultimate validation. Iowa State's archetypes cap at Runner-Up (2024 Purdue). Michigan's Barthag of 0.980 projects dominance."
       }
     ],
     "final_four": [
       {
         "gameId": "f4-south-west",
         "round": "final_four",
-        "region": "National",
+        "region": "Final Four",
         "seed1": 1,
         "team1": "Florida",
         "seed2": 1,
         "team2": "Arizona",
         "pick": "Arizona",
         "confidence": 58,
-        "reasoning": "Arizona's 1.7 AdjEM edge is marginal but their WAB of 13.7 vs Florida's 8.5 is the decisive factor — Arizona has been dramatically better against quality opponents all season. Both teams map to champion archetypes (Arizona: 2025 Florida, 2012 Kentucky; Florida: 2025 Florida itself). Arizona's AdjO of 128.7 creates an offensive ceiling Florida's defense may struggle to contain."
+        "reasoning": "Arizona's 1.7 AdjEM edge is marginal but their WAB of 13.7 vs Florida's 8.5 is the decisive factor \u2014 Arizona has been dramatically better against quality opponents all season. Both teams map to champion archetypes (Arizona: 2025 Florida, 2012 Kentucky; Florida: 2025 Florida itself). Arizona's AdjO of 128.7 creates an offensive ceiling Florida's defense may struggle to contain."
       },
       {
         "gameId": "f4-east-midwest",
         "round": "final_four",
-        "region": "National",
+        "region": "Final Four",
         "seed1": 1,
         "team1": "Duke",
         "seed2": 1,
@@ -773,14 +773,14 @@
       {
         "gameId": "champ",
         "round": "championship",
-        "region": "Unknown",
+        "region": "National",
         "seed1": 0,
         "team1": "",
         "seed2": 0,
         "team2": "",
         "pick": "Duke",
         "confidence": 54,
-        "reasoning": "1.8 AdjEM gap in Duke's favor — the team with the best AdjEM (37.3) in the entire 2026 field. Identical WAB of 13.7 for both teams. Arizona's archetype twins (2025 Florida Champion, 2012 Kentucky Champion) project a champion at higher similarity scores than Duke's champion twin (2025 Florida at 0.87). However, Duke's AdjO of 128.1 is the best nationally and their 37.3 AdjEM has been the most dominant metric all season. In a razor-thin championship matchup, the team with the highest overall efficiency rating gets the nod."
+        "reasoning": "1.8 AdjEM gap in Duke's favor \u2014 the team with the best AdjEM (37.3) in the entire 2026 field. Identical WAB of 13.7 for both teams. Arizona's archetype twins (2025 Florida Champion, 2012 Kentucky Champion) project a champion at higher similarity scores than Duke's champion twin (2025 Florida at 0.87). However, Duke's AdjO of 128.1 is the best nationally and their 37.3 AdjEM has been the most dominant metric all season. In a razor-thin championship matchup, the team with the highest overall efficiency rating gets the nod."
       }
     ]
   }

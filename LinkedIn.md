@@ -12,9 +12,8 @@
 - big points. 1) build something actually useful - I've been tinkering with smaller projects, but this one seems like it could actually be useful - even if that means my friend wins his pool 2) get more advanced with AI
 - I'll be glued to the TV watching the Santa Clara vs Kentucky game with the hope my "Chaos" model actually predicted the upset - knowing 0 players on either team.
 - End it with good luck to everyone, open to feedback, and sorry (but not really) if this doesn't belong on LinkedIn. I'm not a big social media guy
-
+- I fully still see limitations- this is not a 100% solid product. this has the potential to break, and it would take manual effort on my end to fix those bugs - likely with help from claude code
 # tone
 - be casual. this is how I usually talk. I don't like to talk formally - mainly just getting my point across
 - I am not an expert. be clear about that. I'm someone with ideas that I'm looking to share.
 - I do not like to brag. This is purely to show off my work and show people that I am building and learning.
- 
