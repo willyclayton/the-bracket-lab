@@ -3,6 +3,7 @@ import Link from 'next/link';
 import NavLinks from '@/components/NavLinks';
 import GameTicker from '@/components/GameTicker';
 import LiveResultsProvider from '@/components/LiveResultsProvider';
+import ChicagoEasterEgg from '@/components/ChicagoEasterEgg';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
@@ -67,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <p className="text-xs text-lab-muted font-mono">
                 Built by{' '}
                 <a href="https://willyclayton.com" className="text-lab-text hover:text-lab-white transition-colors">Will Clayton</a>
-                {' '}&middot; Chicago
+                {' '}&middot; <ChicagoEasterEgg />
               </p>
             </div>
           </div>

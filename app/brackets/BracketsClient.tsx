@@ -143,6 +143,16 @@ export default function BracketsClient() {
   const [highlightedMatchId, setHighlightedMatchId] = useState<string | null>(null);
   const [popoverData, setPopoverData] = useState<{ game: Game; roundLabel: string } | null>(null);
 
+  // Easter egg: tap "Chicago" in footer to reveal hidden model tabs
+  const [showHidden, setShowHidden] = useState(false);
+  useEffect(() => {
+    function onChicagoTap() {
+      setShowHidden((prev) => !prev);
+    }
+    window.addEventListener('chicago-tap', onChicagoTap);
+    return () => window.removeEventListener('chicago-tap', onChicagoTap);
+  }, []);
+
   const isPaywalled = false;
   const blurredRounds: string[] | undefined = undefined;
 
@@ -265,6 +275,28 @@ export default function BracketsClient() {
       {/* Model tabs */}
       <div className="flex border-b border-lab-border mb-0 overflow-x-auto">
         {VISIBLE_MODELS.map((model) => {
+          const isActive = model.id === activeModelId;
+          return (
+            <button
+              key={model.id}
+              ref={(el) => { tabRefs.current[model.id] = el; }}
+              onClick={() => selectModel(model.id)}
+              className="flex-shrink-0 flex items-center gap-[7px] px-5 py-2.5 text-[13px] font-semibold transition-all relative whitespace-nowrap"
+              style={{ color: isActive ? '#efefef' : '#888' }}
+            >
+              <span
+                className="w-1.5 h-1.5 rounded-full inline-block"
+                style={{ background: model.color }}
+              />
+              {model.name}
+              <span
+                className="absolute bottom-0 left-0 right-0 h-[3px] transition-all"
+                style={{ background: isActive ? model.color : 'transparent' }}
+              />
+            </button>
+          );
+        })}
+        {showHidden && MODELS.filter((m) => m.hidden).map((model) => {
           const isActive = model.id === activeModelId;
           return (
             <button
