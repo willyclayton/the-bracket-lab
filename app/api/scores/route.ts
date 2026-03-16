@@ -59,7 +59,10 @@ export async function GET() {
 
   if (!redis) {
     return NextResponse.json(staticResults, {
-      headers: { 'X-Scores-Source': 'static-no-redis' },
+      headers: {
+        'Cache-Control': 'public, s-maxage=30, stale-while-revalidate=60',
+        'X-Scores-Source': 'static-no-redis',
+      },
     });
   }
 
@@ -89,18 +92,27 @@ export async function GET() {
       // Cache it
       await redis.set(REDIS_KEY, { data: freshResults, fetchedAt: Date.now() } satisfies CachedResults);
       return NextResponse.json(freshResults, {
-        headers: { 'X-Scores-Source': 'espn-fresh' },
+        headers: {
+          'Cache-Control': 'public, s-maxage=10, stale-while-revalidate=30',
+          'X-Scores-Source': 'espn-fresh',
+        },
       });
     }
 
     // ESPN also failed — serve static JSON
     return NextResponse.json(staticResults, {
-      headers: { 'X-Scores-Source': 'static-fallback' },
+      headers: {
+        'Cache-Control': 'public, s-maxage=30, stale-while-revalidate=60',
+        'X-Scores-Source': 'static-fallback',
+      },
     });
   } catch {
     // Redis connection error — serve static
     return NextResponse.json(staticResults, {
-      headers: { 'X-Scores-Source': 'static-error-fallback' },
+      headers: {
+        'Cache-Control': 'public, s-maxage=30, stale-while-revalidate=60',
+        'X-Scores-Source': 'static-error-fallback',
+      },
     });
   }
 }

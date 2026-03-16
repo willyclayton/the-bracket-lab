@@ -17,6 +17,9 @@
 .DS_Store
 *.pem
 
+# dev artifacts
+previews/
+
 # debug
 npm-debug.log*
 
