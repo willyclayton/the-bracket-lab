@@ -105,7 +105,7 @@ export function buildAgreementMap(
   }
 
   const result: Record<string, GameAgreement> = {};
-  for (const [gameId, { games, picks }] of Object.entries(gameMap)) {
+  for (const [gameId, { games, picks: allPicks }] of Object.entries(gameMap)) {
     const firstGame = games[0];
     const isR64 = firstGame.round === 'round_of_64';
 
@@ -119,36 +119,37 @@ export function buildAgreementMap(
       team2 = firstGame.team2;
       seed1 = firstGame.seed1;
       seed2 = firstGame.seed2;
-      matchupAgreement = picks.length;
+      matchupAgreement = allPicks.length;
     } else {
-      // R32+: teams vary across models. Pick most frequent team for each side.
-      const team1Counts: Record<string, { count: number; seed: number }> = {};
-      const team2Counts: Record<string, { count: number; seed: number }> = {};
-
+      // R32+: teams vary across models. Find the most common (team1, team2) pair.
+      const pairCounts: Record<string, { count: number; game: Game }> = {};
       for (const g of games) {
-        if (g.team1) {
-          team1Counts[g.team1] = team1Counts[g.team1] || { count: 0, seed: g.seed1 };
-          team1Counts[g.team1].count++;
-        }
-        if (g.team2) {
-          team2Counts[g.team2] = team2Counts[g.team2] || { count: 0, seed: g.seed2 };
-          team2Counts[g.team2].count++;
-        }
+        if (!g.team1 || !g.team2) continue;
+        const key = `${g.team1}|||${g.team2}`;
+        if (!pairCounts[key]) pairCounts[key] = { count: 0, game: g };
+        pairCounts[key].count++;
       }
 
-      const sortedT1 = Object.entries(team1Counts).sort((a, b) => b[1].count - a[1].count);
-      const sortedT2 = Object.entries(team2Counts).sort((a, b) => b[1].count - a[1].count);
-
-      team1 = sortedT1[0]?.[0] ?? firstGame.team1;
-      seed1 = sortedT1[0]?.[1].seed ?? firstGame.seed1;
-      team2 = sortedT2[0]?.[0] ?? firstGame.team2;
-      seed2 = sortedT2[0]?.[1].seed ?? firstGame.seed2;
-
-      // matchupAgreement: how many models have this exact team1+team2 pairing
-      matchupAgreement = games.filter(
-        (g) => g.team1 === team1 && g.team2 === team2
-      ).length;
+      const bestPair = Object.values(pairCounts).sort((a, b) => b.count - a.count)[0];
+      if (bestPair) {
+        team1 = bestPair.game.team1;
+        seed1 = bestPair.game.seed1;
+        team2 = bestPair.game.team2;
+        seed2 = bestPair.game.seed2;
+        matchupAgreement = bestPair.count;
+      } else {
+        team1 = firstGame.team1;
+        seed1 = firstGame.seed1;
+        team2 = firstGame.team2;
+        seed2 = firstGame.seed2;
+        matchupAgreement = 1;
+      }
     }
+
+    // For R32+, only include picks from models that have this exact matchup
+    const picks = isR64
+      ? allPicks
+      : allPicks.filter((_, i) => games[i].team1 === team1 && games[i].team2 === team2);
 
     // Count picks per team
     const counts: Record<string, number> = {};
@@ -181,7 +182,7 @@ export function buildAgreementMap(
       otherTeam,
       otherSeed,
       agreementCount,
-      totalModels: picks.length,
+      totalModels: allPicks.length,
       avgConfidence,
       modelPicks: picks,
       isProjected: !isR64,

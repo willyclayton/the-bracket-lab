@@ -428,7 +428,7 @@ function RegionAccordionRow({ game, category, expanded, onToggle }: {
             </span>
           )}
           <CategoryTag category={category} game={game} />
-          <AgreementPill count={game.agreementCount} total={game.totalModels} color={pillColor} />
+          <AgreementPill count={game.agreementCount} total={game.isProjected ? game.matchupAgreement : game.totalModels} color={pillColor} />
           <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
         </div>
       </div>
@@ -572,9 +572,16 @@ export default function CheatSheetClient() {
   }, [agreementMap, lockPicks, smartUpsets, trapGames, contestedGames]);
   const totalConsensus = r64Counts.locks + r64Counts.upsets + r64Counts.traps + r64Counts.contested + (sleeper ? 1 : 0);
 
-  // Filter counts (active round games by category, respecting search)
+  // Matchup agreement threshold for R32+ rounds (majority of models must agree the matchup occurs)
+  const matchupThreshold = Math.ceil(modelCount * 0.5);
+
+  // Filter counts (active round games by category, respecting search + matchup threshold)
   const filterCounts: Record<FilterType, number> = useMemo(() => {
     let searchFiltered = Object.values(agreementMap).filter((g) => g.round === activeRound);
+    // Apply matchup agreement threshold for R32+
+    if (activeRound !== 'round_of_64') {
+      searchFiltered = searchFiltered.filter((g) => g.matchupAgreement >= matchupThreshold);
+    }
     if (normalizedQuery) searchFiltered = searchFiltered.filter(matchesSearch);
 
     return {
@@ -585,7 +592,7 @@ export default function CheatSheetClient() {
       contested: searchFiltered.filter((g) => gameCategories[g.gameId] === 'contested').length,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [agreementMap, activeRound, normalizedQuery, gameCategories]);
+  }, [agreementMap, activeRound, normalizedQuery, gameCategories, matchupThreshold]);
 
   // Region accordion data with search + category filtering
   const filteredRegions = useMemo(() => {
@@ -599,6 +606,10 @@ export default function CheatSheetClient() {
     return regionSummaries
       .map(({ region, games }) => {
         let filtered = games;
+        // For R32+, only show games where enough models agree on the matchup
+        if (activeRound !== 'round_of_64') {
+          filtered = filtered.filter((g) => g.matchupAgreement >= matchupThreshold);
+        }
         if (normalizedQuery) filtered = filtered.filter(matchesSearch);
         if (filterCategoryKey) filtered = filtered.filter((g) => gameCategories[g.gameId] === filterCategoryKey);
 
@@ -864,9 +875,9 @@ export default function CheatSheetClient() {
                 { icon: '&#9876;', color: '#a855f7', label: `${r64Counts.contested} Contested Games`, desc: 'Where the models debate' },
                 ...(sleeper ? [{ icon: '&#128301;', color: '#a855f7', label: '1 Sleeper Pick', desc: 'Deep run, high confidence' }] : []),
                 { icon: '&#127942;', color: '#3b82f6', label: '32 Opening Round Matchups', desc: 'Every R64 game, model-by-model breakdown' },
-                { icon: '&#127942;', color: '#3b82f6', label: '16 Round of 32 projected matchups', desc: 'Consensus bracket path' },
-                { icon: '&#127942;', color: '#3b82f6', label: '8 Sweet 16 projected matchups', desc: 'Consensus bracket path' },
-                { icon: '&#127942;', color: '#3b82f6', label: '4 Elite 8 projected showdowns', desc: 'Consensus bracket path' },
+                { icon: '&#127942;', color: '#3b82f6', label: 'Round of 32 spotlight matchups', desc: 'Where models agree on the pairing' },
+                { icon: '&#127942;', color: '#3b82f6', label: 'Sweet 16 spotlight matchups', desc: 'Where models agree on the pairing' },
+                { icon: '&#127942;', color: '#3b82f6', label: 'Elite 8 spotlight matchups', desc: 'Where models agree on the pairing' },
               ].map((row) => (
                 <div
                   key={row.label}
@@ -1008,7 +1019,7 @@ export default function CheatSheetClient() {
                 <p className="text-sm text-lab-muted mb-6">
                   {activeRound === 'round_of_64'
                     ? 'Every opening round matchup with model-by-model analysis. Click a region to expand.'
-                    : 'Projected matchups based on consensus bracket path. Click a region to expand.'}
+                    : 'Spotlight matchups where most models agree on the pairing. Click a region to expand.'}
                 </p>
               </>
             )}
@@ -1018,8 +1029,14 @@ export default function CheatSheetClient() {
             {activeRound !== 'round_of_64' && (
               <div className="mb-4 border border-amber-500/20 rounded-lg px-4 py-3 bg-amber-500/5">
                 <p className="text-xs text-amber-300/80">
-                  <span className="font-semibold">Projected matchups.</span> These assume consensus picks advance from prior rounds. Actual matchups depend on game results.
+                  <span className="font-semibold">Spotlight matchups.</span> Showing games where {matchupThreshold}+ models agree on the same pairing. Games with too much divergence are omitted.
                 </p>
+              </div>
+            )}
+
+            {activeRound !== 'round_of_64' && filteredRegions.length === 0 && (
+              <div className="text-center py-10">
+                <p className="text-lab-muted text-sm">Not enough model agreement to show reliable matchups for this round.</p>
               </div>
             )}
 
