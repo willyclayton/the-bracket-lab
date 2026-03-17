@@ -116,6 +116,22 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <section className="mt-16 pt-8 border-t border-lab-border">
+        <h2 className="text-xl font-bold text-lab-white mb-4">Contact</h2>
+        <div className="space-y-2 text-sm">
+          <p>
+            <a href="mailto:thebracketlab99@gmail.com" className="text-scout hover:underline">
+              thebracketlab99@gmail.com
+            </a>
+          </p>
+          <p>
+            <a href="https://instagram.com/TheBracketLab" className="text-scout hover:underline">
+              Instagram — @TheBracketLab
+            </a>
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

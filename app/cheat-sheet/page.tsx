@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'AI Cheat Sheet — The Bracket Lab',
-  description: '9 AI models, one cheat sheet. Lock picks, smart upsets, trap games, and sleeper picks for your March Madness bracket.',
+  description: '9 AI models, one cheat sheet. Lock picks, smart upsets, contested games, and sleeper picks for your March Madness bracket.',
 };
 
 export default function CheatSheetPage() {

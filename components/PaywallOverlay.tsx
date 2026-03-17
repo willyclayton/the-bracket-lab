@@ -58,7 +58,7 @@ export default function PaywallOverlay() {
           Unlock the full AI Cheat Sheet
         </h3>
         <p className="text-sm text-lab-muted mb-5">
-          9 AI models analyzed. Get the lock picks, smart upsets, trap games, and sleeper picks for $2.99.
+          9 AI models analyzed. Get the lock picks, smart upsets, contested games, and sleeper picks for $2.99.
         </p>
         <button
           onClick={handleCheckout}

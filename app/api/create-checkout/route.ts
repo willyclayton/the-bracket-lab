@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
             product_data: {
               name: 'AI Cheat Sheet — March Madness 2026',
               description:
-                '9 AI models. Lock picks, smart upsets, trap games, and sleeper picks.',
+                '9 AI models. Lock picks, smart upsets, contested games, and sleeper picks.',
             },
             unit_amount: 299, // $2.99
           },

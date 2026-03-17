@@ -218,26 +218,6 @@ export function getSmartUpsets(
     .sort((a, b) => b.agreementCount - a.agreementCount || b.avgConfidence - a.avgConfidence);
 }
 
-// ── Trap Games: favorite (lower seed number) wins but agreement is only 4-5/N ──
-
-export function getTrapGames(
-  agreementMap: Record<string, GameAgreement>,
-  maxAgreement = 5
-): GameAgreement[] {
-  return Object.values(agreementMap)
-    .filter((g) => {
-      // Consensus is the favorite (lower seed number) but agreement is weak
-      const totalModels = g.totalModels;
-      const minForTrap = Math.ceil(totalModels / 2); // must be consensus (majority)
-      return (
-        g.consensusSeed < g.otherSeed &&
-        g.agreementCount >= minForTrap &&
-        g.agreementCount <= maxAgreement
-      );
-    })
-    .sort((a, b) => a.agreementCount - b.agreementCount || a.avgConfidence - b.avgConfidence);
-}
-
 // ── Final Four & Champion consensus ─────────────────────────────────────
 
 export function getFinalFourConsensus(
@@ -379,7 +359,6 @@ export interface RegionSummary {
   games: GameAgreement[];
   lockCount: number;
   upsetCount: number;
-  trapCount: number;
 }
 
 export function getRoundRegionSummaries(
@@ -391,18 +370,15 @@ export function getRoundRegionSummaries(
   return regions.map(({ region, games }) => {
     let lockCount = 0;
     let upsetCount = 0;
-    let trapCount = 0;
     for (const g of games) {
       const isUpset = g.consensusSeed > g.otherSeed;
       if (g.agreementCount >= lockThreshold) {
         lockCount++;
       } else if (isUpset && g.agreementCount >= 4) {
         upsetCount++;
-      } else if (!isUpset && g.agreementCount <= 5) {
-        trapCount++;
       }
     }
-    return { region, games, lockCount, upsetCount, trapCount };
+    return { region, games, lockCount, upsetCount };
   });
 }
 

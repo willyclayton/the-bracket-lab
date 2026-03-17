@@ -7,7 +7,6 @@ import {
   buildAgreementMap,
   getLockPicks,
   getSmartUpsets,
-  getTrapGames,
   getFinalFourConsensus,
   getSleeperPick,
   getContestedGames,
@@ -38,8 +37,8 @@ import scoutPrimeData2025 from '@/data/archive/2025/models/the-scout-prime.json'
 import autoResearcherData2025 from '@/data/archive/2025/models/the-auto-researcher.json';
 
 type Year = '2026' | '2025';
-type FilterType = 'all' | 'locks' | 'upsets' | 'traps' | 'contested';
-type GameCategory = 'lock' | 'upset' | 'trap' | 'contested' | 'clean';
+type FilterType = 'all' | 'locks' | 'upsets' | 'contested';
+type GameCategory = 'lock' | 'upset' | 'contested' | 'clean';
 type RoundTab = 'round_of_64' | 'round_of_32' | 'sweet_16' | 'elite_8';
 
 const ROUND_TABS: { key: RoundTab; label: string; shortLabel: string }[] = [
@@ -120,8 +119,6 @@ function getPoolStrategy(game: GameAgreement, category: GameCategory): string {
       return 'Put this in ink. Focus your energy on the close calls.';
     case 'upset':
       return `A ${seedHigh}-seed upset won\u2019t cost much if wrong and gives meaningful differentiation in a large pool.`;
-    case 'trap':
-      return "Everyone picks this favorite \u2014 here\u2019s why you shouldn\u2019t. This is where pools are won.";
     case 'contested':
       return "Genuine coin flip \u2014 pick based on your bracket needs, not gut feel.";
     default:
@@ -148,7 +145,6 @@ function CategoryTag({ category, game }: { category: GameCategory; game: GameAgr
   const configs: Record<Exclude<GameCategory, 'clean'>, { label: string; bg: string; color: string }> = {
     lock: { label: 'LOCK', bg: 'rgba(34,197,94,0.12)', color: '#22c55e' },
     upset: { label: 'UPSET', bg: 'rgba(245,158,11,0.12)', color: '#f59e0b' },
-    trap: { label: 'TRAP', bg: 'rgba(239,68,68,0.12)', color: '#ef4444' },
     contested: {
       label: `${game.agreementCount}-${game.totalModels - game.agreementCount}`,
       bg: 'rgba(168,85,247,0.12)',
@@ -173,7 +169,6 @@ const FILTER_OPTIONS: { key: FilterType; label: string; color: string; icon: str
   { key: 'all', label: 'All', color: '#888', icon: '' },
   { key: 'locks', label: 'Locks', color: '#22c55e', icon: '\u2713' },
   { key: 'upsets', label: 'Upsets', color: '#f59e0b', icon: '\u26A1' },
-  { key: 'traps', label: 'Traps', color: '#ef4444', icon: '\u26A0' },
   { key: 'contested', label: 'Contested', color: '#a855f7', icon: '\u2694' },
 ];
 
@@ -403,7 +398,7 @@ function RegionAccordionRow({ game, category, expanded, onToggle }: {
 }) {
   const pillColor =
     category === 'upset' ? '#f59e0b' :
-    category === 'trap' || category === 'contested' ? '#ef4444' :
+    category === 'contested' ? '#a855f7' :
     '#22c55e';
   const seedLow = Math.min(game.seed1, game.seed2);
   const seedHigh = Math.max(game.seed1, game.seed2);
@@ -514,7 +509,6 @@ export default function CheatSheetClient() {
   const agreementMap = useMemo(() => buildAgreementMap(brackets), [brackets]);
   const lockPicks = useMemo(() => getLockPicks(agreementMap), [agreementMap]);
   const smartUpsets = useMemo(() => getSmartUpsets(agreementMap), [agreementMap]);
-  const trapGames = useMemo(() => getTrapGames(agreementMap), [agreementMap]);
   const contestedGames = useMemo(() => getContestedGames(agreementMap), [agreementMap]);
   const { finalFour, champions } = useMemo(() => getFinalFourConsensus(brackets), [brackets]);
   const sleeper = useMemo(() => getSleeperPick(brackets), [brackets]);
@@ -538,7 +532,6 @@ export default function CheatSheetClient() {
   const gameCategories = useMemo(() => {
     const lockIds = new Set(lockPicks.map((g) => g.gameId));
     const upsetIds = new Set(smartUpsets.map((g) => g.gameId));
-    const trapIds = new Set(trapGames.map((g) => g.gameId));
     const contestedIds = new Set(contestedGames.map((g) => g.gameId));
 
     const map: Record<string, GameCategory> = {};
@@ -546,31 +539,28 @@ export default function CheatSheetClient() {
       if (game.round !== activeRound) continue;
       if (lockIds.has(game.gameId)) map[game.gameId] = 'lock';
       else if (upsetIds.has(game.gameId)) map[game.gameId] = 'upset';
-      else if (trapIds.has(game.gameId)) map[game.gameId] = 'trap';
       else if (contestedIds.has(game.gameId)) map[game.gameId] = 'contested';
       else map[game.gameId] = 'clean';
     }
     return map;
-  }, [agreementMap, activeRound, lockPicks, smartUpsets, trapGames, contestedGames]);
+  }, [agreementMap, activeRound, lockPicks, smartUpsets, contestedGames]);
 
   // R64 category counts for Big Stat display (always R64, doesn't change with round tab)
   const r64Counts = useMemo(() => {
     const lockIds = new Set(lockPicks.map((g) => g.gameId));
     const upsetIds = new Set(smartUpsets.map((g) => g.gameId));
-    const trapIds = new Set(trapGames.map((g) => g.gameId));
     const contestedIds = new Set(contestedGames.map((g) => g.gameId));
 
-    let locks = 0, upsets = 0, traps = 0, contested = 0;
+    let locks = 0, upsets = 0, contested = 0;
     for (const game of Object.values(agreementMap)) {
       if (game.round !== 'round_of_64') continue;
       if (lockIds.has(game.gameId)) locks++;
       else if (upsetIds.has(game.gameId)) upsets++;
-      else if (trapIds.has(game.gameId)) traps++;
       else if (contestedIds.has(game.gameId)) contested++;
     }
-    return { locks, upsets, traps, contested };
-  }, [agreementMap, lockPicks, smartUpsets, trapGames, contestedGames]);
-  const totalConsensus = r64Counts.locks + r64Counts.upsets + r64Counts.traps + r64Counts.contested + (sleeper ? 1 : 0);
+    return { locks, upsets, contested };
+  }, [agreementMap, lockPicks, smartUpsets, contestedGames]);
+  const totalConsensus = r64Counts.locks + r64Counts.upsets + r64Counts.contested + (sleeper ? 1 : 0);
 
   // Matchup agreement threshold for R32+ rounds (majority of models must agree the matchup occurs)
   const matchupThreshold = Math.ceil(modelCount * 0.5);
@@ -588,7 +578,6 @@ export default function CheatSheetClient() {
       all: searchFiltered.length,
       locks: searchFiltered.filter((g) => gameCategories[g.gameId] === 'lock').length,
       upsets: searchFiltered.filter((g) => gameCategories[g.gameId] === 'upset').length,
-      traps: searchFiltered.filter((g) => gameCategories[g.gameId] === 'trap').length,
       contested: searchFiltered.filter((g) => gameCategories[g.gameId] === 'contested').length,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -599,7 +588,6 @@ export default function CheatSheetClient() {
     const filterCategoryKey: GameCategory | null =
       activeFilter === 'locks' ? 'lock' :
       activeFilter === 'upsets' ? 'upset' :
-      activeFilter === 'traps' ? 'trap' :
       activeFilter === 'contested' ? 'contested' :
       null;
 
@@ -614,16 +602,15 @@ export default function CheatSheetClient() {
         if (filterCategoryKey) filtered = filtered.filter((g) => gameCategories[g.gameId] === filterCategoryKey);
 
         // Compute per-region category counts for header
-        let lockCount = 0, upsetCount = 0, trapCount = 0, contestedCount = 0;
+        let lockCount = 0, upsetCount = 0, contestedCount = 0;
         for (const g of filtered) {
           const cat = gameCategories[g.gameId];
           if (cat === 'lock') lockCount++;
           else if (cat === 'upset') upsetCount++;
-          else if (cat === 'trap') trapCount++;
           else if (cat === 'contested') contestedCount++;
         }
 
-        return { region, games: filtered, lockCount, upsetCount, trapCount, contestedCount };
+        return { region, games: filtered, lockCount, upsetCount, contestedCount };
       })
       .filter((r) => r.games.length > 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -782,11 +769,6 @@ export default function CheatSheetClient() {
               <span className="text-lab-muted">Upsets</span>
             </span>
             <span className="flex items-center gap-1.5 text-sm">
-              <span className="w-2 h-2 rounded-full bg-[#ef4444]" />
-              <span className="font-mono text-lab-white font-semibold">{r64Counts.traps}</span>
-              <span className="text-lab-muted">Traps</span>
-            </span>
-            <span className="flex items-center gap-1.5 text-sm">
               <span className="w-2 h-2 rounded-full bg-[#a855f7]" />
               <span className="font-mono text-lab-white font-semibold">{r64Counts.contested}</span>
               <span className="text-lab-muted">Contested</span>
@@ -871,7 +853,6 @@ export default function CheatSheetClient() {
               {[
                 { icon: '&#10003;', color: '#22c55e', label: `${r64Counts.locks - FREE_LOCK_PICKS} more Lock Picks`, desc: r64Counts.locks > FREE_LOCK_PICKS ? '7+ model agreement' : '7+ model agreement' },
                 { icon: '&#9889;', color: '#f59e0b', label: `${r64Counts.upsets} Smart Upsets`, desc: '4+ models on the underdog' },
-                { icon: '&#9888;', color: '#ef4444', label: `${r64Counts.traps} Trap Games`, desc: 'Favorites to avoid' },
                 { icon: '&#9876;', color: '#a855f7', label: `${r64Counts.contested} Contested Games`, desc: 'Where the models debate' },
                 ...(sleeper ? [{ icon: '&#128301;', color: '#a855f7', label: '1 Sleeper Pick', desc: 'Deep run, high confidence' }] : []),
                 { icon: '&#127942;', color: '#3b82f6', label: '32 Opening Round Matchups', desc: 'Every R64 game, model-by-model breakdown' },
@@ -1041,7 +1022,7 @@ export default function CheatSheetClient() {
             )}
 
             <div className="space-y-2">
-              {filteredRegions.map(({ region, games, lockCount, upsetCount, trapCount, contestedCount }) => {
+              {filteredRegions.map(({ region, games, lockCount, upsetCount, contestedCount }) => {
                 const isOpen = expandedRegions.has(region);
                 return (
                   <div key={region} className={`border rounded-lg overflow-hidden transition-all duration-200 ${isOpen ? 'border-[#444]' : 'border-[#2a2a2a]'}`}>
@@ -1062,11 +1043,6 @@ export default function CheatSheetClient() {
                         {upsetCount > 0 && (
                           <span className="font-mono text-[10px] text-[#f59e0b]">
                             <span className="font-bold">{upsetCount}</span> <span className="text-[#555]">upsets</span>
-                          </span>
-                        )}
-                        {trapCount > 0 && (
-                          <span className="font-mono text-[10px] text-[#ef4444]">
-                            <span className="font-bold">{trapCount}</span> <span className="text-[#555]">traps</span>
                           </span>
                         )}
                         {contestedCount > 0 && (
