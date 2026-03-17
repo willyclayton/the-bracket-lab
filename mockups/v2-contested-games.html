@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2: Contested Games / Model Debate</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: 'Inter', sans-serif; padding: 40px 20px; }
+  .container { max-width: 700px; margin: 0 auto; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 40px; }
+  .state-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #555;
+    text-transform: uppercase; letter-spacing: 1px; margin: 24px 0 10px 0;
+  }
+
+  /* ── Section Header ── */
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .section-header h2 {
+    font-family: 'DM Serif Display', serif; font-size: 20px;
+  }
+  .section-accent {
+    width: 4px; height: 28px; background: #a855f7; border-radius: 2px; flex-shrink: 0;
+  }
+  .section-count {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #555; margin-left: auto;
+  }
+  .section-desc { color: #888; font-size: 13px; margin-bottom: 20px; }
+
+  /* ── Card ── */
+  .debate-card {
+    border: 1px solid #2a2a2a; border-radius: 10px;
+    overflow: hidden; margin-bottom: 12px; transition: border-color 0.2s;
+  }
+  .debate-card:hover { border-color: #444; }
+  .debate-card.expanded { border-color: #555; }
+
+  /* ── Collapsed row ── */
+  .debate-header {
+    padding: 16px; cursor: pointer;
+  }
+  .debate-line1 {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+  }
+  .matchup-label { font-weight: 600; font-size: 14px; }
+  .seed-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #666; }
+  .split-pill {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700;
+    padding: 2px 10px; border-radius: 12px; flex-shrink: 0; margin-left: auto;
+    background: rgba(168,85,247,0.12); color: #a855f7;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .caret { color: #444; font-size: 10px; flex-shrink: 0; }
+  .debate-thesis {
+    font-size: 12px; color: #999; line-height: 1.5;
+    padding-left: 0;
+  }
+
+  /* ── Expanded content ── */
+  .debate-expanded { padding: 0 16px 16px 16px; }
+
+  /* Split bar */
+  .split-bar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; background: #1a1a1a; border-radius: 8px; margin-bottom: 16px;
+  }
+  .bar-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: nowrap; }
+  .bar-track { flex: 1; height: 8px; background: #2a2a2a; border-radius: 4px; overflow: hidden; display: flex; }
+  .bar-fill-green { height: 100%; background: #22c55e; border-radius: 4px 0 0 4px; }
+  .bar-fill-red { height: 100%; background: #ef4444; border-radius: 0 4px 4px 0; }
+
+  /* Two-column debate */
+  .debate-columns {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;
+  }
+  @media (max-width: 600px) {
+    .debate-columns { grid-template-columns: 1fr; }
+  }
+  .debate-col { border-radius: 8px; overflow: hidden; }
+  .col-header {
+    padding: 8px 10px; text-align: center;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .col-body { background: #1a1a1a; padding: 8px 10px; }
+  .model-row { padding: 8px 0; border-bottom: 1px solid #222; }
+  .model-row:last-child { border-bottom: none; }
+  .model-info {
+    display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
+  }
+  .model-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .model-name { font-size: 11px; font-weight: 600; }
+  .model-conf { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #666; margin-left: auto; }
+  .model-reasoning { font-size: 11px; color: #999; line-height: 1.5; }
+
+  /* Synthesized verdict */
+  .synth-verdict {
+    border-left: 3px solid #a855f7; border-radius: 0 8px 8px 0;
+    padding: 12px; background: #1a1a1a; margin-bottom: 12px;
+  }
+  .synth-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700;
+    color: #a855f7; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+  }
+  .synth-text { font-size: 13px; line-height: 1.5; color: #ccc; }
+
+  /* Pool strategy */
+  .pool-strategy {
+    background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.15);
+    border-radius: 8px; padding: 10px 12px;
+  }
+  .pool-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700;
+    color: #3b82f6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .pool-text { font-size: 12px; color: #aaa; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Contested Games / Model Debate</h1>
+<p class="subtitle">Games where models are split close to 50/50. Shows the full argument for both sides.</p>
+
+<!-- Section header -->
+<div class="section-header">
+  <div class="section-accent"></div>
+  <h2>Contested Games</h2>
+  <span class="section-count">4 games</span>
+</div>
+<p class="section-desc">Where the models can't agree. These are the games that will define your bracket.</p>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- COLLAPSED EXAMPLES -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<p class="state-label">Collapsed</p>
+
+<!-- Game 1: 8v9 -->
+<div class="debate-card">
+  <div class="debate-header">
+    <div class="debate-line1">
+      <span class="seed-tag">8v9</span>
+      <span class="matchup-label">Wisconsin vs. Michigan St.</span>
+      <span class="split-pill">5-4 split</span>
+      <span class="caret">&#9660;</span>
+    </div>
+    <p class="debate-thesis">Coin-flip matchup. Wisconsin's defense vs. Michigan State's tournament pedigree &mdash; the models are nearly evenly divided.</p>
+  </div>
+</div>
+
+<!-- Game 2: 7v10 -->
+<div class="debate-card">
+  <div class="debate-header">
+    <div class="debate-line1">
+      <span class="seed-tag">7v10</span>
+      <span class="matchup-label">Nevada vs. Arkansas</span>
+      <span class="split-pill">5-4 split</span>
+      <span class="caret">&#9660;</span>
+    </div>
+    <p class="debate-thesis">Statistical models favor Nevada's efficiency; LLM models lean Arkansas for athleticism and pace disruption.</p>
+  </div>
+</div>
+
+<!-- Game 3: 5v12 -->
+<div class="debate-card">
+  <div class="debate-header">
+    <div class="debate-line1">
+      <span class="seed-tag">5v12</span>
+      <span class="matchup-label">Clemson vs. McNeese</span>
+      <span class="split-pill">5-4 split</span>
+      <span class="caret">&#9660;</span>
+    </div>
+    <p class="debate-thesis">Classic 5v12 upset territory. McNeese's 28-4 record impresses the LLMs; data models see a weak schedule.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- EXPANDED EXAMPLE -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<p class="state-label">Expanded &mdash; Full Debate View</p>
+
+<div class="debate-card expanded">
+  <div class="debate-header">
+    <div class="debate-line1">
+      <span class="seed-tag">8v9</span>
+      <span class="matchup-label">Wisconsin vs. Michigan St.</span>
+      <span class="split-pill">5-4 split</span>
+      <span class="caret" style="transform:rotate(180deg);">&#9660;</span>
+    </div>
+  </div>
+
+  <div class="debate-expanded">
+    <!-- Split bar -->
+    <div class="split-bar">
+      <span class="bar-label" style="color:#22c55e;">Wisconsin</span>
+      <div class="bar-track">
+        <div class="bar-fill-green" style="width:56%;"></div>
+        <div class="bar-fill-red" style="width:44%;"></div>
+      </div>
+      <span class="bar-label" style="color:#ef4444;">Michigan St.</span>
+    </div>
+
+    <!-- Two-column debate -->
+    <div class="debate-columns">
+      <!-- FOR: Wisconsin -->
+      <div class="debate-col">
+        <div class="col-header" style="background:rgba(34,197,94,0.12);color:#22c55e;">
+          Wisconsin (5)
+        </div>
+        <div class="col-body">
+          <div class="model-row">
+            <div class="model-info">
+              <span class="model-dot" style="background:#22c55e;"></span>
+              <span class="model-name" style="color:#22c55e;">The Quant</span>
+              <span class="model-conf">72%</span>
+            </div>
+            <p class="model-reasoning">Wisconsin wins 54.3% of simulations. Their defensive efficiency (14th nationally) keeps the game in the 55-60 range where they thrive.</p>
+          </div>
+          <div class="model-row">
+            <div class="model-info">
+              <span class="model-dot" style="background:#3b82f6;"></span>
+              <span class="model-name" style="color:#3b82f6;">The Scout</span>
+              <span class="model-conf">65%</span>
+            </div>
+            <p class="model-reasoning">Wisconsin's half-court execution and free throw shooting (79.2%) give them the edge in a tight game. They won't turn it over.</p>
+          </div>
+          <div class="model-row">
+            <div class="model-info">
+              <span class="model-dot" style="background:#06b6d4;"></span>
+              <span class="model-name" style="color:#06b6d4;">The Optimizer</span>
+              <span class="model-conf">61%</span>
+            </div>
+            <p class="model-reasoning">Expected value favors Wisconsin slightly. Lower-variance pick in a matchup where differentiation value is minimal.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AGAINST: Michigan St. -->
+      <div class="debate-col">
+        <div class="col-header" style="background:rgba(239,68,68,0.12);color:#ef4444;">
+          Michigan St. (4)
+        </div>
+        <div class="col-body">
+          <div class="model-row">
+            <div class="model-info">
+              <span class="model-dot" style="background:#f59e0b;"></span>
+              <span class="model-name" style="color:#f59e0b;">The Historian</span>
+              <span class="model-conf">68%</span>
+            </div>
+            <p class="model-reasoning">Michigan State's archetype matches 2014 UConn and 2019 Virginia &mdash; defensive teams that peaked in March. Izzo's tournament track record is unmatched.</p>
+          </div>
+          <div class="model-row">
+            <div class="model-info">
+              <span class="model-dot" style="background:#ef4444;"></span>
+              <span class="model-name" style="color:#ef4444;">The Chaos Agent</span>
+              <span class="model-conf">63%</span>
+            </div>
+            <p class="model-reasoning">Michigan State grades out higher on upset factors: better road record, more experience, and a coaching edge that data can't capture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Synthesized verdict -->
+    <div class="synth-verdict">
+      <p class="synth-label">Verdict</p>
+      <p class="synth-text">A genuine toss-up. The statistical models lean Wisconsin for efficiency metrics, while the LLM and historical models trust Michigan State's intangibles and coaching. The 5-4 split reflects real uncertainty &mdash; there's no consensus edge here.</p>
+    </div>
+
+    <!-- Pool strategy -->
+    <div class="pool-strategy">
+      <p class="pool-label">Pool Strategy</p>
+      <p class="pool-text">Public pick rates are nearly 50/50 on 8v9 games. Neither side gains differentiation. Pick whichever team you need to advance further in your bracket &mdash; the R32 matchup matters more than this game.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Second expanded example: 5v12 -->
+<p class="state-label">Expanded &mdash; 5v12 Upset Debate</p>
+
+<div class="debate-card expanded">
+  <div class="debate-header">
+    <div class="debate-line1">
+      <span class="seed-tag">5v12</span>
+      <span class="matchup-label">Clemson vs. McNeese</span>
+      <span class="split-pill">5-4 split</span>
+      <span class="caret" style="transform:rotate(180deg);">&#9660;</span>
+    </div>
+  </div>
+
+  <div class="debate-expanded">
+    <div class="split-bar">
+      <span class="bar-label" style="color:#22c55e;">Clemson</span>
+      <div class="bar-track">
+        <div class="bar-fill-green" style="width:56%;"></div>
+        <div class="bar-fill-red" style="width:44%;"></div>
+      </div>
+      <span class="bar-label" style="color:#ef4444;">McNeese</span>
+    </div>
+
+    <div class="debate-columns">
+      <div class="debate-col">
+        <div class="col-header" style="background:rgba(34,197,94,0.12);color:#22c55e;">
+          Clemson (5)
+        </div>
+        <div class="col-body">
+          <div class="model-row">
+            <div class="model-info">
+              <span class="model-dot" style="background:#22c55e;"></span>
+              <span class="model-name" style="color:#22c55e;">The Quant</span>
+              <span class="model-conf">67%</span>
+            </div>
+            <p class="model-reasoning">Clemson wins 61.8% of simulations. ACC competition level creates a significant SOS gap that McNeese can't overcome.</p>
+          </div>
+          <div class="model-row">
+            <div class="model-info">
+              <span class="model-dot" style="background:#64748b;"></span>
+              <span class="model-name" style="color:#64748b;">The Scout Prime</span>
+              <span class="model-conf">64%</span>
+            </div>
+            <p class="model-reasoning">Clemson's defensive rebounding rate (78.4%) and bench depth give them a 40-minute advantage. McNeese runs a 7-man rotation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-col">
+        <div class="col-header" style="background:rgba(239,68,68,0.12);color:#ef4444;">
+          McNeese (4)
+        </div>
+        <div class="col-body">
+          <div class="model-row">
+            <div class="model-info">
+              <span class="model-dot" style="background:#00ff88;"></span>
+              <span class="model-name" style="color:#00ff88;">The Agent</span>
+              <span class="model-conf">71%</span>
+            </div>
+            <p class="model-reasoning">McNeese is 28-4 with an elite 3-point shooting team. Their motion offense generates open looks against any defense. Undervalued by seeding.</p>
+          </div>
+          <div class="model-row">
+            <div class="model-info">
+              <span class="model-dot" style="background:#ef4444;"></span>
+              <span class="model-name" style="color:#ef4444;">The Chaos Agent</span>
+              <span class="model-conf">66%</span>
+            </div>
+            <p class="model-reasoning">5v12 upsets hit 35.7% historically. McNeese's shooting makes them a live underdog &mdash; hot three-point teams are tournament kryptonite.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="synth-verdict">
+      <p class="synth-label">Verdict</p>
+      <p class="synth-text">The classic 5v12 debate. Data models trust Clemson's conference pedigree and depth. The autonomous models see McNeese as a dangerous mid-major with elite shooting. The 5v12 seed line produces upsets over a third of the time &mdash; this is exactly the profile.</p>
+    </div>
+
+    <div class="pool-strategy">
+      <p class="pool-label">Pool Strategy</p>
+      <p class="pool-text">Most pools pick the 5-seed ~65% of the time. Taking McNeese here gives you meaningful differentiation at a historically reasonable risk. Strong play for large pools.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

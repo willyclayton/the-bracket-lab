@@ -10,7 +10,8 @@ import {
   getTrapGames,
   getFinalFourConsensus,
   getSleeperPick,
-  getR64ByRegion,
+  getContestedGames,
+  getR64RegionSummaries,
   GameAgreement,
 } from '@/lib/consensus';
 
@@ -36,10 +37,9 @@ import optimizerData2025 from '@/data/archive/2025/models/the-optimizer.json';
 import scoutPrimeData2025 from '@/data/archive/2025/models/the-scout-prime.json';
 import autoResearcherData2025 from '@/data/archive/2025/models/the-auto-researcher.json';
 
-// Seed history for upset rates
-import seedHistory from '@/data/research/seed-history.json';
-
 type Year = '2026' | '2025';
+type FilterType = 'all' | 'locks' | 'upsets' | 'traps' | 'contested';
+type GameCategory = 'lock' | 'upset' | 'trap' | 'contested' | 'clean';
 
 const BRACKETS_BY_YEAR: Record<Year, Record<string, BracketData>> = {
   '2026': {
@@ -66,30 +66,23 @@ const BRACKETS_BY_YEAR: Record<Year, Record<string, BracketData>> = {
   },
 };
 
-// Stripe checkout is now server-side via /api/create-checkout
+// ── Helpers ──────────────────────────────────────────────────────────────
 
-function getUpsetRate(higherSeed: number, lowerSeed: number): number | null {
-  const matchups = (seedHistory as Record<string, unknown>).round_of_64_matchups as Array<{
-    higher_seed: number;
-    lower_seed: number;
-    upset_rate: number;
-  }>;
-  if (!matchups) return null;
-  const m = matchups.find(
-    (x) => x.higher_seed === Math.min(higherSeed, lowerSeed) && x.lower_seed === Math.max(higherSeed, lowerSeed)
-  );
-  return m ? m.upset_rate : null;
-}
-
-function truncateReasoning(text: string, maxLen = 80): string {
+/** Extract first N sentences from text, up to maxLen chars. */
+function extractSentences(text: string, maxSentences = 2, maxLen = 200): string {
   if (!text) return '';
-  const firstSentence = text.split(/(?<!\b(?:St|vs|Dr|Jr|Sr|Mt|Univ))\.\s+/)[0] || text;
-  if (firstSentence.length <= maxLen) return firstSentence.replace(/\.$/, '');
-  const cut = firstSentence.lastIndexOf(' ', maxLen);
-  return firstSentence.slice(0, cut > 20 ? cut : maxLen) + '\u2026';
+  const sentences = text.match(/[^.!?]*(?:(?:St|vs|Dr|Jr|Sr|Mt|Univ)\.[^.!?]*)*[.!?]+/g);
+  if (!sentences) return text.length <= maxLen ? text : text.slice(0, text.lastIndexOf(' ', maxLen)) + '\u2026';
+  let result = '';
+  for (let i = 0; i < Math.min(sentences.length, maxSentences); i++) {
+    const next = result + sentences[i].trim();
+    if (next.length > maxLen && result.length > 0) break;
+    result = next + ' ';
+  }
+  return result.trim();
 }
 
-/** Build a bold verdict + counter from model reasonings */
+/** Build a bold verdict from model reasonings */
 function buildVerdict(game: GameAgreement): { thesis: string; counter: string | null } {
   const forPicks = game.modelPicks
     .filter((p) => p.pick === game.consensusPick)
@@ -98,19 +91,34 @@ function buildVerdict(game: GameAgreement): { thesis: string; counter: string | 
     .filter((p) => p.pick !== game.consensusPick)
     .sort((a, b) => b.confidence - a.confidence);
 
-  // Thesis: highest-confidence FOR model's reasoning, trimmed to one strong sentence
   const topFor = forPicks[0];
   const thesis = topFor?.reasoning
-    ? truncateReasoning(topFor.reasoning, 140)
+    ? extractSentences(topFor.reasoning, 2, 200)
     : `${game.agreementCount} of ${game.totalModels} models agree on ${game.consensusPick}.`;
 
-  // Counter: highest-confidence AGAINST model's reasoning
   const topAgainst = againstPicks[0];
   const counter = topAgainst?.reasoning
-    ? truncateReasoning(topAgainst.reasoning, 120)
+    ? extractSentences(topAgainst.reasoning, 2, 160)
     : null;
 
   return { thesis, counter };
+}
+
+/** Pool strategy text based on game category */
+function getPoolStrategy(game: GameAgreement, category: GameCategory): string {
+  const seedHigh = Math.max(game.seed1, game.seed2);
+  switch (category) {
+    case 'lock':
+      return 'Put this in ink. Focus your energy on the close calls.';
+    case 'upset':
+      return `A ${seedHigh}-seed upset won\u2019t cost much if wrong and gives meaningful differentiation in a large pool.`;
+    case 'trap':
+      return "Everyone picks this favorite \u2014 here\u2019s why you shouldn\u2019t. This is where pools are won.";
+    case 'contested':
+      return "Genuine coin flip \u2014 pick based on your bracket needs, not gut feel.";
+    default:
+      return "Models lean one way but the margin is moderate. A standard confidence pick.";
+  }
 }
 
 // ── Shared Components ───────────────────────────────────────────────────
@@ -126,123 +134,204 @@ function AgreementPill({ count, total, color }: { count: number; total: number; 
   );
 }
 
-// ── Game Detail (expanded view — B1: Bold Verdict + Split Columns) ──────
+function CategoryTag({ category, game }: { category: GameCategory; game: GameAgreement }) {
+  if (category === 'clean') return null;
 
-function GameDetail({ game }: { game: GameAgreement }) {
-  const forPicks = game.modelPicks.filter((p) => p.pick === game.consensusPick).sort((a, b) => b.confidence - a.confidence);
-  const againstPicks = game.modelPicks.filter((p) => p.pick !== game.consensusPick).sort((a, b) => b.confidence - a.confidence);
-  const forPct = Math.round((forPicks.length / game.totalModels) * 100);
-  const upsetRate = game.round === 'round_of_64' ? getUpsetRate(
-    Math.min(game.seed1, game.seed2),
-    Math.max(game.seed1, game.seed2)
-  ) : null;
-  const { thesis, counter } = buildVerdict(game);
+  const configs: Record<Exclude<GameCategory, 'clean'>, { label: string; bg: string; color: string }> = {
+    lock: { label: 'LOCK', bg: 'rgba(34,197,94,0.12)', color: '#22c55e' },
+    upset: { label: 'UPSET', bg: 'rgba(245,158,11,0.12)', color: '#f59e0b' },
+    trap: { label: 'TRAP', bg: 'rgba(239,68,68,0.12)', color: '#ef4444' },
+    contested: {
+      label: `${game.agreementCount}-${game.totalModels - game.agreementCount}`,
+      bg: 'rgba(168,85,247,0.12)',
+      color: '#a855f7',
+    },
+  };
 
+  const config = configs[category];
   return (
-    <div className="px-4 pb-4 pt-1">
-      {/* Consensus bar */}
-      <div className="flex items-center gap-3 px-3 py-2.5 bg-[#1a1a1a] rounded-lg mb-3">
-        <span className="font-mono text-xs text-[#22c55e] whitespace-nowrap">{game.consensusPick}</span>
-        <div className="flex-1 h-2 bg-[#2a2a2a] rounded-full overflow-hidden flex">
-          <div className="h-full bg-[#22c55e] rounded-l-full" style={{ width: `${forPct}%` }} />
-          <div className="h-full bg-[#ef4444] rounded-r-full" style={{ width: `${100 - forPct}%` }} />
-        </div>
-        <span className="font-mono text-xs text-[#ef4444] whitespace-nowrap">{game.otherTeam}</span>
-      </div>
+    <span
+      className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wide flex-shrink-0"
+      style={{ background: config.bg, color: config.color }}
+    >
+      {config.label}
+    </span>
+  );
+}
 
-      {/* Bold Verdict */}
-      <div className="bg-[#1a1a1a] border-l-[3px] border-[#22c55e] rounded-r-lg px-3 py-2.5 mb-3">
-        <p className="text-[13px] font-bold text-lab-white leading-snug mb-1">{thesis}</p>
-        {counter && (
-          <p className="text-[11px] text-[#666] leading-snug italic">
-            <span className="not-italic font-semibold text-[#ef4444] text-[10px] uppercase tracking-wide">Counter: </span>
-            {counter}
-          </p>
-        )}
-      </div>
+// ── Filter Pills ────────────────────────────────────────────────────────
 
-      {/* Split Columns */}
-      <div className="grid grid-cols-2 gap-2 mb-3">
-        {/* FOR column */}
-        <div className="rounded-lg overflow-hidden">
-          <div className="px-2.5 py-1.5 text-center text-[11px] font-bold uppercase tracking-wide" style={{ background: 'rgba(34,197,94,0.15)', color: '#22c55e' }}>
-            {game.consensusPick} ({forPicks.length})
-          </div>
-          <div className="bg-[#1a1a1a] px-2 py-1">
-            {forPicks.map((p) => (
-              <div key={p.modelId} className="py-1.5 border-b border-[#222] last:border-b-0">
-                <div className="flex items-center gap-1.5 mb-1">
-                  <span className="w-[5px] h-[5px] rounded-full flex-shrink-0" style={{ background: p.color }} />
-                  <span className="text-[11px] font-semibold flex-1 min-w-0 truncate" style={{ color: p.color }}>{p.modelName}</span>
-                  <span className="font-mono text-[10px] text-[#666] flex-shrink-0">{p.confidence}%</span>
-                </div>
-                <p className="text-[10px] text-[#777] leading-snug">{truncateReasoning(p.reasoning, 80)}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+const FILTER_OPTIONS: { key: FilterType; label: string; color: string; icon: string }[] = [
+  { key: 'all', label: 'All', color: '#888', icon: '' },
+  { key: 'locks', label: 'Locks', color: '#22c55e', icon: '\u2713' },
+  { key: 'upsets', label: 'Upsets', color: '#f59e0b', icon: '\u26A1' },
+  { key: 'traps', label: 'Traps', color: '#ef4444', icon: '\u26A0' },
+  { key: 'contested', label: 'Contested', color: '#a855f7', icon: '\u2694' },
+];
 
-        {/* AGAINST column */}
-        <div className="rounded-lg overflow-hidden">
-          <div className="px-2.5 py-1.5 text-center text-[11px] font-bold uppercase tracking-wide" style={{ background: 'rgba(239,68,68,0.15)', color: '#ef4444' }}>
-            {game.otherTeam} ({againstPicks.length})
-          </div>
-          <div className="bg-[#1a1a1a] px-2 py-1">
-            {againstPicks.length > 0 ? againstPicks.map((p) => (
-              <div key={p.modelId} className="py-1.5 border-b border-[#222] last:border-b-0">
-                <div className="flex items-center gap-1.5 mb-1">
-                  <span className="w-[5px] h-[5px] rounded-full flex-shrink-0" style={{ background: p.color }} />
-                  <span className="text-[11px] font-semibold flex-1 min-w-0 truncate" style={{ color: p.color }}>{p.modelName}</span>
-                  <span className="font-mono text-[10px] text-[#666] flex-shrink-0">{p.confidence}%</span>
-                </div>
-                <p className="text-[10px] text-[#777] leading-snug">{truncateReasoning(p.reasoning, 80)}</p>
-              </div>
-            )) : (
-              <div className="py-3 text-center text-[10px] text-[#444] italic">No dissenters</div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Stat boxes */}
-      <div className="flex gap-2">
-        <div className="flex-1 bg-[#1a1a1a] rounded-md px-3 py-2.5 text-center">
-          <div className="font-mono text-base font-bold text-lab-white">{game.agreementCount}/{game.totalModels}</div>
-          <div className="font-mono text-[9px] text-[#555] uppercase tracking-wider mt-0.5">Agreement</div>
-        </div>
-        <div className="flex-1 bg-[#1a1a1a] rounded-md px-3 py-2.5 text-center">
-          <div className="font-mono text-base font-bold text-lab-white">{game.avgConfidence}%</div>
-          <div className="font-mono text-[9px] text-[#555] uppercase tracking-wider mt-0.5">Avg Conf</div>
-        </div>
-        {upsetRate != null && (
-          <div className="flex-1 bg-[#1a1a1a] rounded-md px-3 py-2.5 text-center">
-            <div className="font-mono text-base font-bold text-lab-white">{(upsetRate * 100).toFixed(1)}%</div>
-            <div className="font-mono text-[9px] text-[#555] uppercase tracking-wider mt-0.5">Hist. Upset</div>
-          </div>
-        )}
-      </div>
+function FilterPills({ active, counts, onChange }: {
+  active: FilterType;
+  counts: Record<FilterType, number>;
+  onChange: (f: FilterType) => void;
+}) {
+  return (
+    <div className="flex gap-2 flex-wrap mb-6">
+      {FILTER_OPTIONS.map(({ key, label, color, icon }) => {
+        const isActive = active === key;
+        return (
+          <button
+            key={key}
+            onClick={() => onChange(key)}
+            className="flex items-center gap-1.5 font-mono text-xs font-semibold px-3 py-1.5 rounded-lg border transition-all duration-150"
+            style={{
+              borderColor: isActive ? color : '#333',
+              color: isActive ? color : '#666',
+              background: isActive ? `${color}12` : 'transparent',
+            }}
+          >
+            {icon && <span>{icon}</span>}
+            {label}
+            <span className="text-[10px] opacity-60">{counts[key]}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }
 
-// ── Pick Row (used for all pick types) ──────────────────────────────────
+// ── Game Detail (redesigned: verdict + pool strategy + cases + models) ──
 
-function PickRow({ game, icon, iconColor, pillColor, expanded, onToggle }: {
+function GameDetail({ game, category }: { game: GameAgreement; category: GameCategory }) {
+  const [showModels, setShowModels] = useState(false);
+  const forPicks = game.modelPicks.filter((p) => p.pick === game.consensusPick).sort((a, b) => b.confidence - a.confidence);
+  const againstPicks = game.modelPicks.filter((p) => p.pick !== game.consensusPick).sort((a, b) => b.confidence - a.confidence);
+  const forPct = Math.round((forPicks.length / game.totalModels) * 100);
+  const { thesis } = buildVerdict(game);
+
+  // Synthesize case text from top 1-2 model reasonings per side
+  const forCase = forPicks
+    .slice(0, 2)
+    .map((p) => extractSentences(p.reasoning, 2, 150))
+    .filter(Boolean)
+    .join(' ');
+  const againstCase = againstPicks
+    .slice(0, 2)
+    .map((p) => extractSentences(p.reasoning, 2, 150))
+    .filter(Boolean)
+    .join(' ');
+
+  const poolStrategy = getPoolStrategy(game, category);
+
+  return (
+    <div className="px-4 pb-4 pt-1">
+      {/* Top card: consensus bar + verdict + pool strategy */}
+      <div className="bg-[#1a1a1a] rounded-lg p-4 mb-3">
+        {/* Consensus bar */}
+        <div className="flex items-center gap-3 mb-3">
+          <span className="font-mono text-xs text-[#22c55e] whitespace-nowrap">{game.consensusPick}</span>
+          <div className="flex-1 h-1.5 bg-[#2a2a2a] rounded-full overflow-hidden flex">
+            <div className="h-full bg-[#22c55e] rounded-l-full" style={{ width: `${forPct}%` }} />
+            <div className="h-full bg-[#ef4444] rounded-r-full" style={{ width: `${100 - forPct}%` }} />
+          </div>
+          <span className="font-mono text-xs text-[#ef4444] whitespace-nowrap">{game.otherTeam}</span>
+        </div>
+
+        {/* Verdict */}
+        <div className="mb-3">
+          <span className="font-mono text-[9px] font-bold text-[#22c55e] uppercase tracking-wide">Verdict</span>
+          <p className="text-[13px] font-bold text-lab-white leading-snug mt-1">{thesis}</p>
+        </div>
+
+        {/* Pool Strategy */}
+        <div>
+          <span className="font-mono text-[9px] font-bold text-[#3b82f6] uppercase tracking-wide">Pool Strategy</span>
+          <p className="text-[12px] text-[#aaa] leading-snug mt-1">{poolStrategy}</p>
+        </div>
+      </div>
+
+      {/* Side-by-side case columns */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+        <div className="rounded-lg overflow-hidden">
+          <div
+            className="px-3 py-2 text-[11px] font-bold uppercase tracking-wide"
+            style={{ background: 'rgba(34,197,94,0.12)', color: '#22c55e' }}
+          >
+            Case for {game.consensusPick} ({forPicks.length})
+          </div>
+          <div className="bg-[#1a1a1a] px-3 py-2.5">
+            <p className="text-[12px] text-[#bbb] leading-relaxed">
+              {forCase || 'No detailed reasoning available.'}
+            </p>
+          </div>
+        </div>
+        <div className="rounded-lg overflow-hidden">
+          <div
+            className="px-3 py-2 text-[11px] font-bold uppercase tracking-wide"
+            style={{ background: 'rgba(239,68,68,0.12)', color: '#ef4444' }}
+          >
+            Case for {game.otherTeam} ({againstPicks.length})
+          </div>
+          <div className="bg-[#1a1a1a] px-3 py-2.5">
+            <p className="text-[12px] text-[#bbb] leading-relaxed">
+              {againstCase || 'No dissenters \u2014 full consensus.'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Collapsible model reasoning */}
+      <button
+        onClick={() => setShowModels(!showModels)}
+        className="flex items-center gap-2 text-[11px] text-[#666] hover:text-[#999] transition-colors w-full py-2"
+      >
+        <span className={`text-[10px] transition-transform duration-200 ${showModels ? 'rotate-180' : ''}`}>&#9660;</span>
+        See each model&apos;s reasoning ({game.totalModels} models)
+      </button>
+
+      {showModels && (
+        <div className="border-t border-[#222]">
+          {[...game.modelPicks].sort((a, b) => b.confidence - a.confidence).map((p) => (
+            <div key={p.modelId} className="py-2.5 border-b border-[#222] last:border-b-0">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-[6px] h-[6px] rounded-full flex-shrink-0" style={{ background: p.color }} />
+                <span className="text-[11px] font-semibold" style={{ color: p.color }}>{p.modelName}</span>
+                <span
+                  className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded"
+                  style={{
+                    background: p.pick === game.consensusPick ? 'rgba(34,197,94,0.12)' : 'rgba(239,68,68,0.12)',
+                    color: p.pick === game.consensusPick ? '#22c55e' : '#ef4444',
+                  }}
+                >
+                  {p.pick}
+                </span>
+                <span className="font-mono text-[10px] text-[#555] ml-auto">{p.confidence}%</span>
+              </div>
+              <p className="text-[11px] text-[#888] leading-relaxed pl-4">{p.reasoning}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Pick Row (simplified, used for free preview lock picks) ──────────────
+
+function PickRow({ game, expanded, onToggle }: {
   game: GameAgreement;
-  icon: string;
-  iconColor: string;
-  pillColor: string;
   expanded: boolean;
   onToggle: () => void;
 }) {
   return (
-    <div className={`border rounded-lg overflow-hidden transition-all duration-200 ${expanded ? 'border-[#444]' : 'border-[#2a2a2a]'}`}>
+    <div
+      className={`border rounded-lg overflow-hidden transition-all duration-200 ${expanded ? 'border-[#444]' : 'border-[#2a2a2a]'}`}
+    >
       <div
         className="flex items-center justify-between p-4 cursor-pointer hover:bg-[#222] transition-colors min-h-[44px]"
         onClick={onToggle}
       >
         <div className="flex items-center gap-2 min-w-0">
-          <span style={{ color: iconColor }} className="text-sm flex-shrink-0">{icon}</span>
+          <span style={{ color: '#22c55e' }} className="text-sm flex-shrink-0">&#10003;</span>
           <span className="font-semibold text-lab-white text-sm">
             ({game.consensusSeed}) {game.consensusPick}
           </span>
@@ -252,54 +341,56 @@ function PickRow({ game, icon, iconColor, pillColor, expanded, onToggle }: {
           </span>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0 ml-2">
-          <AgreementPill count={game.agreementCount} total={game.totalModels} color={pillColor} />
+          <AgreementPill count={game.agreementCount} total={game.totalModels} color="#22c55e" />
           <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
         </div>
       </div>
       {/* Mobile: show opponent below */}
-      <div className="sm:hidden px-4 -mt-2 pb-3">
+      <div className="sm:hidden px-4 -mt-2 pb-1">
         <span className="text-lab-muted text-xs">
           over ({game.otherSeed}) {game.otherTeam}
         </span>
       </div>
-      {expanded && <GameDetail game={game} />}
+      {expanded && <GameDetail game={game} category="lock" />}
     </div>
   );
 }
 
-// ── R64 Game Row (compact) ──────────────────────────────────────────────
+// ── Region Accordion Row ─────────────────────────────────────────────────
 
-function R64Row({ game, expanded, onToggle }: {
+function RegionAccordionRow({ game, category, expanded, onToggle }: {
   game: GameAgreement;
+  category: GameCategory;
   expanded: boolean;
   onToggle: () => void;
 }) {
-  const isUpset = game.consensusSeed > game.otherSeed;
-  const pillColor = isUpset ? '#f59e0b' : '#22c55e';
+  const pillColor =
+    category === 'upset' ? '#f59e0b' :
+    category === 'trap' || category === 'contested' ? '#ef4444' :
+    '#22c55e';
+  const seedLow = Math.min(game.seed1, game.seed2);
+  const seedHigh = Math.max(game.seed1, game.seed2);
+  const hiTeam = game.seed1 < game.seed2 ? game.team1 : game.team2;
+  const loTeam = game.seed1 > game.seed2 ? game.team1 : game.team2;
+  const pickIsHi = game.consensusSeed === seedLow;
 
   return (
     <div className={`border rounded-lg overflow-hidden transition-all duration-200 ${expanded ? 'border-[#444]' : 'border-[#2a2a2a]'}`}>
       <div
-        className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-[#222] transition-colors min-h-[44px]"
+        className="flex items-center gap-1.5 px-3 py-2.5 cursor-pointer hover:bg-[#1e1e1e] transition-colors text-sm min-h-[40px]"
         onClick={onToggle}
       >
-        <div className="flex items-center gap-1.5 min-w-0 text-sm">
-          <span className="font-mono text-[#555] text-xs w-4 text-right flex-shrink-0">{Math.min(game.seed1, game.seed2)}</span>
-          <span className={game.consensusSeed === Math.min(game.seed1, game.seed2) ? 'text-lab-white font-semibold' : 'text-lab-muted'}>
-            {game.seed1 < game.seed2 ? game.team1 : game.team2}
-          </span>
-          <span className="text-[#444] text-xs">vs</span>
-          <span className="font-mono text-[#555] text-xs w-4 text-right flex-shrink-0">{Math.max(game.seed1, game.seed2)}</span>
-          <span className={game.consensusSeed === Math.max(game.seed1, game.seed2) ? 'text-lab-white font-semibold' : 'text-lab-muted'}>
-            {game.seed1 > game.seed2 ? game.team1 : game.team2}
-          </span>
-        </div>
-        <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+        <span className="font-mono text-[11px] text-[#444] w-9 text-center flex-shrink-0">{seedLow}v{seedHigh}</span>
+        <span className={pickIsHi ? 'font-semibold text-lab-white' : 'text-lab-muted'}>{hiTeam}</span>
+        <span className="text-[#555] text-xs flex-shrink-0">&gt;</span>
+        <span className={!pickIsHi ? 'font-semibold text-lab-white' : 'text-lab-muted'}>{loTeam}</span>
+        <div className="flex items-center gap-1.5 ml-auto flex-shrink-0">
+          <CategoryTag category={category} game={game} />
           <AgreementPill count={game.agreementCount} total={game.totalModels} color={pillColor} />
           <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
         </div>
       </div>
-      {expanded && <GameDetail game={game} />}
+      {expanded && <GameDetail game={game} category={category} />}
     </div>
   );
 }
@@ -327,6 +418,12 @@ export default function CheatSheetClient() {
   const [email, setEmail] = useState('');
   const [emailStatus, setEmailStatus] = useState<'idle' | 'loading' | 'error'>('idle');
   const [emailError, setEmailError] = useState('');
+
+  // Filter + expand state
+  const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+  const [expandedGameId, setExpandedGameId] = useState<string | null>(null);
+  const [expandedRegions, setExpandedRegions] = useState<Set<string>>(new Set());
+  const [searchQuery, setSearchQuery] = useState('');
 
   async function handleCheckout() {
     setCheckoutLoading(true);
@@ -375,16 +472,15 @@ export default function CheatSheetClient() {
   const lockPicks = useMemo(() => getLockPicks(agreementMap), [agreementMap]);
   const smartUpsets = useMemo(() => getSmartUpsets(agreementMap), [agreementMap]);
   const trapGames = useMemo(() => getTrapGames(agreementMap), [agreementMap]);
+  const contestedGames = useMemo(() => getContestedGames(agreementMap), [agreementMap]);
   const { finalFour, champions } = useMemo(() => getFinalFourConsensus(brackets), [brackets]);
   const sleeper = useMemo(() => getSleeperPick(brackets), [brackets]);
-  const r64ByRegion = useMemo(() => getR64ByRegion(agreementMap), [agreementMap]);
+  const regionSummaries = useMemo(() => getR64RegionSummaries(agreementMap), [agreementMap]);
 
   const totalPredictions = modelCount * 63;
   const totalConsensus = lockPicks.length + smartUpsets.length + trapGames.length + (sleeper ? 1 : 0);
 
   const FREE_LOCK_PICKS = 2;
-  const [expandedGameId, setExpandedGameId] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
 
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
@@ -396,16 +492,72 @@ export default function CheatSheetClient() {
     );
   }
 
-  const filteredLockPicks = useMemo(() => lockPicks.filter(matchesSearch), [lockPicks, normalizedQuery]);
-  const filteredSmartUpsets = useMemo(() => smartUpsets.filter(matchesSearch), [smartUpsets, normalizedQuery]);
-  const filteredTrapGames = useMemo(() => trapGames.filter(matchesSearch), [trapGames, normalizedQuery]);
-  const filteredSleeper = sleeper && normalizedQuery ? (sleeper.team.toLowerCase().includes(normalizedQuery) ? sleeper : null) : sleeper;
-  const filteredR64ByRegion = useMemo(() => {
-    if (!normalizedQuery) return r64ByRegion;
-    return r64ByRegion
-      .map(({ region, games }) => ({ region, games: games.filter(matchesSearch) }))
-      .filter(({ games }) => games.length > 0);
-  }, [r64ByRegion, normalizedQuery]);
+  // Build category map: gameId -> category (R64 games only)
+  const gameCategories = useMemo(() => {
+    const lockIds = new Set(lockPicks.map((g) => g.gameId));
+    const upsetIds = new Set(smartUpsets.map((g) => g.gameId));
+    const trapIds = new Set(trapGames.map((g) => g.gameId));
+    const contestedIds = new Set(contestedGames.map((g) => g.gameId));
+
+    const map: Record<string, GameCategory> = {};
+    for (const game of Object.values(agreementMap)) {
+      if (game.round !== 'round_of_64') continue;
+      if (lockIds.has(game.gameId)) map[game.gameId] = 'lock';
+      else if (upsetIds.has(game.gameId)) map[game.gameId] = 'upset';
+      else if (trapIds.has(game.gameId)) map[game.gameId] = 'trap';
+      else if (contestedIds.has(game.gameId)) map[game.gameId] = 'contested';
+      else map[game.gameId] = 'clean';
+    }
+    return map;
+  }, [agreementMap, lockPicks, smartUpsets, trapGames, contestedGames]);
+
+  // Filter counts (R64 games by category, respecting search)
+  const filterCounts: Record<FilterType, number> = useMemo(() => {
+    let searchFiltered = Object.values(agreementMap).filter((g) => g.round === 'round_of_64');
+    if (normalizedQuery) searchFiltered = searchFiltered.filter(matchesSearch);
+
+    return {
+      all: searchFiltered.length,
+      locks: searchFiltered.filter((g) => gameCategories[g.gameId] === 'lock').length,
+      upsets: searchFiltered.filter((g) => gameCategories[g.gameId] === 'upset').length,
+      traps: searchFiltered.filter((g) => gameCategories[g.gameId] === 'trap').length,
+      contested: searchFiltered.filter((g) => gameCategories[g.gameId] === 'contested').length,
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [agreementMap, normalizedQuery, gameCategories]);
+
+  // Region accordion data with search + category filtering
+  const filteredRegions = useMemo(() => {
+    const filterCategoryKey: GameCategory | null =
+      activeFilter === 'locks' ? 'lock' :
+      activeFilter === 'upsets' ? 'upset' :
+      activeFilter === 'traps' ? 'trap' :
+      activeFilter === 'contested' ? 'contested' :
+      null;
+
+    return regionSummaries
+      .map(({ region, games }) => {
+        let filtered = games;
+        if (normalizedQuery) filtered = filtered.filter(matchesSearch);
+        if (filterCategoryKey) filtered = filtered.filter((g) => gameCategories[g.gameId] === filterCategoryKey);
+
+        // Compute per-region category counts for header
+        let lockCount = 0, upsetCount = 0, trapCount = 0, contestedCount = 0;
+        for (const g of filtered) {
+          const cat = gameCategories[g.gameId];
+          if (cat === 'lock') lockCount++;
+          else if (cat === 'upset') upsetCount++;
+          else if (cat === 'trap') trapCount++;
+          else if (cat === 'contested') contestedCount++;
+        }
+
+        return { region, games: filtered, lockCount, upsetCount, trapCount, contestedCount };
+      })
+      .filter((r) => r.games.length > 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [regionSummaries, normalizedQuery, activeFilter, gameCategories]);
+
+  // Search-filtered free preview data
   const filteredFinalFour = useMemo(() => {
     if (!normalizedQuery) return finalFour;
     return finalFour.filter((f) => f.team.toLowerCase().includes(normalizedQuery));
@@ -414,13 +566,26 @@ export default function CheatSheetClient() {
     if (!normalizedQuery) return champions;
     return champions.filter((c) => c.team.toLowerCase().includes(normalizedQuery));
   }, [champions, normalizedQuery]);
+  const filteredSleeper = sleeper && normalizedQuery ? (sleeper.team.toLowerCase().includes(normalizedQuery) ? sleeper : null) : sleeper;
+  const filteredLockPicks = useMemo(() => lockPicks.filter(matchesSearch), [lockPicks, normalizedQuery]);
 
   function toggleGame(gameId: string) {
     setExpandedGameId((prev) => (prev === gameId ? null : gameId));
   }
 
+  function toggleRegion(region: string) {
+    setExpandedRegions((prev) => {
+      const next = new Set(prev);
+      if (next.has(region)) next.delete(region);
+      else next.add(region);
+      return next;
+    });
+  }
+
   function selectYear(year: Year) {
     setExpandedGameId(null);
+    setExpandedRegions(new Set());
+    setActiveFilter('all');
     const params = new URLSearchParams();
     if (year === '2025') params.set('year', '2025');
     router.push(`/cheat-sheet${params.toString() ? '?' + params : ''}`, { scroll: false });
@@ -463,7 +628,7 @@ export default function CheatSheetClient() {
       </div>
 
       {/* ─── Search ─────────────────────────────────────────────────── */}
-      <div className="mb-8">
+      <div className="mb-4">
         <div className="relative">
           <input
             type="text"
@@ -491,6 +656,15 @@ export default function CheatSheetClient() {
         </div>
       </div>
 
+      {/* ─── Filter Pills ────────────────────────────────────────────── */}
+      {showContent && (
+        <FilterPills
+          active={activeFilter}
+          counts={filterCounts}
+          onChange={(f) => { setActiveFilter(f); setExpandedGameId(null); }}
+        />
+      )}
+
       {isPreview && (
         <div className="mb-8 border border-amber-500/30 rounded-lg px-5 py-4 bg-amber-500/5">
           <p className="text-sm text-amber-300 font-semibold mb-1">2025 Preview</p>
@@ -508,100 +682,106 @@ export default function CheatSheetClient() {
       )}
 
       {/* ─── 2. Big Stat ─────────────────────────────────────────────── */}
-      <div className="text-center mb-10">
-        <div className="font-mono text-[56px] sm:text-[72px] font-bold text-lab-white leading-none mb-1">
-          {totalConsensus}
-        </div>
-        <p className="text-lab-muted text-sm mb-4">
-          consensus picks from {totalPredictions} AI predictions
-        </p>
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
-          <span className="flex items-center gap-1.5 text-sm">
-            <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-            <span className="font-mono text-lab-white font-semibold">{lockPicks.length}</span>
-            <span className="text-lab-muted">Locks</span>
-          </span>
-          <span className="flex items-center gap-1.5 text-sm">
-            <span className="w-2 h-2 rounded-full bg-[#f59e0b]" />
-            <span className="font-mono text-lab-white font-semibold">{smartUpsets.length}</span>
-            <span className="text-lab-muted">Upsets</span>
-          </span>
-          <span className="flex items-center gap-1.5 text-sm">
-            <span className="w-2 h-2 rounded-full bg-[#ef4444]" />
-            <span className="font-mono text-lab-white font-semibold">{trapGames.length}</span>
-            <span className="text-lab-muted">Traps</span>
-          </span>
-          {sleeper && (
+      {activeFilter === 'all' && (
+        <div className="text-center mb-10">
+          <div className="font-mono text-[56px] sm:text-[72px] font-bold text-lab-white leading-none mb-1">
+            {totalConsensus}
+          </div>
+          <p className="text-lab-muted text-sm mb-4">
+            consensus picks from {totalPredictions} AI predictions
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
+            <span className="flex items-center gap-1.5 text-sm">
+              <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
+              <span className="font-mono text-lab-white font-semibold">{lockPicks.length}</span>
+              <span className="text-lab-muted">Locks</span>
+            </span>
+            <span className="flex items-center gap-1.5 text-sm">
+              <span className="w-2 h-2 rounded-full bg-[#f59e0b]" />
+              <span className="font-mono text-lab-white font-semibold">{smartUpsets.length}</span>
+              <span className="text-lab-muted">Upsets</span>
+            </span>
+            <span className="flex items-center gap-1.5 text-sm">
+              <span className="w-2 h-2 rounded-full bg-[#ef4444]" />
+              <span className="font-mono text-lab-white font-semibold">{trapGames.length}</span>
+              <span className="text-lab-muted">Traps</span>
+            </span>
             <span className="flex items-center gap-1.5 text-sm">
               <span className="w-2 h-2 rounded-full bg-[#a855f7]" />
-              <span className="font-mono text-lab-white font-semibold">1</span>
-              <span className="text-lab-muted">Sleeper</span>
+              <span className="font-mono text-lab-white font-semibold">{contestedGames.length}</span>
+              <span className="text-lab-muted">Contested</span>
             </span>
-          )}
-        </div>
-      </div>
-
-      {/* ─── 3. Free Preview: Champion + FF + 2 Lock Picks ───────────── */}
-      <section className="mb-10">
-        {/* Champion + Final Four */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-          {/* Champion */}
-          <div className="border border-[#2a2a2a] rounded-lg p-5">
-            <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Consensus Champion</p>
-            {filteredChampions.length > 0 && (
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-lab-white font-semibold text-lg">{filteredChampions[0].team}</span>
-                  <span className="font-mono text-sm font-bold" style={{ color: filteredChampions[0].count >= 3 ? '#22c55e' : '#888' }}>
-                    {filteredChampions[0].count}/{modelCount}
-                  </span>
-                </div>
-                <p className="text-xs text-lab-muted">
-                  {filteredChampions[0].count} model{filteredChampions[0].count !== 1 ? 's' : ''} picking this champion
-                </p>
-                {filteredChampions.length > 1 && (
-                  <div className="mt-3 pt-3 border-t border-[#2a2a2a]">
-                    {filteredChampions.slice(1).map((c) => (
-                      <div key={c.team} className="flex items-center justify-between text-sm py-0.5">
-                        <span className="text-lab-muted">{c.team}</span>
-                        <span className="font-mono text-xs text-[#555]">{c.count}/{modelCount}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+            {sleeper && (
+              <span className="flex items-center gap-1.5 text-sm">
+                <span className="w-2 h-2 rounded-full bg-[#a855f7]" />
+                <span className="font-mono text-lab-white font-semibold">1</span>
+                <span className="text-lab-muted">Sleeper</span>
+              </span>
             )}
           </div>
+        </div>
+      )}
 
-          {/* Final Four */}
-          <div className="border border-[#2a2a2a] rounded-lg p-5">
-            <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Final Four Consensus</p>
-            <div className="space-y-2">
-              {filteredFinalFour.slice(0, 6).map((f) => (
-                <div key={f.team} className="flex items-center justify-between">
-                  <span className="text-lab-white text-sm">{f.team}</span>
-                  <AgreementPill count={f.count} total={modelCount} color="#3b82f6" />
+      {/* ─── 3. Free Preview: Champion + FF + 2 Lock Picks ───────────── */}
+      {activeFilter === 'all' && (
+        <section className="mb-10">
+          {/* Champion + Final Four */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            {/* Champion */}
+            <div className="border border-[#2a2a2a] rounded-lg p-5">
+              <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Consensus Champion</p>
+              {filteredChampions.length > 0 && (
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-lab-white font-semibold text-lg">{filteredChampions[0].team}</span>
+                    <span className="font-mono text-sm font-bold" style={{ color: filteredChampions[0].count >= 3 ? '#22c55e' : '#888' }}>
+                      {filteredChampions[0].count}/{modelCount}
+                    </span>
+                  </div>
+                  <p className="text-xs text-lab-muted">
+                    {filteredChampions[0].count} model{filteredChampions[0].count !== 1 ? 's' : ''} picking this champion
+                  </p>
+                  {filteredChampions.length > 1 && (
+                    <div className="mt-3 pt-3 border-t border-[#2a2a2a]">
+                      {filteredChampions.slice(1).map((c) => (
+                        <div key={c.team} className="flex items-center justify-between text-sm py-0.5">
+                          <span className="text-lab-muted">{c.team}</span>
+                          <span className="font-mono text-xs text-[#555]">{c.count}/{modelCount}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              ))}
+              )}
+            </div>
+
+            {/* Final Four */}
+            <div className="border border-[#2a2a2a] rounded-lg p-5">
+              <p className="font-mono text-[10px] text-[#555] uppercase tracking-wider mb-3">Final Four Consensus</p>
+              <div className="space-y-2">
+                {filteredFinalFour.slice(0, 6).map((f) => (
+                  <div key={f.team} className="flex items-center justify-between">
+                    <span className="text-lab-white text-sm">{f.team}</span>
+                    <AgreementPill count={f.count} total={modelCount} color="#3b82f6" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* 2 free lock picks */}
-        <div className="space-y-3">
-          {filteredLockPicks.slice(0, FREE_LOCK_PICKS).map((game) => (
-            <PickRow
-              key={game.gameId}
-              game={game}
-              icon="&#10003;"
-              iconColor="#22c55e"
-              pillColor="#22c55e"
-              expanded={expandedGameId === game.gameId}
-              onToggle={() => toggleGame(game.gameId)}
-            />
-          ))}
-        </div>
-      </section>
+          {/* 2 free lock picks */}
+          <div className="space-y-3">
+            {filteredLockPicks.slice(0, FREE_LOCK_PICKS).map((game) => (
+              <PickRow
+                key={game.gameId}
+                game={game}
+                expanded={expandedGameId === game.gameId}
+                onToggle={() => toggleGame(game.gameId)}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ─── 4. Locked Content Tease (when not unlocked) ─────────────── */}
       {!showContent && (
@@ -612,6 +792,7 @@ export default function CheatSheetClient() {
                 { icon: '&#10003;', color: '#22c55e', label: `${lockPicks.length - FREE_LOCK_PICKS} more Lock Picks`, desc: lockPicks.length > FREE_LOCK_PICKS ? `${Math.min(...lockPicks.slice(FREE_LOCK_PICKS).map(g => g.agreementCount))}/${modelCount} to ${Math.max(...lockPicks.map(g => g.agreementCount))}/${modelCount} agreement` : '7+ model agreement' },
                 { icon: '&#9889;', color: '#f59e0b', label: `${smartUpsets.length} Smart Upsets`, desc: '4+ models on the underdog' },
                 { icon: '&#9888;', color: '#ef4444', label: `${trapGames.length} Trap Games`, desc: 'Favorites to avoid' },
+                { icon: '&#9876;', color: '#a855f7', label: `${contestedGames.length} Contested Games`, desc: 'Where the models debate' },
                 ...(sleeper ? [{ icon: '&#128301;', color: '#a855f7', label: '1 Sleeper Pick', desc: 'Deep run, high confidence' }] : []),
                 { icon: '&#127942;', color: '#3b82f6', label: '32 Opening Round Matchups', desc: 'Every R64 game, model-by-model breakdown' },
               ].map((row) => (
@@ -708,7 +889,7 @@ export default function CheatSheetClient() {
       {/* ─── 6. Paid Content ─────────────────────────────────────────── */}
       {showContent && (
         <>
-          {unlocked && !isPreview && (
+          {unlocked && !isPreview && activeFilter === 'all' && (
             <div className="mb-8 border border-green-500/30 rounded-lg px-5 py-4 bg-green-500/5">
               <p className="text-sm text-green-300 font-semibold mb-0.5">Thanks for your purchase.</p>
               <p className="text-xs text-lab-muted">
@@ -716,95 +897,9 @@ export default function CheatSheetClient() {
               </p>
             </div>
           )}
-          {/* Lock Picks (remaining) */}
-          {filteredLockPicks.length > FREE_LOCK_PICKS && (
-            <section className="mb-10">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-green-400">&#10003;</span>
-                <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-                  Lock Picks
-                </h2>
-                <span className="font-mono text-xs text-[#555] ml-auto">{filteredLockPicks.length} total</span>
-              </div>
-              <p className="text-sm text-lab-muted mb-4">
-                Games where 7+ of {modelCount} models agree. Put these in ink.
-              </p>
-              <div className="space-y-3">
-                {filteredLockPicks.slice(FREE_LOCK_PICKS).map((game) => (
-                  <PickRow
-                    key={game.gameId}
-                    game={game}
-                    icon="&#10003;"
-                    iconColor="#22c55e"
-                    pillColor="#22c55e"
-                    expanded={expandedGameId === game.gameId}
-                    onToggle={() => toggleGame(game.gameId)}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Smart Upsets */}
-          {filteredSmartUpsets.length > 0 && (
-            <section className="mb-10">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-amber-400">&#9889;</span>
-                <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-                  Smart Upsets
-                </h2>
-                <span className="font-mono text-xs text-[#555] ml-auto">{filteredSmartUpsets.length} games</span>
-              </div>
-              <p className="text-sm text-lab-muted mb-4">
-                Lower seeds that 4+ models agree on. The upsets worth taking.
-              </p>
-              <div className="space-y-3">
-                {filteredSmartUpsets.map((game) => (
-                  <PickRow
-                    key={game.gameId}
-                    game={game}
-                    icon="&#9889;"
-                    iconColor="#f59e0b"
-                    pillColor="#f59e0b"
-                    expanded={expandedGameId === game.gameId}
-                    onToggle={() => toggleGame(game.gameId)}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Trap Games */}
-          {filteredTrapGames.length > 0 && (
-            <section className="mb-10">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-red-400">&#9888;</span>
-                <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-                  Trap Games
-                </h2>
-                <span className="font-mono text-xs text-[#555] ml-auto">{filteredTrapGames.length} games</span>
-              </div>
-              <p className="text-sm text-lab-muted mb-4">
-                Everyone in your pool will pick these favorites &mdash; here&apos;s why you shouldn&apos;t.
-              </p>
-              <div className="space-y-3">
-                {filteredTrapGames.map((game) => (
-                  <PickRow
-                    key={game.gameId}
-                    game={game}
-                    icon="&#9888;"
-                    iconColor="#ef4444"
-                    pillColor="#ef4444"
-                    expanded={expandedGameId === game.gameId}
-                    onToggle={() => toggleGame(game.gameId)}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
 
           {/* Sleeper Pick */}
-          {filteredSleeper && (
+          {activeFilter === 'all' && filteredSleeper && (
             <section className="mb-10">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-purple-400">&#128301;</span>
@@ -827,38 +922,79 @@ export default function CheatSheetClient() {
             </section>
           )}
 
-          {/* ─── Full R64 Breakdown ──────────────────────────────────── */}
+          {/* ─── Region Accordion (primary paid content) ───────────────── */}
           <section className="mb-10">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-lab-white">&#127942;</span>
-              <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-                Full R64 Breakdown
-              </h2>
-              <span className="font-mono text-xs text-[#555] ml-auto">32 games</span>
-            </div>
-            <p className="text-sm text-lab-muted mb-6">
-              Every opening round matchup with model-by-model analysis. Click any game to expand.
-            </p>
+            {activeFilter === 'all' && (
+              <>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-lab-white">&#127942;</span>
+                  <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
+                    R64 Breakdown
+                  </h2>
+                  <span className="font-mono text-xs text-[#555] ml-auto">{filterCounts.all} games</span>
+                </div>
+                <p className="text-sm text-lab-muted mb-6">
+                  Every opening round matchup with model-by-model analysis. Click a region to expand.
+                </p>
+              </>
+            )}
 
-            {filteredR64ByRegion.map(({ region, games }) => (
-              <div key={region} className="mb-8">
-                <div className="sticky top-0 z-10 bg-[#141414] py-2 mb-3">
-                  <h3 className="font-mono text-xs text-[#555] uppercase tracking-wider border-b border-[#2a2a2a] pb-2">
-                    {region} Region &middot; {games.length} games
-                  </h3>
-                </div>
-                <div className="space-y-2">
-                  {games.map((game) => (
-                    <R64Row
-                      key={game.gameId}
-                      game={game}
-                      expanded={expandedGameId === game.gameId}
-                      onToggle={() => toggleGame(game.gameId)}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
+            <div className="space-y-2">
+              {filteredRegions.map(({ region, games, lockCount, upsetCount, trapCount, contestedCount }) => {
+                const isOpen = expandedRegions.has(region);
+                return (
+                  <div key={region} className={`border rounded-lg overflow-hidden transition-all duration-200 ${isOpen ? 'border-[#444]' : 'border-[#2a2a2a]'}`}>
+                    {/* Region header */}
+                    <div
+                      className="flex items-center justify-between px-4 py-3.5 cursor-pointer hover:bg-[#1e1e1e] transition-colors"
+                      onClick={() => toggleRegion(region)}
+                    >
+                      <span className="text-lab-white font-semibold" style={{ fontFamily: 'var(--font-serif)' }}>
+                        {region} Region
+                      </span>
+                      <div className="flex items-center gap-3">
+                        {lockCount > 0 && (
+                          <span className="font-mono text-[10px] text-[#22c55e]">
+                            <span className="font-bold">{lockCount}</span> <span className="text-[#555]">locks</span>
+                          </span>
+                        )}
+                        {upsetCount > 0 && (
+                          <span className="font-mono text-[10px] text-[#f59e0b]">
+                            <span className="font-bold">{upsetCount}</span> <span className="text-[#555]">upsets</span>
+                          </span>
+                        )}
+                        {trapCount > 0 && (
+                          <span className="font-mono text-[10px] text-[#ef4444]">
+                            <span className="font-bold">{trapCount}</span> <span className="text-[#555]">traps</span>
+                          </span>
+                        )}
+                        {contestedCount > 0 && (
+                          <span className="font-mono text-[10px] text-[#a855f7]">
+                            <span className="font-bold">{contestedCount}</span> <span className="text-[#555]">contested</span>
+                          </span>
+                        )}
+                        <span className={`text-[#444] text-[10px] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>&#9660;</span>
+                      </div>
+                    </div>
+
+                    {/* Expanded: game rows */}
+                    {isOpen && (
+                      <div className="px-3 pb-3 space-y-1.5">
+                        {games.map((game) => (
+                          <RegionAccordionRow
+                            key={game.gameId}
+                            game={game}
+                            category={gameCategories[game.gameId] || 'clean'}
+                            expanded={expandedGameId === game.gameId}
+                            onToggle={() => toggleGame(game.gameId)}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </section>
         </>
       )}

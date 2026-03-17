@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cheat Sheet — Option B: Region-first, color-coded left border</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px; }
+  .label { font-size: 11px; color: #555; font-family: monospace; letter-spacing: 0.05em; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px solid #2a2a2a; padding-bottom: 8px; }
+
+  /* Filter pills */
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .filter-pill { font-family: monospace; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 8px; border: 1px solid #333; color: #666; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+  .filter-pill.active-all { border-color: #888; color: #888; background: rgba(136,136,136,0.07); }
+
+  /* Stats bar */
+  .stats-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; padding: 12px 16px; background: #1a1a1a; border-radius: 10px; border: 1px solid #2a2a2a; }
+  .stat-item { font-family: monospace; font-size: 11px; }
+  .stat-num { font-weight: 700; }
+  .stat-label { color: #555; }
+
+  /* Region */
+  .region { border: 1px solid #2a2a2a; border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
+  .region.open { border-color: #444; }
+  .region-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; cursor: pointer; }
+  .region-header:hover { background: #1e1e1e; }
+  .region-name { font-weight: 600; font-size: 15px; font-family: Georgia, serif; }
+  .region-tags { display: flex; align-items: center; gap: 10px; }
+  .region-tag { font-family: monospace; font-size: 10px; }
+  .region-tag .num { font-weight: 700; }
+  .region-tag .lbl { color: #555; }
+  .region-tag.lock .num { color: #22c55e; }
+  .region-tag.upset .num { color: #f59e0b; }
+  .region-tag.trap .num { color: #ef4444; }
+  .chevron { color: #444; font-size: 10px; }
+  .filter-count { font-size: 10px; opacity: 0.6; }
+
+  /* Game rows — left border denotes category */
+  .games { padding: 0 12px 12px; }
+  .game-row { border: 1px solid #2a2a2a; border-radius: 8px; margin-bottom: 6px; overflow: hidden; }
+  .game-row:last-child { margin-bottom: 0; }
+  .game-row.cat-lock { border-left: 3px solid #22c55e; }
+  .game-row.cat-upset { border-left: 3px solid #f59e0b; }
+  .game-row.cat-trap { border-left: 3px solid #ef4444; }
+  .game-row.cat-contested { border-left: 3px solid #a855f7; }
+
+  .game-summary { display: flex; align-items: center; gap: 6px; padding: 10px 12px; cursor: pointer; min-height: 42px; }
+  .game-summary:hover { background: #1e1e1e; }
+
+  .seed-matchup { font-family: monospace; font-size: 11px; color: #444; width: 36px; text-align: center; flex-shrink: 0; }
+  .team-bold { font-weight: 600; color: #efefef; font-size: 14px; }
+  .team-muted { color: #888; font-size: 14px; }
+  .vs-sep { color: #555; font-size: 11px; flex-shrink: 0; }
+
+  .game-right { display: flex; align-items: center; gap: 6px; margin-left: auto; flex-shrink: 0; }
+
+  /* Agreement pill */
+  .agree-pill { font-family: monospace; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 99px; flex-shrink: 0; }
+  .agree-lock { background: rgba(34,197,94,0.1); color: #22c55e; }
+  .agree-upset { background: rgba(245,158,11,0.1); color: #f59e0b; }
+  .agree-trap { background: rgba(239,68,68,0.1); color: #ef4444; }
+  .agree-contested { background: rgba(168,85,247,0.1); color: #a855f7; }
+  .agree-clean { background: rgba(136,136,136,0.1); color: #888; }
+
+  /* Expanded detail placeholder */
+  .game-detail { padding: 0 12px 12px; }
+  .detail-placeholder { background: #1a1a1a; border-radius: 8px; padding: 16px; border: 1px dashed #333; }
+  .detail-placeholder p { font-size: 12px; color: #555; font-style: italic; }
+
+  .note { font-size: 11px; color: #555; margin-top: 20px; padding: 12px; border: 1px dashed #333; border-radius: 8px; line-height: 1.5; }
+
+  /* Legend */
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; padding: 10px 14px; background: #1a1a1a; border-radius: 8px; border: 1px solid #2a2a2a; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #888; }
+  .legend-bar { width: 3px; height: 14px; border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="label">Option B — Region-first, color-coded left border (no text tags)</div>
+
+  <!-- Filter pills -->
+  <div class="filters">
+    <button class="filter-pill active-all">All <span class="filter-count">32</span></button>
+    <button class="filter-pill">&#10003; Locks <span class="filter-count">14</span></button>
+    <button class="filter-pill">&#9889; Upsets <span class="filter-count">7</span></button>
+    <button class="filter-pill">&#9888; Traps <span class="filter-count">4</span></button>
+    <button class="filter-pill">&#9876; Contested <span class="filter-count">5</span></button>
+  </div>
+
+  <!-- Color legend -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-bar" style="background:#22c55e"></div> Lock (7+/9)</div>
+    <div class="legend-item"><div class="legend-bar" style="background:#f59e0b"></div> Upset</div>
+    <div class="legend-item"><div class="legend-bar" style="background:#ef4444"></div> Trap</div>
+    <div class="legend-item"><div class="legend-bar" style="background:#a855f7"></div> Contested</div>
+    <div class="legend-item"><div class="legend-bar" style="background:#2a2a2a"></div> Clean</div>
+  </div>
+
+  <!-- EAST REGION — expanded -->
+  <div class="region open">
+    <div class="region-header">
+      <span class="region-name">East Region</span>
+      <div class="region-tags">
+        <span class="region-tag lock"><span class="num">4</span> <span class="lbl">locks</span></span>
+        <span class="region-tag upset"><span class="num">2</span> <span class="lbl">upsets</span></span>
+        <span class="region-tag trap"><span class="num">1</span> <span class="lbl">trap</span></span>
+        <span class="chevron">&#9650;</span>
+      </div>
+    </div>
+    <div class="games">
+      <!-- Lock: green left border -->
+      <div class="game-row cat-lock">
+        <div class="game-summary">
+          <span class="seed-matchup">1v16</span>
+          <span class="team-bold">Duke</span>
+          <span class="vs-sep">&gt;</span>
+          <span class="team-muted">American</span>
+          <div class="game-right">
+            <span class="agree-pill agree-lock">9/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lock -->
+      <div class="game-row cat-lock">
+        <div class="game-summary">
+          <span class="seed-matchup">2v15</span>
+          <span class="team-bold">Alabama</span>
+          <span class="vs-sep">&gt;</span>
+          <span class="team-muted">Robert Morris</span>
+          <div class="game-right">
+            <span class="agree-pill agree-lock">9/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trap: red left border -->
+      <div class="game-row cat-trap">
+        <div class="game-summary">
+          <span class="seed-matchup">3v14</span>
+          <span class="team-bold">Wisconsin</span>
+          <span class="vs-sep">&gt;</span>
+          <span class="team-muted">Montana</span>
+          <div class="game-right">
+            <span class="agree-pill agree-trap">5/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clean: no left border -->
+      <div class="game-row">
+        <div class="game-summary">
+          <span class="seed-matchup">4v13</span>
+          <span class="team-bold">Arizona</span>
+          <span class="vs-sep">&gt;</span>
+          <span class="team-muted">Lipscomb</span>
+          <div class="game-right">
+            <span class="agree-pill agree-clean">6/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upset: amber left border -->
+      <div class="game-row cat-upset">
+        <div class="game-summary">
+          <span class="seed-matchup">5v12</span>
+          <span class="team-muted">Michigan St</span>
+          <span class="vs-sep">&lt;</span>
+          <span class="team-bold">UC San Diego</span>
+          <div class="game-right">
+            <span class="agree-pill agree-upset">6/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lock -->
+      <div class="game-row cat-lock">
+        <div class="game-summary">
+          <span class="seed-matchup">6v11</span>
+          <span class="team-bold">Illinois</span>
+          <span class="vs-sep">&gt;</span>
+          <span class="team-muted">Drake</span>
+          <div class="game-right">
+            <span class="agree-pill agree-lock">7/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upset — expanded -->
+      <div class="game-row cat-upset" style="border-color: #444;">
+        <div class="game-summary" style="background: #1a1a1a;">
+          <span class="seed-matchup">7v10</span>
+          <span class="team-muted">Clemson</span>
+          <span class="vs-sep">&lt;</span>
+          <span class="team-bold">Arkansas</span>
+          <div class="game-right">
+            <span class="agree-pill agree-upset">5/9</span>
+            <span class="chevron">&#9650;</span>
+          </div>
+        </div>
+        <div class="game-detail">
+          <div class="detail-placeholder">
+            <p>[Full GameDetail expands here — consensus bar, bold verdict, counter-argument, model breakdown.]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contested: purple left border -->
+      <div class="game-row cat-contested">
+        <div class="game-summary">
+          <span class="seed-matchup">8v9</span>
+          <span class="team-bold">UConn</span>
+          <span class="vs-sep">&gt;</span>
+          <span class="team-muted">Oklahoma</span>
+          <div class="game-right">
+            <span class="agree-pill agree-contested">5/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOUTH — collapsed -->
+  <div class="region">
+    <div class="region-header">
+      <span class="region-name">South Region</span>
+      <div class="region-tags">
+        <span class="region-tag lock"><span class="num">3</span> <span class="lbl">locks</span></span>
+        <span class="region-tag upset"><span class="num">2</span> <span class="lbl">upsets</span></span>
+        <span class="region-tag trap"><span class="num">1</span> <span class="lbl">trap</span></span>
+        <span class="chevron">&#9660;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIDWEST — collapsed -->
+  <div class="region">
+    <div class="region-header">
+      <span class="region-name">Midwest Region</span>
+      <div class="region-tags">
+        <span class="region-tag lock"><span class="num">4</span> <span class="lbl">locks</span></span>
+        <span class="region-tag upset"><span class="num">1</span> <span class="lbl">upsets</span></span>
+        <span class="region-tag trap"><span class="num">1</span> <span class="lbl">trap</span></span>
+        <span class="chevron">&#9660;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEST — collapsed -->
+  <div class="region">
+    <div class="region-header">
+      <span class="region-name">West Region</span>
+      <div class="region-tags">
+        <span class="region-tag lock"><span class="num">3</span> <span class="lbl">locks</span></span>
+        <span class="region-tag upset"><span class="num">2</span> <span class="lbl">upsets</span></span>
+        <span class="region-tag trap"><span class="num">1</span> <span class="lbl">trap</span></span>
+        <span class="chevron">&#9660;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Option B: Color-coded left border, no text tags</strong><br/>
+    - Same region-first layout as Option A, but categories shown via colored left border only (no "LOCK"/"UPSET" text tag).<br/>
+    - Cleaner, less visual noise per row. Color legend at top teaches the system once.<br/>
+    - Games in bracket seed order (1v16 first, 8v9 last) within each region.<br/>
+    - Agreement pill color still matches category.<br/>
+    - Trade-off: requires learning the color code. But the filter pills + legend make it intuitive.
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2: Stat Badges on Collapsed Rows</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: 'Inter', sans-serif; padding: 40px 20px; }
+  .container { max-width: 700px; margin: 0 auto; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 40px; }
+  .variant-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: #a855f7; text-transform: uppercase;
+    letter-spacing: 1.5px; margin-bottom: 16px; margin-top: 40px;
+    border-bottom: 1px solid #2a2a2a; padding-bottom: 8px;
+  }
+  .variant-desc { color: #888; font-size: 13px; margin-bottom: 16px; }
+
+  /* ── Shared card styles ── */
+  .pick-card {
+    border: 1px solid #2a2a2a; border-radius: 10px;
+    overflow: hidden; margin-bottom: 12px; transition: border-color 0.2s;
+  }
+  .pick-card:hover { border-color: #444; }
+  .pick-header { padding: 16px; cursor: pointer; }
+  .pick-line1 {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .pick-icon { font-size: 14px; flex-shrink: 0; }
+  .pick-team { font-weight: 600; font-size: 14px; }
+  .pick-over { color: #888; font-size: 12px; }
+  .pick-opponent { color: #888; font-size: 14px; }
+  .agreement-pill {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+    padding: 2px 8px; border-radius: 12px; flex-shrink: 0; margin-left: auto;
+  }
+  .caret { color: #444; font-size: 10px; margin-left: 8px; flex-shrink: 0; }
+
+  /* ── Variant A: Pill badges ── */
+  .badges-row {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    padding: 0 16px 12px 38px;
+  }
+  .stat-pill {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+    padding: 3px 8px; border-radius: 6px; background: #1e1e1e; border: 1px solid #333;
+  }
+  .stat-pill.em { color: #22c55e; border-color: rgba(34,197,94,0.25); }
+  .stat-pill.hist { color: #f59e0b; border-color: rgba(245,158,11,0.25); }
+  .stat-pill.risk-low { color: #22c55e; border-color: rgba(34,197,94,0.25); }
+  .stat-pill.risk-med { color: #f59e0b; border-color: rgba(245,158,11,0.25); }
+  .stat-pill.risk-high { color: #ef4444; border-color: rgba(239,68,68,0.25); }
+  .stat-pill.conf { color: #3b82f6; border-color: rgba(59,130,246,0.25); }
+
+  /* ── Variant B: Inline dot-separated text ── */
+  .badges-inline {
+    padding: 0 16px 12px 38px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    line-height: 1.5;
+  }
+  .badges-inline .em-val { color: #22c55e; }
+  .badges-inline .hist-val { color: #f59e0b; }
+  .badges-inline .risk-val-low { color: #22c55e; }
+  .badges-inline .risk-val-med { color: #f59e0b; }
+  .badges-inline .risk-val-high { color: #ef4444; }
+  .badges-inline .sep { color: #444; margin: 0 6px; }
+
+  /* ── Variant C: Minimal (1-2 relevant stats) ── */
+  .badges-minimal {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    padding: 0 16px 12px 38px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Stat Badges on Collapsed Rows</h1>
+<p class="subtitle">Three approaches to surfacing key stats without expanding a pick. Shown on Lock, Upset, and Trap picks.</p>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- VARIANT A: Pill-style badges -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="variant-label">Variant A &mdash; Pill Badges</div>
+<p class="variant-desc">Small colored pills below the pick line. Shows all relevant stats for that pick type.</p>
+
+<!-- Lock Pick -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#22c55e;">&#10003;</span>
+      <span class="pick-team">(1) Duke</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(16) Norfolk St.</span>
+      <span class="agreement-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="stat-pill em">+14.6 EM</span>
+    <span class="stat-pill hist">1.2% hist upset</span>
+    <span class="stat-pill risk-low">LOW risk</span>
+  </div>
+</div>
+
+<!-- Lock Pick #2 -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#22c55e;">&#10003;</span>
+      <span class="pick-team">(2) Alabama</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(15) Robert Morris</span>
+      <span class="agreement-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="stat-pill em">+11.2 EM</span>
+    <span class="stat-pill hist">6.7% hist upset</span>
+    <span class="stat-pill risk-low">LOW risk</span>
+  </div>
+</div>
+
+<!-- Upset Pick -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#f59e0b;">&#9889;</span>
+      <span class="pick-team">(10) Arkansas</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(7) Nevada</span>
+      <span class="agreement-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="stat-pill hist">39.7% hist upset</span>
+    <span class="stat-pill em">-1.8 EM</span>
+    <span class="stat-pill risk-med">MED risk</span>
+  </div>
+</div>
+
+<!-- Trap Game -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#ef4444;">&#9888;</span>
+      <span class="pick-team">(4) Arizona</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(13) Yale</span>
+      <span class="agreement-pill" style="background:rgba(239,68,68,0.1);color:#ef4444;">5/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-row">
+    <span class="stat-pill em">+3.1 EM</span>
+    <span class="stat-pill hist">21.4% hist upset</span>
+    <span class="stat-pill risk-high">HIGH risk</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- VARIANT B: Dot-separated inline text -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="variant-label">Variant B &mdash; Inline Text</div>
+<p class="variant-desc">No pills. Just colored monospace text separated by dots. Lighter, more editorial feel.</p>
+
+<!-- Lock Pick -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#22c55e;">&#10003;</span>
+      <span class="pick-team">(1) Duke</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(16) Norfolk St.</span>
+      <span class="agreement-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-inline">
+    <span class="em-val">+14.6 EM</span><span class="sep">&middot;</span><span class="hist-val">1.2% hist upset</span><span class="sep">&middot;</span><span class="risk-val-low">Low Risk</span>
+  </div>
+</div>
+
+<!-- Upset Pick -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#f59e0b;">&#9889;</span>
+      <span class="pick-team">(10) Arkansas</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(7) Nevada</span>
+      <span class="agreement-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-inline">
+    <span class="hist-val">39.7% hist upset</span><span class="sep">&middot;</span><span class="em-val">-1.8 EM gap</span><span class="sep">&middot;</span><span class="risk-val-med">Med Risk</span>
+  </div>
+</div>
+
+<!-- Trap Game -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#ef4444;">&#9888;</span>
+      <span class="pick-team">(4) Arizona</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(13) Yale</span>
+      <span class="agreement-pill" style="background:rgba(239,68,68,0.1);color:#ef4444;">5/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-inline">
+    <span class="em-val">+3.1 EM</span><span class="sep">&middot;</span><span class="hist-val">21.4% hist upset</span><span class="sep">&middot;</span><span class="risk-val-high">High Risk</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- VARIANT C: Minimal (1-2 most relevant stats only) -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="variant-label">Variant C &mdash; Minimal</div>
+<p class="variant-desc">Only the most relevant 1-2 stats per pick type. Locks get EM gap. Upsets get hist rate. Traps get risk level. Less noise.</p>
+
+<!-- Lock Pick: just EM gap -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#22c55e;">&#10003;</span>
+      <span class="pick-team">(1) Duke</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(16) Norfolk St.</span>
+      <span class="agreement-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-minimal">
+    <span class="stat-pill em">+14.6 EM</span>
+  </div>
+</div>
+
+<!-- Lock Pick #2: just EM gap -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#22c55e;">&#10003;</span>
+      <span class="pick-team">(2) Alabama</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(15) Robert Morris</span>
+      <span class="agreement-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-minimal">
+    <span class="stat-pill em">+11.2 EM</span>
+  </div>
+</div>
+
+<!-- Upset: hist rate + risk -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#f59e0b;">&#9889;</span>
+      <span class="pick-team">(10) Arkansas</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(7) Nevada</span>
+      <span class="agreement-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-minimal">
+    <span class="stat-pill hist">39.7% hist upset</span>
+    <span class="stat-pill risk-med">MED risk</span>
+  </div>
+</div>
+
+<!-- Trap: risk level only -->
+<div class="pick-card">
+  <div class="pick-header">
+    <div class="pick-line1">
+      <span class="pick-icon" style="color:#ef4444;">&#9888;</span>
+      <span class="pick-team">(4) Arizona</span>
+      <span class="pick-over">over</span>
+      <span class="pick-opponent">(13) Yale</span>
+      <span class="agreement-pill" style="background:rgba(239,68,68,0.1);color:#ef4444;">5/9</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+  <div class="badges-minimal">
+    <span class="stat-pill risk-high">HIGH risk</span>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

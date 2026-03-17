@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clean Verdict Card Mockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: 'Inter', sans-serif; padding: 40px 20px; }
+  .container { max-width: 700px; margin: 0 auto; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 32px; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+
+  /* ── Clean Verdict Card (Collapsed) ── */
+  .pick-card {
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .pick-card:hover { border-color: #444; }
+
+  .pick-header {
+    padding: 16px;
+    cursor: pointer;
+  }
+
+  /* Line 1: icon + team + over + opponent + pill */
+  .pick-line1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .pick-icon { font-size: 14px; flex-shrink: 0; }
+  .pick-team { font-weight: 600; font-size: 14px; }
+  .pick-over { color: #888; font-size: 12px; }
+  .pick-opponent { color: #888; font-size: 14px; }
+  .agreement-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  /* Line 2: one-sentence thesis */
+  .pick-thesis {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.45;
+    margin-bottom: 8px;
+    padding-left: 22px;
+  }
+
+  /* Line 3: stat badges */
+  .stat-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-left: 22px;
+  }
+  .stat-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+  }
+  .stat-badge.em { color: #22c55e; border-color: rgba(34,197,94,0.25); }
+  .stat-badge.upset { color: #f59e0b; border-color: rgba(245,158,11,0.25); }
+  .stat-badge.risk-low { color: #22c55e; border-color: rgba(34,197,94,0.25); }
+  .stat-badge.risk-mid { color: #f59e0b; border-color: rgba(245,158,11,0.25); }
+  .stat-badge.risk-high { color: #ef4444; border-color: rgba(239,68,68,0.25); }
+
+  .expand-arrow {
+    color: #444;
+    font-size: 10px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .expanded .expand-arrow { transform: rotate(180deg); }
+
+  /* ── Expanded View ── */
+  .pick-detail {
+    padding: 0 16px 16px;
+  }
+
+  /* Consensus bar */
+  .consensus-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .consensus-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .bar-track {
+    flex: 1;
+    height: 8px;
+    background: #2a2a2a;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+  }
+  .bar-for { height: 100%; background: #22c55e; border-radius: 4px 0 0 4px; }
+  .bar-against { height: 100%; background: #ef4444; border-radius: 0 4px 4px 0; }
+
+  /* Bold Verdict box */
+  .verdict-box {
+    background: #1a1a1a;
+    border-left: 3px solid #22c55e;
+    border-radius: 0 8px 8px 0;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  .verdict-thesis {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .verdict-counter {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+    font-style: italic;
+  }
+  .counter-label {
+    font-style: normal;
+    font-weight: 600;
+    color: #ef4444;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Split columns */
+  .split-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .col-header {
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .col-body { background: #1a1a1a; padding: 8px; }
+  .model-row {
+    padding: 6px 0;
+    border-bottom: 1px solid #222;
+  }
+  .model-row:last-child { border-bottom: none; }
+  .model-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .model-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .model-name {
+    font-size: 11px;
+    font-weight: 600;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .model-conf {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #666;
+    flex-shrink: 0;
+  }
+  /* FULL reasoning in expanded view — no truncation */
+  .model-reasoning {
+    font-size: 11px;
+    color: #999;
+    line-height: 1.5;
+  }
+
+  /* Stat boxes */
+  .stat-boxes {
+    display: flex;
+    gap: 8px;
+  }
+  .stat-box {
+    flex: 1;
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+  .stat-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .divider { border-top: 1px solid #2a2a2a; margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Clean Verdict Card</h1>
+  <p class="subtitle">Collapsed view with inline stats + expanded view with full reasoning (no truncation)</p>
+
+  <div class="divider"></div>
+
+  <!-- ── COLLAPSED STATE: Lock Pick ── -->
+  <p class="section-label">Collapsed — Lock Pick (9/9 agreement)</p>
+
+  <div class="pick-card">
+    <div class="pick-header">
+      <div class="pick-line1">
+        <span class="pick-icon" style="color: #22c55e;">&#10003;</span>
+        <span class="pick-team">(5) St. John's</span>
+        <span class="pick-over">over</span>
+        <span class="pick-opponent">(12) Northern Iowa</span>
+        <span class="agreement-pill" style="background: rgba(34,197,94,0.1); color: #22c55e;">9/9</span>
+        <span class="expand-arrow">&#9660;</span>
+      </div>
+      <p class="pick-thesis">St. John's AdjEM of 25.7 creates a 14.6-point edge over Northern Iowa's 11.1. The Johnnies' defense is elite.</p>
+      <div class="stat-badges">
+        <span class="stat-badge em">+14.6 EM</span>
+        <span class="stat-badge upset">35.6% hist upset</span>
+        <span class="stat-badge risk-low">Risk: 22</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COLLAPSED STATE: Smart Upset ── -->
+  <p class="section-label" style="margin-top: 24px;">Collapsed — Smart Upset (6/9 agreement)</p>
+
+  <div class="pick-card">
+    <div class="pick-header">
+      <div class="pick-line1">
+        <span class="pick-icon" style="color: #f59e0b;">&#9889;</span>
+        <span class="pick-team">(10) Arkansas</span>
+        <span class="pick-over">over</span>
+        <span class="pick-opponent">(7) Nevada</span>
+        <span class="agreement-pill" style="background: rgba(245,158,11,0.1); color: #f59e0b;">6/9</span>
+        <span class="expand-arrow">&#9660;</span>
+      </div>
+      <p class="pick-thesis">Arkansas has the more dynamic offense and Nevada's three-point variance makes them vulnerable in a one-game format.</p>
+      <div class="stat-badges">
+        <span class="stat-badge em">+2.1 EM</span>
+        <span class="stat-badge upset">40.0% hist upset</span>
+        <span class="stat-badge risk-high">Risk: 68</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COLLAPSED STATE: Trap Game ── -->
+  <p class="section-label" style="margin-top: 24px;">Collapsed — Trap Game (5/9 agreement)</p>
+
+  <div class="pick-card">
+    <div class="pick-header">
+      <div class="pick-line1">
+        <span class="pick-icon" style="color: #ef4444;">&#9888;</span>
+        <span class="pick-team">(6) Louisville</span>
+        <span class="pick-over">over</span>
+        <span class="pick-opponent">(11) South Florida</span>
+        <span class="agreement-pill" style="background: rgba(239,68,68,0.1); color: #ef4444;">5/9</span>
+        <span class="expand-arrow">&#9660;</span>
+      </div>
+      <p class="pick-thesis">Louisville's 10.5-point AdjEM edge looks safe, but their three-point variance and cold momentum flag are red flags.</p>
+      <div class="stat-badges">
+        <span class="stat-badge em">+10.5 EM</span>
+        <span class="stat-badge upset">38.1% hist upset</span>
+        <span class="stat-badge risk-mid">Risk: 52</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── EXPANDED STATE ── -->
+  <p class="section-label">Expanded — Full reasoning, no truncation</p>
+
+  <div class="pick-card expanded">
+    <div class="pick-header">
+      <div class="pick-line1">
+        <span class="pick-icon" style="color: #22c55e;">&#10003;</span>
+        <span class="pick-team">(5) St. John's</span>
+        <span class="pick-over">over</span>
+        <span class="pick-opponent">(12) Northern Iowa</span>
+        <span class="agreement-pill" style="background: rgba(34,197,94,0.1); color: #22c55e;">9/9</span>
+        <span class="expand-arrow">&#9660;</span>
+      </div>
+      <p class="pick-thesis">St. John's AdjEM of 25.7 creates a 14.6-point edge over Northern Iowa's 11.1. The Johnnies' defense is elite.</p>
+      <div class="stat-badges">
+        <span class="stat-badge em">+14.6 EM</span>
+        <span class="stat-badge upset">35.6% hist upset</span>
+        <span class="stat-badge risk-low">Risk: 22</span>
+      </div>
+    </div>
+
+    <div class="pick-detail">
+      <!-- Consensus bar -->
+      <div class="consensus-bar">
+        <span class="consensus-label" style="color: #22c55e;">St. John's</span>
+        <div class="bar-track">
+          <div class="bar-for" style="width: 100%"></div>
+          <div class="bar-against" style="width: 0%"></div>
+        </div>
+        <span class="consensus-label" style="color: #ef4444;">N. Iowa</span>
+      </div>
+
+      <!-- Bold Verdict -->
+      <div class="verdict-box">
+        <p class="verdict-thesis">St. John's AdjEM of 25.7 creates a 14.6-point edge over Northern Iowa's 11.1. The Johnnies' defense (AdjD 94.1) is elite, and Northern Iowa's slower tempo limits their opportunities to close the gap.</p>
+        <p class="verdict-counter">
+          <span class="counter-label">Counter: </span>
+          No models dissent on this pick.
+        </p>
+      </div>
+
+      <!-- Split Columns — FOR / AGAINST with FULL reasoning -->
+      <div class="split-columns">
+        <div style="border-radius: 8px; overflow: hidden;">
+          <div class="col-header" style="background: rgba(34,197,94,0.15); color: #22c55e;">St. John's (9)</div>
+          <div class="col-body">
+            <div class="model-row">
+              <div class="model-info">
+                <span class="model-dot" style="background: #3b82f6;"></span>
+                <span class="model-name" style="color: #3b82f6;">The Scout</span>
+                <span class="model-conf">75%</span>
+              </div>
+              <p class="model-reasoning">St. John's AdjEM of 25.7 creates a 14.6-point edge over Northern Iowa's 11.1. The Johnnies' defense (AdjD 94.1) is elite, and Northern Iowa's slower tempo (62.2) limits their opportunities to generate enough possessions to close the gap. St. John's pace and defensive pressure suffocate mid-major offenses.</p>
+            </div>
+            <div class="model-row">
+              <div class="model-info">
+                <span class="model-dot" style="background: #22c55e;"></span>
+                <span class="model-name" style="color: #22c55e;">The Quant</span>
+                <span class="model-conf">82%</span>
+              </div>
+              <p class="model-reasoning">Monte Carlo simulations give St. John's an 82% win probability. The efficiency gap is the primary driver, with St. John's outperforming in 8,200 of 10,000 simulations. Northern Iowa's ceiling scenarios require shooting above their season average from three-point range.</p>
+            </div>
+            <div class="model-row">
+              <div class="model-info">
+                <span class="model-dot" style="background: #ef4444;"></span>
+                <span class="model-name" style="color: #ef4444;">The Chaos Agent</span>
+                <span class="model-conf">68%</span>
+              </div>
+              <p class="model-reasoning">Even with the 5v12 historical upset rate of 35.6%, this matchup scores only 22 on the upset risk scale. St. John's strong close-game record (7-2) and low three-point variance make them resistant to the typical 12-seed upset pattern. Not the 5-seed to target.</p>
+            </div>
+          </div>
+        </div>
+        <div style="border-radius: 8px; overflow: hidden;">
+          <div class="col-header" style="background: rgba(239,68,68,0.15); color: #ef4444;">N. Iowa (0)</div>
+          <div class="col-body">
+            <div style="padding: 24px 0; text-align: center; font-size: 11px; color: #444; font-style: italic;">No dissenters</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat boxes -->
+      <div class="stat-boxes">
+        <div class="stat-box">
+          <div class="stat-value">9/9</div>
+          <div class="stat-label">Agreement</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">75%</div>
+          <div class="stat-label">Avg Conf</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">35.6%</div>
+          <div class="stat-label">Hist. Upset</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" style="color: #22c55e;">22</div>
+          <div class="stat-label">Risk Score</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

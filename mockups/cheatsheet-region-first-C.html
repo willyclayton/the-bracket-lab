@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cheat Sheet — Option C: Region-first, icon + left border combo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px; }
+  .label { font-size: 11px; color: #555; font-family: monospace; letter-spacing: 0.05em; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px solid #2a2a2a; padding-bottom: 8px; }
+
+  /* Filter pills */
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+  .filter-pill { font-family: monospace; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 8px; border: 1px solid #333; color: #666; background: transparent; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+  .filter-pill.active-all { border-color: #888; color: #888; background: rgba(136,136,136,0.07); }
+  .filter-count { font-size: 10px; opacity: 0.6; }
+
+  /* Region */
+  .region { border: 1px solid #2a2a2a; border-radius: 10px; margin-bottom: 8px; overflow: hidden; }
+  .region.open { border-color: #444; }
+  .region-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; cursor: pointer; }
+  .region-header:hover { background: #1e1e1e; }
+  .region-name { font-weight: 600; font-size: 15px; font-family: Georgia, serif; }
+  .region-meta { display: flex; align-items: center; gap: 10px; }
+  .region-tag { font-family: monospace; font-size: 10px; }
+  .region-tag .num { font-weight: 700; }
+  .region-tag .lbl { color: #555; }
+  .region-tag.lock .num { color: #22c55e; }
+  .region-tag.upset .num { color: #f59e0b; }
+  .region-tag.trap .num { color: #ef4444; }
+  .chevron { color: #444; font-size: 10px; }
+
+  /* Game rows */
+  .games { padding: 0 12px 12px; }
+  .game-row { border: 1px solid #2a2a2a; border-radius: 8px; margin-bottom: 6px; overflow: hidden; }
+  .game-row:last-child { margin-bottom: 0; }
+  /* Left border by category */
+  .game-row.cat-lock { border-left: 3px solid #22c55e; }
+  .game-row.cat-upset { border-left: 3px solid #f59e0b; }
+  .game-row.cat-trap { border-left: 3px solid #ef4444; }
+  .game-row.cat-contested { border-left: 3px solid #a855f7; }
+
+  .game-summary { display: flex; align-items: center; gap: 0; padding: 10px 12px; cursor: pointer; min-height: 42px; }
+  .game-summary:hover { background: #1e1e1e; }
+
+  /* Icon replaces seed-matchup for categorized games */
+  .cat-icon { width: 28px; text-align: center; flex-shrink: 0; font-size: 13px; }
+  .seed-matchup { font-family: monospace; font-size: 11px; color: #444; width: 36px; text-align: center; flex-shrink: 0; }
+
+  .teams { display: flex; align-items: center; gap: 6px; min-width: 0; flex: 1; }
+  .team-bold { font-weight: 600; color: #efefef; font-size: 14px; white-space: nowrap; }
+  .team-muted { color: #888; font-size: 14px; white-space: nowrap; }
+  .seed-num { font-family: monospace; font-size: 11px; color: #555; }
+  .vs-word { color: #444; font-size: 10px; font-family: monospace; flex-shrink: 0; padding: 0 4px; }
+
+  .game-right { display: flex; align-items: center; gap: 6px; margin-left: auto; flex-shrink: 0; padding-left: 8px; }
+
+  /* Agreement pill */
+  .agree-pill { font-family: monospace; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 99px; flex-shrink: 0; }
+  .agree-lock { background: rgba(34,197,94,0.1); color: #22c55e; }
+  .agree-upset { background: rgba(245,158,11,0.1); color: #f59e0b; }
+  .agree-trap { background: rgba(239,68,68,0.1); color: #ef4444; }
+  .agree-contested { background: rgba(168,85,247,0.1); color: #a855f7; }
+  .agree-clean { background: rgba(136,136,136,0.1); color: #888; }
+
+  /* Expanded detail placeholder */
+  .game-detail { padding: 0 12px 12px; }
+  .detail-placeholder { background: #1a1a1a; border-radius: 8px; padding: 16px; border: 1px dashed #333; }
+  .detail-placeholder p { font-size: 12px; color: #555; font-style: italic; }
+
+  .note { font-size: 11px; color: #555; margin-top: 20px; padding: 12px; border: 1px dashed #333; border-radius: 8px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="label">Option C — Icon + left border combo, seed shown inline</div>
+
+  <!-- Filter pills -->
+  <div class="filters">
+    <button class="filter-pill active-all">All <span class="filter-count">32</span></button>
+    <button class="filter-pill">&#10003; Locks <span class="filter-count">14</span></button>
+    <button class="filter-pill">&#9889; Upsets <span class="filter-count">7</span></button>
+    <button class="filter-pill">&#9888; Traps <span class="filter-count">4</span></button>
+    <button class="filter-pill">&#9876; Contested <span class="filter-count">5</span></button>
+  </div>
+
+  <!-- EAST REGION — expanded -->
+  <div class="region open">
+    <div class="region-header">
+      <span class="region-name">East Region</span>
+      <div class="region-meta">
+        <span class="region-tag lock"><span class="num">4</span> <span class="lbl">locks</span></span>
+        <span class="region-tag upset"><span class="num">2</span> <span class="lbl">upsets</span></span>
+        <span class="region-tag trap"><span class="num">1</span> <span class="lbl">trap</span></span>
+        <span class="chevron">&#9650;</span>
+      </div>
+    </div>
+    <div class="games">
+
+      <!-- Lock: icon + green border -->
+      <div class="game-row cat-lock">
+        <div class="game-summary">
+          <span class="cat-icon" style="color:#22c55e">&#10003;</span>
+          <div class="teams">
+            <span class="seed-num">1</span>
+            <span class="team-bold">Duke</span>
+            <span class="vs-word">over</span>
+            <span class="seed-num">16</span>
+            <span class="team-muted">American</span>
+          </div>
+          <div class="game-right">
+            <span class="agree-pill agree-lock">9/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lock -->
+      <div class="game-row cat-lock">
+        <div class="game-summary">
+          <span class="cat-icon" style="color:#22c55e">&#10003;</span>
+          <div class="teams">
+            <span class="seed-num">2</span>
+            <span class="team-bold">Alabama</span>
+            <span class="vs-word">over</span>
+            <span class="seed-num">15</span>
+            <span class="team-muted">Robert Morris</span>
+          </div>
+          <div class="game-right">
+            <span class="agree-pill agree-lock">9/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trap: warning icon + red border -->
+      <div class="game-row cat-trap">
+        <div class="game-summary">
+          <span class="cat-icon" style="color:#ef4444">&#9888;</span>
+          <div class="teams">
+            <span class="seed-num">3</span>
+            <span class="team-bold">Wisconsin</span>
+            <span class="vs-word">over</span>
+            <span class="seed-num">14</span>
+            <span class="team-muted">Montana</span>
+          </div>
+          <div class="game-right">
+            <span class="agree-pill agree-trap">5/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clean: no icon, no border -->
+      <div class="game-row">
+        <div class="game-summary">
+          <span class="cat-icon">&nbsp;</span>
+          <div class="teams">
+            <span class="seed-num">4</span>
+            <span class="team-bold">Arizona</span>
+            <span class="vs-word">over</span>
+            <span class="seed-num">13</span>
+            <span class="team-muted">Lipscomb</span>
+          </div>
+          <div class="game-right">
+            <span class="agree-pill agree-clean">6/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upset: lightning + amber border -->
+      <div class="game-row cat-upset">
+        <div class="game-summary">
+          <span class="cat-icon" style="color:#f59e0b">&#9889;</span>
+          <div class="teams">
+            <span class="seed-num">12</span>
+            <span class="team-bold">UC San Diego</span>
+            <span class="vs-word">over</span>
+            <span class="seed-num">5</span>
+            <span class="team-muted">Michigan St</span>
+          </div>
+          <div class="game-right">
+            <span class="agree-pill agree-upset">6/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lock -->
+      <div class="game-row cat-lock">
+        <div class="game-summary">
+          <span class="cat-icon" style="color:#22c55e">&#10003;</span>
+          <div class="teams">
+            <span class="seed-num">6</span>
+            <span class="team-bold">Illinois</span>
+            <span class="vs-word">over</span>
+            <span class="seed-num">11</span>
+            <span class="team-muted">Drake</span>
+          </div>
+          <div class="game-right">
+            <span class="agree-pill agree-lock">7/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upset — expanded -->
+      <div class="game-row cat-upset" style="border-color: #444;">
+        <div class="game-summary" style="background: #1a1a1a;">
+          <span class="cat-icon" style="color:#f59e0b">&#9889;</span>
+          <div class="teams">
+            <span class="seed-num">10</span>
+            <span class="team-bold">Arkansas</span>
+            <span class="vs-word">over</span>
+            <span class="seed-num">7</span>
+            <span class="team-muted">Clemson</span>
+          </div>
+          <div class="game-right">
+            <span class="agree-pill agree-upset">5/9</span>
+            <span class="chevron">&#9650;</span>
+          </div>
+        </div>
+        <div class="game-detail">
+          <div class="detail-placeholder">
+            <p>[Full GameDetail — consensus bar, bold verdict, counter-argument, model-by-model breakdown]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contested: divider icon + purple border -->
+      <div class="game-row cat-contested">
+        <div class="game-summary">
+          <span class="cat-icon" style="color:#a855f7">&#9876;</span>
+          <div class="teams">
+            <span class="seed-num">8</span>
+            <span class="team-bold">UConn</span>
+            <span class="vs-word">vs</span>
+            <span class="seed-num">9</span>
+            <span class="team-muted">Oklahoma</span>
+          </div>
+          <div class="game-right">
+            <span class="agree-pill agree-contested">5/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lock -->
+      <div class="game-row cat-lock">
+        <div class="game-summary">
+          <span class="cat-icon" style="color:#22c55e">&#10003;</span>
+          <div class="teams">
+            <span class="seed-num">1</span>
+            <span class="team-bold">Duke</span>
+            <span class="vs-word">over</span>
+            <span class="seed-num">8/9</span>
+            <span class="team-muted">winner</span>
+          </div>
+          <div class="game-right">
+            <span class="agree-pill agree-lock">8/9</span>
+            <span class="chevron">&#9660;</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SOUTH — collapsed -->
+  <div class="region">
+    <div class="region-header">
+      <span class="region-name">South Region</span>
+      <div class="region-meta">
+        <span class="region-tag lock"><span class="num">3</span> <span class="lbl">locks</span></span>
+        <span class="region-tag upset"><span class="num">2</span> <span class="lbl">upsets</span></span>
+        <span class="region-tag trap"><span class="num">1</span> <span class="lbl">trap</span></span>
+        <span class="chevron">&#9660;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIDWEST — collapsed -->
+  <div class="region">
+    <div class="region-header">
+      <span class="region-name">Midwest Region</span>
+      <div class="region-meta">
+        <span class="region-tag lock"><span class="num">4</span> <span class="lbl">locks</span></span>
+        <span class="region-tag upset"><span class="num">1</span> <span class="lbl">upsets</span></span>
+        <span class="region-tag trap"><span class="num">1</span> <span class="lbl">trap</span></span>
+        <span class="chevron">&#9660;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEST — collapsed -->
+  <div class="region">
+    <div class="region-header">
+      <span class="region-name">West Region</span>
+      <div class="region-meta">
+        <span class="region-tag lock"><span class="num">3</span> <span class="lbl">locks</span></span>
+        <span class="region-tag upset"><span class="num">2</span> <span class="lbl">upsets</span></span>
+        <span class="region-tag trap"><span class="num">1</span> <span class="lbl">trap</span></span>
+        <span class="chevron">&#9660;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Option C: Icon + left border + "over" format</strong><br/>
+    - Category icon on the left (checkmark / lightning / warning / swords) replaces the seed-matchup label.<br/>
+    - Left border color reinforces the category.<br/>
+    - "Team over Team" format with seed numbers inline — reads like a pick, not a matchup chart.<br/>
+    - Contested games use "vs" instead of "over" (since there's no clear consensus).<br/>
+    - Clean games: no icon, no border, just the agreement pill.<br/>
+    - More scannable than A (icon is faster to parse than text tag), more informative than B (icon + border vs border alone).
+  </div>
+</div>
+</body>
+</html>

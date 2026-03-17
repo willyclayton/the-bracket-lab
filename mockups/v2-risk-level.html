@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2: Risk Level (LOW / MED / HIGH)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: 'Inter', sans-serif; padding: 40px 20px; }
+  .container { max-width: 700px; margin: 0 auto; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 40px; }
+  .variant-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #a855f7;
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; margin-top: 40px;
+    border-bottom: 1px solid #2a2a2a; padding-bottom: 8px;
+  }
+  .variant-desc { color: #888; font-size: 13px; margin-bottom: 16px; }
+  .state-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #555;
+    text-transform: uppercase; letter-spacing: 1px; margin: 20px 0 10px 0;
+  }
+
+  /* ── Card base ── */
+  .pick-card {
+    border: 1px solid #2a2a2a; border-radius: 10px;
+    overflow: hidden; margin-bottom: 12px; transition: border-color 0.2s;
+  }
+  .pick-card.expanded { border-color: #444; }
+
+  .pick-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 16px; cursor: pointer;
+  }
+  .pick-icon { font-size: 14px; flex-shrink: 0; }
+  .pick-team { font-weight: 600; font-size: 14px; }
+  .pick-over { color: #888; font-size: 12px; }
+  .pick-opponent { color: #888; font-size: 14px; }
+  .agreement-pill {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+    padding: 2px 8px; border-radius: 12px; flex-shrink: 0; margin-left: auto;
+  }
+  .caret { color: #444; font-size: 10px; flex-shrink: 0; }
+
+  /* ── Risk pill (Variant A) ── */
+  .risk-pill {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 12px; flex-shrink: 0;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .risk-pill.low { background: rgba(34,197,94,0.12); color: #22c55e; }
+  .risk-pill.med { background: rgba(245,158,11,0.12); color: #f59e0b; }
+  .risk-pill.high { background: rgba(239,68,68,0.12); color: #ef4444; }
+
+  /* ── Risk border (Variant B) ── */
+  .pick-card.border-accent { border-left-width: 3px; border-left-style: solid; }
+  .pick-card.border-low { border-left-color: #22c55e; }
+  .pick-card.border-med { border-left-color: #f59e0b; }
+  .pick-card.border-high { border-left-color: #ef4444; }
+
+  /* ── Expanded content ── */
+  .expanded-content { padding: 0 16px 16px 16px; }
+
+  .consensus-bar {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 12px; background: #1a1a1a; border-radius: 8px; margin-bottom: 12px;
+  }
+  .bar-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: nowrap; }
+  .bar-track { flex: 1; height: 8px; background: #2a2a2a; border-radius: 4px; overflow: hidden; display: flex; }
+  .bar-fill-green { height: 100%; background: #22c55e; border-radius: 4px 0 0 4px; }
+  .bar-fill-red { height: 100%; background: #ef4444; border-radius: 0 4px 4px 0; }
+
+  /* Verdict block */
+  .verdict-block {
+    border-left: 3px solid; border-radius: 0 8px 8px 0;
+    padding: 10px 12px; background: #1a1a1a; margin-bottom: 12px;
+  }
+  .verdict-thesis { font-size: 13px; font-weight: 600; line-height: 1.45; margin-bottom: 4px; }
+  .verdict-counter { font-size: 11px; color: #666; font-style: italic; line-height: 1.4; }
+  .counter-label { font-style: normal; font-weight: 600; color: #ef4444; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Risk factors */
+  .risk-factors {
+    background: #1a1a1a; border-radius: 8px; padding: 12px; margin-bottom: 12px;
+  }
+  .risk-factors-header {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .risk-bullet {
+    font-size: 12px; color: #aaa; line-height: 1.6;
+    padding-left: 16px; position: relative;
+  }
+  .risk-bullet::before {
+    content: "\2022"; position: absolute; left: 0; color: #555;
+  }
+
+  /* Pool strategy */
+  .pool-strategy {
+    background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.15);
+    border-radius: 8px; padding: 10px 12px; margin-bottom: 12px;
+  }
+  .pool-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700;
+    color: #3b82f6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .pool-text { font-size: 12px; color: #aaa; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Risk Level on Trap Games + Upsets</h1>
+<p class="subtitle">Risk as LOW / MED / HIGH labels instead of numeric scores. Collapsed + expanded states for both variants.</p>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- VARIANT A: Risk pill next to agreement pill -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="variant-label">Variant A &mdash; Risk Pill</div>
+<p class="variant-desc">Risk tag as a small pill next to the agreement pill. Two separate indicators side by side.</p>
+
+<!-- Trap: HIGH risk (collapsed) -->
+<p class="state-label">Collapsed &mdash; Trap Game (HIGH)</p>
+<div class="pick-card">
+  <div class="pick-header">
+    <span class="pick-icon" style="color:#ef4444;">&#9888;</span>
+    <span class="pick-team">(4) Arizona</span>
+    <span class="pick-over">over</span>
+    <span class="pick-opponent">(13) Yale</span>
+    <span class="risk-pill high">HIGH</span>
+    <span class="agreement-pill" style="background:rgba(239,68,68,0.1);color:#ef4444;">5/9</span>
+    <span class="caret">&#9660;</span>
+  </div>
+</div>
+
+<!-- Upset: MED risk (collapsed) -->
+<p class="state-label">Collapsed &mdash; Upset (MED)</p>
+<div class="pick-card">
+  <div class="pick-header">
+    <span class="pick-icon" style="color:#f59e0b;">&#9889;</span>
+    <span class="pick-team">(10) Arkansas</span>
+    <span class="pick-over">over</span>
+    <span class="pick-opponent">(7) Nevada</span>
+    <span class="risk-pill med">MED</span>
+    <span class="agreement-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+    <span class="caret">&#9660;</span>
+  </div>
+</div>
+
+<!-- Upset: LOW risk (collapsed) -->
+<p class="state-label">Collapsed &mdash; Upset (LOW)</p>
+<div class="pick-card">
+  <div class="pick-header">
+    <span class="pick-icon" style="color:#f59e0b;">&#9889;</span>
+    <span class="pick-team">(9) Michigan St.</span>
+    <span class="pick-over">over</span>
+    <span class="pick-opponent">(8) Wisconsin</span>
+    <span class="risk-pill low">LOW</span>
+    <span class="agreement-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">7/9</span>
+    <span class="caret">&#9660;</span>
+  </div>
+</div>
+
+<!-- Expanded: Trap Game HIGH -->
+<p class="state-label">Expanded &mdash; Trap Game (HIGH)</p>
+<div class="pick-card expanded">
+  <div class="pick-header">
+    <span class="pick-icon" style="color:#ef4444;">&#9888;</span>
+    <span class="pick-team">(4) Arizona</span>
+    <span class="pick-over">over</span>
+    <span class="pick-opponent">(13) Yale</span>
+    <span class="risk-pill high">HIGH</span>
+    <span class="agreement-pill" style="background:rgba(239,68,68,0.1);color:#ef4444;">5/9</span>
+    <span class="caret" style="transform:rotate(180deg);">&#9660;</span>
+  </div>
+  <div class="expanded-content">
+    <div class="consensus-bar">
+      <span class="bar-label" style="color:#22c55e;">Arizona</span>
+      <div class="bar-track">
+        <div class="bar-fill-green" style="width:56%;"></div>
+        <div class="bar-fill-red" style="width:44%;"></div>
+      </div>
+      <span class="bar-label" style="color:#ef4444;">Yale</span>
+    </div>
+
+    <div class="verdict-block" style="border-left-color:#22c55e;">
+      <p class="verdict-thesis">Arizona's talent edge should be decisive, but the Wildcats have been inconsistent away from home and Yale's pace control neutralizes athleticism.</p>
+      <p class="verdict-counter">
+        <span class="counter-label">Counter: </span>
+        Yale shoots 39% from three and has won 14 straight. This is a system team peaking at the right time.
+      </p>
+    </div>
+
+    <div class="risk-factors">
+      <div class="risk-factors-header">
+        <span class="risk-pill high" style="font-size:9px;">HIGH</span>
+        <span style="color:#ef4444;">Risk Factors</span>
+      </div>
+      <p class="risk-bullet">4v13 upsets happen 21.4% of the time historically</p>
+      <p class="risk-bullet">Arizona is 3-4 in road/neutral games vs. tournament-caliber opponents</p>
+      <p class="risk-bullet">Only 5/9 models agree &mdash; near coin-flip consensus</p>
+    </div>
+
+    <div class="pool-strategy">
+      <p class="pool-label">Pool Strategy</p>
+      <p class="pool-text">Most pools will take Arizona by default. If you're chasing, picking Yale here costs little if wrong but gains massive differentiation if right.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- VARIANT B: Colored left border accent -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="variant-label">Variant B &mdash; Colored Border Accent</div>
+<p class="variant-desc">Risk level shown as a colored left border on the card. No extra pill &mdash; the border IS the signal.</p>
+
+<!-- Trap: HIGH risk (collapsed) -->
+<p class="state-label">Collapsed &mdash; Trap Game (HIGH)</p>
+<div class="pick-card border-accent border-high">
+  <div class="pick-header">
+    <span class="pick-icon" style="color:#ef4444;">&#9888;</span>
+    <span class="pick-team">(4) Arizona</span>
+    <span class="pick-over">over</span>
+    <span class="pick-opponent">(13) Yale</span>
+    <span class="agreement-pill" style="background:rgba(239,68,68,0.1);color:#ef4444;">5/9</span>
+    <span class="caret">&#9660;</span>
+  </div>
+</div>
+
+<!-- Upset: MED risk (collapsed) -->
+<p class="state-label">Collapsed &mdash; Upset (MED)</p>
+<div class="pick-card border-accent border-med">
+  <div class="pick-header">
+    <span class="pick-icon" style="color:#f59e0b;">&#9889;</span>
+    <span class="pick-team">(10) Arkansas</span>
+    <span class="pick-over">over</span>
+    <span class="pick-opponent">(7) Nevada</span>
+    <span class="agreement-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+    <span class="caret">&#9660;</span>
+  </div>
+</div>
+
+<!-- Upset: LOW risk (collapsed) -->
+<p class="state-label">Collapsed &mdash; Upset (LOW)</p>
+<div class="pick-card border-accent border-low">
+  <div class="pick-header">
+    <span class="pick-icon" style="color:#f59e0b;">&#9889;</span>
+    <span class="pick-team">(9) Michigan St.</span>
+    <span class="pick-over">over</span>
+    <span class="pick-opponent">(8) Wisconsin</span>
+    <span class="agreement-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">7/9</span>
+    <span class="caret">&#9660;</span>
+  </div>
+</div>
+
+<!-- Expanded: Upset MED -->
+<p class="state-label">Expanded &mdash; Upset (MED)</p>
+<div class="pick-card expanded border-accent border-med">
+  <div class="pick-header">
+    <span class="pick-icon" style="color:#f59e0b;">&#9889;</span>
+    <span class="pick-team">(10) Arkansas</span>
+    <span class="pick-over">over</span>
+    <span class="pick-opponent">(7) Nevada</span>
+    <span class="agreement-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+    <span class="caret" style="transform:rotate(180deg);">&#9660;</span>
+  </div>
+  <div class="expanded-content">
+    <div class="consensus-bar">
+      <span class="bar-label" style="color:#22c55e;">Arkansas</span>
+      <div class="bar-track">
+        <div class="bar-fill-green" style="width:67%;"></div>
+        <div class="bar-fill-red" style="width:33%;"></div>
+      </div>
+      <span class="bar-label" style="color:#ef4444;">Nevada</span>
+    </div>
+
+    <div class="verdict-block" style="border-left-color:#22c55e;">
+      <p class="verdict-thesis">Arkansas has the size and athleticism to bully Nevada inside, and the Razorbacks' tempo will disrupt Nevada's half-court offense.</p>
+      <p class="verdict-counter">
+        <span class="counter-label">Counter: </span>
+        Nevada leads the nation in assist-to-turnover ratio. They don't beat themselves.
+      </p>
+    </div>
+
+    <div class="risk-factors">
+      <div class="risk-factors-header">
+        <span class="risk-pill med" style="font-size:9px;">MED</span>
+        <span style="color:#f59e0b;">Risk Factors</span>
+      </div>
+      <p class="risk-bullet">7v10 upsets happen 39.7% of the time historically</p>
+      <p class="risk-bullet">Arkansas is picking as underdog with only a 1.8 EM gap</p>
+    </div>
+
+    <div class="pool-strategy">
+      <p class="pool-label">Pool Strategy</p>
+      <p class="pool-text">7v10 is the most common upset seed line. Most pools split ~60/40 on these. Taking Arkansas here is a moderate-confidence differentiator.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

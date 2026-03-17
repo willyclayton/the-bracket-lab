@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Game Detail — Option B: Side-by-side cases, compact verdict</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px; }
+  .label { font-size: 11px; color: #555; font-family: monospace; letter-spacing: 0.05em; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px solid #2a2a2a; padding-bottom: 8px; }
+
+  /* Game row */
+  .game-row { border: 1px solid #444; border-left: 3px solid #f59e0b; border-radius: 8px; overflow: hidden; margin-bottom: 24px; }
+  .game-summary { display: flex; align-items: center; gap: 6px; padding: 10px 12px; background: #1a1a1a; min-height: 42px; }
+  .seed-matchup { font-family: monospace; font-size: 11px; color: #444; width: 36px; text-align: center; flex-shrink: 0; }
+  .team-bold { font-weight: 600; color: #efefef; font-size: 14px; }
+  .team-muted { color: #888; font-size: 14px; }
+  .vs-sep { color: #555; font-size: 11px; flex-shrink: 0; }
+  .game-right { display: flex; align-items: center; gap: 6px; margin-left: auto; flex-shrink: 0; }
+  .cat-tag { font-family: monospace; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; background: rgba(245,158,11,0.12); color: #f59e0b; }
+  .agree-pill { font-family: monospace; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 99px; background: rgba(245,158,11,0.1); color: #f59e0b; }
+  .chevron { color: #444; font-size: 10px; }
+
+  /* Detail */
+  .detail { padding: 0 12px 14px; }
+
+  /* Verdict + Pool stacked at top in a single card */
+  .top-card { background: #1a1a1a; border-radius: 8px; padding: 14px; margin-bottom: 10px; }
+  .verdict-row { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #222; }
+  .section-label { font-family: monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
+  .section-label.verdict { color: #22c55e; }
+  .section-label.pool { color: #3b82f6; }
+  .verdict-text { font-size: 13px; font-weight: 600; color: #efefef; line-height: 1.45; }
+  .pool-text { font-size: 12px; color: #aaa; line-height: 1.5; }
+
+  /* Consensus bar — integrated into top card */
+  .consensus-inline { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .bar-team { font-family: monospace; font-size: 10px; white-space: nowrap; }
+  .bar-team.for { color: #22c55e; }
+  .bar-team.against { color: #ef4444; }
+  .bar-track { flex: 1; height: 5px; background: #2a2a2a; border-radius: 99px; overflow: hidden; display: flex; }
+  .bar-fill-for { height: 100%; background: #22c55e; border-radius: 99px 0 0 99px; }
+  .bar-fill-against { height: 100%; background: #ef4444; border-radius: 0 99px 99px 0; }
+
+  /* Side-by-side cases */
+  .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+  .case-col { background: #1a1a1a; border-radius: 8px; overflow: hidden; }
+  .case-header { padding: 6px 10px; text-align: center; font-family: monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .case-header.for { background: rgba(34,197,94,0.1); color: #22c55e; }
+  .case-header.against { background: rgba(239,68,68,0.1); color: #ef4444; }
+  .case-body { padding: 10px 12px; }
+  .case-text { font-size: 12px; color: #bbb; line-height: 1.5; }
+
+  /* Models toggle */
+  .models-toggle { display: flex; align-items: center; gap: 6px; padding: 10px 0 2px; cursor: pointer; }
+  .models-toggle-text { font-family: monospace; font-size: 11px; color: #555; }
+  .models-toggle:hover .models-toggle-text { color: #888; }
+
+  /* Models list */
+  .models-list { margin-top: 8px; border-top: 1px solid #2a2a2a; padding-top: 4px; }
+  .model-item { display: flex; gap: 8px; padding: 8px 0; border-bottom: 1px solid #222; }
+  .model-item:last-child { border-bottom: none; }
+  .model-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .model-info { flex: 1; min-width: 0; }
+  .model-header { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
+  .model-name { font-size: 11px; font-weight: 600; }
+  .model-conf { font-family: monospace; font-size: 10px; color: #555; }
+  .model-pick-tag { font-family: monospace; font-size: 9px; font-weight: 600; padding: 1px 5px; border-radius: 3px; }
+  .model-pick-tag.for { background: rgba(34,197,94,0.1); color: #22c55e; }
+  .model-pick-tag.against { background: rgba(239,68,68,0.1); color: #ef4444; }
+  .model-reasoning { font-size: 11px; color: #888; line-height: 1.45; }
+
+  .note { font-size: 11px; color: #555; margin-top: 20px; padding: 12px; border: 1px dashed #333; border-radius: 8px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="label">Game Detail Option B — Combined verdict card, side-by-side cases</div>
+
+  <div class="game-row">
+    <div class="game-summary">
+      <span class="seed-matchup">7v10</span>
+      <span class="team-muted">Clemson</span>
+      <span class="vs-sep">&lt;</span>
+      <span class="team-bold">Arkansas</span>
+      <div class="game-right">
+        <span class="cat-tag">upset</span>
+        <span class="agree-pill">5/9</span>
+        <span class="chevron">&#9650;</span>
+      </div>
+    </div>
+
+    <div class="detail">
+      <!-- 1. Top card: consensus bar + verdict + pool strategy -->
+      <div class="top-card">
+        <div class="consensus-inline">
+          <span class="bar-team for">Arkansas 56%</span>
+          <div class="bar-track">
+            <div class="bar-fill-for" style="width:56%"></div>
+            <div class="bar-fill-against" style="width:44%"></div>
+          </div>
+          <span class="bar-team against">44% Clemson</span>
+        </div>
+
+        <div class="verdict-row">
+          <div class="section-label verdict">Verdict</div>
+          <div class="verdict-text">Arkansas has the athleticism and tempo to overwhelm Clemson's half-court offense. The Razorbacks' press creates 18+ turnovers per game against mid-tier ball-handling.</div>
+        </div>
+
+        <div>
+          <div class="section-label pool">Pool Strategy</div>
+          <div class="pool-text">A 10-seed upset won't cost you much if wrong, but picking it gives you differentiation from the 70% of brackets that take Clemson. High-leverage contrarian play.</div>
+        </div>
+      </div>
+
+      <!-- 2. Side-by-side cases -->
+      <div class="cases-grid">
+        <div class="case-col">
+          <div class="case-header for">Case for Arkansas (5)</div>
+          <div class="case-body">
+            <div class="case-text">Elite transition offense (top-15 nationally). Clemson struggles against pressure — turnover rate spikes vs aggressive defenses. Size advantage on the glass.</div>
+          </div>
+        </div>
+        <div class="case-col">
+          <div class="case-header against">Case for Clemson (4)</div>
+          <div class="case-body">
+            <div class="case-text">Top-20 offensive efficiency in the half-court. Fewest turnovers per game (4th nationally). Experience edge with three seniors starting.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Models toggle (collapsed) -->
+      <div class="models-toggle">
+        <span class="chevron">&#9660;</span>
+        <span class="models-toggle-text">See each model's reasoning (9 models)</span>
+      </div>
+
+      <!-- Expanded for demo -->
+      <div class="models-list">
+        <div class="model-item">
+          <div class="model-dot" style="background:#3b82f6"></div>
+          <div class="model-info">
+            <div class="model-header">
+              <span class="model-name" style="color:#3b82f6">The Scout</span>
+              <span class="model-pick-tag for">Arkansas</span>
+              <span class="model-conf">72%</span>
+            </div>
+            <div class="model-reasoning">Arkansas's press defense is a nightmare matchup for Clemson's guard-heavy lineup. Razorbacks force 18.3 turnovers/game and convert in transition.</div>
+          </div>
+        </div>
+        <div class="model-item">
+          <div class="model-dot" style="background:#22c55e"></div>
+          <div class="model-info">
+            <div class="model-header">
+              <span class="model-name" style="color:#22c55e">The Quant</span>
+              <span class="model-pick-tag against">Clemson</span>
+              <span class="model-conf">58%</span>
+            </div>
+            <div class="model-reasoning">Monte Carlo gives Clemson 58.2% win probability. Offensive efficiency metrics significantly stronger in half-court sets.</div>
+          </div>
+        </div>
+        <div class="model-item">
+          <div class="model-dot" style="background:#ef4444"></div>
+          <div class="model-info">
+            <div class="model-header">
+              <span class="model-name" style="color:#ef4444">The Chaos Agent</span>
+              <span class="model-pick-tag for">Arkansas</span>
+              <span class="model-conf">81%</span>
+            </div>
+            <div class="model-reasoning">7v10 upsets hit 39.2% historically. Clemson has all the markers of a vulnerable 7-seed.</div>
+          </div>
+        </div>
+        <div style="text-align:center; padding: 8px 0;">
+          <span style="font-family:monospace; font-size:10px; color:#444;">+ 6 more models</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Option B: Combined top card + side-by-side cases</strong><br/>
+    - Verdict and pool strategy combined in one card at the top (less visual separation, more compact)<br/>
+    - Consensus bar is smaller, integrated into the top card instead of standalone<br/>
+    - Cases are side-by-side (2 columns) — lets you compare arguments at a glance<br/>
+    - Trade-off: side-by-side is tight on mobile (would need to stack on small screens)<br/>
+    - Same "see each model's reasoning" collapsible toggle at bottom
+  </div>
+</div>
+</body>
+</html>

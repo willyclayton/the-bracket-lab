@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2: Alternative Views (Grid Alternatives)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: 'Inter', sans-serif; padding: 40px 20px; }
+  .container { max-width: 750px; margin: 0 auto; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 40px; }
+  .option-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #a855f7;
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; margin-top: 48px;
+    border-bottom: 1px solid #2a2a2a; padding-bottom: 8px;
+  }
+  .option-desc { color: #888; font-size: 13px; margin-bottom: 20px; }
+
+  /* ═══════════════════════════════════════════ */
+  /* OPTION A: Accordion by Region              */
+  /* ═══════════════════════════════════════════ */
+  .region-accordion {
+    border: 1px solid #2a2a2a; border-radius: 10px; overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .region-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px; cursor: pointer; transition: background 0.15s;
+  }
+  .region-header:hover { background: #1e1e1e; }
+  .region-name {
+    font-family: 'DM Serif Display', serif; font-size: 16px;
+  }
+  .region-meta {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .region-stat {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #666;
+  }
+  .region-stat span { font-weight: 700; }
+  .region-stat .locks { color: #22c55e; }
+  .region-stat .upsets { color: #f59e0b; }
+  .caret { color: #444; font-size: 10px; flex-shrink: 0; }
+
+  /* Expanded region games */
+  .region-games { padding: 0 16px 12px 16px; }
+  .compact-game {
+    display: flex; align-items: center; gap: 6px;
+    padding: 10px 0; border-bottom: 1px solid #1e1e1e;
+    font-size: 13px;
+  }
+  .compact-game:last-child { border-bottom: none; }
+  .compact-seeds {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #555;
+    width: 36px; text-align: center; flex-shrink: 0;
+  }
+  .compact-pick { font-weight: 600; flex: 1; min-width: 0; }
+  .compact-over { color: #555; font-size: 11px; margin: 0 2px; flex-shrink: 0; }
+  .compact-opp { color: #888; flex: 1; min-width: 0; }
+  .compact-pills {
+    display: flex; align-items: center; gap: 4px; flex-shrink: 0; margin-left: auto;
+  }
+  .mini-pill {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+    padding: 1px 6px; border-radius: 10px;
+  }
+  .mini-risk {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700;
+    padding: 1px 5px; border-radius: 8px; text-transform: uppercase;
+  }
+  .mini-risk.low { background: rgba(34,197,94,0.1); color: #22c55e; }
+  .mini-risk.med { background: rgba(245,158,11,0.1); color: #f59e0b; }
+  .mini-risk.high { background: rgba(239,68,68,0.1); color: #ef4444; }
+
+  /* ═══════════════════════════════════════════ */
+  /* OPTION B: Scrollable Checklist             */
+  /* ═══════════════════════════════════════════ */
+  .checklist {
+    border: 1px solid #2a2a2a; border-radius: 10px; overflow: hidden;
+  }
+  .checklist-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; background: #1a1a1a; border-bottom: 1px solid #2a2a2a;
+  }
+  .checklist-title {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #555;
+    text-transform: uppercase; letter-spacing: 1.5px;
+  }
+  .checklist-body { max-height: 420px; overflow-y: auto; }
+  .checklist-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 16px; border-bottom: 1px solid #1a1a1a;
+    font-size: 13px; line-height: 1;
+  }
+  .checklist-row:last-child { border-bottom: none; }
+  .checklist-row:hover { background: #1a1a1a; }
+  .cl-seeds {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #444;
+    width: 40px; text-align: center; flex-shrink: 0;
+  }
+  .cl-pick { font-weight: 600; }
+  .cl-arrow { color: #444; font-size: 11px; flex-shrink: 0; }
+  .cl-loser { color: #666; }
+  .cl-agreement {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+    padding: 1px 6px; border-radius: 10px; flex-shrink: 0; margin-left: auto;
+  }
+  .cl-risk {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700;
+    padding: 1px 5px; border-radius: 8px; text-transform: uppercase; flex-shrink: 0;
+    width: 32px; text-align: center;
+  }
+  .cl-risk.low { background: rgba(34,197,94,0.1); color: #22c55e; }
+  .cl-risk.med { background: rgba(245,158,11,0.1); color: #f59e0b; }
+  .cl-risk.high { background: rgba(239,68,68,0.1); color: #ef4444; }
+
+  /* Region divider in checklist */
+  .cl-region-divider {
+    padding: 6px 16px; background: #181818; border-bottom: 1px solid #1a1a1a;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #444;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+
+  /* Print styles for checklist */
+  @media print {
+    body { background: white; color: black; }
+    .checklist { border-color: #ccc; }
+    .checklist-row { border-color: #eee; }
+    .cl-seeds { color: #999; }
+    .cl-loser { color: #888; }
+  }
+
+  /* ═══════════════════════════════════════════ */
+  /* OPTION C: Enhanced Existing View           */
+  /* ═══════════════════════════════════════════ */
+  .r64-section-header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+  }
+  .r64-section-header h3 {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #555;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .r64-region-block { margin-bottom: 24px; }
+  .r64-sticky-header {
+    padding: 8px 0; margin-bottom: 8px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  /* Enhanced R64 row with inline badges */
+  .r64-card {
+    border: 1px solid #2a2a2a; border-radius: 8px;
+    overflow: hidden; margin-bottom: 8px;
+  }
+  .r64-row {
+    display: flex; align-items: center; padding: 12px 14px; gap: 6px;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .r64-row:hover { background: #1e1e1e; }
+  .r64-seed {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #555;
+    width: 18px; text-align: right; flex-shrink: 0;
+  }
+  .r64-team { font-size: 13px; }
+  .r64-team.winner { font-weight: 600; color: #efefef; }
+  .r64-team.loser { color: #888; }
+  .r64-vs { color: #444; font-size: 11px; flex-shrink: 0; }
+  .r64-badges {
+    display: flex; align-items: center; gap: 4px; margin-left: auto; flex-shrink: 0;
+  }
+  .r64-badge {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;
+    padding: 2px 6px; border-radius: 5px; background: #1a1a1a; border: 1px solid #333;
+  }
+  .r64-badge.em { color: #22c55e; border-color: rgba(34,197,94,0.2); }
+  .r64-badge.hist { color: #f59e0b; border-color: rgba(245,158,11,0.2); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Alternative Quick Views</h1>
+<p class="subtitle">Three options to replace (or enhance) the grid view. Quick scan of all 32 R64 games at a glance.</p>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- OPTION A: Accordion by Region -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="option-label">Option A &mdash; Region Accordion</div>
+<p class="option-desc">Collapsed region headers. Click to expand and see that region's 8 games in compact rows. No grid, no columns. Shows one region expanded for demo.</p>
+
+<!-- East: Collapsed -->
+<div class="region-accordion">
+  <div class="region-header">
+    <span class="region-name">East Region</span>
+    <div class="region-meta">
+      <span class="region-stat"><span class="locks">5</span> locks</span>
+      <span class="region-stat"><span class="upsets">2</span> upsets</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+</div>
+
+<!-- South: Expanded -->
+<div class="region-accordion" style="border-color:#444;">
+  <div class="region-header" style="background:#1a1a1a;">
+    <span class="region-name">South Region</span>
+    <div class="region-meta">
+      <span class="region-stat"><span class="locks">4</span> locks</span>
+      <span class="region-stat"><span class="upsets">2</span> upsets</span>
+      <span class="caret" style="transform:rotate(180deg);">&#9660;</span>
+    </div>
+  </div>
+  <div class="region-games">
+    <div class="compact-game">
+      <span class="compact-seeds">1v16</span>
+      <span class="compact-pick" style="color:#efefef;">Duke</span>
+      <span class="compact-over">&gt;</span>
+      <span class="compact-opp">Norfolk St.</span>
+      <div class="compact-pills">
+        <span class="mini-risk low">LOW</span>
+        <span class="mini-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+      </div>
+    </div>
+    <div class="compact-game">
+      <span class="compact-seeds">2v15</span>
+      <span class="compact-pick" style="color:#efefef;">Alabama</span>
+      <span class="compact-over">&gt;</span>
+      <span class="compact-opp">Robert Morris</span>
+      <div class="compact-pills">
+        <span class="mini-risk low">LOW</span>
+        <span class="mini-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+      </div>
+    </div>
+    <div class="compact-game">
+      <span class="compact-seeds">3v14</span>
+      <span class="compact-pick" style="color:#efefef;">Wisconsin</span>
+      <span class="compact-over">&gt;</span>
+      <span class="compact-opp">Colgate</span>
+      <div class="compact-pills">
+        <span class="mini-risk low">LOW</span>
+        <span class="mini-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">8/9</span>
+      </div>
+    </div>
+    <div class="compact-game">
+      <span class="compact-seeds">4v13</span>
+      <span class="compact-pick" style="color:#efefef;">Arizona</span>
+      <span class="compact-over">&gt;</span>
+      <span class="compact-opp">Yale</span>
+      <div class="compact-pills">
+        <span class="mini-risk high">HIGH</span>
+        <span class="mini-pill" style="background:rgba(239,68,68,0.1);color:#ef4444;">5/9</span>
+      </div>
+    </div>
+    <div class="compact-game">
+      <span class="compact-seeds">5v12</span>
+      <span class="compact-pick" style="color:#f59e0b;">McNeese</span>
+      <span class="compact-over">&gt;</span>
+      <span class="compact-opp">Clemson</span>
+      <div class="compact-pills">
+        <span class="mini-risk med">MED</span>
+        <span class="mini-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">5/9</span>
+      </div>
+    </div>
+    <div class="compact-game">
+      <span class="compact-seeds">6v11</span>
+      <span class="compact-pick" style="color:#efefef;">BYU</span>
+      <span class="compact-over">&gt;</span>
+      <span class="compact-opp">VCU</span>
+      <div class="compact-pills">
+        <span class="mini-risk low">LOW</span>
+        <span class="mini-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">7/9</span>
+      </div>
+    </div>
+    <div class="compact-game">
+      <span class="compact-seeds">7v10</span>
+      <span class="compact-pick" style="color:#f59e0b;">Arkansas</span>
+      <span class="compact-over">&gt;</span>
+      <span class="compact-opp">Nevada</span>
+      <div class="compact-pills">
+        <span class="mini-risk med">MED</span>
+        <span class="mini-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+      </div>
+    </div>
+    <div class="compact-game">
+      <span class="compact-seeds">8v9</span>
+      <span class="compact-pick" style="color:#efefef;">Wisconsin</span>
+      <span class="compact-over">&gt;</span>
+      <span class="compact-opp">Michigan St.</span>
+      <div class="compact-pills">
+        <span class="mini-risk med">MED</span>
+        <span class="mini-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">5/9</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Midwest: Collapsed -->
+<div class="region-accordion">
+  <div class="region-header">
+    <span class="region-name">Midwest Region</span>
+    <div class="region-meta">
+      <span class="region-stat"><span class="locks">6</span> locks</span>
+      <span class="region-stat"><span class="upsets">1</span> upsets</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+</div>
+
+<!-- West: Collapsed -->
+<div class="region-accordion">
+  <div class="region-header">
+    <span class="region-name">West Region</span>
+    <div class="region-meta">
+      <span class="region-stat"><span class="locks">5</span> locks</span>
+      <span class="region-stat"><span class="upsets">1</span> upsets</span>
+      <span class="caret">&#9660;</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- OPTION B: Scrollable Single-Column Checklist -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="option-label">Option B &mdash; Scrollable Checklist</div>
+<p class="option-desc">Every game on one line. Printable, scannable. One scrollable column with region dividers. Shows pick direction, agreement, and risk at a glance.</p>
+
+<div class="checklist">
+  <div class="checklist-header">
+    <span class="checklist-title">All 32 R64 Games</span>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#555;">Sorted by seed</span>
+  </div>
+  <div class="checklist-body">
+    <!-- South Region -->
+    <div class="cl-region-divider">South</div>
+    <div class="checklist-row">
+      <span class="cl-seeds">1v16</span>
+      <span class="cl-pick">Duke</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Norfolk St.</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">2v15</span>
+      <span class="cl-pick">Alabama</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Robert Morris</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">3v14</span>
+      <span class="cl-pick">Wisconsin</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Colgate</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">8/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">4v13</span>
+      <span class="cl-pick">Arizona</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Yale</span>
+      <span class="cl-risk high">HIGH</span>
+      <span class="cl-agreement" style="background:rgba(239,68,68,0.1);color:#ef4444;">5/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">5v12</span>
+      <span class="cl-pick" style="color:#f59e0b;">McNeese</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Clemson</span>
+      <span class="cl-risk med">MED</span>
+      <span class="cl-agreement" style="background:rgba(245,158,11,0.1);color:#f59e0b;">5/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">6v11</span>
+      <span class="cl-pick">BYU</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">VCU</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">7/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">7v10</span>
+      <span class="cl-pick" style="color:#f59e0b;">Arkansas</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Nevada</span>
+      <span class="cl-risk med">MED</span>
+      <span class="cl-agreement" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">8v9</span>
+      <span class="cl-pick">Wisconsin</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Michigan St.</span>
+      <span class="cl-risk med">MED</span>
+      <span class="cl-agreement" style="background:rgba(245,158,11,0.1);color:#f59e0b;">5/9</span>
+    </div>
+
+    <!-- East Region -->
+    <div class="cl-region-divider">East</div>
+    <div class="checklist-row">
+      <span class="cl-seeds">1v16</span>
+      <span class="cl-pick">Houston</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">SIU Edwardsville</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">2v15</span>
+      <span class="cl-pick">Tennessee</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Lipscomb</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">3v14</span>
+      <span class="cl-pick">Kentucky</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Troy</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">8/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">4v13</span>
+      <span class="cl-pick">Purdue</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">High Point</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">8/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">5v12</span>
+      <span class="cl-pick">Michigan</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">UC San Diego</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">7/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">6v11</span>
+      <span class="cl-pick">Illinois</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Texas</span>
+      <span class="cl-risk med">MED</span>
+      <span class="cl-agreement" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">7v10</span>
+      <span class="cl-pick" style="color:#f59e0b;">UCLA</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Oregon</span>
+      <span class="cl-risk med">MED</span>
+      <span class="cl-agreement" style="background:rgba(245,158,11,0.1);color:#f59e0b;">5/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">8v9</span>
+      <span class="cl-pick">Gonzaga</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Georgia</span>
+      <span class="cl-risk med">MED</span>
+      <span class="cl-agreement" style="background:rgba(245,158,11,0.1);color:#f59e0b;">5/9</span>
+    </div>
+
+    <!-- Midwest Region -->
+    <div class="cl-region-divider">Midwest</div>
+    <div class="checklist-row">
+      <span class="cl-seeds">1v16</span>
+      <span class="cl-pick">Auburn</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Ala. St./St. Francis</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">2v15</span>
+      <span class="cl-pick">Michigan St.</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Bryant</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+    </div>
+
+    <!-- West Region -->
+    <div class="cl-region-divider">West</div>
+    <div class="checklist-row">
+      <span class="cl-seeds">1v16</span>
+      <span class="cl-pick">Florida</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Norfolk St./Texas So.</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+    </div>
+    <div class="checklist-row">
+      <span class="cl-seeds">2v15</span>
+      <span class="cl-pick">St. John's</span>
+      <span class="cl-arrow">&gt;</span>
+      <span class="cl-loser">Omaha</span>
+      <span class="cl-risk low">LOW</span>
+      <span class="cl-agreement" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- OPTION C: Enhanced Existing R64 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="option-label">Option C &mdash; Enhanced Existing View</div>
+<p class="option-desc">Keep the current R64 breakdown as-is. Just add risk tags and stat badges inline on each row. No new layout &mdash; polish what's there.</p>
+
+<div class="r64-region-block">
+  <div class="r64-sticky-header">
+    <div class="r64-section-header">
+      <h3>South Region &middot; 8 games</h3>
+    </div>
+  </div>
+
+  <!-- 1v16: Lock -->
+  <div class="r64-card">
+    <div class="r64-row">
+      <span class="r64-seed">1</span>
+      <span class="r64-team winner">Duke</span>
+      <span class="r64-vs">vs</span>
+      <span class="r64-seed">16</span>
+      <span class="r64-team loser">Norfolk St.</span>
+      <div class="r64-badges">
+        <span class="r64-badge em">+14.6</span>
+        <span class="mini-risk low">LOW</span>
+        <span class="mini-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2v15: Lock -->
+  <div class="r64-card">
+    <div class="r64-row">
+      <span class="r64-seed">2</span>
+      <span class="r64-team winner">Alabama</span>
+      <span class="r64-vs">vs</span>
+      <span class="r64-seed">15</span>
+      <span class="r64-team loser">Robert Morris</span>
+      <div class="r64-badges">
+        <span class="r64-badge em">+11.2</span>
+        <span class="mini-risk low">LOW</span>
+        <span class="mini-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">9/9</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4v13: Trap -->
+  <div class="r64-card">
+    <div class="r64-row">
+      <span class="r64-seed">4</span>
+      <span class="r64-team winner">Arizona</span>
+      <span class="r64-vs">vs</span>
+      <span class="r64-seed">13</span>
+      <span class="r64-team loser">Yale</span>
+      <div class="r64-badges">
+        <span class="r64-badge hist">21.4%</span>
+        <span class="mini-risk high">HIGH</span>
+        <span class="mini-pill" style="background:rgba(239,68,68,0.1);color:#ef4444;">5/9</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5v12: Upset -->
+  <div class="r64-card">
+    <div class="r64-row">
+      <span class="r64-seed">5</span>
+      <span class="r64-team loser">Clemson</span>
+      <span class="r64-vs">vs</span>
+      <span class="r64-seed">12</span>
+      <span class="r64-team winner" style="color:#f59e0b;">McNeese</span>
+      <div class="r64-badges">
+        <span class="r64-badge hist">35.7%</span>
+        <span class="mini-risk med">MED</span>
+        <span class="mini-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">5/9</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7v10: Upset -->
+  <div class="r64-card">
+    <div class="r64-row">
+      <span class="r64-seed">7</span>
+      <span class="r64-team loser">Nevada</span>
+      <span class="r64-vs">vs</span>
+      <span class="r64-seed">10</span>
+      <span class="r64-team winner" style="color:#f59e0b;">Arkansas</span>
+      <div class="r64-badges">
+        <span class="r64-badge hist">39.7%</span>
+        <span class="mini-risk med">MED</span>
+        <span class="mini-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">6/9</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8v9: Split -->
+  <div class="r64-card">
+    <div class="r64-row">
+      <span class="r64-seed">8</span>
+      <span class="r64-team winner">Wisconsin</span>
+      <span class="r64-vs">vs</span>
+      <span class="r64-seed">9</span>
+      <span class="r64-team loser">Michigan St.</span>
+      <div class="r64-badges">
+        <span class="mini-risk med">MED</span>
+        <span class="mini-pill" style="background:rgba(245,158,11,0.1);color:#f59e0b;">5/9</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

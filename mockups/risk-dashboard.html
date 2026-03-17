@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Dashboard Card Mockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: 'Inter', sans-serif; padding: 40px 20px; }
+  .container { max-width: 700px; margin: 0 auto; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 32px; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+  .divider { border-top: 1px solid #2a2a2a; margin: 32px 0; }
+
+  /* ── Risk Card ── */
+  .risk-card {
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .risk-header {
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Risk score circle */
+  .risk-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .risk-low { background: rgba(34,197,94,0.12); color: #22c55e; border: 2px solid rgba(34,197,94,0.3); }
+  .risk-mid { background: rgba(245,158,11,0.12); color: #f59e0b; border: 2px solid rgba(245,158,11,0.3); }
+  .risk-high { background: rgba(239,68,68,0.12); color: #ef4444; border: 2px solid rgba(239,68,68,0.3); }
+
+  .risk-content { flex: 1; min-width: 0; }
+
+  .risk-line1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .pick-icon { font-size: 14px; flex-shrink: 0; }
+  .pick-team { font-weight: 600; font-size: 14px; }
+  .pick-over { color: #888; font-size: 12px; }
+  .pick-opponent { color: #888; font-size: 14px; }
+  .agreement-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .risk-thesis {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.45;
+    margin-bottom: 8px;
+  }
+
+  .stat-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .stat-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+  }
+  .badge-em { color: #22c55e; border-color: rgba(34,197,94,0.25); }
+  .badge-upset { color: #f59e0b; border-color: rgba(245,158,11,0.25); }
+  .badge-risk { color: #ef4444; border-color: rgba(239,68,68,0.25); }
+
+  /* ── Expanded: Risk Factor Breakdown ── */
+  .risk-detail { padding: 0 16px 16px; }
+
+  .factor-section {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+  .factor-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .factor-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .factor-row:last-child { margin-bottom: 0; }
+
+  .factor-label {
+    font-size: 11px;
+    color: #aaa;
+    width: 130px;
+    flex-shrink: 0;
+  }
+  .factor-bar-track {
+    flex: 1;
+    height: 6px;
+    background: #2a2a2a;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .factor-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s;
+  }
+  .factor-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    width: 36px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* Pool strategy line */
+  .pool-strategy {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+  .pool-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .pool-text { font-size: 12px; color: #aaa; line-height: 1.4; }
+  .pool-text strong { color: #efefef; }
+
+  /* Verdict + counter same as clean-verdict */
+  .verdict-box {
+    background: #1a1a1a;
+    border-left: 3px solid #ef4444;
+    border-radius: 0 8px 8px 0;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  .verdict-thesis { font-size: 13px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+  .verdict-counter { font-size: 11px; color: #666; line-height: 1.4; font-style: italic; }
+  .counter-label { font-style: normal; font-weight: 600; color: #22c55e; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Risk Dashboard Card</h1>
+  <p class="subtitle">Risk score circle on collapsed row + 5-factor bar breakdown in expanded view</p>
+
+  <div class="divider"></div>
+
+  <!-- ── COLLAPSED: High Risk Trap Game ── -->
+  <p class="section-label">Collapsed — Trap Game with Risk Circle (Score: 68)</p>
+
+  <div class="risk-card">
+    <div class="risk-header">
+      <div class="risk-circle risk-high">68</div>
+      <div class="risk-content">
+        <div class="risk-line1">
+          <span class="pick-icon" style="color: #ef4444;">&#9888;</span>
+          <span class="pick-team">(6) Louisville</span>
+          <span class="pick-over">over</span>
+          <span class="pick-opponent">(11) South Florida</span>
+          <span class="agreement-pill" style="background: rgba(239,68,68,0.1); color: #ef4444;">5/9</span>
+        </div>
+        <p class="risk-thesis">Louisville's three-point variance and cold momentum flag elevate this above a standard 6-11 matchup.</p>
+        <div class="stat-badges">
+          <span class="stat-badge badge-em">+10.5 EM</span>
+          <span class="stat-badge badge-upset">38.1% hist upset</span>
+          <span class="stat-badge badge-risk">Risk: 68</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COLLAPSED: Medium Risk ── -->
+  <p class="section-label" style="margin-top: 24px;">Collapsed — Moderate Risk (Score: 45)</p>
+
+  <div class="risk-card">
+    <div class="risk-header">
+      <div class="risk-circle risk-mid">45</div>
+      <div class="risk-content">
+        <div class="risk-line1">
+          <span class="pick-icon" style="color: #ef4444;">&#9888;</span>
+          <span class="pick-team">(4) Kansas</span>
+          <span class="pick-over">over</span>
+          <span class="pick-opponent">(13) Cal Baptist</span>
+          <span class="agreement-pill" style="background: rgba(239,68,68,0.1); color: #ef4444;">5/9</span>
+        </div>
+        <p class="risk-thesis">Kansas holds a clear efficiency edge but Bill Self's 4-13 line record isn't as automatic as the narrative suggests.</p>
+        <div class="stat-badges">
+          <span class="stat-badge badge-em">+16.3 EM</span>
+          <span class="stat-badge badge-upset">21.3% hist upset</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── EXPANDED: Full Risk Factor Breakdown ── -->
+  <p class="section-label">Expanded — 5-Factor Risk Breakdown + Pool Strategy</p>
+
+  <div class="risk-card" style="border-color: #444;">
+    <div class="risk-header">
+      <div class="risk-circle risk-high">68</div>
+      <div class="risk-content">
+        <div class="risk-line1">
+          <span class="pick-icon" style="color: #ef4444;">&#9888;</span>
+          <span class="pick-team">(6) Louisville</span>
+          <span class="pick-over">over</span>
+          <span class="pick-opponent">(11) South Florida</span>
+          <span class="agreement-pill" style="background: rgba(239,68,68,0.1); color: #ef4444;">5/9</span>
+        </div>
+        <p class="risk-thesis">Louisville's three-point variance and cold momentum flag elevate this above a standard 6-11 matchup.</p>
+        <div class="stat-badges">
+          <span class="stat-badge badge-em">+10.5 EM</span>
+          <span class="stat-badge badge-upset">38.1% hist upset</span>
+          <span class="stat-badge badge-risk">Risk: 68</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-detail">
+      <!-- Bold Verdict with red border for trap -->
+      <div class="verdict-box">
+        <p class="verdict-thesis">Louisville's offensive firepower looks decisive on paper, but their 0.038 three-point variance score means they can go cold at the worst time. South Florida's tempo control could turn this into a low-possession grinder.</p>
+        <p class="verdict-counter">
+          <span class="counter-label" style="color: #22c55e;">For chalk: </span>
+          Louisville's AdjO of 124.0 at a fast tempo generates transition scoring that South Florida's porous defense cannot contain.
+        </p>
+      </div>
+
+      <!-- 5-Factor Breakdown -->
+      <div class="factor-section">
+        <div class="factor-title">Risk Factor Breakdown</div>
+
+        <div class="factor-row">
+          <span class="factor-label">Model Agreement</span>
+          <div class="factor-bar-track">
+            <div class="factor-bar-fill" style="width: 73%; background: #ef4444;"></div>
+          </div>
+          <span class="factor-value" style="color: #ef4444;">22/30</span>
+        </div>
+
+        <div class="factor-row">
+          <span class="factor-label">EM Gap</span>
+          <div class="factor-bar-track">
+            <div class="factor-bar-fill" style="width: 48%; background: #f59e0b;"></div>
+          </div>
+          <span class="factor-value" style="color: #f59e0b;">12/25</span>
+        </div>
+
+        <div class="factor-row">
+          <span class="factor-label">3pt Variance</span>
+          <div class="factor-bar-track">
+            <div class="factor-bar-fill" style="width: 100%; background: #ef4444;"></div>
+          </div>
+          <span class="factor-value" style="color: #ef4444;">15/15</span>
+        </div>
+
+        <div class="factor-row">
+          <span class="factor-label">Close-Game Record</span>
+          <div class="factor-bar-track">
+            <div class="factor-bar-fill" style="width: 58%; background: #f59e0b;"></div>
+          </div>
+          <span class="factor-value" style="color: #f59e0b;">7/12</span>
+        </div>
+
+        <div class="factor-row">
+          <span class="factor-label">Hist. Upset Rate</span>
+          <div class="factor-bar-track">
+            <div class="factor-bar-fill" style="width: 67%; background: #ef4444;"></div>
+          </div>
+          <span class="factor-value" style="color: #ef4444;">12/18</span>
+        </div>
+      </div>
+
+      <!-- Pool Strategy -->
+      <div class="pool-strategy">
+        <div class="pool-label">Pool Strategy</div>
+        <p class="pool-text">
+          <strong>Small pool (10-25):</strong> Take the chalk. Louisville's talent edge matters more in a smaller field. <br>
+          <strong>Large pool (50+):</strong> Take the upset. At 38.1% historical upset rate, South Florida gives you differentiation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── Low Risk example ── -->
+  <p class="section-label">Low Risk Reference (Score: 14)</p>
+
+  <div class="risk-card">
+    <div class="risk-header">
+      <div class="risk-circle risk-low">14</div>
+      <div class="risk-content">
+        <div class="risk-line1">
+          <span class="pick-icon" style="color: #22c55e;">&#10003;</span>
+          <span class="pick-team">(1) Duke</span>
+          <span class="pick-over">over</span>
+          <span class="pick-opponent">(16) Siena</span>
+          <span class="agreement-pill" style="background: rgba(34,197,94,0.1); color: #22c55e;">9/9</span>
+        </div>
+        <p class="risk-thesis">Duke's AdjEM of 37.3 is the best in the field, creating a 39-point efficiency gap. Automatic.</p>
+        <div class="stat-badges">
+          <span class="stat-badge badge-em">+39.0 EM</span>
+          <span class="stat-badge badge-upset">1.3% hist upset</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

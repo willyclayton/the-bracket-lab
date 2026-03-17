@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Model Debate Card Mockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: 'Inter', sans-serif; padding: 40px 20px; }
+  .container { max-width: 700px; margin: 0 auto; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 32px; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+  .divider { border-top: 1px solid #2a2a2a; margin: 32px 0; }
+
+  /* Section header */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 18px; font-weight: 600; }
+  .section-count { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #555; margin-left: auto; }
+  .section-desc { font-size: 14px; color: #888; margin-bottom: 20px; }
+
+  /* ── Debate Card ── */
+  .debate-card {
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  /* Collapsed header */
+  .debate-header {
+    padding: 16px;
+    cursor: pointer;
+  }
+  .debate-header:hover { background: #1a1a1a; }
+
+  .debate-line1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .debate-icon { font-size: 14px; color: #a855f7; flex-shrink: 0; }
+  .debate-team { font-weight: 600; font-size: 14px; }
+  .debate-vs { color: #555; font-size: 12px; }
+  .debate-opponent { color: #888; font-size: 14px; }
+  .agreement-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+  .split-pill {
+    background: linear-gradient(90deg, rgba(34,197,94,0.15) 50%, rgba(239,68,68,0.15) 50%);
+    color: #f59e0b;
+  }
+
+  .debate-thesis {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.45;
+    margin-bottom: 8px;
+    padding-left: 22px;
+  }
+
+  .stat-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-left: 22px;
+  }
+  .stat-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+  }
+
+  .expand-arrow { color: #444; font-size: 10px; flex-shrink: 0; }
+
+  /* ── Expanded: Two-Column Debate ── */
+  .debate-detail { padding: 0 16px 16px; }
+
+  /* Consensus bar */
+  .consensus-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .consensus-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: nowrap; }
+  .bar-track { flex: 1; height: 8px; background: #2a2a2a; border-radius: 4px; overflow: hidden; display: flex; }
+  .bar-for { height: 100%; background: #22c55e; border-radius: 4px 0 0 4px; }
+  .bar-against { height: 100%; background: #ef4444; border-radius: 0 4px 4px 0; }
+
+  /* Two-column debate */
+  .debate-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .col-wrapper { border-radius: 8px; overflow: hidden; }
+  .col-header {
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .col-body { background: #1a1a1a; padding: 8px; }
+
+  .model-row { padding: 8px 0; border-bottom: 1px solid #222; }
+  .model-row:last-child { border-bottom: none; }
+  .model-info { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+  .model-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .model-name { font-size: 11px; font-weight: 600; flex: 1; min-width: 0; }
+  .model-conf { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #666; flex-shrink: 0; }
+  /* Full reasoning — NO TRUNCATION */
+  .model-reasoning { font-size: 11px; color: #999; line-height: 1.55; }
+
+  /* Synthesized verdict at bottom */
+  .debate-verdict {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .verdict-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #a855f7;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .verdict-text { font-size: 13px; color: #ccc; line-height: 1.45; margin-bottom: 8px; }
+
+  .verdict-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Model Debate Card</h1>
+  <p class="subtitle">Two-column FOR/AGAINST with full reasoning for contested games (6 or fewer models agree)</p>
+
+  <div class="divider"></div>
+
+  <!-- Section Header -->
+  <div class="section-header">
+    <span class="section-icon" style="color: #a855f7;">&#9878;</span>
+    <span class="section-title">Contested Games</span>
+    <span class="section-count">4 games</span>
+  </div>
+  <p class="section-desc">Games where the models can't agree. Read both sides, then decide.</p>
+
+  <!-- ── COLLAPSED: Contested Game ── -->
+  <p class="section-label" style="margin-top: 24px;">Collapsed</p>
+
+  <div class="debate-card">
+    <div class="debate-header">
+      <div class="debate-line1">
+        <span class="debate-icon">&#9878;</span>
+        <span class="debate-team">(8) Ohio State</span>
+        <span class="debate-vs">vs</span>
+        <span class="debate-opponent">(9) TCU</span>
+        <span class="agreement-pill split-pill">5/9</span>
+        <span class="expand-arrow">&#9660;</span>
+      </div>
+      <p class="debate-thesis">Ohio State holds an 8.4-point AdjEM edge, but TCU's defense and tournament experience make this a genuine toss-up.</p>
+      <div class="stat-badges">
+        <span class="stat-badge" style="color: #22c55e; border-color: rgba(34,197,94,0.25);">+8.4 EM</span>
+        <span class="stat-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.25);">48.8% hist upset</span>
+        <span class="stat-badge" style="color: #a855f7; border-color: rgba(168,85,247,0.25);">5-4 split</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="debate-card">
+    <div class="debate-header">
+      <div class="debate-line1">
+        <span class="debate-icon">&#9878;</span>
+        <span class="debate-team">(7) Nevada</span>
+        <span class="debate-vs">vs</span>
+        <span class="debate-opponent">(10) Arkansas</span>
+        <span class="agreement-pill split-pill">6/9</span>
+        <span class="expand-arrow">&#9660;</span>
+      </div>
+      <p class="debate-thesis">Nevada's efficiency edge is narrow and Arkansas brings elite athleticism that disrupts mid-major systems.</p>
+      <div class="stat-badges">
+        <span class="stat-badge" style="color: #22c55e; border-color: rgba(34,197,94,0.25);">+2.1 EM</span>
+        <span class="stat-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.25);">40.0% hist upset</span>
+        <span class="stat-badge" style="color: #a855f7; border-color: rgba(168,85,247,0.25);">6-3 split</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── EXPANDED: Full Debate ── -->
+  <p class="section-label">Expanded — Full model reasoning, both sides</p>
+
+  <div class="debate-card" style="border-color: #444;">
+    <div class="debate-header">
+      <div class="debate-line1">
+        <span class="debate-icon">&#9878;</span>
+        <span class="debate-team">(8) Ohio State</span>
+        <span class="debate-vs">vs</span>
+        <span class="debate-opponent">(9) TCU</span>
+        <span class="agreement-pill split-pill">5/9</span>
+      </div>
+      <p class="debate-thesis">Ohio State holds an 8.4-point AdjEM edge, but TCU's defense and tournament experience make this a genuine toss-up.</p>
+      <div class="stat-badges">
+        <span class="stat-badge" style="color: #22c55e; border-color: rgba(34,197,94,0.25);">+8.4 EM</span>
+        <span class="stat-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.25);">48.8% hist upset</span>
+        <span class="stat-badge" style="color: #a855f7; border-color: rgba(168,85,247,0.25);">5-4 split</span>
+      </div>
+    </div>
+
+    <div class="debate-detail">
+      <!-- Consensus bar -->
+      <div class="consensus-bar">
+        <span class="consensus-label" style="color: #22c55e;">Ohio State</span>
+        <div class="bar-track">
+          <div class="bar-for" style="width: 56%"></div>
+          <div class="bar-against" style="width: 44%"></div>
+        </div>
+        <span class="consensus-label" style="color: #ef4444;">TCU</span>
+      </div>
+
+      <!-- Two-column debate -->
+      <div class="debate-columns">
+        <!-- FOR column -->
+        <div class="col-wrapper">
+          <div class="col-header" style="background: rgba(34,197,94,0.15); color: #22c55e;">
+            Ohio State (5)
+          </div>
+          <div class="col-body">
+            <div class="model-row">
+              <div class="model-info">
+                <span class="model-dot" style="background: #3b82f6;"></span>
+                <span class="model-name" style="color: #3b82f6;">The Scout</span>
+                <span class="model-conf">62%</span>
+              </div>
+              <p class="model-reasoning">Ohio State holds a significant AdjEM edge (23.6 vs 15.2) driven by a 10-point offensive efficiency gap (AdjO 125.2 vs 114.8). TCU's slightly better defense (99.7 vs 101.6) cannot compensate for such a massive scoring disparity. Ohio State generates too many quality looks for TCU's half-court defense to contain.</p>
+            </div>
+            <div class="model-row">
+              <div class="model-info">
+                <span class="model-dot" style="background: #22c55e;"></span>
+                <span class="model-name" style="color: #22c55e;">The Quant</span>
+                <span class="model-conf">58%</span>
+              </div>
+              <p class="model-reasoning">Monte Carlo simulations give Ohio State a 58% win probability. While this is a genuine coin-flip matchup, Ohio State's offensive ceiling in favorable simulations creates a slight but persistent edge across 10,000 iterations. The variance here is real but the median outcome favors the Buckeyes.</p>
+            </div>
+            <div class="model-row">
+              <div class="model-info">
+                <span class="model-dot" style="background: #00ff88;"></span>
+                <span class="model-name" style="color: #00ff88;">The Agent</span>
+                <span class="model-conf">55%</span>
+              </div>
+              <p class="model-reasoning">Research confirms Ohio State's offensive efficiency is sustainable based on shot quality metrics and player-level consistency. TCU's reliance on mid-range scoring becomes a liability in neutral-site games where rhythm is harder to establish.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- AGAINST column -->
+        <div class="col-wrapper">
+          <div class="col-header" style="background: rgba(239,68,68,0.15); color: #ef4444;">
+            TCU (4)
+          </div>
+          <div class="col-body">
+            <div class="model-row">
+              <div class="model-info">
+                <span class="model-dot" style="background: #f59e0b;"></span>
+                <span class="model-name" style="color: #f59e0b;">The Historian</span>
+                <span class="model-conf">60%</span>
+              </div>
+              <p class="model-reasoning">TCU's archetype matches several successful 9-seeds from 2015-2023: strong defensive identity, experienced guard play, and a coach with tournament pedigree. Ohio State's profile resembles 8-seeds that were eliminated by disciplined mid-major-style defenses in recent tournaments. Historical pattern strongly favors TCU's playstyle in 8v9 matchups.</p>
+            </div>
+            <div class="model-row">
+              <div class="model-info">
+                <span class="model-dot" style="background: #ef4444;"></span>
+                <span class="model-name" style="color: #ef4444;">The Chaos Agent</span>
+                <span class="model-conf">55%</span>
+              </div>
+              <p class="model-reasoning">The 8v9 line is a near coin-flip historically (48.8% upset rate). Ohio State's close-game record (4-5) is a massive red flag for a team that needs to grind out wins. TCU's defensive identity gives them a path to making this ugly and winning by 2-3 points in the final minutes.</p>
+            </div>
+            <div class="model-row">
+              <div class="model-info">
+                <span class="model-dot" style="background: #a855f7;"></span>
+                <span class="model-name" style="color: #a855f7;">The Super Agent</span>
+                <span class="model-conf">52%</span>
+              </div>
+              <p class="model-reasoning">Logistic regression trained on 2010-2020 tournament data weights TCU's defensive efficiency and experience factors more heavily than Ohio State's raw offensive numbers. The model's predictive features consistently favor teams with TCU's profile in 8-9 matchups.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Synthesized Verdict -->
+      <div class="debate-verdict">
+        <div class="verdict-label">Verdict</div>
+        <p class="verdict-text">
+          This is the definition of a coin flip. Ohio State's offense gives them a slight edge on paper, but TCU's defensive identity and historical patterns make them a dangerous underdog. In a large pool, TCU is the differentiation play.
+        </p>
+        <div class="verdict-badges">
+          <span class="stat-badge" style="color: #22c55e; border-color: rgba(34,197,94,0.25);">AdjEM: 23.6 vs 15.2</span>
+          <span class="stat-badge" style="color: #f59e0b; border-color: rgba(245,158,11,0.25);">Close games: 4-5 vs 6-3</span>
+          <span class="stat-badge" style="color: #ef4444; border-color: rgba(239,68,68,0.25);">Risk: 72</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

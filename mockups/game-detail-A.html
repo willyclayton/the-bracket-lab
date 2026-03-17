@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Game Detail — Option A: Verdict-first, stacked cases</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #141414; color: #efefef; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 16px; }
+  .label { font-size: 11px; color: #555; font-family: monospace; letter-spacing: 0.05em; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px solid #2a2a2a; padding-bottom: 8px; }
+
+  /* Game row (collapsed context) */
+  .game-row { border: 1px solid #444; border-left: 3px solid #f59e0b; border-radius: 8px; overflow: hidden; margin-bottom: 24px; }
+  .game-summary { display: flex; align-items: center; gap: 6px; padding: 10px 12px; background: #1a1a1a; min-height: 42px; }
+  .seed-matchup { font-family: monospace; font-size: 11px; color: #444; width: 36px; text-align: center; flex-shrink: 0; }
+  .team-bold { font-weight: 600; color: #efefef; font-size: 14px; }
+  .team-muted { color: #888; font-size: 14px; }
+  .vs-sep { color: #555; font-size: 11px; flex-shrink: 0; }
+  .game-right { display: flex; align-items: center; gap: 6px; margin-left: auto; flex-shrink: 0; }
+  .cat-tag { font-family: monospace; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(245,158,11,0.12); color: #f59e0b; }
+  .agree-pill { font-family: monospace; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 99px; background: rgba(245,158,11,0.1); color: #f59e0b; }
+  .chevron { color: #444; font-size: 10px; }
+
+  /* Detail area */
+  .detail { padding: 0 12px 14px; }
+
+  /* Consensus bar */
+  .consensus-bar { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: #1a1a1a; border-radius: 8px; margin-bottom: 10px; }
+  .bar-team { font-family: monospace; font-size: 11px; white-space: nowrap; }
+  .bar-team.for { color: #22c55e; }
+  .bar-team.against { color: #ef4444; }
+  .bar-track { flex: 1; height: 6px; background: #2a2a2a; border-radius: 99px; overflow: hidden; display: flex; }
+  .bar-fill-for { height: 100%; background: #22c55e; border-radius: 99px 0 0 99px; }
+  .bar-fill-against { height: 100%; background: #ef4444; border-radius: 0 99px 99px 0; }
+
+  /* Verdict box */
+  .verdict { background: #1a1a1a; border-left: 3px solid #22c55e; border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 10px; }
+  .verdict-label { font-family: monospace; font-size: 9px; font-weight: 700; color: #22c55e; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .verdict-text { font-size: 13px; font-weight: 600; color: #efefef; line-height: 1.45; }
+
+  /* Pool strategy */
+  .pool-strategy { background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.15); border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; }
+  .pool-label { font-family: monospace; font-size: 9px; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .pool-text { font-size: 12px; color: #aaa; line-height: 1.5; }
+
+  /* Case boxes — stacked */
+  .case-box { background: #1a1a1a; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; }
+  .case-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .case-label { font-family: monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .case-label.for { color: #22c55e; }
+  .case-label.against { color: #ef4444; }
+  .case-count { font-family: monospace; font-size: 10px; color: #555; }
+  .case-text { font-size: 12px; color: #bbb; line-height: 1.5; }
+
+  /* See models toggle */
+  .models-toggle { display: flex; align-items: center; gap: 6px; padding: 8px 0; cursor: pointer; margin-top: 4px; }
+  .models-toggle-text { font-family: monospace; font-size: 11px; color: #555; }
+  .models-toggle:hover .models-toggle-text { color: #888; }
+  .models-toggle .chevron { transition: transform 0.2s; }
+
+  /* Individual model reasoning (hidden by default, shown when toggled) */
+  .models-list { margin-top: 8px; }
+  .model-item { display: flex; gap: 8px; padding: 8px 0; border-bottom: 1px solid #222; }
+  .model-item:last-child { border-bottom: none; }
+  .model-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .model-info { flex: 1; min-width: 0; }
+  .model-header { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
+  .model-name { font-size: 11px; font-weight: 600; }
+  .model-conf { font-family: monospace; font-size: 10px; color: #555; }
+  .model-pick-tag { font-family: monospace; font-size: 9px; font-weight: 600; padding: 1px 5px; border-radius: 3px; }
+  .model-pick-tag.for { background: rgba(34,197,94,0.1); color: #22c55e; }
+  .model-pick-tag.against { background: rgba(239,68,68,0.1); color: #ef4444; }
+  .model-reasoning { font-size: 11px; color: #888; line-height: 1.45; }
+
+  .note { font-size: 11px; color: #555; margin-top: 20px; padding: 12px; border: 1px dashed #333; border-radius: 8px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="label">Game Detail Option A — Verdict-first, stacked case boxes</div>
+
+  <div class="game-row">
+    <div class="game-summary">
+      <span class="seed-matchup">7v10</span>
+      <span class="team-muted">Clemson</span>
+      <span class="vs-sep">&lt;</span>
+      <span class="team-bold">Arkansas</span>
+      <div class="game-right">
+        <span class="cat-tag">upset</span>
+        <span class="agree-pill">5/9</span>
+        <span class="chevron">&#9650;</span>
+      </div>
+    </div>
+
+    <div class="detail">
+      <!-- 1. Consensus bar -->
+      <div class="consensus-bar">
+        <span class="bar-team for">Arkansas</span>
+        <div class="bar-track">
+          <div class="bar-fill-for" style="width:56%"></div>
+          <div class="bar-fill-against" style="width:44%"></div>
+        </div>
+        <span class="bar-team against">Clemson</span>
+      </div>
+
+      <!-- 2. Verdict -->
+      <div class="verdict">
+        <div class="verdict-label">Verdict</div>
+        <div class="verdict-text">Arkansas has the athleticism and tempo to overwhelm Clemson's half-court offense. The Razorbacks' press creates 18+ turnovers per game against mid-tier ball-handling.</div>
+      </div>
+
+      <!-- 3. Pool strategy -->
+      <div class="pool-strategy">
+        <div class="pool-label">Pool Strategy</div>
+        <div class="pool-text">A 10-seed upset won't cost you much if wrong, but picking it gives you differentiation from the 70% of brackets that take Clemson. High-leverage contrarian play.</div>
+      </div>
+
+      <!-- 4. Case for consensus pick -->
+      <div class="case-box">
+        <div class="case-header">
+          <span class="case-label for">Case for Arkansas</span>
+          <span class="case-count">5 models</span>
+        </div>
+        <div class="case-text">Elite transition offense (top-15 nationally in fast break points). Clemson struggles against pressure — their turnover rate spikes against aggressive defenses. Arkansas also has a size advantage on the glass.</div>
+      </div>
+
+      <!-- 5. Case against -->
+      <div class="case-box">
+        <div class="case-header">
+          <span class="case-label against">Case for Clemson</span>
+          <span class="case-count">4 models</span>
+        </div>
+        <div class="case-text">Better seed for a reason — Clemson's half-court execution is elite with a top-20 offensive efficiency. They don't beat themselves, ranking 4th in fewest turnovers per game. Experience edge with three seniors in the starting five.</div>
+      </div>
+
+      <!-- 6. See each model's reasoning (collapsed) -->
+      <div class="models-toggle">
+        <span class="chevron">&#9660;</span>
+        <span class="models-toggle-text">See each model's reasoning (9 models)</span>
+      </div>
+
+      <!-- Expanded models list (shown for demo) -->
+      <div class="models-list" style="border-top: 1px solid #2a2a2a; padding-top: 4px;">
+        <div class="model-item">
+          <div class="model-dot" style="background:#3b82f6"></div>
+          <div class="model-info">
+            <div class="model-header">
+              <span class="model-name" style="color:#3b82f6">The Scout</span>
+              <span class="model-pick-tag for">Arkansas</span>
+              <span class="model-conf">72%</span>
+            </div>
+            <div class="model-reasoning">Arkansas's press defense is a nightmare matchup for Clemson's guard-heavy lineup. Razorbacks force 18.3 turnovers per game and convert in transition.</div>
+          </div>
+        </div>
+        <div class="model-item">
+          <div class="model-dot" style="background:#22c55e"></div>
+          <div class="model-info">
+            <div class="model-header">
+              <span class="model-name" style="color:#22c55e">The Quant</span>
+              <span class="model-pick-tag against">Clemson</span>
+              <span class="model-conf">58%</span>
+            </div>
+            <div class="model-reasoning">Monte Carlo gives Clemson a 58.2% win probability. Their offensive efficiency metrics are significantly stronger in half-court sets, which tournament games tend to favor.</div>
+          </div>
+        </div>
+        <div class="model-item">
+          <div class="model-dot" style="background:#f59e0b"></div>
+          <div class="model-info">
+            <div class="model-header">
+              <span class="model-name" style="color:#f59e0b">The Historian</span>
+              <span class="model-pick-tag for">Arkansas</span>
+              <span class="model-conf">65%</span>
+            </div>
+            <div class="model-reasoning">Arkansas matches the profile of 2015 Arkansas and 2018 Loyola-Chicago — athletic, high-tempo teams that cause chaos against structured offenses in March.</div>
+          </div>
+        </div>
+        <div class="model-item">
+          <div class="model-dot" style="background:#ef4444"></div>
+          <div class="model-info">
+            <div class="model-header">
+              <span class="model-name" style="color:#ef4444">The Chaos Agent</span>
+              <span class="model-pick-tag for">Arkansas</span>
+              <span class="model-conf">81%</span>
+            </div>
+            <div class="model-reasoning">7v10 upsets hit 39.2% historically. Clemson has all the markers of a vulnerable 7-seed: inconsistent late-season form and reliance on three-point shooting.</div>
+          </div>
+        </div>
+        <div style="text-align:center; padding: 8px 0;">
+          <span style="font-family:monospace; font-size:10px; color:#444;">+ 5 more models</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Option A: Stacked case boxes</strong><br/>
+    - Order: consensus bar > verdict > pool strategy > case for Team A > case for Team B > "see each model's reasoning" toggle<br/>
+    - Cases are full-width stacked boxes with green/red labels<br/>
+    - Model reasoning is hidden behind a toggle — keeps the default view tight<br/>
+    - Each model shows: color dot, name, pick tag (green/red), confidence %, reasoning<br/>
+    - Verdict is the synthesized top-level take. Pool strategy is the actionable advice.
+  </div>
+</div>
+</body>
+</html>

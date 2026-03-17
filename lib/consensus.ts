@@ -274,6 +274,83 @@ export function getR64ByRegion(
   return result;
 }
 
+// ── Risk Level: LOW / MED / HIGH ─────────────────────────────────────────
+
+export type RiskLevel = 'LOW' | 'MED' | 'HIGH';
+
+export function computeRiskLevel(
+  game: GameAgreement,
+  histUpsetRate: number | null
+): RiskLevel {
+  const seedGap = Math.abs(game.seed1 - game.seed2);
+  const agreementRatio = game.agreementCount / game.totalModels;
+
+  // Strong agreement + large seed gap → LOW
+  if (agreementRatio >= 0.78 && seedGap >= 8) return 'LOW';
+  if (agreementRatio >= 0.78) return 'LOW';
+
+  // Weak agreement OR high historical upset rate → HIGH
+  const weakAgreement = agreementRatio <= 0.56; // 5/9 or less
+  const highUpsetRate = histUpsetRate != null && histUpsetRate >= 0.20;
+  if (weakAgreement && highUpsetRate) return 'HIGH';
+  if (weakAgreement && seedGap <= 4) return 'HIGH';
+
+  // Everything else → MED
+  return 'MED';
+}
+
+// ── Contested Games: near 50/50 splits ──────────────────────────────────
+
+export function getContestedGames(
+  agreementMap: Record<string, GameAgreement>,
+  maxAgreement = 5
+): GameAgreement[] {
+  return Object.values(agreementMap)
+    .filter((g) => {
+      // Split is close: agreement is at most ceil(total/2)+1 and >= ceil(total/2)
+      const half = Math.ceil(g.totalModels / 2);
+      return (
+        g.agreementCount >= half &&
+        g.agreementCount <= maxAgreement &&
+        g.round === 'round_of_64'
+      );
+    })
+    .sort((a, b) => a.agreementCount - b.agreementCount || a.avgConfidence - b.avgConfidence);
+}
+
+// ── Region Summary: lock/upset counts per region for accordion headers ──
+
+export interface RegionSummary {
+  region: string;
+  games: GameAgreement[];
+  lockCount: number;
+  upsetCount: number;
+  trapCount: number;
+}
+
+export function getR64RegionSummaries(
+  agreementMap: Record<string, GameAgreement>,
+  lockThreshold = 7
+): RegionSummary[] {
+  const regions = getR64ByRegion(agreementMap);
+  return regions.map(({ region, games }) => {
+    let lockCount = 0;
+    let upsetCount = 0;
+    let trapCount = 0;
+    for (const g of games) {
+      const isUpset = g.consensusSeed > g.otherSeed;
+      if (g.agreementCount >= lockThreshold) {
+        lockCount++;
+      } else if (isUpset && g.agreementCount >= 4) {
+        upsetCount++;
+      } else if (!isUpset && g.agreementCount <= 5) {
+        trapCount++;
+      }
+    }
+    return { region, games, lockCount, upsetCount, trapCount };
+  });
+}
+
 // ── Sleeper Pick: team in S16+ picked by only 1-2 models with high confidence ──
 
 export function getSleeperPick(
