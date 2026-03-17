@@ -454,10 +454,10 @@ def main():
     print(f"   E8: {len(rounds['elite_8'])} games predicted")
 
     # ---- FINAL FOUR ----
-    # South vs West, East vs Midwest (matching the actual-results.json F4 gameId format)
+    # South vs East, West vs Midwest (2026 NCAA bracket pairing)
     f4_matchups = [
-        ("f4-south-west", "South", "West"),
-        ("f4-east-midwest", "East", "Midwest"),
+        ("f4-south-east", "South", "East"),
+        ("f4-west-midwest", "West", "Midwest"),
     ]
     f4_winners = {}
     for f4_id, r1, r2 in f4_matchups:
@@ -496,8 +496,8 @@ def main():
     print(f"   F4: {len(rounds['final_four'])} games predicted")
 
     # ---- CHAMPIONSHIP ----
-    w1 = f4_winners["f4-south-west"]
-    w2 = f4_winners["f4-east-midwest"]
+    w1 = f4_winners["f4-south-east"]
+    w2 = f4_winners["f4-west-midwest"]
 
     stats1 = get_team_stats(w1["team"], bt_data)
     stats2 = get_team_stats(w2["team"], bt_data)

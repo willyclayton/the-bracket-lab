@@ -843,7 +843,7 @@
       "gameTime": null
     },
     {
-      "gameId": "f4-south-west",
+      "gameId": "f4-south-east",
       "round": "final_four",
       "region": "National",
       "team1": null,
@@ -857,7 +857,7 @@
       "gameTime": null
     },
     {
-      "gameId": "f4-east-midwest",
+      "gameId": "f4-west-midwest",
       "round": "final_four",
       "region": "National",
       "team1": null,

@@ -6,12 +6,12 @@
   "generated": "2026-03-15",
   "locked": true,
   "espnBracketUrl": null,
-  "champion": "Duke",
+  "champion": "Florida",
   "championEliminated": false,
   "finalFour": [
     "Florida",
-    "Arizona",
     "Duke",
+    "Arizona",
     "Michigan"
   ],
   "rounds": {
@@ -745,28 +745,28 @@
     ],
     "final_four": [
       {
-        "gameId": "f4-south-west",
+        "gameId": "f4-south-east",
         "round": "final_four",
-        "region": "Final Four",
+        "region": "National",
         "seed1": 1,
         "team1": "Florida",
         "seed2": 1,
-        "team2": "Arizona",
-        "pick": "Arizona",
-        "confidence": 54,
-        "reasoning": "Arizona (AdjEM 35.5) vs Florida (33.8) \u2014 a 1.7-point edge for Arizona. Both are 1-seeds with elite complete profiles, but Arizona's defense (AdjD 91.4 vs 92.3) is the marginal difference. In a Final Four coin-flip between two powerhouses, Arizona's defensive edge and Tommy Lloyd's tactical adjustments are the tiebreaker."
+        "team2": "Duke",
+        "pick": "Florida",
+        "confidence": 55,
+        "reasoning": "Re-paired for correct 2026 FF bracket (South vs East). Pick pending re-evaluation."
       },
       {
-        "gameId": "f4-east-midwest",
+        "gameId": "f4-west-midwest",
         "round": "final_four",
-        "region": "Final Four",
+        "region": "National",
         "seed1": 1,
-        "team1": "Duke",
+        "team1": "Arizona",
         "seed2": 1,
         "team2": "Michigan",
-        "pick": "Duke",
-        "confidence": 56,
-        "reasoning": "Duke (AdjEM 37.3) vs Michigan (36.6) \u2014 the two best teams in the country by efficiency margin. Duke's offense (AdjO 128.1 vs 127.6) holds a slim edge, but the real difference is Michigan's defense (AdjD 91.0) is slightly better than Duke's (AdjD 90.8). This is the ultimate coin flip, but Duke's offensive ceiling and Jon Scheyer's tournament coaching lift them in a tight finish."
+        "pick": "Arizona",
+        "confidence": 55,
+        "reasoning": "Re-paired for correct 2026 FF bracket (West vs Midwest). Pick pending re-evaluation."
       }
     ],
     "championship": [
@@ -775,12 +775,12 @@
         "round": "championship",
         "region": "National",
         "seed1": 1,
-        "team1": "Arizona",
+        "team1": "Florida",
         "seed2": 1,
-        "team2": "Duke",
-        "pick": "Duke",
-        "confidence": 57,
-        "reasoning": "Duke (AdjEM 37.3) vs Arizona (35.5) \u2014 a 1.8-point efficiency edge for the Blue Devils. Duke's offense (AdjO 128.1) is the best scoring machine in the tournament, and their defense (AdjD 90.8) matches Arizona's elite standard (91.4). In a championship game between two 1-seeds, Duke's marginally superior efficiency on both ends and their offensive ceiling in a high-stakes setting give them the title."
+        "team2": "Arizona",
+        "pick": "Florida",
+        "confidence": 55,
+        "reasoning": "Re-paired for correct 2026 FF bracket. Pick pending re-evaluation."
       }
     ]
   }

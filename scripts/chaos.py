@@ -358,14 +358,14 @@ def compute_confidence(is_upset, upset_score, higher_seed, lower_seed):
 # Bracket generation — later rounds
 # ---------------------------------------------------------------------------
 
-REGION_ORDER_DEFAULT = ["South", "West", "East", "Midwest"]
+REGION_ORDER_DEFAULT = ["South", "East", "West", "Midwest"]
 
 
 def detect_region_order(r64_games):
-    """Return the correct FF-aligned region order: South, West, East, Midwest.
+    """Return the correct FF-aligned region order: South, East, West, Midwest.
 
-    The R64 game order in teams.json may vary, but the NCAA bracket always
-    pairs South vs West and East vs Midwest in the Final Four.  We verify
+    The R64 game order in teams.json may vary, but the 2026 NCAA bracket
+    pairs South vs East and West vs Midwest in the Final Four.  We verify
     the four expected regions are present, then return the canonical order.
     """
     regions_seen = set()
@@ -448,9 +448,9 @@ def pair_winners_for_next_round(prev_round_games, round_name, region_order):
 
     elif round_name == "final_four":
         # First two regions play each other, last two play each other
-        # region_order is ["South", "West", "East", "Midwest"] so:
-        #   rw[0](South) vs rw[1](West)  → f4-south-west
-        #   rw[2](East)  vs rw[3](Midwest) → f4-east-midwest
+        # region_order is ["South", "East", "West", "Midwest"] so:
+        #   rw[0](South) vs rw[1](East)  → f4-south-east
+        #   rw[2](West)  vs rw[3](Midwest) → f4-west-midwest
         region_winners = []
         for region in region_order:
             region_games = [g for g in prev_round_games if g["region"] == region]

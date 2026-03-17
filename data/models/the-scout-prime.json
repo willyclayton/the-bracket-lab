@@ -6,11 +6,11 @@
   "generated": "2026-03-19",
   "locked": true,
   "espnBracketUrl": null,
-  "champion": "Duke",
+  "champion": "Florida",
   "championEliminated": false,
   "finalFour": [
-    "Duke",
     "Florida",
+    "Duke",
     "Arizona",
     "Michigan"
   ],
@@ -745,28 +745,28 @@
     ],
     "final_four": [
       {
-        "gameId": "f4-south-west",
+        "gameId": "f4-south-east",
         "round": "final_four",
-        "region": "Final Four",
+        "region": "National",
         "seed1": 1,
         "team1": "Florida",
         "seed2": 1,
-        "team2": "Arizona",
-        "pick": "Arizona",
-        "confidence": 58,
-        "reasoning": "Arizona's 1.7 AdjEM edge is marginal but their WAB of 13.7 vs Florida's 8.5 is the decisive factor \u2014 Arizona has been dramatically better against quality opponents all season. Both teams map to champion archetypes (Arizona: 2025 Florida, 2012 Kentucky; Florida: 2025 Florida itself). Arizona's AdjO of 128.7 creates an offensive ceiling Florida's defense may struggle to contain."
+        "team2": "Duke",
+        "pick": "Florida",
+        "confidence": 55,
+        "reasoning": "Re-paired for correct 2026 FF bracket (South vs East). Pick pending re-evaluation."
       },
       {
-        "gameId": "f4-east-midwest",
+        "gameId": "f4-west-midwest",
         "round": "final_four",
-        "region": "Final Four",
+        "region": "National",
         "seed1": 1,
-        "team1": "Duke",
+        "team1": "Arizona",
         "seed2": 1,
         "team2": "Michigan",
-        "pick": "Duke",
-        "confidence": 53,
-        "reasoning": "0.7 AdjEM gap is functionally zero between these two juggernauts. Duke's 37.3 AdjEM is the single best in the field, but Michigan's 36.6 is right behind with a marginally higher WAB (14.0 vs 13.7). Duke's AdjO of 128.1 gives them the slightest offensive edge. Both map to champion archetypes. In the most evenly matched Final Four game imaginable, Duke's top-line efficiency rating is the only differentiator."
+        "pick": "Arizona",
+        "confidence": 55,
+        "reasoning": "Re-paired for correct 2026 FF bracket (West vs Midwest). Pick pending re-evaluation."
       }
     ],
     "championship": [
@@ -775,12 +775,12 @@
         "round": "championship",
         "region": "National",
         "seed1": 1,
-        "team1": "Arizona",
+        "team1": "Florida",
         "seed2": 1,
-        "team2": "Duke",
-        "pick": "Duke",
-        "confidence": 54,
-        "reasoning": "1.8 AdjEM gap in Duke's favor \u2014 the team with the best AdjEM (37.3) in the entire 2026 field. Identical WAB of 13.7 for both teams. Arizona's archetype twins (2025 Florida Champion, 2012 Kentucky Champion) project a champion at higher similarity scores than Duke's champion twin (2025 Florida at 0.87). However, Duke's AdjO of 128.1 is the best nationally and their 37.3 AdjEM has been the most dominant metric all season. In a razor-thin championship matchup, the team with the highest overall efficiency rating gets the nod."
+        "team2": "Arizona",
+        "pick": "Florida",
+        "confidence": 55,
+        "reasoning": "Re-paired for correct 2026 FF bracket. Pick pending re-evaluation."
       }
     ]
   }

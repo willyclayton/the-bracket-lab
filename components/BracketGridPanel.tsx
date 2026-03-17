@@ -242,10 +242,10 @@ export default function BracketGridPanel({
   const finalFour = ffGames['final_four'] ?? [];
   const championship = ffGames['championship'] ?? [];
 
-  // Split FF games: south-west feeds left, east-midwest feeds right
-  // Use exact substring 'south-west' / 'east-midwest' to avoid 'west' matching 'midwest'
-  const leftFF = finalFour.find((g) => g.gameId.includes('south-west')) ?? finalFour[0] ?? null;
-  const rightFF = finalFour.find((g) => g.gameId.includes('east-midwest')) ?? (finalFour.find((g) => g.gameId !== leftFF?.gameId) ?? finalFour[1] ?? null);
+  // Split FF games: south-east feeds left, west-midwest feeds right
+  // Use exact substring 'south-east' / 'west-midwest' to avoid 'west' matching 'midwest'
+  const leftFF = finalFour.find((g) => g.gameId.includes('south-east')) ?? finalFour[0] ?? null;
+  const rightFF = finalFour.find((g) => g.gameId.includes('west-midwest')) ?? (finalFour.find((g) => g.gameId !== leftFF?.gameId) ?? finalFour[1] ?? null);
 
   // Determine champion correctness
   const champGame = championship[0];
@@ -259,7 +259,7 @@ export default function BracketGridPanel({
       </div>
       <div className="flex-1 overflow-auto p-3 bracket-panel-scroll">
         <div className="flex items-start min-w-[950px]">
-          {/* Left side: South + West (L-to-R, funnel right) */}
+          {/* Left side: South + East (L-to-R, funnel right) */}
           <div className="flex flex-col gap-5">
             <RegionBracket
               region="south"
@@ -273,7 +273,7 @@ export default function BracketGridPanel({
               blurredRounds={blurredRounds}
             />
             <RegionBracket
-              region="west"
+              region="east"
               gamesByRegion={gamesByRegion}
               modelColor={modelColor}
               highlightedMatchId={highlightedMatchId}
@@ -285,7 +285,7 @@ export default function BracketGridPanel({
             />
           </div>
 
-          {/* Left FF game (south-west semifinal) */}
+          {/* Left FF game (south-east semifinal) */}
           <div className="self-center px-1" style={blurredRounds?.includes('final_four') ? { filter: 'blur(8px)', pointerEvents: 'none', userSelect: 'none' } : undefined}>
             <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] text-center mb-1">
               F4
@@ -337,7 +337,7 @@ export default function BracketGridPanel({
             </div>
           </div>
 
-          {/* Right FF game (east-midwest semifinal) */}
+          {/* Right FF game (west-midwest semifinal) */}
           <div className="self-center px-1" style={blurredRounds?.includes('final_four') ? { filter: 'blur(8px)', pointerEvents: 'none', userSelect: 'none' } : undefined}>
             <div className="font-mono text-[8px] text-[#444] uppercase tracking-[1.5px] text-center mb-1">
               F4
@@ -355,10 +355,10 @@ export default function BracketGridPanel({
             )}
           </div>
 
-          {/* Right side: East + Midwest (R-to-L, funnel left) */}
+          {/* Right side: West + Midwest (R-to-L, funnel left) */}
           <div className="flex flex-col gap-5">
             <RegionBracket
-              region="east"
+              region="west"
               gamesByRegion={gamesByRegion}
               modelColor={modelColor}
               highlightedMatchId={highlightedMatchId}

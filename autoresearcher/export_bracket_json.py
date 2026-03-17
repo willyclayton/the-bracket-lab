@@ -53,7 +53,10 @@ def sportsref_to_website_name(name):
 
 def load_template(year):
     """Load an existing model JSON as a structural template."""
-    template_path = PROJECT_DIR / "data" / "archive" / str(year) / "models" / "the-scout.json"
+    if year >= 2026:
+        template_path = PROJECT_DIR / "data" / "models" / "the-scout.json"
+    else:
+        template_path = PROJECT_DIR / "data" / "archive" / str(year) / "models" / "the-scout.json"
     with open(template_path) as f:
         return json.load(f)
 
@@ -324,10 +327,10 @@ def export_bracket(year, n_sims=5000):
                 r1 = region_map.get(t1_region, t1_region)
                 r2 = region_map.get(t2_region, t2_region)
                 regions_set = {r1.lower(), r2.lower()}
-                if regions_set == {"south", "west"}:
-                    game_id = "f4-south-west"
-                elif regions_set == {"east", "midwest"}:
-                    game_id = "f4-east-midwest"
+                if regions_set == {"south", "east"}:
+                    game_id = "f4-south-east"
+                elif regions_set == {"west", "midwest"}:
+                    game_id = "f4-west-midwest"
                 else:
                     game_id = f"f4-{r1.lower()}-{r2.lower()}"
             elif opt_round == "Championship":

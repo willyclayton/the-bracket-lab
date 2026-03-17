@@ -193,8 +193,8 @@ def get_f4_pairings(results_data: dict) -> List[Tuple[str, str]]:
                 pairings.append(tuple(regions))
             return pairings
 
-    # Default NCAA pairing (may not match every year)
-    return [("South", "West"), ("East", "Midwest")]
+    # Default NCAA pairing for 2026
+    return [("South", "East"), ("West", "Midwest")]
 
 
 def reorder_matchups_for_f4(matchups: list, f4_pairings: List[Tuple[str, str]]) -> list:

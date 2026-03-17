@@ -745,28 +745,28 @@
     ],
     "final_four": [
       {
-        "gameId": "f4-south-west",
+        "gameId": "f4-south-east",
         "round": "final_four",
-        "region": "Final Four",
+        "region": "National",
         "seed1": 3,
         "team1": "Illinois",
-        "seed2": 2,
-        "team2": "Purdue",
+        "seed2": 6,
+        "team2": "Louisville",
         "pick": "Illinois",
-        "confidence": 82,
-        "reasoning": "Illinois advances via expected value optimization (82% model confidence). ESPN points maximization favors path probability over per-game accuracy."
+        "confidence": 89,
+        "reasoning": "Illinois advances via expected value optimization (89% model confidence). ESPN points maximization favors path probability over per-game accuracy."
       },
       {
-        "gameId": "f4-east-midwest",
+        "gameId": "f4-west-midwest",
         "round": "final_four",
-        "region": "Final Four",
-        "seed1": 6,
-        "team1": "Louisville",
+        "region": "National",
+        "seed1": 2,
+        "team1": "Purdue",
         "seed2": 5,
         "team2": "Texas Tech",
-        "pick": "Texas Tech",
-        "confidence": 58,
-        "reasoning": "Texas Tech advances via expected value optimization (58% model confidence). ESPN points maximization favors path probability over per-game accuracy."
+        "pick": "Purdue",
+        "confidence": 56,
+        "reasoning": "Purdue advances via expected value optimization (56% model confidence). ESPN points maximization favors path probability over per-game accuracy."
       }
     ],
     "championship": [
@@ -776,11 +776,11 @@
         "region": "National",
         "seed1": 3,
         "team1": "Illinois",
-        "seed2": 5,
-        "team2": "Texas Tech",
+        "seed2": 2,
+        "team2": "Purdue",
         "pick": "Illinois",
-        "confidence": 85,
-        "reasoning": "Illinois advances via expected value optimization (85% model confidence). ESPN points maximization favors path probability over per-game accuracy."
+        "confidence": 82,
+        "reasoning": "Illinois advances via expected value optimization (82% model confidence). ESPN points maximization favors path probability over per-game accuracy."
       }
     ]
   }

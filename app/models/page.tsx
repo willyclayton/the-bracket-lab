@@ -35,10 +35,10 @@ export default function ModelsPage() {
           <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
             <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Champion Pick</span>
             <p className="text-lab-white font-semibold text-lg mt-2">
-              Duke <span className="text-lab-muted font-normal text-sm">(3 of 6 models)</span>
+              Florida <span className="text-lab-muted font-normal text-sm">(4 of 9 models)</span>
             </p>
             <p className="text-lab-muted text-sm mt-1">
-              The Scout, The Quant, and The Historian all pick Duke to cut the nets. The other three models each pick a different champion.
+              The Scout, The Scout Prime, The Agent, and The Auto Researcher all pick Florida. Duke takes two (Quant, Historian). The contrarian bloc splits between Gonzaga, Illinois, and Illinois again.
             </p>
           </div>
 
@@ -47,10 +47,10 @@ export default function ModelsPage() {
             <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Final Four Consensus</span>
             <div className="mt-3 space-y-2">
               {[
-                { team: 'Duke', count: 5, note: 'Everyone but The Optimizer' },
-                { team: 'Florida', count: 4, note: 'Scout, Quant, Historian, Auto Researcher' },
-                { team: 'Arizona', count: 4, note: 'Scout, Quant, Historian, Auto Researcher' },
-                { team: 'Michigan', count: 3, note: 'Scout, Quant, Historian' },
+                { team: 'Duke', count: 7, note: 'All but Optimizer and Agent' },
+                { team: 'Florida', count: 6, note: 'Scout, Quant, Historian, Scout Prime, Agent, Auto Researcher' },
+                { team: 'Arizona', count: 6, note: 'Scout, Quant, Historian, Scout Prime, Agent, Auto Researcher' },
+                { team: 'Michigan', count: 4, note: 'Scout, Quant, Historian, Scout Prime' },
               ].map((pick) => (
                 <div key={pick.team} className="flex items-center gap-3">
                   <div className="flex-shrink-0 w-20 bg-lab-border/50 rounded-full h-2 overflow-hidden">
@@ -102,12 +102,15 @@ export default function ModelsPage() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
               {[
-                { model: 'The Scout', game: 'Arizona vs Duke', color: '#3b82f6' },
-                { model: 'The Quant', game: 'Arizona vs Duke', color: '#22c55e' },
-                { model: 'The Historian', game: 'Arizona vs Duke', color: '#f59e0b' },
-                { model: 'The Chaos Agent', game: 'Gonzaga vs Iowa State', color: '#ef4444' },
-                { model: 'The Optimizer', game: 'Illinois vs Texas Tech', color: '#06b6d4' },
-                { model: 'Auto Researcher', game: 'Arizona vs Iowa State', color: '#f97316' },
+                { model: 'The Scout', game: 'Florida vs Arizona', color: '#3b82f6' },
+                { model: 'The Quant', game: 'Duke vs Michigan', color: '#22c55e' },
+                { model: 'The Historian', game: 'Duke vs Michigan', color: '#f59e0b' },
+                { model: 'The Chaos Agent', game: 'Illinois vs Gonzaga', color: '#ef4444' },
+                { model: 'The Agent', game: 'Florida vs Arizona', color: '#00ff88' },
+                { model: 'The Super Agent', game: 'Illinois vs Purdue', color: '#a855f7' },
+                { model: 'The Optimizer', game: 'Illinois vs Purdue', color: '#06b6d4' },
+                { model: 'The Scout Prime', game: 'Florida vs Arizona', color: '#64748b' },
+                { model: 'Auto Researcher', game: 'Florida vs Arizona', color: '#10b981' },
               ].map((row) => (
                 <div key={row.model} className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: row.color }} />

@@ -6,12 +6,12 @@
   "generated": "2026-03-15",
   "locked": true,
   "espnBracketUrl": null,
-  "champion": "Arizona",
+  "champion": "Florida",
   "championEliminated": false,
   "finalFour": [
     "Florida",
-    "Arizona",
     "Duke",
+    "Arizona",
     "Iowa State"
   ],
   "rounds": {
@@ -745,42 +745,42 @@
     ],
     "final_four": [
       {
-        "gameId": "f4-south-west",
+        "gameId": "f4-south-east",
         "round": "final_four",
         "region": "Final Four",
         "seed1": 1,
         "team1": "Florida",
         "seed2": 1,
-        "team2": "Arizona",
-        "pick": "Arizona",
-        "confidence": 58,
-        "reasoning": "ML ensemble gives Arizona 58% win probability. SRS differential is narrow but Arizona's offensive rebounding rate and margin of victory patterns in neutral-site games favor them."
+        "team2": "Duke",
+        "pick": "Florida",
+        "confidence": 55,
+        "reasoning": "ML ensemble predicts Florida to advance. Re-paired for correct 2026 FF bracket (South vs East)."
       },
       {
-        "gameId": "f4-east-midwest",
+        "gameId": "f4-west-midwest",
         "round": "final_four",
         "region": "Final Four",
         "seed1": 1,
-        "team1": "Duke",
+        "team1": "Arizona",
         "seed2": 2,
         "team2": "Iowa State",
-        "pick": "Iowa State",
-        "confidence": 56,
-        "reasoning": "ML ensemble gives Iowa State 56% win probability. SRS differential is marginal but Iowa State's Big 12 schedule strength and defensive consistency tip the model."
+        "pick": "Arizona",
+        "confidence": 55,
+        "reasoning": "ML ensemble predicts Arizona to advance. Re-paired for correct 2026 FF bracket (West vs Midwest)."
       }
     ],
     "championship": [
       {
         "gameId": "championship",
         "round": "championship",
-        "region": "National",
+        "region": "Championship",
         "seed1": 1,
-        "team1": "Arizona",
-        "seed2": 2,
-        "team2": "Iowa State",
-        "pick": "Arizona",
-        "confidence": 60,
-        "reasoning": "ML ensemble gives Arizona 60% win probability. SRS differential of +2.8, offensive rebounding advantage, and margin of victory patterns in tournament-pressure games favor Arizona for the title."
+        "team1": "Florida",
+        "seed2": 1,
+        "team2": "Arizona",
+        "pick": "Florida",
+        "confidence": 55,
+        "reasoning": "ML ensemble predicts Florida to win. Re-paired for correct 2026 FF bracket."
       }
     ]
   }

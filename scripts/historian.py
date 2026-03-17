@@ -125,9 +125,9 @@ ROUND_LABELS = {
     "championship": "Championship",
 }
 
-# Region order for Final Four pairing — NCAA bracket pairs South vs West, East vs Midwest
+# Region order for Final Four pairing — 2026 NCAA bracket pairs South vs East, West vs Midwest
 # (regions[0] vs regions[1], regions[2] vs regions[3])
-STANDARD_REGION_ORDER = ["South", "West", "East", "Midwest"]
+STANDARD_REGION_ORDER = ["South", "East", "West", "Midwest"]
 
 
 # ---------------------------------------------------------------------------

@@ -3,7 +3,7 @@
   "displayName": "The Super Agent",
   "tagline": "The Agent improvised. This one trained.",
   "color": "#a855f7",
-  "generated": "2026-03-16",
+  "generated": "2026-03-17",
   "locked": true,
   "espnBracketUrl": null,
   "champion": "Illinois",
@@ -745,28 +745,28 @@
     ],
     "final_four": [
       {
-        "gameId": "f4-south-west",
+        "gameId": "f4-south-east",
         "round": "final_four",
-        "region": "Final Four",
+        "region": "National",
         "seed1": 3,
         "team1": "Illinois",
-        "seed2": 2,
-        "team2": "Purdue",
+        "seed2": 1,
+        "team2": "Duke",
         "pick": "Illinois",
-        "confidence": 80,
-        "reasoning": "Illinois advances with slight tempo advantage, slight adjusted efficiency margin advantage (80% model confidence). Model picks the upset despite Purdue's higher seed."
+        "confidence": 87,
+        "reasoning": "Illinois advances with marginal statistical edge across all metrics (87% model confidence). Model picks the upset despite Duke's higher seed."
       },
       {
-        "gameId": "f4-east-midwest",
+        "gameId": "f4-west-midwest",
         "round": "final_four",
-        "region": "Final Four",
-        "seed1": 1,
-        "team1": "Duke",
+        "region": "National",
+        "seed1": 2,
+        "team1": "Purdue",
         "seed2": 5,
         "team2": "Texas Tech",
-        "pick": "Texas Tech",
-        "confidence": 58,
-        "reasoning": "Texas Tech advances with slight tempo advantage (58% model confidence). Model picks the upset despite Duke's higher seed."
+        "pick": "Purdue",
+        "confidence": 55,
+        "reasoning": "Purdue advances with clear adjusted efficiency margin edge, clear Wins Above Bubble edge (55% model confidence)."
       }
     ],
     "championship": [
@@ -776,11 +776,11 @@
         "region": "National",
         "seed1": 3,
         "team1": "Illinois",
-        "seed2": 5,
-        "team2": "Texas Tech",
+        "seed2": 2,
+        "team2": "Purdue",
         "pick": "Illinois",
-        "confidence": 83,
-        "reasoning": "Illinois advances with clear adjusted efficiency margin edge, slight Wins Above Bubble advantage (83% model confidence)."
+        "confidence": 80,
+        "reasoning": "Illinois advances with slight tempo advantage, slight adjusted efficiency margin advantage (80% model confidence). Model picks the upset despite Purdue's higher seed."
       }
     ]
   }
