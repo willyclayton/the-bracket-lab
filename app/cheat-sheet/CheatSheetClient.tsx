@@ -478,7 +478,6 @@ export default function CheatSheetClient() {
   const regionSummaries = useMemo(() => getR64RegionSummaries(agreementMap), [agreementMap]);
 
   const totalPredictions = modelCount * 63;
-  const totalConsensus = lockPicks.length + smartUpsets.length + trapGames.length + (sleeper ? 1 : 0);
 
   const FREE_LOCK_PICKS = 2;
 
@@ -510,6 +509,18 @@ export default function CheatSheetClient() {
     }
     return map;
   }, [agreementMap, lockPicks, smartUpsets, trapGames, contestedGames]);
+
+  // R64 category counts for Big Stat display
+  const r64Counts = useMemo(() => {
+    const cats = Object.values(gameCategories);
+    return {
+      locks: cats.filter((c) => c === 'lock').length,
+      upsets: cats.filter((c) => c === 'upset').length,
+      traps: cats.filter((c) => c === 'trap').length,
+      contested: cats.filter((c) => c === 'contested').length,
+    };
+  }, [gameCategories]);
+  const totalConsensus = r64Counts.locks + r64Counts.upsets + r64Counts.traps + r64Counts.contested + (sleeper ? 1 : 0);
 
   // Filter counts (R64 games by category, respecting search)
   const filterCounts: Record<FilterType, number> = useMemo(() => {
@@ -693,22 +704,22 @@ export default function CheatSheetClient() {
           <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
             <span className="flex items-center gap-1.5 text-sm">
               <span className="w-2 h-2 rounded-full bg-[#22c55e]" />
-              <span className="font-mono text-lab-white font-semibold">{lockPicks.length}</span>
+              <span className="font-mono text-lab-white font-semibold">{r64Counts.locks}</span>
               <span className="text-lab-muted">Locks</span>
             </span>
             <span className="flex items-center gap-1.5 text-sm">
               <span className="w-2 h-2 rounded-full bg-[#f59e0b]" />
-              <span className="font-mono text-lab-white font-semibold">{smartUpsets.length}</span>
+              <span className="font-mono text-lab-white font-semibold">{r64Counts.upsets}</span>
               <span className="text-lab-muted">Upsets</span>
             </span>
             <span className="flex items-center gap-1.5 text-sm">
               <span className="w-2 h-2 rounded-full bg-[#ef4444]" />
-              <span className="font-mono text-lab-white font-semibold">{trapGames.length}</span>
+              <span className="font-mono text-lab-white font-semibold">{r64Counts.traps}</span>
               <span className="text-lab-muted">Traps</span>
             </span>
             <span className="flex items-center gap-1.5 text-sm">
               <span className="w-2 h-2 rounded-full bg-[#a855f7]" />
-              <span className="font-mono text-lab-white font-semibold">{contestedGames.length}</span>
+              <span className="font-mono text-lab-white font-semibold">{r64Counts.contested}</span>
               <span className="text-lab-muted">Contested</span>
             </span>
             {sleeper && (
@@ -789,10 +800,10 @@ export default function CheatSheetClient() {
           <section className="mb-8">
             <div className="space-y-3">
               {[
-                { icon: '&#10003;', color: '#22c55e', label: `${lockPicks.length - FREE_LOCK_PICKS} more Lock Picks`, desc: lockPicks.length > FREE_LOCK_PICKS ? `${Math.min(...lockPicks.slice(FREE_LOCK_PICKS).map(g => g.agreementCount))}/${modelCount} to ${Math.max(...lockPicks.map(g => g.agreementCount))}/${modelCount} agreement` : '7+ model agreement' },
-                { icon: '&#9889;', color: '#f59e0b', label: `${smartUpsets.length} Smart Upsets`, desc: '4+ models on the underdog' },
-                { icon: '&#9888;', color: '#ef4444', label: `${trapGames.length} Trap Games`, desc: 'Favorites to avoid' },
-                { icon: '&#9876;', color: '#a855f7', label: `${contestedGames.length} Contested Games`, desc: 'Where the models debate' },
+                { icon: '&#10003;', color: '#22c55e', label: `${r64Counts.locks - FREE_LOCK_PICKS} more Lock Picks`, desc: r64Counts.locks > FREE_LOCK_PICKS ? '7+ model agreement' : '7+ model agreement' },
+                { icon: '&#9889;', color: '#f59e0b', label: `${r64Counts.upsets} Smart Upsets`, desc: '4+ models on the underdog' },
+                { icon: '&#9888;', color: '#ef4444', label: `${r64Counts.traps} Trap Games`, desc: 'Favorites to avoid' },
+                { icon: '&#9876;', color: '#a855f7', label: `${r64Counts.contested} Contested Games`, desc: 'Where the models debate' },
                 ...(sleeper ? [{ icon: '&#128301;', color: '#a855f7', label: '1 Sleeper Pick', desc: 'Deep run, high confidence' }] : []),
                 { icon: '&#127942;', color: '#3b82f6', label: '32 Opening Round Matchups', desc: 'Every R64 game, model-by-model breakdown' },
               ].map((row) => (
