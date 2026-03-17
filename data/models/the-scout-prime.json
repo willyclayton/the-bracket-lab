@@ -771,7 +771,7 @@
     ],
     "championship": [
       {
-        "gameId": "champ",
+        "gameId": "championship",
         "round": "championship",
         "region": "National",
         "seed1": 1,

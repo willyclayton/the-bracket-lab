@@ -421,24 +421,6 @@ export default function BracketsClient() {
                   Bracket
                 </button>
               </div>
-              {mobileView === 'cards' && (
-                <div className="flex gap-1.5">
-                  {REGIONS.map((r) => (
-                    <button
-                      key={r}
-                      onClick={() => setCurrentRegion(r)}
-                      className="px-3 py-1 rounded-full border text-[11px] font-semibold transition-all capitalize"
-                      style={{
-                        borderColor: currentRegion === r ? 'transparent' : '#333',
-                        color: currentRegion === r ? '#141414' : '#888',
-                        background: currentRegion === r ? activeModel.color : 'transparent',
-                      }}
-                    >
-                      {r === 'ff' ? 'FF' : r}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Mobile cards view */}

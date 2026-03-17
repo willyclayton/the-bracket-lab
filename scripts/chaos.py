@@ -469,14 +469,14 @@ def pair_winners_for_next_round(prev_round_games, round_name, region_order):
             matchups.append({
                 "gameId": f"f4-{r1}-{r2}",
                 "round": "final_four",
-                "region": f"{rw[0]['region']} / {rw[1]['region']}",
+                "region": "Final Four",
                 "team1": rw[0]["team"], "seed1": rw[0]["seed"],
                 "team2": rw[1]["team"], "seed2": rw[1]["seed"],
             })
             matchups.append({
                 "gameId": f"f4-{r3}-{r4}",
                 "round": "final_four",
-                "region": f"{rw[2]['region']} / {rw[3]['region']}",
+                "region": "Final Four",
                 "team1": rw[2]["team"], "seed1": rw[2]["seed"],
                 "team2": rw[3]["team"], "seed2": rw[3]["seed"],
             })
@@ -488,7 +488,7 @@ def pair_winners_for_next_round(prev_round_games, round_name, region_order):
             w1_team, w1_seed = _get_winner(g1)
             w2_team, w2_seed = _get_winner(g2)
             return [{
-                "gameId": "championship-1",
+                "gameId": "championship",
                 "round": "championship",
                 "region": "National",
                 "team1": w1_team, "seed1": w1_seed,

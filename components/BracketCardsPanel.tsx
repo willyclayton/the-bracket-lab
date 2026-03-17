@@ -51,6 +51,23 @@ export default function BracketCardsPanel({
 
   return (
     <div className="border border-[#2a2a2a] rounded-lg bg-[#1a1a1a] overflow-hidden flex flex-col max-h-[calc(100vh-220px)]">
+      {/* Region tabs */}
+      <div className="flex gap-1.5 p-3 pb-0 flex-shrink-0">
+        {REGIONS.map((r) => (
+          <button
+            key={r}
+            onClick={() => onRegionChange(r)}
+            className="px-3 py-1 rounded-full border text-[11px] font-semibold transition-all capitalize"
+            style={{
+              borderColor: currentRegion === r ? 'transparent' : '#333',
+              color: currentRegion === r ? '#141414' : '#888',
+              background: currentRegion === r ? modelColor : 'transparent',
+            }}
+          >
+            {r === 'ff' ? 'FF' : r}
+          </button>
+        ))}
+      </div>
       {/* Scrollable cards */}
       <div className="flex-1 overflow-y-auto p-3 bracket-panel-scroll">
         {ROUND_ORDER.map((round) => {
