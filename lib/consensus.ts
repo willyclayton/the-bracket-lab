@@ -28,6 +28,8 @@ export interface GameAgreement {
   totalModels: number;
   avgConfidence: number;
   modelPicks: ModelPick[];
+  isProjected: boolean;
+  matchupAgreement: number;
 }
 
 export interface SleeperPick {
@@ -74,7 +76,7 @@ function getModelMeta(id: string) {
 export function buildAgreementMap(
   brackets: Record<string, BracketData>
 ): Record<string, GameAgreement> {
-  const gameMap: Record<string, { game: Game; picks: ModelPick[] }> = {};
+  const gameMap: Record<string, { games: Game[]; picks: ModelPick[] }> = {};
   const modelIds = Object.keys(brackets);
 
   for (const modelId of modelIds) {
@@ -87,8 +89,9 @@ export function buildAgreementMap(
       for (const game of games) {
         if (!game.pick) continue;
         if (!gameMap[game.gameId]) {
-          gameMap[game.gameId] = { game, picks: [] };
+          gameMap[game.gameId] = { games: [], picks: [] };
         }
+        gameMap[game.gameId].games.push(game);
         gameMap[game.gameId].picks.push({
           modelId,
           modelName,
@@ -102,7 +105,51 @@ export function buildAgreementMap(
   }
 
   const result: Record<string, GameAgreement> = {};
-  for (const [gameId, { game, picks }] of Object.entries(gameMap)) {
+  for (const [gameId, { games, picks }] of Object.entries(gameMap)) {
+    const firstGame = games[0];
+    const isR64 = firstGame.round === 'round_of_64';
+
+    // For R32+, compute consensus team1/team2 by frequency across models
+    let team1: string, team2: string, seed1: number, seed2: number;
+    let matchupAgreement: number;
+
+    if (isR64) {
+      // R64: matchups are fixed — all models have the same team1/team2
+      team1 = firstGame.team1;
+      team2 = firstGame.team2;
+      seed1 = firstGame.seed1;
+      seed2 = firstGame.seed2;
+      matchupAgreement = picks.length;
+    } else {
+      // R32+: teams vary across models. Pick most frequent team for each side.
+      const team1Counts: Record<string, { count: number; seed: number }> = {};
+      const team2Counts: Record<string, { count: number; seed: number }> = {};
+
+      for (const g of games) {
+        if (g.team1) {
+          team1Counts[g.team1] = team1Counts[g.team1] || { count: 0, seed: g.seed1 };
+          team1Counts[g.team1].count++;
+        }
+        if (g.team2) {
+          team2Counts[g.team2] = team2Counts[g.team2] || { count: 0, seed: g.seed2 };
+          team2Counts[g.team2].count++;
+        }
+      }
+
+      const sortedT1 = Object.entries(team1Counts).sort((a, b) => b[1].count - a[1].count);
+      const sortedT2 = Object.entries(team2Counts).sort((a, b) => b[1].count - a[1].count);
+
+      team1 = sortedT1[0]?.[0] ?? firstGame.team1;
+      seed1 = sortedT1[0]?.[1].seed ?? firstGame.seed1;
+      team2 = sortedT2[0]?.[0] ?? firstGame.team2;
+      seed2 = sortedT2[0]?.[1].seed ?? firstGame.seed2;
+
+      // matchupAgreement: how many models have this exact team1+team2 pairing
+      matchupAgreement = games.filter(
+        (g) => g.team1 === team1 && g.team2 === team2
+      ).length;
+    }
+
     // Count picks per team
     const counts: Record<string, number> = {};
     const confSums: Record<string, number> = {};
@@ -117,18 +164,18 @@ export function buildAgreementMap(
     const agreementCount = sorted[0][1];
     const avgConfidence = Math.round(confSums[consensusPick] / agreementCount);
 
-    const consensusSeed = consensusPick === game.team1 ? game.seed1 : game.seed2;
-    const otherTeam = consensusPick === game.team1 ? game.team2 : game.team1;
-    const otherSeed = consensusPick === game.team1 ? game.seed2 : game.seed1;
+    const consensusSeed = consensusPick === team1 ? seed1 : seed2;
+    const otherTeam = consensusPick === team1 ? team2 : team1;
+    const otherSeed = consensusPick === team1 ? seed2 : seed1;
 
     result[gameId] = {
       gameId,
-      round: game.round,
-      region: game.region,
-      seed1: game.seed1,
-      team1: game.team1,
-      seed2: game.seed2,
-      team2: game.team2,
+      round: firstGame.round,
+      region: firstGame.region,
+      seed1,
+      team1,
+      seed2,
+      team2,
       consensusPick,
       consensusSeed,
       otherTeam,
@@ -137,6 +184,8 @@ export function buildAgreementMap(
       totalModels: picks.length,
       avgConfidence,
       modelPicks: picks,
+      isProjected: !isR64,
+      matchupAgreement,
     };
   }
 
@@ -182,8 +231,7 @@ export function getTrapGames(
       return (
         g.consensusSeed < g.otherSeed &&
         g.agreementCount >= minForTrap &&
-        g.agreementCount <= maxAgreement &&
-        g.round === 'round_of_64' // trap games are most actionable in R64
+        g.agreementCount <= maxAgreement
       );
     })
     .sort((a, b) => a.agreementCount - b.agreementCount || a.avgConfidence - b.avgConfidence);
@@ -237,17 +285,18 @@ export function getFinalFourConsensus(
   return { finalFour, champions };
 }
 
-// ── R64 by Region: group round_of_64 games by region ─────────────────────
+// ── Games by Round & Region ───────────────────────────────────────────────
 
 const REGION_ORDER = ['East', 'South', 'Midwest', 'West'] as const;
 
-export function getR64ByRegion(
-  agreementMap: Record<string, GameAgreement>
+export function getGamesByRoundAndRegion(
+  agreementMap: Record<string, GameAgreement>,
+  round: string
 ): { region: string; games: GameAgreement[] }[] {
   const byRegion: Record<string, GameAgreement[]> = {};
 
   for (const game of Object.values(agreementMap)) {
-    if (game.round !== 'round_of_64') continue;
+    if (game.round !== round) continue;
     const region = game.region;
     if (!byRegion[region]) byRegion[region] = [];
     byRegion[region].push(game);
@@ -266,12 +315,17 @@ export function getR64ByRegion(
       delete byRegion[r];
     }
   }
-  // Any remaining regions
   for (const [region, games] of Object.entries(byRegion)) {
     result.push({ region, games });
   }
 
   return result;
+}
+
+export function getR64ByRegion(
+  agreementMap: Record<string, GameAgreement>
+): { region: string; games: GameAgreement[] }[] {
+  return getGamesByRoundAndRegion(agreementMap, 'round_of_64');
 }
 
 // ── Risk Level: LOW / MED / HIGH ─────────────────────────────────────────
@@ -311,8 +365,7 @@ export function getContestedGames(
       const half = Math.ceil(g.totalModels / 2);
       return (
         g.agreementCount >= half &&
-        g.agreementCount <= maxAgreement &&
-        g.round === 'round_of_64'
+        g.agreementCount <= maxAgreement
       );
     })
     .sort((a, b) => a.agreementCount - b.agreementCount || a.avgConfidence - b.avgConfidence);
@@ -328,11 +381,12 @@ export interface RegionSummary {
   trapCount: number;
 }
 
-export function getR64RegionSummaries(
+export function getRoundRegionSummaries(
   agreementMap: Record<string, GameAgreement>,
+  round: string,
   lockThreshold = 7
 ): RegionSummary[] {
-  const regions = getR64ByRegion(agreementMap);
+  const regions = getGamesByRoundAndRegion(agreementMap, round);
   return regions.map(({ region, games }) => {
     let lockCount = 0;
     let upsetCount = 0;
@@ -349,6 +403,13 @@ export function getR64RegionSummaries(
     }
     return { region, games, lockCount, upsetCount, trapCount };
   });
+}
+
+export function getR64RegionSummaries(
+  agreementMap: Record<string, GameAgreement>,
+  lockThreshold = 7
+): RegionSummary[] {
+  return getRoundRegionSummaries(agreementMap, 'round_of_64', lockThreshold);
 }
 
 // ── Sleeper Pick: team in S16+ picked by only 1-2 models with high confidence ──

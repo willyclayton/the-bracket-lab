@@ -11,7 +11,7 @@ import {
   getFinalFourConsensus,
   getSleeperPick,
   getContestedGames,
-  getR64RegionSummaries,
+  getRoundRegionSummaries,
   GameAgreement,
 } from '@/lib/consensus';
 
@@ -40,6 +40,14 @@ import autoResearcherData2025 from '@/data/archive/2025/models/the-auto-research
 type Year = '2026' | '2025';
 type FilterType = 'all' | 'locks' | 'upsets' | 'traps' | 'contested';
 type GameCategory = 'lock' | 'upset' | 'trap' | 'contested' | 'clean';
+type RoundTab = 'round_of_64' | 'round_of_32' | 'sweet_16' | 'elite_8';
+
+const ROUND_TABS: { key: RoundTab; label: string; shortLabel: string }[] = [
+  { key: 'round_of_64', label: 'Round of 64', shortLabel: 'R64' },
+  { key: 'round_of_32', label: 'Round of 32', shortLabel: 'R32' },
+  { key: 'sweet_16', label: 'Sweet 16', shortLabel: 'S16' },
+  { key: 'elite_8', label: 'Elite 8', shortLabel: 'E8' },
+];
 
 const BRACKETS_BY_YEAR: Record<Year, Record<string, BracketData>> = {
   '2026': {
@@ -192,6 +200,35 @@ function FilterPills({ active, counts, onChange }: {
             {icon && <span>{icon}</span>}
             {label}
             <span className="text-[10px] opacity-60">{counts[key]}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+// ── Round Pills ──────────────────────────────────────────────────────────
+
+function RoundPills({ active, onChange }: {
+  active: RoundTab;
+  onChange: (r: RoundTab) => void;
+}) {
+  return (
+    <div className="flex gap-1.5 mb-4">
+      {ROUND_TABS.map(({ key, shortLabel }) => {
+        const isActive = active === key;
+        return (
+          <button
+            key={key}
+            onClick={() => onChange(key)}
+            className="font-mono text-xs font-semibold px-3 py-1.5 rounded-lg border transition-all duration-150"
+            style={{
+              borderColor: isActive ? '#efefef' : '#333',
+              color: isActive ? '#efefef' : '#555',
+              background: isActive ? '#2a2a2a' : 'transparent',
+            }}
+          >
+            {shortLabel}
           </button>
         );
       })}
@@ -385,6 +422,11 @@ function RegionAccordionRow({ game, category, expanded, onToggle }: {
         <span className="text-[#555] text-xs flex-shrink-0">&gt;</span>
         <span className={!pickIsHi ? 'font-semibold text-lab-white' : 'text-lab-muted'}>{loTeam}</span>
         <div className="flex items-center gap-1.5 ml-auto flex-shrink-0">
+          {game.isProjected && game.matchupAgreement < game.totalModels && (
+            <span className="font-mono text-[9px] text-[#666] px-1" title="Models agreeing this matchup occurs">
+              ~{game.matchupAgreement}/{game.totalModels}
+            </span>
+          )}
           <CategoryTag category={category} game={game} />
           <AgreementPill count={game.agreementCount} total={game.totalModels} color={pillColor} />
           <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
@@ -419,7 +461,8 @@ export default function CheatSheetClient() {
   const [emailStatus, setEmailStatus] = useState<'idle' | 'loading' | 'error'>('idle');
   const [emailError, setEmailError] = useState('');
 
-  // Filter + expand state
+  // Round + Filter + expand state
+  const [activeRound, setActiveRound] = useState<RoundTab>('round_of_64');
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
   const [expandedGameId, setExpandedGameId] = useState<string | null>(null);
   const [expandedRegions, setExpandedRegions] = useState<Set<string>>(new Set());
@@ -475,7 +518,7 @@ export default function CheatSheetClient() {
   const contestedGames = useMemo(() => getContestedGames(agreementMap), [agreementMap]);
   const { finalFour, champions } = useMemo(() => getFinalFourConsensus(brackets), [brackets]);
   const sleeper = useMemo(() => getSleeperPick(brackets), [brackets]);
-  const regionSummaries = useMemo(() => getR64RegionSummaries(agreementMap), [agreementMap]);
+  const regionSummaries = useMemo(() => getRoundRegionSummaries(agreementMap, activeRound), [agreementMap, activeRound]);
 
   const totalPredictions = modelCount * 63;
 
@@ -491,7 +534,7 @@ export default function CheatSheetClient() {
     );
   }
 
-  // Build category map: gameId -> category (R64 games only)
+  // Build category map: gameId -> category (active round games)
   const gameCategories = useMemo(() => {
     const lockIds = new Set(lockPicks.map((g) => g.gameId));
     const upsetIds = new Set(smartUpsets.map((g) => g.gameId));
@@ -500,7 +543,7 @@ export default function CheatSheetClient() {
 
     const map: Record<string, GameCategory> = {};
     for (const game of Object.values(agreementMap)) {
-      if (game.round !== 'round_of_64') continue;
+      if (game.round !== activeRound) continue;
       if (lockIds.has(game.gameId)) map[game.gameId] = 'lock';
       else if (upsetIds.has(game.gameId)) map[game.gameId] = 'upset';
       else if (trapIds.has(game.gameId)) map[game.gameId] = 'trap';
@@ -508,23 +551,30 @@ export default function CheatSheetClient() {
       else map[game.gameId] = 'clean';
     }
     return map;
-  }, [agreementMap, lockPicks, smartUpsets, trapGames, contestedGames]);
+  }, [agreementMap, activeRound, lockPicks, smartUpsets, trapGames, contestedGames]);
 
-  // R64 category counts for Big Stat display
+  // R64 category counts for Big Stat display (always R64, doesn't change with round tab)
   const r64Counts = useMemo(() => {
-    const cats = Object.values(gameCategories);
-    return {
-      locks: cats.filter((c) => c === 'lock').length,
-      upsets: cats.filter((c) => c === 'upset').length,
-      traps: cats.filter((c) => c === 'trap').length,
-      contested: cats.filter((c) => c === 'contested').length,
-    };
-  }, [gameCategories]);
+    const lockIds = new Set(lockPicks.map((g) => g.gameId));
+    const upsetIds = new Set(smartUpsets.map((g) => g.gameId));
+    const trapIds = new Set(trapGames.map((g) => g.gameId));
+    const contestedIds = new Set(contestedGames.map((g) => g.gameId));
+
+    let locks = 0, upsets = 0, traps = 0, contested = 0;
+    for (const game of Object.values(agreementMap)) {
+      if (game.round !== 'round_of_64') continue;
+      if (lockIds.has(game.gameId)) locks++;
+      else if (upsetIds.has(game.gameId)) upsets++;
+      else if (trapIds.has(game.gameId)) traps++;
+      else if (contestedIds.has(game.gameId)) contested++;
+    }
+    return { locks, upsets, traps, contested };
+  }, [agreementMap, lockPicks, smartUpsets, trapGames, contestedGames]);
   const totalConsensus = r64Counts.locks + r64Counts.upsets + r64Counts.traps + r64Counts.contested + (sleeper ? 1 : 0);
 
-  // Filter counts (R64 games by category, respecting search)
+  // Filter counts (active round games by category, respecting search)
   const filterCounts: Record<FilterType, number> = useMemo(() => {
-    let searchFiltered = Object.values(agreementMap).filter((g) => g.round === 'round_of_64');
+    let searchFiltered = Object.values(agreementMap).filter((g) => g.round === activeRound);
     if (normalizedQuery) searchFiltered = searchFiltered.filter(matchesSearch);
 
     return {
@@ -535,7 +585,7 @@ export default function CheatSheetClient() {
       contested: searchFiltered.filter((g) => gameCategories[g.gameId] === 'contested').length,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [agreementMap, normalizedQuery, gameCategories]);
+  }, [agreementMap, activeRound, normalizedQuery, gameCategories]);
 
   // Region accordion data with search + category filtering
   const filteredRegions = useMemo(() => {
@@ -597,9 +647,17 @@ export default function CheatSheetClient() {
     setExpandedGameId(null);
     setExpandedRegions(new Set());
     setActiveFilter('all');
+    setActiveRound('round_of_64');
     const params = new URLSearchParams();
     if (year === '2025') params.set('year', '2025');
     router.push(`/cheat-sheet${params.toString() ? '?' + params : ''}`, { scroll: false });
+  }
+
+  function switchRound(round: RoundTab) {
+    setActiveRound(round);
+    setExpandedGameId(null);
+    setExpandedRegions(new Set());
+    setActiveFilter('all');
   }
 
   return (
@@ -806,6 +864,9 @@ export default function CheatSheetClient() {
                 { icon: '&#9876;', color: '#a855f7', label: `${r64Counts.contested} Contested Games`, desc: 'Where the models debate' },
                 ...(sleeper ? [{ icon: '&#128301;', color: '#a855f7', label: '1 Sleeper Pick', desc: 'Deep run, high confidence' }] : []),
                 { icon: '&#127942;', color: '#3b82f6', label: '32 Opening Round Matchups', desc: 'Every R64 game, model-by-model breakdown' },
+                { icon: '&#127942;', color: '#3b82f6', label: '16 Round of 32 projected matchups', desc: 'Consensus bracket path' },
+                { icon: '&#127942;', color: '#3b82f6', label: '8 Sweet 16 projected matchups', desc: 'Consensus bracket path' },
+                { icon: '&#127942;', color: '#3b82f6', label: '4 Elite 8 projected showdowns', desc: 'Consensus bracket path' },
               ].map((row) => (
                 <div
                   key={row.label}
@@ -940,14 +1001,26 @@ export default function CheatSheetClient() {
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-lab-white">&#127942;</span>
                   <h2 className="text-lg font-semibold text-lab-white" style={{ fontFamily: 'var(--font-serif)' }}>
-                    R64 Breakdown
+                    {activeRound === 'round_of_64' ? 'R64' : activeRound === 'round_of_32' ? 'R32' : activeRound === 'sweet_16' ? 'S16' : 'E8'} Breakdown
                   </h2>
                   <span className="font-mono text-xs text-[#555] ml-auto">{filterCounts.all} games</span>
                 </div>
                 <p className="text-sm text-lab-muted mb-6">
-                  Every opening round matchup with model-by-model analysis. Click a region to expand.
+                  {activeRound === 'round_of_64'
+                    ? 'Every opening round matchup with model-by-model analysis. Click a region to expand.'
+                    : 'Projected matchups based on consensus bracket path. Click a region to expand.'}
                 </p>
               </>
+            )}
+
+            <RoundPills active={activeRound} onChange={switchRound} />
+
+            {activeRound !== 'round_of_64' && (
+              <div className="mb-4 border border-amber-500/20 rounded-lg px-4 py-3 bg-amber-500/5">
+                <p className="text-xs text-amber-300/80">
+                  <span className="font-semibold">Projected matchups.</span> These assume consensus picks advance from prior rounds. Actual matchups depend on game results.
+                </p>
+              </div>
             )}
 
             <div className="space-y-2">
