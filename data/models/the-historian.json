@@ -3,115 +3,19 @@
   "displayName": "The Historian",
   "tagline": "Every team has a twin. History already played this game.",
   "color": "#f59e0b",
-  "generated": "2026-03-16",
+  "generated": "2026-03-17",
   "locked": true,
   "espnBracketUrl": null,
   "champion": "Duke",
   "championEliminated": false,
   "finalFour": [
-    "Duke",
     "Florida",
     "Arizona",
+    "Duke",
     "Michigan"
   ],
   "rounds": {
     "round_of_64": [
-      {
-        "gameId": "r64-east-1",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 1,
-        "team1": "Duke",
-        "seed2": 16,
-        "team2": "Siena",
-        "pick": "Duke",
-        "confidence": 92,
-        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). Siena profiles like 2023 FDU (similarity: 0.71, Round of 32)."
-      },
-      {
-        "gameId": "r64-east-2",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 8,
-        "team1": "Ohio State",
-        "seed2": 9,
-        "team2": "TCU",
-        "pick": "Ohio State",
-        "confidence": 68,
-        "reasoning": "Ohio State profiles like 2017 Gonzaga (similarity: 0.82, Runner-Up). TCU profiles like 2021 Oral Roberts (similarity: 0.82, Sweet 16)."
-      },
-      {
-        "gameId": "r64-east-3",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 5,
-        "team1": "St. John's",
-        "seed2": 12,
-        "team2": "Northern Iowa",
-        "pick": "St. John's",
-        "confidence": 78,
-        "reasoning": "St. John's profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Northern Iowa profiles like 2010 Cornell (similarity: 0.81, Sweet 16)."
-      },
-      {
-        "gameId": "r64-east-4",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 4,
-        "team1": "Kansas",
-        "seed2": 13,
-        "team2": "Cal Baptist",
-        "pick": "Kansas",
-        "confidence": 78,
-        "reasoning": "Kansas profiles like 2021 Gonzaga (similarity: 0.85, Runner-Up). Cal Baptist profiles like 2022 Saint Peter's (similarity: 0.82, Elite Eight)."
-      },
-      {
-        "gameId": "r64-east-5",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 6,
-        "team1": "Louisville",
-        "seed2": 11,
-        "team2": "South Florida",
-        "pick": "Louisville",
-        "confidence": 68,
-        "reasoning": "Louisville profiles like 2017 Gonzaga (similarity: 0.85, Runner-Up). South Florida profiles like 2021 Oral Roberts (similarity: 0.84, Sweet 16)."
-      },
-      {
-        "gameId": "r64-east-6",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 3,
-        "team1": "Michigan State",
-        "seed2": 14,
-        "team2": "North Dakota State",
-        "pick": "Michigan State",
-        "confidence": 78,
-        "reasoning": "Michigan State profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). North Dakota State profiles like 2022 Saint Peter's (similarity: 0.81, Elite Eight)."
-      },
-      {
-        "gameId": "r64-east-7",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 7,
-        "team1": "UCLA",
-        "seed2": 10,
-        "team2": "UCF",
-        "pick": "UCLA",
-        "confidence": 78,
-        "reasoning": "UCLA profiles like 2017 Gonzaga (similarity: 0.81, Runner-Up). UCF profiles like 2022 Saint Peter's (similarity: 0.83, Elite Eight)."
-      },
-      {
-        "gameId": "r64-east-8",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 2,
-        "team1": "UConn",
-        "seed2": 15,
-        "team2": "Furman",
-        "pick": "UConn",
-        "confidence": 92,
-        "reasoning": "UConn profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). Furman profiles like 2023 FDU (similarity: 0.71, Round of 32)."
-      },
       {
         "gameId": "r64-south-1",
         "round": "round_of_64",
@@ -305,6 +209,102 @@
         "reasoning": "Purdue profiles like 2017 Gonzaga (similarity: 0.82, Runner-Up). Queens profiles like 2023 FDU (similarity: 0.78, Round of 32)."
       },
       {
+        "gameId": "r64-east-1",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 1,
+        "team1": "Duke",
+        "seed2": 16,
+        "team2": "Siena",
+        "pick": "Duke",
+        "confidence": 92,
+        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). Siena profiles like 2023 FDU (similarity: 0.71, Round of 32)."
+      },
+      {
+        "gameId": "r64-east-2",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 8,
+        "team1": "Ohio State",
+        "seed2": 9,
+        "team2": "TCU",
+        "pick": "Ohio State",
+        "confidence": 68,
+        "reasoning": "Ohio State profiles like 2017 Gonzaga (similarity: 0.82, Runner-Up). TCU profiles like 2021 Oral Roberts (similarity: 0.82, Sweet 16)."
+      },
+      {
+        "gameId": "r64-east-3",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 5,
+        "team1": "St. John's",
+        "seed2": 12,
+        "team2": "Northern Iowa",
+        "pick": "St. John's",
+        "confidence": 78,
+        "reasoning": "St. John's profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Northern Iowa profiles like 2010 Cornell (similarity: 0.81, Sweet 16)."
+      },
+      {
+        "gameId": "r64-east-4",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 4,
+        "team1": "Kansas",
+        "seed2": 13,
+        "team2": "Cal Baptist",
+        "pick": "Kansas",
+        "confidence": 78,
+        "reasoning": "Kansas profiles like 2021 Gonzaga (similarity: 0.85, Runner-Up). Cal Baptist profiles like 2022 Saint Peter's (similarity: 0.82, Elite Eight)."
+      },
+      {
+        "gameId": "r64-east-5",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 6,
+        "team1": "Louisville",
+        "seed2": 11,
+        "team2": "South Florida",
+        "pick": "Louisville",
+        "confidence": 68,
+        "reasoning": "Louisville profiles like 2017 Gonzaga (similarity: 0.85, Runner-Up). South Florida profiles like 2021 Oral Roberts (similarity: 0.84, Sweet 16)."
+      },
+      {
+        "gameId": "r64-east-6",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 3,
+        "team1": "Michigan State",
+        "seed2": 14,
+        "team2": "North Dakota State",
+        "pick": "Michigan State",
+        "confidence": 78,
+        "reasoning": "Michigan State profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). North Dakota State profiles like 2022 Saint Peter's (similarity: 0.81, Elite Eight)."
+      },
+      {
+        "gameId": "r64-east-7",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 7,
+        "team1": "UCLA",
+        "seed2": 10,
+        "team2": "UCF",
+        "pick": "UCLA",
+        "confidence": 78,
+        "reasoning": "UCLA profiles like 2017 Gonzaga (similarity: 0.81, Runner-Up). UCF profiles like 2022 Saint Peter's (similarity: 0.83, Elite Eight)."
+      },
+      {
+        "gameId": "r64-east-8",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 2,
+        "team1": "UConn",
+        "seed2": 15,
+        "team2": "Furman",
+        "pick": "UConn",
+        "confidence": 92,
+        "reasoning": "UConn profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). Furman profiles like 2023 FDU (similarity: 0.71, Round of 32)."
+      },
+      {
         "gameId": "r64-midwest-1",
         "round": "round_of_64",
         "region": "Midwest",
@@ -403,54 +403,6 @@
     ],
     "round_of_32": [
       {
-        "gameId": "r32-east-1",
-        "round": "round_of_32",
-        "region": "East",
-        "seed1": 1,
-        "team1": "Duke",
-        "seed2": 8,
-        "team2": "Ohio State",
-        "pick": "Duke",
-        "confidence": 63,
-        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). Ohio State profiles like 2017 Gonzaga (similarity: 0.82, Runner-Up)."
-      },
-      {
-        "gameId": "r32-east-2",
-        "round": "round_of_32",
-        "region": "East",
-        "seed1": 5,
-        "team1": "St. John's",
-        "seed2": 4,
-        "team2": "Kansas",
-        "pick": "St. John's",
-        "confidence": 52,
-        "reasoning": "St. John's profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Kansas profiles like 2021 Gonzaga (similarity: 0.85, Runner-Up)."
-      },
-      {
-        "gameId": "r32-east-3",
-        "round": "round_of_32",
-        "region": "East",
-        "seed1": 6,
-        "team1": "Louisville",
-        "seed2": 3,
-        "team2": "Michigan State",
-        "pick": "Michigan State",
-        "confidence": 50,
-        "reasoning": "Michigan State profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). Louisville profiles like 2017 Gonzaga (similarity: 0.85, Runner-Up)."
-      },
-      {
-        "gameId": "r32-east-4",
-        "round": "round_of_32",
-        "region": "East",
-        "seed1": 7,
-        "team1": "UCLA",
-        "seed2": 2,
-        "team2": "UConn",
-        "pick": "UConn",
-        "confidence": 55,
-        "reasoning": "UConn profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). UCLA profiles like 2017 Gonzaga (similarity: 0.81, Runner-Up)."
-      },
-      {
         "gameId": "r32-south-1",
         "round": "round_of_32",
         "region": "South",
@@ -547,6 +499,54 @@
         "reasoning": "Purdue profiles like 2017 Gonzaga (similarity: 0.82, Runner-Up). Miami profiles like 2015 Wichita State (similarity: 0.83, Round of 32)."
       },
       {
+        "gameId": "r32-east-1",
+        "round": "round_of_32",
+        "region": "East",
+        "seed1": 1,
+        "team1": "Duke",
+        "seed2": 8,
+        "team2": "Ohio State",
+        "pick": "Duke",
+        "confidence": 63,
+        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). Ohio State profiles like 2017 Gonzaga (similarity: 0.82, Runner-Up)."
+      },
+      {
+        "gameId": "r32-east-2",
+        "round": "round_of_32",
+        "region": "East",
+        "seed1": 5,
+        "team1": "St. John's",
+        "seed2": 4,
+        "team2": "Kansas",
+        "pick": "St. John's",
+        "confidence": 52,
+        "reasoning": "St. John's profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Kansas profiles like 2021 Gonzaga (similarity: 0.85, Runner-Up)."
+      },
+      {
+        "gameId": "r32-east-3",
+        "round": "round_of_32",
+        "region": "East",
+        "seed1": 6,
+        "team1": "Louisville",
+        "seed2": 3,
+        "team2": "Michigan State",
+        "pick": "Michigan State",
+        "confidence": 50,
+        "reasoning": "Michigan State profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). Louisville profiles like 2017 Gonzaga (similarity: 0.85, Runner-Up)."
+      },
+      {
+        "gameId": "r32-east-4",
+        "round": "round_of_32",
+        "region": "East",
+        "seed1": 7,
+        "team1": "UCLA",
+        "seed2": 2,
+        "team2": "UConn",
+        "pick": "UConn",
+        "confidence": 55,
+        "reasoning": "UConn profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). UCLA profiles like 2017 Gonzaga (similarity: 0.81, Runner-Up)."
+      },
+      {
         "gameId": "r32-midwest-1",
         "round": "round_of_32",
         "region": "Midwest",
@@ -597,30 +597,6 @@
     ],
     "sweet_16": [
       {
-        "gameId": "s16-east-1",
-        "round": "sweet_16",
-        "region": "East",
-        "seed1": 1,
-        "team1": "Duke",
-        "seed2": 5,
-        "team2": "St. John's",
-        "pick": "Duke",
-        "confidence": 61,
-        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). St. John's profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up)."
-      },
-      {
-        "gameId": "s16-east-2",
-        "round": "sweet_16",
-        "region": "East",
-        "seed1": 3,
-        "team1": "Michigan State",
-        "seed2": 2,
-        "team2": "UConn",
-        "pick": "UConn",
-        "confidence": 51,
-        "reasoning": "UConn profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). Michigan State profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up)."
-      },
-      {
         "gameId": "s16-south-1",
         "round": "sweet_16",
         "region": "South",
@@ -669,6 +645,30 @@
         "reasoning": "Purdue profiles like 2017 Gonzaga (similarity: 0.82, Runner-Up). Gonzaga profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up)."
       },
       {
+        "gameId": "s16-east-1",
+        "round": "sweet_16",
+        "region": "East",
+        "seed1": 1,
+        "team1": "Duke",
+        "seed2": 5,
+        "team2": "St. John's",
+        "pick": "Duke",
+        "confidence": 61,
+        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). St. John's profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up)."
+      },
+      {
+        "gameId": "s16-east-2",
+        "round": "sweet_16",
+        "region": "East",
+        "seed1": 3,
+        "team1": "Michigan State",
+        "seed2": 2,
+        "team2": "UConn",
+        "pick": "UConn",
+        "confidence": 51,
+        "reasoning": "UConn profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). Michigan State profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up)."
+      },
+      {
         "gameId": "s16-midwest-1",
         "round": "sweet_16",
         "region": "Midwest",
@@ -695,18 +695,6 @@
     ],
     "elite_8": [
       {
-        "gameId": "e8-east",
-        "round": "elite_8",
-        "region": "East",
-        "seed1": 1,
-        "team1": "Duke",
-        "seed2": 2,
-        "team2": "UConn",
-        "pick": "Duke",
-        "confidence": 59,
-        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). UConn profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up)."
-      },
-      {
         "gameId": "e8-south",
         "round": "elite_8",
         "region": "South",
@@ -731,6 +719,18 @@
         "reasoning": "Arizona profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Purdue profiles like 2017 Gonzaga (similarity: 0.82, Runner-Up)."
       },
       {
+        "gameId": "e8-east",
+        "round": "elite_8",
+        "region": "East",
+        "seed1": 1,
+        "team1": "Duke",
+        "seed2": 2,
+        "team2": "UConn",
+        "pick": "Duke",
+        "confidence": 59,
+        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). UConn profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up)."
+      },
+      {
         "gameId": "e8-midwest",
         "round": "elite_8",
         "region": "Midwest",
@@ -747,32 +747,18 @@
       {
         "gameId": "f4-south-west",
         "round": "final_four",
-        "region": "Final Four",
+        "region": "National",
         "seed1": 1,
-        "team1": "Duke",
+        "team1": "Florida",
         "seed2": 1,
-        "team2": "Florida",
-        "pick": "Duke",
-        "confidence": 53,
-        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). Florida profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up)."
+        "team2": "Arizona",
+        "pick": "Arizona",
+        "confidence": 51,
+        "reasoning": "Arizona profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Florida profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up)."
       },
       {
         "gameId": "f4-east-midwest",
         "round": "final_four",
-        "region": "Final Four",
-        "seed1": 1,
-        "team1": "Arizona",
-        "seed2": 1,
-        "team2": "Michigan",
-        "pick": "Michigan",
-        "confidence": 51,
-        "reasoning": "Michigan profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Arizona profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up)."
-      }
-    ],
-    "championship": [
-      {
-        "gameId": "championship",
-        "round": "championship",
         "region": "National",
         "seed1": 1,
         "team1": "Duke",
@@ -781,6 +767,20 @@
         "pick": "Duke",
         "confidence": 50,
         "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). Michigan profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up)."
+      }
+    ],
+    "championship": [
+      {
+        "gameId": "championship",
+        "round": "championship",
+        "region": "National",
+        "seed1": 1,
+        "team1": "Arizona",
+        "seed2": 1,
+        "team2": "Duke",
+        "pick": "Duke",
+        "confidence": 51,
+        "reasoning": "Duke profiles like 2021 Gonzaga (similarity: 0.84, Runner-Up). Arizona profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up)."
       }
     ]
   }

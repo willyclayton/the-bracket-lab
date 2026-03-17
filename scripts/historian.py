@@ -125,9 +125,9 @@ ROUND_LABELS = {
     "championship": "Championship",
 }
 
-# Region order for Final Four pairing
-# (first two regions play each other, last two play each other)
-STANDARD_REGION_ORDER = ["South", "East", "Midwest", "West"]
+# Region order for Final Four pairing — NCAA bracket pairs South vs West, East vs Midwest
+# (regions[0] vs regions[1], regions[2] vs regions[3])
+STANDARD_REGION_ORDER = ["South", "West", "East", "Midwest"]
 
 
 # ---------------------------------------------------------------------------
@@ -511,10 +511,10 @@ def main():
     # -----------------------------------------------------------------------
     # 6. Determine region order from R64 data
     # -----------------------------------------------------------------------
-    region_order = []
-    for m in matchups:
-        if m["region"] not in region_order:
-            region_order.append(m["region"])
+    # Always use the FF-correct pairing order: South vs West, East vs Midwest
+    # The R64 data may list regions in a different order, but the FF pairing
+    # must follow the NCAA bracket structure.
+    region_order = list(STANDARD_REGION_ORDER)  # ["South", "West", "East", "Midwest"]
     print(f"\n5. Region order: {region_order}")
 
     # -----------------------------------------------------------------------

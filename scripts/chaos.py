@@ -358,17 +358,23 @@ def compute_confidence(is_upset, upset_score, higher_seed, lower_seed):
 # Bracket generation — later rounds
 # ---------------------------------------------------------------------------
 
-REGION_ORDER_DEFAULT = ["South", "East", "Midwest", "West"]
+REGION_ORDER_DEFAULT = ["South", "West", "East", "Midwest"]
 
 
 def detect_region_order(r64_games):
-    """Detect region ordering from R64 game IDs."""
-    regions_seen = []
+    """Return the correct FF-aligned region order: South, West, East, Midwest.
+
+    The R64 game order in teams.json may vary, but the NCAA bracket always
+    pairs South vs West and East vs Midwest in the Final Four.  We verify
+    the four expected regions are present, then return the canonical order.
+    """
+    regions_seen = set()
     for g in r64_games:
-        r = g["region"]
-        if r not in regions_seen:
-            regions_seen.append(r)
-    return regions_seen if len(regions_seen) == 4 else REGION_ORDER_DEFAULT
+        regions_seen.add(g["region"])
+    if len(regions_seen) == 4:
+        # Always return the FF-correct pairing order regardless of R64 ordering
+        return REGION_ORDER_DEFAULT  # ["South", "West", "East", "Midwest"]
+    return REGION_ORDER_DEFAULT
 
 
 def pair_winners_for_next_round(prev_round_games, round_name, region_order):
@@ -442,6 +448,9 @@ def pair_winners_for_next_round(prev_round_games, round_name, region_order):
 
     elif round_name == "final_four":
         # First two regions play each other, last two play each other
+        # region_order is ["South", "West", "East", "Midwest"] so:
+        #   rw[0](South) vs rw[1](West)  → f4-south-west
+        #   rw[2](East)  vs rw[3](Midwest) → f4-east-midwest
         region_winners = []
         for region in region_order:
             region_games = [g for g in prev_round_games if g["region"] == region]
@@ -453,15 +462,19 @@ def pair_winners_for_next_round(prev_round_games, round_name, region_order):
         matchups = []
         if len(region_winners) >= 4:
             rw = region_winners
+            r1 = rw[0]["region"].lower()
+            r2 = rw[1]["region"].lower()
+            r3 = rw[2]["region"].lower()
+            r4 = rw[3]["region"].lower()
             matchups.append({
-                "gameId": "f4-1",
+                "gameId": f"f4-{r1}-{r2}",
                 "round": "final_four",
                 "region": f"{rw[0]['region']} / {rw[1]['region']}",
                 "team1": rw[0]["team"], "seed1": rw[0]["seed"],
                 "team2": rw[1]["team"], "seed2": rw[1]["seed"],
             })
             matchups.append({
-                "gameId": "f4-2",
+                "gameId": f"f4-{r3}-{r4}",
                 "round": "final_four",
                 "region": f"{rw[2]['region']} / {rw[3]['region']}",
                 "team1": rw[2]["team"], "seed1": rw[2]["seed"],

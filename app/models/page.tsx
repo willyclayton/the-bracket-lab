@@ -104,8 +104,8 @@ export default function ModelsPage() {
               {[
                 { model: 'The Scout', game: 'Arizona vs Duke', color: '#3b82f6' },
                 { model: 'The Quant', game: 'Arizona vs Duke', color: '#22c55e' },
-                { model: 'The Historian', game: 'Duke vs Michigan', color: '#f59e0b' },
-                { model: 'The Chaos Agent', game: 'Illinois vs Gonzaga', color: '#ef4444' },
+                { model: 'The Historian', game: 'Arizona vs Duke', color: '#f59e0b' },
+                { model: 'The Chaos Agent', game: 'Gonzaga vs Iowa State', color: '#ef4444' },
                 { model: 'The Optimizer', game: 'Illinois vs Texas Tech', color: '#06b6d4' },
                 { model: 'Auto Researcher', game: 'Arizona vs Iowa State', color: '#f97316' },
               ].map((row) => (
