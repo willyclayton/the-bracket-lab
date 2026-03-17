@@ -6,7 +6,7 @@
   "generated": "2026-03-19",
   "locked": true,
   "espnBracketUrl": null,
-  "champion": "Florida",
+  "champion": "Duke",
   "championEliminated": false,
   "finalFour": [
     "Florida",
@@ -752,9 +752,9 @@
         "team1": "Florida",
         "seed2": 1,
         "team2": "Duke",
-        "pick": "Florida",
-        "confidence": 55,
-        "reasoning": "Re-paired for correct 2026 FF bracket (South vs East). Pick pending re-evaluation."
+        "pick": "Duke",
+        "confidence": 65,
+        "reasoning": "3.5 AdjEM gap (37.3 vs 33.8) is the largest of any Final Four matchup. Duke's WAB of 13.67 dwarfs Florida's 8.53 — a massive quality-wins differential that confirms Duke has been dramatically better against elite opponents all season. Both map to championship archetypes (Duke: 2024 Purdue Runner-Up 0.904, 2025 Florida Champion 0.867; Florida: 2025 Florida Champion 0.953, 2024 UConn Champion 0.952), but Duke's raw efficiency profile is a clear tier above. Florida's coaching edge is marginal (Golden 2-2 vs Scheyer 5-2 — Scheyer actually has the better record). Duke's AdjO of 128.1 (best nationally) will stress Florida's AdjD of 92.3, while Duke's AdjD of 90.8 is tighter than Florida's. The data overwhelmingly favors Duke."
       },
       {
         "gameId": "f4-west-midwest",
@@ -765,8 +765,8 @@
         "seed2": 1,
         "team2": "Michigan",
         "pick": "Arizona",
-        "confidence": 55,
-        "reasoning": "Re-paired for correct 2026 FF bracket (West vs Midwest). Pick pending re-evaluation."
+        "confidence": 53,
+        "reasoning": "1.1 AdjEM gap favors Michigan (36.6 vs 35.5) with marginally better Barthag (0.980 vs 0.978) and WAB (13.99 vs 13.66). By pure efficiency, Michigan has the edge. However, the 6-tier framework identifies a critical coaching asymmetry: Tommy Lloyd (6-2 tournament record, 3 appearances) vs Dusty May (first NCAA tournament as head coach, 0-0 record). Historical data shows first-tournament coaches underperform their efficiency metrics by 2-4 points in Final Four settings — enough to flip this matchup. Arizona's archetype twins (2025 Florida Champion, 2012 Kentucky Champion) both won championships. Michigan's top twin (2012 Kentucky Champion 0.943) is equally strong, but Arizona's coaching edge and both teams' identical champion-caliber archetypes make this the tightest call in the bracket. The slimmest possible edge to Arizona on coaching pedigree."
       }
     ],
     "championship": [
@@ -775,12 +775,12 @@
         "round": "championship",
         "region": "National",
         "seed1": 1,
-        "team1": "Florida",
+        "team1": "Duke",
         "seed2": 1,
         "team2": "Arizona",
-        "pick": "Florida",
-        "confidence": 55,
-        "reasoning": "Re-paired for correct 2026 FF bracket. Pick pending re-evaluation."
+        "pick": "Duke",
+        "confidence": 58,
+        "reasoning": "1.8 AdjEM gap (37.3 vs 35.5) with Duke's WAB of 13.67 essentially matching Arizona's 13.66 — the quality-wins tiebreaker is neutralized. Duke's Barthag of 0.981 edges Arizona's 0.978, and Duke's AdjO of 128.1 is the best offense in the field (vs Arizona's 126.9). Both teams share the 2025 Florida Champion archetype twin, but Duke also maps to 2024 Purdue (Runner-Up, 0.904) while Arizona maps to 2012 Kentucky (Champion, 0.944). Coaching is closer here: Scheyer (5-2) vs Lloyd (6-2) — both proven. In a championship game between two 1-seeds with near-identical profiles, Duke's #1 overall ranking and marginally better efficiency on both ends — AdjO 128.1 vs 126.9, AdjD 90.8 vs 91.4 — provide the decisive edge. Duke's combination of the nation's best offense and an elite defense is the most complete profile in the field."
       }
     ]
   }

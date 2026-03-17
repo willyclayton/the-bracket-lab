@@ -289,7 +289,7 @@ def build_later_round_contexts(year, round_name, winners_from_prev, enriched, ar
 
     elif round_name == "final_four":
         e8_games = [g for g in bracket_so_far if g["round"] == "elite_8"]
-        # F4 pairings: South vs West, East vs Midwest
+        # F4 pairings: South vs East, West vs Midwest (2026)
         region_winners = {}
         for g in e8_games:
             region_winners[g["region"]] = {
@@ -297,7 +297,7 @@ def build_later_round_contexts(year, round_name, winners_from_prev, enriched, ar
                 "seed": g["seed1"] if g["pick"] == g["team1"] else g["seed2"],
             }
 
-        f4_pairings = [("South", "West"), ("East", "Midwest")]
+        f4_pairings = [("South", "East"), ("West", "Midwest")]
         for r1, r2 in f4_pairings:
             if r1 in region_winners and r2 in region_winners:
                 w1 = region_winners[r1]
