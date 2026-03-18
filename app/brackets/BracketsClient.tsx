@@ -469,6 +469,30 @@ export default function BracketsClient() {
         </>
       )}
 
+      {/* Experimental models toggle */}
+      <div className="mt-6 mb-2 text-center">
+        <button
+          onClick={() => {
+            setShowHidden((v) => {
+              const next = !v;
+              if (!next) {
+                // If hiding and a hidden model is active, fall back to first core model
+                const active = MODELS.find((m) => m.id === activeModelId);
+                if (active?.hidden) {
+                  selectModel(MODELS.find((m) => !m.hidden)!.id);
+                }
+              }
+              return next;
+            });
+          }}
+          className="text-[13px] text-[#666] hover:text-[#999] transition-colors"
+        >
+          {showHidden
+            ? '← Hide experimental models'
+            : '3 experimental models also competed. Click here to see them →'}
+        </button>
+      </div>
+
       {/* Popover */}
       <MatchupPopover
         data={popoverData}
