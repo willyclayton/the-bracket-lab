@@ -11,8 +11,11 @@ const CHAMPION_PICKS: Record<string, string> = {
   'the-quant':           'Duke',
   'the-historian':       'Duke',
   'the-chaos-agent':     'Gonzaga',
+  'the-agent':           'Houston',
   'the-optimizer':       'Illinois',
-  'the-auto-researcher': 'Arizona',
+  'the-auto-researcher': 'Duke',
+  'the-super-agent':     'Illinois',
+  'the-scout-prime':     'Duke',
 };
 
 export default function Home() {
