@@ -13,6 +13,7 @@ Usage:
 import os
 import sys
 import json
+from datetime import datetime, timezone
 import csv
 import numpy as np
 
@@ -506,7 +507,7 @@ def main():
         "displayName": "The Optimizer",
         "tagline": "Every other model predicts games. This one plays the scoring system.",
         "color": "#06b6d4",
-        "generated": f"{year}-03-{'16' if year >= 2026 else '19'}",
+        "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "locked": True,
         "espnBracketUrl": None,
         "champion": champion,

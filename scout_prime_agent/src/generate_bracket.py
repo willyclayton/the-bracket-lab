@@ -17,6 +17,7 @@ import os
 import sys
 import json
 import argparse
+from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from utils import (
@@ -407,7 +408,7 @@ def compile_bracket(year):
         "displayName": "The Scout Prime",
         "tagline": "Same instincts. Ten times the intel.",
         "color": "#64748b",
-        "generated": f"{year}-03-19",
+        "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "locked": True,
         "espnBracketUrl": None,
         "champion": champion,
