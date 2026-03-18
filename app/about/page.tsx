@@ -55,8 +55,8 @@ export default function AboutPage() {
             <p className="text-sm text-lab-muted mb-3">Data & AI Consultant · Chicago, IL</p>
             <div className="flex gap-4 text-sm">
               <a href="https://willyclayton.com" className="text-scout hover:underline">willyclayton.com</a>
-              <a href="https://linkedin.com/in/willclayton" className="text-scout hover:underline">LinkedIn</a>
-              <a href="https://github.com/willclayton" className="text-scout hover:underline">GitHub</a>
+              <a href="https://www.linkedin.com/in/willuclayton/" className="text-scout hover:underline">LinkedIn</a>
+              <a href="https://github.com/willyclayton" className="text-scout hover:underline">GitHub</a>
             </div>
           </div>
           <div className="border-t border-lab-border pt-4">
