@@ -182,7 +182,7 @@ export function buildAgreementMap(
       otherTeam,
       otherSeed,
       agreementCount,
-      totalModels: allPicks.length,
+      totalModels: isR64 ? allPicks.length : picks.length,
       avgConfidence,
       modelPicks: picks,
       isProjected: !isR64,
@@ -200,7 +200,7 @@ export function getLockPicks(
   minAgreement = 7
 ): GameAgreement[] {
   return Object.values(agreementMap)
-    .filter((g) => g.agreementCount >= minAgreement)
+    .filter((g) => g.agreementCount >= minAgreement || g.agreementCount === g.totalModels)
     .sort((a, b) => b.agreementCount - a.agreementCount || b.avgConfidence - a.avgConfidence);
 }
 
