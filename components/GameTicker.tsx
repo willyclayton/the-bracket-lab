@@ -1,7 +1,7 @@
 'use client';
 
 import { VISIBLE_MODELS } from '@/lib/models';
-import { BracketData, Results } from '@/lib/types';
+import { BracketData, Results, ResultGame } from '@/lib/types';
 import { useLiveResults } from '@/lib/use-live-results';
 
 import scoutData from '@/data/models/the-scout.json';
@@ -31,55 +31,99 @@ const MODEL_LETTERS: { id: string; letter: string; color: string }[] = [
 
 const ROUND_ORDER = ['round_of_64', 'round_of_32', 'sweet_16', 'elite_8', 'final_four', 'championship'] as const;
 
+type GameState = 'final' | 'live' | 'upcoming';
+
 interface TickerItem {
   gameId: string;
+  state: GameState;
   team1: string;
   seed1: number;
-  score1: number;
   team2: string;
   seed2: number;
-  score2: number;
-  winner: string;
-  modelCorrect: Record<string, boolean>;
-  correctCount: number;
+  // Final + live
+  score1?: number;
+  score2?: number;
+  // Final only
+  winner?: string;
+  modelCorrect?: Record<string, boolean>;
+  correctCount?: number;
+  // Live only
+  gameClock?: string;
+  // Upcoming only
+  tipoff?: string;
 }
 
-function buildTickerItems(RESULTS: Results): TickerItem[] {
-  const completedGames = RESULTS.games.filter((g) => g.completed && g.winner);
-  if (completedGames.length === 0) return [];
+function getGameState(game: ResultGame): GameState {
+  if (game.completed && game.winner) return 'final';
+  if (game.gameClock) return 'live';
+  return 'upcoming';
+}
 
-  return completedGames.map((game) => {
-    const modelCorrect: Record<string, boolean> = {};
-    let correctCount = 0;
+function formatTipoff(gameTime: string | null): string {
+  if (!gameTime) return 'TBD';
+  try {
+    const d = new Date(gameTime);
+    return d.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      timeZone: 'America/New_York',
+    }) + ' ET';
+  } catch {
+    return 'TBD';
+  }
+}
 
-    for (const model of VISIBLE_MODELS) {
-      let found = false;
-      for (const roundKey of ROUND_ORDER) {
-        const games = BRACKETS[model.id]?.rounds[roundKey as keyof BracketData['rounds']] ?? [];
-        const match = games.find((g) => g.gameId === game.gameId);
-        if (match) {
-          const correct = match.pick === game.winner;
-          modelCorrect[model.id] = correct;
-          if (correct) correctCount++;
-          found = true;
-          break;
-        }
-      }
-      if (!found) modelCorrect[model.id] = false;
-    }
+function buildTickerItems(results: Results): TickerItem[] {
+  // Include all games that have both teams assigned
+  const gamesWithTeams = results.games.filter((g) => g.team1 && g.team2);
+  if (gamesWithTeams.length === 0) return [];
 
-    return {
+  return gamesWithTeams.map((game) => {
+    const state = getGameState(game);
+
+    const item: TickerItem = {
       gameId: game.gameId,
+      state,
       team1: game.team1,
       seed1: game.seed1,
-      score1: game.score1,
       team2: game.team2,
       seed2: game.seed2,
-      score2: game.score2,
-      winner: game.winner,
-      modelCorrect,
-      correctCount,
     };
+
+    if (state === 'final') {
+      item.score1 = game.score1;
+      item.score2 = game.score2;
+      item.winner = game.winner;
+
+      // Build model scorecard
+      const modelCorrect: Record<string, boolean> = {};
+      let correctCount = 0;
+      for (const model of VISIBLE_MODELS) {
+        let found = false;
+        for (const roundKey of ROUND_ORDER) {
+          const games = BRACKETS[model.id]?.rounds[roundKey as keyof BracketData['rounds']] ?? [];
+          const match = games.find((g) => g.gameId === game.gameId);
+          if (match) {
+            const correct = match.pick === game.winner;
+            modelCorrect[model.id] = correct;
+            if (correct) correctCount++;
+            found = true;
+            break;
+          }
+        }
+        if (!found) modelCorrect[model.id] = false;
+      }
+      item.modelCorrect = modelCorrect;
+      item.correctCount = correctCount;
+    } else if (state === 'live') {
+      item.score1 = game.score1;
+      item.score2 = game.score2;
+      item.gameClock = game.gameClock;
+    } else {
+      item.tipoff = formatTipoff(game.gameTime);
+    }
+
+    return item;
   });
 }
 
@@ -93,7 +137,6 @@ function hasAnyPicks(): boolean {
 }
 
 function getMatchupPreviews(): { team1: string; seed1: number; team2: string; seed2: number }[] {
-  // Pull R64 matchups from first model that has them
   for (const model of VISIBLE_MODELS) {
     const r64 = BRACKETS[model.id]?.rounds.round_of_64 ?? [];
     if (r64.length > 0) {
@@ -103,13 +146,118 @@ function getMatchupPreviews(): { team1: string; seed1: number; team2: string; se
   return [];
 }
 
+function TickerGameFinal({ item }: { item: TickerItem }) {
+  return (
+    <div className="flex items-center gap-1.5 flex-shrink-0 px-3">
+      <span className="font-mono text-[10px] text-[#999]">({item.seed1})</span>
+      <span
+        className={`font-mono text-[11px] ${
+          item.winner === item.team1 ? 'text-white font-bold' : 'text-[#777]'
+        }`}
+      >
+        {item.team1}
+      </span>
+      <span className="font-mono text-[11px] text-[#999]">{item.score1}</span>
+
+      <span className="font-mono text-[9px] text-[#666] uppercase tracking-wider mx-1 font-semibold">
+        Final
+      </span>
+
+      <span className="font-mono text-[11px] text-[#999]">{item.score2}</span>
+      <span
+        className={`font-mono text-[11px] ${
+          item.winner === item.team2 ? 'text-white font-bold' : 'text-[#777]'
+        }`}
+      >
+        {item.team2}
+      </span>
+      <span className="font-mono text-[10px] text-[#999]">({item.seed2})</span>
+
+      {/* Model icons */}
+      <div className="flex items-center gap-[3px] ml-1">
+        {MODEL_LETTERS.map(({ id, letter, color }) => {
+          const correct = item.modelCorrect?.[id] ?? false;
+          return (
+            <span
+              key={id}
+              className="ticker-model-icon"
+              style={{
+                background: correct ? `${color}22` : 'rgba(255,255,255,0.04)',
+                borderColor: correct ? color : '#333',
+                color: correct ? color : '#555',
+              }}
+            >
+              {letter}
+            </span>
+          );
+        })}
+        <span className="font-mono text-[9px] text-[#999] ml-0.5">
+          {item.correctCount}/6
+        </span>
+      </div>
+
+      <span className="text-[#444] ml-2">|</span>
+    </div>
+  );
+}
+
+function TickerGameLive({ item }: { item: TickerItem }) {
+  return (
+    <div className="flex items-center gap-1.5 flex-shrink-0 px-3">
+      <span className="font-mono text-[10px] text-[#999]">({item.seed1})</span>
+      <span className="font-mono text-[11px] text-[#ccc]">{item.team1}</span>
+      <span className="font-mono text-[11px] text-[#efefef] font-semibold">{item.score1}</span>
+
+      <span className="font-mono text-[9px] text-green-400 font-semibold mx-1">
+        {item.gameClock}
+      </span>
+
+      <span className="font-mono text-[11px] text-[#efefef] font-semibold">{item.score2}</span>
+      <span className="font-mono text-[11px] text-[#ccc]">{item.team2}</span>
+      <span className="font-mono text-[10px] text-[#999]">({item.seed2})</span>
+
+      <span className="text-[#444] ml-2">|</span>
+    </div>
+  );
+}
+
+function TickerGameUpcoming({ item }: { item: TickerItem }) {
+  return (
+    <div className="flex items-center gap-1.5 flex-shrink-0 px-3">
+      <span className="font-mono text-[10px] text-[#999]">({item.seed1})</span>
+      <span className="font-mono text-[11px] text-[#ccc]">{item.team1}</span>
+
+      <span className="font-mono text-[9px] text-[#888] mx-1.5">
+        {item.tipoff}
+      </span>
+
+      <span className="font-mono text-[11px] text-[#ccc]">{item.team2}</span>
+      <span className="font-mono text-[10px] text-[#999]">({item.seed2})</span>
+
+      <span className="text-[#444] ml-2">|</span>
+    </div>
+  );
+}
+
+function TickerGame({ item }: { item: TickerItem }) {
+  switch (item.state) {
+    case 'final':
+      return <TickerGameFinal item={item} />;
+    case 'live':
+      return <TickerGameLive item={item} />;
+    case 'upcoming':
+      return <TickerGameUpcoming item={item} />;
+  }
+}
+
 export default function GameTicker() {
   const { results, isLive } = useLiveResults();
   const tickerItems = buildTickerItems(results);
+  const hasLiveOrFinal = tickerItems.some((t) => t.state === 'final' || t.state === 'live');
   const picksExist = hasAnyPicks();
 
-  // State 1: Games completed — show results + model scorecard
-  if (tickerItems.length > 0) {
+  // State 1: Games have started (mix of final, live, upcoming)
+  if (tickerItems.length > 0 && hasLiveOrFinal) {
     return (
       <div className="ticker-bar">
         {isLive && (
@@ -125,62 +273,7 @@ export default function GameTicker() {
           {[0, 1].map((copy) => (
             <div key={copy} className="flex items-center gap-6 pr-6">
               {tickerItems.map((item, i) => (
-                <div
-                  key={`${copy}-${i}`}
-                  className="flex items-center gap-2 flex-shrink-0 px-3"
-                >
-                  {/* Team 1 */}
-                  <span className="font-mono text-[10px] text-[#999]">({item.seed1})</span>
-                  <span
-                    className={`font-mono text-[11px] ${
-                      item.winner === item.team1 ? 'text-white font-bold' : 'text-[#777]'
-                    }`}
-                  >
-                    {item.team1}
-                  </span>
-                  <span className="font-mono text-[11px] text-[#999]">{item.score1}</span>
-
-                  <span className="text-[#555] text-[10px] mx-0.5">-</span>
-
-                  {/* Team 2 */}
-                  <span className="font-mono text-[11px] text-[#999]">{item.score2}</span>
-                  <span
-                    className={`font-mono text-[11px] ${
-                      item.winner === item.team2 ? 'text-white font-bold' : 'text-[#777]'
-                    }`}
-                  >
-                    {item.team2}
-                  </span>
-                  <span className="font-mono text-[10px] text-[#999]">({item.seed2})</span>
-
-                  {/* Model icons */}
-                  <div className="flex items-center gap-[3px] ml-1">
-                    {MODEL_LETTERS.map(({ id, letter, color }) => {
-                      const correct = item.modelCorrect[id];
-                      return (
-                        <span
-                          key={id}
-                          className="ticker-model-icon"
-                          style={{
-                            background: correct
-                              ? `${color}22`
-                              : 'rgba(255,255,255,0.04)',
-                            borderColor: correct ? color : '#333',
-                            color: correct ? color : '#555',
-                          }}
-                        >
-                          {letter}
-                        </span>
-                      );
-                    })}
-                    <span className="font-mono text-[9px] text-[#999] ml-0.5">
-                      {item.correctCount}/6
-                    </span>
-                  </div>
-
-                  {/* Separator */}
-                  <span className="text-[#444] ml-2">|</span>
-                </div>
+                <TickerGame key={`${copy}-${i}`} item={item} />
               ))}
             </div>
           ))}

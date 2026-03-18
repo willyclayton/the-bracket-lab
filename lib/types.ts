@@ -45,6 +45,7 @@ export interface ResultGame {
   winner: string;
   completed: boolean;
   gameTime: string;
+  gameClock?: string; // e.g. "1H 12:00", "HT", "2H 8:42", "OT 3:15" — present when game is in progress
 }
 
 export interface Results {
