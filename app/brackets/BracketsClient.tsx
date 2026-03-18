@@ -196,7 +196,7 @@ export default function BracketsClient() {
     ? calculateScore(bracket, results)
     : null;
 
-  const espnPct = modelScore ? getEspnPercentile(modelScore.total, activeYear) : null;
+  const espnPctResult = modelScore ? getEspnPercentile(modelScore.total, activeYear) : null;
 
   // Check if bracket is empty (or missing for this year)
   const isEmpty = !bracket || ROUND_ORDER.every(
@@ -331,7 +331,7 @@ export default function BracketsClient() {
         <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
           <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">ESPN %</p>
           <p className="font-mono text-[13px] font-semibold" style={{ color: activeModel.color }}>
-            {espnPct != null ? `${espnPct.toFixed(1)}%` : '\u2014'}
+            {espnPctResult != null ? `${espnPctResult.percentile.toFixed(1)}%${espnPctResult.isEstimate ? ' (est.)' : ''}` : '\u2014'}
           </p>
         </div>
         <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">

@@ -2,8 +2,11 @@ name: Archive Scores
 
 on:
   schedule:
-    # Run at 8 AM UTC daily during tournament (after all games are final)
-    - cron: '0 8 * * *'
+    # Every 15 min during game windows (noon-2am ET = 17:00-07:00 UTC)
+    - cron: '*/15 17-23 * 3 *'
+    - cron: '*/15 0-7 * 3-4 *'
+    # Daily fallback
+    - cron: '0 8 * 3-4 *'
   workflow_dispatch: # Allow manual trigger
 
 jobs:

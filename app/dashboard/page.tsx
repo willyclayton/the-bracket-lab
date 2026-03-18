@@ -4,6 +4,7 @@ import { VISIBLE_MODELS, ROUND_LABELS, MAX_SCORE } from '@/lib/models';
 import { BracketData, ModelScore } from '@/lib/types';
 import { calculateScore, rankModels } from '@/lib/scoring';
 import { useLiveResults } from '@/lib/use-live-results';
+import { useEspnPercentiles } from '@/lib/use-espn-percentiles';
 import Link from 'next/link';
 
 import scoutData from '@/data/models/the-scout.json';
@@ -57,6 +58,13 @@ export default function DashboardPage() {
     ...s,
     model: VISIBLE_MODELS.find((m) => m.id === s.modelId)!,
   }));
+
+  // Build model scores map for percentile hook
+  const modelScoresMap: Record<string, number> = {};
+  for (const s of scores) {
+    modelScoresMap[s.model.id] = s.total;
+  }
+  const { percentiles } = useEspnPercentiles(modelScoresMap);
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
@@ -131,6 +139,7 @@ export default function DashboardPage() {
                       </th>
                     ))}
                     <th className="text-center px-3 py-3 text-lab-muted font-mono text-xs">Acc</th>
+                    <th className="text-center px-3 py-3 text-lab-muted font-mono text-xs">ESPN %ile</th>
                     <th className="text-right px-4 py-3 text-lab-muted font-mono text-xs">TOTAL</th>
                   </tr>
                 </thead>
@@ -158,6 +167,13 @@ export default function DashboardPage() {
                       })}
                       <td className="text-center px-3 py-3 font-mono text-sm text-lab-muted">
                         {entry.accuracy}%
+                      </td>
+                      <td className="text-center px-3 py-3 font-mono text-sm text-lab-muted">
+                        {(() => {
+                          const pct = percentiles[entry.modelId];
+                          if (!pct) return '\u2014';
+                          return `${pct.percentile.toFixed(1)}%${pct.isEstimate ? ' (est.)' : ''}`;
+                        })()}
                       </td>
                       <td className="text-right px-4 py-3">
                         <span className="font-mono text-sm font-bold" style={{ color: entry.model.color }}>

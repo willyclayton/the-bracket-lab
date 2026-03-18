@@ -5,6 +5,7 @@ import { VISIBLE_MODELS, ROUND_POINTS, Model } from '@/lib/models';
 import { BracketData } from '@/lib/types';
 import { calculateScore, rankModels } from '@/lib/scoring';
 import { useLiveResults } from '@/lib/use-live-results';
+import { useEspnPercentiles } from '@/lib/use-espn-percentiles';
 
 import scoutData from '@/data/models/the-scout.json';
 import quantData from '@/data/models/the-quant.json';
@@ -60,6 +61,13 @@ export default function LiveHomeLeaderboard() {
 
   const hasData = entries.some((e) => e.score !== undefined && e.score > 0);
 
+  // Build model scores map for percentile hook
+  const modelScoresMap: Record<string, number> = {};
+  for (const e of entries) {
+    if (e.score !== undefined) modelScoresMap[e.model.id] = e.score;
+  }
+  const { percentiles } = useEspnPercentiles(modelScoresMap);
+
   return (
     <section className="mb-16">
       <div className="flex items-center gap-3 mb-5">
@@ -114,6 +122,16 @@ export default function LiveHomeLeaderboard() {
                 <td className="py-4 px-4 text-right hidden md:table-cell">
                   <span className="font-mono text-xs text-lab-muted">
                     {hasData && entry.accuracy !== undefined ? `${entry.accuracy}%` : '\u2014'}
+                  </span>
+                </td>
+                <td className="py-4 px-4 text-right hidden md:table-cell">
+                  <span className="font-mono text-xs text-lab-muted">
+                    {(() => {
+                      if (!hasData) return '\u2014';
+                      const pct = percentiles[entry.model.id];
+                      if (!pct) return '\u2014';
+                      return `${pct.percentile.toFixed(1)}%${pct.isEstimate ? ' (est.)' : ''}`;
+                    })()}
                   </span>
                 </td>
               </tr>

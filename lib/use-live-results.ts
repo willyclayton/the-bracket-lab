@@ -19,7 +19,7 @@ interface LiveResultsReturn {
 
 export function useLiveResults(): LiveResultsReturn {
   const { data, error } = useSWR<Results>('/api/scores', fetcher, {
-    refreshInterval: 30_000,       // poll every 30s
+    refreshInterval: 15_000,       // poll every 15s
     revalidateOnFocus: true,
     dedupingInterval: 10_000,      // dedup within 10s
     errorRetryCount: 3,

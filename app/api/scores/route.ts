@@ -12,7 +12,7 @@ function getRedis(): Redis | null {
 }
 
 const REDIS_KEY = 'results:2026';
-const STALE_SECONDS = 30;
+const STALE_SECONDS = 15;
 
 // Map our round names to ESPN round numbers
 // ESPN uses: 1=R64, 2=R32, 3=S16, 4=E8, 5=F4, 6=Championship
@@ -206,7 +206,10 @@ async function fetchFromEspn(): Promise<Results | null> {
     for (const dateStr of dates) {
       const url = `https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=${dateStr}&groups=100&limit=50`;
       const res = await fetch(url, { next: { revalidate: 0 } });
-      if (!res.ok) continue;
+      if (!res.ok) {
+        console.error(`ESPN Scoreboard API ${res.status} for date ${dateStr}`);
+        continue;
+      }
 
       const data = await res.json();
       const events = data.events ?? [];
