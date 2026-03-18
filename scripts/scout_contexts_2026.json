@@ -1,0 +1,351 @@
+{
+  "year": 2026,
+  "model": "the-scout",
+  "system_prompt": "You are a veteran NCAA basketball scout evaluating a March Madness tournament matchup. Analyze this game and pick a winner based on your assessment of the following factors.\n\n## Evaluation Criteria\nAssess this matchup across these 6 factors. For each, briefly note which team has the edge:\n\n1. **Coaching Experience** — Tournament wins, poise under pressure, tactical adjustments\n2. **Roster Composition** — Age, experience, depth, star power\n3. **Injury Impact** — Who's missing, who's limited, how much does it matter\n4. **Clutch Performance** — How do these teams perform when it's tight\n5. **Travel & Rest** — Distance to game site, days since last game\n6. **Momentum** — Recent form, conference tournament performance, confidence level\n\nBe honest. Don't default to the higher seed. If the lower seed has legitimate edges in 3+ factors, pick the upset. This is a scouting assessment, not a seed-ranking exercise.",
+  "num_games": 32,
+  "round_order": [
+    "round_of_64",
+    "round_of_32",
+    "sweet_16",
+    "elite_8",
+    "final_four",
+    "championship"
+  ],
+  "pick_format": {
+    "gameId": "string — must match the gameId in each matchup",
+    "pick": "string — must be exactly one of team1 or team2",
+    "confidence": "integer 50-99",
+    "reasoning": "string — 2-3 sentence scouting assessment",
+    "factor_edges": {
+      "coaching": "Team Name",
+      "roster": "Team Name",
+      "injuries": "Team Name",
+      "clutch": "Team Name",
+      "travel_rest": "Team Name",
+      "momentum": "Team Name"
+    }
+  },
+  "instructions": "Claude Code should analyze all 32 R64 matchups using The Scout's 6-factor framework. Then use the R64 winners to build R32 matchups, and continue through the championship. Write the final bracket to data/models/the-scout.json (or data/archive/2026/models/the-scout.json for past years).",
+  "matchups": [
+    {
+      "gameId": "r64-east-1",
+      "round": "round_of_64",
+      "region": "East",
+      "team1": "Duke",
+      "seed1": 1,
+      "team2": "Siena",
+      "seed2": 16,
+      "formatted_prompt": "## Matchup\n- **Game:** (1) Duke vs. (16) Siena\n- **Round:** Round of 64\n- **Region:** East\n\n## Team 1: (1) Duke\n- Conference: Unknown\n- KenPom AdjEM: 37.3\n- Key stats: AdjO 128.1, AdjD 90.82469433334853, Tempo 65.80289902512743\n- Injuries: None reported\n\n## Team 2: (16) Siena\n- Conference: Unknown\n- KenPom AdjEM: -1.7\n- Key stats: AdjO 107.3, AdjD 108.94839243338629, Tempo 64.63036549419228\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Duke\" or \"Siena\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-east-2",
+      "round": "round_of_64",
+      "region": "East",
+      "team1": "Ohio State",
+      "seed1": 8,
+      "team2": "TCU",
+      "seed2": 9,
+      "formatted_prompt": "## Matchup\n- **Game:** (8) Ohio State vs. (9) TCU\n- **Round:** Round of 64\n- **Region:** East\n\n## Team 1: (8) Ohio State\n- Conference: Unknown\n- KenPom AdjEM: 23.6\n- Key stats: AdjO 125.2, AdjD 101.60783442142369, Tempo 66.16146682777048\n- Injuries: None reported\n\n## Team 2: (9) TCU\n- Conference: Unknown\n- KenPom AdjEM: 15.2\n- Key stats: AdjO 114.8, AdjD 99.65461050508426, Tempo 67.57960481936401\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Ohio State\" or \"TCU\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-east-3",
+      "round": "round_of_64",
+      "region": "East",
+      "team1": "St. John's",
+      "seed1": 5,
+      "team2": "Northern Iowa",
+      "seed2": 12,
+      "formatted_prompt": "## Matchup\n- **Game:** (5) St. John's vs. (12) Northern Iowa\n- **Round:** Round of 64\n- **Region:** East\n\n## Team 1: (5) St. John's\n- Conference: Unknown\n- KenPom AdjEM: 25.7\n- Key stats: AdjO 119.8, AdjD 94.12447697553861, Tempo 69.60376019025172\n- Injuries: None reported\n\n## Team 2: (12) Northern Iowa\n- Conference: Unknown\n- KenPom AdjEM: 11.1\n- Key stats: AdjO 109.7, AdjD 98.58202313742723, Tempo 62.18687070204067\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"St. John's\" or \"Northern Iowa\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-east-4",
+      "round": "round_of_64",
+      "region": "East",
+      "team1": "Kansas",
+      "seed1": 4,
+      "team2": "Cal Baptist",
+      "seed2": 13,
+      "formatted_prompt": "## Matchup\n- **Game:** (4) Kansas vs. (13) Cal Baptist\n- **Round:** Round of 64\n- **Region:** East\n\n## Team 1: (4) Kansas\n- Conference: Unknown\n- KenPom AdjEM: 23.5\n- Key stats: AdjO 117.9, AdjD 94.38278944778435, Tempo 67.6096555723995\n- Injuries: None reported\n\n## Team 2: (13) Cal Baptist\n- Conference: Unknown\n- KenPom AdjEM: 7.2\n- Key stats: AdjO 107.5, AdjD 100.32046936142848, Tempo 65.93115332605954\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Kansas\" or \"Cal Baptist\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-east-5",
+      "round": "round_of_64",
+      "region": "East",
+      "team1": "Louisville",
+      "seed1": 6,
+      "team2": "South Florida",
+      "seed2": 11,
+      "formatted_prompt": "## Matchup\n- **Game:** (6) Louisville vs. (11) South Florida\n- **Round:** Round of 64\n- **Region:** East\n\n## Team 1: (6) Louisville\n- Conference: Unknown\n- KenPom AdjEM: 25.9\n- Key stats: AdjO 124.0, AdjD 98.16619703163255, Tempo 69.71230724991212\n- Injuries: None reported\n\n## Team 2: (11) South Florida\n- Conference: Unknown\n- KenPom AdjEM: 15.4\n- Key stats: AdjO 116.8, AdjD 101.42185566957284, Tempo 71.40149162389322\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Louisville\" or \"South Florida\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-east-6",
+      "round": "round_of_64",
+      "region": "East",
+      "team1": "Michigan State",
+      "seed1": 3,
+      "team2": "North Dakota State",
+      "seed2": 14,
+      "formatted_prompt": "## Matchup\n- **Game:** (3) Michigan State vs. (14) North Dakota State\n- **Round:** Round of 64\n- **Region:** East\n\n## Team 1: (3) Michigan State\n- Conference: Unknown\n- KenPom AdjEM: 26.7\n- Key stats: AdjO 122.9, AdjD 96.16034989153795, Tempo 65.98079627719278\n- Injuries: None reported\n\n## Team 2: (14) North Dakota State\n- Conference: Unknown\n- KenPom AdjEM: 5.4\n- Key stats: AdjO 111.5, AdjD 106.04887387676325, Tempo 66.35693323912817\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Michigan State\" or \"North Dakota State\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-east-7",
+      "round": "round_of_64",
+      "region": "East",
+      "team1": "UCLA",
+      "seed1": 7,
+      "team2": "UCF",
+      "seed2": 10,
+      "formatted_prompt": "## Matchup\n- **Game:** (7) UCLA vs. (10) UCF\n- **Round:** Round of 64\n- **Region:** East\n\n## Team 1: (7) UCLA\n- Conference: Unknown\n- KenPom AdjEM: 22.8\n- Key stats: AdjO 124.5, AdjD 101.76068371859597, Tempo 64.68768853514807\n- Injuries: None reported\n\n## Team 2: (10) UCF\n- Conference: Unknown\n- KenPom AdjEM: 14.3\n- Key stats: AdjO 120.0, AdjD 105.67203086251037, Tempo 69.11606460530196\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"UCLA\" or \"UCF\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-east-8",
+      "round": "round_of_64",
+      "region": "East",
+      "team1": "UConn",
+      "seed1": 2,
+      "team2": "Furman",
+      "seed2": 15,
+      "formatted_prompt": "## Matchup\n- **Game:** (2) UConn vs. (15) Furman\n- **Round:** Round of 64\n- **Region:** East\n\n## Team 1: (2) UConn\n- Conference: Unknown\n- KenPom AdjEM: 28.1\n- Key stats: AdjO 123.1, AdjD 94.96630693341149, Tempo 64.58279664485255\n- Injuries: None reported\n\n## Team 2: (15) Furman\n- Conference: Unknown\n- KenPom AdjEM: -2.1\n- Key stats: AdjO 106.9, AdjD 109.00321401411323, Tempo 65.84093311020727\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"UConn\" or \"Furman\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-south-1",
+      "round": "round_of_64",
+      "region": "South",
+      "team1": "Florida",
+      "seed1": 1,
+      "team2": "Prairie View A&M",
+      "seed2": 16,
+      "formatted_prompt": "## Matchup\n- **Game:** (1) Florida vs. (16) Prairie View A&M\n- **Round:** Round of 64\n- **Region:** South\n\n## Team 1: (1) Florida\n- Conference: Unknown\n- KenPom AdjEM: 33.8\n- Key stats: AdjO 126.1, AdjD 92.27159298444735, Tempo 70.39846831649506\n- Injuries: None reported\n\n## Team 2: (16) Prairie View A&M\n- Conference: Unknown\n- KenPom AdjEM: -10.0\n- Key stats: AdjO 101.4, AdjD 111.39829623180876, Tempo 70.8689699724766\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Florida\" or \"Prairie View A&M\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-south-2",
+      "round": "round_of_64",
+      "region": "South",
+      "team1": "Clemson",
+      "seed1": 8,
+      "team2": "Iowa",
+      "seed2": 9,
+      "formatted_prompt": "## Matchup\n- **Game:** (8) Clemson vs. (9) Iowa\n- **Round:** Round of 64\n- **Region:** South\n\n## Team 1: (8) Clemson\n- Conference: Unknown\n- KenPom AdjEM: 19.6\n- Key stats: AdjO 116.5, AdjD 96.95489634324318, Tempo 64.27331427623717\n- Injuries: None reported\n\n## Team 2: (9) Iowa\n- Conference: Unknown\n- KenPom AdjEM: 21.9\n- Key stats: AdjO 122.1, AdjD 100.19089656825165, Tempo 63.02710053079651\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Clemson\" or \"Iowa\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-south-3",
+      "round": "round_of_64",
+      "region": "South",
+      "team1": "Vanderbilt",
+      "seed1": 5,
+      "team2": "McNeese",
+      "seed2": 12,
+      "formatted_prompt": "## Matchup\n- **Game:** (5) Vanderbilt vs. (12) McNeese\n- **Round:** Round of 64\n- **Region:** South\n\n## Team 1: (5) Vanderbilt\n- Conference: Unknown\n- KenPom AdjEM: 28.1\n- Key stats: AdjO 127.4, AdjD 99.33255637489084, Tempo 68.98180715558456\n- Injuries: None reported\n\n## Team 2: (12) McNeese\n- Conference: Unknown\n- KenPom AdjEM: 11.0\n- Key stats: AdjO 113.2, AdjD 102.1732547740645, Tempo 66.13607262531356\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Vanderbilt\" or \"McNeese\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-south-4",
+      "round": "round_of_64",
+      "region": "South",
+      "team1": "Nebraska",
+      "seed1": 4,
+      "team2": "Troy",
+      "seed2": 13,
+      "formatted_prompt": "## Matchup\n- **Game:** (4) Nebraska vs. (13) Troy\n- **Round:** Round of 64\n- **Region:** South\n\n## Team 1: (4) Nebraska\n- Conference: Unknown\n- KenPom AdjEM: 23.8\n- Key stats: AdjO 117.3, AdjD 93.48342460849723, Tempo 66.82093045580076\n- Injuries: None reported\n\n## Team 2: (13) Troy\n- Conference: Unknown\n- KenPom AdjEM: 1.7\n- Key stats: AdjO 110.7, AdjD 109.0442568524193, Tempo 65.08408539689226\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Nebraska\" or \"Troy\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-south-5",
+      "round": "round_of_64",
+      "region": "South",
+      "team1": "North Carolina",
+      "seed1": 6,
+      "team2": "VCU",
+      "seed2": 11,
+      "formatted_prompt": "## Matchup\n- **Game:** (6) North Carolina vs. (11) VCU\n- **Round:** Round of 64\n- **Region:** South\n\n## Team 1: (6) North Carolina\n- Conference: Unknown\n- KenPom AdjEM: 21.4\n- Key stats: AdjO 121.5, AdjD 100.05319248735225, Tempo 67.98560805765439\n- Injuries: None reported\n\n## Team 2: (11) VCU\n- Conference: Unknown\n- KenPom AdjEM: 16.2\n- Key stats: AdjO 119.3, AdjD 103.08825868032646, Tempo 68.6809816526104\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"North Carolina\" or \"VCU\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-south-6",
+      "round": "round_of_64",
+      "region": "South",
+      "team1": "Illinois",
+      "seed1": 3,
+      "team2": "Penn",
+      "seed2": 14,
+      "formatted_prompt": "## Matchup\n- **Game:** (3) Illinois vs. (14) Penn\n- **Round:** Round of 64\n- **Region:** South\n\n## Team 1: (3) Illinois\n- Conference: Unknown\n- KenPom AdjEM: 33.7\n- Key stats: AdjO 131.9, AdjD 98.20662663417613, Tempo 65.71825606648288\n- Injuries: None reported\n\n## Team 2: (14) Penn\n- Conference: Unknown\n- KenPom AdjEM: 1.2\n- Key stats: AdjO 106.6, AdjD 105.41415349205366, Tempo 69.02427516499866\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Illinois\" or \"Penn\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-south-7",
+      "round": "round_of_64",
+      "region": "South",
+      "team1": "Saint Mary's",
+      "seed1": 7,
+      "team2": "Texas A&M",
+      "seed2": 10,
+      "formatted_prompt": "## Matchup\n- **Game:** (7) Saint Mary's vs. (10) Texas A&M\n- **Round:** Round of 64\n- **Region:** South\n\n## Team 1: (7) Saint Mary's\n- Conference: Unknown\n- KenPom AdjEM: 21.8\n- Key stats: AdjO 119.4, AdjD 97.5855192190786, Tempo 65.30213914283087\n- Injuries: None reported\n\n## Team 2: (10) Texas A&M\n- Conference: Unknown\n- KenPom AdjEM: 18.5\n- Key stats: AdjO 119.9, AdjD 101.39118997310862, Tempo 71.01586083429868\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Saint Mary's\" or \"Texas A&M\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-south-8",
+      "round": "round_of_64",
+      "region": "South",
+      "team1": "Houston",
+      "seed1": 2,
+      "team2": "Idaho",
+      "seed2": 15,
+      "formatted_prompt": "## Matchup\n- **Game:** (2) Houston vs. (15) Idaho\n- **Round:** Round of 64\n- **Region:** South\n\n## Team 1: (2) Houston\n- Conference: Unknown\n- KenPom AdjEM: 33.0\n- Key stats: AdjO 125.4, AdjD 92.39818799844161, Tempo 63.32516871552926\n- Injuries: None reported\n\n## Team 2: (15) Idaho\n- Conference: Unknown\n- KenPom AdjEM: 2.6\n- Key stats: AdjO 108.8, AdjD 106.18994119426054, Tempo 67.42418196137987\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Houston\" or \"Idaho\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-west-1",
+      "round": "round_of_64",
+      "region": "West",
+      "team1": "Arizona",
+      "seed1": 1,
+      "team2": "LIU",
+      "seed2": 16,
+      "formatted_prompt": "## Matchup\n- **Game:** (1) Arizona vs. (16) LIU\n- **Round:** Round of 64\n- **Region:** West\n\n## Team 1: (1) Arizona\n- Conference: Unknown\n- KenPom AdjEM: 35.5\n- Key stats: AdjO 126.9, AdjD 91.39880096551957, Tempo 70.02658079826006\n- Injuries: None reported\n\n## Team 2: (16) LIU\n- Conference: Unknown\n- KenPom AdjEM: -6.1\n- Key stats: AdjO 103.6, AdjD 109.75322017458869, Tempo 67.8289264346445\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Arizona\" or \"LIU\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-west-2",
+      "round": "round_of_64",
+      "region": "West",
+      "team1": "Villanova",
+      "seed1": 8,
+      "team2": "Utah State",
+      "seed2": 9,
+      "formatted_prompt": "## Matchup\n- **Game:** (8) Villanova vs. (9) Utah State\n- **Round:** Round of 64\n- **Region:** West\n\n## Team 1: (8) Villanova\n- Conference: Unknown\n- KenPom AdjEM: 19.1\n- Key stats: AdjO 119.6, AdjD 100.53854676688006, Tempo 64.94639680236452\n- Injuries: None reported\n\n## Team 2: (9) Utah State\n- Conference: Unknown\n- KenPom AdjEM: 20.9\n- Key stats: AdjO 123.0, AdjD 102.0858813618311, Tempo 67.55370639774591\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Villanova\" or \"Utah State\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-west-3",
+      "round": "round_of_64",
+      "region": "West",
+      "team1": "Wisconsin",
+      "seed1": 5,
+      "team2": "High Point",
+      "seed2": 12,
+      "formatted_prompt": "## Matchup\n- **Game:** (5) Wisconsin vs. (12) High Point\n- **Round:** Round of 64\n- **Region:** West\n\n## Team 1: (5) Wisconsin\n- Conference: Unknown\n- KenPom AdjEM: 25.5\n- Key stats: AdjO 127.2, AdjD 101.64125244447092, Tempo 68.69395616980778\n- Injuries: None reported\n\n## Team 2: (12) High Point\n- Conference: Unknown\n- KenPom AdjEM: 8.2\n- Key stats: AdjO 115.7, AdjD 107.52002432644989, Tempo 69.88909815619486\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Wisconsin\" or \"High Point\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-west-4",
+      "round": "round_of_64",
+      "region": "West",
+      "team1": "Arkansas",
+      "seed1": 4,
+      "team2": "Hawaii",
+      "seed2": 13,
+      "formatted_prompt": "## Matchup\n- **Game:** (4) Arkansas vs. (13) Hawaii\n- **Round:** Round of 64\n- **Region:** West\n\n## Team 1: (4) Arkansas\n- Conference: Unknown\n- KenPom AdjEM: 26.3\n- Key stats: AdjO 127.9, AdjD 101.67114837297919, Tempo 70.97427124121225\n- Injuries: None reported\n\n## Team 2: (13) Hawaii\n- Conference: Unknown\n- KenPom AdjEM: 5.0\n- Key stats: AdjO 106.9, AdjD 101.84647468416378, Tempo 69.58099919750069\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Arkansas\" or \"Hawaii\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-west-5",
+      "round": "round_of_64",
+      "region": "West",
+      "team1": "BYU",
+      "seed1": 6,
+      "team2": "Texas",
+      "seed2": 11,
+      "formatted_prompt": "## Matchup\n- **Game:** (6) BYU vs. (11) Texas\n- **Round:** Round of 64\n- **Region:** West\n\n## Team 1: (6) BYU\n- Conference: Unknown\n- KenPom AdjEM: 20.4\n- Key stats: AdjO 124.7, AdjD 104.3257342123687, Tempo 69.77913568103176\n- Injuries: None reported\n\n## Team 2: (11) Texas\n- Conference: Unknown\n- KenPom AdjEM: 17.7\n- Key stats: AdjO 124.1, AdjD 106.39321233748728, Tempo 67.09866522474178\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"BYU\" or \"Texas\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-west-6",
+      "round": "round_of_64",
+      "region": "West",
+      "team1": "Gonzaga",
+      "seed1": 3,
+      "team2": "Kennesaw State",
+      "seed2": 14,
+      "formatted_prompt": "## Matchup\n- **Game:** (3) Gonzaga vs. (14) Kennesaw State\n- **Round:** Round of 64\n- **Region:** West\n\n## Team 1: (3) Gonzaga\n- Conference: Unknown\n- KenPom AdjEM: 26.3\n- Key stats: AdjO 120.3, AdjD 94.01799062153977, Tempo 68.93236315335183\n- Injuries: None reported\n\n## Team 2: (14) Kennesaw State\n- Conference: Unknown\n- KenPom AdjEM: 1.3\n- Key stats: AdjO 110.8, AdjD 109.50055724682116, Tempo 71.26667869642458\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Gonzaga\" or \"Kennesaw State\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-west-7",
+      "round": "round_of_64",
+      "region": "West",
+      "team1": "Miami",
+      "seed1": 7,
+      "team2": "Missouri",
+      "seed2": 10,
+      "formatted_prompt": "## Matchup\n- **Game:** (7) Miami vs. (10) Missouri\n- **Round:** Round of 64\n- **Region:** West\n\n## Team 1: (7) Miami\n- Conference: Unknown\n- KenPom AdjEM: 19.6\n- Key stats: AdjO 121.1, AdjD 101.46562528739193, Tempo 67.92965806903378\n- Injuries: None reported\n\n## Team 2: (10) Missouri\n- Conference: Unknown\n- KenPom AdjEM: 16.9\n- Key stats: AdjO 119.9, AdjD 103.02744304756203, Tempo 66.37969633008393\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Miami\" or \"Missouri\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-west-8",
+      "round": "round_of_64",
+      "region": "West",
+      "team1": "Purdue",
+      "seed1": 2,
+      "team2": "Queens",
+      "seed2": 15,
+      "formatted_prompt": "## Matchup\n- **Game:** (2) Purdue vs. (15) Queens\n- **Round:** Round of 64\n- **Region:** West\n\n## Team 1: (2) Purdue\n- Conference: Unknown\n- KenPom AdjEM: 33.0\n- Key stats: AdjO 133.3, AdjD 100.2511189700903, Tempo 64.43644110019179\n- Injuries: None reported\n\n## Team 2: (15) Queens\n- Conference: Unknown\n- KenPom AdjEM: -2.5\n- Key stats: AdjO 114.6, AdjD 117.08234688277423, Tempo 69.50223423239612\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Purdue\" or \"Queens\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-midwest-1",
+      "round": "round_of_64",
+      "region": "Midwest",
+      "team1": "Michigan",
+      "seed1": 1,
+      "team2": "UMBC",
+      "seed2": 16,
+      "formatted_prompt": "## Matchup\n- **Game:** (1) Michigan vs. (16) UMBC\n- **Round:** Round of 64\n- **Region:** Midwest\n\n## Team 1: (1) Michigan\n- Conference: Unknown\n- KenPom AdjEM: 36.6\n- Key stats: AdjO 127.6, AdjD 91.04689039423019, Tempo 71.21588775357495\n- Injuries: None reported\n\n## Team 2: (16) UMBC\n- Conference: Unknown\n- KenPom AdjEM: -1.7\n- Key stats: AdjO 107.6, AdjD 109.24407596476038, Tempo 66.00705847697064\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Michigan\" or \"UMBC\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-midwest-2",
+      "round": "round_of_64",
+      "region": "Midwest",
+      "team1": "Georgia",
+      "seed1": 8,
+      "team2": "Saint Louis",
+      "seed2": 9,
+      "formatted_prompt": "## Matchup\n- **Game:** (8) Georgia vs. (9) Saint Louis\n- **Round:** Round of 64\n- **Region:** Midwest\n\n## Team 1: (8) Georgia\n- Conference: Unknown\n- KenPom AdjEM: 19.6\n- Key stats: AdjO 124.3, AdjD 104.7604517112042, Tempo 72.02594121401691\n- Injuries: None reported\n\n## Team 2: (9) Saint Louis\n- Conference: Unknown\n- KenPom AdjEM: 17.3\n- Key stats: AdjO 119.6, AdjD 102.22705610648865, Tempo 71.01390387557646\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Georgia\" or \"Saint Louis\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-midwest-3",
+      "round": "round_of_64",
+      "region": "Midwest",
+      "team1": "Texas Tech",
+      "seed1": 5,
+      "team2": "Akron",
+      "seed2": 12,
+      "formatted_prompt": "## Matchup\n- **Game:** (5) Texas Tech vs. (12) Akron\n- **Round:** Round of 64\n- **Region:** Midwest\n\n## Team 1: (5) Texas Tech\n- Conference: Unknown\n- KenPom AdjEM: 27.5\n- Key stats: AdjO 126.3, AdjD 98.78754521033105, Tempo 66.40820549392349\n- Injuries: None reported\n\n## Team 2: (12) Akron\n- Conference: Unknown\n- KenPom AdjEM: 11.8\n- Key stats: AdjO 117.2, AdjD 105.33707945736755, Tempo 70.32074100804408\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Texas Tech\" or \"Akron\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-midwest-4",
+      "round": "round_of_64",
+      "region": "Midwest",
+      "team1": "Alabama",
+      "seed1": 4,
+      "team2": "Hofstra",
+      "seed2": 13,
+      "formatted_prompt": "## Matchup\n- **Game:** (4) Alabama vs. (13) Hofstra\n- **Round:** Round of 64\n- **Region:** Midwest\n\n## Team 1: (4) Alabama\n- Conference: Unknown\n- KenPom AdjEM: 26.7\n- Key stats: AdjO 129.5, AdjD 102.78811918263884, Tempo 73.05923674301097\n- Injuries: None reported\n\n## Team 2: (13) Hofstra\n- Conference: Unknown\n- KenPom AdjEM: 8.2\n- Key stats: AdjO 113.2, AdjD 104.9551506595671, Tempo 64.71380018242523\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Alabama\" or \"Hofstra\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-midwest-5",
+      "round": "round_of_64",
+      "region": "Midwest",
+      "team1": "Tennessee",
+      "seed1": 6,
+      "team2": "SMU",
+      "seed2": 11,
+      "formatted_prompt": "## Matchup\n- **Game:** (6) Tennessee vs. (11) SMU\n- **Round:** Round of 64\n- **Region:** Midwest\n\n## Team 1: (6) Tennessee\n- Conference: Unknown\n- KenPom AdjEM: 26.0\n- Key stats: AdjO 121.5, AdjD 95.53605479826089, Tempo 65.22477844540508\n- Injuries: None reported\n\n## Team 2: (11) SMU\n- Conference: Unknown\n- KenPom AdjEM: 18.1\n- Key stats: AdjO 123.0, AdjD 104.97266146680543, Tempo 68.6220870758204\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Tennessee\" or \"SMU\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-midwest-6",
+      "round": "round_of_64",
+      "region": "Midwest",
+      "team1": "Virginia",
+      "seed1": 3,
+      "team2": "Wright State",
+      "seed2": 14,
+      "formatted_prompt": "## Matchup\n- **Game:** (3) Virginia vs. (14) Wright State\n- **Round:** Round of 64\n- **Region:** Midwest\n\n## Team 1: (3) Virginia\n- Conference: Unknown\n- KenPom AdjEM: 26.4\n- Key stats: AdjO 122.2, AdjD 95.8286308158537, Tempo 65.57763983305887\n- Injuries: None reported\n\n## Team 2: (14) Wright State\n- Conference: Unknown\n- KenPom AdjEM: 3.4\n- Key stats: AdjO 112.4, AdjD 109.02702049554586, Tempo 66.97687066587011\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Virginia\" or \"Wright State\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-midwest-7",
+      "round": "round_of_64",
+      "region": "Midwest",
+      "team1": "Kentucky",
+      "seed1": 7,
+      "team2": "Santa Clara",
+      "seed2": 10,
+      "formatted_prompt": "## Matchup\n- **Game:** (7) Kentucky vs. (10) Santa Clara\n- **Round:** Round of 64\n- **Region:** Midwest\n\n## Team 1: (7) Kentucky\n- Conference: Unknown\n- KenPom AdjEM: 19.9\n- Key stats: AdjO 119.9, AdjD 99.9856703882617, Tempo 68.31926791641577\n- Injuries: None reported\n\n## Team 2: (10) Santa Clara\n- Conference: Unknown\n- KenPom AdjEM: 21.3\n- Key stats: AdjO 125.0, AdjD 103.71184846856885, Tempo 69.25742380182969\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Kentucky\" or \"Santa Clara\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    },
+    {
+      "gameId": "r64-midwest-8",
+      "round": "round_of_64",
+      "region": "Midwest",
+      "team1": "Iowa State",
+      "seed1": 2,
+      "team2": "Tennessee State",
+      "seed2": 15,
+      "formatted_prompt": "## Matchup\n- **Game:** (2) Iowa State vs. (15) Tennessee State\n- **Round:** Round of 64\n- **Region:** Midwest\n\n## Team 1: (2) Iowa State\n- Conference: Unknown\n- KenPom AdjEM: 31.1\n- Key stats: AdjO 123.8, AdjD 92.63871250490661, Tempo 66.96165457902013\n- Injuries: None reported\n\n## Team 2: (15) Tennessee State\n- Conference: Unknown\n- KenPom AdjEM: -4.1\n- Key stats: AdjO 107.8, AdjD 111.93588018232447, Tempo 70.13661898216245\n- Injuries: None reported\n\n## Output Format\nRespond with ONLY valid JSON:\n{\n  \"pick\": \"Team Name\",\n  \"confidence\": 75,\n  \"reasoning\": \"2-3 sentence scouting assessment explaining the pick\",\n  \"factor_edges\": {\n    \"coaching\": \"Team Name\",\n    \"roster\": \"Team Name\",\n    \"injuries\": \"Team Name\",\n    \"clutch\": \"Team Name\",\n    \"travel_rest\": \"Team Name\",\n    \"momentum\": \"Team Name\"\n  }\n}\n\nThe \"pick\" field must be exactly one of: \"Iowa State\" or \"Tennessee State\".\nThe \"confidence\" field must be an integer from 50 to 99."
+    }
+  ]
+}

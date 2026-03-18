@@ -31,7 +31,7 @@ CRITICAL RULES:
 
 ---
 
-## Game 1: 1-seed Duke vs 1-seed Arizona
+## Game 1: 1-seed Duke vs 1-seed Michigan
 **Region:** National | **Game ID:** championship
 
 <details>
@@ -50,7 +50,7 @@ Go with the highest combination of efficiency, experience, and pedigree. The cha
 ## Matchup Analysis
 
 **Championship** | National Region
-**1-seed Duke** vs **1-seed Arizona**
+**1-seed Duke** vs **1-seed Michigan**
 
 ---
 
@@ -64,15 +64,74 @@ Go with the highest combination of efficiency, experience, and pedigree. The cha
 - Elite SOS: 0.6242
 - SOS: 0.7409
 
-### Team 2: Arizona (1-seed)
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 19.6%
+- TO Margin: +3.8 (net positive)
+
+**Coaching:**
+- Coach: Jon Scheyer
+- Tournament Record: 8-3
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 44%
+- Avg Player Year: 1.8
+- Freshman-heavy roster
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 32-2
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 10-0 [HOT]
+- Conference Tournament: champion
+- Style: perimeter-dominant (medium tempo)
+- Injuries: Caleb Foster (foot fracture, out until Final Four), Patrick Ngongba (foot soreness, expected back) (impact: significant)
+
+### Team 2: Michigan (1-seed)
 **Efficiency Ratings:**
-- AdjEM: 35.5
-- AdjO: 126.9 | AdjD: 91.39880096551957
-- Barthag: 0.9776
-- Tempo: 70.0
-- WAB: 13.7
-- Elite SOS: 0.6220
-- SOS: 0.7386
+- AdjEM: 36.6
+- AdjO: 127.6 | AdjD: 91.04689039423019
+- Barthag: 0.9799
+- Tempo: 71.2
+- WAB: 14.0
+- Elite SOS: 0.5814
+- SOS: 0.8028
+
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.2%
+- TO Margin: +0.4 (net positive)
+
+**Coaching:**
+- Coach: Dusty May
+- Tournament Record: 6-3
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 61%
+- Avg Player Year: 2.0
+- Freshman-heavy roster
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 28-5
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: perimeter (medium tempo)
 
 ---
 
@@ -82,8 +141,9 @@ Go with the highest combination of efficiency, experience, and pedigree. The cha
 ---
 
 ### Matchup Dynamics
-**Efficiency Gap:** 1.8 AdjEM in favor of Duke
-**Tempo:** Similar pace (65.8 vs 70.0)
+**Efficiency Gap:** 0.7 AdjEM in favor of Duke
+**Tempo Mismatch:** Michigan (65.8) wants to push pace; Duke (71.2) prefers to slow it down. 5.4 possession gap.
+**Turnover Margin Edge:** Duke (+3.8 vs +0.4) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.16) — favorite is solid
 
 ---
@@ -91,17 +151,17 @@ Go with the highest combination of efficiency, experience, and pedigree. The cha
 ### Historical Context
 **Duke:**
   - round_of_64: defeated 16-seed Siena
-  - round_of_32: defeated 8-seed Ohio State
+  - round_of_32: defeated 9-seed TCU
   - sweet_16: defeated 5-seed St. John's
   - elite_8: defeated 2-seed UConn
-  - final_four: defeated 1-seed Michigan
-
-**Arizona:**
-  - round_of_64: defeated 16-seed LIU
-  - round_of_32: defeated 9-seed Utah State
-  - sweet_16: defeated 4-seed Arkansas
-  - elite_8: defeated 2-seed Purdue
   - final_four: defeated 1-seed Florida
+
+**Michigan:**
+  - round_of_64: defeated 16-seed UMBC
+  - round_of_32: defeated 9-seed Saint Louis
+  - sweet_16: defeated 4-seed Alabama
+  - elite_8: defeated 2-seed Iowa State
+  - final_four: defeated 1-seed Arizona
 
 
 **Duke historical twins:**
@@ -109,10 +169,10 @@ Go with the highest combination of efficiency, experience, and pedigree. The cha
 - 2025 Florida (similarity: 0.87) — Tournament result: Champion
 - 2015 Kentucky (similarity: 0.86) — Tournament result: Final Four
 
-**Arizona historical twins:**
-- 2025 Florida (similarity: 0.95) — Tournament result: Champion
+**Michigan historical twins:**
 - 2012 Kentucky (similarity: 0.94) — Tournament result: Champion
-- 2015 Kentucky (similarity: 0.94) — Tournament result: Final Four
+- 2025 Florida (similarity: 0.94) — Tournament result: Champion
+- 2022 Gonzaga (similarity: 0.92) — Tournament result: Elite Eight
 
 ---
 
@@ -127,7 +187,7 @@ Respond with ONLY valid JSON in this exact format:
 }
 ```
 
-The "pick" field must be exactly one of: "Duke" or "Arizona".
+The "pick" field must be exactly one of: "Duke" or "Michigan".
 The "confidence" field must be an integer from 50 to 99.
 
 ```

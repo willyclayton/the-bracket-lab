@@ -187,7 +187,10 @@ def export_context(year, reconstructed, limit=0):
     teams_meta = {}
     if os.path.exists(teams_meta_path):
         teams_meta = load_json(teams_meta_path)
-        if isinstance(teams_meta, list):
+        # Handle {"teams": [...]} wrapper (the actual teams.json structure)
+        if isinstance(teams_meta, dict) and "teams" in teams_meta and isinstance(teams_meta["teams"], list):
+            teams_meta = {t["name"]: t for t in teams_meta["teams"] if "name" in t}
+        elif isinstance(teams_meta, list):
             teams_meta = {t["name"]: t for t in teams_meta if "name" in t}
 
     # Build team list

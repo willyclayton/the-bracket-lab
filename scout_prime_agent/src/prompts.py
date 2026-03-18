@@ -201,14 +201,25 @@ def format_team_profile(stats, team_name, seed):
     if "sos" in stats:
         lines.append(f"- SOS: {stats['sos']:.4f}")
 
-    # Shooting (if available)
+    # Shooting (enhanced with teams.json data)
     shooting = []
     if "threep_pct" in stats:
         shooting.append(f"3pt%: {stats['threep_pct']:.1f}%")
     if "threep_rate" in stats:
         shooting.append(f"3pt Rate: {stats['threep_rate']:.1f}%")
+    if "three_pt_variance_risk" in stats:
+        risk = stats["three_pt_variance_risk"]
+        risk_label = "HIGH" if risk > 0.05 else "moderate" if risk > 0.02 else "low"
+        shooting.append(f"3pt Variance Risk: {risk:.3f} ({risk_label})")
     if "ft_pct" in stats:
         shooting.append(f"FT%: {stats['ft_pct']:.1f}%")
+    if "ft_pct_close_games" in stats:
+        shooting.append(f"FT% in Close Games: {stats['ft_pct_close_games']:.1f}%")
+    if "ft_pressure_delta" in stats:
+        delta = stats["ft_pressure_delta"]
+        if delta != 0:
+            direction = "drops" if delta < 0 else "improves"
+            shooting.append(f"FT Pressure Delta: {delta:+.1f}% ({direction} under pressure)")
     if "efg_pct" in stats:
         shooting.append(f"eFG%: {stats['efg_pct']:.1f}%")
     if shooting:
@@ -227,30 +238,91 @@ def format_team_profile(stats, team_name, seed):
         for r in rebounding:
             lines.append(f"- {r}")
 
-    # Ball control
+    # Ball control (enhanced with teams.json data)
+    ball_control = []
     if "tov_pct" in stats:
+        ball_control.append(f"TO Rate: {stats['tov_pct']:.1f}%")
+    if "forced_to_rate" in stats:
+        ball_control.append(f"Forced TO Rate: {stats['forced_to_rate']:.1f}%")
+    if "turnover_margin" in stats:
+        margin = stats["turnover_margin"]
+        label = "net positive" if margin > 0 else "net negative"
+        ball_control.append(f"TO Margin: {margin:+.1f} ({label})")
+    if ball_control:
         lines.append(f"\n**Ball Control:**")
-        lines.append(f"- TO Rate: {stats['tov_pct']:.1f}%")
+        for bc in ball_control:
+            lines.append(f"- {bc}")
 
-    # Enriched fields (from teams_enriched.json)
-    enriched_fields = [
-        ("record", "Record"),
-        ("close_game_record", "Close Games (<=5pt)"),
-        ("last_10", "Last 10"),
-        ("coach_tournament_record", "Coach Tournament Record"),
-        ("coach_final_fours", "Coach Final Fours"),
-        ("experience", "Roster Experience"),
-        ("style", "Playing Style"),
-        ("injuries", "Injury Notes"),
-        ("conf_tourney_result", "Conference Tournament"),
-    ]
-    extras = []
-    for field, label in enriched_fields:
-        if field in stats and stats[field]:
-            extras.append(f"- {label}: {stats[field]}")
-    if extras:
+    # Coaching block
+    coaching = []
+    if stats.get("coach"):
+        coaching.append(f"Coach: {stats['coach']}")
+    if stats.get("coach_tournament_record"):
+        coaching.append(f"Tournament Record: {stats['coach_tournament_record']}")
+    if stats.get("coach_tournament_appearances"):
+        coaching.append(f"Tournament Appearances (HC): {stats['coach_tournament_appearances']}")
+    if stats.get("coach_final_fours"):
+        coaching.append(f"Final Fours: {stats['coach_final_fours']}")
+    if stats.get("coach_championships"):
+        coaching.append(f"Championships: {stats['coach_championships']}")
+    if stats.get("first_tournament_coach"):
+        coaching.append("FIRST TOURNAMENT as head coach")
+    if coaching:
+        lines.append("\n**Coaching:**")
+        for c in coaching:
+            lines.append(f"- {c}")
+
+    # Roster block
+    roster = []
+    if "returning_minutes_pct" in stats:
+        roster.append(f"Returning Minutes: {stats['returning_minutes_pct']:.0%}" if stats['returning_minutes_pct'] <= 1 else f"Returning Minutes: {stats['returning_minutes_pct']:.1f}%")
+    if "avg_player_year" in stats and stats["avg_player_year"]:
+        roster.append(f"Avg Player Year: {stats['avg_player_year']:.1f}")
+    if stats.get("is_freshman_heavy"):
+        roster.append("Freshman-heavy roster")
+    if stats.get("is_senior_led"):
+        roster.append("Senior-led roster")
+    if "tournament_experience_count" in stats:
+        roster.append(f"Players with Tournament Experience: {stats['tournament_experience_count']}")
+    if roster:
+        lines.append("\n**Roster:**")
+        for r in roster:
+            lines.append(f"- {r}")
+
+    # Context block (record, close games, momentum, style, injuries, conference)
+    context = []
+    if stats.get("record"):
+        context.append(f"Record: {stats['record']}")
+    if stats.get("conference"):
+        conf = stats["conference"]
+        if stats.get("conference_strength_score"):
+            conf += f" (strength: {stats['conference_strength_score']})"
+        context.append(f"Conference: {conf}")
+    if stats.get("close_game_record"):
+        cg = f"Close Games (<=5pt): {stats['close_game_record']}"
+        if stats.get("close_game_win_pct"):
+            cg += f" ({stats['close_game_win_pct']:.0%} win rate)"
+        context.append(cg)
+    if stats.get("last_10"):
+        l10 = f"Last 10: {stats['last_10']}"
+        if stats.get("momentum_flag") and stats["momentum_flag"] != "neutral":
+            l10 += f" [{stats['momentum_flag'].upper()}]"
+        context.append(l10)
+    if stats.get("conf_tourney_result"):
+        context.append(f"Conference Tournament: {stats['conf_tourney_result']}")
+    if stats.get("style"):
+        style = f"Style: {stats['style']}"
+        if stats.get("tempo_bucket"):
+            style += f" ({stats['tempo_bucket']} tempo)"
+        context.append(style)
+    if stats.get("injury_impact") and stats["injury_impact"] != "none":
+        injuries = stats.get("injuries", [])
+        inj_str = ", ".join(injuries) if isinstance(injuries, list) and injuries else str(injuries)
+        context.append(f"Injuries: {inj_str} (impact: {stats['injury_impact']})")
+    if context:
         lines.append("\n**Context:**")
-        lines.extend(extras)
+        for c in context:
+            lines.append(f"- {c}")
 
     return "\n".join(lines)
 
@@ -289,13 +361,39 @@ def format_matchup_dynamics(stats1, stats2, team1, team2, upset_score=None):
                 reb_fav = team1 if reb_edge1 > 0 else team2
                 lines.append(f"**Rebounding Edge:** {reb_fav} has a significant rebounding advantage")
 
-        # Turnover comparison
+        # Turnover comparison (basic TO rate)
         tov1 = stats1.get("tov_pct", 0)
         tov2 = stats2.get("tov_pct", 0)
         if tov1 and tov2:
             if abs(tov1 - tov2) > 2:
                 cleaner = team1 if tov1 < tov2 else team2
                 lines.append(f"**Ball Security:** {cleaner} takes better care of the ball ({min(tov1, tov2):.1f}% vs {max(tov1, tov2):.1f}% TO rate)")
+
+        # Turnover margin comparison (net TO advantage from teams.json)
+        tm1 = stats1.get("turnover_margin")
+        tm2 = stats2.get("turnover_margin")
+        if tm1 is not None and tm2 is not None:
+            margin_diff = tm1 - tm2
+            if abs(margin_diff) > 1:
+                to_fav = team1 if margin_diff > 0 else team2
+                lines.append(f"**Turnover Margin Edge:** {to_fav} ({max(tm1, tm2):+.1f} vs {min(tm1, tm2):+.1f}) — creates more turnovers than it commits")
+
+        # 3pt variance risk comparison
+        var1 = stats1.get("three_pt_variance_risk")
+        var2 = stats2.get("three_pt_variance_risk")
+        if var1 is not None and var2 is not None:
+            if var1 > 0.05 or var2 > 0.05:
+                risky = team1 if var1 > var2 else team2
+                risk_val = max(var1, var2)
+                lines.append(f"**3pt Variance Risk:** {risky} is more volatile from 3 (risk score: {risk_val:.3f}) — boom-or-bust shooting could swing this game")
+
+        # Coaching mismatch detection
+        first1 = stats1.get("first_tournament_coach", False)
+        first2 = stats2.get("first_tournament_coach", False)
+        if first1 and not first2:
+            lines.append(f"**Coaching Mismatch:** {team1}'s coach is in their FIRST tournament — historical disadvantage vs experienced coaches")
+        elif first2 and not first1:
+            lines.append(f"**Coaching Mismatch:** {team2}'s coach is in their FIRST tournament — historical disadvantage vs experienced coaches")
 
     if upset_score is not None:
         if upset_score >= 0.7:

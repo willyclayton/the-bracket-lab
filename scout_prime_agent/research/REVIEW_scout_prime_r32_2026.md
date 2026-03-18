@@ -31,7 +31,7 @@ CRITICAL RULES:
 
 ---
 
-## Game 1: 1-seed Duke vs 8-seed Ohio State
+## Game 1: 1-seed Duke vs 9-seed TCU
 **Region:** East | **Game ID:** r32-east-1
 
 <details>
@@ -50,7 +50,7 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ## Matchup Analysis
 
 **Round of 32** | East Region
-**1-seed Duke** vs **8-seed Ohio State**
+**1-seed Duke** vs **9-seed TCU**
 
 ---
 
@@ -64,15 +64,72 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6242
 - SOS: 0.7409
 
-### Team 2: Ohio State (8-seed)
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 19.6%
+- TO Margin: +3.8 (net positive)
+
+**Coaching:**
+- Coach: Jon Scheyer
+- Tournament Record: 8-3
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 44%
+- Avg Player Year: 1.8
+- Freshman-heavy roster
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 32-2
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 10-0 [HOT]
+- Conference Tournament: champion
+- Style: perimeter-dominant (medium tempo)
+- Injuries: Caleb Foster (foot fracture, out until Final Four), Patrick Ngongba (foot soreness, expected back) (impact: significant)
+
+### Team 2: TCU (9-seed)
 **Efficiency Ratings:**
-- AdjEM: 23.6
-- AdjO: 125.2 | AdjD: 101.60783442142369
-- Barthag: 0.9170
-- Tempo: 66.2
-- WAB: 2.9
-- Elite SOS: 0.6218
-- SOS: 0.7272
+- AdjEM: 15.2
+- AdjO: 114.8 | AdjD: 99.65461050508426
+- Barthag: 0.8364
+- Tempo: 67.6
+- WAB: 2.4
+- Elite SOS: 0.6556
+- SOS: 0.6722
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Jamie Dixon
+- Tournament Record: 14-15
+- Tournament Appearances (HC): 16
+
+**Roster:**
+- Returning Minutes: 62%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 22-11
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: quarterfinal
+- Style: grind (medium tempo)
 
 ---
 
@@ -82,9 +139,10 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ---
 
 ### Matchup Dynamics
-**Efficiency Gap:** 13.7 AdjEM in favor of Duke
-**Tempo:** Similar pace (65.8 vs 66.2)
-**Upset Vulnerability:** LOW (0.04) — favorite is solid
+**Efficiency Gap:** 22.1 AdjEM in favor of Duke
+**Tempo:** Similar pace (65.8 vs 67.6)
+**Turnover Margin Edge:** Duke (+3.8 vs +0.0) — creates more turnovers than it commits
+**Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
 
@@ -92,8 +150,8 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 **Duke:**
   - round_of_64: defeated 16-seed Siena
 
-**Ohio State:**
-  - round_of_64: defeated 9-seed TCU
+**TCU:**
+  - round_of_64: defeated 8-seed Ohio State
 
 
 **Duke historical twins:**
@@ -101,10 +159,10 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - 2025 Florida (similarity: 0.87) — Tournament result: Champion
 - 2015 Kentucky (similarity: 0.86) — Tournament result: Final Four
 
-**Ohio State historical twins:**
-- 2013 Syracuse (similarity: 0.85) — Tournament result: Final Four
-- 2018 Michigan (similarity: 0.85) — Tournament result: Runner-Up
-- 2024 Purdue (similarity: 0.84) — Tournament result: Runner-Up
+**TCU historical twins:**
+- 2021 UCLA (similarity: 0.94) — Tournament result: Final Four
+- 2010 Tennessee (similarity: 0.93) — Tournament result: Sweet 16
+- 2022 Michigan (similarity: 0.93) — Tournament result: Sweet 16
 
 ---
 
@@ -119,7 +177,7 @@ Respond with ONLY valid JSON in this exact format:
 }
 ```
 
-The "pick" field must be exactly one of: "Duke" or "Ohio State".
+The "pick" field must be exactly one of: "Duke" or "TCU".
 The "confidence" field must be an integer from 50 to 99.
 
 ```
@@ -160,6 +218,36 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6894
 - SOS: 0.7292
 
+**Shooting:**
+- 3pt Variance Risk: 0.034 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.4%
+- TO Margin: +1.6 (net positive)
+
+**Coaching:**
+- Coach: Rick Pitino
+- Tournament Record: 55-22
+- Tournament Appearances (HC): 24
+- Final Fours: 7
+- Championships: 2
+
+**Roster:**
+- Returning Minutes: 54%
+- Avg Player Year: 2.2
+- Freshman-heavy roster
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 31-5
+- Conference: Big East (strength: 85)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: guard-heavy (fast tempo)
+
 ### Team 2: Kansas (4-seed)
 **Efficiency Ratings:**
 - AdjEM: 23.5
@@ -169,6 +257,36 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 6.3
 - Elite SOS: 0.5899
 - SOS: 0.7865
+
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.4%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Bill Self
+- Tournament Record: 57-24
+- Tournament Appearances (HC): 27
+- Final Fours: 4
+- Championships: 2
+
+**Roster:**
+- Returning Minutes: 58%
+- Avg Player Year: 2.4
+- Players with Tournament Experience: 9
+
+**Context:**
+- Record: 23-10
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 5-5
+- Conference Tournament: semifinal
+- Style: two-way (medium tempo)
+- Injuries: Darryn Peterson (missed 11 games, star freshman) (impact: significant)
 
 ---
 
@@ -256,6 +374,35 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6473
 - SOS: 0.7086
 
+**Shooting:**
+- 3pt Variance Risk: 0.024 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.1%
+- TO Margin: -1.8 (net negative)
+
+**Coaching:**
+- Coach: Pat Kelsey
+- Tournament Record: 0-6
+- Tournament Appearances (HC): 6
+
+**Roster:**
+- Returning Minutes: 48%
+- Avg Player Year: 2.1
+- Freshman-heavy roster
+- Players with Tournament Experience: 4
+
+**Context:**
+- Record: 23-10
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 6-4
+- Conference Tournament: quarterfinal
+- Style: developing (medium tempo)
+- Injuries: Mikel Brown Jr. (lower back, trying to return for NCAAs) (impact: significant)
+
 ### Team 2: Michigan State (3-seed)
 **Efficiency Ratings:**
 - AdjEM: 26.7
@@ -265,6 +412,37 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 7.4
 - Elite SOS: 0.6279
 - SOS: 0.7465
+
+**Shooting:**
+- 3pt Variance Risk: 0.021 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: -0.6 (net negative)
+
+**Coaching:**
+- Coach: Tom Izzo
+- Tournament Record: 59-26
+- Tournament Appearances (HC): 28
+- Final Fours: 8
+- Championships: 1
+
+**Roster:**
+- Returning Minutes: 71%
+- Avg Player Year: 3.2
+- Senior-led roster
+- Players with Tournament Experience: 11
+
+**Context:**
+- Record: 25-7
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: grind (slow tempo)
+- Injuries: Divine Ugochukwu (season-ending injury, no backup PG) (impact: moderate)
 
 ---
 
@@ -276,6 +454,7 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ### Matchup Dynamics
 **Efficiency Gap:** 0.9 AdjEM in favor of Michigan State
 **Tempo:** Similar pace (69.7 vs 66.0)
+**Turnover Margin Edge:** Michigan State (-0.6 vs -1.8) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.16) — favorite is solid
 
 ---
@@ -319,7 +498,7 @@ The "confidence" field must be an integer from 50 to 99.
 
 ---
 
-## Game 4: 7-seed UCLA vs 2-seed UConn
+## Game 4: 10-seed UCF vs 2-seed UConn
 **Region:** East | **Game ID:** r32-east-4
 
 <details>
@@ -338,19 +517,47 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ## Matchup Analysis
 
 **Round of 32** | East Region
-**7-seed UCLA** vs **2-seed UConn**
+**10-seed UCF** vs **2-seed UConn**
 
 ---
 
-### Team 1: UCLA (7-seed)
+### Team 1: UCF (10-seed)
 **Efficiency Ratings:**
-- AdjEM: 22.8
-- AdjO: 124.5 | AdjD: 101.76068371859597
-- Barthag: 0.9106
-- Tempo: 64.7
-- WAB: 3.6
-- Elite SOS: 0.6384
-- SOS: 0.7135
+- AdjEM: 14.3
+- AdjO: 120.0 | AdjD: 105.67203086251037
+- Barthag: 0.8119
+- Tempo: 69.1
+- WAB: 2.1
+- Elite SOS: 0.6550
+- SOS: 0.7096
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Johnny Dawkins
+- Tournament Record: 3-2
+- Tournament Appearances (HC): 3
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 21-11
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 6-4
+- Conference Tournament: quarterfinal
+- Style: athletic (medium tempo)
+- Injuries: Jamichael Stillwell (ankle), John Bol (chest, day-to-day) (impact: moderate)
 
 ### Team 2: UConn (2-seed)
 **Efficiency Ratings:**
@@ -362,6 +569,36 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6742
 - SOS: 0.7138
 
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.2%
+- TO Margin: +1.4 (net positive)
+
+**Coaching:**
+- Coach: Dan Hurley
+- Tournament Record: 15-5
+- Tournament Appearances (HC): 7
+- Final Fours: 2
+- Championships: 2
+
+**Roster:**
+- Returning Minutes: 66%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 29-5
+- Conference: Big East (strength: 85)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: versatile (medium tempo)
+- Injuries: Jaylin Stewart (uncertain, missed Big East tournament) (impact: moderate)
+
 ---
 
 ### Field Intelligence
@@ -370,24 +607,25 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ---
 
 ### Matchup Dynamics
-**Efficiency Gap:** 5.4 AdjEM in favor of UConn
-**Tempo:** Similar pace (64.7 vs 64.6)
-**Upset Vulnerability:** LOW (0.10) — favorite is solid
+**Efficiency Gap:** 13.8 AdjEM in favor of UConn
+**Tempo:** Similar pace (69.1 vs 64.6)
+**Turnover Margin Edge:** UConn (+1.4 vs +0.0) — creates more turnovers than it commits
+**Upset Vulnerability:** LOW (0.04) — favorite is solid
 
 ---
 
 ### Historical Context
-**UCLA:**
-  - round_of_64: defeated 10-seed UCF
+**UCF:**
+  - round_of_64: defeated 7-seed UCLA
 
 **UConn:**
   - round_of_64: defeated 15-seed Furman
 
 
-**UCLA historical twins:**
-- 2013 Syracuse (similarity: 0.86) — Tournament result: Final Four
-- 2018 Michigan (similarity: 0.83) — Tournament result: Runner-Up
-- 2012 Syracuse (similarity: 0.83) — Tournament result: Elite Eight
+**UCF historical twins:**
+- 2022 Michigan (similarity: 0.86) — Tournament result: Sweet 16
+- 2024 Colorado (similarity: 0.86) — Tournament result: Sweet 16
+- 2014 Stanford (similarity: 0.86) — Tournament result: Sweet 16
 
 **UConn historical twins:**
 - 2024 Purdue (similarity: 0.92) — Tournament result: Runner-Up
@@ -407,7 +645,7 @@ Respond with ONLY valid JSON in this exact format:
 }
 ```
 
-The "pick" field must be exactly one of: "UCLA" or "UConn".
+The "pick" field must be exactly one of: "UCF" or "UConn".
 The "confidence" field must be an integer from 50 to 99.
 
 ```
@@ -448,6 +686,36 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6075
 - SOS: 0.7581
 
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 19.4%
+- TO Margin: +3.6 (net positive)
+
+**Coaching:**
+- Coach: Todd Golden
+- Tournament Record: 6-2
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+- Championships: 1
+
+**Roster:**
+- Returning Minutes: 64%
+- Avg Player Year: 2.4
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 26-7
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: two-way (medium tempo)
+- Injuries: Micah Handlogten (medical redshirt, out for season), Thomas Haugh (foot, expected back) (impact: minor)
+
 ### Team 2: Iowa (9-seed)
 **Efficiency Ratings:**
 - AdjEM: 21.9
@@ -457,6 +725,33 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 1.9
 - Elite SOS: 0.6412
 - SOS: 0.6916
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Ben McCollum
+- Tournament Record: 1-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 21-12
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 4-6 [COLD]
+- Conference Tournament: quarterfinal
+- Style: execution (medium tempo)
 
 ---
 
@@ -468,6 +763,7 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ### Matchup Dynamics
 **Efficiency Gap:** 11.9 AdjEM in favor of Florida
 **Tempo Mismatch:** Florida (70.4) wants to push pace; Iowa (63.0) prefers to slow it down. 7.4 possession gap.
+**Turnover Margin Edge:** Florida (+3.6 vs +0.0) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.08) — favorite is solid
 
 ---
@@ -544,6 +840,34 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6318
 - SOS: 0.7378
 
+**Shooting:**
+- 3pt Variance Risk: 0.026 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.6%
+- TO Margin: -0.5 (net negative)
+
+**Coaching:**
+- Coach: Mark Byington
+- Tournament Record: 1-2
+- Tournament Appearances (HC): 3
+
+**Roster:**
+- Returning Minutes: 61%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 26-8
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: versatile (medium tempo)
+- Injuries: Duke Miles (knee, missed 6 games but returned) (impact: minor)
+
 ### Team 2: Nebraska (4-seed)
 **Efficiency Ratings:**
 - AdjEM: 23.8
@@ -553,6 +877,34 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 7.5
 - Elite SOS: 0.6542
 - SOS: 0.6950
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Fred Hoiberg
+- Tournament Record: 4-5
+- Tournament Appearances (HC): 6
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 26-6
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: versatile (medium tempo)
+- Injuries: Rienk Mast (illness, hospitalized before Big Ten tourney) (impact: minor)
 
 ---
 
@@ -607,7 +959,7 @@ The "confidence" field must be an integer from 50 to 99.
 
 ---
 
-## Game 7: 6-seed North Carolina vs 3-seed Illinois
+## Game 7: 11-seed VCU vs 3-seed Illinois
 **Region:** South | **Game ID:** r32-south-3
 
 <details>
@@ -626,19 +978,46 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ## Matchup Analysis
 
 **Round of 32** | South Region
-**6-seed North Carolina** vs **3-seed Illinois**
+**11-seed VCU** vs **3-seed Illinois**
 
 ---
 
-### Team 1: North Carolina (6-seed)
+### Team 1: VCU (11-seed)
 **Efficiency Ratings:**
-- AdjEM: 21.4
-- AdjO: 121.5 | AdjD: 100.05319248735225
-- Barthag: 0.9029
-- Tempo: 68.0
-- WAB: 4.9
-- Elite SOS: 0.6646
-- SOS: 0.7027
+- AdjEM: 16.2
+- AdjO: 119.3 | AdjD: 103.08825868032646
+- Barthag: 0.8427
+- Tempo: 68.7
+- WAB: 1.7
+- Elite SOS: 0.7948
+- SOS: 0.5651
+
+**Shooting:**
+- 3pt Variance Risk: 0.031 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 21.4%
+- TO Margin: +1.6 (net positive)
+
+**Coaching:**
+- Coach: Phil Martelli Jr.
+- Tournament Record: 0-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 46%
+- Avg Player Year: 2.1
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 27-7
+- Conference: A-10 (strength: 52)
+- Close Games (<=5pt): 4-5 (44% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: pressing (fast tempo)
 
 ### Team 2: Illinois (3-seed)
 **Efficiency Ratings:**
@@ -650,6 +1029,34 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6254
 - SOS: 0.7383
 
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: +0.7 (net positive)
+
+**Coaching:**
+- Coach: Brad Underwood
+- Tournament Record: 8-9
+- Tournament Appearances (HC): 9
+
+**Roster:**
+- Returning Minutes: 59%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 24-8
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: pace-and-space (medium tempo)
+- Injuries: Keaton Wagler (back spasms) (impact: minor)
+
 ---
 
 ### Field Intelligence
@@ -658,24 +1065,24 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ---
 
 ### Matchup Dynamics
-**Efficiency Gap:** 12.3 AdjEM in favor of Illinois
-**Tempo:** Similar pace (68.0 vs 65.7)
-**Upset Vulnerability:** LOW (0.04) — favorite is solid
+**Efficiency Gap:** 17.5 AdjEM in favor of Illinois
+**Tempo:** Similar pace (68.7 vs 65.7)
+**Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
 
 ### Historical Context
-**North Carolina:**
-  - round_of_64: defeated 11-seed VCU
+**VCU:**
+  - round_of_64: defeated 6-seed North Carolina
 
 **Illinois:**
   - round_of_64: defeated 14-seed Penn
 
 
-**North Carolina historical twins:**
-- 2018 Michigan (similarity: 0.89) — Tournament result: Runner-Up
-- 2014 Connecticut (similarity: 0.89) — Tournament result: Champion
-- 2021 UCLA (similarity: 0.89) — Tournament result: Final Four
+**VCU historical twins:**
+- 2022 Michigan (similarity: 0.89) — Tournament result: Sweet 16
+- 2024 Colorado (similarity: 0.89) — Tournament result: Sweet 16
+- 2022 Iowa State (similarity: 0.88) — Tournament result: Sweet 16
 
 **Illinois historical twins:**
 - 2024 Purdue (similarity: 0.89) — Tournament result: Runner-Up
@@ -695,7 +1102,7 @@ Respond with ONLY valid JSON in this exact format:
 }
 ```
 
-The "pick" field must be exactly one of: "North Carolina" or "Illinois".
+The "pick" field must be exactly one of: "VCU" or "Illinois".
 The "confidence" field must be an integer from 50 to 99.
 
 ```
@@ -703,7 +1110,7 @@ The "confidence" field must be an integer from 50 to 99.
 
 ---
 
-## Game 8: 10-seed Texas A&M vs 2-seed Houston
+## Game 8: 7-seed Saint Mary's vs 2-seed Houston
 **Region:** South | **Game ID:** r32-south-4
 
 <details>
@@ -722,19 +1129,47 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ## Matchup Analysis
 
 **Round of 32** | South Region
-**10-seed Texas A&M** vs **2-seed Houston**
+**7-seed Saint Mary's** vs **2-seed Houston**
 
 ---
 
-### Team 1: Texas A&M (10-seed)
+### Team 1: Saint Mary's (7-seed)
 **Efficiency Ratings:**
-- AdjEM: 18.5
-- AdjO: 119.9 | AdjD: 101.39118997310862
-- Barthag: 0.8729
-- Tempo: 71.0
-- WAB: 1.6
-- Elite SOS: 0.6690
-- SOS: 0.6735
+- AdjEM: 21.8
+- AdjO: 119.4 | AdjD: 97.5855192190786
+- Barthag: 0.9104
+- Tempo: 65.3
+- WAB: 4.0
+- Elite SOS: 0.7734
+- SOS: 0.5999
+
+**Shooting:**
+- 3pt Variance Risk: 0.020 (low)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 15.4%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Randy Bennett
+- Tournament Record: 7-11
+- Tournament Appearances (HC): 12
+
+**Roster:**
+- Returning Minutes: 76%
+- Avg Player Year: 3.6
+- Senior-led roster
+- Players with Tournament Experience: 11
+
+**Context:**
+- Record: 27-5
+- Conference: WCC (strength: 65)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: semifinal
+- Style: execution (slow tempo)
 
 ### Team 2: Houston (2-seed)
 **Efficiency Ratings:**
@@ -746,6 +1181,35 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6386
 - SOS: 0.7306
 
+**Shooting:**
+- 3pt Variance Risk: 0.021 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 20.4%
+- TO Margin: +5.6 (net positive)
+
+**Coaching:**
+- Coach: Kelvin Sampson
+- Tournament Record: 31-21
+- Tournament Appearances (HC): 20
+- Final Fours: 4
+
+**Roster:**
+- Returning Minutes: 72%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 28-6
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: defense-first (slow tempo)
+- Injuries: J'Wan Roberts (ankle, expected to play) (impact: minor)
+
 ---
 
 ### Field Intelligence
@@ -754,24 +1218,25 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ---
 
 ### Matchup Dynamics
-**Efficiency Gap:** 14.5 AdjEM in favor of Houston
-**Tempo Mismatch:** Texas A&M (71.0) wants to push pace; Houston (63.3) prefers to slow it down. 7.7 possession gap.
-**Upset Vulnerability:** LOW (0.08) — favorite is solid
+**Efficiency Gap:** 11.2 AdjEM in favor of Houston
+**Tempo:** Similar pace (65.3 vs 63.3)
+**Turnover Margin Edge:** Houston (+5.6 vs +0.6) — creates more turnovers than it commits
+**Upset Vulnerability:** LOW (0.04) — favorite is solid
 
 ---
 
 ### Historical Context
-**Texas A&M:**
-  - round_of_64: defeated 7-seed Saint Mary's
+**Saint Mary's:**
+  - round_of_64: defeated 10-seed Texas A&M
 
 **Houston:**
   - round_of_64: defeated 15-seed Idaho
 
 
-**Texas A&M historical twins:**
-- 2022 Iowa State (similarity: 0.91) — Tournament result: Sweet 16
-- 2018 Kentucky (similarity: 0.90) — Tournament result: Elite Eight
-- 2016 Indiana (similarity: 0.90) — Tournament result: Round of 32
+**Saint Mary's historical twins:**
+- 2013 Syracuse (similarity: 0.95) — Tournament result: Final Four
+- 2012 Syracuse (similarity: 0.92) — Tournament result: Elite Eight
+- 2018 Michigan (similarity: 0.89) — Tournament result: Runner-Up
 
 **Houston historical twins:**
 - 2015 Wisconsin (similarity: 0.92) — Tournament result: Runner-Up
@@ -791,7 +1256,7 @@ Respond with ONLY valid JSON in this exact format:
 }
 ```
 
-The "pick" field must be exactly one of: "Texas A&M" or "Houston".
+The "pick" field must be exactly one of: "Saint Mary's" or "Houston".
 The "confidence" field must be an integer from 50 to 99.
 
 ```
@@ -832,6 +1297,35 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6220
 - SOS: 0.7386
 
+**Shooting:**
+- 3pt Variance Risk: 0.031 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.2%
+- TO Margin: +1.8 (net positive)
+
+**Coaching:**
+- Coach: Tommy Lloyd
+- Tournament Record: 6-4
+- Tournament Appearances (HC): 4
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.0
+- Freshman-heavy roster
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 32-2
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: versatile (medium tempo)
+- Injuries: Jaden Bradley (left wrist, taped but playing) (impact: minor)
+
 ### Team 2: Utah State (9-seed)
 **Efficiency Ratings:**
 - AdjEM: 20.9
@@ -841,6 +1335,33 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 4.0
 - Elite SOS: 0.7700
 - SOS: 0.6397
+
+**Shooting:**
+- 3pt Variance Risk: 0.032 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.2%
+- TO Margin: +0.8 (net positive)
+
+**Coaching:**
+- Coach: Jerrod Calhoun
+- Tournament Record: 0-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 58%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 28-6
+- Conference: MWC (strength: 50)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: two-way (medium tempo)
 
 ---
 
@@ -928,6 +1449,34 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6233
 - SOS: 0.7345
 
+**Shooting:**
+- 3pt Variance Risk: 0.019 (low)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 15.8%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Greg Gard
+- Tournament Record: 7-7
+- Tournament Appearances (HC): 8
+
+**Roster:**
+- Returning Minutes: 78%
+- Avg Player Year: 3.4
+- Senior-led roster
+- Players with Tournament Experience: 12
+
+**Context:**
+- Record: 24-10
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: execution (slow tempo)
+
 ### Team 2: Arkansas (4-seed)
 **Efficiency Ratings:**
 - AdjEM: 26.3
@@ -937,6 +1486,37 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 7.5
 - Elite SOS: 0.6226
 - SOS: 0.7460
+
+**Shooting:**
+- 3pt Variance Risk: 0.031 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.1%
+- TO Margin: -0.3 (net negative)
+
+**Coaching:**
+- Coach: John Calipari
+- Tournament Record: 57-22
+- Tournament Appearances (HC): 24
+- Final Fours: 6
+- Championships: 1
+
+**Roster:**
+- Returning Minutes: 52%
+- Avg Player Year: 2.2
+- Freshman-heavy roster
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 26-8
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: champion
+- Style: talent-first (medium tempo)
+- Injuries: Darius Acuff Jr. (ankle, returned for SEC tourney) (impact: minor)
 
 ---
 
@@ -1024,6 +1604,33 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6177
 - SOS: 0.7482
 
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Kevin Young
+- Tournament Record: 2-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 60%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 23-11
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 6-4
+- Conference Tournament: quarterfinal
+- Style: modern (medium tempo)
+
 ### Team 2: Gonzaga (3-seed)
 **Efficiency Ratings:**
 - AdjEM: 26.3
@@ -1033,6 +1640,36 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 7.4
 - Elite SOS: 0.7542
 - SOS: 0.6271
+
+**Shooting:**
+- 3pt Variance Risk: 0.034 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: +2.4 (net positive)
+
+**Coaching:**
+- Coach: Mark Few
+- Tournament Record: 44-25
+- Tournament Appearances (HC): 25
+- Final Fours: 2
+
+**Roster:**
+- Returning Minutes: 61%
+- Avg Player Year: 2.2
+- Freshman-heavy roster
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 30-3
+- Conference: WCC (strength: 65)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: skilled (medium tempo)
+- Injuries: Braden Huff (dislocated kneecap, out until Sweet 16 at earliest), Jalen Warley (thigh contusion, limited) (impact: significant)
 
 ---
 
@@ -1044,6 +1681,7 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ### Matchup Dynamics
 **Efficiency Gap:** 5.8 AdjEM in favor of Gonzaga
 **Tempo:** Similar pace (69.8 vs 68.9)
+**Turnover Margin Edge:** Gonzaga (+2.4 vs +0.6) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.10) — favorite is solid
 
 ---
@@ -1130,6 +1768,35 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.5962
 - SOS: 0.7793
 
+**Shooting:**
+- 3pt Variance Risk: 0.023 (moderate)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.4%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Matt Painter
+- Tournament Record: 22-16
+- Tournament Appearances (HC): 17
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 74%
+- Avg Player Year: 3.2
+- Senior-led roster
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 27-8
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: champion
+- Style: big-man (slow tempo)
+
 ---
 
 ### Field Intelligence
@@ -1183,7 +1850,7 @@ The "confidence" field must be an integer from 50 to 99.
 
 ---
 
-## Game 13: 1-seed Michigan vs 8-seed Georgia
+## Game 13: 1-seed Michigan vs 9-seed Saint Louis
 **Region:** Midwest | **Game ID:** r32-midwest-1
 
 <details>
@@ -1202,7 +1869,7 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ## Matchup Analysis
 
 **Round of 32** | Midwest Region
-**1-seed Michigan** vs **8-seed Georgia**
+**1-seed Michigan** vs **9-seed Saint Louis**
 
 ---
 
@@ -1216,15 +1883,71 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.5814
 - SOS: 0.8028
 
-### Team 2: Georgia (8-seed)
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.2%
+- TO Margin: +0.4 (net positive)
+
+**Coaching:**
+- Coach: Dusty May
+- Tournament Record: 6-3
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 61%
+- Avg Player Year: 2.0
+- Freshman-heavy roster
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 28-5
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: perimeter (medium tempo)
+
+### Team 2: Saint Louis (9-seed)
 **Efficiency Ratings:**
-- AdjEM: 19.6
-- AdjO: 124.3 | AdjD: 104.7604517112042
-- Barthag: 0.8774
-- Tempo: 72.0
-- WAB: 2.6
-- Elite SOS: 0.6737
-- SOS: 0.6705
+- AdjEM: 17.3
+- AdjO: 119.6 | AdjD: 102.22705610648865
+- Barthag: 0.8584
+- Tempo: 71.0
+- WAB: 1.9
+- Elite SOS: 0.8374
+- SOS: 0.5160
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Josh Schertz
+- Tournament Record: 1-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 28-5
+- Conference: A-10 (strength: 52)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: semifinal
+- Style: system (slow tempo)
 
 ---
 
@@ -1234,8 +1957,8 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ---
 
 ### Matchup Dynamics
-**Efficiency Gap:** 17.0 AdjEM in favor of Michigan
-**Tempo:** Similar pace (71.2 vs 72.0)
+**Efficiency Gap:** 19.3 AdjEM in favor of Michigan
+**Tempo:** Similar pace (71.2 vs 71.0)
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -1244,8 +1967,8 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 **Michigan:**
   - round_of_64: defeated 16-seed UMBC
 
-**Georgia:**
-  - round_of_64: defeated 9-seed Saint Louis
+**Saint Louis:**
+  - round_of_64: defeated 8-seed Georgia
 
 
 **Michigan historical twins:**
@@ -1253,10 +1976,10 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - 2025 Florida (similarity: 0.94) — Tournament result: Champion
 - 2022 Gonzaga (similarity: 0.92) — Tournament result: Elite Eight
 
-**Georgia historical twins:**
-- 2016 Oklahoma (similarity: 0.89) — Tournament result: Final Four
-- 2024 Alabama (similarity: 0.86) — Tournament result: Final Four
-- 2022 North Carolina (similarity: 0.85) — Tournament result: Runner-Up
+**Saint Louis historical twins:**
+- 2022 Iowa State (similarity: 0.90) — Tournament result: Sweet 16
+- 2024 Colorado (similarity: 0.90) — Tournament result: Sweet 16
+- 2018 Nevada (similarity: 0.89) — Tournament result: Sweet 16
 
 ---
 
@@ -1271,7 +1994,7 @@ Respond with ONLY valid JSON in this exact format:
 }
 ```
 
-The "pick" field must be exactly one of: "Michigan" or "Georgia".
+The "pick" field must be exactly one of: "Michigan" or "Saint Louis".
 The "confidence" field must be an integer from 50 to 99.
 
 ```
@@ -1312,6 +2035,33 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6025
 - SOS: 0.7597
 
+**Shooting:**
+- 3pt Variance Risk: 0.020 (low)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 16.8%
+- TO Margin: +2.4 (net positive)
+
+**Coaching:**
+- Coach: Grant McCasland
+- Tournament Record: 3-3
+- Tournament Appearances (HC): 3
+
+**Roster:**
+- Returning Minutes: 70%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 9
+
+**Context:**
+- Record: 25-8
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: defense (slow tempo)
+
 ### Team 2: Alabama (4-seed)
 **Efficiency Ratings:**
 - AdjEM: 26.7
@@ -1321,6 +2071,34 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 6.5
 - Elite SOS: 0.5987
 - SOS: 0.7891
+
+**Shooting:**
+- 3pt Variance Risk: 0.040 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: +0.4 (net positive)
+
+**Coaching:**
+- Coach: Nate Oats
+- Tournament Record: 11-6
+- Tournament Appearances (HC): 6
+
+**Roster:**
+- Returning Minutes: 52%
+- Avg Player Year: 2.1
+- Freshman-heavy roster
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 26-7
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: 3-point-heavy (fast tempo)
 
 ---
 
@@ -1332,6 +2110,7 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ### Matchup Dynamics
 **Efficiency Gap:** 0.8 AdjEM in favor of Texas Tech
 **Tempo Mismatch:** Alabama (66.4) wants to push pace; Texas Tech (73.1) prefers to slow it down. 6.7 possession gap.
+**Turnover Margin Edge:** Texas Tech (+2.4 vs +0.4) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.20) — favorite is solid
 
 ---
@@ -1408,6 +2187,35 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.6144
 - SOS: 0.7319
 
+**Shooting:**
+- 3pt Variance Risk: 0.022 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.8%
+- TO Margin: +3.4 (net positive)
+
+**Coaching:**
+- Coach: Rick Barnes
+- Tournament Record: 28-26
+- Tournament Appearances (HC): 21
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 68%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 9
+
+**Context:**
+- Record: 22-11
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 6-4
+- Conference Tournament: quarterfinal
+- Style: physical (slow tempo)
+- Injuries: Nate Ament (knee/ankle, returned for SEC tourney) (impact: moderate)
+
 ### Team 2: Virginia (3-seed)
 **Efficiency Ratings:**
 - AdjEM: 26.4
@@ -1417,6 +2225,34 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 7.8
 - Elite SOS: 0.6990
 - SOS: 0.6764
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Ron Sanchez
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 24-8
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: execution (slow tempo)
 
 ---
 
@@ -1428,6 +2264,8 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ### Matchup Dynamics
 **Efficiency Gap:** 0.5 AdjEM in favor of Virginia
 **Tempo:** Similar pace (65.2 vs 65.6)
+**Turnover Margin Edge:** Tennessee (+3.4 vs +0.0) — creates more turnovers than it commits
+**Coaching Mismatch:** Virginia's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.16) — favorite is solid
 
 ---
@@ -1504,6 +2342,33 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - Elite SOS: 0.7588
 - SOS: 0.6120
 
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Herb Sendek
+- Tournament Record: 3-4
+- Tournament Appearances (HC): 4
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 24-8
+- Conference: WCC (strength: 65)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 7-3
+- Conference Tournament: runner_up
+- Style: execution (slow tempo)
+
 ### Team 2: Iowa State (2-seed)
 **Efficiency Ratings:**
 - AdjEM: 31.1
@@ -1513,6 +2378,33 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 - WAB: 7.4
 - Elite SOS: 0.6545
 - SOS: 0.6968
+
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.1%
+- TO Margin: +1.9 (net positive)
+
+**Coaching:**
+- Coach: T.J. Otzelberger
+- Tournament Record: 9-5
+- Tournament Appearances (HC): 5
+
+**Roster:**
+- Returning Minutes: 64%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 26-7
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: two-way (medium tempo)
 
 ---
 
@@ -1524,6 +2416,7 @@ Surviving R64 doesn't change team quality. Re-evaluate each matchup fresh. Momen
 ### Matchup Dynamics
 **Efficiency Gap:** 9.9 AdjEM in favor of Iowa State
 **Tempo:** Similar pace (69.3 vs 67.0)
+**Turnover Margin Edge:** Iowa State (+1.9 vs +0.0) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.10) — favorite is solid
 
 ---

@@ -9,7 +9,7 @@
     "team2": "Siena",
     "pick": "Duke",
     "confidence": 98,
-    "reasoning": "AdjEM gap of 39.0 is the largest in the East region. Duke's AdjO of 128.1 ranks 1st nationally and their Barthag of 0.981 is near-perfect. Historical twins include 2024 Purdue (Runner-Up) and 2025 Florida (Champion) — elite company. No pathway for a 16-seed with AdjEM of -1.7."
+    "reasoning": "39-point AdjEM gap is insurmountable. Duke's archetype matches 2024 Purdue (Runner-Up) and 2015 Kentucky (F4) — elite tournament profiles. Foster's absence doesn't matter against a 16-seed with a first-tournament coach. Duke's 10-0 L10 and ACC championship momentum are commanding."
   },
   {
     "gameId": "r64-east-2",
@@ -19,9 +19,9 @@
     "team1": "Ohio State",
     "seed2": 9,
     "team2": "TCU",
-    "pick": "Ohio State",
-    "confidence": 68,
-    "reasoning": "Ohio State's AdjEM of 23.6 significantly exceeds TCU's 15.2, an 8.4-point gap that places this outside the typical 8-9 coin-flip range. Ohio State's AdjO of 125.2 is elite (top-15 nationally) and their Barthag of 0.917 dwarfs TCU's 0.836. TCU's archetype twins went deep (2021 UCLA to F4) but the efficiency gap here is too large for the 9-seed."
+    "pick": "TCU",
+    "confidence": 56,
+    "reasoning": "Ohio State has the AdjEM edge (8.4), but Brandon Noel has been out since January and Chatman is day-to-day. Jake Diebler is a first-tournament coach facing Jamie Dixon's 14-15 tournament record across 16 appearances. TCU's 8-2 L10 momentum and Dixon's March pedigree overcome the efficiency gap. TCU's archetypes (2021 UCLA F4, 2022 Michigan S16) project deeper runs."
   },
   {
     "gameId": "r64-east-3",
@@ -32,8 +32,8 @@
     "seed2": 12,
     "team2": "Northern Iowa",
     "pick": "St. John's",
-    "confidence": 82,
-    "reasoning": "14.6 AdjEM gap puts this well outside upset territory. St. John's AdjO of 119.8 and AdjD of 94.1 create a balanced elite profile. Northern Iowa's archetypes (2011 Butler, 2010 Butler) went deep as mid-majors, but those Butler teams had AdjEM profiles 5+ points higher relative to their fields. St. John's tempo advantage (69.6 vs 62.2) will force Northern Iowa out of their comfort zone."
+    "confidence": 80,
+    "reasoning": "Rick Pitino's 55-22 tournament record is the best in the field. St. John's AdjEM edge (14.6) is well outside upset territory, and their archetypes (2023 UConn Champion, 2018 Duke E8) project elite tournament performance. Big East champions on a 9-1 L10 run with an elite defense (AdjD 94.1)."
   },
   {
     "gameId": "r64-east-4",
@@ -44,8 +44,8 @@
     "seed2": 13,
     "team2": "Cal Baptist",
     "pick": "Kansas",
-    "confidence": 85,
-    "reasoning": "16.3 AdjEM gap and Kansas's WAB of 6.3 vs Cal Baptist's -2.3 make this decisive. Kansas's archetype twins (2018 Michigan Runner-Up, 2010 Duke Champion) confirm this is an elite-caliber team. Cal Baptist's twin 2022 Saint Peter's went to E8, but Saint Peter's had a uniquely favorable bracket path — Cal Baptist faces a 4-seed, not a weakened 2."
+    "confidence": 82,
+    "reasoning": "Bill Self's 57-24 tournament record (2 titles) against a first-tournament coach makes this a coaching massacre. The 16.3-point AdjEM gap puts this well outside upset range. Darryn Peterson's absence lowers Kansas's ceiling but not enough against Cal Baptist."
   },
   {
     "gameId": "r64-east-5",
@@ -56,8 +56,8 @@
     "seed2": 11,
     "team2": "South Florida",
     "pick": "Louisville",
-    "confidence": 73,
-    "reasoning": "10.5 AdjEM gap favors Louisville but South Florida's archetypes (2022 Iowa State, 2024 Colorado — both Sweet 16) suggest a team capable of a run. Louisville's AdjO of 124.0 and top archetype twin (2016 Villanova Champion) are compelling. The gap is just large enough at 10.5 to take the favorite, but South Florida's tempo (71.4) and offensive efficiency could keep this close."
+    "confidence": 58,
+    "reasoning": "Louisville's 10.5-point AdjEM gap is decisive, but South Florida's 9-1 L10 as AAC champions demands respect. Mikel Brown Jr.'s back injury is significant. Louisville's archetypes (2016 Villanova Champion) are elite, but the efficiency gap just barely holds Louisville here."
   },
   {
     "gameId": "r64-east-6",
@@ -68,8 +68,8 @@
     "seed2": 14,
     "team2": "North Dakota State",
     "pick": "Michigan State",
-    "confidence": 91,
-    "reasoning": "21.3 AdjEM gap is decisive. Michigan State's Barthag of 0.944 and WAB of 7.4 are among the best in the field. NDSU's AdjD of 106.0 will be exposed by MSU's 122.9 AdjO. Izzo's deep tournament pedigree adds an unquantifiable but historically measurable coaching edge in R64."
+    "confidence": 92,
+    "reasoning": "Tom Izzo's 59-26 tournament record with 8 Final Fours is the most dominant coaching resume in the field. The 21.3-point AdjEM gap makes this automatic at the 3-14 line. NDSU lost their PG for the season."
   },
   {
     "gameId": "r64-east-7",
@@ -79,9 +79,9 @@
     "team1": "UCLA",
     "seed2": 10,
     "team2": "UCF",
-    "pick": "UCLA",
-    "confidence": 65,
-    "reasoning": "8.4 AdjEM gap in UCLA's favor with UCLA's AdjO of 124.5 vs UCF's 120.0. Both teams' archetypes went deep (UCLA twins: 2013 Syracuse F4, 2018 Michigan Runner-Up; UCF twins: multiple Sweet 16s). UCLA's WAB of 3.6 vs UCF's 2.1 and significantly better AdjD (101.8 vs 105.7) give them the edge, but this is a competitive 7-10 matchup."
+    "pick": "UCF",
+    "confidence": 57,
+    "reasoning": "UCLA's 8.4-point AdjEM advantage is offset by devastating injuries: Bilodeau (leading scorer, out/limited) and Dent (calf, limited). UCF's Big 12-tested roster and archetypes (2022 Michigan S16, 2024 Colorado S16) project mid-tournament viability against a depleted Bruins squad."
   },
   {
     "gameId": "r64-east-8",
@@ -93,7 +93,7 @@
     "team2": "Furman",
     "pick": "UConn",
     "confidence": 96,
-    "reasoning": "30.2 AdjEM gap is insurmountable. UConn's AdjO of 127.3 is 2nd nationally and their Barthag of 0.961 ranks in the top 5. Furman's AdjEM of -2.9 puts them among the weakest 15-seeds in the field. Historical 2-15 upset rate requires a gap under 12.0 — this gap is nearly triple that threshold."
+    "reasoning": "Dan Hurley's 15-5 tournament record with back-to-back titles is the gold standard. UConn's 30.2-point AdjEM gap and championship DNA make this automatic. UConn's archetypes (2024 Purdue, 2015 Wisconsin) project deep runs."
   },
   {
     "gameId": "r64-south-1",
@@ -105,7 +105,7 @@
     "team2": "Prairie View A&M",
     "pick": "Florida",
     "confidence": 99,
-    "reasoning": "43.8 AdjEM gap is the largest in the entire tournament. Florida's archetype twin is 2025 Florida (Champion, 0.953 similarity) — essentially the same team returning. Prairie View A&M's AdjEM of -10.3 makes this the most lopsided matchup in the bracket. No statistical basis for any other pick."
+    "reasoning": "The largest AdjEM gap in the field (43.8). Florida's archetypes are breathtaking: 2025 Florida (Champion), 2024 UConn (Champion), 2015 Kentucky (F4). Todd Golden's 6-2 tournament record is efficient. Most lopsided matchup in the bracket."
   },
   {
     "gameId": "r64-south-2",
@@ -116,8 +116,8 @@
     "seed2": 9,
     "team2": "Iowa",
     "pick": "Iowa",
-    "confidence": 57,
-    "reasoning": "Iowa's AdjEM of 21.9 actually exceeds Clemson's 19.6 despite being the 9-seed. Iowa's AdjO of 122.1 significantly outpaces Clemson's 116.5, and Iowa's Barthag of 0.907 edges Clemson's 0.893. Both teams have strong archetype twins (both map to 2013 Syracuse F4). Iowa's offensive firepower is the tiebreaker in this coin-flip matchup."
+    "confidence": 60,
+    "reasoning": "Iowa actually leads in AdjEM (21.9 vs 19.6), and Clemson is devastated: Carter Welling (torn ACL) and Dillon Hunter (broken hand) both out. Iowa's 4-6 L10 COLD momentum is concerning, but Clemson's injuries are more damaging."
   },
   {
     "gameId": "r64-south-3",
@@ -128,8 +128,8 @@
     "seed2": 12,
     "team2": "McNeese",
     "pick": "Vanderbilt",
-    "confidence": 84,
-    "reasoning": "17.1 AdjEM gap puts this comfortably outside upset territory. Vanderbilt's AdjD of 94.7 will contain McNeese's offense. McNeese's archetype twin (2016 Syracuse F4) suggests a team that could overperform, but that Syracuse team had an AdjEM 5 points higher relative to their field. Vanderbilt's WAB of 5.5 vs McNeese's -1.4 confirms the quality gap."
+    "confidence": 76,
+    "reasoning": "Vanderbilt's 17.1-point AdjEM gap is firmly outside upset territory. Archetypes (2016 Villanova Champion, 2024 Purdue Runner-Up) project elite tournament potential. McNeese's perfect 10-0 L10 is impressive but the conference strength gap is enormous."
   },
   {
     "gameId": "r64-south-4",
@@ -140,8 +140,8 @@
     "seed2": 13,
     "team2": "Troy",
     "pick": "Nebraska",
-    "confidence": 90,
-    "reasoning": "22.1 AdjEM gap is decisive. Nebraska's Barthag of 0.929 ranks in the top 20 nationally. Troy's AdjEM of 5.2 and WAB of -4.6 indicate they were barely a tournament-level team. Nebraska's archetype twin (2012 Syracuse E8) confirms this is a team built for tournament success. 4-13 upset rate requires a much smaller efficiency gap."
+    "confidence": 88,
+    "reasoning": "Nebraska's 22.1-point AdjEM gap and elite defense (AdjD 93.5) make this comfortable. Archetypes (2010 Duke Champion, 2021 Houston F4) project deep runs. Troy's Sun Belt offense will be strangled."
   },
   {
     "gameId": "r64-south-5",
@@ -151,9 +151,9 @@
     "team1": "North Carolina",
     "seed2": 11,
     "team2": "VCU",
-    "pick": "North Carolina",
-    "confidence": 62,
-    "reasoning": "5.2 AdjEM gap is narrow for a 6-11 matchup but UNC's WAB of 4.9 vs VCU's 1.7 reveals stronger quality wins. UNC's AdjO of 121.5 and archetype twins (2018 Michigan Runner-Up, 2014 UConn Champion) suggest a team with deep-run potential. VCU's archetypes are consistently Sweet 16 exits — good but capped. UNC's overall talent profile and brand of efficiency narrowly carry this."
+    "pick": "VCU",
+    "confidence": 58,
+    "reasoning": "UNC lost Caleb Wilson (broken thumb) — leading scorer and projected top-5 pick. VCU is 9-1 L10 as A-10 champions running HAVOC defense. UNC's 5-5 L10 COLD momentum signals a team in freefall. VCU's archetypes (2022 Michigan S16, 2024 Colorado S16) project mid-tournament viability. Injury + momentum overwhelm the seed advantage."
   },
   {
     "gameId": "r64-south-6",
@@ -164,8 +164,8 @@
     "seed2": 14,
     "team2": "Penn",
     "pick": "Illinois",
-    "confidence": 97,
-    "reasoning": "32.6 AdjEM gap is among the largest in the tournament. Illinois's AdjEM of 28.9 ranks 5th nationally and their Barthag of 0.966 is elite. Penn's AdjEM of -3.8 after SOS adjustment makes this functionally a bye game. Illinois archetype twin 2024 Purdue (Runner-Up) confirms championship-caliber quality."
+    "confidence": 96,
+    "reasoning": "Illinois' 32.6-point AdjEM gap is insurmountable. Second-best offense in the tournament (AdjO 131.9). Archetypes match 2024 Purdue (Runner-Up) and 2015 Duke (Champion). Penn's Ethan Roberts dealing with a concussion further weakens an overmatched squad."
   },
   {
     "gameId": "r64-south-7",
@@ -175,9 +175,9 @@
     "team1": "Saint Mary's",
     "seed2": 10,
     "team2": "Texas A&M",
-    "pick": "Texas A&M",
-    "confidence": 55,
-    "reasoning": "Despite Saint Mary's 3.3 AdjEM edge, Texas A&M's AdjO of 119.9 matches Saint Mary's 119.4 and TAMU played in the SEC (SOS 0.728 vs SMC's 0.387). A&M's archetype twin 2018 Kentucky (E8) shows tournament resilience in high-major talent. Saint Mary's WCC schedule inflates their efficiency metrics — SOS-adjusted, this gap narrows to near zero. Texas A&M's conference-calibrated quality gives them the slight edge."
+    "pick": "Saint Mary's",
+    "confidence": 56,
+    "reasoning": "Saint Mary's holds the 3.3-point AdjEM edge with Randy Bennett's 7-11 tournament record and 25 years of program continuity. Texas A&M's McMillan is in his first year (0-1 tourney). Saint Mary's 8-2 L10 HOT momentum vs A&M's 6-4 neutral. Bennett's grinding system neutralizes A&M's tempo."
   },
   {
     "gameId": "r64-south-8",
@@ -189,7 +189,7 @@
     "team2": "Idaho",
     "pick": "Houston",
     "confidence": 97,
-    "reasoning": "30.3 AdjEM gap driven by Houston's AdjD of 89.5, the 2nd-best defense in the country. Idaho's AdjEM of -4.5 with no path to generating enough scoring against this defense. Houston's archetype twin (2015 Wisconsin Runner-Up) confirms deep-run caliber. Upset probability is near zero."
+    "reasoning": "Kelvin Sampson's 31-21 tournament record (4 FFs) is elite. Houston's 30.3-point AdjEM gap and nation-leading defense make this automatic against a first-tournament coach from the Big Sky."
   },
   {
     "gameId": "r64-west-1",
@@ -201,7 +201,7 @@
     "team2": "LIU",
     "pick": "Arizona",
     "confidence": 99,
-    "reasoning": "41.6 AdjEM gap is the 2nd-largest in the tournament. Arizona's AdjO of 128.7 and AdjEM of 33.6 rank 2nd and 3rd nationally. Archetype twin 2025 Florida (Champion) signals the highest ceiling in the field. LIU's AdjEM of -8.0 offers zero competitive pathway."
+    "reasoning": "Arizona's 41.6-point AdjEM gap is second-largest in the bracket. Archetypes: 2025 Florida (Champion), 2012 Kentucky (Champion). Big 12 championship momentum (9-1 L10) against LIU's first-ever tournament coach."
   },
   {
     "gameId": "r64-west-2",
@@ -212,8 +212,8 @@
     "seed2": 9,
     "team2": "Utah State",
     "pick": "Utah State",
-    "confidence": 54,
-    "reasoning": "Utah State's AdjEM of 20.9 actually exceeds Villanova's 19.1 despite being the 9-seed. Utah State's AdjO of 123.0 edges Villanova's 119.6, and their Barthag of 0.895 tops Villanova's 0.881. Both teams map to strong archetype twins (both link to 2021 UCLA F4). In this true toss-up, the efficiency edge belongs to Utah State."
+    "confidence": 57,
+    "reasoning": "Utah State leads in AdjEM (20.9 vs 19.1) with a 9-1 L10 HOT streak as MWC double champions. Villanova's Kevin Willard has a concerning 4-7 tournament record. Utah State's momentum and efficiency edge make them the better pick."
   },
   {
     "gameId": "r64-west-3",
@@ -224,8 +224,8 @@
     "seed2": 12,
     "team2": "High Point",
     "pick": "Wisconsin",
-    "confidence": 84,
-    "reasoning": "17.4 AdjEM gap is comfortable. Wisconsin's Barthag of 0.918 and WAB of 4.5 confirm they are a legitimate top-25 team. High Point's AdjEM of 7.7 and WAB of -3.3 place them among the weaker 12-seeds. High Point's archetype twin (2012 Ohio S16) is interesting but Ohio was a 13-seed that benefited from a historically weak bracket pod."
+    "confidence": 78,
+    "reasoning": "Wisconsin's 17.4-point AdjEM gap is well outside upset territory. Archetypes (2016 Oklahoma F4, 2016 Villanova Champion) project deep runs. High Point's 30-4 record earns respect but the conference gap is enormous."
   },
   {
     "gameId": "r64-west-4",
@@ -236,8 +236,8 @@
     "seed2": 13,
     "team2": "Hawaii",
     "pick": "Arkansas",
-    "confidence": 89,
-    "reasoning": "21.2 AdjEM gap is decisive. Arkansas's Barthag of 0.930 and WAB of 5.3 confirm elite quality. Hawaii's AdjEM of 6.5 and weak SOS of 0.328 suggest their metrics are inflated by a weak schedule. The 4-13 upset rate requires a much smaller gap than 21.2."
+    "confidence": 86,
+    "reasoning": "Calipari's 57-22 tournament record (6 FFs, 1 title) is among the best ever. 21.2-point AdjEM advantage and SEC championship momentum. Acuff Jr. returned for SEC tourney. Hawaii's cross-Pacific travel adds fatigue."
   },
   {
     "gameId": "r64-west-5",
@@ -248,8 +248,8 @@
     "seed2": 11,
     "team2": "Texas",
     "pick": "BYU",
-    "confidence": 58,
-    "reasoning": "2.8 AdjEM gap is narrow but BYU's WAB of 4.5 vs Texas's -0.2 reveals a massive quality-wins disparity. Texas played in the SEC but underperformed expectations (negative WAB despite high-major schedule). BYU's archetype twin (2016 Oklahoma F4) signals a team with tournament upside. Texas's metrics are inflated by schedule-adjusted regression."
+    "confidence": 54,
+    "reasoning": "BYU's 2.8-point AdjEM edge is slim. Sean Miller has deeper tournament resume (22-13 vs 2-1), but Texas didn't qualify for SEC tournament (5-5 L10). BYU's marginal efficiency advantage barely carries the day."
   },
   {
     "gameId": "r64-west-6",
@@ -260,8 +260,8 @@
     "seed2": 14,
     "team2": "Kennesaw State",
     "pick": "Gonzaga",
-    "confidence": 92,
-    "reasoning": "25.0 AdjEM gap is comfortable. Gonzaga's AdjEM of 25.8 and archetype twin (2025 Tennessee E8, 0.959 similarity) confirm deep-run caliber. Kennesaw State's AdjEM of 0.8 makes them one of the weakest 14-seeds. Gonzaga's offensive efficiency of 123.7 will overwhelm Kennesaw's defense."
+    "confidence": 88,
+    "reasoning": "Mark Few's 44-25 tournament record against a first-tournament CUSA coach. 25-point AdjEM gap and WCC championship momentum (9-1 L10 HOT). Huff and Warley injuries lower ceiling but 3-14 gap is too wide."
   },
   {
     "gameId": "r64-west-7",
@@ -272,8 +272,8 @@
     "seed2": 10,
     "team2": "Missouri",
     "pick": "Miami",
-    "confidence": 57,
-    "reasoning": "2.7 AdjEM gap is a coin flip by the numbers, but Miami's WAB of 3.8 vs Missouri's 1.2 indicates Miami has been better against quality opponents. Miami's archetype twins (2021 UCLA F4, 2014 UConn Champion) show higher tournament ceilings than Missouri's Sweet 16 archetypes. Miami's AdjD of 101.5 edges Missouri's 103.0 in what should be a half-court battle."
+    "confidence": 55,
+    "reasoning": "Miami's 2.7-point AdjEM edge is modest. 8-2 L10 HOT momentum vs Missouri's 6-4 neutral is the tiebreaker. Both coaches are relatively inexperienced. In a coin-flip 7-10 game, the hotter team gets the nod."
   },
   {
     "gameId": "r64-west-8",
@@ -285,7 +285,7 @@
     "team2": "Queens",
     "pick": "Purdue",
     "confidence": 97,
-    "reasoning": "35.5 AdjEM gap is overwhelming. Purdue's AdjEM of 27.6 with a Barthag of 0.951 ranks in the top 8 nationally. Queens' AdjEM of -7.9 offers no competitive basis. Purdue's archetype twin (2024 Purdue Runner-Up) is literally themselves from two years ago. This is a formality."
+    "reasoning": "Purdue's nation-best offense (AdjO 133.3) meets Queens' worst defense in the bracket (AdjD 117.1). 35.5-point AdjEM gap. Big Ten championship momentum. First-ever D1 tournament for Queens."
   },
   {
     "gameId": "r64-midwest-1",
@@ -297,7 +297,7 @@
     "team2": "UMBC",
     "pick": "Michigan",
     "confidence": 98,
-    "reasoning": "38.3 AdjEM gap is the 4th-largest in the tournament. Michigan's AdjEM of 30.0 and Barthag of 0.967 rank in the top 5 nationally. Archetype twin 2012 Kentucky (Champion, 0.943 similarity) is the strongest possible signal. UMBC's AdjEM of -8.3 — even their famous 2018 upset came against a Virginia team that ranked 1st but had a 16-seed with AdjEM of +5, not -8."
+    "reasoning": "38.3-point AdjEM gap with archetypes (2012 Kentucky Champion, 2025 Florida Champion) projecting champion-caliber. Second-best defense in the country (AdjD 91.0). Dusty May's 6-3 tournament record (1 FF)."
   },
   {
     "gameId": "r64-midwest-2",
@@ -307,9 +307,9 @@
     "team1": "Georgia",
     "seed2": 9,
     "team2": "Saint Louis",
-    "pick": "Georgia",
+    "pick": "Saint Louis",
     "confidence": 56,
-    "reasoning": "2.2 AdjEM gap is essentially a coin flip. Georgia's AdjO of 124.3 significantly outpaces Saint Louis's 119.6, and Georgia's WAB of 2.6 edges SLU's 1.9. Georgia's archetype twins (2016 Oklahoma F4, 2024 Alabama F4) suggest higher tournament upside than Saint Louis's Sweet 16 archetypes. Georgia's SEC pedigree and offensive firepower are marginal tiebreakers."
+    "reasoning": "2.2-point AdjEM gap slightly favors Georgia, but Saint Louis is 8-2 L10 HOT with a 28-5 record. Archetypes (2022 Iowa State S16, 2024 Colorado S16) project viability. Georgia at 6-4 neutral with White's .500 tournament record. The hotter team wins the coin flip."
   },
   {
     "gameId": "r64-midwest-3",
@@ -320,8 +320,8 @@
     "seed2": 12,
     "team2": "Akron",
     "pick": "Texas Tech",
-    "confidence": 83,
-    "reasoning": "15.7 AdjEM gap is solid. Texas Tech's AdjD of 93.6 is elite (top 20 nationally) and will stifle Akron's offense. Texas Tech's archetype twin (2024 Purdue Runner-Up) confirms top-tier caliber. Akron's archetype twin (2014 Stanford S16) went deep but Stanford had significantly better defensive metrics than Akron's 106.5 AdjD."
+    "confidence": 76,
+    "reasoning": "15.7-point AdjEM advantage well outside upset territory. Archetypes (2024 Purdue Runner-Up, 2016 Villanova Champion) project deep runs. Big 12 vs MAC efficiency and physicality gap is too wide."
   },
   {
     "gameId": "r64-midwest-4",
@@ -332,8 +332,8 @@
     "seed2": 13,
     "team2": "Hofstra",
     "pick": "Alabama",
-    "confidence": 87,
-    "reasoning": "18.5 AdjEM gap is comfortable. Alabama's AdjEM of 25.7 and Barthag of 0.935 rank in the top 15. Hofstra's AdjEM of 7.2 and weak SOS of 0.378 inflate their metrics from a weak conference. Alabama's archetype twin (2016 Oklahoma F4) suggests a team with explosive offensive potential. Hofstra's archetype twin (2010 Cornell S16) is intriguing but Cornell faced a uniquely weak bracket pod."
+    "confidence": 85,
+    "reasoning": "Nate Oats' 11-6 tournament record and Alabama's fastest tempo (73.1) overwhelm Hofstra's first-tournament coach. 18.5-point AdjEM gap. Archetypes (2016 Oklahoma F4, 2022 UNC Runner-Up) project deep."
   },
   {
     "gameId": "r64-midwest-5",
@@ -344,8 +344,8 @@
     "seed2": 11,
     "team2": "SMU",
     "pick": "Tennessee",
-    "confidence": 72,
-    "reasoning": "7.9 AdjEM gap is meaningful but not insurmountable. Tennessee's AdjD of 95.5 is elite and will challenge SMU's AdjO of 123.0. Tennessee's Barthag of 0.941 vs SMU's 0.861 reveals a significant quality gap beyond raw AdjEM. Tennessee's archetype twins (2012 Syracuse E8, 2024 Purdue Runner-Up) signal deep-run potential. SMU's negative WAB (-0.0) suggests they underperformed their talent level."
+    "confidence": 64,
+    "reasoning": "Tennessee's 7.9-point AdjEM edge and elite defense (AdjD 95.5) control this matchup. Rick Barnes' 28-26 tournament record across 21 appearances provides massive experience edge. Ament's return is a positive sign."
   },
   {
     "gameId": "r64-midwest-6",
@@ -356,8 +356,8 @@
     "seed2": 14,
     "team2": "Wright State",
     "pick": "Virginia",
-    "confidence": 91,
-    "reasoning": "23.0 AdjEM gap is decisive. Virginia's AdjEM of 26.2 and Barthag of 0.942 rank in the top 12 nationally. Wright State's AdjEM of 3.3 and WAB of -3.2 confirm a below-average tournament team. Virginia's archetype twin (2024 Purdue Runner-Up) signals deep-run caliber. Wright State's archetypes are limited to R64/R32 exits."
+    "confidence": 88,
+    "reasoning": "23-point AdjEM gap and 8-2 L10 HOT momentum as ACC runner-up. Sanchez is a first-tournament coach — normally a red flag — but the talent gap against Wright State is too wide. Archetypes (2024 Purdue, 2018 Michigan) project deep runs."
   },
   {
     "gameId": "r64-midwest-7",
@@ -368,8 +368,8 @@
     "seed2": 10,
     "team2": "Santa Clara",
     "pick": "Santa Clara",
-    "confidence": 53,
-    "reasoning": "Santa Clara's AdjEM of 21.3 actually exceeds Kentucky's 19.9 despite being the 10-seed. Santa Clara's AdjO of 125.0 tops Kentucky's 119.9 by a significant margin, and their Barthag of 0.895 edges Kentucky's 0.890. Santa Clara's archetype twin (2016 Oklahoma F4) has deep-run pedigree. The data says Santa Clara is genuinely the better team — picking them is following the numbers, not chasing an upset."
+    "confidence": 64,
+    "reasoning": "Santa Clara's AdjEM (21.3) exceeds Kentucky's (19.9). Kentucky's injuries are devastating: Quaintance OUT, Lowe OUT for season, Moreno questionable. Archetypes (2016 Oklahoma F4) project strong tournament performance. The data demands this pick."
   },
   {
     "gameId": "r64-midwest-8",
@@ -381,6 +381,6 @@
     "team2": "Tennessee State",
     "pick": "Iowa State",
     "confidence": 97,
-    "reasoning": "35.3 AdjEM gap is overwhelming. Iowa State's AdjEM of 28.2 with Barthag of 0.958 ranks 6th nationally. Archetype twin 2024 Purdue (Runner-Up, 0.944 similarity) confirms championship-caliber efficiency. Tennessee State's AdjEM of -7.1 provides no competitive basis whatsoever."
+    "reasoning": "35.3-point AdjEM gap with elite defense (AdjD 92.6). Otzelberger's 9-5 tournament record against a first-tournament coach. Archetypes (2024 Purdue Runner-Up, 2025 Houston Runner-Up) project deep."
   }
 ]

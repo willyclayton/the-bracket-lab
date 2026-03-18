@@ -30,7 +30,7 @@
       "three_pt_rate",
       "three_pt_pct",
       "ft_pct",
-      "conference_strength_score"
+      "css"
     ],
     "similarity_normalization": "min-max across full dataset"
   },
@@ -806,7 +806,7 @@
       "efficiency": {
         "adjO": 124.8,
         "adjD": 89.4,
-        "adjEM": 35.0,
+        "adjEM": 35.4,
         "tempo": 70.8,
         "barthag": 0.978,
         "sos": 88.4
@@ -3646,7 +3646,7 @@
       "efficiency": {
         "adjO": 126.4,
         "adjD": 91.2,
-        "adjEM": 35.0,
+        "adjEM": 35.2,
         "tempo": 74.4,
         "barthag": 0.97,
         "sos": 68.4

@@ -68,7 +68,10 @@ def load_teams_json(year=None):
 
     data = load_json(filepath)
 
-    if isinstance(data, list):
+    # Handle {"teams": [...]} wrapper (the actual teams.json structure)
+    if isinstance(data, dict) and "teams" in data and isinstance(data["teams"], list):
+        teams = {t["name"]: t for t in data["teams"] if "name" in t}
+    elif isinstance(data, list):
         teams = {t["name"]: t for t in data if "name" in t}
     elif isinstance(data, dict):
         teams = data

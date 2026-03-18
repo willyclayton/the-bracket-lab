@@ -144,16 +144,33 @@ def export_bracket(year, n_sims=5000):
     bracket = get_year_bracket(df_games, int(year))
     r64_games = bracket["actual_games"]["R64"]
 
+    # Load template early (needed for both paths)
+    template = load_template(year)
+
     # Build R64 matchups for optimizer
     r64_matchups = []
-    for g in r64_games:
-        r64_matchups.append({
-            "team_1": g["team_1"],
-            "seed_1": g["seed_1"] or 8,
-            "team_2": g["team_2"],
-            "seed_2": g["seed_2"] or 8,
-            "region": g["region"],
-        })
+    using_template_directly = False
+    if r64_games:
+        # Historical year — use sports-ref data
+        for g in r64_games:
+            r64_matchups.append({
+                "team_1": g["team_1"],
+                "seed_1": g["seed_1"] or 8,
+                "team_2": g["team_2"],
+                "seed_2": g["seed_2"] or 8,
+                "region": g["region"],
+            })
+    else:
+        # Future year (e.g. 2026) — build from template JSON directly
+        using_template_directly = True
+        for game in template["rounds"]["round_of_64"]:
+            r64_matchups.append({
+                "team_1": game["team1"],
+                "seed_1": game["seed1"],
+                "team_2": game["team2"],
+                "seed_2": game["seed2"],
+                "region": game["region"],
+            })
 
     # Build team seeds and prob matrix for confidence values
     team_seeds = {}
@@ -166,8 +183,6 @@ def export_bracket(year, n_sims=5000):
     # Run optimizer
     opt_predictions = optimize_bracket(predictor, r64_matchups, year, n_sims=n_sims)
 
-    # Load template
-    template = load_template(year)
     template_name_map = build_template_team_map(template)
     region_map = determine_region_map(df_games, year, template)
 
@@ -382,9 +397,10 @@ def export_bracket(year, n_sims=5000):
         ff_teams.extend([game["team1"], game["team2"]])
     output["finalFour"] = ff_teams
 
-    # Check if champion was eliminated (Florida won 2025)
-    actual_champion = bracket["actual_winners"].get("Championship", [None])[0]
-    if actual_champion and output["champion"]:
+    # Check if champion was eliminated
+    champ_winners = bracket["actual_winners"].get("Championship", [])
+    if champ_winners and output["champion"]:
+        actual_champion = champ_winners[0]
         champ_ws = map_team_name(actual_champion, template_name_map) if actual_champion else None
         output["championEliminated"] = output["champion"] != champ_ws
 

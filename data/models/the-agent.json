@@ -3,115 +3,19 @@
   "displayName": "The Agent",
   "tagline": "No rules. No prompts. Just: build me a bracket.",
   "color": "#00ff88",
-  "generated": "2026-03-15",
+  "generated": "2026-03-17",
   "locked": true,
   "espnBracketUrl": null,
-  "champion": "Florida",
+  "champion": "Houston",
   "championEliminated": false,
   "finalFour": [
-    "Florida",
-    "St. John's",
+    "Houston",
+    "Duke",
     "Arizona",
-    "Michigan"
+    "Iowa State"
   ],
   "rounds": {
     "round_of_64": [
-      {
-        "gameId": "r64-east-1",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 1,
-        "team1": "Duke",
-        "seed2": 16,
-        "team2": "Siena",
-        "pick": "Duke",
-        "confidence": 97,
-        "reasoning": "Even autonomous systems respect gravity. Duke's defensive scheme versatility shuts down every offensive set Siena can run. The talent gap is a canyon."
-      },
-      {
-        "gameId": "r64-east-2",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 8,
-        "team1": "Ohio State",
-        "seed2": 9,
-        "team2": "TCU",
-        "pick": "TCU",
-        "confidence": 58,
-        "reasoning": "My analysis flagged TCU's late-season trajectory as a breakout signal. Their portal talent absorption rate was the highest in the Big 12 this year, and it finally clicked in February. Ohio State's defensive gaps are exploitable."
-      },
-      {
-        "gameId": "r64-east-3",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 5,
-        "team1": "St. John's",
-        "seed2": 12,
-        "team2": "Northern Iowa",
-        "pick": "St. John's",
-        "confidence": 82,
-        "reasoning": "St. John's is the most underseeded team in this field. Their adjusted efficiency metrics scream top-15 team, not a 5-seed. Northern Iowa's half-court offense stalls against physical perimeter defense."
-      },
-      {
-        "gameId": "r64-east-4",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 4,
-        "team1": "Kansas",
-        "seed2": 13,
-        "team2": "Cal Baptist",
-        "pick": "Kansas",
-        "confidence": 86,
-        "reasoning": "Kansas's tournament pedigree is real and quantifiable \u2014 their players' minutes in high-leverage situations exceed Cal Baptist's entire roster combined. The experience gap compounds under pressure."
-      },
-      {
-        "gameId": "r64-east-5",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 6,
-        "team1": "Louisville",
-        "seed2": 11,
-        "team2": "South Florida",
-        "pick": "Louisville",
-        "confidence": 62,
-        "reasoning": "Louisville's defensive rebounding rate stabilized in conference play. South Florida's offensive scheme relies on second-chance points they won't get here. Close game, but Louisville's physicality wins out."
-      },
-      {
-        "gameId": "r64-east-6",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 3,
-        "team1": "Michigan State",
-        "seed2": 14,
-        "team2": "North Dakota State",
-        "pick": "Michigan State",
-        "confidence": 93,
-        "reasoning": "Izzo in March. I ran every angle on this and there's no path for North Dakota State. Michigan State's defensive scheme versatility can switch between zone and man seamlessly \u2014 NDSU has no counter."
-      },
-      {
-        "gameId": "r64-east-7",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 7,
-        "team1": "UCLA",
-        "seed2": 10,
-        "team2": "UCF",
-        "pick": "UCF",
-        "confidence": 61,
-        "reasoning": "Here's what nobody's talking about: UCF's portal talent absorption this cycle brought in three players who thrive in tournament-style single-elimination pressure. UCLA's inconsistent road record against athletic teams is a red flag my models kept surfacing."
-      },
-      {
-        "gameId": "r64-east-8",
-        "round": "round_of_64",
-        "region": "East",
-        "seed1": 2,
-        "team1": "UConn",
-        "seed2": 15,
-        "team2": "Furman",
-        "pick": "UConn",
-        "confidence": 95,
-        "reasoning": "UConn's tournament infrastructure is generational. Their half-court efficiency against zone defense \u2014 Furman's primary scheme \u2014 is top-5 nationally. No path for the 15-seed here."
-      },
       {
         "gameId": "r64-south-1",
         "round": "round_of_64",
@@ -121,8 +25,8 @@
         "seed2": 16,
         "team2": "Prairie View A&M",
         "pick": "Florida",
-        "confidence": 98,
-        "reasoning": "Florida's offensive and defensive efficiency ratings are both top-5. The talent differential here is approximately 40 recruiting stars. Prairie View A&M has zero matchup advantages in any facet."
+        "confidence": 99,
+        "reasoning": "Florida is the defending champion with the nation's best adjusted efficiency margin (+30.9). Prairie View A&M is 18-17 from the SWAC with a -16.2 AdjEM. The widest talent gap in the bracket -- no realistic upset path exists."
       },
       {
         "gameId": "r64-south-2",
@@ -132,9 +36,9 @@
         "team1": "Clemson",
         "seed2": 9,
         "team2": "Iowa",
-        "pick": "Iowa",
-        "confidence": 57,
-        "reasoning": "Iowa's offensive rebounding surge in late February was the signal. My models detected a scheme change that unlocked their interior game. Clemson's perimeter-oriented defense leaves the paint vulnerable to exactly what Iowa does best."
+        "pick": "Clemson",
+        "confidence": 56,
+        "reasoning": "Clemson lost Welling (ACL) and Hunter (broken hand) in the ACC tournament, but their remaining core still has a higher KenPom rating than Iowa. Iowa enters cold at 4-6 in their last 10 with a first-year coach adjusting from D2."
       },
       {
         "gameId": "r64-south-3",
@@ -144,9 +48,9 @@
         "team1": "Vanderbilt",
         "seed2": 12,
         "team2": "McNeese",
-        "pick": "McNeese",
-        "confidence": 59,
-        "reasoning": "This is my favorite upset in the bracket. McNeese's pace-adjusted efficiency has been climbing since January \u2014 a 12-seed with a late-season trajectory that matches 9 of the last 14 first-round 12-over-5 winners. Vanderbilt's defensive scheme is exploitable by high-tempo mid-majors."
+        "pick": "Vanderbilt",
+        "confidence": 74,
+        "reasoning": "McNeese is a classic 12-seed upset threat riding a 10-0 streak, but Vanderbilt beat Florida and Tennessee in the SEC tournament proving they compete against elite talent. Vandy's ball security neutralizes McNeese's turnover-forcing identity."
       },
       {
         "gameId": "r64-south-4",
@@ -157,8 +61,8 @@
         "seed2": 13,
         "team2": "Troy",
         "pick": "Nebraska",
-        "confidence": 84,
-        "reasoning": "Nebraska's Big Ten schedule hardened them for exactly this type of game. Troy's Sun Belt offense generates quality shots at a rate 4 standard deviations below what's needed to compete with Nebraska's defense."
+        "confidence": 88,
+        "reasoning": "Nebraska's 22.4 AdjEM and former 24-game win streak show sustained excellence. Troy has a negative efficiency margin (-1.9) and a negative turnover margin from the Sun Belt. The talent gap is too wide."
       },
       {
         "gameId": "r64-south-5",
@@ -170,7 +74,7 @@
         "team2": "VCU",
         "pick": "VCU",
         "confidence": 58,
-        "reasoning": "VCU's press is a tournament weapon that doesn't show up in regular-season analytics. My models weight pressure defense 3x higher in single-elimination contexts. North Carolina's ball security issues against aggressive defensive schemes are a documented vulnerability."
+        "reasoning": "UNC lost star Caleb Wilson (broken thumb, projected top-5 pick) and went 5-5 in their last 10 -- flagged as cold. VCU is 9-1 in their last 10 with a HAVOC pressing defense that forces turnovers at a 21.4% rate. UNC's -1.3 turnover margin makes them vulnerable to exactly this style of chaos."
       },
       {
         "gameId": "r64-south-6",
@@ -182,7 +86,7 @@
         "team2": "Penn",
         "pick": "Illinois",
         "confidence": 91,
-        "reasoning": "Illinois's defensive ceiling is elite when locked in. Penn's Ivy League offense generates efficient looks against mid-major defenses but historically craters against Power conference athleticism. No viable upset path."
+        "reasoning": "Illinois has Big Ten pedigree and an 18.5 AdjEM. Penn is an Ivy League team at -1.8 AdjEM that squeaked through their conference tournament in OT with a 3-7 close-game record. The athleticism gap is enormous."
       },
       {
         "gameId": "r64-south-7",
@@ -192,9 +96,9 @@
         "team1": "Saint Mary's",
         "seed2": 10,
         "team2": "Texas A&M",
-        "pick": "Saint Mary's",
-        "confidence": 60,
-        "reasoning": "Saint Mary's pace control is a tournament superpower. They dictate tempo in ways that neutralize athleticism gaps. Texas A&M's offense needs transition opportunities that Saint Mary's will deny completely."
+        "pick": "Texas A&M",
+        "confidence": 55,
+        "reasoning": "Saint Mary's controls tempo brilliantly (63.2 pace), but Texas A&M's SEC-tested physicality and significantly higher SOS (85.6 vs 64.8) gives them the edge. Texas A&M has faced the kind of athletes that Saint Mary's deliberate approach rarely encounters."
       },
       {
         "gameId": "r64-south-8",
@@ -205,8 +109,104 @@
         "seed2": 15,
         "team2": "Idaho",
         "pick": "Houston",
-        "confidence": 96,
-        "reasoning": "Houston's defensive efficiency is generationally elite. Idaho's offensive output against comparable defensive profiles projects below 50 points. This is a 25+ point game."
+        "confidence": 98,
+        "reasoning": "Houston has the nation's best defense (89.8 AdjD), the best turnover margin in the field (+5.6), and Kelvin Sampson's 20 tournament appearances. Idaho is making their first tournament since 1990 with a -6.2 AdjEM. A 25+ point win."
+      },
+      {
+        "gameId": "r64-east-1",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 1,
+        "team1": "Duke",
+        "seed2": 16,
+        "team2": "Siena",
+        "pick": "Duke",
+        "confidence": 99,
+        "reasoning": "Duke is the nation's highest-rated team by AdjEM (32.9) with a 32-2 record and 11-game win streak. Siena is a MAAC champion with a -9.2 AdjEM. No 16-seed has beaten a 1-seed since 2018 and Duke isn't that kind of vulnerable."
+      },
+      {
+        "gameId": "r64-east-2",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 8,
+        "team1": "Ohio State",
+        "seed2": 9,
+        "team2": "TCU",
+        "pick": "TCU",
+        "confidence": 57,
+        "reasoning": "TCU is 8-2 in their last 10 with Big 12 toughness under Jamie Dixon (16 career tournament appearances). Ohio State has a first-time tournament HC, key injuries (Noel out since January, Chatman day-to-day), and a .500 close-game record. TCU's experience tips this."
+      },
+      {
+        "gameId": "r64-east-3",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 5,
+        "team1": "St. John's",
+        "seed2": 12,
+        "team2": "Northern Iowa",
+        "pick": "St. John's",
+        "confidence": 82,
+        "reasoning": "St. John's is massively underseeded at KenPom 6 with a 31-5 record, Big East championship, and Rick Pitino's 55-22 career tournament record. Northern Iowa's weak SOS (52.4) means they haven't faced this caliber of guard play all season."
+      },
+      {
+        "gameId": "r64-east-4",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 4,
+        "team1": "Kansas",
+        "seed2": 13,
+        "team2": "Cal Baptist",
+        "pick": "Kansas",
+        "confidence": 85,
+        "reasoning": "Bill Self's tournament machine (57-24 career record) handles mid-majors efficiently. Cal Baptist is making their first D1 tournament ever with a 2.2 AdjEM from the WAC. The experience and talent gap compounds under March pressure."
+      },
+      {
+        "gameId": "r64-east-5",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 6,
+        "team1": "Louisville",
+        "seed2": 11,
+        "team2": "South Florida",
+        "pick": "Louisville",
+        "confidence": 60,
+        "reasoning": "South Florida is riding a 9-game win streak and emotional momentum from coach Amir Abdur-Rahim's passing, but their SOS (62.4) is far below Louisville's ACC gauntlet. Louisville's physicality and talent edge barely win out despite Kelsey's 0-6 career tournament record."
+      },
+      {
+        "gameId": "r64-east-6",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 3,
+        "team1": "Michigan State",
+        "seed2": 14,
+        "team2": "North Dakota State",
+        "pick": "Michigan State",
+        "confidence": 90,
+        "reasoning": "Tom Izzo in March: 59-26 tournament record, 8 Final Fours, 28 straight appearances. This senior-led team with 11 tournament-experienced players will impose their defensive will on NDSU's Summit League offense."
+      },
+      {
+        "gameId": "r64-east-7",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 7,
+        "team1": "UCLA",
+        "seed2": 10,
+        "team2": "UCF",
+        "pick": "UCLA",
+        "confidence": 57,
+        "reasoning": "Both teams have significant injuries. UCLA's leading scorer Bilodeau and guard Dent are limited; UCF's Stillwell and Bol are banged up. UCLA's Big Ten battle-testing and Cronin's tournament pedigree (16-15 career, Final Four) narrowly tip this over UCF's Big 12 experience."
+      },
+      {
+        "gameId": "r64-east-8",
+        "round": "round_of_64",
+        "region": "East",
+        "seed1": 2,
+        "team1": "UConn",
+        "seed2": 15,
+        "team2": "Furman",
+        "pick": "UConn",
+        "confidence": 95,
+        "reasoning": "Dan Hurley seeking a three-peat with the most tournament-experienced roster in the field (10 players with March experience, 15-5 career record). Furman's -4.4 AdjEM and 2-7 close-game record offer no upset path against this caliber of program."
       },
       {
         "gameId": "r64-west-1",
@@ -217,8 +217,8 @@
         "seed2": 16,
         "team2": "LIU",
         "pick": "Arizona",
-        "confidence": 98,
-        "reasoning": "Arizona's offensive firepower is obscene. LIU's defensive scheme has no answer for Arizona's pick-and-roll efficiency, which ranks 2nd nationally. This is over by halftime."
+        "confidence": 99,
+        "reasoning": "Arizona is 32-2, Big 12 champions, the healthiest 1-seed, and running hot at 9-1 in their last 10. LIU is a NEC auto-bid. Arizona's 30.0 AdjEM and elite two-way efficiency make this over by halftime."
       },
       {
         "gameId": "r64-west-2",
@@ -228,9 +228,9 @@
         "team1": "Villanova",
         "seed2": 9,
         "team2": "Utah State",
-        "pick": "Utah State",
-        "confidence": 56,
-        "reasoning": "Utah State's defensive identity is underrated by consensus models. Their Mountain West schedule masked a defensive efficiency that's competitive with mid-tier Power conference teams. Villanova's offensive inconsistency in road/neutral settings is the vulnerability."
+        "pick": "Villanova",
+        "confidence": 54,
+        "reasoning": "A true coin flip. Villanova's Big East DNA and Jay Wright-era institutional knowledge still permeates the program. Utah State's MWC schedule provides competitive experience, but Villanova's March mystique and coaching pedigree tip the narrowest of margins."
       },
       {
         "gameId": "r64-west-3",
@@ -241,8 +241,8 @@
         "seed2": 12,
         "team2": "High Point",
         "pick": "Wisconsin",
-        "confidence": 80,
-        "reasoning": "Wisconsin's pace manipulation is an annihilator of mid-major offenses. High Point needs volume to compete and Wisconsin will hold this to 55 possessions. The Badgers' half-court efficiency in low-possession games is historically dominant."
+        "confidence": 85,
+        "reasoning": "Wisconsin's grind-it-out style is a Cinderella killer. They'll reduce this to 55 possessions where High Point's Big South-level athletes can't find clean looks against Wisconsin's half-court defense. The Badgers are built to survive and advance."
       },
       {
         "gameId": "r64-west-4",
@@ -253,8 +253,8 @@
         "seed2": 13,
         "team2": "Hawaii",
         "pick": "Arkansas",
-        "confidence": 85,
-        "reasoning": "Arkansas's SEC-caliber athleticism and defensive pressure create an environment Hawaii cannot survive. The travel factor \u2014 Hawaii flying 4,000+ miles \u2014 compounds the disadvantage. Arkansas by double digits."
+        "confidence": 87,
+        "reasoning": "John Calipari brings 8 Final Four appearances and SEC-caliber athleticism to this matchup. Hawaii faces the longest travel distance in the tournament (4,000+ miles) and a massive step up in competition. Arkansas's defensive pressure overwhelms."
       },
       {
         "gameId": "r64-west-5",
@@ -265,8 +265,8 @@
         "seed2": 11,
         "team2": "Texas",
         "pick": "Texas",
-        "confidence": 60,
-        "reasoning": "Texas is the most dangerous 11-seed in the field. Their late-season trajectory after the coaching adjustments in February shows a team peaking at the right time. BYU's defensive scheme is vulnerable to Texas's size advantage inside."
+        "confidence": 56,
+        "reasoning": "Texas is the most dangerous 11-seed in the field -- raw talent from the Big 12 that knows BYU's tendencies from conference play. BYU's defensive scheme is vulnerable to Texas's size inside. The familiarity factor and higher ceiling give Texas the slight edge."
       },
       {
         "gameId": "r64-west-6",
@@ -277,8 +277,8 @@
         "seed2": 14,
         "team2": "Kennesaw State",
         "pick": "Gonzaga",
-        "confidence": 92,
-        "reasoning": "Gonzaga's offensive efficiency against zone defense \u2014 Kennesaw State's base scheme \u2014 is the highest in the country. The Zags will carve this defense apart for 40 minutes."
+        "confidence": 88,
+        "reasoning": "Gonzaga's elite offensive firepower under Mark Few will carve apart Kennesaw State's defense. Kennesaw State's point-shaving suspension drama adds chaos, but their Conference USA pedigree doesn't translate to competing with Gonzaga's offensive efficiency."
       },
       {
         "gameId": "r64-west-7",
@@ -289,8 +289,8 @@
         "seed2": 10,
         "team2": "Missouri",
         "pick": "Missouri",
-        "confidence": 59,
-        "reasoning": "Missouri's portal talent absorption transformed this roster mid-season. Their defensive scheme versatility \u2014 switching between man and zone on consecutive possessions \u2014 is something Miami's offense hasn't faced consistently in the ACC. The mismatch is schematic, not talent-based."
+        "confidence": 55,
+        "reasoning": "Missouri's SEC physicality and higher SOS give them the edge in a matchup of similarly-rated teams. Miami's ACC struggles down the stretch and lower conference strength score make them vulnerable. Missouri's defensive versatility creates problems Miami's offense hasn't consistently solved."
       },
       {
         "gameId": "r64-west-8",
@@ -301,8 +301,8 @@
         "seed2": 15,
         "team2": "Queens",
         "pick": "Purdue",
-        "confidence": 96,
-        "reasoning": "Purdue's interior dominance against undersized opponents is historically ruthless. Queens' frontcourt cannot compete with Purdue's size advantage. This projects as a 30+ point blowout."
+        "confidence": 97,
+        "reasoning": "Purdue's Big Ten size advantage and 22.4 AdjEM against Queens' first D1 tournament appearance is a 30-point mismatch. The interior dominance alone -- Purdue's frontcourt vs Queens' undersized lineup -- makes this a non-competitive game."
       },
       {
         "gameId": "r64-midwest-1",
@@ -313,8 +313,8 @@
         "seed2": 16,
         "team2": "UMBC",
         "pick": "Michigan",
-        "confidence": 97,
-        "reasoning": "Michigan's #2 BartTorvik ranking isn't an accident. Their offensive and defensive efficiency combination is elite. UMBC's upset history in 2018 doesn't transfer to this roster. Michigan dominates every measurable dimension."
+        "confidence": 98,
+        "reasoning": "Michigan is a 1-seed with a 26.4 AdjEM and Dusty May's Final Four pedigree from FAU. UMBC made 16-over-1 history in 2018 but this roster is a -12.0 AdjEM with a 2-8 close-game record. Lightning doesn't strike the same program twice."
       },
       {
         "gameId": "r64-midwest-2",
@@ -324,9 +324,9 @@
         "team1": "Georgia",
         "seed2": 9,
         "team2": "Saint Louis",
-        "pick": "Georgia",
-        "confidence": 55,
-        "reasoning": "Georgia's SEC schedule provides a marginal but meaningful toughness adjustment over Saint Louis's A-10 slate. In a coin-flip game, I'm taking the team that's been battle-tested against elite competition week after week."
+        "pick": "Saint Louis",
+        "confidence": 57,
+        "reasoning": "Saint Louis is 28-5 with system basketball under Josh Schertz and 8-2 in their last 10. Georgia had an early SEC tournament exit and flat 6-4 last-10 stretch. Saint Louis's disciplined execution and better recent trajectory tip this 8-9 game."
       },
       {
         "gameId": "r64-midwest-3",
@@ -336,9 +336,9 @@
         "team1": "Texas Tech",
         "seed2": 12,
         "team2": "Akron",
-        "pick": "Akron",
-        "confidence": 57,
-        "reasoning": "Akron is my second-favorite upset pick. Their ball-screen offense generated 1.12 PPP in conference play \u2014 elite by any standard. Texas Tech's defense is built to stop perimeter shooting, not pick-and-roll maestros. The schematic mismatch is real and underpriced."
+        "pick": "Texas Tech",
+        "confidence": 83,
+        "reasoning": "Texas Tech's defense is elite (92.1 AdjD) with the lowest turnover rate in the field (14.4%). Their defensive DNA under McCasland and Big 12 toughness will smother Akron's MAC-caliber offense. The 12-seed upset threat is real but Texas Tech's floor is too high."
       },
       {
         "gameId": "r64-midwest-4",
@@ -349,8 +349,8 @@
         "seed2": 13,
         "team2": "Hofstra",
         "pick": "Alabama",
-        "confidence": 85,
-        "reasoning": "Alabama's raw talent overwhelms Hofstra's system-based approach. The Crimson Tide's transition offense generates 1.28 PPP in the open court \u2014 Hofstra has no mechanism to prevent these opportunities."
+        "confidence": 86,
+        "reasoning": "Alabama's three-point volume (44% rate at 37.8% accuracy) will overwhelm Hofstra's CAA-level defense. Nate Oats's tournament experience (11-6 record) and SEC talent advantage create an impossible task for a 13-seed."
       },
       {
         "gameId": "r64-midwest-5",
@@ -360,9 +360,9 @@
         "team1": "Tennessee",
         "seed2": 11,
         "team2": "SMU",
-        "pick": "SMU",
-        "confidence": 58,
-        "reasoning": "SMU is my sleeper 11-seed. Their defensive efficiency spike since joining the ACC is legitimate and sustainable. Tennessee's offensive limitations in half-court settings against switching defenses are well-documented in my data. SMU's veteran roster handles tournament pressure better."
+        "pick": "Tennessee",
+        "confidence": 62,
+        "reasoning": "Tennessee's defense-first identity under Rick Barnes (21 tournament appearances, 28-26 record) is built for March. SMU's best defender B.J. Edwards missed 5 games with an ankle injury clouding his availability. Tennessee's +3.4 turnover margin and SEC physicality prevail."
       },
       {
         "gameId": "r64-midwest-6",
@@ -374,7 +374,7 @@
         "team2": "Wright State",
         "pick": "Virginia",
         "confidence": 90,
-        "reasoning": "Virginia's pack-line defense creates a suffocating half-court environment that Wright State's offense cannot navigate. The pace will be in the low 60s and Virginia wins every game played at that tempo against this caliber of opponent."
+        "reasoning": "Virginia's post-Bennett system under Sanchez produced a 22.6 AdjEM and ACC runner-up finish. Wright State has a -2.4 AdjEM and 3-7 close-game record from the Horizon League. Virginia's half-court execution in a slow-tempo game is a death sentence for mid-majors."
       },
       {
         "gameId": "r64-midwest-7",
@@ -385,8 +385,8 @@
         "seed2": 10,
         "team2": "Santa Clara",
         "pick": "Santa Clara",
-        "confidence": 58,
-        "reasoning": "This is the upset no one sees coming. Santa Clara's offensive system generates the highest open-three rate in the WCC, and Kentucky's perimeter defense has been exploitable all season. Santa Clara's bench depth \u2014 9 players averaging 10+ minutes \u2014 gives them a fatigue advantage in a tournament setting."
+        "confidence": 55,
+        "reasoning": "Kentucky is devastated by injuries: Quaintance out for opening weekend, Lowe out for season, Moreno questionable. A freshman-heavy roster (avg 1.8 years) without its best players against Santa Clara's healthy, experienced squad (beat Saint Mary's in WCC semis) is a recipe for the 10-over-7 upset."
       },
       {
         "gameId": "r64-midwest-8",
@@ -397,82 +397,34 @@
         "seed2": 15,
         "team2": "Tennessee State",
         "pick": "Iowa State",
-        "confidence": 95,
-        "reasoning": "Iowa State's defensive pressure creates turnovers at a rate Tennessee State's ball-handling cannot withstand. The Cyclones' turnover margin projects at +12 in this matchup. No viable upset path."
+        "confidence": 98,
+        "reasoning": "Iowa State has the highest SOS in the entire field (88.1), a 25.5 AdjEM, and Otzelberger's best squad. Tennessee State from the OVC has a -7.0 AdjEM and 2-7 close-game record. Complete mismatch in every measurable dimension."
       }
     ],
     "round_of_32": [
-      {
-        "gameId": "r32-east-1",
-        "round": "round_of_32",
-        "region": "East",
-        "seed1": 1,
-        "team1": "Duke",
-        "seed2": 9,
-        "team2": "TCU",
-        "pick": "Duke",
-        "confidence": 80,
-        "reasoning": "Duke's talent advantage reasserts itself here. TCU's upset energy from Round 1 doesn't scale against a 1-seed with this level of defensive scheme versatility. Duke's half-court offense is surgical against man defense."
-      },
-      {
-        "gameId": "r32-east-2",
-        "round": "round_of_32",
-        "region": "East",
-        "seed1": 5,
-        "team1": "St. John's",
-        "seed2": 4,
-        "team2": "Kansas",
-        "pick": "St. John's",
-        "confidence": 63,
-        "reasoning": "St. John's guard play is the differentiator. Their backcourt generates 1.15 PPP in pick-and-roll \u2014 top-10 nationally. Kansas's perimeter defense has been declining since January, and my trajectory models project that decline continues into March. St. John's is the better team right now."
-      },
-      {
-        "gameId": "r32-east-3",
-        "round": "round_of_32",
-        "region": "East",
-        "seed1": 6,
-        "team1": "Louisville",
-        "seed2": 3,
-        "team2": "Michigan State",
-        "pick": "Michigan State",
-        "confidence": 72,
-        "reasoning": "Michigan State's second-weekend tournament performance under Izzo is historically elite. Their defensive adjustments between games are the best in the country. Louisville's offensive ceiling isn't high enough to overcome Izzo's game-planning."
-      },
-      {
-        "gameId": "r32-east-4",
-        "round": "round_of_32",
-        "region": "East",
-        "seed1": 10,
-        "team1": "UCF",
-        "seed2": 2,
-        "team2": "UConn",
-        "pick": "UConn",
-        "confidence": 73,
-        "reasoning": "UConn's tournament pedigree and half-court execution overwhelm UCF's upset bid. UCF's defensive energy fades in the second half of back-to-back tournament games \u2014 a pattern my models identified across their season data."
-      },
       {
         "gameId": "r32-south-1",
         "round": "round_of_32",
         "region": "South",
         "seed1": 1,
         "team1": "Florida",
-        "seed2": 9,
-        "team2": "Iowa",
+        "seed2": 8,
+        "team2": "Clemson",
         "pick": "Florida",
-        "confidence": 81,
-        "reasoning": "Florida's defensive efficiency against high-volume offenses is the best in the SEC. Iowa's reliance on offensive rebounding is neutralized by Florida's elite defensive rebounding rate of 78.3%. Florida controls the glass and wins comfortably."
+        "confidence": 78,
+        "reasoning": "Florida's defending champion pedigree and nation-best AdjEM overwhelm an injury-depleted Clemson. Without Welling and Hunter, Clemson lacks the scoring punch to keep pace with Florida's balanced frontcourt trio of Haugh, Condon, and Chinyelu."
       },
       {
         "gameId": "r32-south-2",
         "round": "round_of_32",
         "region": "South",
-        "seed1": 12,
-        "team1": "McNeese",
+        "seed1": 5,
+        "team1": "Vanderbilt",
         "seed2": 4,
         "team2": "Nebraska",
         "pick": "Nebraska",
-        "confidence": 70,
-        "reasoning": "McNeese's upset magic runs out against Nebraska's physicality. The Big Ten's defensive intensity is a different animal than the Southland Conference. Nebraska's size advantage inside creates a rebounding differential McNeese cannot overcome."
+        "confidence": 57,
+        "reasoning": "Nebraska's 22.4 AdjEM and Big Ten physicality edge Vanderbilt's 16.6 AdjEM. Hoiberg's squad had a 24-game win streak proving they sustain excellence over long stretches. The size and depth advantage wears Vanderbilt down."
       },
       {
         "gameId": "r32-south-3",
@@ -483,20 +435,68 @@
         "seed2": 3,
         "team2": "Illinois",
         "pick": "Illinois",
-        "confidence": 68,
-        "reasoning": "Illinois's ball security against pressure defense is above average for Power conference teams. VCU's press loses its effectiveness against teams that handle it well \u2014 and Illinois's turnover rate against pressure is the 4th-lowest in the Big Ten."
+        "confidence": 72,
+        "reasoning": "VCU's Cinderella energy from the UNC upset won't carry against Illinois's Big Ten talent. Illinois handles pressure better than UNC does, and their pace-and-space offense creates clean looks that VCU's press can't prevent. VCU's 68.2% FT shooting will cost them in crunch time."
       },
       {
         "gameId": "r32-south-4",
         "round": "round_of_32",
         "region": "South",
-        "seed1": 7,
-        "team1": "Saint Mary's",
+        "seed1": 10,
+        "team1": "Texas A&M",
         "seed2": 2,
         "team2": "Houston",
         "pick": "Houston",
-        "confidence": 75,
-        "reasoning": "Houston's defensive efficiency is too suffocating for Saint Mary's deliberate offense. The Gaels need clean half-court possessions, and Houston allows the fewest points per half-court possession in the country. Houston grinds this to a halt."
+        "confidence": 80,
+        "reasoning": "Houston's nation-best defense suffocates Texas A&M's middling offense. Sampson's squad has the experience, the +5.6 turnover margin, and the defensive identity to dominate this in-state matchup. Houston allows the fewest points per half-court possession nationally."
+      },
+      {
+        "gameId": "r32-east-1",
+        "round": "round_of_32",
+        "region": "East",
+        "seed1": 1,
+        "team1": "Duke",
+        "seed2": 9,
+        "team2": "TCU",
+        "pick": "Duke",
+        "confidence": 82,
+        "reasoning": "Duke's 32.9 AdjEM is the second-highest in the field. Even without Caleb Foster, Duke's freshman talent pool is deeper than TCU's entire rotation. Scheyer's ACC championship run and 11-game win streak show a team peaking in March."
+      },
+      {
+        "gameId": "r32-east-2",
+        "round": "round_of_32",
+        "region": "East",
+        "seed1": 5,
+        "team1": "St. John's",
+        "seed2": 4,
+        "team2": "Kansas",
+        "pick": "St. John's",
+        "confidence": 60,
+        "reasoning": "St. John's is the most underseeded team in the bracket (KenPom 6, 31-5, Big East champs). Kansas is 5-5 in their last 10 with lingering effects from Peterson's missed games. Pitino's 55-22 tournament record and St. John's guard-driven attack carve up a slumping Kansas defense."
+      },
+      {
+        "gameId": "r32-east-3",
+        "round": "round_of_32",
+        "region": "East",
+        "seed1": 6,
+        "team1": "Louisville",
+        "seed2": 3,
+        "team2": "Michigan State",
+        "pick": "Michigan State",
+        "confidence": 68,
+        "reasoning": "Tom Izzo in the second round is historically lethal. Michigan State's senior-led roster (11 tournament-experienced players, avg 3.2 years) will outmuscle Louisville's freshman-heavy squad. Kelsey's 0-6 career tournament record is a red flag against Izzo's 59-26."
+      },
+      {
+        "gameId": "r32-east-4",
+        "round": "round_of_32",
+        "region": "East",
+        "seed1": 7,
+        "team1": "UCLA",
+        "seed2": 2,
+        "team2": "UConn",
+        "pick": "UConn",
+        "confidence": 66,
+        "reasoning": "UConn's championship DNA under Hurley (15-5 tournament record, back-to-back titles) and roster with 10 tournament-experienced players overwhelm an injury-riddled UCLA. The three-peat bid stays alive with depth and institutional March knowledge."
       },
       {
         "gameId": "r32-west-1",
@@ -504,11 +504,11 @@
         "region": "West",
         "seed1": 1,
         "team1": "Arizona",
-        "seed2": 9,
-        "team2": "Utah State",
+        "seed2": 8,
+        "team2": "Villanova",
         "pick": "Arizona",
         "confidence": 82,
-        "reasoning": "Arizona's offensive firepower overwhelms Utah State's defensive identity. The talent gap is massive \u2014 Arizona's starting five outranks Utah State's by an average of 60 spots in recruiting rankings. Utah State's defensive scheme can't compensate for this talent differential."
+        "reasoning": "Arizona is the healthiest and most complete 1-seed with a 30.0 AdjEM and Big 12 championship momentum. Villanova's March pedigree is real but their current talent level is a tier below Arizona's two-way dominance. Arizona's offensive efficiency (121.4 AdjO) creates separation."
       },
       {
         "gameId": "r32-west-2",
@@ -519,8 +519,8 @@
         "seed2": 4,
         "team2": "Arkansas",
         "pick": "Arkansas",
-        "confidence": 60,
-        "reasoning": "Arkansas's athleticism and tempo push Wisconsin out of their comfort zone. The Badgers want a 58-possession game; Arkansas will force 70+. My models show Wisconsin's efficiency drops 15% when pace exceeds 68 possessions. Arkansas's defensive pressure is the X-factor."
+        "confidence": 54,
+        "reasoning": "Calipari's SEC athleticism and up-tempo push forces Wisconsin out of their grinding comfort zone. Arkansas wants 70+ possessions; Wisconsin wants 58. When forced to play faster than they prefer, Wisconsin's efficiency drops significantly. Calipari's 8 Final Four appearances reflect a coach who knows how to leverage athletic advantages."
       },
       {
         "gameId": "r32-west-3",
@@ -531,8 +531,8 @@
         "seed2": 3,
         "team2": "Gonzaga",
         "pick": "Gonzaga",
-        "confidence": 69,
-        "reasoning": "Gonzaga's offensive efficiency in the half-court neutralizes Texas's defensive adjustments. Texas's upset energy doesn't carry against Gonzaga's shooting \u2014 the Zags generate open looks against any defensive scheme at a rate that overwhelms talent-based upsets."
+        "confidence": 65,
+        "reasoning": "Gonzaga's offensive efficiency under Mark Few is difficult to game-plan against in a single-elimination setting. Texas's upset energy from the BYU win doesn't sustain against Gonzaga's systematic shooting -- the Zags generate open looks against any defensive scheme at a rate that overwhelms talent-based upsets."
       },
       {
         "gameId": "r32-west-4",
@@ -544,7 +544,7 @@
         "team2": "Purdue",
         "pick": "Purdue",
         "confidence": 74,
-        "reasoning": "Purdue's size advantage is insurmountable for Missouri. The interior differential projects at +16 rebounding advantage for Purdue. Missouri's defensive scheme versatility won't matter when they're conceding 15+ offensive rebounds."
+        "reasoning": "Purdue's size advantage and elite offensive efficiency (118.6 AdjO) will overwhelm Missouri's interior. The rebounding differential projects at +10 or more for Purdue. Missouri's defensive versatility won't matter when conceding that many second-chance points."
       },
       {
         "gameId": "r32-midwest-1",
@@ -552,35 +552,35 @@
         "region": "Midwest",
         "seed1": 1,
         "team1": "Michigan",
-        "seed2": 8,
-        "team2": "Georgia",
+        "seed2": 9,
+        "team2": "Saint Louis",
         "pick": "Michigan",
-        "confidence": 79,
-        "reasoning": "Michigan's #2 BartTorvik ranking reflects a team with elite two-way efficiency. Georgia's SEC experience keeps this competitive for a half, but Michigan's depth and offensive execution in the second half pull away. The Wolverines' bench scoring rate is top-5 nationally."
+        "confidence": 78,
+        "reasoning": "Michigan's 1-seed talent and 26.4 AdjEM dwarfs Saint Louis's A-10 pedigree. Schertz's system play is effective against mid-major competition but Michigan's Big Ten depth and guard play operate at a different speed. The Wolverines pull away in the second half."
       },
       {
         "gameId": "r32-midwest-2",
         "round": "round_of_32",
         "region": "Midwest",
-        "seed1": 12,
-        "team1": "Akron",
+        "seed1": 5,
+        "team1": "Texas Tech",
         "seed2": 4,
         "team2": "Alabama",
-        "pick": "Alabama",
-        "confidence": 71,
-        "reasoning": "Alabama's raw athleticism is too much for Akron's system-based approach in a second game. Akron's ball-screen offense loses efficiency against Alabama's length and switching ability. The Crimson Tide's transition game buries Akron in the second half."
+        "pick": "Texas Tech",
+        "confidence": 56,
+        "reasoning": "The ultimate style clash: Texas Tech's elite defense (92.1 AdjD) vs Alabama's three-point-heavy offense (44% 3PA rate). When Alabama's threes aren't falling, they have no Plan B -- and Texas Tech's perimeter defense is designed to take away exactly those shots. Tech's +2.4 turnover margin controls the game."
       },
       {
         "gameId": "r32-midwest-3",
         "round": "round_of_32",
         "region": "Midwest",
-        "seed1": 11,
-        "team1": "SMU",
+        "seed1": 6,
+        "team1": "Tennessee",
         "seed2": 3,
         "team2": "Virginia",
-        "pick": "SMU",
-        "confidence": 56,
-        "reasoning": "This is my biggest Round of 32 upset call. SMU's offensive efficiency against pack-line defense is anomalous \u2014 they generate 1.08 PPP against similar schemes, which is 0.12 higher than the average opponent. Virginia's offense stalls when they can't generate transition points, and SMU's half-court defense prevents exactly that."
+        "pick": "Tennessee",
+        "confidence": 54,
+        "reasoning": "Two elite defensive teams in a game that will be played in the 50s. Tennessee's SEC-tested physicality, superior forced turnover rate (18.8% vs 17.0%), and Rick Barnes's 21 tournament appearances give them the edge. Barnes knows how to prepare for Virginia's style."
       },
       {
         "gameId": "r32-midwest-4",
@@ -591,35 +591,11 @@
         "seed2": 2,
         "team2": "Iowa State",
         "pick": "Iowa State",
-        "confidence": 76,
-        "reasoning": "Iowa State's defensive pressure is designed to dismantle perimeter-oriented offenses. Santa Clara's open-three reliance becomes a liability when Iowa State's closeout speed eliminates those looks. The Cyclones' tournament experience is the finishing blow."
+        "confidence": 75,
+        "reasoning": "Iowa State's defensive pressure and nation-best SOS are a bridge too far for Santa Clara's Cinderella run. The Cyclones' ability to force turnovers against WCC-caliber ball-handling will create 8-10 extra possessions. Iowa State's Big 12 toughness ends the fairy tale."
       }
     ],
     "sweet_16": [
-      {
-        "gameId": "s16-east-1",
-        "round": "sweet_16",
-        "region": "East",
-        "seed1": 1,
-        "team1": "Duke",
-        "seed2": 5,
-        "team2": "St. John's",
-        "pick": "St. John's",
-        "confidence": 55,
-        "reasoning": "This is where my models diverge hardest from consensus. St. John's guard-driven offense exploits Duke's one defensive weakness: ball-screen coverage. My deep-dive into Duke's film data shows they allow 1.14 PPP on pick-and-rolls involving elite guards \u2014 and St. John's has two of the best ball-screen operators in the country. Duke's offensive talent can't overcome a 5-possession deficit created by defensive breakdowns."
-      },
-      {
-        "gameId": "s16-east-2",
-        "round": "sweet_16",
-        "region": "East",
-        "seed1": 3,
-        "team1": "Michigan State",
-        "seed2": 2,
-        "team2": "UConn",
-        "pick": "UConn",
-        "confidence": 60,
-        "reasoning": "UConn's half-court execution against elite defenses is proven at the highest level. Michigan State's defensive scheme adjustments are elite, but UConn's offensive diversity \u2014 they score efficiently from all three levels \u2014 makes them adjustment-proof. Izzo can slow them but not stop them."
-      },
       {
         "gameId": "s16-south-1",
         "round": "sweet_16",
@@ -629,8 +605,8 @@
         "seed2": 4,
         "team2": "Nebraska",
         "pick": "Florida",
-        "confidence": 76,
-        "reasoning": "Florida's two-way efficiency differential over Nebraska is the largest of any Sweet 16 matchup. Nebraska's defensive identity is strong, but Florida's offensive versatility creates 5+ high-efficiency scoring opportunities per game that Nebraska's scheme cannot prevent. Florida advances comfortably."
+        "confidence": 65,
+        "reasoning": "Florida's defending champion experience and superior two-way efficiency make them the pick. Nebraska's 24-game win streak was impressive but their Big Ten quarterfinal exit showed vulnerability when tested. Florida's frontcourt trio dominates the paint."
       },
       {
         "gameId": "s16-south-2",
@@ -641,8 +617,32 @@
         "seed2": 2,
         "team2": "Houston",
         "pick": "Houston",
-        "confidence": 65,
-        "reasoning": "Houston's defensive ceiling is the highest in college basketball. Illinois's offense generates efficient looks against most defenses, but Houston is not most defenses. The Cougars hold opponents below 0.90 PPP in half-court settings \u2014 a rate that projects Illinois scoring below 60 points."
+        "confidence": 62,
+        "reasoning": "Houston's defense is the great equalizer -- they hold opponents below 0.90 PPP in half-court settings. Illinois blew a double-digit lead in the Big Ten tournament, revealing composure issues Houston's suffocating defense will ruthlessly exploit. Sampson's 4 Final Four appearances as HC are the resume."
+      },
+      {
+        "gameId": "s16-east-1",
+        "round": "sweet_16",
+        "region": "East",
+        "seed1": 1,
+        "team1": "Duke",
+        "seed2": 5,
+        "team2": "St. John's",
+        "pick": "Duke",
+        "confidence": 58,
+        "reasoning": "The marquee Sweet 16 matchup: Scheyer's freshmen vs Pitino's guards. Duke's 32.9 AdjEM and defensive versatility narrowly edge St. John's higher-variance perimeter attack. St. John's 0.034 three-point variance risk makes them boom-or-bust, and Duke's defense tips the odds toward bust."
+      },
+      {
+        "gameId": "s16-east-2",
+        "round": "sweet_16",
+        "region": "East",
+        "seed1": 3,
+        "team1": "Michigan State",
+        "seed2": 2,
+        "team2": "UConn",
+        "pick": "UConn",
+        "confidence": 55,
+        "reasoning": "A coaching masterclass: Izzo's grit vs Hurley's championship system. UConn's three-peat chase and deeper talent pool narrowly edges Michigan State's senior experience. UConn scores efficiently from all three levels, making them nearly adjustment-proof even against Izzo's game-planning."
       },
       {
         "gameId": "s16-west-1",
@@ -653,8 +653,8 @@
         "seed2": 4,
         "team2": "Arkansas",
         "pick": "Arizona",
-        "confidence": 72,
-        "reasoning": "Arizona matches Arkansas's tempo and raises it with superior offensive talent. Arkansas wants to run, and Arizona is happy to oblige \u2014 except Arizona's transition efficiency is top-3 nationally while Arkansas's is middling. In an up-tempo game, the more talented team wins."
+        "confidence": 68,
+        "reasoning": "Arizona's 30.0 AdjEM and Big 12 title form will overpower Arkansas. Arizona is the healthiest top seed and matches Arkansas's tempo while being more efficient on both ends. Calipari's first year at Arkansas limits his system's full maturity in a matchup requiring precision."
       },
       {
         "gameId": "s16-west-2",
@@ -665,8 +665,8 @@
         "seed2": 2,
         "team2": "Purdue",
         "pick": "Purdue",
-        "confidence": 58,
-        "reasoning": "Purdue's interior dominance is the deciding factor. Gonzaga's offensive efficiency dips when opponents control the paint, and Purdue's frontcourt creates exactly that environment. The rebounding differential projects at +8 for Purdue \u2014 enough to overcome Gonzaga's perimeter shooting advantage."
+        "confidence": 55,
+        "reasoning": "Purdue's Big Ten physicality and interior presence neutralize Gonzaga's offensive flow. Gonzaga's weaker SOS (WCC-heavy schedule) means they haven't faced this level of interior defense consistently. Purdue's post dominance and rebounding create the margin in a grind game."
       },
       {
         "gameId": "s16-midwest-1",
@@ -674,38 +674,26 @@
         "region": "Midwest",
         "seed1": 1,
         "team1": "Michigan",
-        "seed2": 4,
-        "team2": "Alabama",
+        "seed2": 5,
+        "team2": "Texas Tech",
         "pick": "Michigan",
-        "confidence": 68,
-        "reasoning": "Michigan's defensive scheme versatility is built for exactly this matchup. Alabama's transition offense is lethal, but Michigan's half-court defense forces Alabama into their least efficient scoring mode. My models project Michigan holding Alabama below 1.00 PPP in the half-court \u2014 a death sentence for a team that needs pace to win."
+        "confidence": 60,
+        "reasoning": "Michigan's deep guard corps and offensive system create enough ball movement to crack even Texas Tech's elite defense. Michigan's 26.4 AdjEM vs Tech's 23.8 and Michigan's superior close-game record (7-2 vs 5-4) give them the edge when the defensive intensity tightens the game."
       },
       {
         "gameId": "s16-midwest-2",
         "round": "sweet_16",
         "region": "Midwest",
-        "seed1": 11,
-        "team1": "SMU",
+        "seed1": 6,
+        "team1": "Tennessee",
         "seed2": 2,
         "team2": "Iowa State",
         "pick": "Iowa State",
-        "confidence": 70,
-        "reasoning": "SMU's Cinderella run ends here. Iowa State's defensive pressure is a tier above what SMU faced in the first two rounds. The Cyclones' ability to force turnovers at a championship-caliber rate overwhelms SMU's veteran composure. Iowa State's offensive efficiency in transition buries SMU."
+        "confidence": 58,
+        "reasoning": "Iowa State's offensive efficiency (119.4 AdjO) and elite three-point shooting (37.0% on 40% rate) break through Tennessee's physical defense. Both teams are elite defensively, but Iowa State's shooting creates separation that Tennessee's half-court offense can't match."
       }
     ],
     "elite_8": [
-      {
-        "gameId": "e8-east",
-        "round": "elite_8",
-        "region": "East",
-        "seed1": 5,
-        "team1": "St. John's",
-        "seed2": 2,
-        "team2": "UConn",
-        "pick": "St. John's",
-        "confidence": 56,
-        "reasoning": "St. John's guard play reaches a different level under tournament pressure. UConn's defensive scheme is elite, but St. John's ball-screen offense generates efficient looks regardless of defensive coverage. The Johnnies' late-season trajectory \u2014 11-2 since February 1 with wins over three ranked teams \u2014 is the kind of momentum signal my models weight heavily in Elite 8 projections."
-      },
       {
         "gameId": "e8-south",
         "round": "elite_8",
@@ -714,9 +702,21 @@
         "team1": "Florida",
         "seed2": 2,
         "team2": "Houston",
-        "pick": "Florida",
-        "confidence": 59,
-        "reasoning": "Florida's offensive versatility is the antidote to Houston's defense. Most teams have one or two offensive modes; Florida has five. Houston's defensive scheme can shut down one or two offensive dimensions but not all five simultaneously. Florida generates enough efficient possessions across multiple scoring vectors to overcome Houston's elite defense."
+        "pick": "Houston",
+        "confidence": 54,
+        "reasoning": "The South Regional is at Toyota Center in Houston -- a de facto home game for the Cougars. Houston's nation-best defense will contain Florida's balanced attack, and the crowd factor cannot be overstated. Sampson's experienced roster (+72% returning minutes) stays composed in the biggest moments."
+      },
+      {
+        "gameId": "e8-east",
+        "round": "elite_8",
+        "region": "East",
+        "seed1": 1,
+        "team1": "Duke",
+        "seed2": 2,
+        "team2": "UConn",
+        "pick": "Duke",
+        "confidence": 56,
+        "reasoning": "Duke's 32.9 AdjEM is the clear best of any remaining team. The Foster injury concern is real, but Duke's freshman depth provides answers at every position. This Duke squad has the highest ceiling in the tournament, and their 11-game win streak entering March shows they're peaking at the right time."
       },
       {
         "gameId": "e8-west",
@@ -727,8 +727,8 @@
         "seed2": 2,
         "team2": "Purdue",
         "pick": "Arizona",
-        "confidence": 62,
-        "reasoning": "Arizona's perimeter shooting neutralizes Purdue's interior advantage. Purdue dominates teams that try to play inside \u2014 but Arizona doesn't need to. Their three-point volume and accuracy from the corners exploits the spacing Purdue's pack-the-paint defense creates. Arizona's defensive rebounding rate also limits Purdue's second-chance scoring to below their season average."
+        "confidence": 58,
+        "reasoning": "Arizona is the safest championship-caliber team remaining: healthiest, most balanced, Big 12 champions, and playing with supreme confidence. Purdue's size advantage is real but Arizona's perimeter shooting and defensive versatility control the style matchup. Arizona doesn't need to play inside to win."
       },
       {
         "gameId": "e8-midwest",
@@ -738,9 +738,9 @@
         "team1": "Michigan",
         "seed2": 2,
         "team2": "Iowa State",
-        "pick": "Michigan",
-        "confidence": 64,
-        "reasoning": "Michigan's two-way efficiency in this tournament projects as elite. Iowa State's defensive pressure created turnovers against every opponent this season \u2014 except teams with Michigan's combination of ball-handling and offensive patience. The Wolverines' turnover rate against pressure defense is the lowest in the Big Ten. Michigan controls tempo and advances to the Final Four."
+        "pick": "Iowa State",
+        "confidence": 53,
+        "reasoning": "Iowa State's nation-best SOS means they've been pressure-tested against the best teams in the country all season long. Michigan's guard-heavy approach is effective but Iowa State's Big 12 defensive intensity and Otzelberger's system designed for March grinds will contain Michigan's perimeter attack. Iowa State's 7-2 close-game record proves they finish in tight ones."
       }
     ],
     "final_four": [
@@ -748,13 +748,13 @@
         "gameId": "f4-south-east",
         "round": "final_four",
         "region": "National",
-        "seed1": 1,
-        "team1": "Florida",
-        "seed2": 5,
-        "team2": "St. John's",
-        "pick": "Florida",
-        "confidence": 66,
-        "reasoning": "St. John's guard play got them here, but Florida's defensive efficiency is a tier above anything they've faced. My models show Florida holds opponents' ball-screen offense to 0.82 PPP — the exact attack St. John's relies on. St. John's needed Duke to have an off-shooting night in the Sweet 16; Florida doesn't have off nights defensively. The Gators' offensive versatility — five distinct scoring modes — means St. John's can't key on any one dimension. Florida's SEC gauntlet prepared them for exactly this type of high-pressure, high-talent matchup."
+        "seed1": 2,
+        "team1": "Houston",
+        "seed2": 1,
+        "team2": "Duke",
+        "pick": "Houston",
+        "confidence": 52,
+        "reasoning": "Houston's defense is the best unit on either side and Sampson's 4 Final Four appearances provide invaluable stage experience. Duke's freshmen have never played in this environment. Houston grinds this into a 55-50 rock fight that favors the more experienced, more disciplined team with the best defense remaining."
       },
       {
         "gameId": "f4-west-midwest",
@@ -762,11 +762,11 @@
         "region": "National",
         "seed1": 1,
         "team1": "Arizona",
-        "seed2": 1,
-        "team2": "Michigan",
+        "seed2": 2,
+        "team2": "Iowa State",
         "pick": "Arizona",
-        "confidence": 59,
-        "reasoning": "This is the game of the tournament. Two 1-seeds with nearly identical efficiency profiles, separated by 1.1 AdjEM. Here's what my autonomous analysis surfaced that consensus misses: Michigan's Dusty May is coaching in his first NCAA tournament. Arizona's Tommy Lloyd is 6-2 in tournament games. In single-elimination games between statistically equivalent teams, coaching experience is the most underpriced variable in the market. Arizona's defensive scheme versatility — they switch 1-5 seamlessly — also neutralizes Michigan's pick-and-roll offense, which generated 1.18 PPP in the Big Ten but has never faced this caliber of switching defense."
+        "confidence": 55,
+        "reasoning": "Arizona's complete, healthy roster edges Iowa State in a matchup between two elite two-way teams separated by 4.5 AdjEM. Arizona's Big 12 championship included a head-to-head win over Houston, proving they handle elite defensive pressure. Lloyd's 6-2 tournament coaching record vs Otzelberger's 9-5 both show March competence, but Arizona's offensive ceiling is higher."
       }
     ],
     "championship": [
@@ -774,13 +774,13 @@
         "gameId": "championship",
         "round": "championship",
         "region": "National",
-        "seed1": 1,
-        "team1": "Florida",
+        "seed1": 2,
+        "team1": "Houston",
         "seed2": 1,
         "team2": "Arizona",
-        "pick": "Florida",
-        "confidence": 64,
-        "reasoning": "Florida's archetype twin is literally last year's champion — themselves. My models weight returning-core continuity as the single strongest predictor of championship success, and Florida returns 82% of their minutes from the 2025 title run. Arizona is the more talented team on paper, but Florida has something no efficiency metric captures: the institutional memory of winning it all. Their late-game decision-making in pressure situations is informed by having been there before. Arizona's perimeter shooting could keep this close, but Florida's defensive rotations in the final 4 minutes — honed by championship experience — are the difference."
+        "pick": "Houston",
+        "confidence": 51,
+        "reasoning": "Houston wins the national championship in a defensive masterpiece. Kelvin Sampson's defense holds Arizona to their lowest offensive output of the season, and Houston's experienced roster (72% returning minutes) stays composed in crunch time. The Cougars' +5.6 turnover margin -- best in the field -- forces Arizona into uncharacteristic mistakes. After four Final Four appearances under Sampson, Houston finally cuts down the nets."
       }
     ]
   }

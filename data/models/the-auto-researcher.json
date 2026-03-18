@@ -3,16 +3,16 @@
   "displayName": "The Auto Researcher",
   "tagline": "21 strategies tested. 14 years backtested. One bracket.",
   "color": "#10b981",
-  "generated": "2026-03-15",
+  "generated": "2026-03-17",
   "locked": true,
   "espnBracketUrl": null,
   "champion": "Duke",
   "championEliminated": false,
   "finalFour": [
-    "Florida",
     "Duke",
+    "Florida",
     "Arizona",
-    "Iowa State"
+    "Michigan"
   ],
   "rounds": {
     "round_of_64": [
@@ -25,8 +25,8 @@
         "seed2": 16,
         "team2": "Siena",
         "pick": "Duke",
-        "confidence": 98,
-        "reasoning": "ML ensemble gives Duke a 98% win probability. SRS differential of +22.4 is insurmountable at this seed gap."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Duke (1-seed) over Siena (16-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-2",
@@ -37,8 +37,8 @@
         "seed2": 9,
         "team2": "TCU",
         "pick": "Ohio State",
-        "confidence": 56,
-        "reasoning": "ML ensemble favors Ohio State narrowly. SRS differential of +1.8 and margin of victory patterns give a slight edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Ohio State (8-seed) over TCU (9-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-3",
@@ -49,8 +49,8 @@
         "seed2": 12,
         "team2": "Northern Iowa",
         "pick": "St. John's",
-        "confidence": 72,
-        "reasoning": "ML ensemble gives St. John's 72% win probability. SRS differential and conference strength favor the higher seed here."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts St. John's (5-seed) over Northern Iowa (12-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-4",
@@ -61,8 +61,8 @@
         "seed2": 13,
         "team2": "Cal Baptist",
         "pick": "Kansas",
-        "confidence": 88,
-        "reasoning": "ML ensemble gives Kansas 88% win probability. SRS differential of +14.1 and margin of victory patterns strongly favor Kansas."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Kansas (4-seed) over Cal Baptist (13-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-5",
@@ -73,8 +73,8 @@
         "seed2": 11,
         "team2": "South Florida",
         "pick": "Louisville",
-        "confidence": 68,
-        "reasoning": "ML ensemble gives Louisville 68% win probability. SRS differential of +4.7 and stronger schedule drive the prediction."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Louisville (6-seed) over South Florida (11-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-6",
@@ -85,8 +85,8 @@
         "seed2": 14,
         "team2": "North Dakota State",
         "pick": "Michigan State",
-        "confidence": 92,
-        "reasoning": "ML ensemble gives Michigan State 92% win probability. SRS differential of +16.3 is decisive."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Michigan State (3-seed) over North Dakota State (14-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-7",
@@ -96,9 +96,9 @@
         "team1": "UCLA",
         "seed2": 10,
         "team2": "UCF",
-        "pick": "UCF",
-        "confidence": 57,
-        "reasoning": "ML ensemble gives UCF a slim edge. SRS differential is near zero but UCF's margin of victory patterns against similar opponents tip the model."
+        "pick": "UCLA",
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts UCLA (7-seed) over UCF (10-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-8",
@@ -109,8 +109,8 @@
         "seed2": 15,
         "team2": "Furman",
         "pick": "UConn",
-        "confidence": 96,
-        "reasoning": "ML ensemble gives UConn 96% win probability. SRS differential of +19.8 leaves little room for an upset."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts UConn (2-seed) over Furman (15-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-1",
@@ -121,8 +121,8 @@
         "seed2": 16,
         "team2": "Prairie View A&M",
         "pick": "Florida",
-        "confidence": 99,
-        "reasoning": "ML ensemble gives Florida 99% win probability. SRS differential of +26.1 is the largest in the bracket."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Florida (1-seed) over Prairie View A&M (16-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-2",
@@ -132,9 +132,9 @@
         "team1": "Clemson",
         "seed2": 9,
         "team2": "Iowa",
-        "pick": "Iowa",
-        "confidence": 55,
-        "reasoning": "ML ensemble narrowly favors Iowa. SRS differential is marginal but Iowa's offensive efficiency metrics give them a slight edge."
+        "pick": "Clemson",
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Clemson (8-seed) over Iowa (9-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-3",
@@ -145,8 +145,8 @@
         "seed2": 12,
         "team2": "McNeese",
         "pick": "Vanderbilt",
-        "confidence": 74,
-        "reasoning": "ML ensemble gives Vanderbilt 74% win probability. SRS differential of +7.9 and conference strength favor Vanderbilt."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Vanderbilt (5-seed) over McNeese (12-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-4",
@@ -157,8 +157,8 @@
         "seed2": 13,
         "team2": "Troy",
         "pick": "Nebraska",
-        "confidence": 85,
-        "reasoning": "ML ensemble gives Nebraska 85% win probability. SRS differential of +12.6 and Big Ten strength of schedule favor Nebraska."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Nebraska (4-seed) over Troy (13-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-5",
@@ -170,7 +170,7 @@
         "team2": "VCU",
         "pick": "North Carolina",
         "confidence": 65,
-        "reasoning": "ML ensemble gives North Carolina 65% win probability. SRS differential of +3.9 and margin of victory patterns favor UNC."
+        "reasoning": "ML ensemble predicts North Carolina (6-seed) over VCU (11-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-6",
@@ -181,8 +181,8 @@
         "seed2": 14,
         "team2": "Penn",
         "pick": "Illinois",
-        "confidence": 93,
-        "reasoning": "ML ensemble gives Illinois 93% win probability. SRS differential of +17.2 is commanding."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Illinois (3-seed) over Penn (14-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-7",
@@ -192,9 +192,9 @@
         "team1": "Saint Mary's",
         "seed2": 10,
         "team2": "Texas A&M",
-        "pick": "Texas A&M",
-        "confidence": 58,
-        "reasoning": "ML ensemble gives Texas A&M a slight edge. SRS differential is close but SEC schedule strength and margin of victory patterns tip the model."
+        "pick": "Saint Mary's",
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Saint Mary's (7-seed) over Texas A&M (10-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-8",
@@ -205,8 +205,8 @@
         "seed2": 15,
         "team2": "Idaho",
         "pick": "Houston",
-        "confidence": 97,
-        "reasoning": "ML ensemble gives Houston 97% win probability. SRS differential of +21.3 and elite defensive metrics make this near-certain."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Houston (2-seed) over Idaho (15-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-1",
@@ -217,8 +217,8 @@
         "seed2": 16,
         "team2": "LIU",
         "pick": "Arizona",
-        "confidence": 99,
-        "reasoning": "ML ensemble gives Arizona 99% win probability. SRS differential of +25.7 is decisive."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Arizona (1-seed) over LIU (16-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-2",
@@ -229,8 +229,8 @@
         "seed2": 9,
         "team2": "Utah State",
         "pick": "Villanova",
-        "confidence": 56,
-        "reasoning": "ML ensemble narrowly favors Villanova. SRS differential of +1.2 and Big East schedule strength give a slight edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Villanova (8-seed) over Utah State (9-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-3",
@@ -241,8 +241,8 @@
         "seed2": 12,
         "team2": "High Point",
         "pick": "Wisconsin",
-        "confidence": 78,
-        "reasoning": "ML ensemble gives Wisconsin 78% win probability. SRS differential of +10.1 and Big Ten defensive metrics favor Wisconsin."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Wisconsin (5-seed) over High Point (12-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-4",
@@ -253,8 +253,8 @@
         "seed2": 13,
         "team2": "Hawaii",
         "pick": "Arkansas",
-        "confidence": 86,
-        "reasoning": "ML ensemble gives Arkansas 86% win probability. SRS differential of +13.4 and SEC schedule strength favor Arkansas."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Arkansas (4-seed) over Hawaii (13-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-5",
@@ -265,8 +265,8 @@
         "seed2": 11,
         "team2": "Texas",
         "pick": "BYU",
-        "confidence": 60,
-        "reasoning": "ML ensemble gives BYU 60% win probability. SRS differential of +2.8 and home-court-adjusted metrics slightly favor BYU."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts BYU (6-seed) over Texas (11-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-6",
@@ -277,8 +277,8 @@
         "seed2": 14,
         "team2": "Kennesaw State",
         "pick": "Gonzaga",
-        "confidence": 91,
-        "reasoning": "ML ensemble gives Gonzaga 91% win probability. SRS differential of +15.8 is commanding."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Gonzaga (3-seed) over Kennesaw State (14-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-7",
@@ -289,8 +289,8 @@
         "seed2": 10,
         "team2": "Missouri",
         "pick": "Miami",
-        "confidence": 58,
-        "reasoning": "ML ensemble gives Miami a slim edge. SRS differential of +1.5 and ACC tournament performance tilt the model."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Miami (7-seed) over Missouri (10-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-8",
@@ -301,8 +301,8 @@
         "seed2": 15,
         "team2": "Queens",
         "pick": "Purdue",
-        "confidence": 97,
-        "reasoning": "ML ensemble gives Purdue 97% win probability. SRS differential of +20.5 leaves no realistic upset path."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Purdue (2-seed) over Queens (15-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-1",
@@ -313,8 +313,8 @@
         "seed2": 16,
         "team2": "UMBC",
         "pick": "Michigan",
-        "confidence": 98,
-        "reasoning": "ML ensemble gives Michigan 98% win probability. SRS differential of +24.2 is decisive."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) over UMBC (16-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-2",
@@ -325,8 +325,8 @@
         "seed2": 9,
         "team2": "Saint Louis",
         "pick": "Georgia",
-        "confidence": 55,
-        "reasoning": "ML ensemble narrowly favors Georgia. SRS differential is marginal but SEC strength of schedule gives Georgia a slight edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Georgia (8-seed) over Saint Louis (9-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-3",
@@ -337,8 +337,8 @@
         "seed2": 12,
         "team2": "Akron",
         "pick": "Texas Tech",
-        "confidence": 76,
-        "reasoning": "ML ensemble gives Texas Tech 76% win probability. SRS differential of +9.3 and Big 12 schedule strength favor Texas Tech."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Texas Tech (5-seed) over Akron (12-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-4",
@@ -349,8 +349,8 @@
         "seed2": 13,
         "team2": "Hofstra",
         "pick": "Alabama",
-        "confidence": 87,
-        "reasoning": "ML ensemble gives Alabama 87% win probability. SRS differential of +14.7 and SEC tournament performance favor Alabama."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Alabama (4-seed) over Hofstra (13-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-5",
@@ -360,9 +360,9 @@
         "team1": "Tennessee",
         "seed2": 11,
         "team2": "SMU",
-        "pick": "SMU",
-        "confidence": 55,
-        "reasoning": "ML ensemble gives SMU a slim edge. SRS differential is near zero but SMU's margin of victory patterns against ranked opponents tip the model."
+        "pick": "Tennessee",
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Tennessee (6-seed) over SMU (11-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-6",
@@ -373,8 +373,8 @@
         "seed2": 14,
         "team2": "Wright State",
         "pick": "Virginia",
-        "confidence": 90,
-        "reasoning": "ML ensemble gives Virginia 90% win probability. SRS differential of +15.1 is decisive."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Virginia (3-seed) over Wright State (14-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-7",
@@ -385,8 +385,8 @@
         "seed2": 10,
         "team2": "Santa Clara",
         "pick": "Kentucky",
-        "confidence": 62,
-        "reasoning": "ML ensemble gives Kentucky 62% win probability. SRS differential of +3.1 and SEC schedule strength favor Kentucky."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Kentucky (7-seed) over Santa Clara (10-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-8",
@@ -397,8 +397,8 @@
         "seed2": 15,
         "team2": "Tennessee State",
         "pick": "Iowa State",
-        "confidence": 97,
-        "reasoning": "ML ensemble gives Iowa State 97% win probability. SRS differential of +21.9 and Big 12 regular season title credentials are overwhelming."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Iowa State (2-seed) over Tennessee State (15-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       }
     ],
     "round_of_32": [
@@ -411,8 +411,8 @@
         "seed2": 8,
         "team2": "Ohio State",
         "pick": "Duke",
-        "confidence": 80,
-        "reasoning": "ML ensemble gives Duke 80% win probability. SRS differential and margin of victory patterns favor the 1-seed."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-east-2",
@@ -423,8 +423,8 @@
         "seed2": 4,
         "team2": "Kansas",
         "pick": "Kansas",
-        "confidence": 62,
-        "reasoning": "ML ensemble gives Kansas 62% win probability. SRS differential of +3.4 and historical 4-vs-5 seed patterns favor Kansas."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Kansas (4-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-east-3",
@@ -435,20 +435,20 @@
         "seed2": 3,
         "team2": "Michigan State",
         "pick": "Michigan State",
-        "confidence": 63,
-        "reasoning": "ML ensemble gives Michigan State 63% win probability. SRS differential of +2.9 and Big Ten defensive metrics give MSU the edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Michigan State (3-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-east-4",
         "round": "round_of_32",
         "region": "East",
-        "seed1": 10,
-        "team1": "UCF",
+        "seed1": 7,
+        "team1": "UCLA",
         "seed2": 2,
         "team2": "UConn",
         "pick": "UConn",
-        "confidence": 75,
-        "reasoning": "ML ensemble gives UConn 75% win probability. SRS differential of +8.2 and championship pedigree features favor UConn."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts UConn (2-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-south-1",
@@ -456,11 +456,11 @@
         "region": "South",
         "seed1": 1,
         "team1": "Florida",
-        "seed2": 9,
-        "team2": "Iowa",
+        "seed2": 8,
+        "team2": "Clemson",
         "pick": "Florida",
-        "confidence": 82,
-        "reasoning": "ML ensemble gives Florida 82% win probability. SRS differential of +10.5 and overall efficiency metrics favor the 1-seed."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Florida (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-south-2",
@@ -471,8 +471,8 @@
         "seed2": 4,
         "team2": "Nebraska",
         "pick": "Nebraska",
-        "confidence": 58,
-        "reasoning": "ML ensemble gives Nebraska 58% win probability. SRS differential of +1.7 and Big Ten margin of victory patterns give Nebraska a slight edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Nebraska (4-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-south-3",
@@ -483,20 +483,20 @@
         "seed2": 3,
         "team2": "Illinois",
         "pick": "Illinois",
-        "confidence": 67,
-        "reasoning": "ML ensemble gives Illinois 67% win probability. SRS differential of +5.1 and Big Ten schedule strength favor Illinois."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Illinois (3-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-south-4",
         "round": "round_of_32",
         "region": "South",
-        "seed1": 10,
-        "team1": "Texas A&M",
+        "seed1": 7,
+        "team1": "Saint Mary's",
         "seed2": 2,
         "team2": "Houston",
         "pick": "Houston",
-        "confidence": 78,
-        "reasoning": "ML ensemble gives Houston 78% win probability. SRS differential of +9.6 and elite defensive efficiency metrics favor Houston."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Houston (2-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-west-1",
@@ -507,8 +507,8 @@
         "seed2": 8,
         "team2": "Villanova",
         "pick": "Arizona",
-        "confidence": 83,
-        "reasoning": "ML ensemble gives Arizona 83% win probability. SRS differential of +11.3 and offensive efficiency metrics favor Arizona."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Arizona (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-west-2",
@@ -519,8 +519,8 @@
         "seed2": 4,
         "team2": "Arkansas",
         "pick": "Arkansas",
-        "confidence": 59,
-        "reasoning": "ML ensemble gives Arkansas 59% win probability. SRS differential of +1.9 and SEC tournament performance give Arkansas a slight edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Arkansas (4-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-west-3",
@@ -531,8 +531,8 @@
         "seed2": 3,
         "team2": "Gonzaga",
         "pick": "Gonzaga",
-        "confidence": 70,
-        "reasoning": "ML ensemble gives Gonzaga 70% win probability. SRS differential of +5.8 and WCC dominance metrics favor Gonzaga."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Gonzaga (3-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-west-4",
@@ -543,8 +543,8 @@
         "seed2": 2,
         "team2": "Purdue",
         "pick": "Purdue",
-        "confidence": 77,
-        "reasoning": "ML ensemble gives Purdue 77% win probability. SRS differential of +8.9 and Big Ten margin of victory patterns favor Purdue."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Purdue (2-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-midwest-1",
@@ -555,8 +555,8 @@
         "seed2": 8,
         "team2": "Georgia",
         "pick": "Michigan",
-        "confidence": 79,
-        "reasoning": "ML ensemble gives Michigan 79% win probability. SRS differential of +8.7 and Big Ten efficiency metrics favor Michigan."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-midwest-2",
@@ -567,20 +567,20 @@
         "seed2": 4,
         "team2": "Alabama",
         "pick": "Alabama",
-        "confidence": 60,
-        "reasoning": "ML ensemble gives Alabama 60% win probability. SRS differential of +2.3 and SEC offensive efficiency give Alabama a slight edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Alabama (4-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-midwest-3",
         "round": "round_of_32",
         "region": "Midwest",
-        "seed1": 11,
-        "team1": "SMU",
+        "seed1": 6,
+        "team1": "Tennessee",
         "seed2": 3,
         "team2": "Virginia",
         "pick": "Virginia",
-        "confidence": 68,
-        "reasoning": "ML ensemble gives Virginia 68% win probability. SRS differential of +4.6 and defensive efficiency metrics favor Virginia."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Virginia (3-seed) to advance with 65% confidence."
       },
       {
         "gameId": "r32-midwest-4",
@@ -591,8 +591,8 @@
         "seed2": 2,
         "team2": "Iowa State",
         "pick": "Iowa State",
-        "confidence": 74,
-        "reasoning": "ML ensemble gives Iowa State 74% win probability. SRS differential of +7.4 and Big 12 regular season dominance favor Iowa State."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Iowa State (2-seed) to advance with 65% confidence."
       }
     ],
     "sweet_16": [
@@ -606,7 +606,7 @@
         "team2": "Kansas",
         "pick": "Duke",
         "confidence": 65,
-        "reasoning": "ML ensemble gives Duke 65% win probability. SRS differential of +3.6 and margin of victory patterns in neutral-site games favor Duke."
+        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "s16-east-2",
@@ -617,8 +617,8 @@
         "seed2": 2,
         "team2": "UConn",
         "pick": "UConn",
-        "confidence": 60,
-        "reasoning": "ML ensemble gives UConn 60% win probability. SRS differential of +2.1 and championship pedigree features give UConn the edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts UConn (2-seed) to advance with 65% confidence."
       },
       {
         "gameId": "s16-south-1",
@@ -629,8 +629,8 @@
         "seed2": 4,
         "team2": "Nebraska",
         "pick": "Florida",
-        "confidence": 76,
-        "reasoning": "ML ensemble gives Florida 76% win probability. SRS differential of +7.8 and overall efficiency metrics strongly favor Florida."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Florida (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "s16-south-2",
@@ -641,8 +641,8 @@
         "seed2": 2,
         "team2": "Houston",
         "pick": "Houston",
-        "confidence": 59,
-        "reasoning": "ML ensemble gives Houston 59% win probability. SRS differential of +1.8 and elite defensive efficiency give Houston a slight edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Houston (2-seed) to advance with 65% confidence."
       },
       {
         "gameId": "s16-west-1",
@@ -653,8 +653,8 @@
         "seed2": 4,
         "team2": "Arkansas",
         "pick": "Arizona",
-        "confidence": 75,
-        "reasoning": "ML ensemble gives Arizona 75% win probability. SRS differential of +8.1 and offensive efficiency metrics favor Arizona."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Arizona (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "s16-west-2",
@@ -665,8 +665,8 @@
         "seed2": 2,
         "team2": "Purdue",
         "pick": "Purdue",
-        "confidence": 61,
-        "reasoning": "ML ensemble gives Purdue 61% win probability. SRS differential of +2.4 and Big Ten margin of victory patterns give Purdue the edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Purdue (2-seed) to advance with 65% confidence."
       },
       {
         "gameId": "s16-midwest-1",
@@ -677,8 +677,8 @@
         "seed2": 4,
         "team2": "Alabama",
         "pick": "Michigan",
-        "confidence": 63,
-        "reasoning": "ML ensemble gives Michigan 63% win probability. SRS differential of +3.2 and Big Ten defensive metrics give Michigan the edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "s16-midwest-2",
@@ -689,8 +689,8 @@
         "seed2": 2,
         "team2": "Iowa State",
         "pick": "Iowa State",
-        "confidence": 66,
-        "reasoning": "ML ensemble gives Iowa State 66% win probability. SRS differential of +4.9 and Big 12 offensive efficiency favor Iowa State."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Iowa State (2-seed) to advance with 65% confidence."
       }
     ],
     "elite_8": [
@@ -703,8 +703,8 @@
         "seed2": 2,
         "team2": "UConn",
         "pick": "Duke",
-        "confidence": 58,
-        "reasoning": "ML ensemble gives Duke 58% win probability. SRS differential is marginal but Duke's margin of victory patterns in high-leverage games tip the model."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "e8-south",
@@ -715,8 +715,8 @@
         "seed2": 2,
         "team2": "Houston",
         "pick": "Florida",
-        "confidence": 57,
-        "reasoning": "ML ensemble gives Florida 57% win probability. SRS differential is tight but Florida's balanced offensive profile and free throw rate give them the edge."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Florida (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "e8-west",
@@ -727,8 +727,8 @@
         "seed2": 2,
         "team2": "Purdue",
         "pick": "Arizona",
-        "confidence": 62,
-        "reasoning": "ML ensemble gives Arizona 62% win probability. SRS differential of +3.5 and offensive rebounding advantage favor Arizona in a tight matchup."
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Arizona (1-seed) to advance with 65% confidence."
       },
       {
         "gameId": "e8-midwest",
@@ -738,9 +738,9 @@
         "team1": "Michigan",
         "seed2": 2,
         "team2": "Iowa State",
-        "pick": "Iowa State",
-        "confidence": 59,
-        "reasoning": "ML ensemble gives Iowa State 59% win probability. SRS differential of +1.7 and Big 12 strength of schedule give Iowa State a slight edge over Michigan."
+        "pick": "Michigan",
+        "confidence": 65,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 65% confidence."
       }
     ],
     "final_four": [
@@ -749,12 +749,12 @@
         "round": "final_four",
         "region": "Final Four",
         "seed1": 1,
-        "team1": "Florida",
+        "team1": "Duke",
         "seed2": 1,
-        "team2": "Duke",
+        "team2": "Florida",
         "pick": "Duke",
-        "confidence": 54,
-        "reasoning": "ML ensemble gives Duke a marginal edge in a near-coin-flip matchup. Both teams are 1-seeds with elite efficiency profiles, yielding near-zero differentials across SRS, margin of victory, and win percentage features. Duke's slightly higher SRS rating and offensive efficiency metrics provide the slimmest possible tilt. The ensemble's logistic regression component (0.40 weight) favors Duke based on strength of schedule patterns, while the gradient boosting component (0.35 weight) sees this as a true toss-up."
+        "confidence": 50,
+        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 50% confidence."
       },
       {
         "gameId": "f4-west-midwest",
@@ -762,11 +762,11 @@
         "region": "Final Four",
         "seed1": 1,
         "team1": "Arizona",
-        "seed2": 2,
-        "team2": "Iowa State",
-        "pick": "Arizona",
-        "confidence": 63,
-        "reasoning": "ML ensemble gives Arizona 63% win probability. The 1-vs-2 seed differential is the primary driver — historical data shows 1-seeds win Final Four matchups against 2-seeds at a 62% rate across the training set. Arizona's SRS differential of +3.5 over Iowa State and superior margin of victory patterns reinforce the seed-based prior. All three ensemble components (LogReg, RF, GBM) agree directionally on Arizona."
+        "seed2": 1,
+        "team2": "Michigan",
+        "pick": "Michigan",
+        "confidence": 50,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 50% confidence."
       }
     ],
     "championship": [
@@ -777,10 +777,10 @@
         "seed1": 1,
         "team1": "Duke",
         "seed2": 1,
-        "team2": "Arizona",
+        "team2": "Michigan",
         "pick": "Duke",
-        "confidence": 55,
-        "reasoning": "ML ensemble gives Duke 55% win probability in another razor-thin 1-vs-1 matchup. Duke's marginally higher SRS rating and offensive efficiency metrics provide a slight edge in the feature space. The gradient boosting component (0.35 weight) identifies Duke's margin of victory patterns against top-25 opponents as the differentiator — Duke's MOV in those games exceeds Arizona's by 1.8 points per game, the most predictive feature at the championship round level."
+        "confidence": 50,
+        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 50% confidence."
       }
     ]
   }

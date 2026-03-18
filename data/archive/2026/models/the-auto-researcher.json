@@ -1,0 +1,20 @@
+{
+  "model": "the-auto-researcher",
+  "displayName": "The Auto Researcher",
+  "tagline": "21 strategies tested. 14 years backtested. One bracket.",
+  "color": "#10b981",
+  "generated": "2026-03-17",
+  "locked": true,
+  "espnBracketUrl": null,
+  "champion": null,
+  "championEliminated": false,
+  "finalFour": [],
+  "rounds": {
+    "round_of_64": [],
+    "round_of_32": [],
+    "sweet_16": [],
+    "elite_8": [],
+    "final_four": [],
+    "championship": []
+  }
+}

@@ -60,6 +60,8 @@ def enrich_team(team_name, seed, bt_stats, teams_meta, year, intangibles=None):
     """
     Build an enriched profile for a single team.
     Combines BartTorvik stats with any available metadata and intangibles.
+    teams.json uses nested structure (coaching.*, close_games.*, etc.) —
+    this function extracts and flattens relevant fields.
     """
     profile = {
         "name": team_name,
@@ -75,14 +77,73 @@ def enrich_team(team_name, seed, bt_stats, teams_meta, year, intangibles=None):
     if teams_meta:
         meta = teams_meta.get(team_name, {})
         if meta:
-            for field in ["conference", "record", "close_game_record", "last_10",
-                         "coach", "coach_tournament_record", "coach_final_fours",
-                         "coach_championships", "first_tournament_coach",
-                         "experience", "returning_minutes_pct", "style",
-                         "injuries", "conf_tourney_result", "road_neutral_record",
-                         "quad_1_record", "transfer_count", "bench_scoring_pct"]:
+            # Top-level fields
+            for field in ["record", "conference", "kenpomRank", "conference_strength_score"]:
                 if field in meta:
                     profile[field] = meta[field]
+
+            # Coaching (nested under coaching.*)
+            coaching = meta.get("coaching", {})
+            if coaching:
+                profile["coach"] = coaching.get("coach_name", "")
+                profile["coach_tournament_record"] = coaching.get("tournament_record", "")
+                profile["coach_final_fours"] = coaching.get("final_fours", 0)
+                profile["coach_championships"] = coaching.get("championships", 0)
+                profile["first_tournament_coach"] = coaching.get("first_tournament", False)
+                profile["coach_seasons"] = coaching.get("seasons_at_program", 0)
+                profile["coach_tournament_appearances"] = coaching.get("tournament_appearances_as_hc", 0)
+
+            # Close games (nested under close_games.*)
+            close_games = meta.get("close_games", {})
+            if close_games:
+                profile["close_game_record"] = close_games.get("record", "")
+                profile["close_game_win_pct"] = close_games.get("win_pct", 0)
+
+            # Momentum (nested under momentum.*)
+            momentum = meta.get("momentum", {})
+            if momentum:
+                profile["last_10"] = momentum.get("last_10_record", "")
+                profile["momentum_flag"] = momentum.get("flag", "neutral")
+                profile["conf_tourney_result"] = momentum.get("conf_tournament_result", "")
+                profile["hot_cold_delta"] = momentum.get("hot_cold_delta", 0)
+
+            # Roster (nested under roster.*)
+            roster = meta.get("roster", {})
+            if roster:
+                profile["returning_minutes_pct"] = roster.get("experience_returning_minutes_pct", 0)
+                profile["avg_player_year"] = roster.get("average_player_year", 0)
+                profile["is_freshman_heavy"] = roster.get("is_freshman_heavy", False)
+                profile["is_senior_led"] = roster.get("is_senior_led", False)
+                profile["tournament_experience_count"] = roster.get("players_with_tournament_experience", 0)
+
+            # Shooting (nested under shooting.* — supplement BartTorvik, don't overwrite)
+            shooting = meta.get("shooting", {})
+            if shooting:
+                for src, dst in [
+                    ("three_pt_variance_risk_score", "three_pt_variance_risk"),
+                    ("ft_pct_close_games", "ft_pct_close_games"),
+                    ("ft_pressure_delta", "ft_pressure_delta"),
+                ]:
+                    if src in shooting and dst not in profile:
+                        profile[dst] = shooting[src]
+
+            # Ball control (nested under ball_control.*)
+            ball_control = meta.get("ball_control", {})
+            if ball_control:
+                for src, dst in [
+                    ("forced_turnover_rate", "forced_to_rate"),
+                    ("turnover_margin", "turnover_margin"),
+                ]:
+                    if src in ball_control:
+                        profile[dst] = ball_control[src]
+
+            # Scout profile (nested under scout_profile.*)
+            scout_profile = meta.get("scout_profile", {})
+            if scout_profile:
+                profile["injuries"] = scout_profile.get("injuries", [])
+                profile["injury_impact"] = scout_profile.get("injury_impact", "none")
+                profile["style"] = scout_profile.get("style", "")
+                profile["tempo_bucket"] = scout_profile.get("tempo_bucket", "")
 
     # Intangibles intel (if available)
     if intangibles and team_name in intangibles:
@@ -156,14 +217,30 @@ def main():
 
     # Summary stats
     has_efficiency = sum(1 for p in enriched.values() if "adj_em" in p)
-    has_coaching = sum(1 for p in enriched.values() if "coach_tournament_record" in p)
+    has_coaching = sum(1 for p in enriched.values() if "coach" in p and p["coach"])
+    has_close_games = sum(1 for p in enriched.values() if "close_game_record" in p and p["close_game_record"])
+    has_momentum = sum(1 for p in enriched.values() if "last_10" in p and p["last_10"])
+    has_roster = sum(1 for p in enriched.values() if "returning_minutes_pct" in p)
     has_shooting = sum(1 for p in enriched.values() if "threep_pct" in p)
+    has_ball_control = sum(1 for p in enriched.values() if "forced_to_rate" in p)
+    has_style = sum(1 for p in enriched.values() if "style" in p and p["style"])
     has_intangibles = sum(1 for p in enriched.values() if "intangibles" in p)
+
+    # Count total fields per team (excluding name/seed/year)
+    field_counts = [len([k for k in p if k not in ("name", "seed", "year")]) for p in enriched.values()]
+    avg_fields = sum(field_counts) / len(field_counts) if field_counts else 0
+
     print(f"\n   Coverage:")
     print(f"     Efficiency:   {has_efficiency}/{len(enriched)}")
     print(f"     Coaching:     {has_coaching}/{len(enriched)}")
+    print(f"     Close Games:  {has_close_games}/{len(enriched)}")
+    print(f"     Momentum:     {has_momentum}/{len(enriched)}")
+    print(f"     Roster:       {has_roster}/{len(enriched)}")
     print(f"     Shooting:     {has_shooting}/{len(enriched)}")
+    print(f"     Ball Control: {has_ball_control}/{len(enriched)}")
+    print(f"     Style:        {has_style}/{len(enriched)}")
     print(f"     Intangibles:  {has_intangibles}/{len(enriched)}")
+    print(f"\n   Avg fields per team: {avg_fields:.1f}")
     print(f"\n{'='*60}")
 
 

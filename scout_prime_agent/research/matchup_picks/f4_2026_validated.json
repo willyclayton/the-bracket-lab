@@ -1,26 +1,26 @@
 [
   {
-    "gameId": "f4-south-west",
+    "gameId": "f4-south-east",
     "round": "final_four",
     "region": "National",
     "seed1": 1,
     "team1": "Florida",
     "seed2": 1,
-    "team2": "Arizona",
-    "pick": "Arizona",
-    "confidence": 58,
-    "reasoning": "Arizona's 1.7 AdjEM edge is marginal but their WAB of 13.7 vs Florida's 8.5 is the decisive factor — Arizona has been dramatically better against quality opponents all season. Both teams map to champion archetypes (Arizona: 2025 Florida, 2012 Kentucky; Florida: 2025 Florida itself). Arizona's AdjO of 128.7 creates an offensive ceiling Florida's defense may struggle to contain."
+    "team2": "Duke",
+    "pick": "Duke",
+    "confidence": 63,
+    "reasoning": "Duke's AdjEM (37.3) holds a 3.5-point edge over Florida's (33.8). Duke's offense (AdjO 128.1) is the best in the country. Defense (AdjD 90.8) is tighter than Florida's (92.3). Foster could be back by the Final Four. Duke's complete two-way dominance and archetypes (2024 Purdue Runner-Up, 2025 Florida Champion) project championship-level."
   },
   {
-    "gameId": "f4-east-midwest",
+    "gameId": "f4-west-midwest",
     "round": "final_four",
     "region": "National",
     "seed1": 1,
-    "team1": "Duke",
+    "team1": "Arizona",
     "seed2": 1,
     "team2": "Michigan",
-    "pick": "Duke",
-    "confidence": 53,
-    "reasoning": "0.7 AdjEM gap is functionally zero between these two juggernauts. Duke's 37.3 AdjEM is the single best in the field, but Michigan's 36.6 is right behind with a marginally higher WAB (14.0 vs 13.7). Duke's AdjO of 128.1 gives them the slightest offensive edge. Both map to champion archetypes. In the most evenly matched Final Four game imaginable, Duke's top-line efficiency rating is the only differentiator."
+    "pick": "Michigan",
+    "confidence": 55,
+    "reasoning": "Michigan's AdjEM (36.6) edges Arizona's (35.5) by 1.1 points — razor-thin but consistent across every metric. Michigan's defense (AdjD 91.0) is marginally tighter than Arizona's (91.4). Both play fast tempos. Michigan's archetypes (2012 Kentucky Champion, 2025 Florida Champion) edge Arizona's (same archetypes, slightly lower similarity)."
   }
 ]

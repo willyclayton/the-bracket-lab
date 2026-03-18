@@ -8,8 +8,8 @@
     "seed2": 2,
     "team2": "UConn",
     "pick": "Duke",
-    "confidence": 75,
-    "reasoning": "9.2 AdjEM gap is substantial at the Elite 8 level. Duke's 37.3 AdjEM is the best in the field and their WAB of 13.7 dwarfs UConn's 8.8. Duke's archetype twins (2025 Florida Champion, 2024 Purdue Runner-Up) project a championship ceiling. UConn's recent titles give them intangible tournament DNA, but the efficiency gap is too large to overcome."
+    "confidence": 68,
+    "reasoning": "Duke's AdjEM (37.3) holds a 9.2-point edge over UConn's (28.1). Duke's offense (AdjO 128.1) is the best in the field, and defense (AdjD 90.8) is better than UConn's (95.0). Foster could return by E8. Blue-blood Elite Eight matchup goes to the statistically superior team."
   },
   {
     "gameId": "e8-south",
@@ -20,8 +20,8 @@
     "seed2": 2,
     "team2": "Houston",
     "pick": "Florida",
-    "confidence": 54,
-    "reasoning": "0.9 AdjEM gap is functionally zero, making this the closest Elite 8 matchup. Houston's WAB of 9.0 edges Florida's 8.5 and their AdjD of 89.5 is the best in the country. However, Florida's archetype twin is literally 2025 Florida (Champion, 0.953 similarity) — the same program that won it all last year with a nearly identical statistical profile. Houston's archetypes cap at Runner-Up. In a coin flip, the champion archetype and Florida's AdjO of 125.6 are the tiebreakers."
+    "confidence": 56,
+    "reasoning": "Florida (AdjEM 33.8) vs Houston (33.0) — 0.8-point gap. Houston's defense is marginally better, but Florida's faster tempo (70.4 vs 63.3) creates more possessions. Florida's pace forces Houston out of their slow-grind comfort zone. Archetypes: Florida matches 2025 Florida (Champion) and 2024 UConn (Champion)."
   },
   {
     "gameId": "e8-west",
@@ -32,8 +32,8 @@
     "seed2": 2,
     "team2": "Purdue",
     "pick": "Arizona",
-    "confidence": 60,
-    "reasoning": "2.5 AdjEM gap with Arizona's WAB of 13.7 vs Purdue's 9.2 — a massive quality-wins differential. Arizona's archetype twins are 2025 Florida (Champion) and 2012 Kentucky (Champion) — both won it all. Purdue's archetype twin is 2024 Purdue (Runner-Up) — a team that fell short in the final. Arizona's offensive ceiling (AdjO 128.7) gives them the edge in a high-stakes shootout."
+    "confidence": 58,
+    "reasoning": "Arizona's AdjEM (35.5) edges Purdue's (33.0) by 2.5 points. Purdue has the better offense (AdjO 133.3 vs 126.9), but Arizona's defense (AdjD 91.4 vs 100.3) is 9 points better. In Elite Eight play, defense wins. Arizona's Big 12 championship pedigree and archetypes (2012 Kentucky Champion, 2025 Florida Champion) project elite."
   },
   {
     "gameId": "e8-midwest",
@@ -44,7 +44,7 @@
     "seed2": 2,
     "team2": "Iowa State",
     "pick": "Michigan",
-    "confidence": 70,
-    "reasoning": "5.5 AdjEM gap with Michigan's 36.6 AdjEM ranking 2nd in the field. Michigan's WAB of 14.0 is the highest in the entire tournament — no team has proven more against quality opponents. Archetype twin 2012 Kentucky (Champion, 0.943 similarity) is the ultimate validation. Iowa State's archetypes cap at Runner-Up (2024 Purdue). Michigan's Barthag of 0.980 projects dominance."
+    "confidence": 62,
+    "reasoning": "Michigan's AdjEM (36.6) holds a 5.5-point edge over Iowa State's (31.1). Both have elite defenses (AdjD 91.0 vs 92.6), but Michigan's offense (AdjO 127.6 vs 123.8) is the separator. Dusty May's FF experience and archetypes (2012 Kentucky Champion) give Michigan the edge."
   }
 ]

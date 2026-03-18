@@ -50,7 +50,7 @@
         "team2": "McNeese",
         "pick": "Vanderbilt",
         "confidence": 78,
-        "reasoning": "Vanderbilt profiles like 2017 Gonzaga (similarity: 0.85, Runner-Up). McNeese profiles like 2022 Saint Peter's (similarity: 0.84, Elite Eight)."
+        "reasoning": "Vanderbilt profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). McNeese profiles like 2022 Saint Peter's (similarity: 0.84, Elite Eight)."
       },
       {
         "gameId": "r64-south-4",
@@ -424,7 +424,7 @@
         "team2": "Nebraska",
         "pick": "Vanderbilt",
         "confidence": 54,
-        "reasoning": "Vanderbilt profiles like 2017 Gonzaga (similarity: 0.85, Runner-Up). Nebraska profiles like 2021 Gonzaga (similarity: 0.85, Runner-Up)."
+        "reasoning": "Vanderbilt profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). Nebraska profiles like 2021 Gonzaga (similarity: 0.85, Runner-Up)."
       },
       {
         "gameId": "r32-south-3",
@@ -606,7 +606,7 @@
         "team2": "Vanderbilt",
         "pick": "Florida",
         "confidence": 55,
-        "reasoning": "Florida profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Vanderbilt profiles like 2017 Gonzaga (similarity: 0.85, Runner-Up)."
+        "reasoning": "Florida profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Vanderbilt profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up)."
       },
       {
         "gameId": "s16-south-2",

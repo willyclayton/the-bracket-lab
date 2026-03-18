@@ -64,6 +64,36 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6242
 - SOS: 0.7409
 
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 19.6%
+- TO Margin: +3.8 (net positive)
+
+**Coaching:**
+- Coach: Jon Scheyer
+- Tournament Record: 8-3
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 44%
+- Avg Player Year: 1.8
+- Freshman-heavy roster
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 32-2
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 10-0 [HOT]
+- Conference Tournament: champion
+- Style: perimeter-dominant (medium tempo)
+- Injuries: Caleb Foster (foot fracture, out until Final Four), Patrick Ngongba (foot soreness, expected back) (impact: significant)
+
 ### Team 2: Siena (16-seed)
 **Efficiency Ratings:**
 - AdjEM: -1.7
@@ -73,6 +103,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -7.8
 - Elite SOS: 0.9093
 - SOS: 0.2973
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Gerry McNamara
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 2
+
+**Context:**
+- Record: 23-11
+- Conference: MAAC (strength: 18)
+- Close Games (<=5pt): 2-8 (20% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -84,6 +142,8 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 39.0 AdjEM in favor of Duke
 **Tempo:** Similar pace (65.8 vs 64.6)
+**Turnover Margin Edge:** Duke (+3.8 vs +0.0) — creates more turnovers than it commits
+**Coaching Mismatch:** Siena's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -154,6 +214,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6218
 - SOS: 0.7272
 
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Jake Diebler
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 21-12
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: versatile (medium tempo)
+- Injuries: Brandon Noel (foot, out since January), Taison Chatman (groin, day-to-day) (impact: moderate)
+
 ### Team 2: TCU (9-seed)
 **Efficiency Ratings:**
 - AdjEM: 15.2
@@ -163,6 +252,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 2.4
 - Elite SOS: 0.6556
 - SOS: 0.6722
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Jamie Dixon
+- Tournament Record: 14-15
+- Tournament Appearances (HC): 16
+
+**Roster:**
+- Returning Minutes: 62%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 22-11
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: quarterfinal
+- Style: grind (medium tempo)
 
 ---
 
@@ -174,6 +290,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 8.4 AdjEM in favor of Ohio State
 **Tempo:** Similar pace (66.2 vs 67.6)
+**Coaching Mismatch:** Ohio State's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.10) — favorite is solid
 
 ---
@@ -244,6 +361,36 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6894
 - SOS: 0.7292
 
+**Shooting:**
+- 3pt Variance Risk: 0.034 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.4%
+- TO Margin: +1.6 (net positive)
+
+**Coaching:**
+- Coach: Rick Pitino
+- Tournament Record: 55-22
+- Tournament Appearances (HC): 24
+- Final Fours: 7
+- Championships: 2
+
+**Roster:**
+- Returning Minutes: 54%
+- Avg Player Year: 2.2
+- Freshman-heavy roster
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 31-5
+- Conference: Big East (strength: 85)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: guard-heavy (fast tempo)
+
 ### Team 2: Northern Iowa (12-seed)
 **Efficiency Ratings:**
 - AdjEM: 11.1
@@ -253,6 +400,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -5.3
 - Elite SOS: 0.8449
 - SOS: 0.5078
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Ben Jacobson
+- Tournament Record: 4-4
+- Tournament Appearances (HC): 5
+
+**Roster:**
+- Returning Minutes: 62%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 23-12
+- Conference: MVC (strength: 42)
+- Close Games (<=5pt): 4-6 (40% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: execution (slow tempo)
 
 ---
 
@@ -264,6 +438,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 14.6 AdjEM in favor of St. John's
 **Tempo Mismatch:** St. John's (69.6) wants to push pace; Northern Iowa (62.2) prefers to slow it down. 7.4 possession gap.
+**Turnover Margin Edge:** St. John's (+1.6 vs +0.0) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.08) — favorite is solid
 
 ---
@@ -334,6 +509,36 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.5899
 - SOS: 0.7865
 
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.4%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Bill Self
+- Tournament Record: 57-24
+- Tournament Appearances (HC): 27
+- Final Fours: 4
+- Championships: 2
+
+**Roster:**
+- Returning Minutes: 58%
+- Avg Player Year: 2.4
+- Players with Tournament Experience: 9
+
+**Context:**
+- Record: 23-10
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 5-5
+- Conference Tournament: semifinal
+- Style: two-way (medium tempo)
+- Injuries: Darryn Peterson (missed 11 games, star freshman) (impact: significant)
+
 ### Team 2: Cal Baptist (13-seed)
 **Efficiency Ratings:**
 - AdjEM: 7.2
@@ -343,6 +548,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -2.3
 - Elite SOS: 0.8605
 - SOS: 0.4521
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Rick Croy
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 2
+
+**Context:**
+- Record: 25-8
+- Conference: WAC (strength: 35)
+- Close Games (<=5pt): 4-6 (40% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: champion
+- Style: shooting (medium tempo)
 
 ---
 
@@ -354,6 +587,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 16.3 AdjEM in favor of Kansas
 **Tempo:** Similar pace (67.6 vs 65.9)
+**Coaching Mismatch:** Cal Baptist's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -424,6 +658,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6473
 - SOS: 0.7086
 
+**Shooting:**
+- 3pt Variance Risk: 0.024 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.1%
+- TO Margin: -1.8 (net negative)
+
+**Coaching:**
+- Coach: Pat Kelsey
+- Tournament Record: 0-6
+- Tournament Appearances (HC): 6
+
+**Roster:**
+- Returning Minutes: 48%
+- Avg Player Year: 2.1
+- Freshman-heavy roster
+- Players with Tournament Experience: 4
+
+**Context:**
+- Record: 23-10
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 6-4
+- Conference Tournament: quarterfinal
+- Style: developing (medium tempo)
+- Injuries: Mikel Brown Jr. (lower back, trying to return for NCAAs) (impact: significant)
+
 ### Team 2: South Florida (11-seed)
 **Efficiency Ratings:**
 - AdjEM: 15.4
@@ -433,6 +696,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -0.3
 - Elite SOS: 0.8105
 - SOS: 0.5478
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Bryan Hodgson
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 25-8
+- Conference: AAC (strength: 58)
+- Close Games (<=5pt): 4-5 (44% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: pressing (fast tempo)
 
 ---
 
@@ -444,6 +735,8 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 10.5 AdjEM in favor of Louisville
 **Tempo:** Similar pace (69.7 vs 71.4)
+**Turnover Margin Edge:** South Florida (+0.0 vs -1.8) — creates more turnovers than it commits
+**Coaching Mismatch:** South Florida's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.04) — favorite is solid
 
 ---
@@ -514,6 +807,37 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6279
 - SOS: 0.7465
 
+**Shooting:**
+- 3pt Variance Risk: 0.021 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: -0.6 (net negative)
+
+**Coaching:**
+- Coach: Tom Izzo
+- Tournament Record: 59-26
+- Tournament Appearances (HC): 28
+- Final Fours: 8
+- Championships: 1
+
+**Roster:**
+- Returning Minutes: 71%
+- Avg Player Year: 3.2
+- Senior-led roster
+- Players with Tournament Experience: 11
+
+**Context:**
+- Record: 25-7
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: grind (slow tempo)
+- Injuries: Divine Ugochukwu (season-ending injury, no backup PG) (impact: moderate)
+
 ### Team 2: North Dakota State (14-seed)
 **Efficiency Ratings:**
 - AdjEM: 5.4
@@ -523,6 +847,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -3.4
 - Elite SOS: 0.9092
 - SOS: 0.3408
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: David Richman
+- Tournament Record: 1-2
+- Tournament Appearances (HC): 4
+
+**Roster:**
+- Returning Minutes: 58%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 4
+
+**Context:**
+- Record: 27-7
+- Conference: Summit (strength: 15)
+- Close Games (<=5pt): 3-7 (30% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: champion
+- Style: grind (slow tempo)
 
 ---
 
@@ -604,6 +955,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6384
 - SOS: 0.7135
 
+**Shooting:**
+- 3pt Variance Risk: 0.032 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.6%
+- TO Margin: +0.8 (net positive)
+
+**Coaching:**
+- Coach: Mick Cronin
+- Tournament Record: 16-15
+- Tournament Appearances (HC): 15
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 57%
+- Avg Player Year: 2.4
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 23-11
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: defense (medium tempo)
+- Injuries: Tyler Bilodeau (out/limited, leading scorer), Donovan Dent (calf injury, limited) (impact: significant)
+
 ### Team 2: UCF (10-seed)
 **Efficiency Ratings:**
 - AdjEM: 14.3
@@ -613,6 +993,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 2.1
 - Elite SOS: 0.6550
 - SOS: 0.7096
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Johnny Dawkins
+- Tournament Record: 3-2
+- Tournament Appearances (HC): 3
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 21-11
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 6-4
+- Conference Tournament: quarterfinal
+- Style: athletic (medium tempo)
+- Injuries: Jamichael Stillwell (ankle), John Bol (chest, day-to-day) (impact: moderate)
 
 ---
 
@@ -694,6 +1102,36 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6742
 - SOS: 0.7138
 
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.2%
+- TO Margin: +1.4 (net positive)
+
+**Coaching:**
+- Coach: Dan Hurley
+- Tournament Record: 15-5
+- Tournament Appearances (HC): 7
+- Final Fours: 2
+- Championships: 2
+
+**Roster:**
+- Returning Minutes: 66%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 29-5
+- Conference: Big East (strength: 85)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: versatile (medium tempo)
+- Injuries: Jaylin Stewart (uncertain, missed Big East tournament) (impact: moderate)
+
 ### Team 2: Furman (15-seed)
 **Efficiency Ratings:**
 - AdjEM: -2.1
@@ -703,6 +1141,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -8.7
 - Elite SOS: 0.9150
 - SOS: 0.3177
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Bob Richey
+- Tournament Record: 1-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 3
+
+**Context:**
+- Record: 22-12
+- Conference: SoCon (strength: 18)
+- Close Games (<=5pt): 2-7 (22% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: execution (medium tempo)
 
 ---
 
@@ -714,6 +1179,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 30.2 AdjEM in favor of UConn
 **Tempo:** Similar pace (64.6 vs 65.8)
+**Turnover Margin Edge:** UConn (+1.4 vs +0.0) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -784,6 +1250,36 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6075
 - SOS: 0.7581
 
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 19.4%
+- TO Margin: +3.6 (net positive)
+
+**Coaching:**
+- Coach: Todd Golden
+- Tournament Record: 6-2
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+- Championships: 1
+
+**Roster:**
+- Returning Minutes: 64%
+- Avg Player Year: 2.4
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 26-7
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: two-way (medium tempo)
+- Injuries: Micah Handlogten (medical redshirt, out for season), Thomas Haugh (foot, expected back) (impact: minor)
+
 ### Team 2: Prairie View A&M (16-seed)
 **Efficiency Ratings:**
 - AdjEM: -10.0
@@ -793,6 +1289,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -12.6
 - Elite SOS: 0.9049
 - SOS: 0.2963
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Byron Smith
+- Tournament Record: 0-2
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 38%
+- Avg Player Year: 2.4
+- Players with Tournament Experience: 1
+
+**Context:**
+- Record: 18-17
+- Conference: SWAC (strength: 8)
+- Close Games (<=5pt): 2-8 (20% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -804,6 +1327,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 43.8 AdjEM in favor of Florida
 **Tempo:** Similar pace (70.4 vs 70.9)
+**Turnover Margin Edge:** Florida (+3.6 vs +0.0) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -874,6 +1398,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6788
 - SOS: 0.6821
 
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.2%
+- TO Margin: +0.8 (net positive)
+
+**Coaching:**
+- Coach: Brad Brownell
+- Tournament Record: 6-8
+- Tournament Appearances (HC): 8
+
+**Roster:**
+- Returning Minutes: 62%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 24-10
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: two-way (medium tempo)
+- Injuries: Carter Welling (torn ACL, out for season — 2nd scorer, top rebounder), Dillon Hunter (broken hand, out) (impact: significant)
+
 ### Team 2: Iowa (9-seed)
 **Efficiency Ratings:**
 - AdjEM: 21.9
@@ -883,6 +1435,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 1.9
 - Elite SOS: 0.6412
 - SOS: 0.6916
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Ben McCollum
+- Tournament Record: 1-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 21-12
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 4-6 [COLD]
+- Conference Tournament: quarterfinal
+- Style: execution (medium tempo)
 
 ---
 
@@ -964,6 +1543,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6318
 - SOS: 0.7378
 
+**Shooting:**
+- 3pt Variance Risk: 0.026 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.6%
+- TO Margin: -0.5 (net negative)
+
+**Coaching:**
+- Coach: Mark Byington
+- Tournament Record: 1-2
+- Tournament Appearances (HC): 3
+
+**Roster:**
+- Returning Minutes: 61%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 26-8
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: versatile (medium tempo)
+- Injuries: Duke Miles (knee, missed 6 games but returned) (impact: minor)
+
 ### Team 2: McNeese (12-seed)
 **Efficiency Ratings:**
 - AdjEM: 11.0
@@ -973,6 +1580,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 0.7
 - Elite SOS: 0.8514
 - SOS: 0.4241
+
+**Shooting:**
+- 3pt Variance Risk: 0.035 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Bill Armstrong
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 58%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 3
+
+**Context:**
+- Record: 28-5
+- Conference: Southland (strength: 15)
+- Close Games (<=5pt): 4-6 (40% win rate)
+- Last 10: 10-0 [HOT]
+- Conference Tournament: champion
+- Style: aggressive (medium tempo)
 
 ---
 
@@ -984,6 +1619,8 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 17.1 AdjEM in favor of Vanderbilt
 **Tempo:** Similar pace (69.0 vs 66.1)
+**Turnover Margin Edge:** McNeese (+0.6 vs -0.5) — creates more turnovers than it commits
+**Coaching Mismatch:** McNeese's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -1054,6 +1691,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6542
 - SOS: 0.6950
 
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Fred Hoiberg
+- Tournament Record: 4-5
+- Tournament Appearances (HC): 6
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 26-6
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: versatile (medium tempo)
+- Injuries: Rienk Mast (illness, hospitalized before Big Ten tourney) (impact: minor)
+
 ### Team 2: Troy (13-seed)
 **Efficiency Ratings:**
 - AdjEM: 1.7
@@ -1063,6 +1728,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -6.2
 - Elite SOS: 0.8791
 - SOS: 0.4027
+
+**Shooting:**
+- 3pt Variance Risk: 0.029 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 16.4%
+- TO Margin: -1.4 (net negative)
+
+**Coaching:**
+- Coach: Scott Cross
+- Tournament Record: 0-2
+- Tournament Appearances (HC): 3
+
+**Roster:**
+- Returning Minutes: 52%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 3
+
+**Context:**
+- Record: 22-11
+- Conference: Sun Belt (strength: 20)
+- Close Games (<=5pt): 4-6 (40% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -1074,6 +1766,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 22.1 AdjEM in favor of Nebraska
 **Tempo:** Similar pace (66.8 vs 65.1)
+**Turnover Margin Edge:** Nebraska (+0.0 vs -1.4) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -1144,6 +1837,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6646
 - SOS: 0.7027
 
+**Shooting:**
+- 3pt Variance Risk: 0.031 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 16.8%
+- TO Margin: -1.3 (net negative)
+
+**Coaching:**
+- Coach: Hubert Davis
+- Tournament Record: 8-3
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 66%
+- Avg Player Year: 2.7
+- Players with Tournament Experience: 9
+
+**Context:**
+- Record: 24-8
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 5-5 [COLD]
+- Conference Tournament: quarterfinal
+- Style: pace-and-space (medium tempo)
+- Injuries: Caleb Wilson (broken thumb, out for season — leading scorer, projected top-5 pick) (impact: significant)
+
 ### Team 2: VCU (11-seed)
 **Efficiency Ratings:**
 - AdjEM: 16.2
@@ -1153,6 +1875,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 1.7
 - Elite SOS: 0.7948
 - SOS: 0.5651
+
+**Shooting:**
+- 3pt Variance Risk: 0.031 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 21.4%
+- TO Margin: +1.6 (net positive)
+
+**Coaching:**
+- Coach: Phil Martelli Jr.
+- Tournament Record: 0-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 46%
+- Avg Player Year: 2.1
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 27-7
+- Conference: A-10 (strength: 52)
+- Close Games (<=5pt): 4-5 (44% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: pressing (fast tempo)
 
 ---
 
@@ -1164,6 +1913,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 5.2 AdjEM in favor of North Carolina
 **Tempo:** Similar pace (68.0 vs 68.7)
+**Turnover Margin Edge:** VCU (+1.6 vs -1.3) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.10) — favorite is solid
 
 ---
@@ -1234,6 +1984,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6254
 - SOS: 0.7383
 
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: +0.7 (net positive)
+
+**Coaching:**
+- Coach: Brad Underwood
+- Tournament Record: 8-9
+- Tournament Appearances (HC): 9
+
+**Roster:**
+- Returning Minutes: 59%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 24-8
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: pace-and-space (medium tempo)
+- Injuries: Keaton Wagler (back spasms) (impact: minor)
+
 ### Team 2: Penn (14-seed)
 **Efficiency Ratings:**
 - AdjEM: 1.2
@@ -1243,6 +2021,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -6.0
 - Elite SOS: 0.8535
 - SOS: 0.4638
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Fran McCaffery
+- Tournament Record: 6-12
+- Tournament Appearances (HC): 8
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 3
+
+**Context:**
+- Record: 18-11
+- Conference: Ivy (strength: 25)
+- Close Games (<=5pt): 3-7 (30% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: smart-ball (slow tempo)
+- Injuries: Ethan Roberts (concussion, trying to return for NCAAs) (impact: moderate)
 
 ---
 
@@ -1324,6 +2130,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.7734
 - SOS: 0.5999
 
+**Shooting:**
+- 3pt Variance Risk: 0.020 (low)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 15.4%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Randy Bennett
+- Tournament Record: 7-11
+- Tournament Appearances (HC): 12
+
+**Roster:**
+- Returning Minutes: 76%
+- Avg Player Year: 3.6
+- Senior-led roster
+- Players with Tournament Experience: 11
+
+**Context:**
+- Record: 27-5
+- Conference: WCC (strength: 65)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: semifinal
+- Style: execution (slow tempo)
+
 ### Team 2: Texas A&M (10-seed)
 **Efficiency Ratings:**
 - AdjEM: 18.5
@@ -1333,6 +2167,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 1.6
 - Elite SOS: 0.6690
 - SOS: 0.6735
+
+**Shooting:**
+- 3pt Variance Risk: 0.023 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.4%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Bucky McMillan
+- Tournament Record: 0-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 21-11
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 6-4
+- Conference Tournament: second_round
+- Style: physical (medium tempo)
 
 ---
 
@@ -1414,6 +2275,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6386
 - SOS: 0.7306
 
+**Shooting:**
+- 3pt Variance Risk: 0.021 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 20.4%
+- TO Margin: +5.6 (net positive)
+
+**Coaching:**
+- Coach: Kelvin Sampson
+- Tournament Record: 31-21
+- Tournament Appearances (HC): 20
+- Final Fours: 4
+
+**Roster:**
+- Returning Minutes: 72%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 28-6
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: defense-first (slow tempo)
+- Injuries: J'Wan Roberts (ankle, expected to play) (impact: minor)
+
 ### Team 2: Idaho (15-seed)
 **Efficiency Ratings:**
 - AdjEM: 2.6
@@ -1423,6 +2313,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -8.9
 - Elite SOS: 0.8777
 - SOS: 0.4253
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Alex Pribble
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 2
+
+**Context:**
+- Record: 21-14
+- Conference: Big Sky (strength: 20)
+- Close Games (<=5pt): 2-7 (22% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -1434,6 +2352,8 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 30.3 AdjEM in favor of Houston
 **Tempo:** Similar pace (63.3 vs 67.4)
+**Turnover Margin Edge:** Houston (+5.6 vs +0.0) — creates more turnovers than it commits
+**Coaching Mismatch:** Idaho's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -1504,6 +2424,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6220
 - SOS: 0.7386
 
+**Shooting:**
+- 3pt Variance Risk: 0.031 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.2%
+- TO Margin: +1.8 (net positive)
+
+**Coaching:**
+- Coach: Tommy Lloyd
+- Tournament Record: 6-4
+- Tournament Appearances (HC): 4
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.0
+- Freshman-heavy roster
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 32-2
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: versatile (medium tempo)
+- Injuries: Jaden Bradley (left wrist, taped but playing) (impact: minor)
+
 ### Team 2: LIU (16-seed)
 **Efficiency Ratings:**
 - AdjEM: -6.1
@@ -1513,6 +2462,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -5.8
 - Elite SOS: 0.8822
 - SOS: 0.3035
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Rod Strickland
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 1
+
+**Context:**
+- Record: 24-10
+- Conference: NEC (strength: 12)
+- Close Games (<=5pt): 2-8 (20% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -1524,6 +2501,8 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 41.6 AdjEM in favor of Arizona
 **Tempo:** Similar pace (70.0 vs 67.8)
+**Turnover Margin Edge:** Arizona (+1.8 vs +0.0) — creates more turnovers than it commits
+**Coaching Mismatch:** LIU's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -1594,6 +2573,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6931
 - SOS: 0.7069
 
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Kevin Willard
+- Tournament Record: 4-7
+- Tournament Appearances (HC): 8
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 24-8
+- Conference: Big East (strength: 85)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: two-way (medium tempo)
+
 ### Team 2: Utah State (9-seed)
 **Efficiency Ratings:**
 - AdjEM: 20.9
@@ -1603,6 +2609,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 4.0
 - Elite SOS: 0.7700
 - SOS: 0.6397
+
+**Shooting:**
+- 3pt Variance Risk: 0.032 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.2%
+- TO Margin: +0.8 (net positive)
+
+**Coaching:**
+- Coach: Jerrod Calhoun
+- Tournament Record: 0-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 58%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 28-6
+- Conference: MWC (strength: 50)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: two-way (medium tempo)
 
 ---
 
@@ -1684,6 +2717,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6233
 - SOS: 0.7345
 
+**Shooting:**
+- 3pt Variance Risk: 0.019 (low)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 15.8%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Greg Gard
+- Tournament Record: 7-7
+- Tournament Appearances (HC): 8
+
+**Roster:**
+- Returning Minutes: 78%
+- Avg Player Year: 3.4
+- Senior-led roster
+- Players with Tournament Experience: 12
+
+**Context:**
+- Record: 24-10
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: execution (slow tempo)
+
 ### Team 2: High Point (12-seed)
 **Efficiency Ratings:**
 - AdjEM: 8.2
@@ -1693,6 +2754,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -1.4
 - Elite SOS: 0.9329
 - SOS: 0.2789
+
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 16.4%
+- TO Margin: -0.4 (net negative)
+
+**Coaching:**
+- Coach: Flynn Clayman
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 60%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 2
+
+**Context:**
+- Record: 30-4
+- Conference: Big South (strength: 22)
+- Close Games (<=5pt): 4-6 (40% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -1704,6 +2793,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 17.4 AdjEM in favor of Wisconsin
 **Tempo:** Similar pace (68.7 vs 69.9)
+**Coaching Mismatch:** High Point's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -1773,6 +2863,37 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 7.5
 - Elite SOS: 0.6226
 - SOS: 0.7460
+
+**Shooting:**
+- 3pt Variance Risk: 0.031 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.1%
+- TO Margin: -0.3 (net negative)
+
+**Coaching:**
+- Coach: John Calipari
+- Tournament Record: 57-22
+- Tournament Appearances (HC): 24
+- Final Fours: 6
+- Championships: 1
+
+**Roster:**
+- Returning Minutes: 52%
+- Avg Player Year: 2.2
+- Freshman-heavy roster
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 26-8
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: champion
+- Style: talent-first (medium tempo)
+- Injuries: Darius Acuff Jr. (ankle, returned for SEC tourney) (impact: minor)
 
 ### Team 2: Hawaii (13-seed)
 **Efficiency Ratings:**
@@ -1864,6 +2985,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6177
 - SOS: 0.7482
 
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Kevin Young
+- Tournament Record: 2-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 60%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 23-11
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 6-4
+- Conference Tournament: quarterfinal
+- Style: modern (medium tempo)
+
 ### Team 2: Texas (11-seed)
 **Efficiency Ratings:**
 - AdjEM: 17.7
@@ -1873,6 +3021,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -0.2
 - Elite SOS: 0.6328
 - SOS: 0.6713
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.8%
+- TO Margin: +0.4 (net positive)
+
+**Coaching:**
+- Coach: Sean Miller
+- Tournament Record: 22-13
+- Tournament Appearances (HC): 13
+
+**Roster:**
+- Returning Minutes: 54%
+- Avg Player Year: 2.4
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 18-14
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 4-5 (44% win rate)
+- Last 10: 5-5
+- Conference Tournament: did_not_qualify
+- Style: grind (medium tempo)
 
 ---
 
@@ -1954,6 +3129,36 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.7542
 - SOS: 0.6271
 
+**Shooting:**
+- 3pt Variance Risk: 0.034 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: +2.4 (net positive)
+
+**Coaching:**
+- Coach: Mark Few
+- Tournament Record: 44-25
+- Tournament Appearances (HC): 25
+- Final Fours: 2
+
+**Roster:**
+- Returning Minutes: 61%
+- Avg Player Year: 2.2
+- Freshman-heavy roster
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 30-3
+- Conference: WCC (strength: 65)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: skilled (medium tempo)
+- Injuries: Braden Huff (dislocated kneecap, out until Sweet 16 at earliest), Jalen Warley (thigh contusion, limited) (impact: significant)
+
 ### Team 2: Kennesaw State (14-seed)
 **Efficiency Ratings:**
 - AdjEM: 1.3
@@ -1963,6 +3168,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -8.0
 - Elite SOS: 0.8776
 - SOS: 0.4215
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Antoine Pettway
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 2
+
+**Context:**
+- Record: 21-13
+- Conference: CUSA (strength: 30)
+- Close Games (<=5pt): 3-7 (30% win rate)
+- Last 10: 6-4
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -1974,6 +3207,8 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 25.0 AdjEM in favor of Gonzaga
 **Tempo:** Similar pace (68.9 vs 71.3)
+**Turnover Margin Edge:** Gonzaga (+2.4 vs +0.0) — creates more turnovers than it commits
+**Coaching Mismatch:** Kennesaw State's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -2053,6 +3288,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 1.2
 - Elite SOS: 0.6562
 - SOS: 0.6768
+
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.1%
+- TO Margin: -0.3 (net negative)
+
+**Coaching:**
+- Coach: Dennis Gates
+- Tournament Record: 1-3
+- Tournament Appearances (HC): 3
+
+**Roster:**
+- Returning Minutes: 58%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 22-12
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 6-4
+- Conference Tournament: second_round
+- Style: grind (medium tempo)
 
 ---
 
@@ -2134,6 +3396,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.5962
 - SOS: 0.7793
 
+**Shooting:**
+- 3pt Variance Risk: 0.023 (moderate)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.4%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Matt Painter
+- Tournament Record: 22-16
+- Tournament Appearances (HC): 17
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 74%
+- Avg Player Year: 3.2
+- Senior-led roster
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 27-8
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: champion
+- Style: big-man (slow tempo)
+
 ### Team 2: Queens (15-seed)
 **Efficiency Ratings:**
 - AdjEM: -2.5
@@ -2143,6 +3434,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -7.0
 - Elite SOS: 0.8414
 - SOS: 0.3828
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Grant Leonard
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 1
+
+**Context:**
+- Record: 21-13
+- Conference: ASUN (strength: 20)
+- Close Games (<=5pt): 2-7 (22% win rate)
+- Last 10: 6-4
+- Conference Tournament: champion
+- Style: system (medium tempo)
 
 ---
 
@@ -2154,6 +3473,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 35.5 AdjEM in favor of Purdue
 **Tempo Mismatch:** Queens (64.4) wants to push pace; Purdue (69.5) prefers to slow it down. 5.1 possession gap.
+**Coaching Mismatch:** Queens's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -2224,6 +3544,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.5814
 - SOS: 0.8028
 
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.2%
+- TO Margin: +0.4 (net positive)
+
+**Coaching:**
+- Coach: Dusty May
+- Tournament Record: 6-3
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 61%
+- Avg Player Year: 2.0
+- Freshman-heavy roster
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 28-5
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: perimeter (medium tempo)
+
 ### Team 2: UMBC (16-seed)
 **Efficiency Ratings:**
 - AdjEM: -1.7
@@ -2233,6 +3582,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -5.1
 - Elite SOS: 0.9316
 - SOS: 0.2228
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Jim Ferry
+- Tournament Record: 0-2
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 2
+
+**Context:**
+- Record: 22-12
+- Conference: America East (strength: 18)
+- Close Games (<=5pt): 2-8 (20% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -2314,6 +3690,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6737
 - SOS: 0.6705
 
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Mike White
+- Tournament Record: 6-6
+- Tournament Appearances (HC): 6
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 22-10
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 6-4
+- Conference Tournament: second_round
+- Style: versatile (medium tempo)
+
 ### Team 2: Saint Louis (9-seed)
 **Efficiency Ratings:**
 - AdjEM: 17.3
@@ -2323,6 +3726,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 1.9
 - Elite SOS: 0.8374
 - SOS: 0.5160
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Josh Schertz
+- Tournament Record: 1-1
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 28-5
+- Conference: A-10 (strength: 52)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: semifinal
+- Style: system (slow tempo)
 
 ---
 
@@ -2404,6 +3834,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6025
 - SOS: 0.7597
 
+**Shooting:**
+- 3pt Variance Risk: 0.020 (low)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 16.8%
+- TO Margin: +2.4 (net positive)
+
+**Coaching:**
+- Coach: Grant McCasland
+- Tournament Record: 3-3
+- Tournament Appearances (HC): 3
+
+**Roster:**
+- Returning Minutes: 70%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 9
+
+**Context:**
+- Record: 25-8
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: defense (slow tempo)
+
 ### Team 2: Akron (12-seed)
 **Efficiency Ratings:**
 - AdjEM: 11.8
@@ -2413,6 +3870,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -0.2
 - Elite SOS: 0.8793
 - SOS: 0.3936
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 16.2%
+- TO Margin: -0.6 (net negative)
+
+**Coaching:**
+- Coach: John Groce
+- Tournament Record: 8-8
+- Tournament Appearances (HC): 8
+
+**Roster:**
+- Returning Minutes: 68%
+- Avg Player Year: 3.0
+- Senior-led roster
+- Players with Tournament Experience: 3
+
+**Context:**
+- Record: 24-9
+- Conference: MAC (strength: 28)
+- Close Games (<=5pt): 4-6 (40% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -2424,6 +3909,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 15.7 AdjEM in favor of Texas Tech
 **Tempo:** Similar pace (66.4 vs 70.3)
+**Turnover Margin Edge:** Texas Tech (+2.4 vs -0.6) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -2494,6 +3980,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.5987
 - SOS: 0.7891
 
+**Shooting:**
+- 3pt Variance Risk: 0.040 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.8%
+- TO Margin: +0.4 (net positive)
+
+**Coaching:**
+- Coach: Nate Oats
+- Tournament Record: 11-6
+- Tournament Appearances (HC): 6
+
+**Roster:**
+- Returning Minutes: 52%
+- Avg Player Year: 2.1
+- Freshman-heavy roster
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 26-7
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 7-3
+- Conference Tournament: quarterfinal
+- Style: 3-point-heavy (fast tempo)
+
 ### Team 2: Hofstra (13-seed)
 **Efficiency Ratings:**
 - AdjEM: 8.2
@@ -2503,6 +4017,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -4.7
 - Elite SOS: 0.8731
 - SOS: 0.4304
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Speedy Claxton
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 3
+
+**Context:**
+- Record: 24-10
+- Conference: CAA (strength: 32)
+- Close Games (<=5pt): 4-6 (40% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: athletic (medium tempo)
 
 ---
 
@@ -2514,6 +4056,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 18.5 AdjEM in favor of Alabama
 **Tempo Mismatch:** Alabama (73.1) wants to push pace; Hofstra (64.7) prefers to slow it down. 8.3 possession gap.
+**Coaching Mismatch:** Hofstra's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.04) — favorite is solid
 
 ---
@@ -2584,6 +4127,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6144
 - SOS: 0.7319
 
+**Shooting:**
+- 3pt Variance Risk: 0.022 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.8%
+- TO Margin: +3.4 (net positive)
+
+**Coaching:**
+- Coach: Rick Barnes
+- Tournament Record: 28-26
+- Tournament Appearances (HC): 21
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 68%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 9
+
+**Context:**
+- Record: 22-11
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 6-4
+- Conference Tournament: quarterfinal
+- Style: physical (slow tempo)
+- Injuries: Nate Ament (knee/ankle, returned for SEC tourney) (impact: moderate)
+
 ### Team 2: SMU (11-seed)
 **Efficiency Ratings:**
 - AdjEM: 18.1
@@ -2593,6 +4165,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -0.0
 - Elite SOS: 0.6829
 - SOS: 0.7134
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Andy Enfield
+- Tournament Record: 5-5
+- Tournament Appearances (HC): 5
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 20-12
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 4-5 (44% win rate)
+- Last 10: 5-5
+- Conference Tournament: quarterfinal
+- Style: modern (fast tempo)
 
 ---
 
@@ -2604,6 +4203,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 7.9 AdjEM in favor of Tennessee
 **Tempo:** Similar pace (65.2 vs 68.6)
+**Turnover Margin Edge:** Tennessee (+3.4 vs +0.0) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.10) — favorite is solid
 
 ---
@@ -2674,6 +4274,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6990
 - SOS: 0.6764
 
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Ron Sanchez
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 24-8
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 6-3 (67% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: execution (slow tempo)
+
 ### Team 2: Wright State (14-seed)
 **Efficiency Ratings:**
 - AdjEM: 3.4
@@ -2683,6 +4311,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -6.6
 - Elite SOS: 0.8916
 - SOS: 0.3962
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Clint Sargent
+- Tournament Record: 0-2
+- Tournament Appearances (HC): 2
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 3
+
+**Context:**
+- Record: 22-12
+- Conference: Horizon (strength: 22)
+- Close Games (<=5pt): 3-7 (30% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -2694,6 +4349,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 23.0 AdjEM in favor of Virginia
 **Tempo:** Similar pace (65.6 vs 67.0)
+**Coaching Mismatch:** Virginia's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---
@@ -2764,6 +4420,35 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.5898
 - SOS: 0.7363
 
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.4%
+- TO Margin: +1.2 (net positive)
+
+**Coaching:**
+- Coach: Mark Pope
+- Tournament Record: 2-3
+- Tournament Appearances (HC): 4
+
+**Roster:**
+- Returning Minutes: 42%
+- Avg Player Year: 1.8
+- Freshman-heavy roster
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 21-13
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 5-4 (56% win rate)
+- Last 10: 6-4
+- Conference Tournament: quarterfinal
+- Style: perimeter (medium tempo)
+- Injuries: Jayden Quaintance (out since Jan 7, will NOT play opening weekend), Jaland Lowe (out for season), Malachi Moreno (leg, questionable) (impact: significant)
+
 ### Team 2: Santa Clara (10-seed)
 **Efficiency Ratings:**
 - AdjEM: 21.3
@@ -2773,6 +4458,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: 2.1
 - Elite SOS: 0.7588
 - SOS: 0.6120
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Herb Sendek
+- Tournament Record: 3-4
+- Tournament Appearances (HC): 4
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 5
+
+**Context:**
+- Record: 24-8
+- Conference: WCC (strength: 65)
+- Close Games (<=5pt): 5-5 (50% win rate)
+- Last 10: 7-3
+- Conference Tournament: runner_up
+- Style: execution (slow tempo)
 
 ---
 
@@ -2784,6 +4496,7 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 1.4 AdjEM in favor of Santa Clara
 **Tempo:** Similar pace (68.3 vs 69.3)
+**Turnover Margin Edge:** Kentucky (+1.2 vs +0.0) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.16) — favorite is solid
 
 ---
@@ -2854,6 +4567,33 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - Elite SOS: 0.6545
 - SOS: 0.6968
 
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.1%
+- TO Margin: +1.9 (net positive)
+
+**Coaching:**
+- Coach: T.J. Otzelberger
+- Tournament Record: 9-5
+- Tournament Appearances (HC): 5
+
+**Roster:**
+- Returning Minutes: 64%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 26-7
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: two-way (medium tempo)
+
 ### Team 2: Tennessee State (15-seed)
 **Efficiency Ratings:**
 - AdjEM: -4.1
@@ -2863,6 +4603,34 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 - WAB: -5.7
 - Elite SOS: 0.9002
 - SOS: 0.2712
+
+**Shooting:**
+- 3pt Variance Risk: 0.028 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.0%
+- TO Margin: +0.0 (net negative)
+
+**Coaching:**
+- Coach: Brian Collins
+- Tournament Record: 0-0
+- Tournament Appearances (HC): 1
+- FIRST TOURNAMENT as head coach
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.5
+- Players with Tournament Experience: 2
+
+**Context:**
+- Record: 20-14
+- Conference: OVC (strength: 12)
+- Close Games (<=5pt): 2-7 (22% win rate)
+- Last 10: 7-3
+- Conference Tournament: champion
+- Style: grind (medium tempo)
 
 ---
 
@@ -2874,6 +4642,8 @@ Focus on efficiency gaps under 10 AdjEM — these are the upset danger zone. Loo
 ### Matchup Dynamics
 **Efficiency Gap:** 35.3 AdjEM in favor of Iowa State
 **Tempo:** Similar pace (67.0 vs 70.1)
+**Turnover Margin Edge:** Iowa State (+1.9 vs +0.0) — creates more turnovers than it commits
+**Coaching Mismatch:** Tennessee State's coach is in their FIRST tournament — historical disadvantage vs experienced coaches
 **Upset Vulnerability:** LOW (0.00) — favorite is solid
 
 ---

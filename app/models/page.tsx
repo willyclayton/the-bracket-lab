@@ -38,7 +38,7 @@ export default function ModelsPage() {
               Duke <span className="text-lab-muted font-normal text-sm">(5 of 9 models)</span>
             </p>
             <p className="text-lab-muted text-sm mt-1">
-              The Scout, The Quant, The Historian, The Scout Prime, and The Auto Researcher all pick Duke. The contrarian bloc splits between Illinois (Super Agent, Optimizer), Florida (Agent), and Gonzaga (Chaos Agent).
+              The Scout, The Quant, The Historian, The Scout Prime, and The Auto Researcher all pick Duke to cut down the nets. The contrarian bloc splits between Illinois (Super Agent, Optimizer), Houston (Agent), and Gonzaga (Chaos Agent).
             </p>
           </div>
 
@@ -47,10 +47,10 @@ export default function ModelsPage() {
             <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Final Four Consensus</span>
             <div className="mt-3 space-y-2">
               {[
-                { team: 'Duke', count: 7, total: 9, note: 'All but Optimizer and Agent' },
-                { team: 'Florida', count: 6, total: 9, note: 'Scout, Quant, Historian, Agent, Scout Prime, Auto Researcher' },
+                { team: 'Duke', count: 8, total: 9, note: 'All but The Optimizer' },
                 { team: 'Arizona', count: 6, total: 9, note: 'Scout, Quant, Historian, Agent, Scout Prime, Auto Researcher' },
-                { team: 'Michigan', count: 5, total: 9, note: 'Scout, Quant, Historian, Agent, Scout Prime' },
+                { team: 'Florida', count: 5, total: 9, note: 'Scout, Quant, Historian, Scout Prime, Auto Researcher' },
+                { team: 'Michigan', count: 5, total: 9, note: 'Scout, Quant, Historian, Scout Prime, Auto Researcher' },
               ].map((pick) => (
                 <div key={pick.team} className="flex items-center gap-3">
                   <div className="flex-shrink-0 w-20 bg-lab-border/50 rounded-full h-2 overflow-hidden">
@@ -65,7 +65,7 @@ export default function ModelsPage() {
               ))}
             </div>
             <p className="text-lab-muted text-sm mt-4">
-              Four models &mdash; The Scout, The Quant, The Historian, and The Scout Prime &mdash; have the <em>identical</em> Final Four: all four 1-seeds. Remarkable given their completely different methodologies.
+              Five models &mdash; The Scout, The Quant, The Historian, The Scout Prime, and The Auto Researcher &mdash; have the <em>identical</em> Final Four: all four 1-seeds. Duke makes 8 of 9 Final Fours &mdash; only The Optimizer leaves them out.
             </p>
           </div>
 
@@ -74,16 +74,16 @@ export default function ModelsPage() {
             <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Consensus Upsets</span>
             <div className="mt-3 space-y-2 text-sm">
               <div className="flex items-baseline gap-2">
+                <span className="text-lab-white font-medium">(10) Santa Clara over (7) Kentucky</span>
+                <span className="text-lab-muted">&mdash; 7/9 models (Kentucky lost 3 players to injury)</span>
+              </div>
+              <div className="flex items-baseline gap-2">
                 <span className="text-lab-white font-medium">(9) Iowa over (8) Clemson</span>
-                <span className="text-lab-muted">&mdash; 5/9 models</span>
+                <span className="text-lab-muted">&mdash; 7/9 models (Clemson lost 2 starters to injury)</span>
               </div>
               <div className="flex items-baseline gap-2">
                 <span className="text-lab-white font-medium">(9) Utah St. over (8) Villanova</span>
-                <span className="text-lab-muted">&mdash; 5/9 models</span>
-              </div>
-              <div className="flex items-baseline gap-2">
-                <span className="text-lab-white font-medium">(10) Santa Clara over (7) Kentucky</span>
-                <span className="text-lab-muted">&mdash; 4/9 models</span>
+                <span className="text-lab-muted">&mdash; 7/9 models (MWC double champs, higher AdjEM)</span>
               </div>
             </div>
           </div>
@@ -106,11 +106,11 @@ export default function ModelsPage() {
                 { model: 'The Quant', game: 'Duke vs Michigan', color: '#22c55e' },
                 { model: 'The Historian', game: 'Duke vs Michigan', color: '#f59e0b' },
                 { model: 'The Chaos Agent', game: 'Illinois vs Gonzaga', color: '#ef4444' },
-                { model: 'The Agent', game: 'Florida vs Arizona', color: '#00ff88' },
+                { model: 'The Agent', game: 'Houston vs Arizona', color: '#00ff88' },
                 { model: 'The Super Agent', game: 'Illinois vs Purdue', color: '#a855f7' },
                 { model: 'The Optimizer', game: 'Illinois vs Purdue', color: '#06b6d4' },
-                { model: 'The Scout Prime', game: 'Duke vs Arizona', color: '#64748b' },
-                { model: 'The Auto Researcher', game: 'Duke vs Arizona', color: '#10b981' },
+                { model: 'The Scout Prime', game: 'Duke vs Michigan', color: '#64748b' },
+                { model: 'The Auto Researcher', game: 'Duke vs Michigan', color: '#10b981' },
               ].map((row) => (
                 <div key={row.model} className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: row.color }} />
@@ -125,7 +125,7 @@ export default function ModelsPage() {
           <div className="rounded-xl border border-lab-border bg-lab-surface p-6">
             <span className="font-mono text-xs text-lab-muted uppercase tracking-wider">Midwest Region: Maximum Chaos</span>
             <p className="text-lab-muted text-sm mt-2">
-              Three completely different teams winning the region. Michigan (5 models), Iowa State (2), Texas Tech (2). The path diverges as early as the Round of 32.
+              Three completely different teams winning the region. Michigan (6 models), Iowa State (1), Texas Tech (2). The path diverges as early as the Round of 32.
             </p>
           </div>
 
@@ -136,18 +136,18 @@ export default function ModelsPage() {
               <div>
                 <p className="text-lab-white font-medium mb-1">Chalk Bloc</p>
                 <p className="text-lab-muted">
-                  The Scout, The Quant, The Historian, and The Scout Prime trust the 1-seeds. All four make the Final Four. Duke wins.
+                  The Scout, The Quant, The Historian, The Scout Prime, and The Auto Researcher trust the 1-seeds. All four make the Final Four. Duke wins.
                 </p>
               </div>
               <div>
                 <p className="text-lab-white font-medium mb-1">Contrarian Bloc</p>
                 <p className="text-lab-muted">
-                  The Chaos Agent and The Optimizer bet on mid-seeds. Zero 1-seeds in The Optimizer&apos;s Final Four. Gonzaga and Illinois as champions.
+                  The Chaos Agent and The Optimizer bet on mid-seeds. Zero 1-seeds in The Optimizer&apos;s Final Four. The Agent goes with Houston. Gonzaga, Illinois, and Houston as champions.
                 </p>
               </div>
             </div>
             <p className="text-lab-muted text-sm mt-3">
-              The Auto Researcher splits the difference &mdash; three 1-seeds plus Iowa State as a dark horse.
+              The Agent bets on Houston &mdash; elite defense, Kelvin Sampson&apos;s 4 Final Fours, and a de facto home game at Toyota Center.
             </p>
           </div>
 

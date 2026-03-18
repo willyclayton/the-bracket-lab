@@ -3,7 +3,7 @@
   "displayName": "The Scout",
   "tagline": "Film room intelligence at machine speed.",
   "color": "#3b82f6",
-  "generated": "2026-03-15",
+  "generated": "2026-03-17",
   "locked": true,
   "espnBracketUrl": null,
   "champion": "Duke",
@@ -25,8 +25,8 @@
         "seed2": 16,
         "team2": "Siena",
         "pick": "Duke",
-        "confidence": 99,
-        "reasoning": "Duke's AdjEM of 37.3 is the best in the field, creating a 39-point efficiency gap over Siena's -1.7. The Blue Devils' AdjO of 128.1 is generational offense \u2014 Siena's defense at 108.9 cannot even slow this down. This is the most lopsided matchup in the bracket."
+        "confidence": 98,
+        "reasoning": "Duke's 39-point AdjEM gap is the second-largest in the bracket. Caleb Foster's foot fracture matters long-term but not here — Siena's -1.7 AdjEM means Duke wins comfortably with their backup rotation. Scheyer's 8-3 tournament record and ACC championship momentum seal it."
       },
       {
         "gameId": "r64-east-2",
@@ -36,9 +36,9 @@
         "team1": "Ohio State",
         "seed2": 9,
         "team2": "TCU",
-        "pick": "Ohio State",
-        "confidence": 62,
-        "reasoning": "Ohio State holds a significant AdjEM edge (23.6 vs 15.2) driven by a 10-point offensive efficiency gap (AdjO 125.2 vs 114.8). TCU's slightly better defense (99.7 vs 101.6) cannot compensate for such a massive scoring disparity. Ohio State generates too many quality looks for TCU's half-court defense to contain."
+        "pick": "TCU",
+        "confidence": 55,
+        "reasoning": "Ohio State's 8.4-point AdjEM edge is real, but Brandon Noel has been out since January and Chatman is day-to-day with a groin issue. TCU's Jamie Dixon has 14-15 career tournament wins across 16 appearances — massive coaching edge. TCU's hot 8-2 L10 stretch and Dixon's March pedigree flip this coin-flip matchup."
       },
       {
         "gameId": "r64-east-3",
@@ -49,8 +49,8 @@
         "seed2": 12,
         "team2": "Northern Iowa",
         "pick": "St. John's",
-        "confidence": 75,
-        "reasoning": "St. John's AdjEM of 25.7 creates a 14.6-point edge over Northern Iowa's 11.1. The Johnnies' defense (AdjD 94.1) is elite, and Northern Iowa's slower tempo (62.2) limits their opportunities to generate enough possessions to close the gap. St. John's pace and defensive pressure suffocate mid-major offenses."
+        "confidence": 78,
+        "reasoning": "Rick Pitino's 55-22 tournament record is the best in the field. St. John's elite defense (AdjD 94.1) will suffocate Northern Iowa's slower offense, and the 14.6-point AdjEM gap is too wide for a classic 5-12 upset. Big East champions riding a 9-1 L10 wave with the best tournament coach alive."
       },
       {
         "gameId": "r64-east-4",
@@ -61,8 +61,8 @@
         "seed2": 13,
         "team2": "Cal Baptist",
         "pick": "Kansas",
-        "confidence": 82,
-        "reasoning": "Kansas holds a 16.3-point AdjEM advantage (23.5 vs 7.2) with better efficiency on both ends. Bill Self's tournament pedigree at the 4-13 line is nearly automatic. Cal Baptist's AdjD of 100.3 cannot slow Kansas's balanced attack, and the physicality gap in the post is stark."
+        "confidence": 80,
+        "reasoning": "Bill Self's 57-24 tournament record and 2 national titles make this a coaching mismatch of the highest order against Cal Baptist's first-ever tournament coach. Kansas's 16.3-point AdjEM gap is comfortable. Darryn Peterson's absence weakens Kansas's ceiling, but Cal Baptist's WAC-level defense (AdjD 100.3) can't contain the Jayhawks."
       },
       {
         "gameId": "r64-east-5",
@@ -73,8 +73,8 @@
         "seed2": 11,
         "team2": "South Florida",
         "pick": "Louisville",
-        "confidence": 65,
-        "reasoning": "Louisville's 10.5-point AdjEM edge (25.9 vs 15.4) is decisive for a 6-11 matchup. The Cardinals' AdjO of 124.0 at a fast tempo (69.7) generates scoring in transition that South Florida's porous defense (AdjD 101.4) cannot handle. Louisville's offensive firepower creates separation by the second half."
+        "confidence": 58,
+        "reasoning": "Louisville holds a 10.5-point AdjEM edge, but this is closer than it looks. Mikel Brown Jr.'s lower back injury is significant, and South Florida is on a scorching 9-1 L10 run as AAC champions with a 9-game win streak. Louisville's offensive firepower (AdjO 124.0) and tempo edge prevail, but barely — USF's momentum is real."
       },
       {
         "gameId": "r64-east-6",
@@ -85,8 +85,8 @@
         "seed2": 14,
         "team2": "North Dakota State",
         "pick": "Michigan State",
-        "confidence": 92,
-        "reasoning": "Michigan State's AdjEM of 26.7 towers over North Dakota State's 5.4 \u2014 a 21.3-point gap. Tom Izzo's tournament track record at the 3-14 seed line is nearly flawless. Michigan State's defense (AdjD 96.2) locks down North Dakota State's limited offensive options (AdjO 111.5)."
+        "confidence": 90,
+        "reasoning": "Tom Izzo's 59-26 tournament record with 8 Final Fours makes this automatic at the 3-14 line. Michigan State's 21.3-point AdjEM advantage is dominant. Divine Ugochukwu's season-ending loss hurts depth, but NDSU's AdjEM of 5.4 is simply not competitive. Izzo doesn't lose these."
       },
       {
         "gameId": "r64-east-7",
@@ -96,9 +96,9 @@
         "team1": "UCLA",
         "seed2": 10,
         "team2": "UCF",
-        "pick": "UCLA",
-        "confidence": 63,
-        "reasoning": "UCLA's 8.5-point AdjEM advantage (22.8 vs 14.3) is solid for a 7-10 game. UCLA's offense (AdjO 124.5) outpaces UCF's (120.0), and their slower tempo (64.7) limits UCF's transition opportunities. UCF's weak defense (AdjD 105.7) means UCLA generates quality looks consistently in the half court."
+        "pick": "UCF",
+        "confidence": 56,
+        "reasoning": "UCLA's 8.5-point AdjEM advantage evaporates when you account for Tyler Bilodeau (leading scorer, out/limited) and Donovan Dent (calf, limited). That's their two best players compromised. UCF has moderate injuries too (Stillwell ankle, Bol chest), but UCLA's injury situation is more devastating. UCF's Big 12-tested roster exploits a depleted Bruins squad."
       },
       {
         "gameId": "r64-east-8",
@@ -110,7 +110,7 @@
         "team2": "Furman",
         "pick": "UConn",
         "confidence": 95,
-        "reasoning": "UConn's AdjEM of 28.1 creates a 30.2-point efficiency gap over Furman's -2.1. The Huskies' defense (AdjD 95.0) will smother Furman's modest offense (AdjO 106.9). Two-time defending champions have the tournament DNA and roster depth to dominate a 15-seed from start to finish."
+        "reasoning": "Dan Hurley's 15-5 tournament record with back-to-back national titles is the gold standard. UConn's 30.2-point AdjEM gap is massive. Jaylin Stewart's absence (missed Big East tournament) is a concern but irrelevant against a 15-seed. Furman's SoCon-level defense can't slow UConn's championship-caliber attack."
       },
       {
         "gameId": "r64-south-1",
@@ -122,7 +122,7 @@
         "team2": "Prairie View A&M",
         "pick": "Florida",
         "confidence": 99,
-        "reasoning": "Florida's AdjEM of 33.8 creates a 43.8-point efficiency gap over Prairie View A&M's -10.0. The Gators' offense (AdjO 126.1) and defense (AdjD 92.3) are both elite, while PVAMU's defense at 111.4 is a sieve. This is an annihilation-level mismatch \u2014 Florida's tempo pushes the pace to amplify the talent gap."
+        "reasoning": "Florida's 43.8-point AdjEM gap is the largest in the bracket. Todd Golden's 6-2 tournament record and SEC-caliber roster make this an annihilation-level mismatch. Handlogten's medical redshirt doesn't matter when PVAMU's AdjD is 111.4. Florida's elite two-way profile (AdjO 126.1, AdjD 92.3) ensures a blowout from tip."
       },
       {
         "gameId": "r64-south-2",
@@ -133,8 +133,8 @@
         "seed2": 9,
         "team2": "Iowa",
         "pick": "Iowa",
-        "confidence": 55,
-        "reasoning": "Iowa's AdjEM of 21.9 edges Clemson's 19.6, driven by a significantly better offense (AdjO 122.1 vs 116.5). In a slow-tempo 8-9 matchup (both under 65 possessions), the team that generates better half-court offense wins \u2014 and Iowa's 5.6-point offensive efficiency advantage is the clear separator."
+        "confidence": 62,
+        "reasoning": "Iowa actually has the higher AdjEM (21.9 vs 19.6), and Clemson is devastated by injuries — Carter Welling (torn ACL, out) and Dillon Hunter (broken hand, out). That's two key contributors gone from the ACC tournament. Despite Iowa's cold 4-6 L10 stretch, Ben McCollum inherits a healthier roster that can exploit Clemson's depleted depth."
       },
       {
         "gameId": "r64-south-3",
@@ -145,8 +145,8 @@
         "seed2": 12,
         "team2": "McNeese",
         "pick": "Vanderbilt",
-        "confidence": 76,
-        "reasoning": "Vanderbilt's AdjEM of 28.1 is 17.1 points above McNeese's 11.0. The Commodores' explosive offense (AdjO 127.4) creates a 14.2-point scoring gap that McNeese's defense (AdjD 102.2) cannot close. Classic 5-12 upset territory, but Vanderbilt's offensive firepower is too potent for a Southland Conference defense."
+        "confidence": 74,
+        "reasoning": "Vanderbilt's 17.1-point AdjEM gap and explosive offense (AdjO 127.4) are decisive. McNeese is 10-0 in their L10 as Southland champs, which demands respect, but the conference strength gap (SEC vs Southland) is enormous. Vanderbilt's SEC runner-up pedigree and offensive firepower are too much for McNeese's defense (AdjD 102.2)."
       },
       {
         "gameId": "r64-south-4",
@@ -157,8 +157,8 @@
         "seed2": 13,
         "team2": "Troy",
         "pick": "Nebraska",
-        "confidence": 88,
-        "reasoning": "Nebraska's AdjEM of 23.8 holds a 22.1-point advantage over Troy's 1.7. Nebraska's elite defense (AdjD 93.5) will strangle Troy's limited offense (AdjO 110.7). The physicality and depth gap between a Big Ten 4-seed and a Sun Belt 13-seed is simply too wide."
+        "confidence": 86,
+        "reasoning": "Nebraska's 22.1-point AdjEM advantage and elite defense (AdjD 93.5) make this straightforward. Rienk Mast's illness (hospitalized before Big Ten tourney) is a minor concern, but Fred Hoiberg's squad has too much depth. Troy's Sun Belt offense (AdjO 110.7) will be strangled by Nebraska's defensive pressure."
       },
       {
         "gameId": "r64-south-5",
@@ -168,9 +168,9 @@
         "team1": "North Carolina",
         "seed2": 11,
         "team2": "VCU",
-        "pick": "North Carolina",
-        "confidence": 58,
-        "reasoning": "North Carolina holds a 5.2-point AdjEM edge (21.4 vs 16.2) with better offense (AdjO 121.5 vs 119.3) and defense (AdjD 100.1 vs 103.1). Both teams play at similar up-tempo paces, but UNC's superior talent and Hubert Davis's tournament experience give the Tar Heels the edge in a fast-paced 6-11 game."
+        "pick": "VCU",
+        "confidence": 57,
+        "reasoning": "UNC lost Caleb Wilson to a broken thumb — their leading scorer and projected top-5 pick. That transforms this matchup. VCU is 9-1 L10, A-10 champions running HAVOC defense with extraordinary momentum. The 5.2-point AdjEM gap shrinks dramatically without Wilson's production. VCU's defensive intensity and hot streak overwhelm a compromised Tar Heels squad playing their worst basketball (5-5 L10)."
       },
       {
         "gameId": "r64-south-6",
@@ -181,8 +181,8 @@
         "seed2": 14,
         "team2": "Penn",
         "pick": "Illinois",
-        "confidence": 96,
-        "reasoning": "Illinois' AdjEM of 33.7 is elite \u2014 a 32.5-point gap over Penn's 1.2. The Illini offense (AdjO 131.9) is the second-best in the tournament behind Duke. Penn's defense (AdjD 105.4) will be overwhelmed by Illinois' scoring volume. This is a blowout from the opening tip."
+        "confidence": 95,
+        "reasoning": "Illinois' AdjEM of 33.7 creates a 32.5-point gap that is insurmountable. The Illini have the second-best offense in the tournament (AdjO 131.9). Penn's Ethan Roberts is dealing with a concussion, further weakening an already overmatched squad. Brad Underwood's experience (8-9 tournament) vs Fran McCaffery's first year at Penn — no contest."
       },
       {
         "gameId": "r64-south-7",
@@ -192,9 +192,9 @@
         "team1": "Saint Mary's",
         "seed2": 10,
         "team2": "Texas A&M",
-        "pick": "Texas A&M",
-        "confidence": 54,
-        "reasoning": "Texas A&M's faster tempo (71.0 vs 65.3) creates more possessions that neutralize Saint Mary's half-court defensive advantage. While Saint Mary's holds a 3.3-point AdjEM edge (21.8 vs 18.5), Texas A&M's offensive output (AdjO 119.9) at their preferred pace disrupts Saint Mary's slow-grinding game plan. The Aggies' SEC physicality overwhelms the WCC's deliberate style."
+        "pick": "Saint Mary's",
+        "confidence": 55,
+        "reasoning": "Saint Mary's holds a 3.3-point AdjEM edge with Randy Bennett's 7-11 tournament record and 25 years of program-building continuity. Texas A&M's Bucky McMillan is in his first year and has just 0-1 tournament experience. Saint Mary's 8-2 L10 hot streak and Bennett's half-court defensive system will slow A&M's tempo and grind out a win. The coaching mismatch favors the Gaels."
       },
       {
         "gameId": "r64-south-8",
@@ -206,7 +206,7 @@
         "team2": "Idaho",
         "pick": "Houston",
         "confidence": 97,
-        "reasoning": "Houston's AdjEM of 33.0 creates a 30.4-point gap over Idaho's 2.6. The Cougars' defense (AdjD 92.4) is among the nation's best and will suffocate Idaho's modest offense (AdjO 108.8). Houston's slow tempo (63.3) limits possessions, and their defensive wall makes every Idaho shot a contested battle."
+        "reasoning": "Kelvin Sampson's 31-21 tournament record with 4 Final Fours is elite. Houston's 30.4-point AdjEM gap and nation-leading defense (AdjD 92.4) will suffocate Idaho's modest offense. The 8-2 L10 HOT momentum and Big 12 pedigree make this a comfortable cruise against a first-time tournament coach."
       },
       {
         "gameId": "r64-west-1",
@@ -218,7 +218,7 @@
         "team2": "LIU",
         "pick": "Arizona",
         "confidence": 99,
-        "reasoning": "Arizona's AdjEM of 35.5 creates a 41.6-point gap over LIU's -6.1. The Wildcats' defense (AdjD 91.4) is the third-best in the tournament, and their offense (AdjO 126.9) at a fast pace (70.0) will generate transition buckets that LIU's porous defense (AdjD 109.8) cannot contain."
+        "reasoning": "Arizona's 41.6-point AdjEM gap and Big 12 championship momentum (9-1 L10) make this the second-biggest mismatch in the bracket. Jaden Bradley's taped wrist is minor and won't matter against a -6.1 AdjEM team. Tommy Lloyd's squad demolishes LIU's first-time tournament coach and NEC-level roster."
       },
       {
         "gameId": "r64-west-2",
@@ -229,8 +229,8 @@
         "seed2": 9,
         "team2": "Utah State",
         "pick": "Utah State",
-        "confidence": 54,
-        "reasoning": "Utah State's AdjEM of 20.9 edges Villanova's 19.1, with a stronger offense (AdjO 123.0 vs 119.6). Utah State's faster tempo (67.6 vs 64.9) creates extra possessions where their offensive efficiency advantage compounds. In a coin-flip 8-9 game, the team generating better looks per possession takes it."
+        "confidence": 57,
+        "reasoning": "Utah State's AdjEM (20.9) actually exceeds Villanova's (19.1), and they're riding a 9-1 L10 streak as MWC double champions (regular season + tournament). Kevin Willard's 4-7 tournament record in his first year at Nova doesn't inspire confidence. Utah State's offensive efficiency (AdjO 123.0) and HOT momentum overwhelm a lukewarm Villanova squad."
       },
       {
         "gameId": "r64-west-3",
@@ -241,8 +241,8 @@
         "seed2": 12,
         "team2": "High Point",
         "pick": "Wisconsin",
-        "confidence": 78,
-        "reasoning": "Wisconsin's AdjEM of 25.5 holds a 17.3-point advantage over High Point's 8.2. The Badgers' offense (AdjO 127.2) is explosive, and High Point's defense (AdjD 107.5) is porous. Wisconsin's Big Ten physicality and tournament experience at the 5-12 line give them a comfortable cushion."
+        "confidence": 76,
+        "reasoning": "Wisconsin's 17.3-point AdjEM advantage and Greg Gard's 7-7 tournament experience are sufficient. High Point is 9-1 L10 with a 30-4 record as Big South champs, which demands respect in classic 5-12 territory, but the conference strength gap is massive. Wisconsin's Big Ten physicality and offensive firepower (AdjO 127.2) are too much."
       },
       {
         "gameId": "r64-west-4",
@@ -254,7 +254,7 @@
         "team2": "Hawaii",
         "pick": "Arkansas",
         "confidence": 85,
-        "reasoning": "Arkansas's AdjEM of 26.3 creates a 21.3-point gap over Hawaii's 5.0. The Razorbacks' explosive offense (AdjO 127.9) at a fast tempo (71.0) will overwhelm Hawaii's modest defensive profile (AdjD 101.8). Hawaii's long travel from the islands adds fatigue to an already steep talent mismatch."
+        "reasoning": "John Calipari's 57-22 tournament record (6 FFs, 1 title) is among the best ever at the 4-13 line. Arkansas's 21.3-point AdjEM gap, SEC championship momentum (8-2 L10), and explosive offense (AdjO 127.9) overwhelm Hawaii. Darius Acuff Jr. returned for the SEC tourney, and Hawaii's cross-Pacific travel adds fatigue."
       },
       {
         "gameId": "r64-west-5",
@@ -265,8 +265,8 @@
         "seed2": 11,
         "team2": "Texas",
         "pick": "BYU",
-        "confidence": 56,
-        "reasoning": "BYU holds a modest 2.7-point AdjEM edge (20.4 vs 17.7) with slightly better offense (AdjO 124.7 vs 124.1) and defense (AdjD 104.3 vs 106.4). In a tight 6-11 matchup at similar tempos, BYU's marginal efficiency advantages on both ends accumulate over 40 minutes."
+        "confidence": 55,
+        "reasoning": "BYU's 2.7-point AdjEM edge is slim but real, with slightly better offense and defense. Texas didn't even qualify for the SEC tournament (5-5 L10), signaling poor late-season form. Kevin Young's 2-1 tournament record in just 2 apps is promising against Sean Miller's first year at Texas. BYU's marginal efficiency edges hold in a tight 6-11 game."
       },
       {
         "gameId": "r64-west-6",
@@ -277,8 +277,8 @@
         "seed2": 14,
         "team2": "Kennesaw State",
         "pick": "Gonzaga",
-        "confidence": 93,
-        "reasoning": "Gonzaga's AdjEM of 26.3 creates a 25.0-point gap over Kennesaw State's 1.3. The Bulldogs' defense (AdjD 94.0) will lock down Kennesaw State's modest offense (AdjO 110.8). Mark Few's teams don't lose to 14-seeds \u2014 Gonzaga's offensive efficiency and tournament pedigree make this straightforward."
+        "confidence": 88,
+        "reasoning": "Gonzaga's 25-point AdjEM gap and Mark Few's 44-25 tournament record are commanding. Braden Huff's dislocated kneecap (out until Sweet 16 at earliest) and Jalen Warley's thigh contusion are notable losses, but the 3-14 seed gap is too wide for a first-time tournament coach from CUSA. Gonzaga's 9-1 L10 WCC championship momentum carries them, though Huff's absence lowers the ceiling."
       },
       {
         "gameId": "r64-west-7",
@@ -290,7 +290,7 @@
         "team2": "Missouri",
         "pick": "Miami",
         "confidence": 56,
-        "reasoning": "Miami's AdjEM edge (19.6 vs 16.9) is modest but supported by slightly better defense (AdjD 101.5 vs 103.0). Both teams play similar tempos and have comparable offensive outputs, but Miami's ACC-tested defensive rotations and coaching give them the slight edge in a game that comes down to late-game execution."
+        "reasoning": "Miami's 2.7-point AdjEM edge is modest, but their 8-2 L10 HOT momentum vs Missouri's 6-4 neutral form is the separator. Jai Lucas is a first-year tournament coach, but so is Dennis Gates functionally (1-3 record). Miami's ACC-tested defense and momentum carry this tight 7-10 matchup."
       },
       {
         "gameId": "r64-west-8",
@@ -302,7 +302,7 @@
         "team2": "Queens",
         "pick": "Purdue",
         "confidence": 97,
-        "reasoning": "Purdue's AdjO of 133.3 is the best offense in the entire tournament field. A 35.5-point AdjEM gap (33.0 vs -2.5) is insurmountable. Queens' defense at 117.1 is the worst in the bracket \u2014 Purdue will score at will in a game that becomes a showcase for the Boilermakers' offensive system."
+        "reasoning": "Purdue's nation-best offense (AdjO 133.3) meets Queens' worst defense in the bracket (AdjD 117.1). The 35.5-point AdjEM gap, Big Ten championship momentum (8-2 L10), and Matt Painter's 22-16 tournament record make this a showcase game. Queens is in their first-ever D1 tournament with a first-year tournament coach."
       },
       {
         "gameId": "r64-midwest-1",
@@ -314,7 +314,7 @@
         "team2": "UMBC",
         "pick": "Michigan",
         "confidence": 98,
-        "reasoning": "Michigan's AdjEM of 36.6 creates a 38.3-point gap over UMBC's -1.7. The Wolverines' defense (AdjD 91.0) is the second-best in the country, and their fast tempo (71.2) will generate transition scoring that UMBC's defense (AdjD 109.2) cannot handle. Michigan's complete statistical dominance makes this a wire-to-wire blowout."
+        "reasoning": "Michigan's 38.3-point AdjEM gap and second-best defense in the country (AdjD 91.0) make this a blowout. Dusty May's 6-3 tournament record (including a Final Four) and 8-2 L10 momentum are commanding. UMBC's 0-2 tournament history and 109.2 AdjD will be overwhelmed by Michigan's fast pace (71.2)."
       },
       {
         "gameId": "r64-midwest-2",
@@ -324,9 +324,9 @@
         "team1": "Georgia",
         "seed2": 9,
         "team2": "Saint Louis",
-        "pick": "Georgia",
+        "pick": "Saint Louis",
         "confidence": 55,
-        "reasoning": "Georgia holds a 2.3-point AdjEM edge (19.6 vs 17.3) driven by superior offense (AdjO 124.3 vs 119.6). Both teams play at fast tempos (72.0 vs 71.0), creating a high-possession game where Georgia's offensive efficiency advantage generates more scoring opportunities. The SEC's physicality gives Georgia the rebounding edge."
+        "reasoning": "The 2.3-point AdjEM gap slightly favors Georgia, but Saint Louis is 8-2 L10 HOT with a 28-5 record — they're peaking at the right time. Josh Schertz's A-10 program has quietly built an elite season. Georgia at 6-4 L10 is the definition of neutral momentum. In a true coin-flip 8-9 game, the team playing better basketball right now wins, and that's Saint Louis."
       },
       {
         "gameId": "r64-midwest-3",
@@ -338,7 +338,7 @@
         "team2": "Akron",
         "pick": "Texas Tech",
         "confidence": 74,
-        "reasoning": "Texas Tech's AdjEM of 27.5 is 15.7 points above Akron's 11.8. The Red Raiders' offense (AdjO 126.3) creates a massive scoring gap that Akron's defense (AdjD 105.3) cannot close. Texas Tech's Big 12-tested defense (AdjD 98.8) handles mid-major offenses comfortably at this seed line."
+        "reasoning": "Texas Tech's 15.7-point AdjEM advantage and Big 12-caliber defense (AdjD 98.8) handle Akron's MAC offense comfortably. Grant McCasland's 3-3 tournament record against John Groce's 8-8 is a wash, but the conference strength gap and Texas Tech's offensive firepower (AdjO 126.3) seal it."
       },
       {
         "gameId": "r64-midwest-4",
@@ -350,7 +350,7 @@
         "team2": "Hofstra",
         "pick": "Alabama",
         "confidence": 84,
-        "reasoning": "Alabama's AdjEM of 26.7 creates an 18.5-point gap over Hofstra's 8.2. The Crimson Tide's explosive offense (AdjO 129.5) at the fastest tempo in the bracket (73.1) will overwhelm Hofstra's modest defense (AdjD 105.0). Alabama generates too many possessions for a 13-seed to keep pace."
+        "reasoning": "Nate Oats' 11-6 tournament record and Alabama's explosive offense (AdjO 129.5) at the fastest tempo in the bracket (73.1) overwhelm Hofstra's first-ever tournament coach. The 18.5-point AdjEM gap and SEC physicality make this comfortable. Hofstra's CAA defense (AdjD 105.0) can't slow Alabama's transition game."
       },
       {
         "gameId": "r64-midwest-5",
@@ -361,8 +361,8 @@
         "seed2": 11,
         "team2": "SMU",
         "pick": "Tennessee",
-        "confidence": 64,
-        "reasoning": "Tennessee's AdjEM of 26.0 holds a 7.9-point edge over SMU's 18.1, driven by elite defense (AdjD 95.5 vs 105.0). Rick Barnes' teams thrive in tournament settings with their defensive identity. Tennessee's slower tempo (65.2) limits SMU's transition game and turns this into a half-court battle that favors the Volunteers' defensive pressure."
+        "confidence": 62,
+        "reasoning": "Tennessee's elite defense (AdjD 95.5) and 7.9-point AdjEM advantage are decisive. Rick Barnes' 28-26 tournament record across 21 appearances gives massive experience edge over Andy Enfield's 5-5 record. Nate Ament's knee/ankle return for the SEC tourney is a positive sign. Tennessee's defensive identity suffocates SMU's mid-range game."
       },
       {
         "gameId": "r64-midwest-6",
@@ -373,8 +373,8 @@
         "seed2": 14,
         "team2": "Wright State",
         "pick": "Virginia",
-        "confidence": 90,
-        "reasoning": "Virginia's AdjEM of 26.4 creates a 23.0-point gap over Wright State's 3.4. Tony Bennett's packline defense (AdjD 95.8) will strangle Wright State's limited offense (AdjO 112.4). Virginia's deliberate tempo (65.6) minimizes variance and turns this into a methodical defensive grinder."
+        "confidence": 88,
+        "reasoning": "Virginia's 23-point AdjEM gap and 8-2 L10 HOT momentum as ACC runner-up are commanding. Ron Sanchez is a first-year tournament coach, which introduces some uncertainty, but the talent and system gap against Wright State's Horizon League roster is enormous. Virginia's packline defense (AdjD 95.8) will grind Wright State's offense to a halt."
       },
       {
         "gameId": "r64-midwest-7",
@@ -385,8 +385,8 @@
         "seed2": 10,
         "team2": "Santa Clara",
         "pick": "Santa Clara",
-        "confidence": 54,
-        "reasoning": "Santa Clara's AdjEM of 21.3 actually exceeds Kentucky's 19.9, driven by superior offense (AdjO 125.0 vs 119.9). Kentucky's defense (AdjD 100.0) is a full 4 points worse than needed to contain Santa Clara's shooting. The Broncos are a classic mis-seeded 10 with the efficiency profile of a 5-seed \u2014 the numbers favor the upset."
+        "confidence": 62,
+        "reasoning": "Santa Clara's AdjEM (21.3) actually exceeds Kentucky's (19.9) even before accounting for Kentucky's devastating injury report: Quaintance OUT, Lowe OUT for season, Moreno questionable. That's 3 of their best players compromised. Mark Pope's 2-3 tournament record offers no safety net. Santa Clara is healthy, 7-3 L10 from the WCC, and the numbers flatly favor them. This isn't a gut-feel upset — it's what the data demands."
       },
       {
         "gameId": "r64-midwest-8",
@@ -398,7 +398,7 @@
         "team2": "Tennessee State",
         "pick": "Iowa State",
         "confidence": 97,
-        "reasoning": "Iowa State's AdjEM of 31.1 creates a 35.2-point gap over Tennessee State's -4.1. The Cyclones' elite defense (AdjD 92.6) is the foundation \u2014 Tennessee State's offense (AdjO 107.8) drops to nearly unplayable levels against this caliber of defense. T.J. Otzelberger's defensive system suffocates 15-seeds."
+        "reasoning": "Iowa State's 35.2-point AdjEM gap and elite defense (AdjD 92.6) make this automatic. T.J. Otzelberger's 9-5 tournament record against Tennessee State's first-ever tournament coach is a massive experience gap. The Cyclones' defensive system suffocates 15-seeds."
       }
     ],
     "round_of_32": [
@@ -408,11 +408,11 @@
         "region": "East",
         "seed1": 1,
         "team1": "Duke",
-        "seed2": 8,
-        "team2": "Ohio State",
+        "seed2": 9,
+        "team2": "TCU",
         "pick": "Duke",
         "confidence": 82,
-        "reasoning": "Duke's AdjEM of 37.3 is 13.7 points above Ohio State's 23.6. While Ohio State's offense (AdjO 125.2) is respectable, Duke's defense (AdjD 90.8) will contain it, and Duke's own offense (AdjO 128.1) creates a scoring edge Ohio State's defense (AdjD 101.6) cannot match. Duke controls both ends of the floor."
+        "reasoning": "Duke's AdjEM of 37.3 towers over TCU's 15.2 — a 22.1-point gap. Even with Caleb Foster's foot fracture, Duke's offensive depth (AdjO 128.1) and elite defense (AdjD 90.8) are overwhelming. Jamie Dixon's tournament pedigree can't overcome a talent gap this wide. Scheyer's ACC championship squad rolls."
       },
       {
         "gameId": "r32-east-2",
@@ -422,9 +422,9 @@
         "team1": "St. John's",
         "seed2": 4,
         "team2": "Kansas",
-        "pick": "Kansas",
-        "confidence": 55,
-        "reasoning": "Nearly identical AdjEM (St. John's 25.7, Kansas 23.5) but Kansas has the coaching edge with Bill Self in March. St. John's elite defense (AdjD 94.1) makes this a grinder, but Kansas's balanced efficiency profile and tournament pedigree at the 4-5 matchup line give the Jayhawks the edge in a close game."
+        "pick": "St. John's",
+        "confidence": 56,
+        "reasoning": "St. John's AdjEM (25.7) actually exceeds Kansas's (23.5), and Rick Pitino's 55-22 tournament record rivals even Bill Self's 57-24. Kansas is weakened by Darryn Peterson's absence (missed 11 games) and a mediocre 5-5 L10 stretch. St. John's is 9-1 L10 as Big East champions with elite defense (AdjD 94.1). The hot team with the marginally better numbers gets the nod."
       },
       {
         "gameId": "r32-east-3",
@@ -436,19 +436,19 @@
         "team2": "Michigan State",
         "pick": "Michigan State",
         "confidence": 60,
-        "reasoning": "Michigan State's AdjEM edge (26.7 vs 25.9) is slim, but Izzo's track record in R32 games is elite. Michigan State's defense (AdjD 96.2) matches up well against Louisville's high-volume offense. At similar tempos, Izzo's adjustments between rounds give Michigan State the tactical advantage."
+        "reasoning": "Michigan State's AdjEM (26.7) edges Louisville's (25.9), but the real separator is Tom Izzo's 59-26 tournament record vs Pat Kelsey's 0-6. Louisville's Mikel Brown Jr. back injury further tips the scales. Izzo's between-round adjustments and Michigan State's defensive discipline (AdjD 96.2) neutralize Louisville's offensive tempo."
       },
       {
         "gameId": "r32-east-4",
-        "round": "round_of_32",
+        "round": "round_of_64",
         "region": "East",
-        "seed1": 7,
-        "team1": "UCLA",
+        "seed1": 10,
+        "team1": "UCF",
         "seed2": 2,
         "team2": "UConn",
         "pick": "UConn",
-        "confidence": 62,
-        "reasoning": "UConn's AdjEM of 28.1 holds a 5.3-point edge over UCLA's 22.8. The Huskies' defense (AdjD 95.0) is better equipped to slow UCLA's offense (AdjO 124.5) than UCLA's defense (AdjD 101.8) is to contain UConn. Dan Hurley's tournament experience and UConn's championship pedigree are decisive in a 2-7 matchup."
+        "confidence": 70,
+        "reasoning": "UConn's AdjEM (28.1) is 13.8 points above UCF's (14.3). Even after UCF's R64 upset of depleted UCLA, UCF's modest defensive profile (AdjD 105.7) cannot contain Dan Hurley's two-time defending champions. UConn's championship DNA and efficiency dominance overwhelm UCF's Big 12 competitiveness."
       },
       {
         "gameId": "r32-south-1",
@@ -460,7 +460,7 @@
         "team2": "Iowa",
         "pick": "Florida",
         "confidence": 78,
-        "reasoning": "Florida's AdjEM of 33.8 towers over Iowa's 21.9 \u2014 an 11.9-point gap. Florida's defense (AdjD 92.3) will suffocate Iowa's offense (AdjO 122.1), and Florida's own offense (AdjO 126.1) overwhelms Iowa's weaker defense (AdjD 100.2). The 1-seed's complete efficiency dominance controls this game from tip to finish."
+        "reasoning": "Florida's AdjEM of 33.8 towers over Iowa's 21.9 — an 11.9-point gap. Florida's defense (AdjD 92.3) will suffocate Iowa's offense, and Florida's own offense (AdjO 126.1) overwhelms Iowa's weaker defense (AdjD 100.2). Todd Golden's 6-2 tournament record and SEC pedigree make this comfortable."
       },
       {
         "gameId": "r32-south-2",
@@ -472,31 +472,31 @@
         "team2": "Nebraska",
         "pick": "Vanderbilt",
         "confidence": 58,
-        "reasoning": "Vanderbilt's AdjEM of 28.1 edges Nebraska's 23.8 by 4.3 points, driven by a massive offensive gap (AdjO 127.4 vs 117.3). Nebraska's elite defense (AdjD 93.5) is the best in this matchup, but Vanderbilt generates enough offensive volume at a faster tempo to overcome the defensive resistance."
+        "reasoning": "Vanderbilt's AdjEM (28.1) edges Nebraska's (23.8) by 4.3 points, driven by a massive offensive gap (AdjO 127.4 vs 117.3). Nebraska's elite defense (AdjD 93.5) is formidable, but Vanderbilt's SEC pedigree and explosive scoring overcome defensive resistance. Mast's illness adds uncertainty for Nebraska."
       },
       {
         "gameId": "r32-south-3",
         "round": "round_of_32",
         "region": "South",
-        "seed1": 6,
-        "team1": "North Carolina",
+        "seed1": 11,
+        "team1": "VCU",
         "seed2": 3,
         "team2": "Illinois",
         "pick": "Illinois",
-        "confidence": 72,
-        "reasoning": "Illinois' AdjEM of 33.7 is 12.3 points above North Carolina's 21.4. The Illini's offense (AdjO 131.9) is on another level \u2014 second-best in the field. UNC's defense (AdjD 100.1) cannot contain this scoring machine. Illinois' efficiency advantage on both ends makes this a convincing 3-seed advancement."
+        "confidence": 76,
+        "reasoning": "Illinois' AdjEM of 33.7 is 17.5 points above VCU's 16.2. VCU's HAVOC defense and upset momentum from beating UNC are real, but Illinois has the tournament's second-best offense (AdjO 131.9). Brad Underwood's experience neutralizes VCU's energy, and the efficiency gap is simply too wide for a mid-major to overcome two rounds in a row."
       },
       {
         "gameId": "r32-south-4",
         "round": "round_of_32",
         "region": "South",
-        "seed1": 10,
-        "team1": "Texas A&M",
+        "seed1": 7,
+        "team1": "Saint Mary's",
         "seed2": 2,
         "team2": "Houston",
         "pick": "Houston",
-        "confidence": 75,
-        "reasoning": "Houston's AdjEM of 33.0 is 14.5 points above Texas A&M's 18.5. Houston's defense (AdjD 92.4) will smother the Aggies' offense (AdjO 119.9), creating a half-court nightmare. Texas A&M's R64 upset magic fades against Houston's suffocating defensive system and slow-tempo control."
+        "confidence": 72,
+        "reasoning": "Houston's AdjEM (33.0) is 11.2 points above Saint Mary's (21.8). Both teams play slow, grinding half-court basketball, but Houston's defense (AdjD 92.4) is dramatically better than Saint Mary's (AdjD 97.7). Kelvin Sampson's 31-21 tournament record vs Bennett's 7-11 gives Houston the coaching edge in a style matchup that favors the Cougars' defensive identity."
       },
       {
         "gameId": "r32-west-1",
@@ -508,7 +508,7 @@
         "team2": "Utah State",
         "pick": "Arizona",
         "confidence": 78,
-        "reasoning": "Arizona's AdjEM of 35.5 is 14.6 points above Utah State's 20.9. The Wildcats' elite defense (AdjD 91.4) will contain Utah State's strong offense (AdjO 123.0), and Arizona's own offensive firepower (AdjO 126.9) at a fast pace creates too many scoring opportunities. Arizona's complete profile overwhelms the upset-minded Aggies."
+        "reasoning": "Arizona's AdjEM (35.5) is 14.6 points above Utah State's (20.9). The Wildcats' elite defense (AdjD 91.4) will contain Utah State's strong offense (AdjO 123.0). Arizona's Big 12 championship momentum and Tommy Lloyd's 6-4 tournament record dominate Utah State's upset bid."
       },
       {
         "gameId": "r32-west-2",
@@ -520,7 +520,7 @@
         "team2": "Arkansas",
         "pick": "Arkansas",
         "confidence": 55,
-        "reasoning": "Arkansas's AdjEM (26.3) edges Wisconsin's (25.5) by a slim margin, but Arkansas's explosive offense (AdjO 127.9) at a fast tempo (71.0) overwhelms Wisconsin's slower pace preference (68.7). Wisconsin's defense is decent but porous by elite standards (AdjD 101.6), and Arkansas's transition attack exploits that weakness."
+        "reasoning": "Arkansas's AdjEM (26.3) edges Wisconsin's (25.5), but the coaching gap is enormous: Calipari's 57-22 tournament record (6 FFs, 1 title) vs Gard's 7-7. Arkansas's SEC championship momentum (8-2 L10) and explosive offense (AdjO 127.9) at a fast tempo overwhelm Wisconsin's slower pace preference."
       },
       {
         "gameId": "r32-west-3",
@@ -532,7 +532,7 @@
         "team2": "Gonzaga",
         "pick": "Gonzaga",
         "confidence": 60,
-        "reasoning": "Gonzaga's AdjEM (26.3) edges BYU's (20.4) by 5.9 points with dramatically better defense (AdjD 94.0 vs 104.3). In a WCC rivalry matchup, Gonzaga's defensive advantage (10.3 points better) neutralizes BYU's offensive volume. Mark Few knows BYU's tendencies and will scheme to limit their shooters."
+        "reasoning": "Gonzaga's AdjEM (26.3) holds a 5.9-point edge over BYU's (20.4) with dramatically better defense (AdjD 94.0 vs 104.3). Even without Braden Huff, Mark Few's 44-25 tournament record and WCC rivalry familiarity give Gonzaga the schematic edge. Few knows BYU's tendencies cold."
       },
       {
         "gameId": "r32-west-4",
@@ -544,7 +544,7 @@
         "team2": "Purdue",
         "pick": "Purdue",
         "confidence": 74,
-        "reasoning": "Purdue's AdjEM of 33.0 is 13.4 points above Miami's 19.6. Purdue's nation-best offense (AdjO 133.3) will exploit Miami's average defense (AdjD 101.5). Even at a slower tempo, Purdue's offensive efficiency per possession is too high for Miami to keep pace. The 2-seed's scoring machine rolls on."
+        "reasoning": "Purdue's AdjEM of 33.0 is 13.4 points above Miami's 19.6. Purdue's nation-best offense (AdjO 133.3) exploits Miami's average defense (AdjD 101.5). Matt Painter's 22-16 tournament record and Big Ten championship momentum make this straightforward against a first-year tournament coach."
       },
       {
         "gameId": "r32-midwest-1",
@@ -552,11 +552,11 @@
         "region": "Midwest",
         "seed1": 1,
         "team1": "Michigan",
-        "seed2": 8,
-        "team2": "Georgia",
+        "seed2": 9,
+        "team2": "Saint Louis",
         "pick": "Michigan",
-        "confidence": 80,
-        "reasoning": "Michigan's AdjEM of 36.6 is 17.0 points above Georgia's 19.6. The Wolverines' defense (AdjD 91.0) will lock down Georgia's offense (AdjO 124.3), and Michigan's own offense (AdjO 127.6) overwhelms Georgia's weak defense (AdjD 104.8). Michigan controls the tempo at 71.2 and dominates both ends of the floor."
+        "confidence": 82,
+        "reasoning": "Michigan's AdjEM (36.6) is 19.3 points above Saint Louis's (17.3). The Wolverines' elite defense (AdjD 91.0) will smother Saint Louis's offense (AdjO 119.6). Saint Louis's 28-5 record and hot streak earned them this spot, but the talent and efficiency gap against a #1 overall seed contender is too vast."
       },
       {
         "gameId": "r32-midwest-2",
@@ -568,7 +568,7 @@
         "team2": "Alabama",
         "pick": "Alabama",
         "confidence": 55,
-        "reasoning": "Alabama's AdjEM (26.7) barely edges Texas Tech's (27.5) \u2014 this is essentially even. But Alabama's explosive offense (AdjO 129.5) at a blazing tempo (73.1) creates more possessions and scoring variance. Texas Tech's defense (AdjD 98.8) is solid but Alabama's pace pushes the game into a track meet that favors the Crimson Tide's firepower."
+        "reasoning": "Alabama's AdjEM (26.7) barely trails Texas Tech's (27.5), but Alabama's explosive offense (AdjO 129.5) at a blazing tempo (73.1) creates a track meet. Nate Oats' 11-6 tournament record and SEC experience edge Grant McCasland's 3-3 Big 12 record. Alabama's pace and firepower create separation."
       },
       {
         "gameId": "r32-midwest-3",
@@ -580,7 +580,7 @@
         "team2": "Virginia",
         "pick": "Virginia",
         "confidence": 55,
-        "reasoning": "Virginia's AdjEM (26.4) edges Tennessee's (26.0) by a razor-thin margin. Both teams play elite defense at deliberate tempos \u2014 this becomes a classic low-possession grinder. Virginia's packline defense (AdjD 95.8) slightly outperforms Tennessee's (AdjD 95.5), and in a game with limited possessions, that marginal defensive edge decides it."
+        "reasoning": "Virginia's AdjEM (26.4) edges Tennessee's (26.0) — razor-thin. Both are elite defensive teams at deliberate tempos. Virginia's 8-2 L10 HOT momentum as ACC runner-up vs Tennessee's 6-4 neutral stretch is the tiebreaker. In a low-possession grinder, the team playing better recent basketball gets the edge."
       },
       {
         "gameId": "r32-midwest-4",
@@ -592,7 +592,7 @@
         "team2": "Iowa State",
         "pick": "Iowa State",
         "confidence": 68,
-        "reasoning": "Iowa State's AdjEM of 31.1 is 9.8 points above Santa Clara's 21.3. The Cyclones' elite defense (AdjD 92.6) will disrupt Santa Clara's strong offense (AdjO 125.0). Santa Clara's R64 upset energy fades against Iowa State's defensive system and the 10-seed's lack of tournament depth experience."
+        "reasoning": "Iowa State's AdjEM (31.1) is 9.8 points above Santa Clara's (21.3). The Cyclones' elite defense (AdjD 92.6) will disrupt Santa Clara's offense. T.J. Otzelberger's 9-5 tournament record and Big 12 pedigree are too much for Santa Clara's WCC roster to overcome in the second round."
       }
     ],
     "sweet_16": [
@@ -602,11 +602,11 @@
         "region": "East",
         "seed1": 1,
         "team1": "Duke",
-        "seed2": 4,
-        "team2": "Kansas",
+        "seed2": 5,
+        "team2": "St. John's",
         "pick": "Duke",
-        "confidence": 75,
-        "reasoning": "Duke's AdjEM of 37.3 is 13.8 points above Kansas's 23.5. Duke's generational offense (AdjO 128.1) overwhelms Kansas's solid defense (AdjD 94.4), and Duke's own defense (AdjD 90.8) contains Kansas's balanced attack. Bill Self's tournament coaching narrows the gap, but the statistical mismatch is too large."
+        "confidence": 72,
+        "reasoning": "Duke's AdjEM (37.3) leads St. John's (25.7) by 11.6 points. St. John's elite defense (AdjD 94.1) is the best Duke has faced, and Pitino's tactical genius will make this competitive, but Duke's generational offense (AdjO 128.1) creates too much scoring volume. Even with Foster out, Duke's depth and Scheyer's ACC title momentum carry them."
       },
       {
         "gameId": "s16-east-2",
@@ -618,7 +618,7 @@
         "team2": "UConn",
         "pick": "UConn",
         "confidence": 55,
-        "reasoning": "UConn's AdjEM (28.1) edges Michigan State's (26.7) by 1.4 points. Both are elite defensive teams (AdjD 95.0 vs 96.2), making this a half-court slugfest. UConn's offensive edge (AdjO 123.1 vs 122.9) is razor-thin, but Dan Hurley's championship pedigree and UConn's ability to execute in late-game situations tip the scale."
+        "reasoning": "UConn's AdjEM (28.1) edges Michigan State's (26.7) by 1.4 points. Both are elite defensive teams, making this a half-court slugfest. Dan Hurley's 15-5 tournament record with 2 titles and UConn's late-game execution in March edge Izzo's experience. UConn's championship pedigree is the separator in a game that comes down to final possessions."
       },
       {
         "gameId": "s16-south-1",
@@ -630,7 +630,7 @@
         "team2": "Vanderbilt",
         "pick": "Florida",
         "confidence": 63,
-        "reasoning": "Florida's AdjEM of 33.8 holds a 5.7-point edge over Vanderbilt's 28.1. Both are SEC teams with explosive offenses (AdjO 126.1 vs 127.4), but Florida's defense (AdjD 92.3 vs 99.3) is the clear separator \u2014 7 points better. In an SEC rivalry Sweet 16 matchup, the team that gets stops advances, and Florida's defensive profile is significantly superior."
+        "reasoning": "Florida's AdjEM (33.8) holds a 5.7-point edge over Vanderbilt's (28.1). Both are SEC teams with explosive offenses, but Florida's defense (AdjD 92.3 vs 99.3) is the clear separator — 7 points better. In an SEC rivalry Sweet 16, the team that gets stops advances, and Florida's two-way profile is significantly superior."
       },
       {
         "gameId": "s16-south-2",
@@ -642,7 +642,7 @@
         "team2": "Houston",
         "pick": "Houston",
         "confidence": 55,
-        "reasoning": "Houston's AdjEM (33.0) edges Illinois' (33.7) \u2014 essentially identical elite teams. However, Houston's historically elite defense (AdjD 92.4) matches up perfectly against Illinois' high-volume offense (AdjO 131.9). Houston's ability to slow the tempo and force half-court execution neutralizes Illinois' offensive rhythm. The Cougars' defensive identity is built for exactly this type of opponent."
+        "reasoning": "Houston's AdjEM (33.0) trails Illinois's (33.7) by 0.7 — essentially identical elite teams. But Houston's historically elite defense (AdjD 92.4) is built to slow Illinois' high-volume offense (AdjO 131.9). Kelvin Sampson's 31-21 tournament record with 4 Final Fours provides the March experience edge. Houston's defensive identity is specifically designed for opponents like Illinois."
       },
       {
         "gameId": "s16-west-1",
@@ -654,7 +654,7 @@
         "team2": "Arkansas",
         "pick": "Arizona",
         "confidence": 68,
-        "reasoning": "Arizona's AdjEM of 35.5 is 9.2 points above Arkansas's 26.3. Both teams play at fast tempos (70.0 vs 71.0), creating a high-possession shootout \u2014 but Arizona is more efficient on both ends. Arizona's defense (AdjD 91.4 vs 101.7) is the decisive edge, containing Arkansas's explosive offense while Arizona's own attack (AdjO 126.9) creates separation."
+        "reasoning": "Arizona's AdjEM (35.5) is 9.2 points above Arkansas's (26.3). Both play at fast tempos, creating a high-possession shootout — but Arizona is more efficient on both ends. Arizona's defense (AdjD 91.4 vs 101.7) is the decisive edge. Calipari's tournament pedigree keeps it competitive, but Tommy Lloyd's Big 12 champion is the better team."
       },
       {
         "gameId": "s16-west-2",
@@ -665,8 +665,8 @@
         "seed2": 2,
         "team2": "Purdue",
         "pick": "Purdue",
-        "confidence": 62,
-        "reasoning": "Purdue's AdjEM (33.0) holds a 6.7-point edge over Gonzaga's (26.3), driven by the nation's best offense (AdjO 133.3 vs 120.3). Gonzaga's defense (AdjD 94.0) is strong, but Purdue's offensive system generates elite looks that even good defenses cannot fully contain. Purdue's size and half-court execution overwhelm Gonzaga in a slower-paced Sweet 16 game."
+        "confidence": 64,
+        "reasoning": "Purdue's AdjEM (33.0) holds a 6.7-point edge over Gonzaga's (26.3). Purdue's nation-best offense (AdjO 133.3) overwhelms even Gonzaga's solid defense (AdjD 94.0). With Braden Huff potentially returning but at limited capacity, Gonzaga's depth is still compromised. Matt Painter's Big Ten champions and offensive firepower advance."
       },
       {
         "gameId": "s16-midwest-1",
@@ -678,7 +678,7 @@
         "team2": "Alabama",
         "pick": "Michigan",
         "confidence": 67,
-        "reasoning": "Michigan's AdjEM of 36.6 is 9.9 points above Alabama's 26.7. Michigan's defense (AdjD 91.0) is built to slow Alabama's blazing tempo (73.1) and force half-court execution. Alabama's explosive offense (AdjO 129.5) keeps it competitive, but Michigan's complete profile \u2014 elite defense and strong offense (AdjO 127.6) \u2014 is too balanced to overcome."
+        "reasoning": "Michigan's AdjEM (36.6) is 9.9 points above Alabama's (26.7). Michigan's defense (AdjD 91.0) is built to slow Alabama's blazing tempo and force half-court execution. Alabama's explosive offense (AdjO 129.5) keeps it competitive, but Michigan's complete two-way profile is too balanced to overcome."
       },
       {
         "gameId": "s16-midwest-2",
@@ -690,7 +690,7 @@
         "team2": "Iowa State",
         "pick": "Iowa State",
         "confidence": 58,
-        "reasoning": "Iowa State's AdjEM (31.1) edges Virginia's (26.4) by 4.7 points. Both are elite defensive teams at slow tempos, but Iowa State's offensive efficiency (AdjO 123.8 vs 122.2) creates the margin. Virginia's packline limits Iowa State's transition game, but Iowa State's superior overall efficiency profile prevails in a grinding, low-scoring affair."
+        "reasoning": "Iowa State's AdjEM (31.1) edges Virginia's (26.4) by 4.7 points. Both are elite defensive teams at slow tempos, but Iowa State's offensive efficiency (AdjO 123.8 vs 122.2) creates the margin. Otzelberger's 9-5 tournament record and Big 12 pedigree edge Ron Sanchez's first tournament appearance as HC."
       }
     ],
     "elite_8": [
@@ -703,8 +703,8 @@
         "seed2": 2,
         "team2": "UConn",
         "pick": "Duke",
-        "confidence": 68,
-        "reasoning": "Duke's AdjEM of 37.3 holds a 9.2-point edge over UConn's 28.1. Duke's offense (AdjO 128.1) creates a massive scoring gap that UConn's defense (AdjD 95.0) can slow but cannot stop. In an Elite Eight matchup between two blue-blood programs, Duke's complete statistical superiority on both ends \u2014 offense and defense \u2014 is the difference."
+        "confidence": 65,
+        "reasoning": "Duke's AdjEM (37.3) holds a 9.2-point edge over UConn's (28.1). Duke's offense (AdjO 128.1) is the best in the field, and their defense (AdjD 90.8) is even better than UConn's (95.0). Caleb Foster might return for the Elite Eight, which adds a wild card. In a blue-blood Elite Eight matchup, Duke's complete statistical superiority on both ends is the difference."
       },
       {
         "gameId": "e8-south",
@@ -716,7 +716,7 @@
         "team2": "Houston",
         "pick": "Florida",
         "confidence": 56,
-        "reasoning": "Florida (AdjEM 33.8) vs Houston (33.0) \u2014 two elite teams separated by 0.8 points. Houston's defense (AdjD 92.4) is marginally better than Florida's (92.3), but Florida's offense (AdjO 126.1 vs 125.4) and faster tempo (70.4 vs 63.3) create more scoring opportunities. Florida's pace forces Houston out of their slow-grind comfort zone."
+        "reasoning": "Florida (AdjEM 33.8) vs Houston (33.0) — two elite teams separated by 0.8 points. Houston's defense is marginally better, but Florida's faster tempo (70.4 vs 63.3) creates more possessions where their offensive edge compounds. Florida's pace forces Houston out of their slow-grind comfort zone, and Todd Golden's 6-2 tournament record provides the experience edge."
       },
       {
         "gameId": "e8-west",
@@ -728,7 +728,7 @@
         "team2": "Purdue",
         "pick": "Arizona",
         "confidence": 58,
-        "reasoning": "Arizona's AdjEM (35.5) edges Purdue's (33.0) by 2.5 points. Purdue has the better offense (AdjO 133.3 vs 126.9), but Arizona's defense (AdjD 91.4 vs 100.3) is dramatically superior \u2014 nearly 9 points better. In an Elite Eight game, defense wins. Arizona's ability to contain Purdue's elite offense while generating efficient scoring of their own is the decider."
+        "reasoning": "Arizona's AdjEM (35.5) edges Purdue's (33.0) by 2.5 points. Purdue has the better offense (AdjO 133.3 vs 126.9), but Arizona's defense (AdjD 91.4 vs 100.3) is dramatically superior — nearly 9 points better. In an Elite Eight game, defense wins. Arizona's Big 12 championship pedigree and defensive elite status carry them."
       },
       {
         "gameId": "e8-midwest",
@@ -740,7 +740,7 @@
         "team2": "Iowa State",
         "pick": "Michigan",
         "confidence": 62,
-        "reasoning": "Michigan's AdjEM of 36.6 holds a 5.5-point edge over Iowa State's 31.1. Both have elite defenses (AdjD 91.0 vs 92.6), but Michigan's offense (AdjO 127.6 vs 123.8) is the separator. Michigan's faster tempo (71.2 vs 67.0) creates extra possessions that compound their efficiency advantage. The Wolverines' complete profile advances."
+        "reasoning": "Michigan's AdjEM (36.6) holds a 5.5-point edge over Iowa State's (31.1). Both have elite defenses (AdjD 91.0 vs 92.6), but Michigan's offense (AdjO 127.6 vs 123.8) is the separator. Dusty May's 6-3 tournament record (including an FF) gives Michigan the coaching edge. The Wolverines' complete profile advances to the Final Four."
       }
     ],
     "final_four": [
@@ -754,7 +754,7 @@
         "team2": "Duke",
         "pick": "Duke",
         "confidence": 63,
-        "reasoning": "Duke's AdjEM of 37.3 holds a 3.5-point edge over Florida's 33.8 — the largest gap of any Final Four matchup. Duke's offense (AdjO 128.1) is the best in the country and will exploit Florida's defense (AdjD 92.3), while Duke's defense (AdjD 90.8) is actually tighter than Florida's. Florida's faster tempo (70.4 vs 65.8) creates more possessions, but Duke's superior efficiency on both ends compounds with every possession. The Blue Devils' complete two-way dominance is the separator."
+        "reasoning": "Duke's AdjEM (37.3) holds a 3.5-point edge over Florida's (33.8). Duke's offense (AdjO 128.1) is the best in the country and will exploit Florida's defense (AdjD 92.3), while Duke's defense (AdjD 90.8) is actually tighter than Florida's. Caleb Foster could be back by the Final Four, adding another weapon. Duke's complete two-way dominance is the separator against an excellent Florida team."
       },
       {
         "gameId": "f4-west-midwest",
@@ -766,7 +766,7 @@
         "team2": "Michigan",
         "pick": "Michigan",
         "confidence": 55,
-        "reasoning": "Michigan's AdjEM of 36.6 edges Arizona's 35.5 by 1.1 points — razor-thin but consistent across every metric. Michigan's defense (AdjD 91.0) is marginally tighter than Arizona's (91.4), and their offense (AdjO 127.6 vs 126.9) holds a similar slim advantage. Both teams play at fast tempos (71.2 vs 70.0), creating a high-possession shootout where Michigan's fractional efficiency edge per possession accumulates over 40 minutes. The narrowest of margins, but Michigan's complete statistical profile is better on every dimension."
+        "reasoning": "Michigan's AdjEM (36.6) edges Arizona's (35.5) by 1.1 points — razor-thin but consistent. Michigan's defense (AdjD 91.0) is marginally tighter than Arizona's (91.4), and their offense (AdjO 127.6 vs 126.9) holds a similar slim edge. Both play at fast tempos, creating a high-possession shootout where Michigan's fractional efficiency advantage accumulates over 40 minutes."
       }
     ],
     "championship": [
@@ -780,7 +780,7 @@
         "team2": "Michigan",
         "pick": "Duke",
         "confidence": 56,
-        "reasoning": "Duke's AdjEM of 37.3 holds a 0.7-point edge over Michigan's 36.6 — the slimmest possible margin between two elite 1-seeds. Duke's offense (AdjO 128.1 vs 127.6) and defense (AdjD 90.8 vs 91.0) are both marginally better. Michigan's faster tempo (71.2 vs 65.8) will push the pace, but Duke's defensive efficiency is elite enough to hold up at any tempo. In a championship game between the #1 and #2 overall seeds, Duke's fractional advantages on both ends of the floor are the tiebreaker."
+        "reasoning": "Duke's AdjEM (37.3) holds a 0.7-point edge over Michigan's (36.6). Duke's offense (AdjO 128.1 vs 127.6) and defense (AdjD 90.8 vs 91.0) are both marginally better. In a championship game between the top two seeds, Jon Scheyer's ACC title momentum and the potential return of Caleb Foster give Duke the thinnest of edges in what projects as the most competitive championship game in years."
       }
     ]
   }

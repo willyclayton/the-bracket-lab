@@ -64,6 +64,36 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 - Elite SOS: 0.6242
 - SOS: 0.7409
 
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 19.6%
+- TO Margin: +3.8 (net positive)
+
+**Coaching:**
+- Coach: Jon Scheyer
+- Tournament Record: 8-3
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 44%
+- Avg Player Year: 1.8
+- Freshman-heavy roster
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 32-2
+- Conference: ACC (strength: 87)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 10-0 [HOT]
+- Conference Tournament: champion
+- Style: perimeter-dominant (medium tempo)
+- Injuries: Caleb Foster (foot fracture, out until Final Four), Patrick Ngongba (foot soreness, expected back) (impact: significant)
+
 ### Team 2: UConn (2-seed)
 **Efficiency Ratings:**
 - AdjEM: 28.1
@@ -73,6 +103,36 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 - WAB: 8.8
 - Elite SOS: 0.6742
 - SOS: 0.7138
+
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.2%
+- TO Margin: +1.4 (net positive)
+
+**Coaching:**
+- Coach: Dan Hurley
+- Tournament Record: 15-5
+- Tournament Appearances (HC): 7
+- Final Fours: 2
+- Championships: 2
+
+**Roster:**
+- Returning Minutes: 66%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 29-5
+- Conference: Big East (strength: 85)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: versatile (medium tempo)
+- Injuries: Jaylin Stewart (uncertain, missed Big East tournament) (impact: moderate)
 
 ---
 
@@ -84,6 +144,7 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 ### Matchup Dynamics
 **Efficiency Gap:** 9.2 AdjEM in favor of Duke
 **Tempo:** Similar pace (65.8 vs 64.6)
+**Turnover Margin Edge:** Duke (+3.8 vs +1.4) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.10) — favorite is solid
 
 ---
@@ -91,12 +152,12 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 ### Historical Context
 **Duke:**
   - round_of_64: defeated 16-seed Siena
-  - round_of_32: defeated 8-seed Ohio State
+  - round_of_32: defeated 9-seed TCU
   - sweet_16: defeated 5-seed St. John's
 
 **UConn:**
   - round_of_64: defeated 15-seed Furman
-  - round_of_32: defeated 7-seed UCLA
+  - round_of_32: defeated 10-seed UCF
   - sweet_16: defeated 3-seed Michigan State
 
 
@@ -164,6 +225,36 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 - Elite SOS: 0.6075
 - SOS: 0.7581
 
+**Shooting:**
+- 3pt Variance Risk: 0.027 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 19.4%
+- TO Margin: +3.6 (net positive)
+
+**Coaching:**
+- Coach: Todd Golden
+- Tournament Record: 6-2
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+- Championships: 1
+
+**Roster:**
+- Returning Minutes: 64%
+- Avg Player Year: 2.4
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 26-7
+- Conference: SEC (strength: 90)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: two-way (medium tempo)
+- Injuries: Micah Handlogten (medical redshirt, out for season), Thomas Haugh (foot, expected back) (impact: minor)
+
 ### Team 2: Houston (2-seed)
 **Efficiency Ratings:**
 - AdjEM: 33.0
@@ -173,6 +264,35 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 - WAB: 9.0
 - Elite SOS: 0.6386
 - SOS: 0.7306
+
+**Shooting:**
+- 3pt Variance Risk: 0.021 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 20.4%
+- TO Margin: +5.6 (net positive)
+
+**Coaching:**
+- Coach: Kelvin Sampson
+- Tournament Record: 31-21
+- Tournament Appearances (HC): 20
+- Final Fours: 4
+
+**Roster:**
+- Returning Minutes: 72%
+- Avg Player Year: 2.8
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 28-6
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: defense-first (slow tempo)
+- Injuries: J'Wan Roberts (ankle, expected to play) (impact: minor)
 
 ---
 
@@ -184,6 +304,7 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 ### Matchup Dynamics
 **Efficiency Gap:** 0.9 AdjEM in favor of Florida
 **Tempo Mismatch:** Florida (70.4) wants to push pace; Houston (63.3) prefers to slow it down. 7.1 possession gap.
+**Turnover Margin Edge:** Houston (+5.6 vs +3.6) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.20) — favorite is solid
 
 ---
@@ -196,7 +317,7 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 
 **Houston:**
   - round_of_64: defeated 15-seed Idaho
-  - round_of_32: defeated 10-seed Texas A&M
+  - round_of_32: defeated 7-seed Saint Mary's
   - sweet_16: defeated 3-seed Illinois
 
 
@@ -264,6 +385,35 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 - Elite SOS: 0.6220
 - SOS: 0.7386
 
+**Shooting:**
+- 3pt Variance Risk: 0.031 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.2%
+- TO Margin: +1.8 (net positive)
+
+**Coaching:**
+- Coach: Tommy Lloyd
+- Tournament Record: 6-4
+- Tournament Appearances (HC): 4
+
+**Roster:**
+- Returning Minutes: 55%
+- Avg Player Year: 2.0
+- Freshman-heavy roster
+- Players with Tournament Experience: 7
+
+**Context:**
+- Record: 32-2
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 9-1 [HOT]
+- Conference Tournament: champion
+- Style: versatile (medium tempo)
+- Injuries: Jaden Bradley (left wrist, taped but playing) (impact: minor)
+
 ### Team 2: Purdue (2-seed)
 **Efficiency Ratings:**
 - AdjEM: 33.0
@@ -273,6 +423,35 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 - WAB: 9.2
 - Elite SOS: 0.5962
 - SOS: 0.7793
+
+**Shooting:**
+- 3pt Variance Risk: 0.023 (moderate)
+- FT% in Close Games: 0.8%
+- FT Pressure Delta: +0.0% (improves under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.4%
+- TO Margin: +0.6 (net positive)
+
+**Coaching:**
+- Coach: Matt Painter
+- Tournament Record: 22-16
+- Tournament Appearances (HC): 17
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 74%
+- Avg Player Year: 3.2
+- Senior-led roster
+- Players with Tournament Experience: 10
+
+**Context:**
+- Record: 27-8
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: champion
+- Style: big-man (slow tempo)
 
 ---
 
@@ -284,6 +463,7 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 ### Matchup Dynamics
 **Efficiency Gap:** 2.5 AdjEM in favor of Arizona
 **Tempo Mismatch:** Arizona (70.0) wants to push pace; Purdue (64.4) prefers to slow it down. 5.6 possession gap.
+**Turnover Margin Edge:** Arizona (+1.8 vs +0.6) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.16) — favorite is solid
 
 ---
@@ -364,6 +544,35 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 - Elite SOS: 0.5814
 - SOS: 0.8028
 
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 17.2%
+- TO Margin: +0.4 (net positive)
+
+**Coaching:**
+- Coach: Dusty May
+- Tournament Record: 6-3
+- Tournament Appearances (HC): 4
+- Final Fours: 1
+
+**Roster:**
+- Returning Minutes: 61%
+- Avg Player Year: 2.0
+- Freshman-heavy roster
+- Players with Tournament Experience: 6
+
+**Context:**
+- Record: 28-5
+- Conference: Big Ten (strength: 89)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 8-2 [HOT]
+- Conference Tournament: runner_up
+- Style: perimeter (medium tempo)
+
 ### Team 2: Iowa State (2-seed)
 **Efficiency Ratings:**
 - AdjEM: 31.1
@@ -373,6 +582,33 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 - WAB: 7.4
 - Elite SOS: 0.6545
 - SOS: 0.6968
+
+**Shooting:**
+- 3pt Variance Risk: 0.030 (moderate)
+- FT% in Close Games: 0.7%
+- FT Pressure Delta: -0.0% (drops under pressure)
+
+**Ball Control:**
+- Forced TO Rate: 18.1%
+- TO Margin: +1.9 (net positive)
+
+**Coaching:**
+- Coach: T.J. Otzelberger
+- Tournament Record: 9-5
+- Tournament Appearances (HC): 5
+
+**Roster:**
+- Returning Minutes: 64%
+- Avg Player Year: 2.6
+- Players with Tournament Experience: 8
+
+**Context:**
+- Record: 26-7
+- Conference: Big 12 (strength: 92)
+- Close Games (<=5pt): 7-2 (78% win rate)
+- Last 10: 7-3
+- Conference Tournament: semifinal
+- Style: two-way (medium tempo)
 
 ---
 
@@ -384,6 +620,7 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 ### Matchup Dynamics
 **Efficiency Gap:** 5.5 AdjEM in favor of Michigan
 **Tempo:** Similar pace (71.2 vs 67.0)
+**Turnover Margin Edge:** Iowa State (+1.9 vs +0.4) — creates more turnovers than it commits
 **Upset Vulnerability:** LOW (0.10) — favorite is solid
 
 ---
@@ -391,8 +628,8 @@ Only 8 teams remain. Coaching experience separates contenders from pretenders. A
 ### Historical Context
 **Michigan:**
   - round_of_64: defeated 16-seed UMBC
-  - round_of_32: defeated 8-seed Georgia
-  - sweet_16: defeated 5-seed Texas Tech
+  - round_of_32: defeated 9-seed Saint Louis
+  - sweet_16: defeated 4-seed Alabama
 
 **Iowa State:**
   - round_of_64: defeated 15-seed Tennessee State
