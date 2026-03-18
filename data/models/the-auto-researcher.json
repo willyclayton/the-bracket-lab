@@ -3,14 +3,14 @@
   "displayName": "The Auto Researcher",
   "tagline": "21 strategies tested. 14 years backtested. One bracket.",
   "color": "#10b981",
-  "generated": "2026-03-17",
+  "generated": "2026-03-18",
   "locked": true,
-  "espnBracketUrl": "https://fantasy.espn.com/games/tournament-challenge-bracket-2026/bracket?id=61bdfe20-2252-11f1-ae27-ad8441122907",
-  "champion": "Duke",
+  "espnBracketUrl": null,
+  "champion": "Michigan",
   "championEliminated": false,
   "finalFour": [
     "Duke",
-    "Florida",
+    "Houston",
     "Arizona",
     "Michigan"
   ],
@@ -25,8 +25,8 @@
         "seed2": 16,
         "team2": "Siena",
         "pick": "Duke",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Duke (1-seed) over Siena (16-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 98,
+        "reasoning": "ML ensemble predicts Duke (1-seed) over Siena (16-seed) with 98% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-2",
@@ -36,9 +36,9 @@
         "team1": "Ohio State",
         "seed2": 9,
         "team2": "TCU",
-        "pick": "Ohio State",
+        "pick": "TCU",
         "confidence": 65,
-        "reasoning": "ML ensemble predicts Ohio State (8-seed) over TCU (9-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "reasoning": "ML ensemble predicts TCU (9-seed) over Ohio State (8-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-3",
@@ -49,8 +49,8 @@
         "seed2": 12,
         "team2": "Northern Iowa",
         "pick": "St. John's",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts St. John's (5-seed) over Northern Iowa (12-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 95,
+        "reasoning": "ML ensemble predicts St. John's (5-seed) over Northern Iowa (12-seed) with 95% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-4",
@@ -73,8 +73,8 @@
         "seed2": 11,
         "team2": "South Florida",
         "pick": "Louisville",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Louisville (6-seed) over South Florida (11-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 88,
+        "reasoning": "ML ensemble predicts Louisville (6-seed) over South Florida (11-seed) with 88% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-6",
@@ -85,8 +85,8 @@
         "seed2": 14,
         "team2": "North Dakota State",
         "pick": "Michigan State",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Michigan State (3-seed) over North Dakota State (14-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 97,
+        "reasoning": "ML ensemble predicts Michigan State (3-seed) over North Dakota State (14-seed) with 97% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-7",
@@ -97,8 +97,8 @@
         "seed2": 10,
         "team2": "UCF",
         "pick": "UCLA",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts UCLA (7-seed) over UCF (10-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 51,
+        "reasoning": "ML ensemble predicts UCLA (7-seed) over UCF (10-seed) with 51% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-east-8",
@@ -109,8 +109,8 @@
         "seed2": 15,
         "team2": "Furman",
         "pick": "UConn",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts UConn (2-seed) over Furman (15-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 99,
+        "reasoning": "ML ensemble predicts UConn (2-seed) over Furman (15-seed) with 99% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-1",
@@ -121,8 +121,8 @@
         "seed2": 16,
         "team2": "Prairie View A&M",
         "pick": "Florida",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Florida (1-seed) over Prairie View A&M (16-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 95,
+        "reasoning": "ML ensemble predicts Florida (1-seed) over Prairie View A&M (16-seed) with 95% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-2",
@@ -133,8 +133,8 @@
         "seed2": 9,
         "team2": "Iowa",
         "pick": "Clemson",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Clemson (8-seed) over Iowa (9-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 60,
+        "reasoning": "ML ensemble predicts Clemson (8-seed) over Iowa (9-seed) with 60% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-3",
@@ -145,8 +145,8 @@
         "seed2": 12,
         "team2": "McNeese",
         "pick": "Vanderbilt",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Vanderbilt (5-seed) over McNeese (12-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 90,
+        "reasoning": "ML ensemble predicts Vanderbilt (5-seed) over McNeese (12-seed) with 90% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-4",
@@ -157,8 +157,8 @@
         "seed2": 13,
         "team2": "Troy",
         "pick": "Nebraska",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Nebraska (4-seed) over Troy (13-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 99,
+        "reasoning": "ML ensemble predicts Nebraska (4-seed) over Troy (13-seed) with 99% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-5",
@@ -169,8 +169,8 @@
         "seed2": 11,
         "team2": "VCU",
         "pick": "North Carolina",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts North Carolina (6-seed) over VCU (11-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 81,
+        "reasoning": "ML ensemble predicts North Carolina (6-seed) over VCU (11-seed) with 81% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-6",
@@ -193,8 +193,8 @@
         "seed2": 10,
         "team2": "Texas A&M",
         "pick": "Saint Mary's",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Saint Mary's (7-seed) over Texas A&M (10-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 82,
+        "reasoning": "ML ensemble predicts Saint Mary's (7-seed) over Texas A&M (10-seed) with 82% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-south-8",
@@ -205,8 +205,8 @@
         "seed2": 15,
         "team2": "Idaho",
         "pick": "Houston",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Houston (2-seed) over Idaho (15-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 99,
+        "reasoning": "ML ensemble predicts Houston (2-seed) over Idaho (15-seed) with 99% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-1",
@@ -228,9 +228,9 @@
         "team1": "Villanova",
         "seed2": 9,
         "team2": "Utah State",
-        "pick": "Villanova",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Villanova (8-seed) over Utah State (9-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "pick": "Utah State",
+        "confidence": 45,
+        "reasoning": "ML ensemble predicts Utah State (9-seed) over Villanova (8-seed) with 45% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-3",
@@ -241,8 +241,8 @@
         "seed2": 12,
         "team2": "High Point",
         "pick": "Wisconsin",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Wisconsin (5-seed) over High Point (12-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 87,
+        "reasoning": "ML ensemble predicts Wisconsin (5-seed) over High Point (12-seed) with 87% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-4",
@@ -253,8 +253,8 @@
         "seed2": 13,
         "team2": "Hawaii",
         "pick": "Arkansas",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Arkansas (4-seed) over Hawaii (13-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 96,
+        "reasoning": "ML ensemble predicts Arkansas (4-seed) over Hawaii (13-seed) with 96% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-5",
@@ -277,8 +277,8 @@
         "seed2": 14,
         "team2": "Kennesaw State",
         "pick": "Gonzaga",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Gonzaga (3-seed) over Kennesaw State (14-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 98,
+        "reasoning": "ML ensemble predicts Gonzaga (3-seed) over Kennesaw State (14-seed) with 98% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-7",
@@ -289,8 +289,8 @@
         "seed2": 10,
         "team2": "Missouri",
         "pick": "Miami",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Miami (7-seed) over Missouri (10-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 71,
+        "reasoning": "ML ensemble predicts Miami (7-seed) over Missouri (10-seed) with 71% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-west-8",
@@ -301,8 +301,8 @@
         "seed2": 15,
         "team2": "Queens",
         "pick": "Purdue",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Purdue (2-seed) over Queens (15-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 98,
+        "reasoning": "ML ensemble predicts Purdue (2-seed) over Queens (15-seed) with 98% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-1",
@@ -324,9 +324,9 @@
         "team1": "Georgia",
         "seed2": 9,
         "team2": "Saint Louis",
-        "pick": "Georgia",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Georgia (8-seed) over Saint Louis (9-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "pick": "Saint Louis",
+        "confidence": 42,
+        "reasoning": "ML ensemble predicts Saint Louis (9-seed) over Georgia (8-seed) with 42% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-3",
@@ -337,8 +337,8 @@
         "seed2": 12,
         "team2": "Akron",
         "pick": "Texas Tech",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Texas Tech (5-seed) over Akron (12-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 88,
+        "reasoning": "ML ensemble predicts Texas Tech (5-seed) over Akron (12-seed) with 88% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-4",
@@ -349,8 +349,8 @@
         "seed2": 13,
         "team2": "Hofstra",
         "pick": "Alabama",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Alabama (4-seed) over Hofstra (13-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 96,
+        "reasoning": "ML ensemble predicts Alabama (4-seed) over Hofstra (13-seed) with 96% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-5",
@@ -361,8 +361,8 @@
         "seed2": 11,
         "team2": "SMU",
         "pick": "Tennessee",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Tennessee (6-seed) over SMU (11-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 67,
+        "reasoning": "ML ensemble predicts Tennessee (6-seed) over SMU (11-seed) with 67% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-6",
@@ -373,8 +373,8 @@
         "seed2": 14,
         "team2": "Wright State",
         "pick": "Virginia",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Virginia (3-seed) over Wright State (14-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 99,
+        "reasoning": "ML ensemble predicts Virginia (3-seed) over Wright State (14-seed) with 99% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-7",
@@ -385,8 +385,8 @@
         "seed2": 10,
         "team2": "Santa Clara",
         "pick": "Kentucky",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Kentucky (7-seed) over Santa Clara (10-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 63,
+        "reasoning": "ML ensemble predicts Kentucky (7-seed) over Santa Clara (10-seed) with 63% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-8",
@@ -397,8 +397,8 @@
         "seed2": 15,
         "team2": "Tennessee State",
         "pick": "Iowa State",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Iowa State (2-seed) over Tennessee State (15-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "confidence": 97,
+        "reasoning": "ML ensemble predicts Iowa State (2-seed) over Tennessee State (15-seed) with 97% confidence based on SRS, margin of victory, and strength of schedule differentials."
       }
     ],
     "round_of_32": [
@@ -408,8 +408,8 @@
         "region": "East",
         "seed1": 1,
         "team1": "Duke",
-        "seed2": 8,
-        "team2": "Ohio State",
+        "seed2": 9,
+        "team2": "TCU",
         "pick": "Duke",
         "confidence": 65,
         "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 65% confidence."
@@ -422,9 +422,9 @@
         "team1": "St. John's",
         "seed2": 4,
         "team2": "Kansas",
-        "pick": "Kansas",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Kansas (4-seed) to advance with 65% confidence."
+        "pick": "St. John's",
+        "confidence": 41,
+        "reasoning": "ML ensemble predicts St. John's (5-seed) to advance with 41% confidence."
       },
       {
         "gameId": "r32-east-3",
@@ -435,8 +435,8 @@
         "seed2": 3,
         "team2": "Michigan State",
         "pick": "Michigan State",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Michigan State (3-seed) to advance with 65% confidence."
+        "confidence": 79,
+        "reasoning": "ML ensemble predicts Michigan State (3-seed) to advance with 79% confidence."
       },
       {
         "gameId": "r32-east-4",
@@ -447,8 +447,8 @@
         "seed2": 2,
         "team2": "UConn",
         "pick": "UConn",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts UConn (2-seed) to advance with 65% confidence."
+        "confidence": 73,
+        "reasoning": "ML ensemble predicts UConn (2-seed) to advance with 73% confidence."
       },
       {
         "gameId": "r32-south-1",
@@ -459,8 +459,8 @@
         "seed2": 8,
         "team2": "Clemson",
         "pick": "Florida",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Florida (1-seed) to advance with 65% confidence."
+        "confidence": 63,
+        "reasoning": "ML ensemble predicts Florida (1-seed) to advance with 63% confidence."
       },
       {
         "gameId": "r32-south-2",
@@ -470,9 +470,9 @@
         "team1": "Vanderbilt",
         "seed2": 4,
         "team2": "Nebraska",
-        "pick": "Nebraska",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Nebraska (4-seed) to advance with 65% confidence."
+        "pick": "Vanderbilt",
+        "confidence": 49,
+        "reasoning": "ML ensemble predicts Vanderbilt (5-seed) to advance with 49% confidence."
       },
       {
         "gameId": "r32-south-3",
@@ -483,8 +483,8 @@
         "seed2": 3,
         "team2": "Illinois",
         "pick": "Illinois",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Illinois (3-seed) to advance with 65% confidence."
+        "confidence": 77,
+        "reasoning": "ML ensemble predicts Illinois (3-seed) to advance with 77% confidence."
       },
       {
         "gameId": "r32-south-4",
@@ -495,8 +495,8 @@
         "seed2": 2,
         "team2": "Houston",
         "pick": "Houston",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Houston (2-seed) to advance with 65% confidence."
+        "confidence": 89,
+        "reasoning": "ML ensemble predicts Houston (2-seed) to advance with 89% confidence."
       },
       {
         "gameId": "r32-west-1",
@@ -504,11 +504,11 @@
         "region": "West",
         "seed1": 1,
         "team1": "Arizona",
-        "seed2": 8,
-        "team2": "Villanova",
+        "seed2": 9,
+        "team2": "Utah State",
         "pick": "Arizona",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Arizona (1-seed) to advance with 65% confidence."
+        "confidence": 93,
+        "reasoning": "ML ensemble predicts Arizona (1-seed) to advance with 93% confidence."
       },
       {
         "gameId": "r32-west-2",
@@ -519,8 +519,8 @@
         "seed2": 4,
         "team2": "Arkansas",
         "pick": "Arkansas",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Arkansas (4-seed) to advance with 65% confidence."
+        "confidence": 69,
+        "reasoning": "ML ensemble predicts Arkansas (4-seed) to advance with 69% confidence."
       },
       {
         "gameId": "r32-west-3",
@@ -543,8 +543,8 @@
         "seed2": 2,
         "team2": "Purdue",
         "pick": "Purdue",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Purdue (2-seed) to advance with 65% confidence."
+        "confidence": 91,
+        "reasoning": "ML ensemble predicts Purdue (2-seed) to advance with 91% confidence."
       },
       {
         "gameId": "r32-midwest-1",
@@ -552,11 +552,11 @@
         "region": "Midwest",
         "seed1": 1,
         "team1": "Michigan",
-        "seed2": 8,
-        "team2": "Georgia",
+        "seed2": 9,
+        "team2": "Saint Louis",
         "pick": "Michigan",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 65% confidence."
+        "confidence": 96,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 96% confidence."
       },
       {
         "gameId": "r32-midwest-2",
@@ -567,8 +567,8 @@
         "seed2": 4,
         "team2": "Alabama",
         "pick": "Alabama",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Alabama (4-seed) to advance with 65% confidence."
+        "confidence": 70,
+        "reasoning": "ML ensemble predicts Alabama (4-seed) to advance with 70% confidence."
       },
       {
         "gameId": "r32-midwest-3",
@@ -579,8 +579,8 @@
         "seed2": 3,
         "team2": "Virginia",
         "pick": "Virginia",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Virginia (3-seed) to advance with 65% confidence."
+        "confidence": 60,
+        "reasoning": "ML ensemble predicts Virginia (3-seed) to advance with 60% confidence."
       },
       {
         "gameId": "r32-midwest-4",
@@ -591,8 +591,8 @@
         "seed2": 2,
         "team2": "Iowa State",
         "pick": "Iowa State",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Iowa State (2-seed) to advance with 65% confidence."
+        "confidence": 87,
+        "reasoning": "ML ensemble predicts Iowa State (2-seed) to advance with 87% confidence."
       }
     ],
     "sweet_16": [
@@ -602,11 +602,11 @@
         "region": "East",
         "seed1": 1,
         "team1": "Duke",
-        "seed2": 4,
-        "team2": "Kansas",
+        "seed2": 5,
+        "team2": "St. John's",
         "pick": "Duke",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 65% confidence."
+        "confidence": 83,
+        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 83% confidence."
       },
       {
         "gameId": "s16-east-2",
@@ -616,9 +616,9 @@
         "team1": "Michigan State",
         "seed2": 2,
         "team2": "UConn",
-        "pick": "UConn",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts UConn (2-seed) to advance with 65% confidence."
+        "pick": "Michigan State",
+        "confidence": 59,
+        "reasoning": "ML ensemble predicts Michigan State (3-seed) to advance with 59% confidence."
       },
       {
         "gameId": "s16-south-1",
@@ -626,11 +626,11 @@
         "region": "South",
         "seed1": 1,
         "team1": "Florida",
-        "seed2": 4,
-        "team2": "Nebraska",
+        "seed2": 5,
+        "team2": "Vanderbilt",
         "pick": "Florida",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Florida (1-seed) to advance with 65% confidence."
+        "confidence": 52,
+        "reasoning": "ML ensemble predicts Florida (1-seed) to advance with 52% confidence."
       },
       {
         "gameId": "s16-south-2",
@@ -641,8 +641,8 @@
         "seed2": 2,
         "team2": "Houston",
         "pick": "Houston",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Houston (2-seed) to advance with 65% confidence."
+        "confidence": 66,
+        "reasoning": "ML ensemble predicts Houston (2-seed) to advance with 66% confidence."
       },
       {
         "gameId": "s16-west-1",
@@ -653,8 +653,8 @@
         "seed2": 4,
         "team2": "Arkansas",
         "pick": "Arizona",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Arizona (1-seed) to advance with 65% confidence."
+        "confidence": 93,
+        "reasoning": "ML ensemble predicts Arizona (1-seed) to advance with 93% confidence."
       },
       {
         "gameId": "s16-west-2",
@@ -665,8 +665,8 @@
         "seed2": 2,
         "team2": "Purdue",
         "pick": "Purdue",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Purdue (2-seed) to advance with 65% confidence."
+        "confidence": 66,
+        "reasoning": "ML ensemble predicts Purdue (2-seed) to advance with 66% confidence."
       },
       {
         "gameId": "s16-midwest-1",
@@ -677,8 +677,8 @@
         "seed2": 4,
         "team2": "Alabama",
         "pick": "Michigan",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 65% confidence."
+        "confidence": 97,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 97% confidence."
       },
       {
         "gameId": "s16-midwest-2",
@@ -689,8 +689,8 @@
         "seed2": 2,
         "team2": "Iowa State",
         "pick": "Iowa State",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Iowa State (2-seed) to advance with 65% confidence."
+        "confidence": 54,
+        "reasoning": "ML ensemble predicts Iowa State (2-seed) to advance with 54% confidence."
       }
     ],
     "elite_8": [
@@ -700,11 +700,11 @@
         "region": "East",
         "seed1": 1,
         "team1": "Duke",
-        "seed2": 2,
-        "team2": "UConn",
+        "seed2": 3,
+        "team2": "Michigan State",
         "pick": "Duke",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 65% confidence."
+        "confidence": 91,
+        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 91% confidence."
       },
       {
         "gameId": "e8-south",
@@ -714,9 +714,9 @@
         "team1": "Florida",
         "seed2": 2,
         "team2": "Houston",
-        "pick": "Florida",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Florida (1-seed) to advance with 65% confidence."
+        "pick": "Houston",
+        "confidence": 59,
+        "reasoning": "ML ensemble predicts Houston (2-seed) to advance with 59% confidence."
       },
       {
         "gameId": "e8-west",
@@ -727,8 +727,8 @@
         "seed2": 2,
         "team2": "Purdue",
         "pick": "Arizona",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Arizona (1-seed) to advance with 65% confidence."
+        "confidence": 84,
+        "reasoning": "ML ensemble predicts Arizona (1-seed) to advance with 84% confidence."
       },
       {
         "gameId": "e8-midwest",
@@ -739,8 +739,8 @@
         "seed2": 2,
         "team2": "Iowa State",
         "pick": "Michigan",
-        "confidence": 65,
-        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 65% confidence."
+        "confidence": 92,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 92% confidence."
       }
     ],
     "final_four": [
@@ -750,11 +750,11 @@
         "region": "Final Four",
         "seed1": 1,
         "team1": "Duke",
-        "seed2": 1,
-        "team2": "Florida",
+        "seed2": 2,
+        "team2": "Houston",
         "pick": "Duke",
-        "confidence": 50,
-        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 50% confidence."
+        "confidence": 81,
+        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 81% confidence."
       },
       {
         "gameId": "f4-west-midwest",
@@ -765,8 +765,8 @@
         "seed2": 1,
         "team2": "Michigan",
         "pick": "Michigan",
-        "confidence": 50,
-        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 50% confidence."
+        "confidence": 74,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 74% confidence."
       }
     ],
     "championship": [
@@ -778,9 +778,9 @@
         "team1": "Duke",
         "seed2": 1,
         "team2": "Michigan",
-        "pick": "Duke",
-        "confidence": 50,
-        "reasoning": "ML ensemble predicts Duke (1-seed) to advance with 50% confidence."
+        "pick": "Michigan",
+        "confidence": 75,
+        "reasoning": "ML ensemble predicts Michigan (1-seed) to advance with 75% confidence."
       }
     ]
   }

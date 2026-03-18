@@ -13,7 +13,7 @@ const CHAMPION_PICKS: Record<string, string> = {
   'the-chaos-agent':     'Gonzaga',
   'the-agent':           'Houston',
   'the-optimizer':       'Illinois',
-  'the-auto-researcher': 'Duke',
+  'the-auto-researcher': 'Michigan',
   'the-super-agent':     'Illinois',
   'the-scout-prime':     'Duke',
 };
