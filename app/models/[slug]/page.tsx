@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { MODELS } from '@/lib/models';
+import { MODELS, VISIBLE_MODELS } from '@/lib/models';
 import { BracketData } from '@/lib/types';
 import ModelDetailTabs from '@/components/ModelDetailTabs';
 import ModelNavStrip from '@/components/ModelNavStrip';
@@ -31,7 +31,7 @@ const BRACKET_MAP: Record<string, BracketData> = {
 };
 
 export function generateStaticParams() {
-  return MODELS.map((model) => ({ slug: model.slug }));
+  return VISIBLE_MODELS.map((model) => ({ slug: model.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
