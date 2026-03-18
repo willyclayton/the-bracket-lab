@@ -1,5 +1,4 @@
-import ModelCard from '@/components/ModelCard';
-import { VISIBLE_MODELS } from '@/lib/models';
+import ModelsGrid from '@/components/ModelsGrid';
 
 export const metadata = {
   title: 'The Models — The Bracket Lab',
@@ -21,11 +20,7 @@ export default function ModelsPage() {
       </div>
 
       {/* Model cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
-        {VISIBLE_MODELS.map((model, i) => (
-          <ModelCard key={model.id} model={model} index={i} />
-        ))}
-      </div>
+      <ModelsGrid />
 
       {/* Consensus */}
       <section className="mb-16">

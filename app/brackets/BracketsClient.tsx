@@ -9,8 +9,8 @@ import { calculateScore } from '@/lib/scoring';
 import BracketCardsPanel, { REGIONS, type Region, type GamesByRegion } from '@/components/BracketCardsPanel';
 import BracketGridPanel from '@/components/BracketGridPanel';
 import MatchupPopover from '@/components/MatchupPopover';
-import { getEspnPercentile } from '@/lib/espn-percentile';
 import { useLiveResults } from '@/lib/use-live-results';
+import { useEspnPercentiles } from '@/lib/use-espn-percentiles';
 
 // 2026 (current)
 import scoutData     from '@/data/models/the-scout.json';
@@ -196,7 +196,17 @@ export default function BracketsClient() {
     ? calculateScore(bracket, results)
     : null;
 
-  const espnPctResult = modelScore ? getEspnPercentile(modelScore.total, activeYear) : null;
+  // Build scores map for percentile hook (all models in this year)
+  const modelScoresMap: Record<string, number> = {};
+  if (results && results.games.length > 0) {
+    const yearBrackets = BRACKET_DATA[activeYear];
+    for (const [id, b] of Object.entries(yearBrackets)) {
+      const s = calculateScore(b, results);
+      if (s.totalPicks > 0) modelScoresMap[id] = s.total;
+    }
+  }
+  const { percentiles: espnPercentiles } = useEspnPercentiles(modelScoresMap, activeYear);
+  const espnPctResult = espnPercentiles[activeModelId] ?? null;
 
   // Check if bracket is empty (or missing for this year)
   const isEmpty = !bracket || ROUND_ORDER.every(

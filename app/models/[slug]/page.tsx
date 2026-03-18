@@ -6,6 +6,7 @@ import { MODELS, VISIBLE_MODELS } from '@/lib/models';
 import { BracketData } from '@/lib/types';
 import ModelDetailTabs from '@/components/ModelDetailTabs';
 import ModelNavStrip from '@/components/ModelNavStrip';
+import ModelLiveStats from '@/components/ModelLiveStats';
 
 import scoutData     from '@/data/models/the-scout.json';
 import quantData     from '@/data/models/the-quant.json';
@@ -90,27 +91,12 @@ export default function ModelPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* Right: horizontal stat bar */}
-        <div className="flex border border-[#2a2a2a] rounded-lg overflow-hidden flex-shrink-0">
-          <div className="flex-1 text-center py-2.5 px-2 border-r border-[#2a2a2a]">
-            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">Score</span>
-            <span className="font-mono text-sm font-bold leading-none" style={{ color: model.color }}>&mdash;</span>
-          </div>
-          <div className="flex-1 text-center py-2.5 px-2 border-r border-[#2a2a2a]">
-            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">Rank</span>
-            <span className="font-mono text-sm font-bold text-lab-white leading-none">&mdash;</span>
-          </div>
-          <div className="flex-1 text-center py-2.5 px-2 border-r border-[#2a2a2a]">
-            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">Accuracy</span>
-            <span className="font-mono text-sm font-bold leading-none" style={{ color: model.color }}>&mdash;</span>
-          </div>
-          <div className="flex-1 text-center py-2.5 px-2">
-            <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">Champion</span>
-            <span className="font-mono text-sm font-bold text-lab-white leading-none">
-              {bracket?.champion ?? '\u2014'}
-            </span>
-          </div>
-        </div>
+        {/* Right: horizontal stat bar (client component for live data) */}
+        <ModelLiveStats
+          modelId={model.id}
+          color={model.color}
+          champion={bracket?.champion ?? null}
+        />
       </div>
 
       {/* ---- Tabs ---- */}
