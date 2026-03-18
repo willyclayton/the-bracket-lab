@@ -9,6 +9,9 @@ on:
     - cron: '0 8 * 3-4 *'
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   archive:
     runs-on: ubuntu-latest
