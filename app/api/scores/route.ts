@@ -276,6 +276,9 @@ function transformEspnEvent(event: any): ResultGame | null {
       ? parseRoundFromSlug(event.season.slug)
       : (competition.tournamentRound?.number ?? 0);
 
+    // Skip play-in / First Four games — they aren't part of the 63-game bracket
+    if (roundNumber <= 0) return null;
+
     const round = ESPN_ROUND_MAP[roundNumber] ?? 'round_of_64';
 
     // Region from event group or bracket info
@@ -363,6 +366,7 @@ function formatDate(date: Date): string {
 }
 
 function parseRoundFromSlug(slug: string): number {
+  if (slug.includes('first-four') || slug.includes('play-in')) return -1;
   if (slug.includes('first-round') || slug.includes('round-of-64')) return 1;
   if (slug.includes('second-round') || slug.includes('round-of-32')) return 2;
   if (slug.includes('sweet-16') || slug.includes('regional-semifinal')) return 3;
