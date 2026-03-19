@@ -287,7 +287,9 @@ function transformEspnEvent(event: any): ResultGame | null {
       ?? parseRoundFromSlug(event.season?.slug ?? '')
       ?? inferRoundFromDate(event.date ?? '');
 
-    // Default to R64 if unknown — mergeWithTemplate matches by team names, not round
+    // Skip games with no identifiable round (First Four, pre-tournament, etc.)
+    if (!roundNumber || roundNumber <= 0) return null;
+
     const round = ESPN_ROUND_MAP[roundNumber] ?? 'round_of_64';
 
     // Region from event group or bracket info
@@ -391,13 +393,14 @@ function inferRoundFromDate(dateStr: string): number {
   const d = new Date(dateStr);
   const month = d.getUTCMonth() + 1;
   const day = d.getUTCDate();
-  if (month === 3 && day <= 21) return 1; // R64
+  if (month === 3 && day <= 18) return 0; // First Four — filter out
+  if (month === 3 && day <= 21) return 1; // R64 (Mar 20-21)
   if (month === 3 && day <= 23) return 2; // R32
   if (month === 3 && day <= 28) return 3; // S16
   if (month === 3 && day <= 30) return 4; // E8
   if (month === 4 && day <= 5) return 5;  // F4
   if (month === 4 && day <= 7) return 6;  // Championship
-  return 1;
+  return 0;
 }
 
 function extractRegion(event: any): string {
