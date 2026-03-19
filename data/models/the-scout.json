@@ -440,7 +440,7 @@
       },
       {
         "gameId": "r32-east-4",
-        "round": "round_of_64",
+        "round": "round_of_32",
         "region": "East",
         "seed1": 10,
         "team1": "UCF",
