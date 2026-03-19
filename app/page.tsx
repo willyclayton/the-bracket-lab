@@ -89,6 +89,17 @@ export default function Home() {
         <StatsBar isLive={isLive} />
       </section>
 
+      {/* ---- Dashboard link ---- */}
+      <div className="text-center mb-10">
+        <Link
+          href="/dashboard"
+          className="inline-flex items-center gap-2 text-sm font-medium text-lab-muted hover:text-lab-white transition-colors"
+        >
+          See how the brackets are doing{' '}
+          <span className="text-red-500 font-semibold animate-pulse">Live</span>
+        </Link>
+      </div>
+
       {/* ---- Model strip (mobile) ---- */}
       <section className="md:hidden mx-auto max-w-[1200px] px-6 mb-12">
         <HomeModelStrip
