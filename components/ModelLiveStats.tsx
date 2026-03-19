@@ -72,7 +72,7 @@ export default function ModelLiveStats({ modelId, color, champion }: ModelLiveSt
       </div>
       <div className="flex-1 text-center py-2.5 px-2 border-r border-[#2a2a2a]">
         <span className="font-mono text-[9px] text-[#555] uppercase tracking-wider block mb-0.5">Rank</span>
-        <span className="font-mono text-sm font-bold text-lab-white leading-none">
+        <span className="font-mono text-sm font-bold text-lab-white leading-none whitespace-nowrap">
           {hasData ? `${myRank} of ${ranked.length}` : '\u2014'}
         </span>
       </div>
