@@ -11,25 +11,22 @@ import scoutData from '@/data/models/the-scout.json';
 import quantData from '@/data/models/the-quant.json';
 import historianData from '@/data/models/the-historian.json';
 import chaosData from '@/data/models/the-chaos-agent.json';
+import agentData from '@/data/models/the-agent.json';
 import optimizerData from '@/data/models/the-optimizer.json';
 import autoResearcherData from '@/data/models/the-auto-researcher.json';
+import superAgentData from '@/data/models/the-super-agent.json';
+import scoutPrimeData from '@/data/models/the-scout-prime.json';
 
 const BRACKETS: Record<string, BracketData> = {
   'the-scout': scoutData as unknown as BracketData,
   'the-quant': quantData as unknown as BracketData,
   'the-historian': historianData as unknown as BracketData,
   'the-chaos-agent': chaosData as unknown as BracketData,
+  'the-agent': agentData as unknown as BracketData,
   'the-optimizer': optimizerData as unknown as BracketData,
   'the-auto-researcher': autoResearcherData as unknown as BracketData,
-};
-
-const CHAMPION_PICKS: Record<string, string> = {
-  'the-scout':           'Duke',
-  'the-quant':           'Duke',
-  'the-historian':       'Duke',
-  'the-chaos-agent':     'Gonzaga',
-  'the-optimizer':       'Illinois',
-  'the-auto-researcher': 'Arizona',
+  'the-super-agent': superAgentData as unknown as BracketData,
+  'the-scout-prime': scoutPrimeData as unknown as BracketData,
 };
 
 export default function LiveHomeLeaderboard() {
@@ -52,11 +49,11 @@ export default function LiveHomeLeaderboard() {
   const entries = hasCompletedGames
     ? ranked.map((score, i) => {
         const model = VISIBLE_MODELS.find((m) => m.id === score.modelId)!;
-        return { model, score: score.total, accuracy: score.accuracy, champion: CHAMPION_PICKS[model.id] ?? 'TBD', rank: i + 1 };
+        return { model, score: score.total, accuracy: score.accuracy, champion: BRACKETS[model.id]?.champion || 'TBD', rank: i + 1 };
       })
     : VISIBLE_MODELS.map((model, i) => ({
         model, score: undefined as number | undefined, accuracy: undefined as number | undefined,
-        champion: CHAMPION_PICKS[model.id] ?? 'TBD', rank: i + 1,
+        champion: BRACKETS[model.id]?.champion || 'TBD', rank: i + 1,
       }));
 
   const hasData = entries.some((e) => e.score !== undefined && e.score > 0);

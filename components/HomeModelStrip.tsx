@@ -64,7 +64,7 @@ export default function HomeModelStrip({ entries }: { entries: ModelEntry[] }) {
 
   const entry = entries[active];
   const { model, champion, score, accuracy, rank } = entry;
-  const hasData = score !== undefined && score > 0;
+  const hasData = score !== undefined;
   const progressPct = hasData ? Math.round((score / MAX_SCORE) * 100) : 0;
 
   return (
