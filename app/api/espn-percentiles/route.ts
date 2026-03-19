@@ -118,7 +118,7 @@ export async function GET() {
   const results: Record<string, PercentileData> = {};
   const fetches = modelEntries.map(async ({ modelId, entryId }) => {
     const data = await fetchPercentileFromEspn(entryId);
-    if (data && data.percentile > 0) {
+    if (data) {
       results[modelId] = data;
     }
   });
