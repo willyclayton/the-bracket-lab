@@ -311,7 +311,7 @@
         "seed1": 1,
         "team1": "Michigan",
         "seed2": 16,
-        "team2": "UMBC",
+        "team2": "Howard",
         "pick": "Michigan",
         "confidence": 99,
         "reasoning": "Michigan advances with dominant adjusted efficiency margin advantage, dominant Wins Above Bubble advantage, clear tempo edge (99% model confidence)."
@@ -359,7 +359,7 @@
         "seed1": 6,
         "team1": "Tennessee",
         "seed2": 11,
-        "team2": "SMU",
+        "team2": "Miami Ohio",
         "pick": "Tennessee",
         "confidence": 79,
         "reasoning": "Tennessee advances with clear adjusted efficiency margin edge, clear Wins Above Bubble edge (79% model confidence)."

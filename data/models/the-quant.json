@@ -311,7 +311,7 @@
         "seed1": 1,
         "team1": "Michigan",
         "seed2": 16,
-        "team2": "UMBC",
+        "team2": "Howard",
         "pick": "Michigan",
         "confidence": 99,
         "reasoning": "Simulation: Michigan wins 99.0% of 10,000 iterations. Adjusted efficiency differential: +38.3."
@@ -359,7 +359,7 @@
         "seed1": 6,
         "team1": "Tennessee",
         "seed2": 11,
-        "team2": "SMU",
+        "team2": "Miami Ohio",
         "pick": "Tennessee",
         "confidence": 66,
         "reasoning": "Simulation: Tennessee wins 66.4% of 10,000 iterations. Adjusted efficiency differential: +7.9."

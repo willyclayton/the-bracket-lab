@@ -311,7 +311,7 @@
         "seed1": 1,
         "team1": "Michigan",
         "seed2": 16,
-        "team2": "UMBC",
+        "team2": "Howard",
         "pick": "Michigan",
         "confidence": 95,
         "reasoning": "Upset score: 8.38/100. Below threshold (999). Chalk pick — 1-seeds win 98.8% historically."
@@ -359,7 +359,7 @@
         "seed1": 6,
         "team1": "Tennessee",
         "seed2": 11,
-        "team2": "SMU",
+        "team2": "Miami Ohio",
         "pick": "Tennessee",
         "confidence": 71,
         "reasoning": "Upset score: 40.44/100. Below threshold (48). Chalk pick — 6-seeds win 61.9% historically."

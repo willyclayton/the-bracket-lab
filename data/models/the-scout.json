@@ -311,10 +311,10 @@
         "seed1": 1,
         "team1": "Michigan",
         "seed2": 16,
-        "team2": "UMBC",
+        "team2": "Howard",
         "pick": "Michigan",
         "confidence": 98,
-        "reasoning": "Michigan's 38.3-point AdjEM gap and second-best defense in the country (AdjD 91.0) make this a blowout. Dusty May's 6-3 tournament record (including a Final Four) and 8-2 L10 momentum are commanding. UMBC's 0-2 tournament history and 109.2 AdjD will be overwhelmed by Michigan's fast pace (71.2)."
+        "reasoning": "Michigan's 38.3-point AdjEM gap and second-best defense in the country (AdjD 91.0) make this a blowout. Dusty May's 6-3 tournament record (including a Final Four) and 8-2 L10 momentum are commanding. Howard's limited tournament history and 109.2 AdjD will be overwhelmed by Michigan's fast pace (71.2)."
       },
       {
         "gameId": "r64-midwest-2",
@@ -359,10 +359,10 @@
         "seed1": 6,
         "team1": "Tennessee",
         "seed2": 11,
-        "team2": "SMU",
+        "team2": "Miami Ohio",
         "pick": "Tennessee",
         "confidence": 62,
-        "reasoning": "Tennessee's elite defense (AdjD 95.5) and 7.9-point AdjEM advantage are decisive. Rick Barnes' 28-26 tournament record across 21 appearances gives massive experience edge over Andy Enfield's 5-5 record. Nate Ament's knee/ankle return for the SEC tourney is a positive sign. Tennessee's defensive identity suffocates SMU's mid-range game."
+        "reasoning": "Tennessee's elite defense (AdjD 95.5) and 7.9-point AdjEM advantage are decisive. Rick Barnes' 28-26 tournament record across 21 appearances gives massive experience edge over Andy Enfield's 5-5 record. Nate Ament's knee/ankle return for the SEC tourney is a positive sign. Tennessee's defensive identity suffocates Miami Ohio's mid-range game."
       },
       {
         "gameId": "r64-midwest-6",

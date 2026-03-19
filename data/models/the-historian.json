@@ -311,10 +311,10 @@
         "seed1": 1,
         "team1": "Michigan",
         "seed2": 16,
-        "team2": "UMBC",
+        "team2": "Howard",
         "pick": "Michigan",
         "confidence": 92,
-        "reasoning": "Michigan profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). UMBC profiles like 2023 FDU (similarity: 0.73, Round of 32)."
+        "reasoning": "Michigan profiles like 2021 Gonzaga (similarity: 0.86, Runner-Up). Howard profiles like 2023 FDU (similarity: 0.73, Round of 32)."
       },
       {
         "gameId": "r64-midwest-2",
@@ -359,10 +359,10 @@
         "seed1": 6,
         "team1": "Tennessee",
         "seed2": 11,
-        "team2": "SMU",
+        "team2": "Miami Ohio",
         "pick": "Tennessee",
         "confidence": 68,
-        "reasoning": "Tennessee profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). SMU profiles like 2015 Wichita State (similarity: 0.82, Round of 32)."
+        "reasoning": "Tennessee profiles like 2017 Gonzaga (similarity: 0.84, Runner-Up). Miami Ohio profiles like 2015 Wichita State (similarity: 0.82, Round of 32)."
       },
       {
         "gameId": "r64-midwest-6",

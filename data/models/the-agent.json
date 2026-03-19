@@ -311,10 +311,10 @@
         "seed1": 1,
         "team1": "Michigan",
         "seed2": 16,
-        "team2": "UMBC",
+        "team2": "Howard",
         "pick": "Michigan",
         "confidence": 98,
-        "reasoning": "Michigan is a 1-seed with a 26.4 AdjEM and Dusty May's Final Four pedigree from FAU. UMBC made 16-over-1 history in 2018 but this roster is a -12.0 AdjEM with a 2-8 close-game record. Lightning doesn't strike the same program twice."
+        "reasoning": "Michigan is a 1-seed with a 26.4 AdjEM and Dusty May's Final Four pedigree from FAU. Howard is a -12.0 AdjEM with a 2-8 close-game record. Michigan's size and athleticism are too much."
       },
       {
         "gameId": "r64-midwest-2",
@@ -359,10 +359,10 @@
         "seed1": 6,
         "team1": "Tennessee",
         "seed2": 11,
-        "team2": "SMU",
+        "team2": "Miami Ohio",
         "pick": "Tennessee",
         "confidence": 62,
-        "reasoning": "Tennessee's defense-first identity under Rick Barnes (21 tournament appearances, 28-26 record) is built for March. SMU's best defender B.J. Edwards missed 5 games with an ankle injury clouding his availability. Tennessee's +3.4 turnover margin and SEC physicality prevail."
+        "reasoning": "Tennessee's defense-first identity under Rick Barnes (21 tournament appearances, 28-26 record) is built for March. Miami Ohio's best defender B.J. Edwards missed 5 games with an ankle injury clouding his availability. Tennessee's +3.4 turnover margin and SEC physicality prevail."
       },
       {
         "gameId": "r64-midwest-6",

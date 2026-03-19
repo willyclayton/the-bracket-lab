@@ -311,10 +311,10 @@
         "seed1": 1,
         "team1": "Michigan",
         "seed2": 16,
-        "team2": "UMBC",
+        "team2": "Howard",
         "pick": "Michigan",
         "confidence": 65,
-        "reasoning": "ML ensemble predicts Michigan (1-seed) over UMBC (16-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "reasoning": "ML ensemble predicts Michigan (1-seed) over Howard (16-seed) with 65% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-2",
@@ -359,10 +359,10 @@
         "seed1": 6,
         "team1": "Tennessee",
         "seed2": 11,
-        "team2": "SMU",
+        "team2": "Miami Ohio",
         "pick": "Tennessee",
         "confidence": 67,
-        "reasoning": "ML ensemble predicts Tennessee (6-seed) over SMU (11-seed) with 67% confidence based on SRS, margin of victory, and strength of schedule differentials."
+        "reasoning": "ML ensemble predicts Tennessee (6-seed) over Miami Ohio (11-seed) with 67% confidence based on SRS, margin of victory, and strength of schedule differentials."
       },
       {
         "gameId": "r64-midwest-6",
