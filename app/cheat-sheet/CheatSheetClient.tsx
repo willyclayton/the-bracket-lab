@@ -195,14 +195,14 @@ function FilterPills({ active, counts, onChange }: {
   onChange: (f: FilterType) => void;
 }) {
   return (
-    <div className="flex gap-2 flex-wrap mb-6">
+    <div className="flex gap-2 mb-6 overflow-x-auto scrollbar-hide">
       {FILTER_OPTIONS.map(({ key, label, color, icon }) => {
         const isActive = active === key;
         return (
           <button
             key={key}
             onClick={() => onChange(key)}
-            className="flex items-center gap-1.5 font-mono text-xs font-semibold px-3 py-1.5 rounded-lg border transition-all duration-150"
+            className="flex items-center gap-1.5 font-mono text-xs font-semibold px-3 py-1.5 rounded-lg border transition-all duration-150 whitespace-nowrap flex-shrink-0"
             style={{
               borderColor: isActive ? color : '#333',
               color: isActive ? color : '#666',
