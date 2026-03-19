@@ -30,6 +30,9 @@ export interface GameAgreement {
   modelPicks: ModelPick[];
   isProjected: boolean;
   matchupAgreement: number;
+  underdogPickCount: number;
+  underdogTeam: string;
+  underdogSeed: number;
 }
 
 export interface SleeperPick {
@@ -169,6 +172,25 @@ export function buildAgreementMap(
     const otherTeam = consensusPick === team1 ? team2 : team1;
     const otherSeed = consensusPick === team1 ? seed2 : seed1;
 
+    // Determine underdog (higher seed number = lower-seeded team)
+    let underdogTeam: string;
+    let underdogSeed: number;
+    let underdogPickCount: number;
+    if (seed1 === seed2) {
+      // Same-seed matchup (later rounds) — no underdog
+      underdogTeam = '';
+      underdogSeed = 0;
+      underdogPickCount = 0;
+    } else if (seed1 > seed2) {
+      underdogTeam = team1;
+      underdogSeed = seed1;
+      underdogPickCount = counts[team1] || 0;
+    } else {
+      underdogTeam = team2;
+      underdogSeed = seed2;
+      underdogPickCount = counts[team2] || 0;
+    }
+
     result[gameId] = {
       gameId,
       round: firstGame.round,
@@ -187,6 +209,9 @@ export function buildAgreementMap(
       modelPicks: picks,
       isProjected: !isR64,
       matchupAgreement,
+      underdogPickCount,
+      underdogTeam,
+      underdogSeed,
     };
   }
 
@@ -204,18 +229,15 @@ export function getLockPicks(
     .sort((a, b) => b.agreementCount - a.agreementCount || b.avgConfidence - a.avgConfidence);
 }
 
-// ── Smart Upsets: consensus pick is the higher seed number (lower-seeded team) ──
+// ── Smart Upsets: games where the underdog has significant model support ──
 
 export function getSmartUpsets(
   agreementMap: Record<string, GameAgreement>,
-  minAgreement = 4
+  minUnderdogSupport = 3
 ): GameAgreement[] {
   return Object.values(agreementMap)
-    .filter((g) => {
-      // Consensus pick is the "underdog" (higher seed number = lower seed)
-      return g.consensusSeed > g.otherSeed && g.agreementCount >= minAgreement;
-    })
-    .sort((a, b) => b.agreementCount - a.agreementCount || b.avgConfidence - a.avgConfidence);
+    .filter((g) => g.underdogPickCount >= minUnderdogSupport)
+    .sort((a, b) => b.underdogPickCount - a.underdogPickCount || b.avgConfidence - a.avgConfidence);
 }
 
 // ── Final Four & Champion consensus ─────────────────────────────────────
@@ -371,12 +393,8 @@ export function getRoundRegionSummaries(
     let lockCount = 0;
     let upsetCount = 0;
     for (const g of games) {
-      const isUpset = g.consensusSeed > g.otherSeed;
-      if (g.agreementCount >= lockThreshold) {
-        lockCount++;
-      } else if (isUpset && g.agreementCount >= 4) {
-        upsetCount++;
-      }
+      if (g.agreementCount >= lockThreshold) lockCount++;
+      if (g.underdogPickCount >= 3) upsetCount++;
     }
     return { region, games, lockCount, upsetCount };
   });

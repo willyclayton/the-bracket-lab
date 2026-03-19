@@ -38,7 +38,7 @@ import autoResearcherData2025 from '@/data/archive/2025/models/the-auto-research
 
 type Year = '2026' | '2025';
 type FilterType = 'all' | 'locks' | 'upsets' | 'contested';
-type GameCategory = 'lock' | 'upset' | 'contested' | 'clean';
+type GameCategory = 'lock' | 'contested' | 'clean';
 type RoundTab = 'round_of_64' | 'round_of_32' | 'sweet_16' | 'elite_8';
 
 const ROUND_TABS: { key: RoundTab; label: string; shortLabel: string }[] = [
@@ -111,14 +111,17 @@ function buildVerdict(game: GameAgreement): { thesis: string; counter: string | 
   return { thesis, counter };
 }
 
-/** Pool strategy text based on game category */
-function getPoolStrategy(game: GameAgreement, category: GameCategory): string {
-  const seedHigh = Math.max(game.seed1, game.seed2);
+/** Pool strategy text based on game category + upset flag */
+function getPoolStrategy(game: GameAgreement, category: GameCategory, isUpset: boolean): string {
+  if (category === 'lock' && isUpset) {
+    return `The models agree \u2014 take the upset. It\u2019s rare to get consensus on an underdog.`;
+  }
+  if (isUpset) {
+    return `${game.underdogPickCount} of ${game.totalModels} models back the underdog \u2014 enough signal to justify the risk in a large pool.`;
+  }
   switch (category) {
     case 'lock':
       return 'Put this in ink. Focus your energy on the close calls.';
-    case 'upset':
-      return `A ${seedHigh}-seed upset won\u2019t cost much if wrong and gives meaningful differentiation in a large pool.`;
     case 'contested':
       return "Genuine coin flip \u2014 pick based on your bracket needs, not gut feel.";
     default:
@@ -139,26 +142,40 @@ function AgreementPill({ count, total, color }: { count: number; total: number; 
   );
 }
 
-function CategoryTag({ category, game }: { category: GameCategory; game: GameAgreement }) {
-  if (category === 'clean') return null;
+function CategoryTag({ category, game, isUpset }: { category: GameCategory; game: GameAgreement; isUpset: boolean }) {
+  const tags: { label: string; bg: string; color: string }[] = [];
 
-  const configs: Record<Exclude<GameCategory, 'clean'>, { label: string; bg: string; color: string }> = {
-    lock: { label: 'LOCK', bg: 'rgba(34,197,94,0.12)', color: '#22c55e' },
-    upset: { label: 'UPSET', bg: 'rgba(245,158,11,0.12)', color: '#f59e0b' },
-    contested: {
+  if (category === 'lock') {
+    tags.push({ label: 'LOCK', bg: 'rgba(34,197,94,0.12)', color: '#22c55e' });
+  } else if (category === 'contested') {
+    tags.push({
       label: `${game.agreementCount}-${game.totalModels - game.agreementCount}`,
       bg: 'rgba(168,85,247,0.12)',
       color: '#a855f7',
-    },
-  };
+    });
+  }
 
-  const config = configs[category];
+  if (isUpset) {
+    tags.push({
+      label: `UPSET ${game.underdogPickCount}/${game.totalModels}`,
+      bg: 'rgba(245,158,11,0.12)',
+      color: '#f59e0b',
+    });
+  }
+
+  if (tags.length === 0) return null;
+
   return (
-    <span
-      className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wide flex-shrink-0"
-      style={{ background: config.bg, color: config.color }}
-    >
-      {config.label}
+    <span className="flex items-center gap-1 flex-shrink-0">
+      {tags.map((config) => (
+        <span
+          key={config.label}
+          className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wide"
+          style={{ background: config.bg, color: config.color }}
+        >
+          {config.label}
+        </span>
+      ))}
     </span>
   );
 }
@@ -233,7 +250,7 @@ function RoundPills({ active, onChange }: {
 
 // ── Game Detail (redesigned: verdict + pool strategy + cases + models) ──
 
-function GameDetail({ game, category }: { game: GameAgreement; category: GameCategory }) {
+function GameDetail({ game, category, isUpset = false }: { game: GameAgreement; category: GameCategory; isUpset?: boolean }) {
   const [showModels, setShowModels] = useState(false);
   const forPicks = game.modelPicks.filter((p) => p.pick === game.consensusPick).sort((a, b) => b.confidence - a.confidence);
   const againstPicks = game.modelPicks.filter((p) => p.pick !== game.consensusPick).sort((a, b) => b.confidence - a.confidence);
@@ -252,7 +269,7 @@ function GameDetail({ game, category }: { game: GameAgreement; category: GameCat
     .filter(Boolean)
     .join(' ');
 
-  const poolStrategy = getPoolStrategy(game, category);
+  const poolStrategy = getPoolStrategy(game, category, isUpset);
 
   return (
     <div className="px-4 pb-4 pt-1">
@@ -390,14 +407,15 @@ function PickRow({ game, expanded, onToggle }: {
 
 // ── Region Accordion Row ─────────────────────────────────────────────────
 
-function RegionAccordionRow({ game, category, expanded, onToggle }: {
+function RegionAccordionRow({ game, category, isUpset, expanded, onToggle }: {
   game: GameAgreement;
   category: GameCategory;
+  isUpset: boolean;
   expanded: boolean;
   onToggle: () => void;
 }) {
   const pillColor =
-    category === 'upset' ? '#f59e0b' :
+    isUpset && category !== 'lock' ? '#f59e0b' :
     category === 'contested' ? '#a855f7' :
     '#22c55e';
   const seedLow = Math.min(game.seed1, game.seed2);
@@ -422,12 +440,12 @@ function RegionAccordionRow({ game, category, expanded, onToggle }: {
               ~{game.matchupAgreement}/{game.totalModels}
             </span>
           )}
-          <CategoryTag category={category} game={game} />
+          <CategoryTag category={category} game={game} isUpset={isUpset} />
           <AgreementPill count={game.agreementCount} total={game.isProjected ? game.matchupAgreement : game.totalModels} color={pillColor} />
           <span className={`text-[#444] text-[10px] transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>&#9660;</span>
         </div>
       </div>
-      {expanded && <GameDetail game={game} category={category} />}
+      {expanded && <GameDetail game={game} category={category} isUpset={isUpset} />}
     </div>
   );
 }
@@ -528,38 +546,41 @@ export default function CheatSheetClient() {
     );
   }
 
-  // Build category map: gameId -> category (active round games)
+  // Build category map: gameId -> primary category (agreement strength, orthogonal to upset)
   const gameCategories = useMemo(() => {
     const lockIds = new Set(lockPicks.map((g) => g.gameId));
-    const upsetIds = new Set(smartUpsets.map((g) => g.gameId));
     const contestedIds = new Set(contestedGames.map((g) => g.gameId));
 
     const map: Record<string, GameCategory> = {};
     for (const game of Object.values(agreementMap)) {
       if (game.round !== activeRound) continue;
       if (lockIds.has(game.gameId)) map[game.gameId] = 'lock';
-      else if (upsetIds.has(game.gameId)) map[game.gameId] = 'upset';
       else if (contestedIds.has(game.gameId)) map[game.gameId] = 'contested';
       else map[game.gameId] = 'clean';
     }
     return map;
-  }, [agreementMap, activeRound, lockPicks, smartUpsets, contestedGames]);
+  }, [agreementMap, activeRound, lockPicks, contestedGames]);
+
+  // Upset overlay (orthogonal to primary category)
+  const upsetGameIds = useMemo(
+    () => new Set(smartUpsets.map((g) => g.gameId)),
+    [smartUpsets]
+  );
 
   // R64 category counts for Big Stat display (always R64, doesn't change with round tab)
   const r64Counts = useMemo(() => {
     const lockIds = new Set(lockPicks.map((g) => g.gameId));
-    const upsetIds = new Set(smartUpsets.map((g) => g.gameId));
     const contestedIds = new Set(contestedGames.map((g) => g.gameId));
 
     let locks = 0, upsets = 0, contested = 0;
     for (const game of Object.values(agreementMap)) {
       if (game.round !== 'round_of_64') continue;
       if (lockIds.has(game.gameId)) locks++;
-      else if (upsetIds.has(game.gameId)) upsets++;
-      else if (contestedIds.has(game.gameId)) contested++;
+      if (contestedIds.has(game.gameId)) contested++;
+      if (game.underdogPickCount >= 3) upsets++;
     }
     return { locks, upsets, contested };
-  }, [agreementMap, lockPicks, smartUpsets, contestedGames]);
+  }, [agreementMap, lockPicks, contestedGames]);
   const totalConsensus = r64Counts.locks + r64Counts.upsets + r64Counts.contested + (sleeper ? 1 : 0);
 
   // Matchup agreement threshold for R32+ rounds (majority of models must agree the matchup occurs)
@@ -577,20 +598,14 @@ export default function CheatSheetClient() {
     return {
       all: searchFiltered.length,
       locks: searchFiltered.filter((g) => gameCategories[g.gameId] === 'lock').length,
-      upsets: searchFiltered.filter((g) => gameCategories[g.gameId] === 'upset').length,
+      upsets: searchFiltered.filter((g) => upsetGameIds.has(g.gameId)).length,
       contested: searchFiltered.filter((g) => gameCategories[g.gameId] === 'contested').length,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [agreementMap, activeRound, normalizedQuery, gameCategories, matchupThreshold]);
+  }, [agreementMap, activeRound, normalizedQuery, gameCategories, upsetGameIds, matchupThreshold]);
 
   // Region accordion data with search + category filtering
   const filteredRegions = useMemo(() => {
-    const filterCategoryKey: GameCategory | null =
-      activeFilter === 'locks' ? 'lock' :
-      activeFilter === 'upsets' ? 'upset' :
-      activeFilter === 'contested' ? 'contested' :
-      null;
-
     return regionSummaries
       .map(({ region, games }) => {
         let filtered = games;
@@ -599,22 +614,30 @@ export default function CheatSheetClient() {
           filtered = filtered.filter((g) => g.matchupAgreement >= matchupThreshold);
         }
         if (normalizedQuery) filtered = filtered.filter(matchesSearch);
-        if (filterCategoryKey) filtered = filtered.filter((g) => gameCategories[g.gameId] === filterCategoryKey);
+
+        // Apply filter
+        if (activeFilter === 'locks') {
+          filtered = filtered.filter((g) => gameCategories[g.gameId] === 'lock');
+        } else if (activeFilter === 'upsets') {
+          filtered = filtered.filter((g) => upsetGameIds.has(g.gameId));
+        } else if (activeFilter === 'contested') {
+          filtered = filtered.filter((g) => gameCategories[g.gameId] === 'contested');
+        }
 
         // Compute per-region category counts for header
         let lockCount = 0, upsetCount = 0, contestedCount = 0;
         for (const g of filtered) {
           const cat = gameCategories[g.gameId];
           if (cat === 'lock') lockCount++;
-          else if (cat === 'upset') upsetCount++;
-          else if (cat === 'contested') contestedCount++;
+          if (upsetGameIds.has(g.gameId)) upsetCount++;
+          if (cat === 'contested') contestedCount++;
         }
 
         return { region, games: filtered, lockCount, upsetCount, contestedCount };
       })
       .filter((r) => r.games.length > 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [regionSummaries, normalizedQuery, activeFilter, gameCategories]);
+  }, [regionSummaries, normalizedQuery, activeFilter, gameCategories, upsetGameIds]);
 
   // Search-filtered free preview data
   const filteredFinalFour = useMemo(() => {
@@ -1062,6 +1085,7 @@ export default function CheatSheetClient() {
                             key={game.gameId}
                             game={game}
                             category={gameCategories[game.gameId] || 'clean'}
+                            isUpset={upsetGameIds.has(game.gameId)}
                             expanded={expandedGameId === game.gameId}
                             onToggle={() => toggleGame(game.gameId)}
                           />
