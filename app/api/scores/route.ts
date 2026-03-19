@@ -248,8 +248,8 @@ function transformEspnEvent(event: any): ResultGame | null {
     const away = competitors.find((c: any) => c.homeAway === 'away');
     if (!home || !away) return null;
 
-    const homeSeed = parseInt(home.curatedRank?.current ?? home.seed ?? '0', 10);
-    const awaySeed = parseInt(away.curatedRank?.current ?? away.seed ?? '0', 10);
+    const homeSeed = parseInt(home.seed ?? home.curatedRank?.current ?? '0', 10);
+    const awaySeed = parseInt(away.seed ?? away.curatedRank?.current ?? '0', 10);
 
     // If no seeds, probably not a tournament game
     if (!homeSeed && !awaySeed) return null;
@@ -267,18 +267,27 @@ function transformEspnEvent(event: any): ResultGame | null {
     const status = event.status?.type?.name ?? '';
     const completed = status === 'STATUS_FINAL';
 
+    let gameClock: string | undefined;
+    if (status === 'STATUS_IN_PROGRESS') {
+      const clock = event.status?.displayClock ?? '';
+      const period = event.status?.period ?? 0;
+      if (period === 1) gameClock = `1H ${clock}`;
+      else if (period === 2) gameClock = `2H ${clock}`;
+      else gameClock = `OT ${clock}`;
+    } else if (status === 'STATUS_HALFTIME') {
+      gameClock = 'HT';
+    }
+
     const winner = completed
       ? (homeScore > awayScore ? homeTeam : awayTeam)
       : null;
 
     // Determine round from event metadata
-    const roundNumber = event.season?.slug
-      ? parseRoundFromSlug(event.season.slug)
-      : (competition.tournamentRound?.number ?? 0);
+    const roundNumber = competition.tournamentRound?.number
+      ?? parseRoundFromSlug(event.season?.slug ?? '')
+      ?? inferRoundFromDate(event.date ?? '');
 
-    // Skip play-in / First Four games — they aren't part of the 63-game bracket
-    if (roundNumber <= 0) return null;
-
+    // Default to R64 if unknown — mergeWithTemplate matches by team names, not round
     const round = ESPN_ROUND_MAP[roundNumber] ?? 'round_of_64';
 
     // Region from event group or bracket info
@@ -302,6 +311,7 @@ function transformEspnEvent(event: any): ResultGame | null {
       winner: winner ?? '',
       completed,
       gameTime,
+      gameClock,
     };
   } catch {
     return null;
@@ -347,6 +357,7 @@ function mergeWithTemplate(espnGames: ResultGame[]): Results {
       game.winner = espn.completed ? (espn.winner === game.team1 || espn.winner === game.team2 ? espn.winner : game.winner) : game.winner;
       game.completed = espn.completed;
       game.gameTime = espn.gameTime ?? game.gameTime;
+      game.gameClock = espn.gameClock;
 
       if (espn.completed && roundOrder.indexOf(game.round) > roundOrder.indexOf(latestRound)) {
         latestRound = game.round;
@@ -365,15 +376,28 @@ function formatDate(date: Date): string {
   return date.toISOString().slice(0, 10).replace(/-/g, '');
 }
 
-function parseRoundFromSlug(slug: string): number {
-  if (slug.includes('first-four') || slug.includes('play-in')) return -1;
+function parseRoundFromSlug(slug: string): number | null {
+  if (slug.includes('first-four') || slug.includes('play-in')) return null;
   if (slug.includes('first-round') || slug.includes('round-of-64')) return 1;
   if (slug.includes('second-round') || slug.includes('round-of-32')) return 2;
   if (slug.includes('sweet-16') || slug.includes('regional-semifinal')) return 3;
   if (slug.includes('elite-8') || slug.includes('regional-final')) return 4;
   if (slug.includes('final-four') || slug.includes('national-semifinal')) return 5;
   if (slug.includes('championship') || slug.includes('national-championship')) return 6;
-  return 0;
+  return null;
+}
+
+function inferRoundFromDate(dateStr: string): number {
+  const d = new Date(dateStr);
+  const month = d.getUTCMonth() + 1;
+  const day = d.getUTCDate();
+  if (month === 3 && day <= 21) return 1; // R64
+  if (month === 3 && day <= 23) return 2; // R32
+  if (month === 3 && day <= 28) return 3; // S16
+  if (month === 3 && day <= 30) return 4; // E8
+  if (month === 4 && day <= 5) return 5;  // F4
+  if (month === 4 && day <= 7) return 6;  // Championship
+  return 1;
 }
 
 function extractRegion(event: any): string {
