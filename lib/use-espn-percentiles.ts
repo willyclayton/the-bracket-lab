@@ -43,7 +43,7 @@ export function useEspnPercentiles(
 
   for (const [modelId, score] of Object.entries(modelScores)) {
     // Try live ESPN data first
-    if (isLive && data[modelId] && data[modelId].percentile > 0) {
+    if (isLive && data[modelId] && data[modelId].percentile >= 0) {
       percentiles[modelId] = {
         percentile: data[modelId].percentile,
         isEstimate: false,

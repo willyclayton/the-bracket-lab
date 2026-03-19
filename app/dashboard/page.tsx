@@ -43,6 +43,12 @@ export default function DashboardPage() {
   const totalGames = results.games.length;
   const hasData = completedGames.length > 0;
 
+  // Track which rounds have at least one completed game
+  const activeRounds = new Set<string>();
+  for (const game of completedGames) {
+    activeRounds.add(game.round);
+  }
+
   // Calculate scores for all models
   const scores: (ModelScore & { model: typeof VISIBLE_MODELS[number] })[] = VISIBLE_MODELS.map((model) => {
     const bracket = BRACKETS[model.id];
@@ -157,11 +163,16 @@ export default function DashboardPage() {
                       </td>
                       {ROUND_ORDER.map((r) => {
                         const pts = entry[r as keyof ModelScore] as number;
+                        const roundActive = activeRounds.has(r);
                         return (
                           <td key={r} className="text-center px-3 py-3 font-mono text-sm">
-                            <span style={{ color: pts > 0 ? entry.model.color : '#555' }}>
-                              {pts > 0 ? pts : '\u2014'}
-                            </span>
+                            {roundActive ? (
+                              <span style={{ color: pts > 0 ? entry.model.color : '#555' }}>
+                                {pts}
+                              </span>
+                            ) : (
+                              <span style={{ color: '#555' }}>{'\u2014'}</span>
+                            )}
                           </td>
                         );
                       })}
@@ -172,6 +183,7 @@ export default function DashboardPage() {
                         {(() => {
                           const pct = percentiles[entry.modelId];
                           if (!pct) return '\u2014';
+                          if (pct.isEstimate && entry.total === 0) return '\u2014';
                           return `${pct.percentile.toFixed(1)}%${pct.isEstimate ? ' (est.)' : ''}`;
                         })()}
                       </td>

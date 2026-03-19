@@ -341,7 +341,7 @@ export default function BracketsClient() {
         <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
           <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider mb-0.5">ESPN %</p>
           <p className="font-mono text-[13px] font-semibold" style={{ color: activeModel.color }}>
-            {espnPctResult != null ? `${espnPctResult.percentile.toFixed(1)}%${espnPctResult.isEstimate ? ' (est.)' : ''}` : '\u2014'}
+            {espnPctResult != null && !(espnPctResult.isEstimate && modelScore?.total === 0) ? `${espnPctResult.percentile.toFixed(1)}%${espnPctResult.isEstimate ? ' (est.)' : ''}` : '\u2014'}
           </p>
         </div>
         <div className="flex-1 text-center py-2 px-3 border-r border-[#2a2a2a]">
