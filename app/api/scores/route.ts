@@ -354,8 +354,10 @@ function mergeWithTemplate(espnGames: ResultGame[]): Results {
       ?? espnByTeams.get(`${game.team2}:${game.seed2}`);
 
     if (espn) {
-      game.score1 = espn.winner === game.team1 ? Math.max(espn.score1, espn.score2) : Math.min(espn.score1, espn.score2);
-      game.score2 = espn.winner === game.team2 ? Math.max(espn.score1, espn.score2) : Math.min(espn.score1, espn.score2);
+      // Map ESPN scores to template team order by matching team names
+      const sameOrder = espn.team1 === game.team1 || espn.team2 === game.team2;
+      game.score1 = sameOrder ? espn.score1 : espn.score2;
+      game.score2 = sameOrder ? espn.score2 : espn.score1;
       game.winner = espn.completed ? (espn.winner === game.team1 || espn.winner === game.team2 ? espn.winner : game.winner) : game.winner;
       game.completed = espn.completed;
       game.gameTime = espn.gameTime ?? game.gameTime;
