@@ -214,7 +214,7 @@ async function fetchFromEspn(): Promise<Results | null> {
     const endDate = formatDate(today);
 
     const allGames: ResultGame[] = [];
-    const seenGameIds = new Set<string>();
+    const seenMatchups = new Set<string>();
 
     // 1) Date-range query: returns ALL completed games across the tournament
     //    Single-date queries drop completed games after a few hours.
@@ -224,9 +224,12 @@ async function fetchFromEspn(): Promise<Results | null> {
       const rangeData = await rangeRes.json();
       for (const event of rangeData.events ?? []) {
         const game = transformEspnEvent(event);
-        if (game && !seenGameIds.has(game.gameId)) {
-          seenGameIds.add(game.gameId);
-          allGames.push(game);
+        if (game) {
+          const matchupKey = [game.team1, game.team2].sort().join('|');
+          if (!seenMatchups.has(matchupKey)) {
+            seenMatchups.add(matchupKey);
+            allGames.push(game);
+          }
         }
       }
     } else {
@@ -241,9 +244,12 @@ async function fetchFromEspn(): Promise<Results | null> {
       const todayData = await todayRes.json();
       for (const event of todayData.events ?? []) {
         const game = transformEspnEvent(event);
-        if (game && !seenGameIds.has(game.gameId)) {
-          seenGameIds.add(game.gameId);
-          allGames.push(game);
+        if (game) {
+          const matchupKey = [game.team1, game.team2].sort().join('|');
+          if (!seenMatchups.has(matchupKey)) {
+            seenMatchups.add(matchupKey);
+            allGames.push(game);
+          }
         }
       }
     } else {
