@@ -209,36 +209,48 @@ async function fetchAndCacheScores(): Promise<void> {
 
 async function fetchFromEspn(): Promise<Results | null> {
   try {
-    // Fetch today's and yesterday's games to catch late-night finishes
     const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
+    const tournamentStart = '20260318'; // First Four
+    const endDate = formatDate(today);
 
-    const dates = [formatDate(today), formatDate(yesterday)];
     const allGames: ResultGame[] = [];
     const seenGameIds = new Set<string>();
 
-    for (const dateStr of dates) {
-      const url = `https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=${dateStr}&groups=100&limit=50`;
-      const res = await fetch(url, { next: { revalidate: 0 } });
-      if (!res.ok) {
-        console.error(`ESPN Scoreboard API ${res.status} for date ${dateStr}`);
-        continue;
-      }
-
-      const data = await res.json();
-      const events = data.events ?? [];
-
-      for (const event of events) {
+    // 1) Date-range query: returns ALL completed games across the tournament
+    //    Single-date queries drop completed games after a few hours.
+    const rangeUrl = `https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=${tournamentStart}-${endDate}&groups=100&limit=200`;
+    const rangeRes = await fetch(rangeUrl, { next: { revalidate: 0 } });
+    if (rangeRes.ok) {
+      const rangeData = await rangeRes.json();
+      for (const event of rangeData.events ?? []) {
         const game = transformEspnEvent(event);
         if (game && !seenGameIds.has(game.gameId)) {
           seenGameIds.add(game.gameId);
           allGames.push(game);
         }
       }
+    } else {
+      console.error(`[scores] ESPN range query ${rangeRes.status}`);
     }
 
-    // Merge with our static results template to preserve gameId mapping
+    // 2) Today's single-date query: ensures we get currently in-progress games
+    //    (date-range queries may not include live games)
+    const todayUrl = `https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=${endDate}&groups=100&limit=50`;
+    const todayRes = await fetch(todayUrl, { next: { revalidate: 0 } });
+    if (todayRes.ok) {
+      const todayData = await todayRes.json();
+      for (const event of todayData.events ?? []) {
+        const game = transformEspnEvent(event);
+        if (game && !seenGameIds.has(game.gameId)) {
+          seenGameIds.add(game.gameId);
+          allGames.push(game);
+        }
+      }
+    } else {
+      console.error(`[scores] ESPN today query ${todayRes.status}`);
+    }
+
+    console.log(`[scores] ESPN returned ${allGames.length} valid tournament games`);
     const merged = mergeWithTemplate(allGames);
     return merged;
   } catch (err) {
