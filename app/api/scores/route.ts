@@ -72,9 +72,21 @@ export async function GET() {
     if (cached) {
       const ageSeconds = (Date.now() - cached.fetchedAt) / 1000;
 
-      // If stale, trigger background refresh (don't await)
       if (ageSeconds > STALE_SECONDS) {
-        fetchAndCacheScores().catch(() => {});
+        // Refresh synchronously — background fetch dies in serverless
+        const fresh = await fetchFromEspn();
+        if (fresh) {
+          await redis.set(REDIS_KEY, { data: fresh, fetchedAt: Date.now() } satisfies CachedResults);
+          return NextResponse.json(fresh, {
+            headers: {
+              'Cache-Control': 'public, s-maxage=10, stale-while-revalidate=30',
+              'X-Scores-Source': 'espn-refreshed',
+              'X-Scores-Age': '0',
+            },
+          });
+        }
+        // ESPN failed — fall through to serve stale cache
+        console.warn(`[scores] ESPN refresh failed, serving ${Math.round(ageSeconds)}s stale cache`);
       }
 
       return NextResponse.json(cached.data, {
@@ -189,6 +201,9 @@ async function fetchAndCacheScores(): Promise<void> {
   const results = await fetchFromEspn();
   if (results) {
     await redis.set(REDIS_KEY, { data: results, fetchedAt: Date.now() } satisfies CachedResults);
+    console.log(`[scores] Redis updated: ${results.games.filter(g => g.completed).length} completed games`);
+  } else {
+    console.warn('[scores] Background refresh failed — ESPN returned null');
   }
 }
 
@@ -226,7 +241,8 @@ async function fetchFromEspn(): Promise<Results | null> {
     // Merge with our static results template to preserve gameId mapping
     const merged = mergeWithTemplate(allGames);
     return merged;
-  } catch {
+  } catch (err) {
+    console.error('[scores] ESPN fetch failed:', err);
     return null;
   }
 }

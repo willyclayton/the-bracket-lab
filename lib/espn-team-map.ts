@@ -65,6 +65,16 @@ const ESPN_TO_SITE: Record<string, string> = {
   'St. Louis': 'Saint Louis',
   'North Carolina': 'North Carolina',
   'UNC': 'North Carolina',
+  // Missing ESPN shortDisplayName variants
+  'N Dakota St': 'North Dakota State',
+  "Hawai'i": 'Hawaii',
+  'Kennesaw St': 'Kennesaw State',
+  'Long Island': 'LIU',
+  'Wright St': 'Wright State',
+  'St John\'s': 'St. John\'s',
+  'CA Baptist': 'Cal Baptist',
+  'Miami Ohio': 'Miami Ohio',
+  'Miami (OH)': 'Miami Ohio',
 };
 
 // All team names in our data for fuzzy matching
@@ -79,7 +89,7 @@ const SITE_TEAMS_ARRAY = [
   'Siena', 'South Florida', 'St. John\'s', 'TCU', 'Tennessee', 'Tennessee State',
   'Texas', 'Texas A&M', 'Texas Tech', 'Troy', 'UCF', 'UCLA', 'UConn', 'UMBC',
   'Utah State', 'VCU', 'Vanderbilt', 'Villanova', 'Virginia', 'Wisconsin',
-  'Wright State',
+  'Wright State', 'Miami Ohio', 'Howard',
 ];
 const SITE_TEAMS = new Set(SITE_TEAMS_ARRAY);
 
