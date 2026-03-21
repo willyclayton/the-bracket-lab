@@ -319,6 +319,7 @@ function transformEspnEvent(event: any): ResultGame | null {
     // Determine round from event metadata
     const roundNumber = competition.tournamentRound?.number
       ?? parseRoundFromSlug(event.season?.slug ?? '')
+      ?? inferRoundFromSeeds(homeSeed, awaySeed, event.date ?? '')
       ?? inferRoundFromDate(event.date ?? '');
 
     // Skip games with no identifiable round (First Four, pre-tournament, etc.)
@@ -527,13 +528,31 @@ function parseRoundFromSlug(slug: string): number | null {
   return null;
 }
 
+/**
+ * Infer round from seed pairing.
+ * R64 matchups always have seeds summing to 17 (1v16, 2v15, ..., 8v9).
+ * On dates where R64 and R32 overlap, this disambiguates.
+ */
+function inferRoundFromSeeds(seed1: number, seed2: number, dateStr: string): number | null {
+  if (!seed1 || !seed2) return null;
+  const d = new Date(dateStr);
+  const month = d.getUTCMonth() + 1;
+  const day = d.getUTCDate();
+  // Only useful during R64/R32 overlap days
+  if (month === 3 && day >= 20 && day <= 23) {
+    if (seed1 + seed2 === 17) return 1; // R64
+    return 2; // R32 (seeds don't sum to 17)
+  }
+  return null;
+}
+
 function inferRoundFromDate(dateStr: string): number {
   const d = new Date(dateStr);
   const month = d.getUTCMonth() + 1;
   const day = d.getUTCDate();
   if (month === 3 && day <= 18) return 0; // First Four — filter out
-  if (month === 3 && day <= 21) return 1; // R64 (Mar 20-21)
-  if (month === 3 && day <= 23) return 2; // R32
+  if (month === 3 && day <= 20) return 1; // R64 (Mar 20; Mar 21 handled by seed heuristic)
+  if (month === 3 && day <= 23) return 2; // R32 (Mar 21-23)
   if (month === 3 && day <= 28) return 3; // S16
   if (month === 3 && day <= 30) return 4; // E8
   if (month === 4 && day <= 5) return 5;  // F4

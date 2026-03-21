@@ -75,6 +75,15 @@ const ESPN_TO_SITE: Record<string, string> = {
   'CA Baptist': 'Cal Baptist',
   'Miami Ohio': 'Miami Ohio',
   'Miami (OH)': 'Miami Ohio',
+  // ESPN abbreviations without parens/periods
+  'Miami OH': 'Miami Ohio',
+  'Michigan St': 'Michigan State',
+  'Tennessee St': 'Tennessee State',
+  'Iowa St': 'Iowa State',
+  'Ohio St': 'Ohio State',
+  'Utah St': 'Utah State',
+  'Penn St': 'Penn State',
+  'McNeese St': 'McNeese',
 };
 
 // All team names in our data for fuzzy matching
@@ -105,10 +114,14 @@ export function normalizeTeamName(espnName: string): string {
   if (SITE_TEAMS.has(espnName)) return espnName;
 
   // Try stripping common mascot suffixes (ESPN sometimes returns "Duke Blue Devils")
-  // Take first word(s) before the mascot
+  // Use longest prefix match to avoid "Michigan" beating "Michigan State"
+  let bestMatch = '';
   for (const siteName of SITE_TEAMS_ARRAY) {
-    if (espnName.startsWith(siteName)) return siteName;
+    if (espnName.startsWith(siteName) && siteName.length > bestMatch.length) {
+      bestMatch = siteName;
+    }
   }
+  if (bestMatch) return bestMatch;
 
   // Return as-is — will need manual mapping if mismatch
   return espnName;
