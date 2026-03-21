@@ -60,18 +60,12 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="hero-fade-4 mt-5 flex flex-col items-center gap-2">
+        <div className="hero-fade-4 mt-5">
           <Link
             href="/blog/why-i-built-this"
             className="text-sm text-lab-muted hover:text-lab-white transition-colors"
           >
             Read why I built this &rarr;
-          </Link>
-          <Link
-            href="/blog/round-of-64-recap"
-            className="text-sm text-amber-400/90 hover:text-amber-300 transition-colors font-medium"
-          >
-            Round of 64 is done. See which models drew first blood &rarr;
           </Link>
         </div>
       </section>
@@ -82,13 +76,23 @@ export default function Home() {
       </section>
 
       {/* ---- Dashboard link ---- */}
-      <div className="text-center mb-10">
+      <div className="text-center mb-4">
         <Link
           href="/dashboard"
           className="inline-flex items-center gap-2 text-sm font-medium text-lab-muted hover:text-lab-white transition-colors"
         >
           See how the brackets are doing{' '}
           <span className="text-red-500 font-semibold animate-pulse">Live</span>
+        </Link>
+      </div>
+
+      {/* ---- Recap callout ---- */}
+      <div className="text-center mb-10">
+        <Link
+          href="/blog/round-of-64-recap"
+          className="inline-flex items-center gap-2 border border-amber-500/30 bg-amber-500/[0.06] rounded-lg px-5 py-2.5 text-sm font-medium text-amber-400 hover:border-amber-500/50 hover:text-amber-300 transition-all"
+        >
+          Round of 64 is in the books. See which models drew first blood &rarr;
         </Link>
       </div>
 

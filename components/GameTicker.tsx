@@ -106,7 +106,8 @@ function buildTickerItems(results: Results): TickerItem[] {
           const games = BRACKETS[model.id]?.rounds[roundKey as keyof BracketData['rounds']] ?? [];
           const match = games.find((g) => g.gameId === game.gameId);
           if (match) {
-            const correct = match.pick === game.winner;
+            const normalize = (s: string) => s.trim().toLowerCase();
+            const correct = normalize(match.pick) === normalize(game.winner);
             modelCorrect[model.id] = correct;
             if (correct) correctCount++;
             found = true;
@@ -291,7 +292,7 @@ export default function GameTicker() {
           {[0, 1].map((copy) => (
             <div key={copy} className="flex items-center gap-6 pr-6">
               {tickerItems.map((item, i) => (
-                <TickerGame key={`${copy}-${i}`} item={item} />
+                <TickerGame key={`${copy}-${item.gameId}`} item={item} />
               ))}
             </div>
           ))}
