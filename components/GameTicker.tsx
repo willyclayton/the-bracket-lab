@@ -40,6 +40,7 @@ interface TickerItem {
   seed1: number;
   team2: string;
   seed2: number;
+  gameTime?: string | null;
   // Final + live
   score1?: number;
   score2?: number;
@@ -78,7 +79,7 @@ function buildTickerItems(results: Results): TickerItem[] {
   const gamesWithTeams = results.games.filter((g) => g.team1 && g.team2);
   if (gamesWithTeams.length === 0) return [];
 
-  return gamesWithTeams.map((game) => {
+  const items = gamesWithTeams.map((game) => {
     const state = getGameState(game);
 
     const item: TickerItem = {
@@ -88,6 +89,7 @@ function buildTickerItems(results: Results): TickerItem[] {
       seed1: game.seed1,
       team2: game.team2,
       seed2: game.seed2,
+      gameTime: game.gameTime,
     };
 
     if (state === 'final') {
@@ -125,6 +127,22 @@ function buildTickerItems(results: Results): TickerItem[] {
 
     return item;
   });
+
+  // Sort: live first, then finals (most recent first), then upcoming (soonest first)
+  const stateOrder: Record<GameState, number> = { live: 0, final: 1, upcoming: 2 };
+  items.sort((a, b) => {
+    const sa = stateOrder[a.state];
+    const sb = stateOrder[b.state];
+    if (sa !== sb) return sa - sb;
+    const ta = a.gameTime ? new Date(a.gameTime).getTime() : 0;
+    const tb = b.gameTime ? new Date(b.gameTime).getTime() : 0;
+    // Finals: most recent first (descending)
+    if (a.state === 'final') return tb - ta;
+    // Upcoming: soonest first (ascending)
+    return ta - tb;
+  });
+
+  return items;
 }
 
 function hasAnyPicks(): boolean {

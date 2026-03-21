@@ -60,12 +60,18 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="hero-fade-4 mt-5">
+        <div className="hero-fade-4 mt-5 flex flex-col items-center gap-2">
           <Link
             href="/blog/why-i-built-this"
             className="text-sm text-lab-muted hover:text-lab-white transition-colors"
           >
             Read why I built this &rarr;
+          </Link>
+          <Link
+            href="/blog/round-of-64-recap"
+            className="text-sm text-amber-400/90 hover:text-amber-300 transition-colors font-medium"
+          >
+            Round of 64 is done. See which models drew first blood &rarr;
           </Link>
         </div>
       </section>

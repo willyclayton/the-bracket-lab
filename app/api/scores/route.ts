@@ -407,7 +407,109 @@ function mergeWithTemplate(espnGames: ResultGame[]): Results {
     merged.currentRound = latestRound;
   }
 
+  advanceWinners(merged);
+
   return merged;
+}
+
+/**
+ * Auto-fill empty later-round team slots from completed earlier-round winners.
+ * This ensures S16, E8, FF, and Championship slots get populated as rounds complete.
+ */
+function advanceWinners(results: Results): void {
+  const gameById = new Map<string, ResultGame>();
+  for (const g of results.games) {
+    gameById.set(g.gameId, g);
+  }
+
+  const regions = ['east', 'south', 'west', 'midwest'];
+
+  // R64 winners → R32
+  for (const region of regions) {
+    for (let slot = 1; slot <= 4; slot++) {
+      const target = gameById.get(`r32-${region}-${slot}`);
+      if (!target) continue;
+      const feeder1 = gameById.get(`r64-${region}-${slot * 2 - 1}`);
+      const feeder2 = gameById.get(`r64-${region}-${slot * 2}`);
+      if (feeder1?.completed && feeder1.winner && !target.team1) {
+        target.team1 = feeder1.winner;
+        target.seed1 = feeder1.winner === feeder1.team1 ? feeder1.seed1 : feeder1.seed2;
+      }
+      if (feeder2?.completed && feeder2.winner && !target.team2) {
+        target.team2 = feeder2.winner;
+        target.seed2 = feeder2.winner === feeder2.team1 ? feeder2.seed1 : feeder2.seed2;
+      }
+    }
+  }
+
+  // R32 winners → S16
+  for (const region of regions) {
+    for (let slot = 1; slot <= 2; slot++) {
+      const target = gameById.get(`s16-${region}-${slot}`);
+      if (!target) continue;
+      const feeder1 = gameById.get(`r32-${region}-${slot * 2 - 1}`);
+      const feeder2 = gameById.get(`r32-${region}-${slot * 2}`);
+      if (feeder1?.completed && feeder1.winner && !target.team1) {
+        target.team1 = feeder1.winner;
+        target.seed1 = feeder1.winner === feeder1.team1 ? feeder1.seed1 : feeder1.seed2;
+      }
+      if (feeder2?.completed && feeder2.winner && !target.team2) {
+        target.team2 = feeder2.winner;
+        target.seed2 = feeder2.winner === feeder2.team1 ? feeder2.seed1 : feeder2.seed2;
+      }
+    }
+  }
+
+  // S16 winners → E8
+  for (const region of regions) {
+    const target = gameById.get(`e8-${region}`);
+    if (!target) continue;
+    const feeder1 = gameById.get(`s16-${region}-1`);
+    const feeder2 = gameById.get(`s16-${region}-2`);
+    if (feeder1?.completed && feeder1.winner && !target.team1) {
+      target.team1 = feeder1.winner;
+      target.seed1 = feeder1.winner === feeder1.team1 ? feeder1.seed1 : feeder1.seed2;
+    }
+    if (feeder2?.completed && feeder2.winner && !target.team2) {
+      target.team2 = feeder2.winner;
+      target.seed2 = feeder2.winner === feeder2.team1 ? feeder2.seed1 : feeder2.seed2;
+    }
+  }
+
+  // E8 winners → F4 (south-east, west-midwest)
+  const f4Pairings: [string, string, string][] = [
+    ['f4-south-east', 'e8-south', 'e8-east'],
+    ['f4-west-midwest', 'e8-west', 'e8-midwest'],
+  ];
+  for (const [f4Id, e8a, e8b] of f4Pairings) {
+    const target = gameById.get(f4Id);
+    if (!target) continue;
+    const feeder1 = gameById.get(e8a);
+    const feeder2 = gameById.get(e8b);
+    if (feeder1?.completed && feeder1.winner && !target.team1) {
+      target.team1 = feeder1.winner;
+      target.seed1 = feeder1.winner === feeder1.team1 ? feeder1.seed1 : feeder1.seed2;
+    }
+    if (feeder2?.completed && feeder2.winner && !target.team2) {
+      target.team2 = feeder2.winner;
+      target.seed2 = feeder2.winner === feeder2.team1 ? feeder2.seed1 : feeder2.seed2;
+    }
+  }
+
+  // F4 winners → Championship
+  const champ = gameById.get('championship');
+  if (champ) {
+    const f4a = gameById.get('f4-south-east');
+    const f4b = gameById.get('f4-west-midwest');
+    if (f4a?.completed && f4a.winner && !champ.team1) {
+      champ.team1 = f4a.winner;
+      champ.seed1 = f4a.winner === f4a.team1 ? f4a.seed1 : f4a.seed2;
+    }
+    if (f4b?.completed && f4b.winner && !champ.team2) {
+      champ.team2 = f4b.winner;
+      champ.seed2 = f4b.winner === f4b.team1 ? f4b.seed1 : f4b.seed2;
+    }
+  }
 }
 
 function formatDate(date: Date): string {
