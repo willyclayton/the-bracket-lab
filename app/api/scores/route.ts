@@ -373,9 +373,9 @@ function mergeWithTemplate(espnGames: ResultGame[]): Results {
     // Key by sorted team names for order-independent matching
     const key = [g.team1, g.team2].sort().join('|');
     espnByTeams.set(key, g);
-    // Also try with just one team + seed for partial matching
-    espnByTeams.set(`${g.team1}:${g.seed1}`, g);
-    espnByTeams.set(`${g.team2}:${g.seed2}`, g);
+    // Include round in partial keys to prevent cross-round matching
+    espnByTeams.set(`${g.round}:${g.team1}:${g.seed1}`, g);
+    espnByTeams.set(`${g.round}:${g.team2}:${g.seed2}`, g);
   }
 
   let latestRound = 'pre-tournament';
@@ -384,8 +384,8 @@ function mergeWithTemplate(espnGames: ResultGame[]): Results {
   for (const game of merged.games) {
     const key = [game.team1, game.team2].sort().join('|');
     const espn = espnByTeams.get(key)
-      ?? espnByTeams.get(`${game.team1}:${game.seed1}`)
-      ?? espnByTeams.get(`${game.team2}:${game.seed2}`);
+      ?? espnByTeams.get(`${game.round}:${game.team1}:${game.seed1}`)
+      ?? espnByTeams.get(`${game.round}:${game.team2}:${game.seed2}`);
 
     if (espn) {
       // Map ESPN scores to template team order by matching team names
