@@ -41,6 +41,7 @@ interface TickerItem {
   team2: string;
   seed2: number;
   gameTime?: string | null;
+  round?: string;
   // Final + live
   score1?: number;
   score2?: number;
@@ -53,6 +54,15 @@ interface TickerItem {
   // Upcoming only
   tipoff?: string;
 }
+
+const ROUND_LABELS: Record<string, string> = {
+  round_of_64: 'ROUND OF 64',
+  round_of_32: 'ROUND OF 32',
+  sweet_16: 'SWEET 16',
+  elite_8: 'ELITE 8',
+  final_four: 'FINAL FOUR',
+  championship: 'CHAMPIONSHIP',
+};
 
 function getGameState(game: ResultGame): GameState {
   if (game.completed && game.winner) return 'final';
@@ -90,6 +100,7 @@ function buildTickerItems(results: Results): TickerItem[] {
       team2: game.team2,
       seed2: game.seed2,
       gameTime: game.gameTime,
+      round: game.round,
     };
 
     if (state === 'final') {
@@ -290,10 +301,20 @@ export default function GameTicker() {
         )}
         <div className="ticker-track">
           {[0, 1].map((copy) => (
-            <div key={copy} className="flex items-center gap-6 pr-6">
-              {tickerItems.map((item, i) => (
-                <TickerGame key={`${copy}-${item.gameId}`} item={item} />
-              ))}
+            <div key={copy} className="flex items-center gap-8 pr-8">
+              {tickerItems.map((item, i) => {
+                const showSeparator = i === 0 || (item.round && item.round !== tickerItems[i - 1]?.round);
+                return (
+                  <div key={`${copy}-${item.gameId}`} className="flex items-center gap-8">
+                    {showSeparator && item.round && (
+                      <span className="font-mono text-[9px] text-[#888] tracking-widest uppercase border border-[#333] rounded px-2 py-0.5 flex-shrink-0 bg-[#1a1a1a]">
+                        {ROUND_LABELS[item.round] ?? item.round}
+                      </span>
+                    )}
+                    <TickerGame item={item} />
+                  </div>
+                );
+              })}
             </div>
           ))}
         </div>
@@ -309,7 +330,7 @@ export default function GameTicker() {
         <div className="ticker-bar">
           <div className="ticker-track">
             {[0, 1].map((copy) => (
-              <div key={copy} className="flex items-center gap-6 pr-6">
+              <div key={copy} className="flex items-center gap-8 pr-8">
                 {previews.map((item, i) => (
                   <div
                     key={`${copy}-${i}`}
