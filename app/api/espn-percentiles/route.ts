@@ -1,6 +1,6 @@
 import { Redis } from '@upstash/redis';
 import { NextResponse } from 'next/server';
-import { VISIBLE_MODELS } from '@/lib/models';
+import { MODELS } from '@/lib/models';
 
 function getRedis(): Redis | null {
   const url = process.env.KV_REST_API_URL;
@@ -93,7 +93,7 @@ export async function GET() {
   // Collect entry IDs from model data files
   const modelEntries: { modelId: string; entryId: string }[] = [];
 
-  for (const model of VISIBLE_MODELS) {
+  for (const model of MODELS) {
     // Dynamic import of model JSON to get espnBracketUrl
     try {
       const modelData = await import(`@/data/models/${model.id}.json`);
