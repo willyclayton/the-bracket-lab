@@ -8,6 +8,7 @@ import { BracketData, Game, ResultGame, Results } from '@/lib/types';
 import { calculateScore } from '@/lib/scoring';
 import BracketCardsPanel, { REGIONS, type Region, type GamesByRegion } from '@/components/BracketCardsPanel';
 import BracketGridPanel from '@/components/BracketGridPanel';
+import PinchZoomContainer from '@/components/PinchZoomContainer';
 import MatchupPopover from '@/components/MatchupPopover';
 import { useLiveResults } from '@/lib/use-live-results';
 import { useEspnPercentiles } from '@/lib/use-espn-percentiles';
@@ -465,7 +466,7 @@ export default function BracketsClient() {
 
             {/* Mobile bracket view */}
             {mobileView === 'bracket' && (
-              <div className="overflow-x-auto pb-4">
+              <PinchZoomContainer key={activeModelId}>
                 <BracketGridPanel
                   gamesByRegion={gamesByRegion}
                   modelColor={activeModel.color}
@@ -477,7 +478,7 @@ export default function BracketsClient() {
                   bustedModelPicks={bustedModelPicks}
                   blurredRounds={blurredRounds}
                 />
-              </div>
+              </PinchZoomContainer>
             )}
           </div>
         </>
