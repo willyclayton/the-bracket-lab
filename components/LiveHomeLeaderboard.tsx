@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
-import { VISIBLE_MODELS, ROUND_POINTS, Model } from '@/lib/models';
+import { MODELS, VISIBLE_MODELS, ROUND_POINTS, Model } from '@/lib/models';
 import { BracketData } from '@/lib/types';
 import { calculateScore, rankModels } from '@/lib/scoring';
 import { useLiveResults } from '@/lib/use-live-results';
@@ -30,12 +31,14 @@ const BRACKETS: Record<string, BracketData> = {
 };
 
 export default function LiveHomeLeaderboard() {
+  const [showHidden, setShowHidden] = useState(false);
   const { results, isLive } = useLiveResults();
 
+  const activeModels = showHidden ? MODELS : VISIBLE_MODELS;
   const hasCompletedGames = results.games.some((g) => g.completed);
 
-  // Calculate scores for all visible models
-  const scores = VISIBLE_MODELS.map((model) => {
+  // Calculate scores for active models
+  const scores = activeModels.map((model) => {
     const bracket = BRACKETS[model.id];
     if (!bracket || !hasCompletedGames) return null;
     return calculateScore(bracket, results);
@@ -48,10 +51,10 @@ export default function LiveHomeLeaderboard() {
   // Build entries: ranked if we have data, otherwise static order
   const entries = hasCompletedGames
     ? ranked.map((score, i) => {
-        const model = VISIBLE_MODELS.find((m) => m.id === score.modelId)!;
+        const model = activeModels.find((m) => m.id === score.modelId)!;
         return { model, score: score.total, accuracy: score.accuracy, champion: BRACKETS[model.id]?.champion || 'TBD', rank: i + 1 };
       })
-    : VISIBLE_MODELS.map((model, i) => ({
+    : activeModels.map((model, i) => ({
         model, score: undefined as number | undefined, accuracy: undefined as number | undefined,
         champion: BRACKETS[model.id]?.champion || 'TBD', rank: i + 1,
       }));
@@ -136,6 +139,14 @@ export default function LiveHomeLeaderboard() {
           </tbody>
         </table>
       </div>
+      <button
+        onClick={() => setShowHidden(!showHidden)}
+        className="mt-3 text-[13px] text-[#666] hover:text-[#999] transition-colors"
+      >
+        {showHidden
+          ? '\u2190 Hide experimental models'
+          : '3 experimental models also competed. Click here to see them \u2192'}
+      </button>
     </section>
   );
 }
