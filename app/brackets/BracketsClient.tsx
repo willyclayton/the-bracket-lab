@@ -367,6 +367,20 @@ export default function BracketsClient() {
         </div>
       </div>
 
+      {/* ESPN bracket link */}
+      {bracket?.espnBracketUrl && (
+        <div className="flex justify-end mb-4 -mt-3">
+          <a
+            href={bracket.espnBracketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] text-[#888] hover:text-lab-white transition-colors"
+          >
+            View on ESPN Tournament Challenge &#8599;
+          </a>
+        </div>
+      )}
+
       {isEmpty ? (
         <div className="rounded-2xl border border-lab-border bg-lab-surface p-16 text-center">
           <p className="font-mono text-2xl mb-3">&#128274;</p>
