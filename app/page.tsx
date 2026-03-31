@@ -89,10 +89,10 @@ export default function Home() {
       {/* ---- Recap callout ---- */}
       <div className="text-center mb-10">
         <Link
-          href="/blog/round-of-32-recap"
+          href="/blog/elite-8-recap"
           className="inline-flex items-center gap-2 border border-amber-500/30 bg-amber-500/[0.06] rounded-lg px-5 py-2.5 text-sm font-medium text-amber-400 hover:border-amber-500/50 hover:text-amber-300 transition-all"
         >
-          Round of 32 recap: Nobody saw Florida coming. Read the full breakdown &rarr;
+          Elite 8 recap: One buzzer-beater killed four champions. Read the full breakdown &rarr;
         </Link>
       </div>
 

@@ -695,7 +695,7 @@
     ],
     "elite_8": [
       {
-        "gameId": "e8-south-1",
+        "gameId": "e8-south",
         "round": "elite_8",
         "region": "South",
         "seed1": 1,
@@ -707,7 +707,7 @@
         "reasoning": "UPSET ALERT! Score: 49.5/100 (threshold: 35 for 1v3). Key factors: tight AdjEM gap (0.1), strong underdog (barthag 0.968)."
       },
       {
-        "gameId": "e8-east-1",
+        "gameId": "e8-east",
         "round": "elite_8",
         "region": "East",
         "seed1": 1,
@@ -719,7 +719,7 @@
         "reasoning": "Upset score: 26.5/100. Below threshold (40). Chalk pick — chalk pick."
       },
       {
-        "gameId": "e8-west-1",
+        "gameId": "e8-west",
         "round": "elite_8",
         "region": "West",
         "seed1": 1,
@@ -731,7 +731,7 @@
         "reasoning": "UPSET ALERT! Score: 36.5/100 (threshold: 35 for 1v3). Key factors: tight AdjEM gap (9.3), strong underdog (barthag 0.944)."
       },
       {
-        "gameId": "e8-midwest-1",
+        "gameId": "e8-midwest",
         "round": "elite_8",
         "region": "Midwest",
         "seed1": 1,

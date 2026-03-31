@@ -7,7 +7,7 @@
   "locked": true,
   "espnBracketUrl": "https://fantasy.espn.com/games/tournament-challenge-bracket-2026/bracket?id=b23ed180-2252-11f1-8b19-c75e24aaf1c4",
   "champion": "Houston",
-  "championEliminated": false,
+  "championEliminated": true,
   "finalFour": [
     "Houston",
     "Duke",

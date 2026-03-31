@@ -7,7 +7,7 @@
   "locked": true,
   "espnBracketUrl": "https://fantasy.espn.com/games/tournament-challenge-bracket-2026/bracket?id=f564b7f0-2251-11f1-b5ac-1d430d6f92ff",
   "champion": "Duke",
-  "championEliminated": false,
+  "championEliminated": true,
   "finalFour": [
     "Florida",
     "Duke",
