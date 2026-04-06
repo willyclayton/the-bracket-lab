@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { Model, ROUND_LABELS, ROUND_POINTS } from '@/lib/models';
-import { BracketData } from '@/lib/types';
+import { BracketData, Game } from '@/lib/types';
+import { calculateScore } from '@/lib/scoring';
+import { useLiveResults } from '@/lib/use-live-results';
 
 type Tab = 'overview' | 'bracket' | 'methodology' | 'espn';
 type Metric = 'byRound' | 'upsets' | 'confidence' | 'seeds';
@@ -60,7 +62,106 @@ export default function ModelDetailTabs({ model, bracket, methodologyContent }: 
   const [animated, setAnimated] = useState(false);
   const chartRef = useRef<HTMLDivElement>(null);
 
-  const chart = PLACEHOLDER_CHART[activeMetric];
+  const { results } = useLiveResults();
+  const hasResults = results.games.some((g) => g.completed);
+
+  const chart = useMemo(() => {
+    if (!hasResults || !bracket) return PLACEHOLDER_CHART[activeMetric];
+
+    const resultMap = new Map(results.games.filter((g) => g.completed).map((g) => [g.gameId, g]));
+    const allPicks: { pick: Game; correct: boolean; round: string }[] = [];
+
+    for (const roundKey of ROUND_ORDER) {
+      const games = bracket.rounds[roundKey as keyof typeof bracket.rounds] ?? [];
+      for (const game of games) {
+        const result = resultMap.get(game.gameId);
+        if (result) {
+          allPicks.push({ pick: game, correct: game.pick === result.winner, round: roundKey });
+        }
+      }
+    }
+
+    if (allPicks.length === 0) return PLACEHOLDER_CHART[activeMetric];
+
+    if (activeMetric === 'byRound') {
+      const score = calculateScore(bracket, results);
+      const gamesPerRound: Record<string, number> = { round_of_64: 32, round_of_32: 16, sweet_16: 8, elite_8: 4, final_four: 2, championship: 1 };
+      return {
+        title: 'Points Earned by Round',
+        subtitle: `${score.total} / 1,920 pts`,
+        bars: Object.entries(ROUND_LABELS).map(([key, label]) => {
+          const pts = score[key as keyof typeof ROUND_POINTS] as number;
+          const max = (ROUND_POINTS[key as keyof typeof ROUND_POINTS] ?? 0) * (gamesPerRound[key] ?? 1);
+          return { label, pct: max > 0 ? (pts / max) * 100 : 0, value: `${pts} pts` };
+        }),
+      };
+    }
+
+    if (activeMetric === 'upsets') {
+      const upsetRounds = ['round_of_64', 'round_of_32', 'sweet_16', 'elite_8'] as const;
+      let totalCorrect = 0, totalUpsets = 0;
+      const bars = upsetRounds.map((roundKey) => {
+        const roundPicks = allPicks.filter((p) => p.round === roundKey);
+        let upsets = 0, called = 0;
+        for (const { pick, correct } of roundPicks) {
+          const result = resultMap.get(pick.gameId);
+          if (!result) continue;
+          const winnerSeed = result.winner === result.team1 ? result.seed1 : result.seed2;
+          const loserSeed = result.winner === result.team1 ? result.seed2 : result.seed1;
+          if (winnerSeed > loserSeed) {
+            upsets++;
+            if (correct) called++;
+          }
+        }
+        totalCorrect += called;
+        totalUpsets += upsets;
+        return { label: ROUND_LABELS[roundKey] ?? roundKey, pct: upsets > 0 ? (called / upsets) * 100 : 0, value: `${called}/${upsets}` };
+      });
+      return { title: 'Upsets Correctly Called', subtitle: `${totalCorrect} of ${totalUpsets} upsets`, bars };
+    }
+
+    if (activeMetric === 'confidence') {
+      const buckets = [
+        { label: '50-60%', min: 0, max: 60 },
+        { label: '60-70%', min: 60, max: 70 },
+        { label: '70-80%', min: 70, max: 80 },
+        { label: '80%+', min: 80, max: 101 },
+      ];
+      let totalCorrect = 0, totalCount = 0;
+      const bars = buckets.map(({ label, min, max }) => {
+        const inBucket = allPicks.filter((p) => p.pick.confidence >= min && p.pick.confidence < max);
+        const correct = inBucket.filter((p) => p.correct).length;
+        totalCorrect += correct;
+        totalCount += inBucket.length;
+        const pct = inBucket.length > 0 ? (correct / inBucket.length) * 100 : 0;
+        return { label, pct, value: inBucket.length > 0 ? `${correct}/${inBucket.length}` : '\u2014' };
+      });
+      const overallPct = totalCount > 0 ? Math.round((totalCorrect / totalCount) * 100) : 0;
+      return { title: 'Accuracy by Confidence Range', subtitle: `${overallPct}% overall`, bars };
+    }
+
+    // seeds
+    const seedBuckets = [
+      { label: 'Seeds 1-4', min: 1, max: 4 },
+      { label: 'Seeds 5-8', min: 5, max: 8 },
+      { label: 'Seeds 9-12', min: 9, max: 12 },
+      { label: 'Seeds 13-16', min: 13, max: 16 },
+    ];
+    let totalCorrect = 0, totalCount = 0;
+    const bars = seedBuckets.map(({ label, min, max }) => {
+      const inBucket = allPicks.filter((p) => {
+        const pickedSeed = p.pick.pick === p.pick.team1 ? p.pick.seed1 : p.pick.seed2;
+        return pickedSeed >= min && pickedSeed <= max;
+      });
+      const correct = inBucket.filter((p) => p.correct).length;
+      totalCorrect += correct;
+      totalCount += inBucket.length;
+      const pct = inBucket.length > 0 ? (correct / inBucket.length) * 100 : 0;
+      return { label, pct, value: inBucket.length > 0 ? `${correct}/${inBucket.length}` : '\u2014' };
+    });
+    const overallPct = totalCount > 0 ? Math.round((totalCorrect / totalCount) * 100) : 0;
+    return { title: 'Accuracy by Seed Range', subtitle: `${overallPct}% overall`, bars };
+  }, [activeMetric, hasResults, bracket, results]);
 
   // Animate bars when chart changes
   useEffect(() => {
