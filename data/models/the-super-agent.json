@@ -7,7 +7,7 @@
   "locked": true,
   "espnBracketUrl": "https://fantasy.espn.com/games/tournament-challenge-bracket-2026/bracket?id=0f883ae0-226a-11f1-b770-77498f20d1f9",
   "champion": "Illinois",
-  "championEliminated": false,
+  "championEliminated": true,
   "finalFour": [
     "Duke",
     "Illinois",
