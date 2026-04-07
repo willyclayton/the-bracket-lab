@@ -1,0 +1,125 @@
+---
+title: "The Full Recap: Nine Models, 63 Games, One Winner"
+date: "2026-04-07"
+type: "analysis"
+excerpt: "The complete story of The Bracket Lab's 2026 tournament -- what worked, what didn't, and what we learned about AI as a prediction tool."
+---
+
+This started as a question: can AI actually fill out a bracket? Not as a party trick. As a real experiment. Different approaches, locked picks, verified results, scored against every human on ESPN.
+
+Nine models. 63 games. Three weeks. Here's what happened.
+
+## The Setup
+
+Five core models, four supplemental. Each built on a fundamentally different approach to predicting basketball games:
+
+- **The Scout** -- an LLM evaluating matchups like a head coach, weighing injuries, momentum, and coaching experience
+- **The Quant** -- 10,000 Monte Carlo simulations driven by efficiency ratings and win probabilities
+- **The Historian** -- archetype matching, finding each team's historical twin and letting the past predict the future
+- **The Chaos Agent** -- built specifically to find upsets, exploiting seed-history patterns and situational factors
+- **The Agent** -- an autonomous AI researcher given zero constraints, just told to build a bracket
+- **The Super Agent** -- logistic regression trained on a decade of data across three iterative research cycles
+- **The Optimizer** -- expected-value optimization for ESPN bracket pool scoring
+- **The Scout Prime** -- The Scout with 5x more data points per team
+- **The Auto Researcher** -- an ML ensemble that tested 21 strategies, kept what worked, and optimized through simulation
+
+Every bracket was locked before the first game. Every pick was submitted to ESPN Tournament Challenge as timestamp proof. No edits, no hedging, no do-overs.
+
+## Round of 64: The Herd Starts Together
+
+32 games. 8 upsets. Five models tied at the top with 27 correct picks. The spread from first to last was 20 points -- barely anything.
+
+The biggest miss was universal: every model picked Florida, the 1-seed, to beat Iowa in the Round of 32. Iowa won. Nine for nine, all wrong. When a model built on chaos, a model built on math, and a model built on film study all agree -- and they're all wrong -- you learn something about what AI can and can't see.
+
+High Point over Wisconsin as a 12-seed was the other consensus miss. Only The Chaos Agent called it. That's literally what The Chaos Agent was built to do, and it delivered. The problem was everything else.
+
+## Round of 32: Separation Begins
+
+Iowa knocked off 1-seed Florida 73-72. Texas upset 3-seed Gonzaga. The bracket was getting messy and the models started to separate.
+
+The Quant, The Historian, and The Auto Researcher led the pack after two rounds. The Chaos Agent was already in trouble -- its upset-heavy strategy generated noise in the early rounds that would compound as the tournament deepened. The Agent, which was given complete autonomy to build its bracket, sat in the middle of the pack.
+
+## Sweet 16: The Data Doesn't Lie (Except When It Does)
+
+Four upsets. Iowa continued its Cinderella run, beating 4-seed Nebraska. UConn dispatched Michigan State. The chalk held in the West and Midwest.
+
+The Scout and The Scout Prime -- the identical twins of this experiment -- continued to track each other pick for pick. Same methodology, different data volumes, same output. Five rounds in, it was becoming a conclusion: pumping more data into an LLM matchup analyst doesn't change its predictions. It just makes it more expensive to run.
+
+## Elite 8: The Shot That Changed Everything
+
+Braylon Mullins. 0.4 seconds. Thirty-five feet. Nothing but net. UConn 73, Duke 72.
+
+That single shot eliminated four model champions in one play. The Scout, The Quant, The Historian, and The Scout Prime had all picked Duke to win the national championship. All four had Duke over Michigan in the final. All four flatlined on one shot from a player nobody's models accounted for.
+
+Michigan demolished Tennessee 95-62 on the other side. Arizona beat Purdue. Illinois beat Iowa, ending the Cinderella run. The Final Four was set: UConn, Illinois, Arizona, Michigan.
+
+## Final Four: Eight Down, One Alive
+
+UConn beat Illinois 71-62. Michigan beat Arizona 91-73. Two more champion picks died -- The Optimizer and The Super Agent had both picked Illinois.
+
+Eight of nine models were eliminated. The only survivor: The Auto Researcher, riding Michigan.
+
+The leaderboard entering the championship:
+
+1. The Quant -- 1050 pts (champion eliminated)
+2. The Historian -- 1040 pts (champion eliminated)
+3. The Scout / The Scout Prime -- 1030 pts each (champion eliminated)
+5. **The Auto Researcher -- 990 pts (champion alive)**
+6. The Agent -- 810 pts (champion eliminated)
+7. The Chaos Agent -- 710 pts (champion eliminated)
+8. The Optimizer -- 700 pts (champion eliminated)
+9. The Super Agent -- 680 pts (champion eliminated)
+
+60 points back. 320 available. One game left.
+
+## Championship: Michigan 69, UConn 63
+
+Michigan's offense finally cooled -- 69 points after averaging 94.4 in the first five games. UConn's defense was that good. But Michigan adapted, played patient half-court basketball, and closed the door in the final two minutes.
+
+The Auto Researcher scored 320 championship points. Final total: 1310. First place by 260 points. The model that trained itself beat the model that ran 10,000 simulations by 260 points on the strength of one correct championship pick.
+
+ESPN Tournament Challenge: **1330 points. 97.7th percentile.** Better than 97.7% of all brackets submitted nationally.
+
+## Final Standings
+
+| Rank | Model | Score | Champion Pick | ESPN %ile |
+|------|-------|-------|--------------|-----------|
+| 1 | The Auto Researcher | 1310 | Michigan | 97.7% |
+| 2 | The Quant | 1050 | Duke | -- |
+| 3 | The Historian | 1040 | Duke | -- |
+| 4T | The Scout | 1030 | Duke | -- |
+| 4T | The Scout Prime | 1030 | Duke | -- |
+| 6 | The Agent | 810 | Houston | -- |
+| 7 | The Chaos Agent | 710 | Gonzaga | -- |
+| 8 | The Optimizer | 700 | Illinois | -- |
+| 9 | The Super Agent | 680 | Illinois | -- |
+
+## What We Learned
+
+**Convergence is real.** Four models built on completely different methodologies -- matchup analysis, Monte Carlo simulation, archetype matching, and data-saturated matchup analysis -- all independently picked Duke to win. When independent approaches converge, it feels like signal. Sometimes it's just a shared blind spot.
+
+**More data didn't help.** The Scout (6 data points per team) and The Scout Prime (30 data points per team) produced identical brackets and identical scores through the entire tournament. Five rounds, 62 games, tied at 1030 each. The experiment was designed to test whether more data produces better LLM predictions. Answer: no.
+
+**Chaos is expensive.** The Chaos Agent was built to find upsets, and it found some -- High Point over Wisconsin, VCU over North Carolina. But optimizing for upsets meant missing chalk games that every other model got right. It finished 7th. Finding upsets isn't the same as winning a bracket.
+
+**Autonomy won.** The Auto Researcher was given the least guidance of any model. No prescribed methodology. No human-selected features. No specific approach. Just data and an objective. It tested 21 strategies, kept what worked, and found Michigan. The models with the most opinionated designs -- The Chaos Agent (find upsets), The Historian (match archetypes), The Optimizer (maximize expected value) -- all finished in the bottom half.
+
+**The championship pick is the game.** Through five rounds, The Auto Researcher was 5th in points. Its early-round picks were unremarkable. But it had the championship right, and in bracket scoring, that's worth more than 16 correct Round of 64 picks combined. Depth matters. But the championship matters more.
+
+## Was This a Fluke?
+
+Maybe. One tournament is one tournament. Michigan was a 1-seed -- it's not like The Auto Researcher found a 12-seed Cinderella that nobody else saw. It found a strong team that happened to be the right strong team while four other models picked a different strong team. In a parallel universe where Duke doesn't lose on a 35-foot buzzer-beater, four models are celebrating and The Auto Researcher finishes 5th.
+
+But that's kind of the point. March Madness is chaos. The models that tried to be clever about chaos (The Chaos Agent) or precise about probability (The Quant) or faithful to history (The Historian) all got beaten by a model that just crunched the numbers without a philosophy. No narrative. No angle. Just: what does the data say?
+
+## What This Means for AI
+
+Nine different AI approaches. Nine different brackets. Scores ranging from 680 to 1310. That's a 630-point spread, which is meaningful -- these approaches aren't producing the same output.
+
+The winner was the approach with the least human fingerprint. Not because AI is better without humans. But because in a domain with clean historical data and binary outcomes, an ML ensemble trained on 14 years of results found patterns that human-designed prompts missed.
+
+This doesn't mean AI can predict basketball. It means one specific AI approach, against one specific tournament, got the champion right. N=1. But it's a compelling N=1.
+
+The experiment was worth running. I'd do it again.
+
+Check the [dashboard](/dashboard) for the final leaderboard, or visit the [brackets page](/brackets) to explore every model's picks game by game.

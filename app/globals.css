@@ -398,6 +398,14 @@ body {
   animation: cheatPulse 2s ease-in-out infinite;
 }
 
+@keyframes victoryGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(16,185,129,0.3), 0 0 4px rgba(234,179,8,0.2); }
+  50% { box-shadow: 0 0 28px rgba(16,185,129,0.5), 0 0 12px rgba(234,179,8,0.3); }
+}
+.victory-glow {
+  animation: victoryGlow 3s ease-in-out infinite;
+}
+
 @keyframes ticker-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

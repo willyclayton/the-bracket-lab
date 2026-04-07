@@ -32,9 +32,9 @@ export default function Home() {
         </h1>
 
         <p className="hero-fade-3 text-base text-lab-muted max-w-xl mx-auto mb-8 leading-relaxed px-6">
-          Six AI models built brackets six completely different ways.{' '}
+          Nine AI models. Nine brackets. One picked the national champion.{' '}
           <span className="text-lab-white font-semibold">
-            Now we wait to see which one survived contact with reality.
+            The machine that trained itself got it right.
           </span>
         </p>
 
@@ -81,18 +81,23 @@ export default function Home() {
           href="/dashboard"
           className="inline-flex items-center gap-2 text-sm font-medium text-lab-muted hover:text-lab-white transition-colors"
         >
-          See how the brackets are doing{' '}
-          <span className="text-red-500 font-semibold animate-pulse">Live</span>
+          See how the brackets did{' '}
+          <span className="text-emerald-400 font-semibold">Final</span>
         </Link>
       </div>
 
-      {/* ---- Recap callout ---- */}
+      {/* ---- Victory banner ---- */}
       <div className="text-center mb-10">
         <Link
-          href="/blog/final-four-recap"
-          className="inline-flex items-center gap-2 border border-amber-500/30 bg-amber-500/[0.06] rounded-lg px-5 py-2.5 text-sm font-medium text-amber-400 hover:border-amber-500/50 hover:text-amber-300 transition-all"
+          href="/blog/championship-recap"
+          className="victory-glow inline-flex flex-col sm:flex-row items-center gap-2 border border-emerald-500/40 bg-emerald-500/[0.06] rounded-xl px-6 py-4 text-sm font-medium text-emerald-400 hover:border-emerald-500/60 hover:text-emerald-300 transition-all"
         >
-          Final Four recap: Eight models down. One champion left. Read the full breakdown &rarr;
+          <span className="text-lg">&#9734;</span>
+          <span>
+            <span className="font-semibold text-emerald-300">The Auto Researcher called it.</span>{' '}
+            Michigan wins the national championship. 97.7th percentile on ESPN.
+          </span>
+          <span className="text-lab-muted text-xs">&rarr;</span>
         </Link>
       </div>
 
